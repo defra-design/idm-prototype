@@ -1,0 +1,92 @@
+{% extends "layout.html" %}
+
+{% set title = "2. Capture your details" %}
+
+{% block page_title %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds app-column-minimum">
+
+    <h1 class="govuk-heading-l">
+      {{title}}
+    </h1>
+
+      <p class="govuk-body">Please provide the following information: </p>
+
+      <ol class="app-task-list">
+        <li>
+          <h2 class="app-task-list__section">
+            <span class="app-task-list__section-number">a. </span> Your account
+          </h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              <a class="task-name" href="check-mini/account-type-change" aria-describedby="account-type-completed">
+                Account type
+              </a>
+              <strong class="govuk-tag app-task-list__task-completed" id="company-details-completed">
+                Completed
+              </strong>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <h2 class="app-task-list__section">
+            <span class="app-task-list__section-number">b. </span> Your organisation
+          </h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              <a class="task-name" href="company-lookup">
+                Company details
+              </a>
+            </li>
+          <!--  <li class="app-task-list__item">
+              <a class="task-name" href="company-contact">
+                Contact details
+              </a>
+            </li>-->
+          </ul>
+        </li>
+
+        <li>
+          <h2 class="app-task-list__section">
+            <span class="app-task-list__section-number">c. </span> About you
+          </h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              <a class="task-name" href="personal-details">
+                Personal details
+              </a>
+            </li>
+            <li class="app-task-list__item">
+              <a class="task-name" href="personal-sro">
+                Senior Responsible Officer (SRO)
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <ul class="app-task-list__items">
+            <li>
+              {{ govukButton({
+                text: "Check your answers",
+                href: "check-answers/check-your-answers"
+              }) }}
+            </li>
+          </ul>
+        </li>
+
+      </ol>
+
+  </div>
+</div>
+
+{% endblock %}

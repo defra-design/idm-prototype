@@ -1,0 +1,69 @@
+{% extends "layout.html" %}
+
+{% set title = "Are you the Senior Responsible Officer (SRO)?" %}
+
+{% block page_title %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form method="post" action="task-list-page-sro">
+
+      {{ govukRadios({
+        classes: "govuk-radios--inline",
+        idPrefix: "personalSRO",
+        name: "personalSRO",
+        fieldset: {
+          legend: {
+            text: title,
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--xl"
+          }
+        },
+
+        items: [
+          {
+            value: "Yes",
+            text: "Yes",
+            checked:  checked('personalSRO','Yes')
+
+          },
+          {
+            value: "No",
+            text: "No",
+            checked:  checked('personalSRO','No')
+
+          }
+
+        ]
+      }) }}
+
+      {{ govukDetails({
+        summaryText: "What is an SRO?",
+        html: ' <p class="govuk-body">This is a description of what an SRO is</p> '
+      }) }}
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

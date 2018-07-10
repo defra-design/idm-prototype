@@ -1,0 +1,69 @@
+{% extends "layout.html" %}
+
+{% set title = "What is your business trading address?" %}
+
+{% block page_title %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">{{title}}</h1>
+    <p class="govuk-hint">This might be a business address or your home address</p>
+
+
+      <form action="company-address" method="post">
+
+        {{ govukInput({
+          label: {
+            text: "Postcode",
+            isPageHeading: true,
+            classes: "govuk-label--m"
+          },
+          hint: {
+            text: "We’ll only use this to send you a receipt"
+          },
+          
+          classes: "govuk-input--width-10",
+          id: "postcode",
+          name: "postcode",
+          value: postcode
+        }) }}
+
+        {{ govukButton({
+          text: "Find address"
+        }) }}
+
+        <div class="form-group">
+          <label class="form-label" for="subsid-postcode">
+            Postcode
+          </label>
+          <input class="form-control form-control-1-4" id="subsid-postcode" name="subsid-postcode" type="text" value="{{ data['subsid-postcode'] }}">
+          &nbsp;&nbsp;<button type="submit" class="button" name="Continue">Find address</button>
+        </div>
+        <details role="group">
+          <summary role="button" aria-controls="details-non-uk" aria-expanded="false"><span class="summary">The company is outside of the UK</span></summary>
+            <div class="panel panel-border-narrow" id="details-content-0" aria-hidden="true">
+              <p>
+              Some words go here about what to do
+              </p>
+            </div>
+          </details>
+      </form>
+
+  </div>
+</div>
+
+{% endblock %}

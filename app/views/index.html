@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% set title = "Identity Management - service enrollement" %}
+
+{% block page_title %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        {{title}}
+        <span class="govuk-caption-xl">{{releaseVersion}}</span>
+      </h1>{{releaseVersion | log }}
+      <h2 class="govuk-heading-s">Final (WIP)
+      </h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="service-start-logged-out">New user registration</a></li>
+        <li><a href="service-start-in-progress">Return user: LTD incomplete registration</a></li>
+      </ul>
+      <h2 class="govuk-heading-s">Quick links</h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="new-user-reg/service-start-page">Start page: new user service registration</a></li>
+        <li><a href="new-user-reg/limited-company/task-list-page-account">Task list - Ltd company</a></li>
+        <li><a href="new-user-reg/sole-trader/task-list-page-account">Task list - Sole trader</a></li>
+      </ul>
+
+      <h2 class="govuk-heading-s">Group manangement
+      </h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="/access/manage-access">Service Admin: Manage service access</a></li>
+        <li><a href="/access/standard/services-on-team-member-standard">Standard user: account</a></li>
+      </ul>
+
+    </div>
+</div>
+
+{% endblock %}

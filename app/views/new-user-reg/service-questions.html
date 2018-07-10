@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% set title = "3. Service questions" %}
+
+{% block page_title %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">{{title}}</h1>
+
+    <form action="confirmation-reg-sent" method="post">
+
+      <p class="govuk-body">[Insert service question content here]</p>
+
+      {{ govukButton({
+          text: "Submit application"
+        }) }}
+
+    </form>
+
+  </div>
+</div>
+
+
+{% endblock %}

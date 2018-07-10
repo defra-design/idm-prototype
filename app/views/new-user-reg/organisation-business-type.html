@@ -1,0 +1,119 @@
+{% extends "layout.html" %}
+
+{% set title = "What type of business are you?" %}
+
+{% block page_title %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="org-type" onsubmit="return myFunction()" method="post">
+      <script>
+        const form = document.querySelector('.org-type')
+
+        function myFunction() {
+          const checked = document.querySelector('[name="businessType"]:checked')
+          const checkedValue = checked.value
+
+          switch(checkedValue){
+            case 'Sole Trader':
+            form.action = 'sole-trader/scp/email-address'
+
+            form.submit()
+
+            break;
+            case 'Limited Company (LTD)':
+            form.action = 'limited-company/scp/email-address'
+
+            form.submit()
+            break;
+            default:
+            alert('This page is in work in progress');
+            return false
+          }
+          return true
+        }
+      </script>
+
+      {{ govukRadios({
+        idPrefix: "businessType",
+        name: "businessType",
+        fieldset: {
+          legend: {
+            text: title,
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--xl"
+          }
+        },
+
+        items: [
+          {
+            value: "Sole Trader",
+            text: "Sole Trader",
+            checked:  checked('businessType','Sole Trader')
+
+          },
+          {
+            value: "Limited Company (LTD)",
+            text: "Limited Company (LTD)",
+            checked:  checked('businessType','Limited Company')
+
+          },
+          {
+            value: "Public Limited Company (PLC)",
+            text: "Public Limited Company (PLC)",
+            checked:  checked('businessType','Public Limited Company (PLC)')
+
+          },
+          {
+            value: "Limited Liability Partnership (LLP)",
+            text: "Limited Liability Partnership (LLP)",
+            checked:  checked('businessType','Limited Liability Partnership (LLP)')
+
+          },
+          {
+            value: "Competent authority",
+            text: "Limited Liability Partnership (LLP)",
+            checked:  checked('businessType','Limited Liability Partnership (LLP)')
+
+          },
+          {
+            value: "Charity",
+            text: "Charity",
+            checked:  checked('businessType','Charity')
+
+          },
+          {
+            value: "Government",
+            text: "Government",
+            checked:  checked('businessType','Government')
+
+          }
+
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,101 @@
+{% extends "layout.html" %}
+
+{% set title = "Service name" %}
+
+{% block page_title %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/account-nav-admin-corp.html" %}
+  {% include "includes/breadcrumb-two-level.html" %}
+{% endblock %}
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        [Service name]
+      </h1>
+      {{ govukWarningText({
+        text: "You haven't finished registering for this service.",
+        iconFallbackText: "Warning"
+      }) }}
+
+      <p class="govuk-body">To complete your registration select 'Continue' below.</p>
+
+      {{ govukButton({
+        text: "Continue",
+        href: "new-user-reg/limited-company/task-list-page-company-details"
+      }) }}
+
+      <hr class="govuk-section-break--m">
+
+      <p class="govuk-body">Use this service to:</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>do something</li>
+        <li>update your name, address or other details</li>
+        <li>do something else</li>
+      </ul>
+
+      <h2 class="govuk-heading-m">Before you start</h2>
+      <p class="govuk-body">The registration process consists of several steps. You can return to the application at anytime should you need to.
+      <h3 class="govuk-heading-s">1. Login with or create a Government Gateway Account</h3>
+      <p class="govuk-body">You need a Government Gateway account to use this service.
+        This also allows you to access other Gov.uk and Defra services.</p>
+      <p class="govuk-body">By registering for this service you will become the administrator which will allow you to manage other users.</p>
+      <p class="govuk-body">You can login with an existing Government Gateway account if it was created for the company or
+        organisation you are representing.</p>
+      <h3 class="govuk-heading-s">2. Capture your details</h3>
+      <p class="govuk-body">You need to provide details about yourself as you will be the administrator for the service.</p>
+      <p class="govuk-body">If you are representing a company or organsiation you will need to provide information such as your Company House registered business details.</p>
+      <h3 class="govuk-heading-s">3. Service specific information</h3>
+      <p class="govuk-body">The following information is also required. </p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>Some info like billing address</li>
+        <li>Some info like the DUNS number</li>
+      </ul>
+
+      <p class="govuk-body">Registering takes around 5 minutes.</p>
+
+        {{ govukButton({
+          text: "Start now",
+          href: "#",
+          classes: "govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-8"
+        }) }}
+
+      <hr class="govuk-section-break--m">
+
+      <p class="govuk-body">You can also <a class="govuk-link" href="#">register by post</a>.</p>
+
+      <p class="govuk-body">The online service is also available in <a class="govuk-link" href="#">Welsh (Cymraeg)</a>.</p>
+
+      <p class="govuk-body">You can’t register for this service if you’re in the UK illegally.</p>
+
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+      <aside class="app-related-items" role="complementary">
+        <h2 class="govuk-heading-m" id="subsection-title">Subsection</h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list govuk-body-s">
+            <li><a href="#">Related link</a></li>
+            <li><a href="#">Related link</a></li>
+            <li>
+              <a href="#" class="govuk-!-font-weight-bold">
+                More <span class="govuk-visually-hidden">in Subsection</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+    </div>
+  </div>
+
+{% endblock %}

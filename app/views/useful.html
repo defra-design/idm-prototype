@@ -1,0 +1,56 @@
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:history.back()"
+}) }}
+
+{{ govukButton({
+  text: "Start now",
+  href: "#",
+  classes: "govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-8"
+}) }}
+
+
+{{ govukButton({
+  text: "Continue",
+  href: "new-user-reg/task/task-list-page-company-details"
+}) }}
+
+{{ govukFieldset({
+  legend: {
+    text: "Legend text goes here",
+    classes: "govuk-fieldset__legend--xl",
+    isPageHeading: true
+  }
+}) }}
+
+{{ govukInput({
+  label: {
+    text: "Email address"
+    isPageHeading: true,
+    classes: "govuk-label--xl"
+  },
+  hint: {
+    text: "We’ll only use this to send you a receipt"
+  },
+  classes: "govuk-input--width-20",
+  id: "email",
+  name: "email"
+}) }}
+
+<h1 class="govuk-heading-xl">govuk-heading-xl</h1>
+<h2 class="govuk-heading-l">govuk-heading-l</h2>
+<h3 class="govuk-heading-m">govuk-heading-m</h3>
+<h4 class="govuk-heading-s">govuk-heading-s</h4>
+
+<p class="govuk-body"></p>
+
+<p class="govuk-body-l">/<p>
+
+<a class="govuk-link"></a>
+
+<p class="govuk-visually-hidden"></p>
+
+<label class="govuk-label--xl">
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">

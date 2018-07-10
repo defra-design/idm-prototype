@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% set title = "1. Sign in or create account" %}
+
+{% block page_title %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/account-nav-admin-login.html" %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+{% endblock %}
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">{{title}}</h1>
+    <p class="govuk-body">You need to sign in with or create a Government Gateway Account</p>
+    <p class="govuk-body">You can use an existing account if it was created for the same company or organisation.
+      Your User ID will normally be a User ID of up to 12 characters. </p>
+
+      {{ govukButton({
+        text: "Sign in",
+        href: "#"
+      }) }}
+
+      <br>
+
+      {{ govukButton({
+        text: "Create account",
+        href: "new-user-reg/about-data"
+      }) }}
+
+
+    </div>
+  </div>
+
+{% endblock %}
