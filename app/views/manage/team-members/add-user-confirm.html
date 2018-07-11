@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% set title = "Confirm your email" %}
+
+{% block page_title %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block proposition_header %}
+  {% include "includes/propositional_navigation_logout.html" %}
+{% endblock %}
+
+{% block header_class %}
+  with-proposition
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  {% include "includes/account-nav-admin-corp.html" %}
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <div class="govuk-box-highlight">
+        <h1 class="heading-xlarge">
+          New member:
+        </h1>
+				<p class="font-medium">
+					<!--Your user ID for signing in is<br>-->
+					<span class="bold-large">Invitation sent</span>
+
+				</p>
+      </div>
+
+      <p>
+        We have sent the new team member an email with their User ID and have sent you their temporary password.
+      </p>
+
+      <div class="form-group">
+        <a href="manage-access" class="button">Continue</a>
+      </div>
+
+    </div>
+  </div>
+
+</main>
+
+{% endblock %}
