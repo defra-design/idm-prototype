@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% set title = "Manage [service name] access" %}
+
+{% block page_title %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/account-nav-admin-corp.html" %}
+  {% include "includes/breadcrumb-two-level.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <h1 class="govuk-heading-xl">
+      {{title}}
+    </h1>
+  </div>
+</div>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-half">
+      <p><a href=""><span class="govuk-!-font-size-24">Team members</span></a></p>
+      <p class="govuk-!-font-size-48"> 12</p>
+      <p class="govuk-body-s">2 pending</p>
+      <p class="govuk-body-s">3 service requests</p>
+    </div>
+    <div class="govuk-grid-column-one-half">
+      <p><a href=""><span class="govuk-!-font-size-24">Intermediaries</span></a></p>
+      <p class="govuk-!-font-size-48"> 2</p>
+      <p class="govuk-body-s">0 pending</p>
+    </div>
+  </div>
+  <br>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-half">
+      <h2 class="govuk-heading-m">Manage services</h2>
+      <p><a href=""><span class="govuk-!-font-size-24">Services</span></a></p>
+      <p class="govuk-!-font-size-48"> 4</p>
+    </div>
+    <div class="govuk-grid-column-one-half">
+      <h2 class="govuk-heading-m">Manage organisations</h2>
+      <p><a href=""><span class="govuk-!-font-size-24">Organisations</span></a></p>
+      <p class="govuk-!-font-size-48"> 3</p>
+    </div>
+    </div>
+</div>
+
+
+
+
+{% endblock %}

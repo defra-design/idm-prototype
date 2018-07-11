@@ -23,10 +23,11 @@
     <h1 class="govuk-heading-xl">{{title}}</h1>
     <p class="govuk-body">
       Postcode:
-      <span class="govuk-bold">{{ data['postcode'] }}  </span>
+      <span class="govuk-!-font-weight-bold">{{ data['postcode'] }}</span>&nbsp;&nbsp;
       <a href="company-postcode" class="govuk-link">Change<span class="govuk-visually-hidden"> postcode</span>
       </a>
     </p>
+
 
     <form action="task-list-page-sole-trader-details" method="post">
 
@@ -86,11 +87,21 @@
         ]
       }) }}
 
+      <p class="govuk-body">
+        <a href="company-address-manual">
+        <span class="govuk-visually-hidden">Enter address manually</span>
+        I cannot find the address in the list</a>
+      </p>
+
       {{ govukButton({
         text: "Continue"
       }) }}
 
     </form>
+
+
+
+
 
   </div>
 </div>
