@@ -9,6 +9,7 @@ $govuk-global-styles: true;
 @import "patterns/task-list";
 @import "patterns/related-items";
 @import "patterns/login-nav";
+@import "patterns/idm";
 
 // Components that aren't in Frontend
 @import "components/cookie-banner";

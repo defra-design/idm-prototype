@@ -7,18 +7,39 @@
 {% endblock %}
 
 {% block beforeContent %}
-  {% include "includes/account-nav-admin-corp.html" %}
-  {% include "includes/breadcrumb-two-level.html" %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
 {% endblock %}
 
 {% block content %}
 
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-full">
+  <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-xl">{{title}}</h1>
 
+      <form action="add-user-system-roles" method="post">
 
-      <form action="#" method="post">
+        {{ govukInput({
+          label: {
+            text: "First or given name"
+          },
+          classes: "govuk-input--width-20",
+          id: "personalFirstName",
+          name: "personalFirstName",
+          value: personalFirstName
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "Surname or family name"
+          },
+          classes: "govuk-input--width-20",
+          id: "personalSurname",
+          name: "personalSurname",
+          value: personalSurname
+        }) }}
 
         {{ govukInput({
           label: {
@@ -33,43 +54,12 @@
           value: businessEmail
         }) }}
 
-        {{ govukCheckboxes({
-          idPrefix: "terms",
-          name: "terms",
-          fieldset: {
-            legend: {
-              text: "Terms of Service"
-            }
-          },
-          items: [
-            {
-              value: "terms",
-              text: "Confirm the email address is correct"
-
-            }
-          ]
+        {{ govukButton({
+          text: "Continue"
         }) }}
 
-
-
-        <div class="form-group">
-         <fieldset>
-           <div class="multiple-choice">
-             <input id="confirm-email" name="waste-types" type="checkbox" value="confirm-email">
-             <label for="confirm-email">Confirm the email address is correct</label>
-           </div>
-         </fieldset>
-        </div>
-        <div class="form-group">
-          <input class="button" type="submit" value="Continue">
-        </div>
       </form>
-      </div>
-    </div>
-    <div class="column-one-third">
     </div>
   </div>
-
-</main>
 
 {% endblock %}

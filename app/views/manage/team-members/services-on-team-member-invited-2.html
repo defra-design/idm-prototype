@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% set title = "Team member" %}
+
+{% block page_title %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/account-nav-admin-corp-2.html" %}
+  {% include "includes/breadcrumb-four-level-team-2.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <h1 class="govuk-heading-xl">
+      {{ data['personalFirstName'] }} {{ data['personalSurname'] }}
+    </h1>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <p class="govuk-body"><span class="govuk-!-font-weight-bold">Full name:</span> {{ data['personalFirstName'] }} {{ data['personalSurname'] }}<br>
+    <span class="govuk-!-font-weight-bold">Email address:</span> {{ data['businessEmail'] }}<br>
+    <span class="govuk-!-font-weight-bold">System role:</span> {{ data['systemRole'] }}</p>
+    <p class="govuk-body"><span class="govuk-!-font-weight-bold">Added on:</span> 10 July 2018<br>
+    <span class="govuk-!-font-weight-bold">Last signed in:</span> Never</p>
+  </div>
+  <div class="govuk-grid-column-one-thirds">
+    <p class="govuk-body"><a href="user-account" class="govuk-link--no-visited-state">Edit details</a></p>
+    <p class="govuk-body"><a href="" class="govuk-link--no-visited-state">Reset password</a><br>
+    <a href="" class="govuk-link--no-visited-state">Resend user ID</a></p>
+    <p class="govuk-body"><a href="" class="govuk-link--no-visited-state">Delete team member</a></p>
+  </div>
+</div>
+
+<br>
+{{ govukButton({
+  text: "Add service access",
+  href: "add-service-service"
+}) }}
+
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% set title = "Invite team member" %}
+
+{% block page_title %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-visually-hidden">{{title}}</h1>
+    {{ govukPanel({
+          titleText: "1 team member invited",
+          html: "Your reference number<br><strong>HDJ2123F</strong>"
+    })
+    }}
+
+    <p class="govuk-body">We have sent you a confirmation email.</p>
+
+    <h3 class="govuk-heading-m">What happens next</h3>
+
+    <p class="govuk-body">Once the team member has accepted the invite they will be able to access the service.</p>
+    <p class="govuk-body">If required don't forget to assign the user to whichever services they need to access.</p>
+
+
+    {{ govukButton({
+        text: "Continue",
+        href: "team-members-2"
+    }) }}
+
+  </div>
+</div>
+
+
+{% endblock %}
