@@ -24,11 +24,30 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
+    <p> This user has not yet accepted their invitation</p>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-third">
+        {{ govukButton({
+          text: "Re-send invite",
+          href: "#"
+        }) }}
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<hr class="govuk-section-break--s">
+<br>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
     <p class="govuk-body"><span class="govuk-!-font-weight-bold">Full name:</span> Sara Chippers<br>
     <span class="govuk-!-font-weight-bold">Email address:</span> Sara.Chippers@email.com<br>
     <span class="govuk-!-font-weight-bold">System role:</span> User administrator</p>
     <p class="govuk-body"><span class="govuk-!-font-weight-bold">Added on:</span> 30 September 2016<br>
-    <span class="govuk-!-font-weight-bold">Last signed in:</span> 28 June 2018</p>
+    <span class="govuk-!-font-weight-bold">Last signed in:</span> Never</p>
   </div>
   <div class="govuk-grid-column-one-thirds">
     <p class="govuk-body"><a href="user-account" class="govuk-link--no-visited-state">Edit details</a></p>

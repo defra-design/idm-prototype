@@ -1,0 +1,86 @@
+{% extends "layout.html" %}
+
+{% set title = "Service users" %}
+
+{% block page_title %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/account-nav-admin-corp.html" %}
+  {% include "includes/breadcrumb-four-level-service.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-xl">[Service name] users</h1>
+    
+
+    {{ govukTable({
+      caption: "Your services",
+      captionClasses: "govuk-visually-hidden",
+      firstCellIsHeader: false,
+      head: [
+        {
+          html: '<a class="govuk-link--no-visited-state" href="">Users</a>',
+          format: 'column-third'
+
+        },
+        {
+          html: '<a class="govuk-link--no-visited-state" href="">Service role</a>',
+          format: 'column-third'
+
+        },
+        {
+          html: '<span class="govuk-visually-hidden">Action</span>',
+          format: ''
+        }
+      ],
+      rows: [
+      [
+        {
+          html: '<a class="govuk-link--no-visited-state" href="/manage/agent/services-on-team-member-admin-self">Ann Cooper (you)</a><br>
+                  <span class="govuk-body-s">Ann.Cooper@email.com</span>'
+        },
+        {
+          text: "Administrator"
+        },
+        {
+          html: '<a href="#" class="govuk-link--no-visited-state">Remove user from service</a>'
+        }
+      ],
+      [
+        {
+          html: '<a class="govuk-link--no-visited-state" href="/manage/agent/services-on-team-member-standard">Adam Mastly</a><br>
+                  <span class="govuk-body-s">Adam.Mastly@email.com</span>'
+        },
+        {
+          text: "Standard user"
+        },
+        {
+          html: '<a href="#" class="govuk-link--no-visited-state">Remove user from service</a>'
+        }
+      ],
+      [
+        {
+          html: '<a class="govuk-link--no-visited-state" href="/manage/agent/services-on-team-member-standard">Barry Anders</a><br>
+                  <span class="govuk-body-s">Barry.Anders@email.com</span>'
+        },
+        {
+          text: "Administrator"
+        },
+        {
+          html: '<a href="#" class="govuk-link--no-visited-state">Remove user from service</a>'
+        }
+      ]
+
+      ]
+    }) }}
+
+  </div>
+</div>
+
+
+{% endblock %}

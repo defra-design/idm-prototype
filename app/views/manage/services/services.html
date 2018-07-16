@@ -1,0 +1,109 @@
+{% extends "layout.html" %}
+
+{% set title = "Manage services" %}
+
+{% block page_title %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/account-nav-admin-corp.html" %}
+  {% include "includes/breadcrumb-three-level.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-xl">
+      {{title}}
+    </h1>
+    
+
+    {{ govukTable({
+      caption: "Services",
+      captionClasses: "govuk-visually-hidden",
+      firstCellIsHeader: false,
+      head: [
+        {
+          html: '<a class="govuk-link--no-visited-state" href="">Service</a>',
+          format: 'column-fifth'
+        },
+        {
+          html: '<a class="govuk-link--no-visited-state" href="">Description</a>',
+          format: 'column-third'
+        },
+        {
+          html: '<span class="govuk-visually-hidden">Action</span>',
+          format: 'column-sixth'
+        },
+        {
+          html: '<span class="govuk-visually-hidden">Action</span>',
+          format: 'column-sixth'
+        }
+      ],
+      rows: [
+        [
+          {
+            html: 'UK BPR'
+          },
+          {
+            text: "[Description of service goes here]"
+          },
+          {
+            html: '<a href="service-team-members-agent-only" class="govuk-link--no-visited-state">View users</a>'
+          },
+          {
+            html: '<a href="service-orgs" class="govuk-link--no-visited-state">View organisations</a>'
+          }
+        ],
+        [
+          {
+            html: 'UK CLP'
+          },
+          {
+            text: "[Description of service goes here]"
+          },
+          {
+            html: '<a href="service-team-members-agent-only" class="govuk-link--no-visited-state">View users</a>'
+          },
+          {
+            html: '<a href="service-orgs" class="govuk-link--no-visited-state">View organisations</a>'
+          }
+        ],
+        [
+          {
+            html: 'UK ePIC'
+          },
+          {
+            text: "[Description of service goes here]"
+          },
+          {
+            html: '<a href="service-team-members-agent-only" class="govuk-link--no-visited-state">View users</a>'
+          },
+          {
+            html: '<a href="service-orgs" class="govuk-link--no-visited-state">View organisations</a>'
+          }
+        ],
+        [
+          {
+            html: 'UK-REACH-IT'
+          },
+          {
+            text: "[Description of service goes here]"
+          },
+          {
+            html: '<a href="service-team-members-agent-only" class="govuk-link--no-visited-state">View users</a>'
+          },
+          {
+            html: '<a href="service-orgs" class="govuk-link--no-visited-state">View organisations</a>'
+          }
+        ]
+
+      ]
+    }) }}
+
+  </div>
+</div>
+
+{% endblock %}

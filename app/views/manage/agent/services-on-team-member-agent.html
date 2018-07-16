@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Team member" %}
+{% set title = "Intermediary" %}
 
 {% block page_title %}
     {{title}} - GOV.UK
@@ -8,7 +8,7 @@
 
 {% block beforeContent %}
   {% include "includes/account-nav-admin-corp.html" %}
-  {% include "includes/breadcrumb-four-level-team.html" %}
+  {% include "includes/breadcrumb-four-level-agent.html" %}
 {% endblock %}
 
 {% block content %}
@@ -17,24 +17,25 @@
   <div class="govuk-grid-column-full">
 
     <h1 class="govuk-heading-xl">
-      Adam Mastly
+      Roy Wickes
     </h1>
   </div>
 </div>
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <p class="govuk-body"><span class="govuk-!-font-weight-bold">Full name:</span> Adam Mastly<br>
-    <span class="govuk-!-font-weight-bold">Email address:</span> Adam.Mastly@email.com<br>
+    <p class="govuk-body"><span class="govuk-!-font-weight-bold">Full name:</span> Roy Wickes<br>
+    <span class="govuk-!-font-weight-bold">Email address:</span> Roy.Wickes@email.com<br>
+    <span class="govuk-!-font-weight-bold">Company:</span> C T Henderson and Co<br>
     <span class="govuk-!-font-weight-bold">System role:</span> Standard user</p>
-    <p class="govuk-body"><span class="govuk-!-font-weight-bold">Added on:</span> 15 March 2017<br>
+    <p class="govuk-body"><span class="govuk-!-font-weight-bold">Added on:</span> 15 June 2018<br>
     <span class="govuk-!-font-weight-bold">Last signed in:</span> 3 July 2018</p>
   </div>
   <div class="govuk-grid-column-one-thirds">
     <p class="govuk-body"><a href="user-account" class="govuk-link--no-visited-state">Edit details</a></p>
     <p class="govuk-body"><a href="" class="govuk-link--no-visited-state">Reset password</a><br>
     <a href="" class="govuk-link--no-visited-state">Resend user ID</a></p>
-    <p class="govuk-body"><a href="" class="govuk-link--no-visited-state">Delete team member</a></p>
+    <p class="govuk-body"><a href="" class="govuk-link--no-visited-state">Delete intermediary</a></p>
   </div>
 </div>
 
@@ -42,7 +43,7 @@
   <div class="govuk-grid-column-full">
     <br>
     {{ govukButton({
-      text: "Add service access",
+      text: "Request service access",
       href: ""
     }) }}
 
@@ -78,7 +79,7 @@
       rows: [
       [
         {
-          text: "UK ePIC"
+          text: "UK CLP"
         },
         {
           text: "AstraZeneca - Farma"
@@ -87,7 +88,7 @@
           text: "Manager"
         },
         {
-          html: '<a href="services-on-team-member-roles2" class="govuk-link--no-visited-state">Manage access</a>'
+          html: '<a href="services-on-team-member-roles2" class="govuk-link--no-visited-statek">Manage access</a>'
         },
         {
           html: '<a href="#" class="govuk-link--no-visited-state">Remove access</a>'
@@ -95,13 +96,13 @@
       ],
       [
         {
-          text: "UK-REACH-IT"
+          text: "UK BPR"
         },
         {
           html: 'AstraZeneca UK Limited <br><span class="govuk-body-s">03674842</span>'
         },
         {
-          html: 'RE Manager'
+          html: 'Manager'
         },
         {
           html: '<a href="services-on-team-member-roles2" class="govuk-link--no-visited-state">Manage access</a>'

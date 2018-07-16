@@ -1,14 +1,14 @@
 {% extends "layout.html" %}
 
-{% set title = "Team member" %}
+{% set title = "Account details" %}
 
 {% block page_title %}
     {{title}} - GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
-  {% include "includes/account-nav-admin-corp.html" %}
-  {% include "includes/breadcrumb-four-level-team.html" %}
+  {% include "includes/account-nav-admin-standard.html" %}
+  {% include "includes/breadcrumb-two-level.html" %}
 {% endblock %}
 
 {% block content %}
@@ -42,7 +42,7 @@
   <div class="govuk-grid-column-full">
     <br>
     {{ govukButton({
-      text: "Add service access",
+      text: "Request service access",
       href: ""
     }) }}
 
@@ -87,10 +87,10 @@
           text: "Manager"
         },
         {
-          html: '<a href="services-on-team-member-roles2" class="govuk-link--no-visited-state">Manage access</a>'
+          html: '<a href="services-on-team-member-roles2" class="govuk-link">Manage access</a>'
         },
         {
-          html: '<a href="#" class="govuk-link--no-visited-state">Remove access</a>'
+          html: '<a href="#" class="govuk-link">Remove access</a>'
         }
       ],
       [
@@ -104,10 +104,10 @@
           html: 'RE Manager'
         },
         {
-          html: '<a href="services-on-team-member-roles2" class="govuk-link--no-visited-state">Manage access</a>'
+          html: '<a href="services-on-team-member-roles2" class="govuk-link">Manage access</a>'
         },
         {
-          html: '<a href="#" class="govuk-link--no-visited-state">Remove access</a>'
+          html: '<a href="#" class="govuk-link">Remove access</a>'
         }
       ]
 

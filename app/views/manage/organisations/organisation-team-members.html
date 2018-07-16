@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Team members" %}
+{% set title = "Organisation - users" %}
 
 {% block page_title %}
     {{title}} - GOV.UK
@@ -8,21 +8,21 @@
 
 {% block beforeContent %}
   {% include "includes/account-nav-admin-corp.html" %}
-  {% include "includes/breadcrumb-three-level.html" %}
+  {% include "includes/breadcrumb-four-level-org.html" %}
 {% endblock %}
 
 {% block content %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-
     <h1 class="govuk-heading-xl">
-      {{title}}
+      [Organisation name] - users
     </h1>
-    {{ govukButton({
-      text: "Invite new member",
-      href: "add-user-details"
-    }) }}
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
 
     {{ govukTable({
       caption: "Team members",
@@ -49,7 +49,7 @@
       rows: [
         [
           {
-            html: '<a class="govuk-link--no-visited-state" href="services-on-team-member-admin-self">Ann Cooper (you)</a><br>
+            html: '<a class="govuk-link--no-visited-state" href="/manage/team-members/services-on-team-member-admin-self">Ann Cooper (you)</a><br>
                     <span class="govuk-body-s">Ann.Cooper@email.com</span>'
           },
           {
@@ -64,7 +64,7 @@
         ],
         [
           {
-            html: '<a class="govuk-link--no-visited-state" href="services-on-team-member-standard">Adam Mastly</a><br>
+            html: '<a class="govuk-link--no-visited-state" href="/manage/team-members/services-on-team-member-standard">Adam Mastly</a><br>
                     <span class="govuk-body-s">Adam.Mastly@email.com</span>'
           },
           {
@@ -79,7 +79,7 @@
         ],
         [
           {
-            html: '<a class="govuk-link--no-visited-state" href="services-on-team-member-admin">Barry Anders</a><br>
+            html: '<a class="govuk-link--no-visited-state" href="/manage/team-members/services-on-team-member-admin">Barry Anders</a><br>
                     <span class="govuk-body-s">Barry.Anders@email.com</span>'
           },
           {
@@ -94,7 +94,7 @@
         ],
         [
           {
-            html: '<a class="govuk-link--no-visited-state" href="services-on-team-member-invited-1">Sara Chippers</a><br>
+            html: '<a class="govuk-link--no-visited-state" href="/manage/team-members/services-on-team-member-invited-1">Sara Chippers</a><br>
                     <span class="govuk-body-s">Sara.Chippers@email.com</span>'
           },
           {
@@ -111,12 +111,7 @@
       ]
     }) }}
 
-
   </div>
 </div>
-
-
-
-
 
 {% endblock %}

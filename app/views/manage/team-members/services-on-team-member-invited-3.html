@@ -24,6 +24,25 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
+    <p> This user has not yet accepted their invitation</p>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-third">
+        {{ govukButton({
+          text: "Re-send invite",
+          href: "#"
+        }) }}
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<hr class="govuk-section-break--s">
+<br>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
     <p class="govuk-body"><span class="govuk-!-font-weight-bold">Full name:</span> {{ data['personalFirstName'] }} {{ data['personalSurname'] }}<br>
     <span class="govuk-!-font-weight-bold">Email address:</span> {{ data['businessEmail'] }}<br>
     <span class="govuk-!-font-weight-bold">System role:</span> {{ data['systemRole'] }}</p>
@@ -97,10 +116,10 @@
       html: setServiceRoleHtml
     },
     {
-      html: '<a href="services-on-team-member-roles2" class="govuk-link">Manage access</a>'
+      html: '<a href="services-on-team-member-roles2" class="govuk-link--no-visited-state">Manage access</a>'
     },
     {
-      html: '<a href="#" class="govuk-link">Remove access</a>'
+      html: '<a href="#" class="govuk-link--no-visited-state">Remove access</a>'
     }
   ]
 
