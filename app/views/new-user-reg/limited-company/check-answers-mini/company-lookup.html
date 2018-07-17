@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% set title = "What's your Companies House number?" %}
+
+{% block page_title %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="company-confirm" method="post">
+
+      {{ govukInput({
+        label: {
+          text: title,
+          classes: "govuk-label--xl"
+        },
+        classes: "govuk-input--width-10",
+        isPageHeading: true,
+        id: "companyRegNum",
+        name: "companyRegNum",
+        value: companyRegNum
+      }) }}
+
+      <p>
+        We'll look up the details in the Companies House register.
+      </p>
+
+      {{ govukDetails({
+        summaryText: "Overseas companies",
+        html: ' <p class="govuk-body">If you\'re applying on behalf of a company outside of the UK you should <a href="https://www.gov.uk/register-as-an-overseas-company" target="_blank" rel="noopener noreferrer" class="govuk-link">register as an overseas company (opens new tab)</a> with Companies House before you apply for a permit.</p>'
+      }) }}
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

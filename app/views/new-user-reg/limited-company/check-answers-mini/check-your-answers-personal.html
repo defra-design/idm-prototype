@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+
+{% set title = "Check your answers" %}
+
+{% block page_title %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">{{title}}</h1>
+
+    <dl class="app-check-your-answers app-check-your-answers--short">
+
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">
+          Name
+        </dt>
+        <dd class="app-check-your-answers__answer">
+          {{ data['personalTitle']}} {{ data['personalFirstName']}} {{ data['personalSurname']}}
+        </dd>
+        <dd class="app-check-your-answers__change">
+          <a href="personal-details" class="govuk-link" >
+            Change<span class="govuk-visually-hidden"> name</span>
+          </a>
+        </dd>
+      </div>
+
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">
+          Contact details
+        </dt>
+        <dd class="app-check-your-answers__answer">
+          {{ data['personalTelephone'] }} <br>
+          {{ data['personalMobile'] }}          </dd>
+        <dd class="app-check-your-answers__change">
+          <a href="personal-contact" class="govuk-link" >
+            Change<span class="govuk-visually-hidden"> contact number</span>
+          </a>
+        </dd>
+      </div>
+
+    </dl>
+
+    {{ govukButton({
+      text: "Done",
+      href: "/new-user-reg/limited-company/task-list-page-personal-details"
+    }) }}
+
+  </div>
+</div>
+
+{% endblock %}

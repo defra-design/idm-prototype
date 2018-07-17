@@ -94,28 +94,5 @@
         ]
       }) }}
 
-      {% set users = [
-        {
-          name: "Chris",
-          status: "active"
-        }
-      ] %}
-
-      {% for user in users | sort(attribute='name') %}
-      <table>
-        <thead>
-          <th>name</th>
-          <th>status</th>
-        </thead>
-        <tbody>
-          <tr>
-            <td>{{ data['name'] }}
-            </td>
-            <td>{{ data['status'] }}
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      {% endfor %}
 
 {% endblock %}
