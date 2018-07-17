@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "1. Sign in or create account" %}
+{% set title = "Choose an option to use this service" %}
 
 {% block page_title %}
     {{title}} - GOV.UK
@@ -21,22 +21,21 @@
     <div class="govuk-grid-column-two-thirds">
 
     <h1 class="govuk-heading-xl">{{title}}</h1>
-    <p class="govuk-body">You need to sign in with or create a Government Gateway Account</p>
-    <p class="govuk-body">You can use an existing account if it was created for the same company or organisation.
-      Your User ID will normally be a User ID of up to 12 characters. </p>
+  
+    
 
       {{ govukButton({
         text: "Sign in",
         href: "#"
       }) }}
-
+<p class="govuk-body">Choose this option if you have already created a Government Gateway account for your company or organisation.</p>
       <br>
 
       {{ govukButton({
-        text: "Create account",
+        text: "Create a Government Gateway account",
         href: "new-user-reg/about-data"
       }) }}
-
+<p class="govuk-body">Choose this option if you have not created a Government Gateway account for your company or organisation before.</p>
 
     </div>
   </div>

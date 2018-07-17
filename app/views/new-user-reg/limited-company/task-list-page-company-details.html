@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "2. Capture your details" %}
+{% set title = "Complete your account details" %}
 
 {% block page_title %}
     {{title}} - GOV.UK
@@ -19,17 +19,17 @@
       {{title}}
     </h1>
 
-      <p class="govuk-body">Please provide the following information: </p>
+      <p class="govuk-body">Please complete each of these sections. </p>
 
       <ol class="app-task-list">
         <li>
           <h2 class="app-task-list__section">
-            <span class="app-task-list__section-number">a. </span> Your account
+            <span class="app-task-list__section-number">1. </span> Your account
           </h2>
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
               <a class="app-task-list__task-name" href="check-mini/account-type-change" aria-describedby="account-type-completed">
-                Account type
+                Your type of account
               </a>
               <strong class="govuk-tag app-task-list__task-completed" id="account-type-completed">
                 Completed
@@ -39,12 +39,12 @@
         </li>
         <li>
           <h2 class="app-task-list__section">
-            <span class="app-task-list__section-number">b. </span> Your organisation
+            <span class="app-task-list__section-number">2. </span>About your business or organisation
           </h2>
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
               <a class="app-task-list__task-name" href="company-lookup" aria-describedby="company-details-completed">
-                Company details
+                Your business or organisation details
               </a>
               <strong class="govuk-tag app-task-list__task-completed" id="company-details-completed">
                 Completed
@@ -60,18 +60,18 @@
 
         <li>
           <h2 class="app-task-list__section">
-            <span class="app-task-list__section-number">c. </span> About you
+            <span class="app-task-list__section-number">3. </span> About you
           </h2>
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
               <a class="app-task-list__task-name" href="personal-details">
-                Personal details
+                Your contact details
               </a>
 
             </li>
             <li class="app-task-list__item">
               <a class="app-task-list__task-name" href="personal-sro">
-                Senior Responsible Officer (SRO)
+                Your level of responsibility 
               </a>
 
             </li>

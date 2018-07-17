@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "What type of business are you?" %}
+{% set title = "What type of business or organisation do you own or represent?" %}
 
 {% block page_title %}
     {{title}} - GOV.UK
@@ -67,37 +67,37 @@
         items: [
           {
             value: "Sole Trader",
-            text: "Sole Trader",
+            text: "Sole trader",
             checked:  checked('businessType','Sole Trader')
 
           },
           {
             value: "Limited Company (LTD)",
-            text: "Limited Company (LTD)",
+            text: "Limited company",
             checked:  checked('businessType','Limited Company')
 
           },
           {
             value: "Public Limited Company (PLC)",
-            text: "Public Limited Company (PLC)",
+            text: "Public limited company",
             checked:  checked('businessType','Public Limited Company (PLC)')
 
           },
           {
             value: "Limited Liability Partnership (LLP)",
-            text: "Limited Liability Partnership (LLP)",
+            text: "Limited liability partnership",
             checked:  checked('businessType','Limited Liability Partnership (LLP)')
 
           },
           {
             value: "Competent authority",
-            text: "Limited Liability Partnership (LLP)",
+            text: "Competent authority",
             checked:  checked('businessType','Limited Liability Partnership (LLP)')
 
           },
           {
             value: "Charity",
-            text: "Charity",
+            text: "Non-commercial, for example a charity",
             checked:  checked('businessType','Charity')
 
           },
