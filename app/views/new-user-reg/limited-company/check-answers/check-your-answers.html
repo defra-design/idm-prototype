@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Check your answers" %}
+{% set title = "Check your information" %}
 
 {% block page_title %}
     {{title}} - GOV.UK
@@ -30,7 +30,7 @@
 
       <div class="app-check-your-answers__contents">
         <dt class="app-check-your-answers__question">
-          Account type
+          Your type of account
         </dt>
         <dd class="app-check-your-answers__answer">
           {{ data['businessType']}}
@@ -45,13 +45,13 @@
     </dl>
 
     <h2 class="govuk-heading-m">
-      Your organisation
+      About your business or organisation
     </h2>
     <dl class="app-check-your-answers app-check-your-answers--short">
 
       <div class="app-check-your-answers__contents">
         <dt class="app-check-your-answers__question">
-          Company details
+          Your business or organisation details
         </dt>
         <dd class="app-check-your-answers__answer">
           ASTRAZENECA UK LIMITED ({{ data['companyRegNum'] }})<br>
@@ -66,7 +66,7 @@
 
       <div class="app-check-your-answers__contents">
         <dt class="app-check-your-answers__question">
-          Contact details
+          Main contact details
         </dt>
         <dd class="app-check-your-answers__answer">
           {{ data['businessTelephone'] }}<br>
@@ -91,7 +91,7 @@
 
       <div class="app-check-your-answers__contents">
         <dt class="app-check-your-answers__question">
-          Name
+          Your name
         </dt>
         <dd class="app-check-your-answers__answer">
           {{ data['personalTitle']}} {{ data['personalFirstName']}} {{ data['personalSurname']}}
@@ -105,7 +105,7 @@
 
       <div class="app-check-your-answers__contents">
         <dt class="app-check-your-answers__question">
-          Contact details
+          Your phone number
         </dt>
         <dd class="app-check-your-answers__answer">
           {{ data['personalTelephone'] }} <br>
@@ -119,13 +119,13 @@
 
       <div class="app-check-your-answers__contents">
         <dt class="app-check-your-answers__question">
-          SRO
+          Your level of responsibility
         </dt>
         <dd class="app-check-your-answers__answer">
           {{ data['personalSRO']}}
         <dd class="app-check-your-answers__change">
           <a href="personal-sro" class="govuk-link" >
-            Change<span class="govuk-visually-hidden"> your status</span>
+            Change<span class="govuk-visually-hidden"> your level</span>
           </a>
         </dd>
       </div>
