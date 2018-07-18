@@ -33,8 +33,6 @@
             case 'Sole trader':
             form.action = 'sole-trader/scp/email-address'
 
-            form.submit()
-
             break;
             case 'Limited company':
             form.action = 'limited-company/scp/email-address'
@@ -43,11 +41,9 @@
             case 'Public limited company':
             form.action = 'limited-company/scp/email-address'
 
-            form.submit()
             break;
             default:
-            alert('This page is in work in progress');
-            return false
+            form.action = '/new-user-reg/organisation-business-coming-soon'
           }
           return true
         }

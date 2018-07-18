@@ -21,7 +21,33 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form class="org-type" action="check-your-answers" method="post">
+    <form class="org-type" onsubmit="return myFunction()" method="post">
+      <script>
+        const form = document.querySelector('.org-type')
+
+        function myFunction() {
+          const checked = document.querySelector('[name="businessType"]:checked')
+          const checkedValue = checked.value
+
+          switch(checkedValue){
+            case 'Sole trader':
+            form.action = 'check-your-answers'
+
+            break;
+            case 'Limited company':
+            form.action = 'check-your-answers'
+
+            break;
+            case 'Public limited company':
+            form.action = 'check-your-answers'
+
+            break;
+            default:
+            form.action = '/new-user-reg/organisation-business-coming-soon'
+          }
+          return true
+        }
+      </script>
 
       {{ govukRadios({
         idPrefix: "businessType",

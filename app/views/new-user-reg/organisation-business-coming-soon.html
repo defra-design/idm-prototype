@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% set title = "Coming soon" %}
+
+{% block page_title %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">{{title}}</h1>
+    {{ govukWarningText({
+      text: "This type of business is not able to enroll through this online service."
+    }) }}
+    <p class="govuk-body">You'll have to apply using old fashioned pen and paper <a href="#" class="govuk-link">here</a></p>
+
+    <form class="org-type" action="check-your-answers-account" method="post">
+
+      {{ govukBackLink({
+        text: "Back to Business Types",
+        href: "javascript:history.back()"
+      }) }}
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}
