@@ -30,17 +30,17 @@
           const checkedValue = checked.value
 
           switch(checkedValue){
-            case 'Sole Trader':
+            case 'Sole trader':
             form.action = 'sole-trader/scp/email-address'
 
             form.submit()
 
             break;
-            case 'Limited Company (LTD)':
+            case 'Limited company':
             form.action = 'limited-company/scp/email-address'
 
             break;
-            case 'Public Limited Company (PLC)':
+            case 'Public limited company':
             form.action = 'limited-company/scp/email-address'
 
             form.submit()
@@ -66,39 +66,45 @@
 
         items: [
           {
-            value: "Sole Trader",
+            value: "Sole trader",
             text: "Sole trader",
-            checked:  checked('businessType','Sole Trader')
+            checked:  checked('businessType','Sole trader')
 
           },
           {
-            value: "Limited Company (LTD)",
+            value: "Limited Company",
             text: "Limited company",
-            checked:  checked('businessType','Limited Company')
+            checked:  checked('businessType',value)
 
           },
           {
-            value: "Public Limited Company (PLC)",
+            value: "Public limited company",
             text: "Public limited company",
-            checked:  checked('businessType','Public Limited Company (PLC)')
+            checked:  checked('businessType','Public limited company')
 
           },
           {
-            value: "Limited Liability Partnership (LLP)",
+            value: "Limited liability partnership",
             text: "Limited liability partnership",
-            checked:  checked('businessType','Limited Liability Partnership (LLP)')
+            checked:  checked('businessType','Limited liability partnership')
+
+          },
+          {
+            value: "Partnership",
+            text: "Partnership",
+            checked:  checked('businessType','Partnership')
 
           },
           {
             value: "Competent authority",
             text: "Competent authority",
-            checked:  checked('businessType','Limited Liability Partnership (LLP)')
+            checked:  checked('businessType','Competent authority')
 
           },
           {
-            value: "Charity",
+            value: "Non-commercial, for example a charity",
             text: "Non-commercial, for example a charity",
-            checked:  checked('businessType','Charity')
+            checked:  checked('businessType','Non-commercial, for example a charity')
 
           },
           {
