@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Personal details" %}
+{% set title = "What is your name?" %}
 
 {% block page_title %}
     {{title}} - GOV.UK
@@ -24,16 +24,6 @@
     <h1 class="govuk-heading-xl">{{title}}</h1>
 
       <form action="check-your-answers" method="post">
-
-        {{ govukInput({
-          label: {
-            text: "Title (optional)"
-          },
-          classes: "govuk-input--width-10",
-          id: "personalTitle",
-          name: "personalTitle",
-          value: personalTitle
-        }) }}
 
         {{ govukInput({
           label: {

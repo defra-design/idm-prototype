@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Is this the registered company?" %}
+{% set title = "Are these the correct details for your registered company?" %}
 
 {% block page_title %}
     {{title}} - GOV.UK
@@ -20,11 +20,11 @@
 
 {% if numberResults==0 %}
 
-        <h1 class="govuk-heading-xl">We can't find that company</h1>
+          <h1 class="govuk-heading-xl">We cannot find those company details</h1>
 
-        <p class="govuk-body">We can't find a company with the number {{searchTerm}} at Companies House.</p>
+        <p class="govuk-body">We cannot find a company with the number {{searchTerm}} registered with Companies House.</p>
 
-        <p class="govuk-body"><a href="company-lookup" class="govuk-link">Enter a different number</a></p>
+        <p class="govuk-body"><a href="company-lookup" class="govuk-link">Please enter a different number.</a></p>
 
 {% else %}
 
@@ -34,15 +34,14 @@
 
           <h2 class="govuk-heading-m">ASTRAZENECA UK LIMITED</h2>
 
-          <p class="govuk-body">Company number {{ data['companyRegNum'] }}.  <a href="company-lookup" class="govuk-link">Enter a different number</a>.</p>
-
-          <h2 class="govuk-heading-m">Check the registered address</h2>
 
           <p class="govuk-body">1 Francis Crick Avenue, Cambridge Biomedical Campus, Cambridge, United Kingdom, CB2 0AA</p>
 
+             <p class="govuk-body">Company number {{ data['companyRegNum'] }}.  <a href="company-lookup" class="govuk-link">Enter a different number</a>.</p>
+
           {{ govukDetails({
-            summaryText: "That’s not our registered office address",
-            html: '<p class="govuk-body">We can only accept applications using the address that\'s registered with Companies House. If your address has changed then you should <a href="https://www.gov.uk/file-changes-to-a-company-with-companies-house" target="_blank">tell Companies House about the change (opens new tab)</a> before you complete this application.</p>'
+            summaryText: "That is not our registered office address",
+            html: '<p class="govuk-body">We must use the address that is registered with Companies House. If your address has changed then you must <a href="https://www.gov.uk/file-changes-to-a-company-with-companies-house" target="_blank">tell Companies House (opens in a new tab)</a> before you continue. </p>'
           }) }}
 
           <input type="hidden" name="companyNumber" value="{{company.company_number}}">
@@ -50,7 +49,7 @@
           <input type="hidden" name="companyAddress" value="{{company.address_snippet}}">
 
           {{ govukButton({
-            text: "Continue"
+            text: "Confirm"
           }) }}
 
       </form>
