@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "What type of business are you?" %}
+{% set title = "What type of business do you own or represent?" %}
 
 {% block page_title %}
     {{title}} - GOV.UK
@@ -45,7 +45,7 @@
           {
             value: "Limited company",
             text: "Limited company",
-            checked:  checked('businessType',value)
+            checked:  checked('businessType','Limited company')
 
           },
           {
