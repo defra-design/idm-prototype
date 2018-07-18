@@ -1,0 +1,81 @@
+{% extends "layout.html" %}
+
+{% set title = "What type of account do you want to create?" %}
+
+{% block page_title %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+      <form method="post" action="organisation-business-type" onsubmit="return myFunction()">
+
+        <script>
+        function myFunction() {
+          if(!document.getElementById('orgType-1').checked){
+            alert('This page is in work in progress');
+            return false
+          }
+          return true
+        }
+        </script>
+
+        {{ govukRadios({
+          idPrefix: "orgType",
+          name: "orgType",
+          fieldset: {
+            legend: {
+              text: title,
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+
+          items: [
+            {
+              value: "business",
+              html: ' <span class="govuk-body govuk-!-font-weight-bold">Business account</span><br>
+                      You represent an organisation – including sole traders and commercial or non commercial organisations, such as charities.',
+              checked:  checked('orgType','business')
+
+            },
+            {
+              value: "individual",
+              html: ' <span class="govuk-body govuk-!-font-weight-bold">Personal, non-business account</span><br>
+                      This is for personal use only.',
+              checked:  checked('orgType','individual')
+            }
+
+          ]
+        }) }}
+
+        {{ govukDetails({
+          summaryText: "What type of account do I need?",
+          html: ' <h3 class="govuk-heading-s">Business account</h3>
+                  <p class="govuk-body">You are a sole trader or you work on behalf of an organisation (Commercial entity)</p>
+                  <h3 class="govuk-heading-s">Personal account</h3>
+                  <p class="govuk-body">You are an individual and not associated with an organisation (Non-commercial entity)</p> '
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

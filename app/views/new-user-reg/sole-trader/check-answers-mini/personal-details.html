@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{% set title = "Personal details" %}
+
+{% block page_title %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">{{title}}</h1>
+
+      <form action="check-your-answers-personal" method="post">
+
+        {{ govukInput({
+          label: {
+            text: "First or given name"
+          },
+          classes: "govuk-input--width-20",
+          id: "personalFirstName",
+          name: "personalFirstName",
+          value: personalFirstName
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "Surname or family name"
+          },
+          classes: "govuk-input--width-20",
+          id: "personalSurname",
+          name: "personalSurname",
+          value: personalSurname
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+  </div>
+</div>
+
+{% endblock %}
