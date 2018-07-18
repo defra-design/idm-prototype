@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Check your answers" %}
+{% set title = "Check your information: Your account" %}
 
 {% block page_title %}
     {{title}} - GOV.UK
@@ -23,13 +23,11 @@
 
     <h1 class="govuk-heading-xl">{{title}}</h1>
 
-    <h2 class="govuk-heading-m">Your account</h2>
-
     <dl class="app-check-your-answers app-check-your-answers--short">
 
       <div class="app-check-your-answers__contents">
         <dt class="app-check-your-answers__question">
-          Account type
+          Your account type
         </dt>
         <dd class="app-check-your-answers__answer">
           {{ data['businessType']}}

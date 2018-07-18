@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "What is your business trading address?" %}
+{% set title = "What is your business address?" %}
 
 {% block page_title %}
     {{title}} - GOV.UK
@@ -26,11 +26,11 @@
 
         {{ govukInput({
           label: {
-            text: "Postcode lookup",
+            text: "Enter your postcode",
             classes: "govuk-label--s"
           },
           hint: {
-            text: "This might be for a business address or your home address"
+            text: "This could be your home address if you do not have a business premises."
           },
 
           classes: "govuk-input--width-10",
@@ -39,11 +39,6 @@
           value: postcode
         }) }}
 
-        {{ govukDetails({
-          summaryText: "The company is outside of the UK",
-          html: ' <p class="govuk-body">Some words go here about what to do</p>'
-
-        }) }}
 
         {{ govukButton({
           text: "Find address"

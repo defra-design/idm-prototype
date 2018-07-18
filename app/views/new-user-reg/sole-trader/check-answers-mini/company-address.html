@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "What is your business trading address?" %}
+{% set title = "Select your business address" %}
 
 {% block page_title %}
     {{title}} - GOV.UK
@@ -35,7 +35,6 @@
         id: "addressList",
         name: "addressList",
         label: {
-          text: "Select the address"
         },
         items: [
           {
@@ -90,7 +89,7 @@
       <p class="govuk-body">
         <a href="company-address-manual">
         <span class="govuk-visually-hidden">Enter address manually</span>
-        I cannot find the address in the list</a>
+        I cannot find the address in the list.</a>
       </p>
 
       {{ govukButton({
