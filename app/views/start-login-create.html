@@ -17,27 +17,39 @@
 
 {% block content %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-    <h1 class="govuk-heading-xl">{{title}}</h1>
-  
-    
+  <h1 class="govuk-heading-xl">{{title}}</h1>
 
-      {{ govukButton({
-        text: "Sign in",
-        href: "#"
-      }) }}
-<p class="govuk-body">Choose this option if you have already created a Government Gateway account for your company or organisation.</p>
-      <br>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <div class="govuk-grid-column-one-half">
+      <h2 class="govuk-heading-m">Create a Government Gateway account</h2>
+      <p class="govuk-body">Choose this option if you have not created a Government Gateway account for your company or organisation before.</p>
 
       {{ govukButton({
         text: "Create an account",
         href: "new-user-reg/about-data"
       }) }}
-<p class="govuk-body">Choose this option if you have not created a Government Gateway account for your company or organisation before.</p>
+
+    </div>
+
+    <div class="govuk-grid-column-one-half">
+      <h2 class="govuk-heading-m">Sign in</h2>
+      <p class="govuk-body">Choose this option if you have already created a Government Gateway account for your company or organisation.</p>
+
+      {{ govukButton({
+      text: "Sign in",
+      href: "#"
+      }) }}
 
     </div>
   </div>
 
+  </div>
+</div>
 {% endblock %}

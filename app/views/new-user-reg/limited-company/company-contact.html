@@ -28,16 +28,6 @@
 
         {{ govukInput({
           label: {
-            text: "Email address"
-          },
-          classes: "govuk-input--width-20",
-          id: "businessEmail",
-          name: "businessEmail",
-          value: businessEmail
-        }) }}
-
-        {{ govukInput({
-          label: {
             text: "Telephone number"
           },
           classes: "govuk-input--width-10",
@@ -54,6 +44,16 @@
           id: "businessMobile",
           name: "businessMobile",
           value: businessMobile
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "Email address"
+          },
+          classes: "govuk-input--width-20",
+          id: "businessEmail",
+          name: "businessEmail",
+          value: businessEmail
         }) }}
 
         {{ govukButton({
