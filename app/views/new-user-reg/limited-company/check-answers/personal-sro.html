@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Are you the Senior Responsible Officer (SRO)?" %}
+{% set title = "Do you have authority to act on behalf of this business or organisation when using the [service name] service?" %}
 
 {% block page_title %}
     {{title}} - GOV.UK
@@ -39,12 +39,16 @@
           {
             value: "Yes",
             text: "Yes",
+            html: ' <span class="govuk-body govuk-!-font-weight-bold">Yes</span><br>
+                      I own, run or have permission to act on behalf of this business or organisation.',
             checked:  checked('personalSRO','Yes')
 
           },
           {
             value: "No",
             text: "No",
+            html: ' <span class="govuk-body govuk-!-font-weight-bold">No</span><br>
+                      Someone else has this authority.',
             checked:  checked('personalSRO','No')
 
           }
