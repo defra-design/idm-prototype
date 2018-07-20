@@ -8,7 +8,7 @@
 
 {% block beforeContent %}
   {% include "includes/account-nav-admin-corp.html" %}
-  {% include "includes/breadcrumb-three-level.html" %}
+  {% include "includes/breadcrumb-four-level-service-all.html" %}
 {% endblock %}
 
 {% block content %}
@@ -17,12 +17,8 @@
   <div class="govuk-grid-column-full">
 
     <h1 class="govuk-heading-xl">
-      {{title}}
+      {{title}} - [Service name]
     </h1>
-    {{ govukButton({
-      text: "Invite new member",
-      href: "add-user-details"
-    }) }}
 
     {{ govukTable({
       caption: "Team members",

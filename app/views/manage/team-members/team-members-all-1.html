@@ -1,27 +1,31 @@
 {% extends "layout.html" %}
 
-{% set title = "Intermediaries" %}
+{% set title = "Team members" %}
 
 {% block page_title %}
     {{title}} - GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
-  {% include "includes/account-nav-admin-corp.html" %}
-  {% include "includes/breadcrumb-three-level.html" %}
+  {% include "includes/account-nav-admin-corp-all-1.html" %}
+  {% include "includes/breadcrumb-three-level-all-1.html" %}
 {% endblock %}
 
 {% block content %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-    <h1 class="govuk-heading-xl">{{title}}</h1>
+
+    <h1 class="govuk-heading-xl">
+      {{title}}
+    </h1>
     {{ govukButton({
-      text: "Add new intermediary",
-      href: "#"
+      text: "Invite new member",
+      href: "add-user-details"
     }) }}
+
     {{ govukTable({
-      caption: "Intermediaries",
+      caption: "Team members",
       captionClasses: "govuk-visually-hidden",
       firstCellIsHeader: false,
       head: [
@@ -45,26 +49,11 @@
       rows: [
         [
           {
-            html: '<a href="services-on-team-member-agent" class="govuk-link--no-visited-state">Roy Wickes</a>
-              <br><span class="govuk-body-s">C T Henderson and Co</span>'
+            html: '<a class="govuk-link--no-visited-state" href="services-on-team-member-admin-self-all-1">Ann Cooper (you)</a><br>
+                    <span class="govuk-body-s">Ann.Cooper@email.com</span>'
           },
           {
-            text: "Standard user"
-          },
-          {
-            text: ""
-          },
-          {
-            html: '<a class="govuk-link--no-visited-state" href="">Remove user</a>'
-          }
-        ],
-        [
-          {
-            html: '<a href="#" class="govuk-link--no-visited-state">Jenny Lordes</a>
-              <br><span class="govuk-body-s">C T Henderson and Co</span>'
-          },
-          {
-            text: "Standard user"
+            text: "Administrator"
           },
           {
             text: ""
@@ -80,5 +69,9 @@
 
   </div>
 </div>
+
+
+
+
 
 {% endblock %}

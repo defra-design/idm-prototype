@@ -7,8 +7,8 @@
 {% endblock %}
 
 {% block beforeContent %}
-  {% include "includes/account-nav-admin-corp-2.html" %}
-  {% include "includes/breadcrumb-three-level-2.html" %}
+  {% include "includes/account-nav-admin-corp-all-1.html" %}
+  {% include "includes/breadcrumb-three-level-all-1.html" %}
 {% endblock %}
 
 {% block content %}
@@ -19,6 +19,7 @@
     <h1 class="govuk-heading-xl">
       {{title}}
     </h1>
+
     {{ govukButton({
       text: "Invite new member",
       href: "add-user-details"
@@ -74,7 +75,7 @@
       ],
       [
           {
-            html: '<a class="govuk-link--no-visited-state" href="services-on-team-member-admin-self">Ann Cooper (you)</a><br>
+            html: '<a class="govuk-link--no-visited-state" href="services-on-team-member-admin-self-all-1">Ann Cooper (you)</a><br>
                     <span class="govuk-body-s">Ann.Cooper@email.com</span>'
           },
           {
@@ -82,51 +83,6 @@
           },
           {
             text: ""
-          },
-          {
-            html: '<a class="govuk-link--no-visited-state" href="">Remove user</a>'
-          }
-        ],
-        [
-          {
-            html: '<a class="govuk-link--no-visited-state" href="services-on-team-member-standard">Adam Mastly</a><br>
-                    <span class="govuk-body-s">Adam.Mastly@email.com</span>'
-          },
-          {
-            text: "Standard user"
-          },
-          {
-            text: ""
-          },
-          {
-            html: '<a class="govuk-link--no-visited-state" href="">Remove user</a>'
-          }
-        ],
-        [
-          {
-            html: '<a class="govuk-link--no-visited-state" href="services-on-team-member-admin">Barry Anders</a><br>
-                    <span class="govuk-body-s">Barry.Anders@email.com</span>'
-          },
-          {
-            text: "Administrator"
-          },
-          {
-            text: ""
-          },
-          {
-            html: '<a class="govuk-link--no-visited-state" href="">Remove user</a>'
-          }
-        ],
-        [
-          {
-            html: '<a class="govuk-link--no-visited-state" href="services-on-team-member-invited-1">Sara Chippers</a><br>
-                    <span class="govuk-body-s">Sara.Chippers@email.com</span>'
-          },
-          {
-            text: "User Administrator"
-          },
-          {
-            text: "Invite sent"
           },
           {
             html: '<a class="govuk-link--no-visited-state" href="">Remove user</a>'

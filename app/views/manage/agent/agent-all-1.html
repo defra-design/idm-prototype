@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% set title = "Intermediaries" %}
+
+{% block page_title %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/account-nav-admin-corp-all-1.html" %}
+  {% include "includes/breadcrumb-three-level.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-xl">{{title}}</h1>
+    {{ govukButton({
+      text: "Add new intermediary",
+      href: "#"
+    }) }}
+
+  </div>
+</div>
+
+{% endblock %}

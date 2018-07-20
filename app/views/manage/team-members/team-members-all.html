@@ -1,0 +1,392 @@
+{% extends "layout.html" %}
+
+{% set title = "Team members" %}
+
+{% block page_title %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/account-nav-admin-corp.html" %}
+  {% include "includes/breadcrumb-three-level.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <h1 class="govuk-heading-xl">
+      {{title}}
+    </h1>
+    {{ govukButton({
+      text: "Invite new member",
+      href: "#"
+    }) }}
+
+    {{ govukTable({
+      caption: "Team members",
+      captionClasses: "govuk-visually-hidden",
+      firstCellIsHeader: false,
+      head: [
+        {
+          html: '<a class="govuk-link--no-visited-state" href="">User</a>',
+          format: 'column-third'
+        },
+        {
+          html: '<a class="govuk-link--no-visited-state" href="">System role</a>',
+          format: 'column-quarter'
+        },
+        {
+          html: '<a class="govuk-link--no-visited-state" href="">Status</a>',
+          format: 'column-quarter'
+        },
+        {
+          html: '<span class="govuk-visually-hidden">Action</span>',
+          format: 'column-sixth'
+        }
+      ],
+      rows: [
+        [
+          {
+            html: '<a class="govuk-link--no-visited-state" href="services-on-team-member-admin-self">Ann Cooper (you)</a><br>
+                    <span class="govuk-body-s">Ann.Cooper@email.com</span>'
+          },
+          {
+            text: "Administrator"
+          },
+          {
+            text: ""
+          },
+          {
+            html: '<a class="govuk-link--no-visited-state" href="">Remove user</a>'
+          }
+        ],
+        [
+          {
+            html: '<a class="govuk-link--no-visited-state" href="services-on-team-member-standard">Adam Mastly</a><br>
+                    <span class="govuk-body-s">Adam.Mastly@email.com</span>'
+          },
+          {
+            text: "Standard user"
+          },
+          {
+            text: ""
+          },
+          {
+            html: '<a class="govuk-link--no-visited-state" href="">Remove user</a>'
+          }
+        ],
+        [
+          {
+            html: '<a class="govuk-link--no-visited-state" href="services-on-team-member-admin">Barry Anders</a><br>
+                    <span class="govuk-body-s">Barry.Anders@email.com</span>'
+          },
+          {
+            text: "Administrator"
+          },
+          {
+            text: ""
+          },
+          {
+            html: '<a class="govuk-link--no-visited-state" href="">Remove user</a>'
+          }
+        ],
+        [
+          {
+            html: '<a class="govuk-link--no-visited-state" href="services-on-team-member-invited-1">Sara Chippers</a><br>
+                    <span class="govuk-body-s">Sara.Chippers@email.com</span>'
+          },
+          {
+            text: "User Administrator"
+          },
+          {
+            text: "Invite sent"
+          },
+          {
+            html: '<a class="govuk-link--no-visited-state" href="#">Remove user</a>'
+          }
+        ],
+        [
+          {
+            html: '<a class="govuk-link--no-visited-state" href="services-on-team-member-standard">Adam Mastly</a><br>
+                    <span class="govuk-body-s">Adam.Mastly@email.com</span>'
+          },
+          {
+            text: "Standard user"
+          },
+          {
+            text: ""
+          },
+          {
+            html: '<a class="govuk-link--no-visited-state" href="">Remove user</a>'
+          }
+        ],
+        [
+          {
+            html: '<a class="govuk-link--no-visited-state" href="services-on-team-member-standard">Adam Mastly</a><br>
+                    <span class="govuk-body-s">Adam.Mastly@email.com</span>'
+          },
+          {
+            text: "Standard user"
+          },
+          {
+            text: ""
+          },
+          {
+            html: '<a class="govuk-link--no-visited-state" href="">Remove user</a>'
+          }
+        ],
+        [
+          {
+            html: '<a class="govuk-link--no-visited-state" href="services-on-team-member-standard">Adam Mastly</a><br>
+                    <span class="govuk-body-s">Adam.Mastly@email.com</span>'
+          },
+          {
+            text: "Standard user"
+          },
+          {
+            text: ""
+          },
+          {
+            html: '<a class="govuk-link--no-visited-state" href="">Remove user</a>'
+          }
+        ],
+        [
+          {
+            html: '<a class="govuk-link--no-visited-state" href="services-on-team-member-standard">Adam Mastly</a><br>
+                    <span class="govuk-body-s">Adam.Mastly@email.com</span>'
+          },
+          {
+            text: "Standard user"
+          },
+          {
+            text: ""
+          },
+          {
+            html: '<a class="govuk-link--no-visited-state" href="">Remove user</a>'
+          }
+        ],
+        [
+          {
+            html: '<a class="govuk-link--no-visited-state" href="services-on-team-member-standard">Adam Mastly</a><br>
+                    <span class="govuk-body-s">Adam.Mastly@email.com</span>'
+          },
+          {
+            text: "Standard user"
+          },
+          {
+            text: ""
+          },
+          {
+            html: '<a class="govuk-link--no-visited-state" href="">Remove user</a>'
+          }
+        ],
+        [
+          {
+            html: '<a class="govuk-link--no-visited-state" href="services-on-team-member-standard">Adam Mastly</a><br>
+                    <span class="govuk-body-s">Adam.Mastly@email.com</span>'
+          },
+          {
+            text: "Standard user"
+          },
+          {
+            text: ""
+          },
+          {
+            html: '<a class="govuk-link--no-visited-state" href="">Remove user</a>'
+          }
+        ],
+        [
+          {
+            html: '<a class="govuk-link--no-visited-state" href="services-on-team-member-standard">Adam Mastly</a><br>
+                    <span class="govuk-body-s">Adam.Mastly@email.com</span>'
+          },
+          {
+            text: "Standard user"
+          },
+          {
+            text: ""
+          },
+          {
+            html: '<a class="govuk-link--no-visited-state" href="">Remove user</a>'
+          }
+        ],
+        [
+          {
+            html: '<a class="govuk-link--no-visited-state" href="services-on-team-member-standard">Adam Mastly</a><br>
+                    <span class="govuk-body-s">Adam.Mastly@email.com</span>'
+          },
+          {
+            text: "Standard user"
+          },
+          {
+            text: ""
+          },
+          {
+            html: '<a class="govuk-link--no-visited-state" href="">Remove user</a>'
+          }
+        ],
+        [
+          {
+            html: '<a class="govuk-link--no-visited-state" href="services-on-team-member-standard">Adam Mastly</a><br>
+                    <span class="govuk-body-s">Adam.Mastly@email.com</span>'
+          },
+          {
+            text: "Standard user"
+          },
+          {
+            text: ""
+          },
+          {
+            html: '<a class="govuk-link--no-visited-state" href="">Remove user</a>'
+          }
+        ],
+        [
+          {
+            html: '<a class="govuk-link--no-visited-state" href="services-on-team-member-standard">Adam Mastly</a><br>
+                    <span class="govuk-body-s">Adam.Mastly@email.com</span>'
+          },
+          {
+            text: "Standard user"
+          },
+          {
+            text: ""
+          },
+          {
+            html: '<a class="govuk-link--no-visited-state" href="">Remove user</a>'
+          }
+        ],
+        [
+          {
+            html: '<a class="govuk-link--no-visited-state" href="services-on-team-member-standard">Adam Mastly</a><br>
+                    <span class="govuk-body-s">Adam.Mastly@email.com</span>'
+          },
+          {
+            text: "Standard user"
+          },
+          {
+            text: ""
+          },
+          {
+            html: '<a class="govuk-link--no-visited-state" href="">Remove user</a>'
+          }
+        ],
+        [
+          {
+            html: '<a class="govuk-link--no-visited-state" href="services-on-team-member-standard">Adam Mastly</a><br>
+                    <span class="govuk-body-s">Adam.Mastly@email.com</span>'
+          },
+          {
+            text: "Standard user"
+          },
+          {
+            text: ""
+          },
+          {
+            html: '<a class="govuk-link--no-visited-state" href="">Remove user</a>'
+          }
+        ],
+        [
+          {
+            html: '<a class="govuk-link--no-visited-state" href="services-on-team-member-standard">Adam Mastly</a><br>
+                    <span class="govuk-body-s">Adam.Mastly@email.com</span>'
+          },
+          {
+            text: "Standard user"
+          },
+          {
+            text: ""
+          },
+          {
+            html: '<a class="govuk-link--no-visited-state" href="">Remove user</a>'
+          }
+        ],
+        [
+          {
+            html: '<a class="govuk-link--no-visited-state" href="services-on-team-member-standard">Adam Mastly</a><br>
+                    <span class="govuk-body-s">Adam.Mastly@email.com</span>'
+          },
+          {
+            text: "Standard user"
+          },
+          {
+            text: ""
+          },
+          {
+            html: '<a class="govuk-link--no-visited-state" href="">Remove user</a>'
+          }
+        ],
+        [
+          {
+            html: '<a class="govuk-link--no-visited-state" href="services-on-team-member-standard">Adam Mastly</a><br>
+                    <span class="govuk-body-s">Adam.Mastly@email.com</span>'
+          },
+          {
+            text: "Standard user"
+          },
+          {
+            text: ""
+          },
+          {
+            html: '<a class="govuk-link--no-visited-state" href="">Remove user</a>'
+          }
+        ],
+        [
+          {
+            html: '<a class="govuk-link--no-visited-state" href="services-on-team-member-standard">Adam Mastly</a><br>
+                    <span class="govuk-body-s">Adam.Mastly@email.com</span>'
+          },
+          {
+            text: "Standard user"
+          },
+          {
+            text: ""
+          },
+          {
+            html: '<a class="govuk-link--no-visited-state" href="">Remove user</a>'
+          }
+        ],
+        [
+          {
+            html: '<a class="govuk-link--no-visited-state" href="services-on-team-member-standard">Adam Mastly</a><br>
+                    <span class="govuk-body-s">Adam.Mastly@email.com</span>'
+          },
+          {
+            text: "Standard user"
+          },
+          {
+            text: ""
+          },
+          {
+            html: '<a class="govuk-link--no-visited-state" href="">Remove user</a>'
+          }
+        ],
+        [
+          {
+            html: '<a class="govuk-link--no-visited-state" href="services-on-team-member-standard">Adam Mastly</a><br>
+                    <span class="govuk-body-s">Adam.Mastly@email.com</span>'
+          },
+          {
+            text: "Standard user"
+          },
+          {
+            text: ""
+          },
+          {
+            html: '<a class="govuk-link--no-visited-state" href="">Remove user</a>'
+          }
+        ]
+
+      ]
+    }) }}
+
+
+  </div>
+</div>
+
+
+
+
+
+{% endblock %}

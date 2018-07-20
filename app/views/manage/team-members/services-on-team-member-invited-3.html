@@ -7,8 +7,8 @@
 {% endblock %}
 
 {% block beforeContent %}
-  {% include "includes/account-nav-admin-corp-2.html" %}
-  {% include "includes/breadcrumb-four-level-team-2.html" %}
+  {% include "includes/account-nav-admin-corp-all-1.html" %}
+  {% include "includes/breadcrumb-four-level-team-all-1.html" %}
 {% endblock %}
 
 {% block content %}
@@ -21,25 +21,6 @@
     </h1>
   </div>
 </div>
-
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <p> This user has not yet accepted their invitation</p>
-
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-one-third">
-        {{ govukButton({
-          text: "Re-send invite",
-          href: "#"
-        }) }}
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<hr class="govuk-section-break--s">
-<br>
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">

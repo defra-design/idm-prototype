@@ -1,16 +1,16 @@
 .wrapper--grey {
-  background-color: $govuk-grey-3;
-  padding: $govuk-spacing-scale-4;
-  @include govuk-responsive-margin($govuk-spacing-responsive-6, "bottom");
+  background-color: govuk-colour("grey-3");
+  padding: govuk-spacing(4);
+  @include govuk-responsive-margin(6, "bottom");
 }
 
 section {
-  @include govuk-responsive-margin($govuk-spacing-responsive-9, "bottom");
+  @include govuk-responsive-margin(9, "bottom");
 }
 
-$govuk-card-border : $govuk-blue;
-$govuk-card-selected-background-colour : $govuk-blue;
-$govuk-card-selected-foreground-colour : $govuk-white;
+$govuk-card-border : govuk-colour("blue");
+$govuk-card-selected-background-colour : govuk-colour("blue");
+$govuk-card-selected-foreground-colour : govuk-colour("white");
 
 .govuk-card__flex-container {
   display: flex;
@@ -24,18 +24,18 @@ $govuk-card-selected-foreground-colour : $govuk-white;
 }
 
 .govuk-card {
-  @include govuk-responsive-margin($govuk-spacing-responsive-6, "bottom");
-  @include govuk-responsive-padding($govuk-spacing-responsive-6, "bottom");
+  @include govuk-responsive-margin(6, "bottom");
+  @include govuk-responsive-padding(6, "bottom");
   border-bottom: 3px solid $govuk-card-border;
   box-sizing: border-box;
 }
 
 .govuk-card--contained {
-  background-color: $govuk-grey-4;
+  background-color: govuk-colour("grey-4");
 }
 
 .govuk-card--contained--on-background {
-  background-color: $govuk-white;
+  background-color: govuk-colour("white");
 }
 
 .govuk-card--borderless {
@@ -48,7 +48,7 @@ $govuk-card-selected-foreground-colour : $govuk-white;
 }
 
 .govuk-card--selectable h3 {
-  color: $govuk-blue;
+  color: govuk-colour("blue");
 }
 
 .govuk-card--selectable a {
@@ -69,7 +69,7 @@ $govuk-card-selected-foreground-colour : $govuk-white;
 
 .govuk-card--selectable:hover > .govuk-card__content > h3 > a:hover,
 .govuk-card--selectable:hover > .govuk-card__actions > ul > li > a:hover {
-  color: lighten($govuk-light-blue, 30%) !important;
+  color: lighten(govuk-colour("light-blue"), 30%) !important;
 }
 
 .govuk-card--selectable > a {
@@ -95,7 +95,7 @@ $govuk-card-selected-foreground-colour : $govuk-white;
 }
 
 .govuk-card__content {
-  @include govuk-responsive-padding($govuk-spacing-responsive-4, "top");
+  @include govuk-responsive-padding(4, "top");
   padding-bottom: 0;
 }
 
@@ -104,22 +104,22 @@ $govuk-card-selected-foreground-colour : $govuk-white;
 }
 
 .govuk-card__content p + p {
-  @include govuk-responsive-margin($govuk-spacing-responsive-4, "top");
+  @include govuk-responsive-margin(4, "top");
 }
 
 .govuk-card--contained .govuk-card__content {
-  @include govuk-responsive-padding($govuk-spacing-responsive-4, "left");
-  @include govuk-responsive-padding($govuk-spacing-responsive-4, "right");
+  @include govuk-responsive-padding(4, "left");
+  @include govuk-responsive-padding(4, "right");
 }
 
 .govuk-card__actions {
-  @include govuk-responsive-padding($govuk-spacing-responsive-4, "top");
+  @include govuk-responsive-padding(4, "top");
   padding-bottom: 0;
 }
 
 .govuk-card--contained  .govuk-card__actions {
-  @include govuk-responsive-padding($govuk-spacing-responsive-4, "left");
-  @include govuk-responsive-padding($govuk-spacing-responsive-4, "right");
+  @include govuk-responsive-padding(4, "left");
+  @include govuk-responsive-padding(4, "right");
 }
 
 .govuk-card__actions > .govuk-c-button {
