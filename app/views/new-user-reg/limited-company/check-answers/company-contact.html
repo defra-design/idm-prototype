@@ -33,7 +33,8 @@
           classes: "govuk-input--width-10",
           id: "businessTelephone",
           name: "businessTelephone",
-          value: data['businessTelephone']
+          value: data['businessTelephone'],
+          type: "tel"
         }) }}
 
         {{ govukInput({
@@ -43,7 +44,8 @@
           classes: "govuk-input--width-10",
           id: "businessMobile",
           name: "businessMobile",
-          value: data['businessMobile']
+          value: data['businessMobile'],
+          type: "tel"
         }) }}
 
         {{ govukInput({
@@ -53,7 +55,8 @@
           classes: "govuk-input--width-20",
           id: "businessEmail",
           name: "businessEmail",
-          value: data['businessEmail']
+          value: data['businessEmail'],
+          type: "email"
         }) }}
 
         {{ govukButton({
