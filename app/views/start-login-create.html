@@ -20,36 +20,66 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-  <h1 class="govuk-heading-xl">{{title}}</h1>
+    <form class="create-signin" onsubmit="return myFunction()" method="post">
+      <script>
+        const form = document.querySelector('.create-signin')
 
-</div>
+        function myFunction() {
+          const checked = document.querySelector('[name="createSignin"]:checked')
+          const checkedValue = checked.value
 
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-full">
+          switch(checkedValue){
+            case 'create':
+            form.action = 'new-user-reg/about-data'
 
-    <div class="govuk-grid-column-one-half">
-      <h2 class="govuk-heading-m">Create a Government Gateway account</h2>
-      <p class="govuk-body">Choose this option if you have not created a Government Gateway account for your company or organisation before.</p>
+            break;
+            case 'signin':
+            form.action = '#'
 
-      {{ govukButton({
-        text: "Create an account",
-        href: "new-user-reg/about-data"
+            break;
+            default:
+            form.action = '#'
+          }
+          return true
+        }
+      </script>
+
+      {{ govukRadios({
+        idPrefix: "createSignin",
+        name: "createSignin",
+        fieldset: {
+          legend: {
+            text: title,
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--xl"
+          }
+        },
+
+        items: [
+          {
+            value: "signin",
+            html: ' <h2 class="govuk-heading-m">Sign in</h2>
+                    Choose this option if you have already created a Government Gateway account for your company or organisation.',
+            checked:  checked('createSignin','signin')
+
+          },
+          {
+            value: "create",
+            html: ' <h2 class="govuk-heading-m">Create an account</h2>
+                    Choose this option if you have not created a Government Gateway account for your company or organisation before.',
+            checked:  checked('createSignin','create')
+          }
+
+        ]
+
       }) }}
 
-    </div>
-
-    <div class="govuk-grid-column-one-half">
-      <h2 class="govuk-heading-m">Sign in</h2>
-      <p class="govuk-body">Choose this option if you have already created a Government Gateway account for your company or organisation.</p>
-
       {{ govukButton({
-      text: "Sign in",
-      href: "#"
+        text: "Continue"
       }) }}
 
-    </div>
-  </div>
-
+    </form>
   </div>
 </div>
+
 {% endblock %}
