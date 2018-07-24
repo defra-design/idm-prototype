@@ -7,8 +7,8 @@
 {% endblock %}
 
 {% block beforeContent %}
-  {% include "includes/account-nav-admin-corp-2.html" %}
-  {% include "includes/breadcrumb-four-level-team-2.html" %}
+  {% include "includes/account-nav-admin-corp-all-2.html" %}
+  {% include "includes/breadcrumb-four-level-team-all-2.html" %}
 {% endblock %}
 
 {% block content %}
@@ -21,25 +21,6 @@
     </h1>
   </div>
 </div>
-
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <p> This user has not yet accepted their invitation</p>
-
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-one-third">
-        {{ govukButton({
-          text: "Re-send invite",
-          href: "#"
-        }) }}
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<hr class="govuk-section-break--s">
-<br>
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
@@ -60,7 +41,70 @@
 <br>
 {{ govukButton({
   text: "Add service access",
-  href: "add-service-service"
+  href: "#"
+}) }}
+
+{% set setServiceNameHtml %}
+    {{ data['serviceName'] }}
+{% endset %}
+
+{% set setOrgHtml %}
+    {{ data['orgName'] }}
+{% endset %}
+
+{% set setServiceRoleHtml %}
+    {{ data['serviceRole'] }}
+{% endset %}
+
+{{ govukTable({
+  caption: "Services",
+  captionClasses: "govuk-heading-l",
+  firstCellIsHeader: false,
+  head: [
+    {
+      html: '<a class="govuk-link--no-visited-state" href="">Service</a>',
+      format: 'column-quarter'
+
+    },
+    {
+      html: '<a class="govuk-link--no-visited-state" href="">Organisation</a>',
+      format: 'column-third'
+
+    },
+    {
+      html: '<a class="govuk-link--no-visited-state" href="">Service role</a>',
+      format: 'column-fifth'
+
+    },
+    {
+      html: '<span class="govuk-visually-hidden">Action</span>',
+      format: ''
+    },
+    {
+      html: '<span class="govuk-visually-hidden">Action</span>',
+      format: ''
+    }
+  ],
+  rows: [
+  [
+    {
+      html: setServiceNameHtml
+    },
+    {
+      html: setOrgHtml
+    },
+    {
+      html: setServiceRoleHtml
+    },
+    {
+      html: '<a href="services-on-team-member-roles2" class="govuk-link--no-visited-state">Manage access</a>'
+    },
+    {
+      html: '<a href="#" class="govuk-link--no-visited-state">Remove access</a>'
+    }
+  ]
+
+  ]
 }) }}
 
 {% endblock %}

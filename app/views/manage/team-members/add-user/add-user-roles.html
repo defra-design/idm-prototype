@@ -18,10 +18,10 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-      <form action="services-on-team-member-invited-3" method="post">
+      <form action="add-user-org" method="post">
 
         {% set setServiceTypeHtml %}
-            <p class="govuk-hint">The following organisations are available for {{ data['serviceType'] }}</p>
+            <p class="govuk-hint">The following roles are available for {{ data['serviceName'] }}</p>
         {% endset %}
 
         {{ govukRadios ({

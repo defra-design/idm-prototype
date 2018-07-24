@@ -24,7 +24,7 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <p> This user has not yet accepted their invitation</p>
+    <p> Sara has not yet accepted their invitation</p>
 
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-one-third">
@@ -56,5 +56,74 @@
     <p class="govuk-body"><a href="" class="govuk-link--no-visited-state">Delete team member</a></p>
   </div>
 </div>
+
+<br>
+{{ govukButton({
+  text: "Add service access",
+  href: "#"
+}) }}
+
+{% set setServiceNameHtml %}
+    {{ data['serviceName'] }}
+{% endset %}
+
+{% set setOrgHtml %}
+    {{ data['orgName'] }}
+{% endset %}
+
+{% set setServiceRoleHtml %}
+    {{ data['serviceRole'] }}
+{% endset %}
+
+{{ govukTable({
+  caption: "Services",
+  captionClasses: "govuk-heading-l",
+  firstCellIsHeader: false,
+  head: [
+    {
+      html: '<a class="govuk-link--no-visited-state" href="">Service</a>',
+      format: 'column-quarter'
+
+    },
+    {
+      html: '<a class="govuk-link--no-visited-state" href="">Organisation</a>',
+      format: 'column-third'
+
+    },
+    {
+      html: '<a class="govuk-link--no-visited-state" href="">Service role</a>',
+      format: 'column-fifth'
+
+    },
+    {
+      html: '<span class="govuk-visually-hidden">Action</span>',
+      format: ''
+    },
+    {
+      html: '<span class="govuk-visually-hidden">Action</span>',
+      format: ''
+    }
+  ],
+  rows: [
+  [
+    {
+      html: setServiceNameHtml
+    },
+    {
+      html: setOrgHtml
+    },
+    {
+      html: setServiceRoleHtml
+    },
+    {
+      html: '<a href="services-on-team-member-roles2" class="govuk-link--no-visited-state">Manage access</a>'
+    },
+    {
+      html: '<a href="#" class="govuk-link--no-visited-state">Remove access</a>'
+    }
+  ]
+
+  ]
+}) }}
 
 {% endblock %}

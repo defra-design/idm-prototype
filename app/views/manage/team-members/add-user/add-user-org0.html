@@ -18,13 +18,13 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-      <form action="add-service-roles" method="post">
+      <form action="add-user-confirmation-reg-sent" method="post">
 
         {% set setServiceTypeHtml %}
             <p class="govuk-hint">The following organisations are available for {{ data['serviceType'] }}</p>
         {% endset %}
 
-        {{ govukRadios ({
+        {{ govukCheckboxes ({
           idPrefix: "orgName",
           name: "orgName",
           fieldset: {
