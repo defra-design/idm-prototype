@@ -1,0 +1,98 @@
+{% extends "layout.html" %}
+
+{% set title = "Team member" %}
+
+{% block page_title %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/account-nav-admin-standard.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <h1 class="govuk-heading-xl">
+      Adam Mastly
+    </h1>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <p class="govuk-body"><span class="govuk-!-font-weight-bold">Full name:</span> Adam Mastly<br>
+    <span class="govuk-!-font-weight-bold">Email address:</span> Adam.Mastly@email.com<br>
+    <span class="govuk-!-font-weight-bold">System role:</span> Standard user</p>
+    <p class="govuk-body"><span class="govuk-!-font-weight-bold">Added on:</span> 15 March 2017<br>
+    <span class="govuk-!-font-weight-bold">Last signed in:</span> 3 July 2018</p>
+  </div>
+  <div class="govuk-grid-column-one-thirds">
+    <p class="govuk-body"><a href="user-account" class="govuk-link--no-visited-state">Edit details</a></p>
+    <p class="govuk-body"><a href="" class="govuk-link--no-visited-state">Reset password</a>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <br>
+    {{ govukButton({
+      text: "Add service access",
+      href: ""
+    }) }}
+
+    {{ govukTable({
+      caption: "Your services",
+      captionClasses: "govuk-heading-l",
+      firstCellIsHeader: false,
+      head: [
+        {
+          html: '<a class="govuk-link--no-visited-state" href="">Service</a>',
+          format: 'column-quarter'
+
+        },
+        {
+          html: '<a class="govuk-link--no-visited-state" href="">Organisation</a>',
+          format: 'column-half'
+
+        },
+        {
+          html: '<a class="govuk-link--no-visited-state" href="">Service role</a>',
+          format: 'column-fifth'
+
+        }
+      ],
+      rows: [
+      [
+        {
+          text: "UK ePIC"
+        },
+        {
+          text: "AstraZeneca - Farma"
+        },
+        {
+          text: "Manager"
+        }
+      ],
+      [
+        {
+          text: "UK-REACH-IT"
+        },
+        {
+          html: 'AstraZeneca UK Limited <br><span class="govuk-body-s">03674842</span>'
+        },
+        {
+          html: 'RE Manager'
+        }
+      ]
+
+      ]
+    }) }}
+
+  </div>
+</div>
+
+
+{% endblock %}
