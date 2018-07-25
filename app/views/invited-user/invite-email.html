@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% set title = "Invited user" %}
+
+{% block page_title %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        {{title}} </h1>
+        <p class="">Hello</p>
+        <p class="">You've been invited to do some things at our copmany, it's all very exiciting</p>
+        <p class="">You've been given an account role of [admin or user admin] for [service name if users is a stardard user] which means you can [Do things].</p>
+
+        <h3>  or</h3>
+
+          <p class="">You been give access to [service name] and the role of [service role]. This is very exciting.</p>
+
+
+    </div>
+</div>
+
+{% endblock %}
