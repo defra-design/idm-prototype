@@ -21,7 +21,6 @@
       <form action="add-user-org" method="post">
 
         {% set setServiceTypeHtml %}
-            <p class="govuk-hint">The following roles are available for {{ data['serviceName'] }}</p>
         {% endset %}
 
         {{ govukRadios ({
@@ -29,7 +28,7 @@
           name: "serviceRole",
           fieldset: {
             legend: {
-              text: "Select the team members' role?",
+              text: "What do you want them to be able to do in the SERVICE NAME service?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--xl"
             }
@@ -40,12 +39,12 @@
           items: [
             {
               value: "Manager",
-              html: 'Manager',
+              html: 'Edit and submit information.',
               checked:  checked('serviceRole','Manager')
             },
             {
               value: "Reader",
-              html: 'Reader',
+              html: 'View only. They cannot edit or submit any information.',
               checked:  checked('serviceRole','Reader')
             }
           ]
