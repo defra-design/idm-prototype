@@ -19,8 +19,19 @@
       <h1 class="govuk-heading-xl">
         [Service name]
       </h1>
-      <p class="govuk-body">This is the service!!</p>
-      <p class="">The user has the status of 'Complete'</p>
+
+{% from "inset-text/macro.njk" import govukInsetText %}
+
+  {{ govukInsetText({
+  text: "Your service registration is complete."
+}) }}
+
+      <p class="govuk-body">You can now:</p>
+<ul class="govuk-list govuk-list--bullet">
+  <li>service task</li>
+  <li>service task</li>
+  <li>service task</li>
+</ul>
 
     </div>
 
