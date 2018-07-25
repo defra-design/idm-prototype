@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Invite new team member" %}
+{% set title = "Give a team member access to this service" %}
 
 {% block page_title %}
     {{title}} - GOV.UK
@@ -43,10 +43,7 @@
 
         {{ govukInput({
           label: {
-            text: "Email address"
-          },
-          hint: {
-            text: "This should be their business address email"
+            text: "Business email address"
           },
           classes: "govuk-input--width-20",
           id: "businessEmail",
