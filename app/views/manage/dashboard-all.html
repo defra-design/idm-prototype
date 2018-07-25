@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Dashboard" %}
+{% set title = "Your Defra account" %}
 
 {% block page_title %}
     {{title}} - GOV.UK
@@ -28,13 +28,13 @@
     <div class="govuk-card govuk-card--contained govuk-card--selectable">
       <a href="team-members/team-members-all"></a>
       <div class="govuk-card__content">
-        <h3 class="govuk-heading-m"><a href="#" class="govuk-link--no-visited-state">Team members</a></h3>
+        <h3 class="govuk-heading-m"><a href="#" class="govuk-link--no-visited-state">Team member access</a></h3>
         <p class="govuk-!-font-weight-bold govuk-!-font-size-48 govuk-!-font-weight-bold">22</p>
-        <p class="govuk-body">1 service access requests</p>
+        <p class="govuk-body">3 access requests received</p>
       </div>
       <div class="govuk-card__actions">
         <ul class="govuk-list govuk-!-mb-r0">
-          <li><a href="team-members/add-user-details" class="govuk-link--no-visited-state">Invite new team member</a></li>
+          <li><a href="team-members/add-user-details" class="govuk-link--no-visited-state">Add or remove a team member</a></li>
         </ul>
       </div>
     </div>
@@ -46,13 +46,13 @@
     <div class="govuk-card govuk-card--contained govuk-card--selectable">
       <a href="agent/agent-all"></a>
       <div class="govuk-card__content">
-        <h3 class="govuk-heading-m"><a href="agent/agent-all" class="govuk-link--no-visited-state">Intermediaries</a></h3>
+        <h3 class="govuk-heading-m"><a href="agent/agent-all" class="govuk-link--no-visited-state">Intermediary access</a></h3>
         <p class="govuk-!-font-weight-bold govuk-!-font-size-48 govuk-!-font-weight-bold">5</p>
-        <p class="govuk-body">1 service access request</p>
+        <p class="govuk-body">1 access request received</p>
       </div>
       <div class="govuk-card__actions">
         <ul class="govuk-list govuk-!-mb-r0">
-          <li><a href="#2" class="govuk-link--no-visited-state">Invite intermediary</a></li>
+          <li><a href="#2" class="govuk-link--no-visited-state">Add or remove an intermediary</a></li>
         </ul>
       </div>
     </div>
@@ -64,12 +64,12 @@
     <div class="govuk-card govuk-card--contained govuk-card--selectable">
       <a href="organisations/organisation-all"></a>
       <div class="govuk-card__content">
-        <h3 class="govuk-heading-m"><a href="organisations/organisation-all" class="govuk-link--no-visited-state">Organisations</a></h3>
+        <h3 class="govuk-heading-m"><a href="organisations/organisation-all" class="govuk-link--no-visited-state"> Your organisations</a></h3>
         <p class="govuk-!-font-weight-bold govuk-!-font-size-48 govuk-!-font-weight-bold">4</p>
       </div>
       <div class="govuk-card__actions">
         <ul class="govuk-list govuk-!-mb-r0">
-          <li><a href="#2" class="govuk-link--no-visited-state">Add new organisation</a></li>
+          <li><a href="#2" class="govuk-link--no-visited-state">Add an organisation</a></li>
         </ul>
       </div>
     </div>
@@ -81,7 +81,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
     <div class="govuk-card__content">
-      <h2 class="govuk-heading-l">Services</h2>
+      <h2 class="govuk-heading-l">Services you have registered to use</h2>
 
       <div class="govuk-grid-row">
 
@@ -90,7 +90,7 @@
               <a href="manage-access"></a>
               <div class="govuk-card__content">
                 <h3 class="govuk-heading-m">Chemicals</h3>
-                <p class="govuk-body">A short overview of the content that exists behind this card.
+                <p class="govuk-body">A short summary of the tasks you can complete with this service.
                 </p>
               </div>
             </div>
@@ -100,7 +100,7 @@
               <a href="#"></a>
               <div class="govuk-card__content">
                 <h3 class="govuk-heading-m">VMD</h3>
-                <p class="govuk-body">A short overview of the content that exists behind this card.
+                <p class="govuk-body">A short summary of the tasks you can complete with this service.
                 </p>
               </div>
             </div>
@@ -112,7 +112,7 @@
 
         <div class="govuk-grid-column-one-third">
           {{ govukButton({
-            text: "Register for new service",
+            text: "Register for another service",
             href: "#"
           }) }}
         </div>
