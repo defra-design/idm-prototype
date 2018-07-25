@@ -19,9 +19,16 @@
       <h1 class="govuk-heading-xl">
         [Service name]
       </h1>
-      <p class="govuk-body">This is the service!!</p>
-      <p class="">The user has the status of 'Pending'</p>
+      {{ govukWarningText({
+        text: "Your registration request is complete and will now be reviewed."
+      }) }}
 
+      <p class="govuk-body">We will contact you by [email/telephone/letter] within [SLA timeframe] about your request to use this service.</p>
+
+      {{ govukButton({
+        text: "Sign out",
+        href: "new-user-reg/service-questions"
+      }) }}
     </div>
 
     <div class="govuk-grid-column-one-third">
