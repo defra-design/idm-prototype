@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "System access roles" %}
+{% set title = "What do you want this person to be able to do?" %}
 
 {% block page_title %}
     {{title}} - GOV.UK
@@ -25,32 +25,32 @@
           name: "systemRole",
           fieldset: {
             legend: {
-              text: "What system access should the team member get?",
+              text: "What do you want this person to be able to do?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--xl"
             }
           },
           hint: {
-            text: "These are the roles the team member will have with the system...not the service"
+            text: "Please choose the role you want this person to perform for your organisation's Defra account. You can choose what tasks they can perform in each service on the next screen."
           },
           items: [
             {
               value: "Administrator",
               html: ' <span class="govuk-body govuk-!-font-weight-bold">Administrator</span><br>
-                      Description of what a system admin can do...',
+                      They can view all information held by the services your organisation is registered with. They can submit data to these services. They can give or remove access to services.',
               checked:  checked('systemRole','Administrator')
 
             },
             {
               value: "User Administrator",
-              html: ' <span class="govuk-body govuk-!-font-weight-bold">User Administrator</span><br>
-                      Description of what a user admin can do...',
+              html: ' <span class="govuk-body govuk-!-font-weight-bold">Access manager</span><br>
+                      They can give or remove access to services. They cannot view information held by services your organisation is registered with. They cannot submit data.',
               checked:  checked('systemRole','User Administrator')
             },
             {
               value: "Standard",
               html: ' <span class="govuk-body govuk-!-font-weight-bold">Standard user</span><br>
-                      Description of what a standard user can do...',
+                      They can view all information held by the services your organisation is registered with. They cannot submit data. They cannot give or remove access to services.',
               checked:  checked('systemRole','Standard')
 
             }
