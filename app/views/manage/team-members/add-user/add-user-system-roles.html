@@ -18,7 +18,34 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-      <form action="add-user-service" method="post">
+        <form class="add-user-service" onsubmit="return myFunction()" method="post">
+
+          <script>
+            const form = document.querySelector('.add-user-service')
+
+            function myFunction() {
+              const checked = document.querySelector('[name="systemRole"]:checked')
+              const checkedValue = checked.value
+
+              switch(checkedValue){
+                case 'Administrator':
+                form.action = 'add-user-confirmation-reg-sent'
+
+                break;
+                case 'User Administrator':
+                form.action = 'add-user-confirmation-reg-sent'
+
+                break;
+                case 'Standard':
+                form.action = 'add-user-service'
+
+                break;
+                default:
+                form.action = '/new-user-reg/organisation-business-coming-soon'
+              }
+              return true
+            }
+          </script>
 
         {{ govukRadios({
           idPrefix: "systemRole",

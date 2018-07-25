@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block beforeContent %}
-  {% include "includes/account-nav-admin-corp.html" %}
+  {% include "includes/account-nav-admin-user-admin.html" %}
 {% endblock %}
 
 {% block content %}
@@ -108,14 +108,5 @@
 
       </div>
 
-      <div class="govuk-grid-row">
-
-        <div class="govuk-grid-column-one-third">
-          {{ govukButton({
-            text: "Register for another service",
-            href: "#"
-          }) }}
-        </div>
-      </div>
 
 {% endblock %}
