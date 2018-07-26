@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Invited user" %}
+{% set title = "You have been given online access to [organisation's name] Defra account" %}
 
 {% block page_title %}
     {{title}} - GOV.UK
@@ -12,13 +12,35 @@
     <div class="govuk-grid-column-two-thirds">
       <h1 class="govuk-heading-xl">
         {{title}} </h1>
-        <p class="">Hello</p>
-        <p class="">You've been invited to do some things at our copmany, it's all very exiciting</p>
-        <p class="">You've been given an account role of [admin or user admin] for [service name if users is a stardard user] which means you can [Do things].</p>
-        <h3>  or</h3>
-        <p class="">You been give access to [service name] and the role of [service role]. This is very exciting.</p>
-        <p class="">To experience the joy of the above you need to register with a Defra Account. Please click on the following link:</p>
-        <p class=""><a href="about-data">Accept invite</a></p>
+        <p class="">Hello [First name],</p>
+        <p class="">((sender)) has invited you to access Defra online services on behalf of [organisation's name].</p>
+        <p class="">You have been given the role of administrator. This means you can:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>view all information held by the services your organisation is registered with</li>
+          <li>submit data to these services</li>
+          <li>give or remove access to services</li>
+        </ul>
+
+<p> OR </p>
+<p class="">You have been given the role of access manager. This means you can give or remove access to services your organisation is registered with. You cannot use services on behalf of this organisation, or view information held by those services.</p>
+
+<p> OR </p>
+<p class="">You have been given the role of a standard user. This means you can view information held by the services you are given access to.</p>
+
+<div class="govuk-inset-text">
+  To view this Defra account, you need to complete a secure identity check. <p class=""><a href="about-data">Please go to the Defra website and follow the instructions.</a></p>
+</div>
+        <p class="">
+
+        <div class="govuk-warning-text">
+  <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+  <strong class="govuk-warning-text__text">
+    <span class="govuk-warning-text__assistive">Warning</span>
+    To withdraw your consent for this service to store and use your email address, please follow the guidance in our privacy policy: URL.
+  </strong>
+</div>
+
+
 
 
     </div>
