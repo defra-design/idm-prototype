@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Team members" %}
+{% set title = "Manage team access" %}
 
 {% block page_title %}
     {{title}} - GOV.UK
@@ -20,7 +20,7 @@
       {{title}}
     </h1>
     {{ govukButton({
-      text: "Invite new member",
+      text: "Add a team member",
       href: "#"
     }) }}
 
@@ -30,15 +30,15 @@
       firstCellIsHeader: false,
       head: [
         {
-          html: '<a class="govuk-link--no-visited-state" href="">User</a>',
+          html: '<a class="govuk-link--no-visited-state" href="">Team member</a>',
           format: 'column-third'
         },
         {
-          html: '<a class="govuk-link--no-visited-state" href="">System role</a>',
+          html: '<a class="govuk-link--no-visited-state" href="">Role type</a>',
           format: 'column-quarter'
         },
         {
-          html: '<a class="govuk-link--no-visited-state" href="">Status</a>',
+          html: '<a class="govuk-link--no-visited-state" href="">Account status</a>',
           format: 'column-quarter'
         },
         {
@@ -59,7 +59,7 @@
             text: ""
           },
           {
-            html: '<a class="govuk-link--no-visited-state" href="">Remove user</a>'
+            html: '<a class="govuk-link--no-visited-state" href="">Remove access</a>'
           }
         ],
         [
@@ -74,7 +74,7 @@
             text: ""
           },
           {
-            html: '<a class="govuk-link--no-visited-state" href="">Remove user</a>'
+            html: '<a class="govuk-link--no-visited-state" href="">Remove access</a>'
           }
         ],
         [
@@ -89,7 +89,7 @@
             text: ""
           },
           {
-            html: '<a class="govuk-link--no-visited-state" href="">Remove user</a>'
+            html: '<a class="govuk-link--no-visited-state" href="">Remove access</a>'
           }
         ],
         [
@@ -98,13 +98,13 @@
                     <span class="govuk-body-s">Sara.Chippers@email.com</span>'
           },
           {
-            text: "User Administrator"
+            text: "Access manager"
           },
           {
-            text: "Invite sent"
+            text: "Invite email sent"
           },
           {
-            html: '<a class="govuk-link--no-visited-state" href="#">Remove user</a>'
+            html: '<a class="govuk-link--no-visited-state" href="#">Remove access</a>'
           }
         ],
         [
@@ -116,10 +116,10 @@
             text: "Standard user"
           },
           {
-            text: "Service request"
+            text: "Access request received"
           },
           {
-            html: '<a class="govuk-link--no-visited-state" href="">Remove user</a>'
+            html: '<a class="govuk-link--no-visited-state" href="">Remove access</a>'
           }
         ],
         [
@@ -134,7 +134,7 @@
             text: ""
           },
           {
-            html: '<a class="govuk-link--no-visited-state" href="">Remove user</a>'
+            html: '<a class="govuk-link--no-visited-state" href="">Remove access</a>'
           }
         ],
         [
@@ -149,7 +149,7 @@
             text: ""
           },
           {
-            html: '<a class="govuk-link--no-visited-state" href="">Remove user</a>'
+            html: '<a class="govuk-link--no-visited-state" href="">Remove access</a>'
           }
         ],
         [
@@ -164,7 +164,7 @@
             text: ""
           },
           {
-            html: '<a class="govuk-link--no-visited-state" href="">Remove user</a>'
+            html: '<a class="govuk-link--no-visited-state" href="">Remove access</a>'
           }
         ],
         [
@@ -176,25 +176,10 @@
             text: "Standard user"
           },
           {
-            text: "Service request"
+            text: "Access request received"
           },
           {
-            html: '<a class="govuk-link--no-visited-state" href="">Remove user</a>'
-          }
-        ],
-        [
-          {
-            html: '<a class="govuk-link--no-visited-state" href="services-on-team-member-service-request">Ann Other</a><br>
-                    <span class="govuk-body-s">Ann.Other@email.com</span>'
-          },
-          {
-            text: "Standard user"
-          },
-          {
-            text: ""
-          },
-          {
-            html: '<a class="govuk-link--no-visited-state" href="">Remove user</a>'
+            html: '<a class="govuk-link--no-visited-state" href="">Remove access</a>'
           }
         ],
         [
@@ -209,7 +194,7 @@
             text: ""
           },
           {
-            html: '<a class="govuk-link--no-visited-state" href="">Remove user</a>'
+            html: '<a class="govuk-link--no-visited-state" href="">Remove access</a>'
           }
         ],
         [
@@ -224,7 +209,7 @@
             text: ""
           },
           {
-            html: '<a class="govuk-link--no-visited-state" href="">Remove user</a>'
+            html: '<a class="govuk-link--no-visited-state" href="">Remove access</a>'
           }
         ],
         [
@@ -239,7 +224,7 @@
             text: ""
           },
           {
-            html: '<a class="govuk-link--no-visited-state" href="">Remove user</a>'
+            html: '<a class="govuk-link--no-visited-state" href="">Remove access</a>'
           }
         ],
         [
@@ -254,7 +239,7 @@
             text: ""
           },
           {
-            html: '<a class="govuk-link--no-visited-state" href="">Remove user</a>'
+            html: '<a class="govuk-link--no-visited-state" href="">Remove access</a>'
           }
         ],
         [
@@ -269,7 +254,22 @@
             text: ""
           },
           {
-            html: '<a class="govuk-link--no-visited-state" href="">Remove user</a>'
+            html: '<a class="govuk-link--no-visited-state" href="">Remove access</a>'
+          }
+        ],
+        [
+          {
+            html: '<a class="govuk-link--no-visited-state" href="services-on-team-member-service-request">Ann Other</a><br>
+                    <span class="govuk-body-s">Ann.Other@email.com</span>'
+          },
+          {
+            text: "Standard user"
+          },
+          {
+            text: ""
+          },
+          {
+            html: '<a class="govuk-link--no-visited-state" href="">Remove access</a>'
           }
         ]
 
