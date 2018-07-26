@@ -21,7 +21,7 @@
       <form action="add-user-confirmation-reg-sent" method="post">
 
         {% set setServiceTypeHtml %}
-            <p class="govuk-hint">The following organisations are available for {{ data['serviceName'] }}</p>
+            <p class="govuk-hint">Select one or more organisations registered with {{ data['serviceName'] }}:</p>
         {% endset %}
 
         {{ govukCheckboxes ({
@@ -29,7 +29,7 @@
           name: "orgName",
           fieldset: {
             legend: {
-              text: "Which organisation can the team member do the do at?",
+              text: "Which organisation can they use this service for?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--xl"
             }
