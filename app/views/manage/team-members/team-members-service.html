@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Team members" %}
+{% set title = "Manage team access" %}
 
 {% block page_title %}
     {{title}} - GOV.UK
@@ -26,15 +26,15 @@
       firstCellIsHeader: false,
       head: [
         {
-          html: '<a class="govuk-link--no-visited-state" href="">User</a>',
+          html: '<a class="govuk-link--no-visited-state" href="">Team member</a>',
           format: 'column-third'
         },
         {
-          html: '<a class="govuk-link--no-visited-state" href="">System role</a>',
+          html: '<a class="govuk-link--no-visited-state" href="">Role type</a>',
           format: 'column-quarter'
         },
         {
-          html: '<a class="govuk-link--no-visited-state" href="">Status</a>',
+          html: '<a class="govuk-link--no-visited-state" href="">Account status</a>',
           format: 'column-quarter'
         },
         {
@@ -49,13 +49,13 @@
                     <span class="govuk-body-s">Ann.Cooper@email.com</span>'
           },
           {
-            text: "Administrator"
+            text: "Editor"
           },
           {
             text: ""
           },
           {
-            html: '<a class="govuk-link--no-visited-state" href="">Remove user</a>'
+            html: '<a class="govuk-link--no-visited-state" href="">Remove access</a>'
           }
         ],
         [
@@ -64,13 +64,13 @@
                     <span class="govuk-body-s">Adam.Mastly@email.com</span>'
           },
           {
-            text: "Standard user"
+            text: "Viewer"
           },
           {
             text: ""
           },
           {
-            html: '<a class="govuk-link--no-visited-state" href="">Remove user</a>'
+            html: '<a class="govuk-link--no-visited-state" href="">Remove access</a>'
           }
         ],
         [
@@ -79,13 +79,13 @@
                     <span class="govuk-body-s">Barry.Anders@email.com</span>'
           },
           {
-            text: "Administrator"
+            text: "Editor"
           },
           {
             text: ""
           },
           {
-            html: '<a class="govuk-link--no-visited-state" href="">Remove user</a>'
+            html: '<a class="govuk-link--no-visited-state" href="">Remove access</a>'
           }
         ],
         [
@@ -94,13 +94,13 @@
                     <span class="govuk-body-s">Sara.Chippers@email.com</span>'
           },
           {
-            text: "User Administrator"
+            text: "Viewer"
           },
           {
-            text: "Invite sent"
+            text: "Invite email sent"
           },
           {
-            html: '<a class="govuk-link--no-visited-state" href="#">Remove user</a>'
+            html: '<a class="govuk-link--no-visited-state" href="#">Remove access</a>'
           }
         ]
 
