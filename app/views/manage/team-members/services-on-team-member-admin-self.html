@@ -24,14 +24,14 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <p class="govuk-body"><span class="govuk-!-font-weight-bold">Full name:</span> Ann Cooper<br>
+    <p class="govuk-body"><span class="govuk-!-font-weight-bold">Name:</span> Ann Cooper<br>
     <span class="govuk-!-font-weight-bold">Email address:</span> Ann.Cooper@email.com<br>
-    <span class="govuk-!-font-weight-bold">System role:</span> Administrator</p>
+    <span class="govuk-!-font-weight-bold">Role type:</span> Administrator</p>
     <p class="govuk-body"><span class="govuk-!-font-weight-bold">Added on:</span> 10 January 2010<br>
     <span class="govuk-!-font-weight-bold">Last signed in:</span> 27 June 2018</p>
   </div>
   <div class="govuk-grid-column-one-thirds">
-    <p class="govuk-body"><a href="user-account" class="govuk-link--no-visited-state">Edit details</a></p>
+    <p class="govuk-body"><a href="user-account" class="govuk-link--no-visited-state">Edit team member details</a></p>
     <p class="govuk-body"><a href="" class="govuk-link--no-visited-state">Reset password</a><br>
     <a href="" class="govuk-link--no-visited-state">Resend user ID</a></p>
   </div>
@@ -41,7 +41,7 @@
   <div class="govuk-grid-column-full">
     <br>
     {{ govukTable({
-      caption: "Your services",
+      caption: "Your service access",
       captionClasses: "govuk-heading-l",
       firstCellIsHeader: false,
       head: [
@@ -56,7 +56,7 @@
 
         },
         {
-          html: '<a class="govuk-link--no-visited-state" href="">Service role</a>',
+          html: '<a class="govuk-link--no-visited-state" href="">Role type</a>',
           format: 'column-fifth'
 
         },
@@ -95,7 +95,7 @@
           html: 'AstraZeneca UK Limited <br><span class="govuk-body-s">03674842</span>'
         },
         {
-          text: "Manager"
+          text: "Editor"
         },
         {
           html: '<a href="services-on-team-member-roles2" class="govuk-link--no-visited-state">Manage access</a>'
@@ -112,7 +112,7 @@
           text: "AstraZeneca - Farma"
         },
         {
-          text: "Manager"
+          text: "Editor"
         },
         {
           html: '<a href="services-on-team-member-roles2" class="govuk-link--no-visited-state">Manage access</a>'
@@ -129,7 +129,7 @@
           html: 'AstraZeneca UK Limited <br><span class="govuk-body-s">03674842</span>'
         },
         {
-          text: "Manager"
+          text: "Editor"
         },
         {
           html: '<a href="services-on-team-member-roles2" class="govuk-link--no-visited-state">Manage access</a>'
@@ -146,7 +146,7 @@
           text: "AstraZeneca - Farma"
         },
         {
-          text: "Manager"
+          text: "Editor"
         },
         {
           html: '<a href="services-on-team-member-roles2" class="govuk-link--no-visited-state">Manage access</a>'
