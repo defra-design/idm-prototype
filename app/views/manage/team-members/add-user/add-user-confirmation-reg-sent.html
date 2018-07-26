@@ -18,21 +18,23 @@
 
     <h1 class="govuk-visually-hidden">{{title}}</h1>
     {{ govukPanel({
-          titleText: "1 team member invited",
+          titleText: "We have sent an invitation email to [user name].",
           html: ""
     })
     }}
 
-    <p class="govuk-body">We have sent you a confirmation email.</p>
+    <p class="govuk-body">We have also sent you a confirmation email.</p>
 
     <h3 class="govuk-heading-m">What happens next</h3>
 
-    <p class="govuk-body">Once the team member has accepted the invite they will be able to access their account and any service they have permissions for.</p>
-    <p class="govuk-body">If required don't forget to assign the user to whichever services they need to access.</p>
+    <p class="govuk-body">[User name] will need to accept the email invite.</p> 
+    <p class="givuk-body">They will then be able to access your organisation's Defra account.</p>
+    <p class="govuk-body">They will also be able to perform tasks or view any services you have given them permission for.</p>
+    <p class="govuk-body">You can <a href="#" class="govuk-link">change their role type and access level here.</a></p>
 
 
     {{ govukButton({
-        text: "Continue",
+        text: "Back",
         href: "../team-members-all-2"
     }) }}
 
