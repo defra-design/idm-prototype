@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Team members" %}
+{% set title = "Manage team access" %}
 
 {% block page_title %}
     {{title}} - GOV.UK
@@ -20,7 +20,7 @@
       {{title}}
     </h1>
     {{ govukButton({
-      text: "Invite new member",
+      text: "Add a team member",
       href: "add-user/add-user-details"
     }) }}
 
@@ -30,15 +30,15 @@
       firstCellIsHeader: false,
       head: [
         {
-          html: '<a class="govuk-link--no-visited-state" href="">User</a>',
+          html: '<a class="govuk-link--no-visited-state" href="">Team member</a>',
           format: 'column-third'
         },
         {
-          html: '<a class="govuk-link--no-visited-state" href="">System role</a>',
+          html: '<a class="govuk-link--no-visited-state" href="">Role type</a>',
           format: 'column-quarter'
         },
         {
-          html: '<a class="govuk-link--no-visited-state" href="">Status</a>',
+          html: '<a class="govuk-link--no-visited-state" href="">Account status</a>',
           format: 'column-quarter'
         },
         {
@@ -59,7 +59,7 @@
             text: ""
           },
           {
-            html: '<a class="govuk-link--no-visited-state" href="">Remove user</a>'
+            html: ''
           }
         ]
 
