@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+
+{% set title = "Sign in using Government Gateway" %}
+
+{% block page_title %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">
+      {{title}}
+    </h1>
+
+    <form method="post" action="error-wrong-email">
+
+      {{ govukInput({
+        label: {
+          text: "User ID"
+        },
+        hint: {
+          text: "This could be up to 12 characters. It is sometimes known as a Government Gateway ID"
+        },
+        classes: "govuk-input--width-20",
+        id: "userId",
+        name: "userId",
+        value: userId
+      }) }}
+
+      {{ govukInput({
+        label: {
+          text: "Password"
+        },
+        classes: "govuk-input--width-20",
+        id: "password",
+        name: "password",
+        value: password
+      }) }}
+
+      {{ govukButton({
+        text: "Sign in"
+      }) }}
+
+        <p class="govuk-body"><a href="/sign-in/affinity" class="govuk-link">Set up a user ID</a></p>
+
+        <h2 class="govuk-heading-m">Problems signing in</h2>
+        <ul class="govuk-list">
+            <li><a id="forgotten-password" href="/request-help/help-signing-in">Help with signing in</a></li>
+            <br>
+            <li><a id="forgotten-password" href="/new-reset-password/enter-user-id-and-email-address" class="govuk-link">I have forgotten my password</a></li>
+            <li><a id="forgotten-user-id" href="https://www.prototypes.tax.service.gov.uk/security-integration-prototype/cred-recovery/?forgottenOption=userid" class="govuk-link">I have forgotten my user ID</a></li>
+            <li><a id="forgotten-user-id-password" href="https://www.prototypes.tax.service.gov.uk/security-integration-prototype/cred-recovery/?forgottenOption=both" class="govuk-link">I have forgotten my user ID and password</a></li>
+        </ul>
+
+
+
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}
