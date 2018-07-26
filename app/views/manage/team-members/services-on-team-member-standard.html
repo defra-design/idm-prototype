@@ -26,12 +26,12 @@
   <div class="govuk-grid-column-two-thirds">
     <p class="govuk-body"><span class="govuk-!-font-weight-bold">Full name:</span> Adam Mastly<br>
     <span class="govuk-!-font-weight-bold">Email address:</span> Adam.Mastly@email.com<br>
-    <span class="govuk-!-font-weight-bold">System role:</span> Standard user</p>
+    <span class="govuk-!-font-weight-bold">Role type:</span> Standard user</p>
     <p class="govuk-body"><span class="govuk-!-font-weight-bold">Added on:</span> 15 March 2017<br>
     <span class="govuk-!-font-weight-bold">Last signed in:</span> 3 July 2018</p>
   </div>
   <div class="govuk-grid-column-one-thirds">
-    <p class="govuk-body"><a href="user-account" class="govuk-link--no-visited-state">Edit details</a></p>
+    <p class="govuk-body"><a href="user-account" class="govuk-link--no-visited-state">Edit team member details</a></p>
     <p class="govuk-body"><a href="" class="govuk-link--no-visited-state">Reset password</a><br>
     <a href="" class="govuk-link--no-visited-state">Resend user ID</a></p>
     <p class="govuk-body"><a href="" class="govuk-link--no-visited-state">Delete team member</a></p>
@@ -47,7 +47,7 @@
     }) }}
 
     {{ govukTable({
-      caption: "Services",
+      caption: "Access to services",
       captionClasses: "govuk-heading-l",
       firstCellIsHeader: false,
       head: [
@@ -62,7 +62,7 @@
 
         },
         {
-          html: '<a class="govuk-link--no-visited-state" href="">Service role</a>',
+          html: '<a class="govuk-link--no-visited-state" href="">Role type</a>',
           format: 'column-fifth'
 
         },
@@ -84,7 +84,7 @@
           text: "AstraZeneca - Farma"
         },
         {
-          text: "Manager"
+          text: "Editor"
         },
         {
           html: '<a href="services-on-team-member-roles2" class="govuk-link--no-visited-state">Manage access</a>'
