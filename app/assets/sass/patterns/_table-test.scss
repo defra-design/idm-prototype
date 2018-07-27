@@ -50,27 +50,6 @@ th {
 vertical-align: text-top;
 }
 
-
-//Setting td column name with css
-/*
-td:nth-child(1)::before {
-  content: "Team member ";
-}
-td:nth-child(2)::before {
-  content: "Role type ";
-}
-td:nth-child(3)::before {
-  content: "Account status ";
-}
-td:nth-child(4)::before {
-  content: "Action ";
-}
-
-th::before {
-  content: "Sort by: ";
-}
-*/
-
 td::before {
 font-weight: bold;
 }
