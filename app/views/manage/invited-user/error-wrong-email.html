@@ -1,0 +1,89 @@
+{% extends "layout.html" %}
+
+{% set title = "Choose an option to use this service" %}
+
+{% block page_title %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">{{title}}</h1>
+    {% from "inset-text/macro.njk" import govukInsetText %}
+
+        {{ govukInsetText({
+      text: "Hey! You are a numpty. To access this service you need to use a Government Gateway account that set up for the email address [email address] that was in your email. Try explaining that one!"
+    }) }}
+
+    <form class="create-signin" onsubmit="return myFunction()" method="post">
+      <script>
+        const form = document.querySelector('.create-signin')
+
+        function myFunction() {
+          const checked = document.querySelector('[name="createSignin"]:checked')
+          const checkedValue = checked.value
+
+          switch(checkedValue){
+            case 'create':
+            form.action = 'about-data'
+
+            break;
+            case 'signin':
+            form.action = 'login'
+
+            break;
+            default:
+            form.action = '#'
+          }
+          return true
+        }
+      </script>
+
+      {{ govukRadios({
+        idPrefix: "createSignin",
+        name: "createSignin",
+        fieldset: {
+          legend: {
+            text: title,
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--m"
+          }
+        },
+
+        items: [
+          {
+            value: "signin",
+            html: ' <h2 class="govuk-heading-m">Sign in</h2>
+                    Choose this option if you have already created a Government Gateway account for your company or organisation.',
+            checked:  checked('createSignin','signin')
+
+          },
+          {
+            value: "create",
+            html: ' <h2 class="govuk-heading-m">Create an account</h2>
+                    Choose this option if you have not created a Government Gateway account for your company or organisation before.',
+            checked:  checked('createSignin','create')
+          }
+
+        ]
+
+      }) }}
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+
+
+  </div>
+</div>
+
+{% endblock %}
