@@ -1,12 +1,95 @@
 @media all and (max-width: 37em) {
 
-  table,
+  /*  table,*/
     tr,
-    td {
-      display: block;
-      background-color: red;
+    td,
+    th {
+    display: block;
+  }
+
+//Cresting a striped effect across rows
+
+    tr {
+    padding: 0.7em 2vw;
     }
 
+    tr:nth-child(even) {
+    background-color: govuk-colour("grey-4");
+    }
+
+    th {
+      background-color: govuk-colour("grey-4");
+    }
+
+    //Forcing the column width on small screens to be full width
+
+    .column-full {
+      width: 100% !important;
+    }
+
+  //Dispalying the before content on small screens
+
+  td::before {
+    display: block !important;
+  }
+
+  th::before {
+    display: inline !important;
+  }
+
+  .visibility{
+    visibility: visible !important;
+  }
+
+}
+
+//Forcing aligment
+
+td,
+th {
+vertical-align: text-top;
+}
 
 
+//Setting td column name with css
+
+td:nth-child(1)::before {
+  content: "Team member ";
+}
+td:nth-child(2)::before {
+  content: "Role type ";
+}
+td:nth-child(3)::before {
+  content: "Account status ";
+}
+td:nth-child(4)::before {
+  content: "Action ";
+}
+
+th::before {
+  content: "Sort by: ";
+}
+
+td::before {
+font-weight: bold;
+}
+
+th::before {
+font-weight: normal;
+}
+
+td::before,
+th::before {
+  display: none;
+}
+
+//Column header style
+  .colHeader {
+      color: #005ea5;
+      cursor: pointer;
+      text-decoration: underline;
+  }
+
+.visibility{
+  visibility: hidden;
 }
