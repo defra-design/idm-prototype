@@ -52,7 +52,7 @@ vertical-align: text-top;
 
 
 //Setting td column name with css
-
+/*
 td:nth-child(1)::before {
   content: "Team member ";
 }
@@ -69,6 +69,7 @@ td:nth-child(4)::before {
 th::before {
   content: "Sort by: ";
 }
+*/
 
 td::before {
 font-weight: bold;
