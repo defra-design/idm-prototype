@@ -29,11 +29,11 @@
 
               switch(checkedValue){
                 case 'Administrator':
-                form.action = 'add-user-confirmation-reg-sent'
+                form.action = 'check-answers/check-your-answers-admin'
 
                 break;
                 case 'User Administrator':
-                form.action = 'add-user-confirmation-reg-sent'
+                form.action = 'check-answers/check-your-answers-admin'
 
                 break;
                 case 'Standard':
@@ -41,7 +41,7 @@
 
                 break;
                 default:
-                form.action = '/new-user-reg/organisation-business-coming-soon'
+                form.action = 'add-user-service'
               }
               return true
             }

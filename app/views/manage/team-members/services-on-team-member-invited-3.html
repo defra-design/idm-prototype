@@ -54,12 +54,28 @@
     {{ data['serviceName'] }}
 {% endset %}
 
+{% set setServiceName1Html %}
+    {{ data['serviceName1'] }}
+{% endset %}
+
+\{% set setServiceName1Html %}
+    {{ data['serviceName1'] }}
+{% endset %}
+
 {% set setOrgHtml %}
     {{ data['orgName'] }}
 {% endset %}
 
+{% set setOrg1Html %}
+    {{ data['orgName1'] }}
+{% endset %}
+
 {% set setServiceRoleHtml %}
     {{ data['serviceRole'] }}
+{% endset %}
+
+{% set setServiceRole1Html %}
+    {{ data['serviceRole1'] }}
 {% endset %}
 
 {{ govukTable({
@@ -104,6 +120,23 @@
     },
     {
       html: '<a href="add-user-service/add-user-roles" class="govuk-link--no-visited-state">Manage access</a>'
+    },
+    {
+      html: '<a href="#" class="govuk-link--no-visited-state">Remove access</a>'
+    }
+  ],
+  [
+    {
+      html: setServiceName1Html
+    },
+    {
+      html: setOrg1Html
+    },
+    {
+      html: setServiceRole1Html
+    },
+    {
+      html: '<a href="add-user-service/add-user-roles-1" class="govuk-link--no-visited-state">Manage access</a>'
     },
     {
       html: '<a href="#" class="govuk-link--no-visited-state">Remove access</a>'

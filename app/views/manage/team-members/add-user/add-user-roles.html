@@ -18,10 +18,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-      <form action="add-user-org" method="post">
-
-        {% set setServiceTypeHtml %}
-        {% endset %}
+      <form action="add-user-org-multi" method="post">
 
         {{ govukRadios ({
           idPrefix: "serviceRole",
@@ -38,12 +35,12 @@
           },
           items: [
             {
-              value: "Manager",
+              value: "Editor",
               html: 'Editor - they can edit and submit information.',
               checked:  checked('serviceRole','Manager')
             },
             {
-              value: "Reader",
+              value: "Viewer",
               html: 'Viewer - they can only view information. They cannot edit or submit any information.',
               checked:  checked('serviceRole','Reader')
             }
@@ -51,7 +48,7 @@
         }) }}
 
         {{ govukButton({
-          text: "Done"
+          text: "Continue"
         }) }}
 
       </form>

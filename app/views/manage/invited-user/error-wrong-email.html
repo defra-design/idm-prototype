@@ -16,11 +16,6 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-xl">{{title}}</h1>
-    {% from "inset-text/macro.njk" import govukInsetText %}
-
-        {{ govukInsetText({
-      text: "Hey! You are a numpty. To access this service you need to use a Government Gateway account that set up for the email address [email address] that was in your email. Try explaining that one!"
-    }) }}
 
     <form class="create-signin" onsubmit="return myFunction()" method="post">
       <script>
@@ -46,6 +41,12 @@
         }
       </script>
 
+      {% from "inset-text/macro.njk" import govukInsetText %}
+
+          {{ govukInsetText({
+        text: "Hey! You are a numpty. To access this service you need to use a Government Gateway account that set up for the email address [email address] that was in your email. Try explaining that one!"
+      }) }}
+
       {{ govukRadios({
         idPrefix: "createSignin",
         name: "createSignin",
@@ -53,7 +54,7 @@
           legend: {
             text: title,
             isPageHeading: false,
-            classes: "govuk-fieldset__legend--m"
+            classes: "govuk-visually-hidden"
           }
         },
 

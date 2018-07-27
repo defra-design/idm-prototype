@@ -24,7 +24,7 @@
             const form = document.querySelector('.add-user-roles')
 
             function myFunction() {
-              const checked = document.querySelector('[name="serviceName"]:checked')
+              const checked = document.querySelector('[name="serviceName1"]:checked')
               const checkedValue = checked.value
 
               switch(checkedValue){
@@ -40,8 +40,8 @@
           </script>
 
         {{ govukRadios({
-          idPrefix: "serviceName",
-          name: "serviceName",
+          idPrefix: "serviceName1",
+          name: "serviceName1",
           fieldset: {
             legend: {
               text: "Which service or system do you want this person to access?",
@@ -53,22 +53,22 @@
             {
               value: "UK BPR",
               html: 'UK BPR',
-              checked:  checked('serviceName','UK BPR')
+              checked:  checked('serviceName1','UK BPR')
             },
             {
               value: "UK CLP",
               html: 'UK CLP',
-              checked:  checked('serviceName','UK CLP')
+              checked:  checked('serviceName1','UK CLP')
             },
             {
               value: "UK ePIC",
               html: 'UK ePIC',
-              checked:  checked('serviceName','UK ePIC')
+              checked:  checked('serviceName1','UK ePIC')
             },
             {
               value: "UK-REACH-IT",
               html: 'UK-REACH-IT',
-              checked:  checked('serviceName','UK-REACH-IT')
+              checked:  checked('serviceName1','UK-REACH-IT')
             }
           ]
         }) }}

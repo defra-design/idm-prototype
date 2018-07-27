@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Which organisation can they use this service for?" %}
+{% set title = "Add service access" %}
 
 {% block page_title %}
     {{title}} - GOV.UK
@@ -18,18 +18,14 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-      <form action="check-answers/check-your-answers-standard" method="post">
+      <form action="add-user-org-multi" method="post">
 
-        {% set setServiceTypeHtml %}
-            <p class="govuk-hint">Select one or more organisations registered with {{ data['serviceName'] }}:</p>
-        {% endset %}
-
-        {{ govukCheckboxes ({
-          idPrefix: "orgName",
-          name: "orgName",
+        {{ govukRadios ({
+          idPrefix: "serviceRole1",
+          name: "serviceRole1",
           fieldset: {
             legend: {
-              text: "Which organisation can they use this service for?",
+              text: "What do you want them to be able to do in the UK BPR service?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--xl"
             }
@@ -39,9 +35,14 @@
           },
           items: [
             {
-              value: "AstraZeneca UK Limited",
-              html: 'AstraZeneca UK Limited',
-              checked:  checked('orgName','AstraZeneca UK Limited')
+              value: "Editor",
+              html: 'Editor - they can edit and submit information.',
+              checked:  checked('serviceRole1','Manager')
+            },
+            {
+              value: "Viewer",
+              html: 'Viewer - they can only view information. They cannot edit or submit any information.',
+              checked:  checked('serviceRole1','Reader')
             }
           ]
         }) }}
