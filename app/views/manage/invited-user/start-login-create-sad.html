@@ -7,7 +7,11 @@
 {% endblock %}
 
 {% block beforeContent %}
-
+  {% include "includes/account-nav-admin-login.html" %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
 {% endblock %}
 
 
@@ -15,7 +19,6 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-xl">{{title}}</h1>
 
     <form class="create-signin" onsubmit="return myFunction()" method="post">
       <script>
@@ -31,7 +34,7 @@
 
             break;
             case 'signin':
-            form.action = 'login'
+            form.action = 'login-sad'
 
             break;
             default:
@@ -41,25 +44,14 @@
         }
       </script>
 
-      {{ govukErrorSummary({
-        titleText: "There is a problem",
-        errorList: [
-          {
-            text: "Hey! You are a numpty. To access this service you need to use a Government Gateway account that set up for the email address [email address] that was in your email. Try explaining that one!",
-            href: "#dob-error"
-          }
-        ]
-      }) }}
-
-
       {{ govukRadios({
         idPrefix: "createSignin",
         name: "createSignin",
         fieldset: {
           legend: {
             text: title,
-            isPageHeading: false,
-            classes: "govuk-visually-hidden"
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--xl"
           }
         },
 
@@ -87,8 +79,6 @@
       }) }}
 
     </form>
-
-
   </div>
 </div>
 

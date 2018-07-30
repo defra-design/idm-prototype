@@ -28,7 +28,7 @@
           classes: "govuk-input--width-20",
           id: "personalFirstName",
           name: "personalFirstName",
-          value: personalFirstName
+          value: data['personalFirstName']
         }) }}
 
         {{ govukInput({
@@ -38,7 +38,7 @@
           classes: "govuk-input--width-20",
           id: "personalSurname",
           name: "personalSurname",
-          value: personalSurname
+          value: data['personalSurname']
         }) }}
 
         {{ govukInput({
@@ -48,7 +48,7 @@
           classes: "govuk-input--width-20",
           id: "businessEmail",
           name: "businessEmail",
-          value: businessEmail,
+          value: data['businessEmail'],
           type: email
         }) }}
 
@@ -59,7 +59,7 @@
           classes: "govuk-input--width-10",
           id: "businessTelephone",
           name: "businessTelephone",
-          value: businessTelephone,
+          value: data['businessTelephone'],
           type: tel
         }) }}
 
