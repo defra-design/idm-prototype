@@ -41,7 +41,13 @@
     visibility: visible !important;
   }
 
+  th::before {
+      content: "Sort by: ";
+  }
+
 }
+
+
 
 //Forcing aligment
 
@@ -62,6 +68,8 @@ td::before,
 th::before {
   display: none;
 }
+
+
 
 //Column header style
   .colHeader {
