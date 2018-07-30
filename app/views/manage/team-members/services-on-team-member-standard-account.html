@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block beforeContent %}
-  {% include "includes/account-nav-admin-standard.html" %}
+  {% include "includes/account-nav-admin-standard-account.html" %}
 {% endblock %}
 
 {% block content %}
@@ -25,7 +25,7 @@
   <div class="govuk-grid-column-two-thirds">
     <p class="govuk-body">
       <span class="govuk-!-font-weight-bold">Full name:</span> Adam Mastly<br>
-      <span class="govuk-!-font-weight-bold">Role type:</span> Standard user
+      <span class="govuk-!-font-weight-bold">Role type:</span> Standard user<br>
       <span class="govuk-!-font-weight-bold">Email address:</span> Adam.Mastly@email.com<br>
       <span class="govuk-!-font-weight-bold">Telephone:</span> 01179267473, 07852086123
   </p>
@@ -42,7 +42,7 @@
   <div class="govuk-grid-column-full">
     <br>
     {{ govukButton({
-      text: "Add service access",
+      text: "Request service access",
       href: ""
     }) }}
 

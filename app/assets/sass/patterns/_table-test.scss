@@ -24,7 +24,7 @@
     //Forcing the column width on small screens to be full width
 
     .column-full {
-      width: 100% !important;
+      width: auto !important;
     }
 
   //Dispalying the before content on small screens
@@ -45,6 +45,11 @@
       content: "Sort by: ";
   }
 
+  th::before {
+  font-weight: normal;
+  padding-left: 0.5em;
+  }
+
 }
 
 
@@ -60,9 +65,7 @@ td::before {
 font-weight: bold;
 }
 
-th::before {
-font-weight: normal;
-}
+
 
 td::before,
 th::before {
