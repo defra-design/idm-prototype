@@ -1,13 +1,14 @@
 {% extends "layout.html" %}
 
-{% set title = "Accessible table test" %}
+{% set title = "Manage team access" %}
 
 {% block page_title %}
     {{title}} - GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
-
+  {% include "includes/account-nav-admin-corp.html" %}
+  {% include "includes/breadcrumb-three-level.html" %}
 {% endblock %}
 
 {% block content %}
@@ -18,130 +19,218 @@
     <h1 class="govuk-heading-xl">
       {{title}}
     </h1>
-
-    <h2 class="govuk-heading-l">Table 1</h2>
-    <p>An accessible, responsive, sortable table using html and javascript</p>
-
-    <table class="govuk-table sortable" id="team1" role="grid">
-      <caption class="govuk-table__caption">Table 1 caption goes here</caption>
-    <thead class="govuk-table__head">
-    <tr class="govuk-table__row">
-      <th class=" column-full sortable-column govuk-table__header govuk-table__header--column-third" scope="col" data-sortby="text">
-        <span class="th-content colHeader colHeader--underline">Team member </span><i class="arrow colHeader"></i>
-      </th>
-      <th class="column-full sortable-column govuk-table__header govuk-table__header--column-quarter" scope="col" data-sortby="text">
-        <span class="th-content colHeader colHeader--underline">Role type </span><i class="arrow colHeader"></i>
-      </th>
-      <th class="column-full sortable-column govuk-table__header govuk-table__header--column-quarter" scope="col" data-sortby="text">
-        <span class="th-content colHeader colHeader--underline">Account status </span><i class="arrow colHeader"></i>
-      </th>
-      <th class="column-full sortable-column hide-cell govuk-table__header govuk-table__header--column-quarter" scope="col" data-sortby="text">
-        <span class="th-content colHeader visibility">Action <i class="arrow colHeader"></i></span>
-      </th>
-    </tr>
-    </thead>
-
-    <tbody class="govuk-table__body">
-      <tr class="govuk-table__row">
-        <td data-title="Team member:" class="govuk-table__cell" tabindex="-1">
-          <a class="govuk-link--no-visited-state" href="services-on-team-member-admin-self">Ann Cooper (you)</a><br>
-            <span class="govuk-body-s">Ann.Cooper@email.com</span>
-        </td>
-        <td data-title="Role type:" class="govuk-table__cell" tabindex="-1">Administrator
-        </td>
-        <td data-title="Account status:" class="govuk-table__cell" tabindex="-1">
-          <span class="visibility">Approved</span>
-        </td>
-        <td data-title="Action:" class="govuk-table__cell" tabindex="-1">
-          <a class="govuk-link--no-visited-state" href="">Manage</a>
-        </td>
-      </tr>
-
-      <tr class="govuk-table__row">
-        <td data-title="Team member" class="govuk-table__cell" tabindex="-1">
-          <a class="govuk-link--no-visited-state" href="services-on-team-member-standard">Adam Mastly</a><br>
-            <span class="govuk-body-s">Adam.Mastly@email.com</span>
-        </td>
-        <td data-title="Role type" class="govuk-table__cell" tabindex="-1">Standard user
-        </td>
-        <td data-title="Account status" class="govuk-table__cell" tabindex="-1">
-          <span class="visibility">Approved</span>
-        </td>
-        <td data-title="Action" class="govuk-table__cell" tabindex="-1">
-          <a class="govuk-link--no-visited-state" href="">Manage</a>
-        </td>
-      </tr>
-
-      <tr class="govuk-table__row">
-        <td data-title="Account status" class="govuk-table__cell" tabindex="-1">
-          <a class="govuk-link--no-visited-state" href="services-on-team-member-admin">Barry Anders</a><br>
-            <span class="govuk-body-s">Barry.Anders@email.com</span>
-        </td>
-        <td data-title="Role type" class="govuk-table__cell" tabindex="-1">Administrator
-        </td>
-        <td data-title="Account status"class="govuk-table__cell" tabindex="-1">
-          <span class="visibility">Approved</span>
-        </td>
-        <td data-title="Action" class="govuk-table__cell" tabindex="-1">
-          <a class="govuk-link--no-visited-state" href="">Manage</a>
-        </td>
-      </tr>
-
-      <tr class="govuk-table__row">
-        <td data-title="Team member" class="govuk-table__cell" tabindex="-1">
-          <a class="govuk-link--no-visited-state" href="services-on-team-member-invited-1">Sara Chippers</a><br>
-            <span class="govuk-body-s">Sara.Chippers@email.com</span>
-        </td>
-        <td data-title="Role type" class="govuk-table__cell" tabindex="-1">Access manager
-        </td>
-        <td data-title="Account status" class="govuk-table__cell" tabindex="-1">Invite email sent
-        </td>
-        <td data-title="Action" class="govuk-table__cell" tabindex="-1">
-          <a class="govuk-link--no-visited-state" href="">Manage</a>
-        </td>
-
-      </tr>
-      <tr class="govuk-table__row">
-        <td data-title="Team member" class="govuk-table__cell" tabindex="-1">
-          <a class="govuk-link--no-visited-state" href="services-on-team-member-service-request">Tiegan Mole</a><br>
-            <span class="govuk-body-s">Tiegan.Mole@email.com</span>
-        </td>
-        <td data-title="Role type" class="govuk-table__cell" tabindex="-1">
-          Standard user
-        </td>
-        <td data-title="Account status" class="govuk-table__cell" tabindex="-1">Access request received
-        </td>
-        <td data-title="Action" class="govuk-table__cell" tabindex="-1">
-          <a class="govuk-link--no-visited-state" href="">Manage</a>
-        </td>
-      </tr>
-
-      <tr class="govuk-table__row">
-        <td data-title="Team member" class="govuk-table__cell" tabindex="-1">
-          <a class="govuk-link--no-visited-state" href="services-on-team-member-service-request">Ann Other</a><br>
-            <span class="govuk-body-s">Ann.Other@email.com</span>
-        </td>
-        <td data-title="Role type" class="govuk-table__cell" tabindex="-1">
-          Standard user
-        </td>
-        <td data-title="Account status" class="govuk-table__cell" tabindex="-1">
-          <span class="visibility">Approved</span>
-        </td>
-        <td data-title="Action" class="govuk-table__cell" tabindex="-1">
-          <a class="govuk-link--no-visited-state" href="">Manage</a>
-        </td>
-      </tr>
-
-    </tbody>
-  </table>
+    {{ govukButton({
+      text: "Add a team member",
+      href: "#"
+    }) }}
 
 
+    <table class="govuk-table" id="teamMembers" role="grid">
+      <caption class="govuk-table__caption" tabindex="0">A responsive sortable table using html and javascript</caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th onclick="sortTable(0)" class="colHeader govuk-table__header govuk-table__header--column-third column-full" tabindex="-1" scope="col">Team member</th>
+          <th onclick="sortTable(1)" class="colHeader govuk-table__header govuk-table__header--column-quarter column-full" tabindex="-1" scope="col">Role type</th>
+          <th onclick="sortTable(2)" class="colHeader govuk-table__header govuk-table__header--column-quarter column-full" tabindex="-1" scope="col">Account status</th>
+          <th onclick="sortTable(3)" class="colHeader govuk-table__header govuk-table__header--column-sixth column-full" tabindex="-1" scope="col"><span class="visibility">Action</span></th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell" tabindex="-1">
+            <a class="govuk-link--no-visited-state" href="services-on-team-member-admin-self">Ann Cooper (you)</a><br>
+              <span class="govuk-body-s">Ann.Cooper@email.com</span>
+          </td>
+          <td class="govuk-table__cell" tabindex="-1">Administrator
+          </td>
+          <td class="govuk-table__cell" tabindex="-1">
+            <span class="visibility">Good</span>
+          </td>
+          <td class="govuk-table__cell" tabindex="-1">
+            <a class="govuk-link--no-visited-state" href="">Manage</a>
+          </td>
+        </tr>
 
-  <h2 class="govuk-heading-l">Table 2</h2>
-  <p>An accessible, responsive, sortable table using html and javascript</p>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell" tabindex="-1">
+            <a class="govuk-link--no-visited-state" href="services-on-team-member-standard">Adam Mastly</a><br>
+              <span class="govuk-body-s">Adam.Mastly@email.com</span>
+          </td>
+          <td class="govuk-table__cell" tabindex="-1">Standard user
+          </td>
+          <td class="govuk-table__cell" tabindex="-1">
+            <span class="visibility">Good</span>
+          </td>
+          <td class="govuk-table__cell" tabindex="-1">
+            <a class="govuk-link--no-visited-state" href="">Manage</a>
+          </td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell" tabindex="-1">
+            <a class="govuk-link--no-visited-state" href="services-on-team-member-admin">Barry Anders</a><br>
+              <span class="govuk-body-s">Barry.Anders@email.com</span>
+          </td>
+          <td class="govuk-table__cell" tabindex="-1">Administrator
+          </td>
+          <td class="govuk-table__cell" tabindex="-1">
+            <span class="visibility">Good</span>
+          </td>
+          <td class="govuk-table__cell" tabindex="-1">
+            <a class="govuk-link--no-visited-state" href="">Manage</a>
+          </td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell" tabindex="-1">
+            <a class="govuk-link--no-visited-state" href="services-on-team-member-invited-1">Sara Chippers</a><br>
+              <span class="govuk-body-s">Sara.Chippers@email.com</span>
+          </td>
+          <td class="govuk-table__cell" tabindex="-1">Access manager
+          </td>
+          <td class="govuk-table__cell" tabindex="-1">Invite email sent
+          </td>
+          <td class="govuk-table__cell" tabindex="-1">
+            <a class="govuk-link--no-visited-state" href="">Manage</a>
+          </td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell" tabindex="-1">
+            <a class="govuk-link--no-visited-state" href="services-on-team-member-service-request">Tiegan Mole</a><br>
+              <span class="govuk-body-s">Tiegan.Mole@email.com</span>
+          </td>
+          <td class="govuk-table__cell" tabindex="-1">
+            Standard user
+          </td>
+          <td class="govuk-table__cell" tabindex="-1">Access request received
+          </td>
+          <td class="govuk-table__cell" tabindex="-1">
+            <a class="govuk-link--no-visited-state" href="">Manage</a>
+          </td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell" tabindex="-1">
+            <a class="govuk-link--no-visited-state" href="services-on-team-member-service-request">Ann Other</a><br>
+              <span class="govuk-body-s">Ann.Other@email.com</span>
+          </td>
+          <td class="govuk-table__cell" tabindex="-1">
+            Standard user
+          </td>
+          <td class="govuk-table__cell" tabindex="-1">
+            <span class="visibility">Good</span>
+          </td>
+          <td class="govuk-table__cell" tabindex="-1">
+            <a class="govuk-link--no-visited-state" href="">Manage</a>
+          </td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell" tabindex="-1">
+            <a class="govuk-link--no-visited-state" href="services-on-team-member-service-request">Ann Other</a><br>
+              <span class="govuk-body-s">Ann.Other@email.com</span>
+          </td>
+          <td class="govuk-table__cell" tabindex="-1">
+            Standard user
+          </td>
+          <td class="govuk-table__cell" tabindex="-1">
+            <span class="visibility">Good</span>
+          </td>
+          <td class="govuk-table__cell" tabindex="-1">
+            <a class="govuk-link--no-visited-state" href="">Manage</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <script>
+    function sortTable(n) {
+      var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+      table = document.getElementById("teamMembers");
+      switching = true;
+      // Set the sorting direction to ascending:
+      dir = "asc";
+      /* Make a loop that will continue until
+      no switching has been done: */
+      while (switching) {
+        // Start by saying: no switching is done:
+        switching = false;
+        rows = table.getElementsByTagName("TR");
+        /* Loop through all table rows (except the
+        first, which contains table headers): */
+        for (i = 1; i < (rows.length - 1); i++) {
+          // Start by saying there should be no switching:
+          shouldSwitch = false;
+          /* Get the two elements you want to compare,
+          one from current row and one from the next: */
+          x = rows[i].getElementsByTagName("TD")[n];
+          y = rows[i + 1].getElementsByTagName("TD")[n];
+          /* Check if the two rows should switch place,
+          based on the direction, asc or desc: */
+          if (dir == "asc") {
+            if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+              // If so, mark as a switch and break the loop:
+              shouldSwitch = true;
+              break;
+            }
+          } else if (dir == "desc") {
+            if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+              // If so, mark as a switch and break the loop:
+              shouldSwitch = true;
+              break;
+            }
+          }
+        }
+        if (shouldSwitch) {
+          /* If a switch has been marked, make the switch
+          and mark that a switch has been done: */
+          rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+          switching = true;
+          // Each time a switch is done, increase this count by 1:
+          switchcount ++;
+        } else {
+          /* If no switching has been done AND the direction is "asc",
+          set the direction to "desc" and run the while loop again. */
+          if (switchcount == 0 && dir == "asc") {
+            dir = "desc";
+            switching = true;
+          }
+        }
+      }
+    }
+
+    function ResponsiveCellHeaders(elmID) {
+      try {
+        var THarray = [];
+        var table = document.getElementById(elmID);
+        var ths = table.getElementsByTagName("th");
+        for (var i = 0; i < ths.length; i++) {
+          var headingText = ths[i].innerHTML;
+          THarray.push(headingText);
+        }
+        var styleElm = document.createElement("style"),
+          styleSheet;
+        document.head.appendChild(styleElm);
+        styleSheet = styleElm.sheet;
+        for (var i = 0; i < THarray.length; i++) {
+          styleSheet.insertRule(
+            "#" +
+              elmID +
+              " td:nth-child(" +
+              (i + 1) +
+              ')::before {content:"' +
+              THarray[i] +
+              ': ";}',
+            styleSheet.cssRules.length
+          );
+        }
+      } catch (e) {
+        console.log("ResponsiveCellHeaders(): " + e);
+      }
+    }
+    ResponsiveCellHeaders("teamMembers");
+
+    </script>
 
       {{ govukTable({
-        caption: "Table 2 caption",
+        caption: "A responsive table using nunjunks",
         captionClasses: "govuk-caption",
         firstCellIsHeader: false,
         head: [
@@ -172,7 +261,7 @@
               text: "Administrator"
             },
             {
-              html: '<span class="visibility">Approved</span>'
+              html: '<span class="visibility">Good</span>'
             },
             {
               html: '<a class="govuk-link--no-visited-state" href="">Manage</a>'
@@ -187,7 +276,7 @@
               text: "Standard user"
             },
             {
-              html: '<span class="visibility">Approved</span>'
+              html: '<span class="visibility">Good</span>'
             },
             {
               html: '<a class="govuk-link--no-visited-state" href="">Manage</a>'
@@ -202,7 +291,7 @@
               text: "Administrator"
             },
             {
-              html: '<span class="visibility">Approved</span>'
+              html: '<span class="visibility">Good</span>'
             },
             {
               html: '<a class="govuk-link--no-visited-state" href="">Manage</a>'
@@ -247,23 +336,50 @@
               text: "Standard user"
             },
             {
-              html: '<span class="visibility">Approved</span>'
+              html: '<span class="visibility">Good</span>'
+            },
+            {
+              html: '<a class="govuk-link--no-visited-state" href="">Manage</a>'
+            }
+          ],
+          [
+            {
+              html: '<a class="govuk-link--no-visited-state" href="services-on-team-member-service-request">Ann Other</a><br>
+                      <span class="govuk-body-s">Ann.Other@email.com</span>'
+            },
+            {
+              text: "Standard user"
+            },
+            {
+              html: '<span class="visibility">Good</span>'
+            },
+            {
+              html: '<a class="govuk-link--no-visited-state" href="">Manage</a>'
+            }
+          ],
+          [
+            {
+              html: '<a class="govuk-link--no-visited-state" href="services-on-team-member-service-request">Ann Other</a><br>
+                      <span class="govuk-body-s">Ann.Other@email.com</span>'
+            },
+            {
+              text: "Standard user"
+            },
+            {
+              html: '<span class="visibility">Good</span>'
             },
             {
               html: '<a class="govuk-link--no-visited-state" href="">Manage</a>'
             }
           ]
+
+
         ]
       }) }}
 
 
   </div>
 </div>
-
-
-
-<script src="/public/javascripts/sortable-table.js"></script>
-
 
 
 
