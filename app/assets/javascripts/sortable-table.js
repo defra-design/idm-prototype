@@ -1,4 +1,4 @@
-/* Fully working sortable table*/
+/*** Fully working sortable table ***/
 
 
 var sortOrder;
