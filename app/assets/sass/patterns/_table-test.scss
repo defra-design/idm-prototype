@@ -1,86 +1,155 @@
-@media all and (max-width: 37em) {
+/*** CSS rowcounting ***/
+table { counter-reset: rowcount; }
+tr { counter-increment: rowcount; counter-reset: cellcount; }
+td, th { counter-increment: cellcount; }
 
-  /*  table,*/
-    tr,
-    td,
-    th {
-    display: block;
-  }
-
-//Cresting a striped effect across rows
-
-    tr {
-    padding: 0.7em 2vw;
-    }
-
-    tr:nth-child(even) {
-    background-color: govuk-colour("grey-4");
-    }
-
-    th {
-      background-color: govuk-colour("grey-4");
-    }
-
-    //Forcing the column width on small screens to be full width
-
-    .column-full {
-      width: auto !important;
-    }
-
-  //Dispalying the before content on small screens
-
-  td::before {
-    display: block !important;
-  }
-
-  th::before {
-    display: inline !important;
-  }
-
-  .visibility{
-    visibility: visible !important;
-  }
-
-  th::before {
-      content: "Sort by: ";
-  }
-
-  th::before {
-  font-weight: normal;
-  padding-left: 0.5em;
-  }
-
+/* Show/ say row number */
+tr:before {
+  content: "Row "counter(rowcount)". ";
 }
 
 
 
-//Forcing aligment
+/*** Small viewports ***/
+@media all and (max-width: 40.0625em) {
+
+      /*  Turn table in blocks */
+      tr,
+      th,
+      td {
+      display: block;
+      }
+
+      //Setting tr::before content style
+      tr::before {
+        @extend .govuk-body;
+      }
+
+      //Setting the th::before content, making it inline and then style it
+      th::before {
+        content: "Sort by: ";
+        display: inline !important;
+        padding-left: 0.5em;
+      }
+
+      tr::before {
+        display: block !important;
+        color: govuk-colour("grey-1");
+      }
+
+      //Displaying td::before content on small screens and setting it to be each cell data-title attribute
+      td::before {
+        display: block !important;
+        content: attr(data-title);
+        @extend .govuk-!-font-weight-bold;
+      }
+
+      // Hides the action header when not needed for sorting on mobile
+      .hide-cell {
+        display: none;
+      }
+
+      // Swaps visibiliby of items on small screen to visible
+      .visibility{
+        visibility: visible !important;
+      }
+
+      //Create a striped effect across rows
+      tr {
+      padding: 0.7em 0;
+      }
+
+      tr:nth-child(even) {
+      background-color: govuk-colour("grey-4");
+      }
+
+      th {
+        background-color: govuk-colour("grey-4");
+      }
+
+      //Forcing the column width on small screens to be full width
+      .column-full {
+        width: auto !important;
+      }
+
+
+}
+
+/**** Normal size viewport ****/
+
+//Forcing cell aligment
 
 td,
 th {
-vertical-align: text-top;
+  vertical-align: text-top;
 }
 
+// Hiding ::before content in larger viewports
+th::before,
+tr::before,
 td::before {
-font-weight: bold;
-}
-
-
-
-td::before,
-th::before {
   display: none;
 }
 
-
-
 //Column header style
-  .colHeader {
-      color: #005ea5;
-      cursor: pointer;
-      text-decoration: underline;
-  }
+.colHeader {
+    color: #005ea5;
+    cursor: pointer;
+}
+
+.colHeader--nounderline {
+  text-decoration: none;
+}
+
+.colHeader--underline {
+  text-decoration: underline;
+}
 
 .visibility{
   visibility: hidden;
+}
+
+//Sortable table headers / buttons
+
+span[role="button"]:hover, span[role="button"]:focus {
+    color: govuk-colour("grey-1");
+}
+
+ span[role="button"]:focus {
+    outline-offset: 3px;
+}
+
+.sortable th i {
+    font-size: 1.1em;
+    padding-left: 5px;
+    width: 10px;
+    color: govuk-colour("grey-1");
+}
+
+.arrow:after {
+    font-weight: bold;
+    font-style: normal;
+}
+
+.arrow:after {
+    content: "\2195";
+}
+
+.arrow-down:after {
+    content: "\2193";
+}
+
+.arrow-up:after {
+    content: "\2191";
+}
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
 }
