@@ -232,35 +232,3 @@ function formatDate(dateString) {
     var formattedDate = new Date(dateString);
     return formattedDate.getTime();
 }
-
-/* Function that puts in the header content td::before */
-function ResponsiveCellHeaders(elmID) {
-    try {
-      var THarray = [];
-      var table = document.getElementById(elmID);
-      var ths = table.getElementsByTagName("th");
-      for (var i = 0; i < ths.length; i++) {
-        var headingText = ths[i].innerHTML;
-        THarray.push(headingText);
-      }
-      var styleElm = document.createElement("style"),
-        styleSheet;
-      document.head.appendChild(styleElm);
-      styleSheet = styleElm.sheet;
-      for (var i = 0; i < THarray.length; i++) {
-        styleSheet.insertRule(
-          "#" +
-            elmID +
-            " td:nth-child(" +
-            (i + 1) +
-            ')::before {content:"' +
-            THarray[i] +
-            ': ";}',
-          styleSheet.cssRules.length
-        );
-      }
-    } catch (e) {
-      console.log("ResponsiveCellHeaders(): " + e);
-    }
-  }
-  ResponsiveCellHeaders("team1");
