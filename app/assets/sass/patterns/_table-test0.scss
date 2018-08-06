@@ -11,9 +11,7 @@ tr:before {
 
 
 /*** Small viewports ***/
-//@media all and (max-width: 40.0625em) {
-
-@include govuk-media-query($until: tablet) {
+@media all and (max-width: 40.0625em) {
 
       /*  Turn table in blocks */
       tr,
@@ -140,7 +138,7 @@ td::before {
 
 //Visibly hiding certain fields on desktop only
 .visually-hidden--desktop {
-  @include govuk-media-query($from: tablet) {
+  @include govuk-media-query($from: desktop) {
     @include govuk-visually-hidden();
   }
 }

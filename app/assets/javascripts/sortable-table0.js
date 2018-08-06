@@ -20,17 +20,19 @@ var sortableTables = document.getElementsByClassName('sortable');
         th.setAttribute('aria-sort', 'none');
         th.dataset.index = cellIndex++;
         th.addEventListener('click', sortCol);
-        th.setAttribute('role', 'button');
-        th.setAttribute('tabindex', '0');
-        th.addEventListener('keydown', function(e) {
+    });
+
+    // Give the span 'buttons' within the table headers focus and keyboard handling
+    var buttonSpans = table.getElementsByClassName('th-content');
+    [].forEach.call(buttonSpans, function(span) {
+        span.setAttribute('role', 'button');
+        span.setAttribute('tabindex', '0');
+        span.addEventListener('keydown', function(e) {
             if (e.which === 13 || e.which === 32) {
                 this.click();
             }
         });
-
-
     });
-
 });
 
 
