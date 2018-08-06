@@ -21,6 +21,17 @@
 
     <p class="govuk-body">Please complete each of these sections.</p>
 
+
+    {{ govukErrorSummary({
+      titleText: "There is a problem",
+      errorList: [
+        {
+          text: "EXAMPLE ERROR. [Section name] must be completed",
+          href: "#dob-error"
+        }
+      ]
+    }) }}
+
     <ol class="app-task-list">
       <li>
         <h2 class="app-task-list__section">
@@ -42,16 +53,16 @@
           <span class="app-task-list__section-number">2. </span> About you and your business
         </h2>
         <ul class="app-task-list__items">
-          <li class="app-task-list__item">
-            <a class="app-task-list__task-name" href="personal-details" aria-describedby="personal-details-completed">
+          <li class="app-task-list__item govuk-form-group--error">
+            <span id="error" class="govuk-error-message">
+              You must complete your contact details
+              </span>
+              <a class="task-name" href="personal-details">
               Your contact details
             </a>
-            <strong class="govuk-tag app-task-list__task-completed" id="personal-details-completed">
-              Completed
-            </strong>
           </li>
           <li class="app-task-list__item">
-            <a class="app-task-list__task-name" href="sole-trader-name">
+              <a class="task-name" href="sole-trader-name">
               Your business details
             </a>
           </li>

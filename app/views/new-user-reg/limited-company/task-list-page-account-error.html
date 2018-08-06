@@ -1,7 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Complete your account details
-" %}
+{% set title = "Complete your account details" %}
 
 {% block page_title %}
     {{title}} - GOV.UK
@@ -20,7 +19,16 @@
       {{title}}
     </h1>
 
-      <p class="govuk-body">Please complete each of these sections. </p>
+      <p class="govuk-body">Please complete each of these sections.</p>
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: [
+          {
+            text: "EXAMPLE ERROR. [Section name] must be completed",
+            href: "#error"
+          }
+        ]
+      }) }}
 
       <ol class="app-task-list">
         <li>
@@ -29,10 +37,10 @@
           </h2>
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
-              <a class="app-task-list__task-name" href="check-answers-mini/check-your-answers-account" aria-describedby="account-type-completed">
+              <a class="app-task-list__task-name" href="check-answers-mini/organisation-type" aria-describedby="account-type-completed">
                 Your type of account
               </a>
-              <strong class="govuk-tag app-task-list__task-completed" id="account-type-completed">
+              <strong class="govuk-tag app-task-list__task-completed" id="company-details-completed">
                 Completed
               </strong>
             </li>
@@ -40,24 +48,21 @@
         </li>
         <li>
           <h2 class="app-task-list__section">
-            <span class="app-task-list__section-number">2. </span> About your business or organisation
+            <span class="app-task-list__section-number">2. </span>About your business or organisation
           </h2>
           <ul class="app-task-list__items">
-            <li class="app-task-list__item">
-              <a class="tapp-task-list__task-name" href="company-lookup" aria-describedby="company-details-completed">
+            <li class="app-task-list__item govuk-form-group--error">
+              <span id="error" class="govuk-error-message">
+                You must complete your business or organisation details
+                </span>
+                <a class="app-task-list__task-name" href="company-lookup">
                 Your business or organisation details
               </a>
-              <strong class="govuk-tag app-task-list__task-completed" id="company-details-completed">
-                Completed
-              </strong>
             </li>
           <!--  <li class="app-task-list__item">
-              <a class="app-task-list__task-name" href="company-contact" aria-describedby="company-contact-completed">
+              <a class="app-task-list__task-name" href="company-contact">
                 Contact details
               </a>
-              <strong class="govuk-tag app-task-list__task-completed" id="company-contact-completed">
-                Completed
-              </strong>
             </li>-->
           </ul>
         </li>
@@ -71,13 +76,11 @@
               <a class="app-task-list__task-name" href="personal-details">
                 Your contact details
               </a>
-
             </li>
             <li class="app-task-list__item">
               <a class="app-task-list__task-name" href="personal-sro">
                 Your level of responsibility
               </a>
-
             </li>
           </ul>
         </li>
