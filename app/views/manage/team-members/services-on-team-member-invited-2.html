@@ -26,7 +26,7 @@
   <div class="govuk-grid-column-two-thirds">
     <p class="govuk-body">
       <span class="govuk-!-font-weight-bold">Full name:</span> {{ data['personalFirstName'] }} {{ data['personalSurname'] }}<br>
-      <span class="govuk-!-font-weight-bold">Role type:</span> {{ data['serviceRole']}}, {{ data['serviceRole2']}}<br>
+      <span class="govuk-!-font-weight-bold">Account access level:</span> {{ data['serviceRole']}}, {{ data['serviceRole2']}}<br>
       <span class="govuk-!-font-weight-bold">Email address:</span> {{ data['businessEmail'] }}<br>
       <span class="govuk-!-font-weight-bold">Telephone:</span> {{ data['businessTelephone'] }}
 
@@ -73,7 +73,7 @@
 
     },
     {
-      html: '<a class="govuk-link--no-visited-state" href="">Organisation</a>',
+      html: '<a class="govuk-link--no-visited-state" href="">Location</a>',
       format: 'column-third'
 
     },
@@ -103,7 +103,7 @@
       html: setServiceRoleHtml
     },
     {
-      html: '<a href="add-user-service/add-user-roles" class="govuk-link--no-visited-state">Manage access</a>'
+      html: '<a href="add-user-service/add-user-roles" class="govuk-link--no-visited-state">Change role</a>'
     },
     {
       html: '<a href="#" class="govuk-link--no-visited-state">Remove access</a>'
