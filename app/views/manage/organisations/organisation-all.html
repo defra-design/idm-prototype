@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Manage your organisations" %}
+{% set title = "Manage your locations" %}
 
 {% block page_title %}
     {{title}} - GOV.UK
@@ -20,7 +20,7 @@
     </h1>
 
     {{ govukButton({
-      text: "Add branch",
+      text: "Add location",
       href: "#"
     }) }}
 
@@ -30,7 +30,7 @@
       firstCellIsHeader: false,
       head: [
         {
-          html: '<a class="govuk-link--no-visited-state" href="">Organisation</a>',
+          html: '<a class="govuk-link--no-visited-state" href="">Location</a>',
           format: 'column-half'
         },
         {
@@ -59,7 +59,7 @@
             html: '<a href="organisation-team-members" class="govuk-link--no-visited-state">View members</a>'
           },
           {
-            html: '<a href="#" class="govuk-link--no-visited-state">Remove org</a>'
+            html: '<a href="#" class="govuk-link--no-visited-state">Remove location</a>'
           }
         ],
         [
@@ -73,7 +73,7 @@
             html: '<a href="organisation-team-members" class="govuk-link--no-visited-state">View members</a>'
           },
           {
-            html: '<a href="#" class="govuk-link--no-visited-state">Remove org</a>'
+            html: '<a href="#" class="govuk-link--no-visited-state">Remove location</a>'
           }
         ],
         [
@@ -87,7 +87,7 @@
             html: '<a href="organisation-team-members" class="govuk-link--no-visited-state">View members</a>'
           },
           {
-            html: '<a href="#" class="govuk-link--no-visited-state">Remove org</a>'
+            html: '<a href="#" class="govuk-link--no-visited-state">Remove location</a>'
           }
         ]
 

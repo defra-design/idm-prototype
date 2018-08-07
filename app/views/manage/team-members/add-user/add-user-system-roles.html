@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "What do you want this person to be able to do?" %}
+{% set title = "What level of account access do you want this person to have?" %}
 
 {% block page_title %}
     {{title}} - GOV.UK
@@ -28,7 +28,7 @@
               const checkedValue = checked.value
 
               switch(checkedValue){
-                case 'Administrator':
+                case 'Full access':
                 form.action = 'check-answers/check-your-answers-admin'
 
                 break;
@@ -36,7 +36,7 @@
                 form.action = 'check-answers/check-your-answers-admin'
 
                 break;
-                case 'Standard':
+                case 'Standard access':
                 form.action = 'add-user-service'
 
                 break;
@@ -52,31 +52,23 @@
           name: "systemRole",
           fieldset: {
             legend: {
-              text: "What do you want this person to be able to do?",
+              text: "What level of account access do you want this person to have?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--xl"
             }
           },
-          hint: {
-            text: "Please choose the role you want this person to perform for your organisation's Defra account."
-          },
           items: [
             {
-              value: "Administrator",
-              html: ' <span class="govuk-body govuk-!-font-weight-bold">Administrator</span><br>
+              value: "Full access",
+              html: ' <span class="govuk-body govuk-!-font-weight-bold">Full access</span><br>
                       They can view all information held by the services your organisation is registered with. They can submit data to these services. They can give or remove access to services.',
               checked:  checked('systemRole','Administrator')
 
             },
+            
             {
-              value: "Access manager",
-              html: ' <span class="govuk-body govuk-!-font-weight-bold">Access manager</span><br>
-                      They can only give or remove access to services. They cannot view information held by services your organisation is registered with.',
-              checked:  checked('systemRole','User Administrator')
-            },
-            {
-              value: "Standard",
-              html: ' <span class="govuk-body govuk-!-font-weight-bold">Standard user</span><br>
+              value: "Standard access",
+              html: ' <span class="govuk-body govuk-!-font-weight-bold">Standard access</span><br>
                       They can only view information held by the services you give them access to. They cannot give or remove access to services.',
               checked:  checked('systemRole','Standard')
 
