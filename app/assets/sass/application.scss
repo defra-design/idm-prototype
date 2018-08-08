@@ -8,6 +8,11 @@ $govuk-global-styles: true;
 @import "patterns/check-your-answers";
 @import "patterns/task-list";
 @import "patterns/related-items";
+@import "patterns/table-test";
+@import "patterns/card";
+@import "patterns/grid";
+@import "patterns/idm";
+@import "patterns/login-nav";
 
 // Components that aren't in Frontend
 @import "components/cookie-banner";
