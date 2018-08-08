@@ -21,30 +21,19 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <h1 class="govuk-heading-xl">{{title}}</h1>
-    <p>Please provide at least one contact number.</p>
 
     <form action="check-your-answers" method="post">
 
       {{ govukInput({
         label: {
-          text: "Telephone number"
+          text: title,
+          classes: "govuk-label--xl",
+          isPageHeading: true
         },
         classes: "govuk-input--width-10",
         id: "personalTelephone",
         name: "personalTelephone",
         value: data['personalTelephone'],
-        type: "tel"
-      }) }}
-
-      {{ govukInput({
-        label: {
-          text: "Mobile number"
-        },
-        classes: "govuk-input--width-10",
-        id: "personalMobile",
-        name: "personalMobile",
-        value: data['personalMobile'],
         type: "tel"
       }) }}
 
