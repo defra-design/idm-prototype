@@ -94,7 +94,7 @@ td::before {
 
 //Sortable table headers / buttons
 
-[role="button"]:hover, [role="button"]:focus {
+.sortable-button[role="button"]:hover, .sortable-button[role="button"]:focus {
     background-color: govuk-colour("grey-3");
 }
 
