@@ -32,10 +32,23 @@
         <p>Your user ID has been sent to <span class="bold">{{ data['email-address'] }}</span>.</p>
 				<p>You will need this ID and your password every time you sign in to Government Gateway.</p>
 
-      {{ govukButton({
-        text: "Continue",
-        href: "/new-user-reg/sole-trader/task-list-page-account"
-      }) }}
+        <!--Conditional Continue buttons -->
+
+        {% if data['businessType'] == "Sole trader" %}
+        {{ govukButton({
+          text: "Continue",
+          href: "/new-user-reg/sole-trader/task-list-page-account"
+        }) }}
+        {% endif %}
+
+
+        {% if (data['businessType'] == "Limited company") or (data['businessType'] == "Public limited company") %}
+
+        {{ govukButton({
+          text: "Continue",
+          href: "/new-user-reg/limited-company/task-list-page-account"
+        }) }}
+        {% endif %}
 
 </div>
 
