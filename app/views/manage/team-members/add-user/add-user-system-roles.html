@@ -32,16 +32,12 @@
                 form.action = 'check-answers/check-your-answers-admin'
 
                 break;
-                case 'Access manager':
+                case 'Standard access':
                 form.action = 'check-answers/check-your-answers-admin'
 
                 break;
-                case 'Standard access':
-                form.action = 'add-user-service'
-
-                break;
                 default:
-                form.action = 'add-user-service'
+                form.action = 'check-answers/check-your-answers-admin'
               }
               return true
             }
@@ -65,7 +61,7 @@
               checked:  checked('systemRole','Administrator')
 
             },
-            
+
             {
               value: "Standard access",
               html: ' <span class="govuk-body govuk-!-font-weight-bold">Standard access</span><br>
