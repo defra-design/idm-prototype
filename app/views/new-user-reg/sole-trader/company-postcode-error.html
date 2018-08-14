@@ -20,18 +20,21 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
+    {{ govukErrorSummary({
+          titleText: "We cannot find that postcode",
+          errorList: [
+            {
+              text: "Re-enter your postcode",
+              href: "#postcode"
+            },
+            { text: "Enter your address manually",
+              href: "company-address-manual"}
+          ]
+        }) }}
     <h1 class="govuk-heading-xl">{{title}}</h1>
 
       <form action="company-address" method="post">
-        {{ govukErrorSummary({
-          titleText: "There is a problem",
-          errorList: [
-            {
-              text: "No address found",
-              href: "#postcode"
-            }
-          ]
-        }) }}
+        
 
         {{ govukInput({
           label: {
@@ -42,7 +45,7 @@
             text: "This could be your home address if you do not have a business premises."
           },
           errorMessage: {
-            text: "We couldn't find any addresses for that postcode. Try again or enter your address manually"
+            text: "Please re-enter your postcode"
           },
 
           classes: "govuk-input--width-10",
