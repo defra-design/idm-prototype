@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Service name" %}
+{% set title = "About the identity management service" %}
 
 {% block pageTitle %}
     {{title}} - GOV.UK
@@ -17,35 +17,21 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-xl">
-        [Service name]
+        About the identity management (IDM) service 
       </h1>
-      <p class="govuk-body">Use this service to:</p>
+      <p>This service will help our users to create a single sign-on account. Creating a single Defra digital account will save users time.</p> 
+      <p>We will store important information about the user (and their business, if relevant) in the Dynamics database so that they do not have to re-enter it each time they want to use a new online service.</p>
+      <p>It will also allow them to give other people (for example colleagues or agents they work with) access to one or more of the online services they use.
+</p>
+      <p class="govuk-body">The registration user journey flow:</p>
 
-      <ul class="govuk-list govuk-list--bullet">
-        <li>do something</li>
-        <li>update your name, address or other details</li>
-        <li>do something else</li>
-      </ul>
-
-      <h2 class="govuk-heading-m">Before you start</h2>
-      <p class="govuk-body">The registration process consists of several steps. You can return to the application at anytime should you need to.
-      <h3 class="govuk-heading-s">1. Login with or create a Government Gateway Account</h3>
-      <p class="govuk-body">You need a Government Gateway account to use this service.
-        This also allows you to access other Gov.uk and Defra services.</p>
-      <p class="govuk-body">By registering for this service you will become the administrator which will allow you to manage other users.</p>
-      <p class="govuk-body">You can login with an existing Government Gateway account if it was created for the company or
-        organisation you are representing.</p>
-      <h3 class="govuk-heading-s">2. Capture your details</h3>
-      <p class="govuk-body">You need to provide details about yourself as you will be the administrator for the service.</p>
-      <p class="govuk-body">If you are representing a company or organsiation you will need to provide information such as your Company House registered business details.</p>
-      <h3 class="govuk-heading-s">3. Service specific information</h3>
-      <p class="govuk-body">The following information is also required. </p>
-      <ul class="govuk-list govuk-list--bullet">
-        <li>Some info like billing address</li>
-        <li>Some info like the DUNS number</li>
-      </ul>
-
-      <p class="govuk-body">Registering takes around 5 minutes.</p>
+      <ol class="govuk-list govuk-list--number">
+        <li>Starts on a specific service page (built and owned by the relevant service).</li>
+        <li>Takes the user into the IDM service to select an account type.</li>
+        <li>Asks the user to enter their existing Government Gateway account details, or leads them to the new SCP service to create a new Government Gateway ID.</li>
+        <li>Brings the user back to the IDM service to provide details about themself and, if relevant, their business.</li>
+        <li>Sends the user back into their chosen service to complete the required registration process.</li>
+      </ol>
 
         {{ govukButton({
           text: "Start now",
@@ -55,11 +41,7 @@
 
       <hr class="govuk-section-break--m">
 
-      <p class="govuk-body">You can also <a class="govuk-link" href="#">register by post</a>.</p>
-
-      <p class="govuk-body">The online service is also available in <a class="govuk-link" href="#">Welsh (Cymraeg)</a>.</p>
-
-      <p class="govuk-body">You can’t register for this service if you’re in the UK illegally.</p>
+      <p class="govuk-body">This prototype is being updated regularly.</p>
 
 
     </div>
