@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Terms of Service" %}
+{% set title = "Read and accept our terms and conditions" %}
 
 {% block pageTitle %}
     {{title}} - GOV.UK
@@ -28,18 +28,18 @@
         name: "terms",
         fieldset: {
           legend: {
-            text: "Terms of Service",
+            text: "Read and accept our terms and conditions",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--xl"
           }
         },
         hint: {
-          text: "To continue with this service please read and confirm our service terms."
+          text: "To continue using this service please read and accept our terms and conditions and privacy notice."
         },
         items: [
           {
             value: "terms",
-            html: ' I\'ve read and accept the <a href="/" class="govuk-link">Terms and Conditions</a> and <a href="/" class="govuk-link">Privacy Policy<a>.'
+            html: ' I\'ve read and accept the <a href="/" class="govuk-link">terms and conditions</a> and <a href="/" class="govuk-link">privacy notice<a>.'
 
           }
         ]
