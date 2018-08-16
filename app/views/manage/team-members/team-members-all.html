@@ -19,6 +19,10 @@
     <h1 class="govuk-heading-xl">
       {{title}}
     </h1>
+    {{ govukButton({
+      text: "Add a team member",
+      href: "add-user-all/add-user-details"
+    }) }}
 
 
     {{ govukTable({
