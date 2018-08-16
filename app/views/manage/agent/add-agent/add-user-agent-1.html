@@ -18,7 +18,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-      <form action="add-user-roles-2" method="post">
+      <form action="add-agent-roles-2" method="post">
 
         {{ govukRadios ({
           idPrefix: "serviceRole",
@@ -35,13 +35,13 @@
           },
           items: [
             {
-              value: "RE Manager",
-              html: 'RE Manager - they can edit and submit information.',
+              value: "LE Manager",
+              html: 'LE Manager - admin that can add users, manage orgs ans services',
               checked:  checked('serviceRole','Manager')
             },
             {
-              value: "RE Reader",
-              html: 'RE Reader - they can only view information. They cannot edit or submit any information.',
+              value: "LE Reader",
+              html: 'LE Reader - they can only view users, orgs and services.',
               checked:  checked('serviceRole','Reader')
             }
           ]

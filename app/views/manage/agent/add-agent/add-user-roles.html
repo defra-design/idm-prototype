@@ -35,13 +35,19 @@
           },
           items: [
             {
-              value: "Editor",
-              html: 'Edit - they can edit and submit information.',
+              value: "Admin",
+              html: 'They can view all information held by the services your organisation is registered with. They can submit data to these services. They can give or remove access to services.',
               checked:  checked('serviceRole','Manager')
             },
             {
-              value: "Viewer",
-              html: 'View - they can only view information. They cannot edit or submit any information.',
+              value: "Standard",
+              html: 'Edit - they can edit and submit information to the service',
+              checked:  checked('serviceRole','Reader')
+            }
+            ,
+            {
+              value: "Reader",
+              html: 'View - they can view information in the service',
               checked:  checked('serviceRole','Reader')
             }
           ]

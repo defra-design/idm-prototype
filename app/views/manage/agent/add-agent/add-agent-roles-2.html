@@ -18,14 +18,14 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-      <form action="add-user-org-multi" method="post">
+      <form action="check-answers/check-your-answers" method="post">
 
         {{ govukRadios ({
-          idPrefix: "serviceRole3",
-          name: "serviceRole3",
+          idPrefix: "serviceRole2",
+          name: "serviceRole2",
           fieldset: {
             legend: {
-              text: "What do you want them to be able to do in the UK BPR service?",
+              text: "What do you want them to be able to do in the [Service name] service?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--xl"
             }
@@ -35,14 +35,14 @@
           },
           items: [
             {
-              value: "LE Manager",
-              html: 'LE Manager - they can edit and submit information.',
-              checked:  checked('serviceRole3','Manager')
+              value: "RE Manager",
+              html: 'RE Manager - they can edit and submit information to the service.',
+              checked:  checked('serviceRole2','Manager')
             },
             {
-              value: "LE Reader",
-              html: 'LE Reader - they can only view information. They cannot edit or submit any information.',
-              checked:  checked('serviceRole3','Reader')
+              value: "RE Reader",
+              html: 'RE Reader - they can only view information submitted to the service. They cannot edit or submit any information.',
+              checked:  checked('serviceRole2','Reader')
             }
           ]
         }) }}

@@ -24,12 +24,12 @@
             const form = document.querySelector('.add-user-roles')
 
             function myFunction() {
-              const checked = document.querySelector('[name="serviceName1"]:checked')
+              const checked = document.querySelector('[name="serviceName"]:checked')
               const checkedValue = checked.value
 
               switch(checkedValue){
                 case 'UK-REACH-IT':
-                form.action = 'add-user-roles-1'
+                form.action = 'add-user-roles'
 
                 break;
                 default:
@@ -40,35 +40,27 @@
           </script>
 
         {{ govukRadios({
-          idPrefix: "serviceName1",
-          name: "serviceName1",
+          idPrefix: "serviceName",
+          name: "serviceName",
           fieldset: {
             legend: {
-              text: "Which service or system do you want this person to access?",
+              text: "Which service do you want this person to use?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--xl"
             }
           },
           items: [
-            {
-              value: "UK BPR",
-              html: 'UK BPR',
-              checked:  checked('serviceName1','UK BPR')
-            },
-            {
-              value: "UK CLP",
-              html: 'UK CLP',
-              checked:  checked('serviceName1','UK CLP')
-            },
-            {
-              value: "UK ePIC",
-              html: 'UK ePIC',
-              checked:  checked('serviceName1','UK ePIC')
-            },
+
             {
               value: "UK-REACH-IT",
               html: 'UK-REACH-IT',
-              checked:  checked('serviceName1','UK-REACH-IT')
+              checked:  checked('serviceName','UK-REACH-IT')
+            },
+
+            {
+              value: "ANOther Service",
+              html: 'ANOther Service',
+              checked:  checked('serviceName','ANOther Service')
             }
           ]
         }) }}
@@ -76,6 +68,22 @@
         {{ govukButton({
           text: "Continue"
         }) }}
+
+        <!--{
+          value: "UK BPR",
+          html: 'UK BPR',
+          checked:  checked('serviceName','UK BPR')
+        },
+        {
+          value: "UK CLP",
+          html: 'UK CLP',
+          checked:  checked('serviceName','UK CLP')
+        },
+        {
+          value: "UK ePIC",
+          html: 'UK ePIC',
+          checked:  checked('serviceName','UK ePIC')
+        },-->
 
       </form>
     </div>
