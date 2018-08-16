@@ -33,7 +33,7 @@
     {% endset %}
 
     {% set setSystemRoleHtml %}
-        {{ data['systemRole'] }}
+        {{ data['serviceRole'] }}
     {% endset %}
 
     {{ govukTable({
@@ -44,10 +44,6 @@
         {
           html: '<a class="govuk-link--no-visited-state" href="">Team member</a>',
           format: 'column-third'
-        },
-        {
-          html: '<a class="govuk-link--no-visited-state" href="">Account access level</a>',
-          format: 'column-quarter'
         },
         {
           html: '<a class="govuk-link--no-visited-state" href="">Status</a>',
@@ -64,9 +60,6 @@
           html: setUserNameHtml
         },
         {
-          html: setSystemRoleHtml
-        },
-        {
           text: "Invite sent"
         },
         {
@@ -77,9 +70,6 @@
           {
             html: '<a class="govuk-link--no-visited-state" href="services-on-team-member-admin-self-all-1">Ann Cooper (you)</a><br>
                     <span class="govuk-body-s">Ann.Cooper@email.com</span>'
-          },
-          {
-            text: "Full access"
           },
           {
             text: ""
