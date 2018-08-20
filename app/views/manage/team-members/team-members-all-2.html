@@ -32,50 +32,54 @@
           <span class="govuk-body-s">{{ data['businessEmail'] }}</span>
     {% endset %}
 
+    {% set setUserEmailHtml %}
+        <a class="govuk-link--no-visited-state" href="services-on-team-member-invited-2">
+          {{ data['businessEmail'] }}
+    {% endset %}
+
     {% set setSystemRoleHtml %}
         {{ data['serviceRole'] }}
     {% endset %}
 
     {{ govukTable({
-      caption: "Team members",
+      caption: "All team members",
       captionClasses: "govuk-visually-hidden",
       firstCellIsHeader: false,
       head: [
         {
-          html: '<a class="govuk-link--no-visited-state" href="">Team member</a>',
-          format: 'column-third'
-        },
-        {
-          html: '<a class="govuk-link--no-visited-state" href="">Status</a>',
+          html: '<span class="colHeader" href="">Team member</span>',
           format: 'column-quarter'
         },
         {
-          html: '<span class="govuk-visually-hidden">Action</span>',
+          html: '<span class="colHeader" href="">Email address</span>',
+          format: 'column-third'
+        },
+        {
+          html: '<span class="colHeader" href="">Account status</span>',
           format: 'column-sixth'
         }
       ],
       rows: [
-      [
-        {
-          html: setUserNameHtml
-        },
-        {
-          text: "Invite sent"
-        },
-        {
-          html: '<a class="govuk-link--no-visited-state" href="services-on-team-member-invited-2">Manage</a>'
-        }
-      ],
-      [
+        [
           {
-            html: '<a class="govuk-link--no-visited-state" href="services-on-team-member-admin-self-all-1">Ann Cooper (you)</a><br>
-                    <span class="govuk-body-s">Ann.Cooper@email.com</span>'
+            html: setUserNameHtml
           },
           {
-            text: ""
+            html: setUserEmailHtml
           },
           {
-            html: '<a class="govuk-link--no-visited-state" href="services-on-team-member-admin-self-all-1">Manage</a>'
+            html: '<span class="visually-hidden--desktop td-header">Account status:</span> Invite sent'
+          }
+        ],
+        [
+          {
+            html: '<span class="visually-hidden--desktop td-header">Team member:</span> <a class="govuk-link--no-visited-state" href="services-on-team-member-admin-self-all-1">Ann Cooper (you)</a>'
+          },
+          {
+            html: '<span class="visually-hidden--desktop td-header">Email address:</span> Ann.Cooper@email.com'
+          },
+          {
+            html: '<span class="visually-hidden--desktop td-header">Account status:</span> Approved'
           }
         ]
 
