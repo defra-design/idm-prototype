@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block beforeContent %}
-  {% include "includes/account-nav-admin-corp-2.html" %}
+  {% include "includes/account-nav-admin-corp-all-2.html" %}
   {% include "includes/breadcrumb-two-level.html" %}
 {% endblock %}
 
@@ -21,35 +21,48 @@
     </h1>
   </div>
 </div>
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-one-half">
-      <h2 class="govuk-heading-m"><a href="team-members/team-members-2"><span class="govuk-!-font-size-24">Team members</span></a></h2>
-      <p class="govuk-body govuk-!-font-size-48 govuk-!-font-weight-bold">5</p>
-      <!--<p class="govuk-body govuk-body-s">2 pending</p>
-      <p class="govuk-body govuk-body-s">3 service requests</p>-->
-    </div>
-    <div class="govuk-grid-column-one-half">
-      <h2 class="govuk-heading-m"><a href="agent/agents">Intermediaries</a></h2>
-      <p class="govuk-body govuk-!-font-size-48 govuk-!-font-weight-bold">2</p>
-      <!--<p class="govuk-body govuk-body-s">0 pending</p>-->
-    </div>
-  </div>
-  <br>
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-one-half">
-      <h2 class="govuk-heading-m">Manage services</h2>
-      <p class="govuk-!-font-weight-bold govuk-!-font-size-24"><a href="services/services">Services</a></p>
-      <p class="govuk-!-font-weight-bold govuk-!-font-size-48 govuk-!-font-weight-bold">4</p>
-    </div>
-    <div class="govuk-grid-column-one-half">
-      <h2 class="govuk-heading-m">Manage organisations</h2>
-      <p class="govuk-!-font-weight-bold govuk-!-font-size-24"><a href="organisations/organisations">Organisations</a></p>
-      <p class="govuk-!-font-weight-bold govuk-!-font-size-48 govuk-!-font-weight-bold">3</p>
-    </div>
-  </div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-grid-row">
+
+        <div class="govuk-grid-column-one-half">
+          <div class="govuk-card govuk-card--contained govuk-card--selectable">
+            <a href="team-members/team-members-service"></a>
+            <div class="govuk-card__content">
+              <h3 class="govuk-heading-m"><a href="team-members/team-members-service" class="govuk-link--no-visited-state">Team members</a></h3>
+              <p class="govuk-!-font-weight-bold govuk-!-font-size-48 govuk-!-font-weight-bold">2</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="govuk-grid-column-one-half">
+          <div class="govuk-card govuk-card--contained govuk-card--selectable">
+            <a href="agent/agent-all"></a>
+            <div class="govuk-card__content">
+              <h3 class="govuk-heading-m"><a href="agent/agent-all" class="govuk-link--no-visited-state">Intermediaries</a></h3>
+              <p class="govuk-!-font-weight-bold govuk-!-font-size-48 govuk-!-font-weight-bold">0</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="govuk-grid-row">
 
 
-
-
+          <div class="govuk-grid-column-one-half">
+            <div class="govuk-card govuk-card--contained govuk-card--selectable">
+              <a href="organisations/organisation-service"></a>
+              <div class="govuk-card__content">
+                <h3 class="govuk-heading-m"><a href="organisations/organisation-service" class="govuk-link--no-visited-state">Organisations</a></h3>
+                <p class="govuk-!-font-weight-bold govuk-!-font-size-48 govuk-!-font-weight-bold">1</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
 {% endblock %}

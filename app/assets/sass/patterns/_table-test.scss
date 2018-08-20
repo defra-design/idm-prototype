@@ -4,7 +4,7 @@ tr { counter-increment: rowcount; counter-reset: cellcount; }
 td, th { counter-increment: cellcount; }
 
 /* Show/ say row number */
-tr:before {
+#team1 tr:before {
   content: "Row "counter(rowcount)". ";
 }
 
@@ -22,33 +22,10 @@ tr:before {
       display: block;
       }
 
-      //Setting tr::before content style
-
-      tr::before {
-        @extend .govuk-body;
-        display: block !important;
-        color: govuk-colour("grey-1");
-        margin-bottom: 0px;
-      }
-
       .td-header {
         display: block !important;
         font-weight: bold;
       }
-
-      // Hides the action header when not needed for sorting on mobile
-      .hide-cell {
-        display: none;
-      }
-
-      //Displaying td::before content on small screens and setting it to be the td data-title attribute
-      /**
-      td::before {
-        display: block !important;
-        content: attr(data-title);
-        font-weight: bold;
-      }
-      **/
 
       //Create a striped effect across rows
       tr {
@@ -59,15 +36,20 @@ tr:before {
       background-color: govuk-colour("grey-4");
       }
 
-      //Forcing the column width on small screens to be full width
+      //Forcing the header column width on small screens to be full width
 
-
-      .column-full {
+      th.column-full {
         width: auto !important;
       }
 
       th {
         background-color: govuk-colour("grey-4");
+      }
+
+      tr::before {
+        @extend .govuk-body;
+        display: block !important;
+        color: govuk-colour("grey-1");
       }
 
 
@@ -82,16 +64,19 @@ th {
   vertical-align: text-top;
 }
 
-// Hiding ::before content in larger viewports
-th::before,
-tr::before,
-td::before {
+//Visibly hiding certain fields on desktop only
+.visually-hidden--desktop {
+    @include govuk-media-query($from: tablet) {
+    @include govuk-visually-hidden();
+  }
+}
+
+#team1 tr:before {
   display: none;
 }
 
-.colHeader--nounderline {
-  text-decoration: none;
-}
+
+
 
 //Sortable table headers / buttons
 
@@ -121,11 +106,4 @@ td::before {
 
 .arrow-up:after {
     content: "\2191";
-}
-
-//Visibly hiding certain fields on desktop only
-.visually-hidden--desktop {
-    @include govuk-media-query($from: tablet) {
-    @include govuk-visually-hidden();
-  }
 }
