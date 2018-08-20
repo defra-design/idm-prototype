@@ -30,113 +30,74 @@
       firstCellIsHeader: false,
       head: [
         {
-          html: '<a class="govuk-link--no-visited-state" href="">Team member</a>',
+          html: '<span class="colHeader">Team member</span>',
+          format: 'column-quarter'
+        },
+        {
+          html: '<span class="colHeader">Email address</span>',
           format: 'column-third'
         },
         {
-          html: '<a class="govuk-link--no-visited-state" href="">Account access level</a>',
-          format: 'column-quarter'
-        },
-        {
-          html: '<a class="govuk-link--no-visited-state" href="">Account status</a>',
-          format: 'column-quarter'
-        },
-        {
-          html: '<span class="govuk-visually-hidden">Action</span>',
+          html: '<span class="colHeader">Account status</span>',
           format: 'column-sixth'
         }
       ],
       rows: [
-        [
-          {
-            html: '<a class="govuk-link--no-visited-state" href="services-on-team-member-admin-self">Ann Cooper (you)</a><br>
-                    <span class="govuk-body-s">Ann.Cooper@email.com</span>'
-          },
-          {
-            text: "Full access"
-          },
-          {
-            text: ""
-          },
-          {
-            html: '<a class="govuk-link--no-visited-state" href="services-on-team-member-admin-self">Manage</a>'
-          }
-        ],
-        [
-          {
-            html: '<a class="govuk-link--no-visited-state" href="services-on-team-member-standard">Adam Mastly</a><br>
-                    <span class="govuk-body-s">Adam.Mastly@email.com</span>'
-          },
-          {
-            text: "Standard access"
-          },
-          {
-            text: ""
-          },
-          {
-            html: '<a class="govuk-link--no-visited-state" href="services-on-team-member-standard">Manage</a>'
-          }
-        ],
-        [
-          {
-            html: '<a class="govuk-link--no-visited-state" href="services-on-team-member-admin">Barry Anders</a><br>
-                    <span class="govuk-body-s">Barry.Anders@email.com</span>'
-          },
-          {
-            text: "Full access"
-          },
-          {
-            text: ""
-          },
-          {
-            html: '<a class="govuk-link--no-visited-state" href="services-on-team-member-admin">Manage</a>'
-          }
-        ],
-        [
-          {
-            html: '<a class="govuk-link--no-visited-state" href="services-on-team-member-invited-1">Sara Chippers</a><br>
-                    <span class="govuk-body-s">Sara.Chippers@email.com</span>'
-          },
-          {
-            text: "Standard access"
-          },
-          {
-            text: "Invite email sent"
-          },
-          {
-            html: '<a class="govuk-link--no-visited-state" href="services-on-team-member-invited-1">Manage</a>'
-          }
-        ],
-        [
-          {
-            html: '<a class="govuk-link--no-visited-state" href="services-on-team-member-service-request">Tiegan Mole</a><br>
-                    <span class="govuk-body-s">Tiegan.Mole@email.com</span>'
-          },
-          {
-            text: "No access"
-          },
-          {
-            text: "Access request received"
-          },
-          {
-            html: '<a class="govuk-link--no-visited-state" href="services-on-team-member-service-request">Manage</a>'
-          }
-        ],
-        [
-          {
-            html: '<a class="govuk-link--no-visited-state" href="#">Ann Other</a><br>
-                    <span class="govuk-body-s">Ann.Other@email.com</span>'
-          },
-          {
-            text: "Standard access"
-          },
-          {
-            text: ""
-          },
-          {
-            html: '<a class="govuk-link--no-visited-state" href="">Manage</a>'
-          }
-        ]
+          [
+            {
+              html: '<span class="visually-hidden--desktop td-header">Team member:</span> <a class="govuk-link--no-visited-state" href="services-on-team-member-admin-self-all-1">Ann Cooper (you)</a>'
+            },
+            {
+              html: '<span class="visually-hidden--desktop td-header">Email address:</span> Ann.Cooper@email.com'
+            },
+            {
+              html: '<span class="visually-hidden--desktop td-header">Account status:</span> Approved'
+            }
+          ],
+          [
+            {
+              html: '<a class="govuk-link--no-visited-state" href="services-on-team-member-standard">Adam Mastly</a>'
+            },
+            {
+              html: '<span class="visually-hidden--desktop td-header">Email address:</span> Adam.Mastly@email.com'
+            },
+            {
+              html: '<span class="visually-hidden--desktop td-header">Account status:</span> Approved'
+            }
+          ],
+          [
+            {
+              html: '<a class="govuk-link--no-visited-state" href="services-on-team-member-standard">Barry Anders</a>'
+            },
+            {
+              html: '<span class="visually-hidden--desktop td-header">Email address:</span> Barry.Anders@email.com'
+            },
+            {
+              html: '<span class="visually-hidden--desktop td-header">Account status:</span> Approved'
+            }
+          ],
+          [
+            {
+              html: '<a class="govuk-link--no-visited-state" href="services-on-team-member-invited-1">Sara Chippers</a>'
+            },
+            {
+              html: '<span class="visually-hidden--desktop td-header">Email address:</span> Sara.Chippers@email.com'
+            },
+            {
+              html: '<span class="visually-hidden--desktop td-header">Account status:</span> Invite email sent'
+            }
+          ],
+          [
+            {
+              html: '<a class="govuk-link--no-visited-state" href="services-on-team-member-service-request">Tiegan Mole</a>'
+            },
+            {
+              html: '<span class="visually-hidden--desktop td-header">Email address:</span> Tiegan.Mole@email.com'
+            },
+            {
+              html: '<span class="visually-hidden--desktop td-header">Account status:</span> Access request received'
+            }
+          ]
 
 
       ]

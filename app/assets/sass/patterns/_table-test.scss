@@ -31,10 +31,8 @@ tr:before {
         margin-bottom: 0px;
       }
 
-      //Displaying td::before content on small screens and setting it to be the td data-title attribute
-      td::before {
+      .td-header {
         display: block !important;
-        content: attr(data-title);
         font-weight: bold;
       }
 
@@ -42,6 +40,15 @@ tr:before {
       .hide-cell {
         display: none;
       }
+
+      //Displaying td::before content on small screens and setting it to be the td data-title attribute
+      /**
+      td::before {
+        display: block !important;
+        content: attr(data-title);
+        font-weight: bold;
+      }
+      **/
 
       //Create a striped effect across rows
       tr {
@@ -52,13 +59,15 @@ tr:before {
       background-color: govuk-colour("grey-4");
       }
 
-      th {
-        background-color: govuk-colour("grey-4");
-      }
-
       //Forcing the column width on small screens to be full width
+
+
       .column-full {
         width: auto !important;
+      }
+
+      th {
+        background-color: govuk-colour("grey-4");
       }
 
 
@@ -71,8 +80,6 @@ tr:before {
 td,
 th {
   vertical-align: text-top;
-  padding-left: 0.5em !important;
-
 }
 
 // Hiding ::before content in larger viewports
@@ -81,12 +88,6 @@ tr::before,
 td::before {
   display: none;
 }
-
-//Column header style
-.colHeader {
-    color: #005ea5;
-    cursor: pointer;
-  }
 
 .colHeader--nounderline {
   text-decoration: none;
