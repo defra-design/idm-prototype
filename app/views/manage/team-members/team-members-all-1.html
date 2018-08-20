@@ -25,46 +25,39 @@
     }) }}
 
     {{ govukTable({
-      caption: "Team members",
+      caption: "All team members",
       captionClasses: "govuk-visually-hidden",
       firstCellIsHeader: false,
       head: [
         {
-          html: '<a class="govuk-link--no-visited-state" href="">Team member</a>',
+          html: '<span class="colHeader" href="">Team member</span>',
+          format: 'column-quarter'
+        },
+        {
+          html: '<span class="colHeader" href="">Email address</span>',
           format: 'column-third'
         },
         {
-          html: '<a class="govuk-link--no-visited-state" href="">Account access level</a>',
-          format: 'column-quarter'
-        },
-        {
-          html: '<a class="govuk-link--no-visited-state" href="">Account status</a>',
-          format: 'column-quarter'
-        },
-        {
-          html: '<span class="govuk-visually-hidden">Action</span>',
+          html: '<span class="colHeader" href="">Account status</span>',
           format: 'column-sixth'
         }
       ],
       rows: [
         [
           {
-            html: '<a class="govuk-link--no-visited-state" href="services-on-team-member-admin-self-all-1">Ann Cooper (you)</a><br>
-                    <span class="govuk-body-s">Ann.Cooper@email.com</span>'
+            html: '<span class="visually-hidden--desktop td-header">Team member:</span> <a class="govuk-link--no-visited-state" href="services-on-team-member-admin-self-all-1">Ann Cooper (you)</a>'
           },
           {
-            text: "Full access"
+            html: '<span class="visually-hidden--desktop td-header">Email address:</span> Ann.Cooper@email.com'
           },
           {
-            text: ""
-          },
-          {
-            html: '<a class="govuk-link--no-visited-state" href="services-on-team-member-admin-self-all-1">Manage</a>'
+            html: '<span class="visually-hidden--desktop td-header">Account status:</span> Approved'
           }
         ]
 
       ]
     }) }}
+
 
 
   </div>
