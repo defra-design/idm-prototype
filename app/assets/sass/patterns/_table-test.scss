@@ -36,22 +36,26 @@ td, th { counter-increment: cellcount; }
       background-color: govuk-colour("grey-4");
       }
 
-      //Forcing the header column width on small screens to be full width
-
-      th.column-full {
-        width: auto !important;
-      }
-
-      th {
-        background-color: govuk-colour("grey-4");
-      }
-
       tr::before {
         @extend .govuk-body;
         display: block !important;
         color: govuk-colour("grey-1");
       }
 
+      //Forcing the header column width on small screens to be full width
+
+      th {
+        background-color: govuk-colour("grey-4");
+        display: none;
+      }
+
+      #team1 th {
+        display: block !important;
+      }
+
+      .column-full {
+        width: auto !important;
+      }
 
 }
 
