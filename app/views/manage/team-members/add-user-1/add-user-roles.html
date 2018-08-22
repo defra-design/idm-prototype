@@ -25,7 +25,7 @@
           name: "serviceRole",
           fieldset: {
             legend: {
-              text: "What do you want them to be able to do in the REACH-IT service?",
+              text: "What tasks do you want this person to do in the REACH-IT service?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--xl"
             }
@@ -35,19 +35,19 @@
           },
           items: [
             {
-              value: "Admin",
-              html: 'Admin - They can view all information held by the service your organisation is registered with. They can give or remove access to services. They can view, edit and submit information to the service.',
-              checked:  checked('serviceRole','Admin')
+              value: "AllTasks",
+              html: 'All tasks - this person can view, add and edit information within the service.',
+              checked:  checked('serviceRole','AllTasks')
             },
             {
-              value: "Standard User",
-              html: 'Standard - They can view, edit and submit information to the service. They cannot give or remove access to service.',
-              checked:  checked('serviceRole','Standard User')
+              value: "Viewer",
+              html: 'View only - this person can view all information held by the service.',
+              checked:  checked('serviceRole','Viewer')
             },
             {
-              value: "ANOther User",
-              html: 'ANOther - This role is configurable by the service e.g. They can only view information in the service',
-              checked:  checked('serviceRole','ANOther User')
+              value: "AnotherTask",
+              html: 'Another task - this role is configurable by the service (e.g. the user can only view certain information, or edit certain sections).',
+              checked:  checked('serviceRole','AnotherTask')
             }
           ]
         }) }}
