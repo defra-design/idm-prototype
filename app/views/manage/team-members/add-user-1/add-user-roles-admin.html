@@ -25,7 +25,7 @@
           name: "serviceRole",
           fieldset: {
             legend: {
-              text: "What administion rights do you want this team member to have?",
+              text: "Do you want to give this person any more responsibilities?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--xl"
             }
@@ -35,18 +35,18 @@
           },
           items: [
             {
-              value: "Admin",
-              html: 'Admin - They can view and edit all information held by the service about your organisation. They can give or remove team member access to a service.',
-              checked:  checked('serviceRole','Admin')
+              value: "Administrator",
+              html: 'Administrator - this person can view and edit the information the service holds about your organisation. They can also manage other people\'s access to the service.',
+              checked:  checked('serviceRole','Administrator')
             },
             {
-              value: "Viewer",
-              html: 'Viewer - They can only view information held by the service. They cannot add or remove team members access to a service.',
-              checked:  checked('serviceRole','Viewer')
+              value: "OrgViewer",
+              html: 'Organisation viewer - this person can view a list of the services your organisation is registered to use, and who can access the services. They cannot view, edit or submit any information on behalf of your organisation.',
+              checked:  checked('serviceRole','OrgViewer')
             },
             {
               value: "None",
-              html: 'None - They have no admin privilidges',
+              html: 'No extra responsibilities - this person can only perform the tasks you chose within the service.',
               checked:  checked('serviceRole','None')
             }
           ]

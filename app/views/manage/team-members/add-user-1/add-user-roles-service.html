@@ -25,7 +25,7 @@
           name: "serviceRole",
           fieldset: {
             legend: {
-              text: "What service prividges do you want this team member to have?",
+              text: "What type of tasks do you want this person to do in the service?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--xl"
             }
@@ -35,18 +35,18 @@
           },
           items: [
             {
-              value: "Standard",
-              html: 'Standard - They can view, create and edit service things.',
-              checked:  checked('serviceRole','Standard')
+              value: "serviceAll",
+              html: 'All tasks - this person can view, add and edit information within the service.',
+              checked:  checked('serviceRole','serviceAll')
             },
             {
               value: "serviceViewer",
-              html: 'Viewer - They can only view information service things.',
+              html: 'View only - this person can view all information held by the service.',
               checked:  checked('serviceRole','serviceViewer')
             },
             {
               value: "serviceNone",
-              html: 'None - They have no service privilidges',
+              html: 'None - this person cannot access the service.',
               checked:  checked('serviceRole','serviceNone')
             }
           ]
