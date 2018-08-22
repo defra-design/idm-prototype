@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Intermediaries" %}
+{% set title = "Manage intermediary access" %}
 
 {% block pageTitle %}
     {{title}} - GOV.UK
@@ -16,9 +16,9 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
     <h1 class="govuk-heading-xl">{{title}}</h1>
-    <p>Intermediaries are people you deligate to do service stuff on behalf of your orgnaisation</p>
+    <p>An intermediary is a third party (such as an agent or consultant) who you authorise to interact with Defra on your behalf.</p>
     {{ govukButton({
-      text: "Add new intermediary",
+      text: "Add an intermediary",
       href: "/manage/agent/add-agent/add-agent-details"
     }) }}
 
