@@ -69,17 +69,16 @@ th {
 }
 
 //Visibly hiding certain fields on desktop only
-.visually-hidden--desktop {
+.govuk-visually-hidden--desktop {
     @include govuk-media-query($from: tablet) {
     @include govuk-visually-hidden();
   }
 }
 
+
 #team1 tr:before {
   display: none;
 }
-
-
 
 
 //Sortable table headers / buttons
