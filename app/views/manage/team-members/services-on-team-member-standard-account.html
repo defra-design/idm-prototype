@@ -32,7 +32,7 @@
     <p class="govuk-body"><span class="govuk-!-font-weight-bold">Added on:</span> 15 March 2017<br>
     <span class="govuk-!-font-weight-bold">Last signed in:</span> 3 July 2018</p>
   </div>
-  <div class="govuk-grid-column-one-thirds">
+  <div class="govuk-grid-column-one-third">
     <p class="govuk-body"><a href="user-account" class="govuk-link--no-visited-state">Edit details</a></p>
     <p class="govuk-body"><a href="" class="govuk-link--no-visited-state">Reset password</a>
   </div>
@@ -52,32 +52,32 @@
       firstCellIsHeader: false,
       head: [
         {
-          html: '<a class="govuk-link--no-visited-state" href="">Service</a>',
-          format: 'column-quarter'
+          html: 'Service',
+          format: 'column-quarter column-full'
 
         },
         {
-          html: '<a class="govuk-link--no-visited-state" href="">Location</a>',
-          format: 'column-half'
+          html: 'Location',
+          format: 'column-quarter column-full'
 
         },
         {
-          html: '<a class="govuk-link--no-visited-state" href="">Role type</a>',
-          format: 'column-fifth'
+          html: 'Role',
+          format: 'column-fifth column-full'
 
         }
       ],
       rows: [
       [
-        {
-          text: "UK-REACH-IT"
-        },
-        {
-          html: 'AstraZeneca UK Limited <br><span class="govuk-body-s">03674842</span>'
-        },
-        {
-          html: 'Standard User'
-        }
+      {
+        html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> UK-REACH-IT'
+      },
+      {
+        html: '<span class="govuk-visually-hidden--desktop td-header">Location:</span> AstraZeneca UK Limited'
+      },
+      {
+        html: '<span class="govuk-visually-hidden--desktop td-header">Role: </span>Full access'
+      }
       ]
 
       ]

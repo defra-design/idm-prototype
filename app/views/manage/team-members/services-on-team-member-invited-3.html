@@ -35,7 +35,7 @@
       <span class="govuk-!-font-weight-bold">Last signed in:</span> Never
     </p>
   </div>
-  <div class="govuk-grid-column-one-thirds">
+  <div class="govuk-grid-column-one-third">
     <p class="govuk-body"><a href="user-account" class="govuk-link--no-visited-state">Edit team member details</a></p>
     <p class="govuk-body"><a href="" class="govuk-link--no-visited-state">Reset password</a><br>
     <p class="govuk-body"><a href="" class="govuk-link--no-visited-state">Delete team member</a></p>
@@ -73,7 +73,7 @@
 {% endset %}
 
 {{ govukTable({
-  caption: "Services",
+  caption: "Access to services",
   captionClasses: "govuk-heading-l",
   firstCellIsHeader: false,
   head: [
@@ -113,10 +113,10 @@
       html: setServiceRoleHtml
     },
     {
-      html: '<a href="add-user-service/add-user-roles" class="govuk-link--no-visited-state">Change role</a>'
+      html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="add-user-service/add-user-roles-1" class="govuk-link--no-visited-state">Change role <span class="govuk-visually-hidden">to [Service name]</span></a>'
     },
     {
-      html: '<a href="#" class="govuk-link--no-visited-state">Remove access</a>'
+      html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="#" class="govuk-link--no-visited-state">Remove access <span class="govuk-visually-hidden">to [Service name]</span></a>'
     }
   ],
   [
@@ -130,10 +130,10 @@
       html: setServiceRole1Html
     },
     {
-      html: '<a href="add-user-service/add-user-roles" class="govuk-link--no-visited-state">Change role</a>'
+      html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="add-user-service/add-user-roles-1" class="govuk-link--no-visited-state">Change role <span class="govuk-visually-hidden">to [Service name]</span></a>'
     },
     {
-      html: '<a href="#" class="govuk-link--no-visited-state">Remove access</a>'
+      html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="#" class="govuk-link--no-visited-state">Remove access <span class="govuk-visually-hidden">to [Service name]</span></a>'
     }
   ]
 
