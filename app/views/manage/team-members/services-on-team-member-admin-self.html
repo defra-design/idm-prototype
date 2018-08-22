@@ -42,171 +42,154 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
     <br>
+
     {{ govukTable({
       caption: "Access to services",
       captionClasses: "govuk-heading-l",
       firstCellIsHeader: false,
       head: [
         {
-          html: '<a class="govuk-link--no-visited-state" href="">Service</a>',
-          format: 'column-quarter'
+          html: 'Service',
+          format: 'column-quarter column-full'
 
         },
         {
-          html: '<a class="govuk-link--no-visited-state" href="">Location</a>',
-          format: 'column-third'
+          html: 'Location',
+          format: 'column-quarter column-full'
 
         },
         {
-          html: '<a class="govuk-link--no-visited-state" href="">Role type</a>',
-          format: 'column-fifth'
+          html: 'Role',
+          format: 'column-fifth column-full'
 
         },
         {
-          html: '<span class="govuk-visually-hidden">Action</span>',
+          html: '<span class="govuk-visually-hidden column-full">Action</span>',
           format: ''
         },
         {
-          html: '<span class="govuk-visually-hidden">Action</span>',
+          html: '<span class="govuk-visually-hidden column-full">Action</span>',
           format: ''
         }
       ],
       rows: [
-
       [
         {
-          text: "UK CLP"
+          html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> UK CLP'
         },
         {
-          html: 'AstraZeneca UK Limited <br><span class="govuk-body-s">03674842</span>'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Location:</span> AstraZeneca UK Limited'
         },
         {
-          text: "Admin"
+          html: '<span class="govuk-visually-hidden--desktop td-header">Role: </span>Full access'
         },
         {
-          html: '<a href="add-user-service/add-user-roles" class="govuk-link--no-visited-state">Change role</a>'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="add-user-service/add-user-roles-1" class="govuk-link--no-visited-state">Change role <span class="govuk-visually-hidden">to [Service name]</span></a>'
         },
         {
-          html: '<a href="#" class="govuk-link--no-visited-state">Remove access</a>'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="#" class="govuk-link--no-visited-state">Remove access <span class="govuk-visually-hidden">to [Service name]</span></a>'
         }
       ],
       [
         {
-          text: "UK CLP"
+          html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> UK CLP'
         },
         {
-          text: "AstraZeneca - Farma"
+          html: '<span class="govuk-visually-hidden--desktop td-header">Location:</span> AstraZeneca Farma'
         },
         {
-          text: "Admin"
+          html: '<span class="govuk-visually-hidden--desktop td-header">Role: </span>Full access'
         },
         {
-          html: '<a href="add-user-service/add-user-roles" class="govuk-link--no-visited-state">Change role</a>'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="add-user-service/add-user-roles-1" class="govuk-link--no-visited-state">Change role <span class="govuk-visually-hidden">to [Service name]</span></a>'
         },
         {
-          html: '<a href="#" class="govuk-link--no-visited-state">Remove access</a>'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="#" class="govuk-link--no-visited-state">Remove access <span class="govuk-visually-hidden">to [Service name]</span></a>'
         }
       ],
       [
         {
-          text: "UK ePIC"
+          html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> UK ePIC'
         },
         {
-          html: 'AstraZeneca UK Limited <br><span class="govuk-body-s">03674842</span>'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Location:</span> AstraZeneca UK Limited'
         },
         {
-          text: "Admin"
+          html: '<span class="govuk-visually-hidden--desktop td-header">Role: </span>Full access'
         },
         {
-          html: '<a href="add-user-service/add-user-roles" class="govuk-link--no-visited-state">Change role</a>'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="add-user-service/add-user-roles-1" class="govuk-link--no-visited-state">Change role <span class="govuk-visually-hidden">to [Service name]</span></a>'
         },
         {
-          html: '<a href="#" class="govuk-link--no-visited-state">Remove access</a>'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="#" class="govuk-link--no-visited-state">Remove access <span class="govuk-visually-hidden">to [Service name]</span></a>'
         }
       ],
       [
         {
-          text: "UK ePIC"
+          html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> UK ePIC'
         },
         {
-          text: "AstraZeneca - Farma"
+          html: '<span class="govuk-visually-hidden--desktop td-header">Location:</span> AstraZeneca Farma'
         },
         {
-          text: "Admin"
+          html: '<span class="govuk-visually-hidden--desktop td-header">Role: </span>Full access'
         },
         {
-          html: '<a href="add-user-service/add-user-roles" class="govuk-link--no-visited-state">Change role</a>'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="add-user-service/add-user-roles-1" class="govuk-link--no-visited-state">Change role <span class="govuk-visually-hidden">to [Service name]</span></a>'
         },
         {
-          html: '<a href="#" class="govuk-link--no-visited-state">Remove access</a>'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="#" class="govuk-link--no-visited-state">Remove access <span class="govuk-visually-hidden">to [Service name]</span></a>'
         }
       ],
       [
         {
-          text: "UK-REACH-IT"
+          html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> UK-REACH-IT'
         },
         {
-          html: 'AstraZeneca UK Limited <br><span class="govuk-body-s">03674842</span>'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Location:</span> AstraZeneca UK Limited'
         },
         {
-          html: 'Admin'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Role: </span>Full access'
         },
         {
-          html: '<a href="add-user-service/add-user-roles" class="govuk-link--no-visited-state">Change role</a>'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="add-user-service/add-user-roles-1" class="govuk-link--no-visited-state">Change role <span class="govuk-visually-hidden">to [Service name]</span></a>'
         },
         {
-          html: '<a href="#" class="govuk-link--no-visited-state">Remove access</a>'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="#" class="govuk-link--no-visited-state">Remove access <span class="govuk-visually-hidden">to [Service name]</span></a>'
         }
       ],
       [
         {
-          text: "UK-REACH-IT"
+          html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> UK-REACH-IT'
         },
         {
-          html: 'AstraZeneca - Farma'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Location:</span> AstraZeneca Farma'
         },
         {
-          html: 'Admin'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Role: </span>Full access'
         },
         {
-          html: '<a href="add-user-service/add-user-roles-1" class="govuk-link--no-visited-state">Change role</a>'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="add-user-service/add-user-roles-1" class="govuk-link--no-visited-state">Change role <span class="govuk-visually-hidden">to [Service name]</span></a>'
         },
         {
-          html: '<a href="#" class="govuk-link--no-visited-state">Remove access</a>'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="#" class="govuk-link--no-visited-state">Remove access <span class="govuk-visually-hidden">to [Service name]</span></a>'
         }
       ],
       [
         {
-          text: "UK-REACH-IT"
+          html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> UK-REACH-IT'
         },
         {
-          html: 'AstraZeneca - Has Chem'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Location:</span> AstraZeneca Has Chem'
         },
         {
-          html: 'Admin'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Role: </span>Full access'
         },
         {
-          html: '<a href="add-user-service/add-user-roles-1" class="govuk-link--no-visited-state">Change role</a>'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="add-user-service/add-user-roles-1" class="govuk-link--no-visited-state">Change role <span class="govuk-visually-hidden">to [Service name]</span></a>'
         },
         {
-          html: '<a href="#" class="govuk-link--no-visited-state">Remove access</a>'
-        }
-      ],
-      [
-        {
-          text: "UK-REACH-IT"
-        },
-        {
-          html: 'Akzo Nobel Decorative Coatings Limited<br><span class="govuk-body-s">00139914</span>'
-        },
-        {
-          html: 'Admin'
-        },
-        {
-          html: '<a href="services-on-team-member-roles2" class="govuk-link--no-visited-state">Change role</a>'
-        },
-        {
-          html: '<a href="#" class="govuk-link--no-visited-state">Remove access</a>'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="#" class="govuk-link--no-visited-state">Remove access <span class="govuk-visually-hidden">to [Service name]</span></a>'
         }
       ]
 

@@ -49,15 +49,15 @@
 }) }}
 
 {% set setServiceNameHtml %}
-    {{ data['serviceName'] }}
+    <span class="govuk-visually-hidden--desktop td-header">Service:</span> {{ data['serviceName'] }}
 {% endset %}
 
 {% set setOrgHtml %}
-    {{ data['orgName'] }}
+    <span class="govuk-visually-hidden--desktop td-header">Location:</span> {{ data['orgName'] }}
 {% endset %}
 
 {% set setServiceRoleHtml %}
-    {{ data['serviceRole'] }}
+    <span class="govuk-visually-hidden--desktop td-header">Role: </span> {{ data['serviceRole'] }}
 {% endset %}
 
 {{ govukTable({
@@ -66,26 +66,26 @@
   firstCellIsHeader: false,
   head: [
     {
-      html: '<a class="govuk-link--no-visited-state" href="">Service</a>',
-      format: 'column-quarter'
+      html: 'Service',
+      format: 'column-quarter column-full'
 
     },
     {
-      html: '<a class="govuk-link--no-visited-state" href="">Location</a>',
-      format: 'column-third'
+      html: 'Location',
+      format: 'column-quarter column-full'
 
     },
     {
-      html: '<a class="govuk-link--no-visited-state" href="">Role type</a>',
-      format: 'column-fifth'
+      html: 'Role',
+      format: 'column-fifth column-full'
 
     },
     {
-      html: '<span class="govuk-visually-hidden">Action</span>',
+      html: '<span class="govuk-visually-hidden column-full">Action</span>',
       format: ''
     },
     {
-      html: '<span class="govuk-visually-hidden">Action</span>',
+      html: '<span class="govuk-visually-hidden column-full">Action</span>',
       format: ''
     }
   ],
@@ -101,10 +101,10 @@
       html: setServiceRoleHtml
     },
     {
-      html: '<a href="add-user-service/add-user-roles" class="govuk-link--no-visited-state">Change role</a>'
+      html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="add-user-service/add-user-roles-1" class="govuk-link--no-visited-state">Change role <span class="govuk-visually-hidden">to [Service name]</span></a>'
     },
     {
-      html: '<a href="#" class="govuk-link--no-visited-state">Remove access</a>'
+      html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="#" class="govuk-link--no-visited-state">Remove access <span class="govuk-visually-hidden">to [Service name]</span></a>'
     }
   ]
 

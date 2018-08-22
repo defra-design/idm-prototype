@@ -49,31 +49,27 @@
 }) }}
 
 {% set setServiceNameHtml %}
-    {{ data['serviceName'] }}
+    <span class="govuk-visually-hidden--desktop td-header">Service:</span> {{ data['serviceName'] }}
 {% endset %}
 
 {% set setServiceName1Html %}
-    {{ data['serviceName1'] }}
-{% endset %}
-
-\{% set setServiceName1Html %}
-    {{ data['serviceName1'] }}
+    <span class="govuk-visually-hidden--desktop td-header">Service:</span> {{ data['serviceName1'] }}
 {% endset %}
 
 {% set setOrgHtml %}
-    {{ data['orgName'] }}
+  <span class="govuk-visually-hidden--desktop td-header">Location:</span> {{ data['orgName'] }}
 {% endset %}
 
 {% set setOrg1Html %}
-    {{ data['orgName1'] }}
+  <span class="govuk-visually-hidden--desktop td-header">Location:</span> {{ data['orgName1'] }}
 {% endset %}
 
 {% set setServiceRoleHtml %}
-    {{ data['serviceRole'] }}
+  <span class="govuk-visually-hidden--desktop td-header">Role:</span> {{ data['serviceRole'] }}
 {% endset %}
 
 {% set setServiceRole1Html %}
-    {{ data['serviceRole1'] }}
+  <span class="govuk-visually-hidden--desktop td-header">Role:</span> {{ data['serviceRole1'] }}
 {% endset %}
 
 {{ govukTable({
@@ -81,29 +77,29 @@
   captionClasses: "govuk-heading-l",
   firstCellIsHeader: false,
   head: [
-    {
-      html: '<a class="govuk-link--no-visited-state" href="">Service</a>',
-      format: 'column-quarter'
+  {
+    html: 'Service',
+    format: 'column-quarter column-full'
 
-    },
-    {
-      html: '<a class="govuk-link--no-visited-state" href="">Location</a>',
-      format: 'column-third'
+  },
+  {
+    html: 'Location',
+    format: 'column-quarter column-full'
 
-    },
-    {
-      html: '<a class="govuk-link--no-visited-state" href="">Role type</a>',
-      format: 'column-fifth'
+  },
+  {
+    html: 'Role',
+    format: 'column-fifth column-full'
 
-    },
-    {
-      html: '<span class="govuk-visually-hidden">Action</span>',
-      format: ''
-    },
-    {
-      html: '<span class="govuk-visually-hidden">Action</span>',
-      format: ''
-    }
+  },
+  {
+    html: '<span class="govuk-visually-hidden column-full">Action</span>',
+    format: ''
+  },
+  {
+    html: '<span class="govuk-visually-hidden column-full">Action</span>',
+    format: ''
+  }
   ],
   rows: [
   [
