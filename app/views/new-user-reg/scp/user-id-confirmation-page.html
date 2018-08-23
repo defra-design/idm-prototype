@@ -2,6 +2,10 @@
 
 {% set title = "Confirmation page example" %}
 
+{% block header %}
+    {{ govukHeader({ serviceName: "" }) }}
+{% endblock %}
+
 {% block pageTitle %}
     {{title}} - GOV.UK
 {% endblock %}

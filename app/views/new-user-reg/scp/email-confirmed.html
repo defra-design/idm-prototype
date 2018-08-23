@@ -2,6 +2,10 @@
 
 {% set title = "We have confirmed your email address" %}
 
+{% block header %}
+    {{ govukHeader({ serviceName: "" }) }}
+{% endblock %}
+
 {% block pageTitle %}
     {{title}} - GOV.UK
 {% endblock %}
