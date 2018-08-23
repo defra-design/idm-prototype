@@ -57,7 +57,7 @@
 {% endset %}
 
 {% set setServiceRoleHtml %}
-    <span class="govuk-visually-hidden--desktop td-header">Role: </span> {{ data['serviceRole'] }}
+    <span class="govuk-visually-hidden--desktop td-header">Role: </span> {{ data['serviceRole'] }}, {{ data['systemRole'] }}
 {% endset %}
 
 {{ govukTable({

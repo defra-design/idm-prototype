@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Add service access" %}
+{% set title = "Do you want to give this person any other responsibilities?" %}
 
 {% block pageTitle %}
     {{title}} - GOV.UK
@@ -25,21 +25,21 @@
           name: "systemRole",
           fieldset: {
             legend: {
-              text: "Do you want to give this person any more responsibilities?",
+              text: "Do you want to give this person any other responsibilities?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--xl"
             }
           },
           items: [
             {
-              value: "Administrator",
-              html: 'Administrator - this person can view and edit the information the service holds about your organisation. They can also manage other people\'s access to the service.',
-              checked:  checked('systemRole','Administrator')
+              value: "LE Manager",
+              html: 'LE Manager - this person can view and edit the information the service holds about your organisation. They can also manage other people\'s access to the service.',
+              checked:  checked('systemRole','LE Manager')
             },
             {
-              value: "Organisation viewer",
-              html: 'Organisation viewer - this person can view a list of the services your organisation is registered to use, and who can access the services. They cannot view, edit or submit any information on behalf of your organisation.',
-              checked:  checked('systemRole','Organisation viewer')
+              value: "LE Reader",
+              html: 'LE Reader - this person can view a list of the services your organisation is registered to use, and who can access the services. They cannot view, edit or submit any information on behalf of your organisation.',
+              checked:  checked('systemRole','LE Reader')
             },
             {
               value: "None",
