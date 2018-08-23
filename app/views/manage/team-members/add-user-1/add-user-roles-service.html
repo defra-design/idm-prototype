@@ -20,12 +20,16 @@
 
       <form action="add-user-roles-admin" method="post">
 
+        {% set setServiceNameHtml %}
+            What tasks do you want this person to do in the {{ data['serviceName']}} service?
+        {% endset %}
+
         {{ govukRadios ({
           idPrefix: "serviceRole",
           name: "serviceRole",
           fieldset: {
             legend: {
-              text: "What type of tasks do you want this person to do in the service?",
+              html: setServiceNameHtml,
               isPageHeading: true,
               classes: "govuk-fieldset__legend--xl"
             }
@@ -35,19 +39,19 @@
           },
           items: [
             {
-              value: "serviceAll",
+              value: "All service tasks",
               html: 'All tasks - this person can view, add and edit information within the service.',
-              checked:  checked('serviceRole','serviceAll')
+              checked:  checked('serviceRole','All service tasks')
             },
             {
-              value: "serviceViewer",
+              value: "View service only",
               html: 'View only - this person can view all information held by the service.',
-              checked:  checked('serviceRole','serviceViewer')
+              checked:  checked('serviceRole','View service only')
             },
             {
-              value: "serviceNone",
+              value: "No service access",
               html: 'None - this person cannot access the service.',
-              checked:  checked('serviceRole','serviceNone')
+              checked:  checked('serviceRole','No service access')
             }
           ]
         }) }}

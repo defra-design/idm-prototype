@@ -21,8 +21,8 @@
       <form action="check-answers/check-your-answers-standard" method="post">
 
         {{ govukRadios ({
-          idPrefix: "serviceRole",
-          name: "serviceRole",
+          idPrefix: "systemRole",
+          name: "systemRole",
           fieldset: {
             legend: {
               text: "Do you want to give this person any more responsibilities?",
@@ -30,24 +30,21 @@
               classes: "govuk-fieldset__legend--xl"
             }
           },
-          hint: {
-            html: setServiceTypeHtml
-          },
           items: [
             {
               value: "Administrator",
               html: 'Administrator - this person can view and edit the information the service holds about your organisation. They can also manage other people\'s access to the service.',
-              checked:  checked('serviceRole','Administrator')
+              checked:  checked('systemRole','Administrator')
             },
             {
-              value: "OrgViewer",
+              value: "Organisation viewer",
               html: 'Organisation viewer - this person can view a list of the services your organisation is registered to use, and who can access the services. They cannot view, edit or submit any information on behalf of your organisation.',
-              checked:  checked('serviceRole','OrgViewer')
+              checked:  checked('systemRole','Organisation viewer')
             },
             {
               value: "None",
               html: 'No extra responsibilities - this person can only perform the tasks you chose within the service.',
-              checked:  checked('serviceRole','None')
+              checked:  checked('systemRole','None')
             }
           ]
         }) }}

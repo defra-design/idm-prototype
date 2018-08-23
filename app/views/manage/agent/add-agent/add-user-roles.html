@@ -18,14 +18,17 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-      <form action="add-user-org-multi" method="post">
+      <form action="check-answers/check-your-answers-standard" method="post">
+        {% set setServiceNameHtml %}
+        What tasks do you want this person to do in the {{ data['serviceName'] }} service?
+        {% endset %}
 
         {{ govukRadios ({
           idPrefix: "serviceRole",
           name: "serviceRole",
           fieldset: {
             legend: {
-              text: "What do you want them to be able to do in the [Service name] service?",
+              html: setServiceNameHtml,
               isPageHeading: true,
               classes: "govuk-fieldset__legend--xl"
             }
@@ -35,20 +38,19 @@
           },
           items: [
             {
-              value: "Admin",
-              html: 'They can view all information held by the services your organisation is registered with. They can submit data to these services. They can give or remove access to services.',
-              checked:  checked('serviceRole','Manager')
+              value: "AllTasks",
+              html: 'All tasks - this person can view, add and edit information within the service.',
+              checked:  checked('serviceRole','AllTasks')
             },
             {
-              value: "Standard",
-              html: 'Edit - they can edit and submit information to the service',
-              checked:  checked('serviceRole','Reader')
-            }
-            ,
+              value: "Viewer",
+              html: 'View only - this person can view all information held by the service.',
+              checked:  checked('serviceRole','Viewer')
+            },
             {
-              value: "Reader",
-              html: 'View - they can view information in the service',
-              checked:  checked('serviceRole','Reader')
+              value: "AnotherTask",
+              html: 'Another task - this role is configurable by the service (e.g. the user can only view certain information, or edit certain sections).',
+              checked:  checked('serviceRole','AnotherTask')
             }
           ]
         }) }}
@@ -60,6 +62,7 @@
       </form>
     </div>
   </div>
+
 
 
 
