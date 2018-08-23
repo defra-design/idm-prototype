@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Who do you want to access the (service name) service?" %}
+{% set title = "Who do you want to access your organisation's Defra account?" %}
 
 {% block pageTitle %}
     {{title}} - GOV.UK
@@ -19,7 +19,7 @@
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-xl">{{title}}</h1>
 
-      <form action="check-your-answers-admin" method="post">
+      <form action="add-user-service" method="post">
 
         {{ govukInput({
           label: {
@@ -49,7 +49,6 @@
           id: "businessEmail",
           name: "businessEmail",
           value: data['businessEmail'],
-
           type: email
         }) }}
 

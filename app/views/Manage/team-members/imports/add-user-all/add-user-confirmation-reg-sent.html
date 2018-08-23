@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% set title = "Invite team member" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-visually-hidden">{{title}}</h1>
+    {{ govukPanel({
+          titleText: "We have sent an invitation email to [user name].",
+          html: ""
+    })
+    }}
+
+    <p class="govuk-body">We have also sent you a confirmation email.</p>
+
+    <h3 class="govuk-heading-m">What happens next</h3>
+
+    <p class="govuk-body">[User name] will need to accept the email invite.</p>
+    <p class="givuk-body">They will then be able to access your organisation's Defra account.</p>
+    <p class="govuk-body">They will also be able to perform tasks or view any services you have given them permission for.</p>
+    <p class="govuk-body">You can <a href="#" class="govuk-link">change their role type and account access level here.</a></p>
+
+
+    {{ govukButton({
+        text: "Continue",
+        href: "../team-members-all-2"
+    }) }}
+
+  </div>
+</div>
+
+
+{% endblock %}
