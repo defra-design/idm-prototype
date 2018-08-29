@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Add service access" %}
+{% set title = "What tasks do you want this person to do in the service?" %}
 
 {% block pageTitle %}
     {{title}} - GOV.UK
@@ -18,14 +18,14 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-      <form action="check-answers/check-your-answers" method="post">
+      <form action="check-your-answers" method="post">
 
         {{ govukRadios ({
-          idPrefix: "serviceRole2",
-          name: "serviceRole2",
+          idPrefix: "serviceRole",
+          name: "serviceRole",
           fieldset: {
             legend: {
-              text: "What do you want them to be able to do in the [Service name] service?",
+              html: "What tasks do you want this person to do in the service?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--xl"
             }
@@ -35,14 +35,14 @@
           },
           items: [
             {
-              value: "RE Manager",
-              html: 'RE Manager - they can edit and submit information to the service.',
-              checked:  checked('serviceRole2','Manager')
+              value: "REACH Manager",
+              html: 'REACH Manager - this person can view, add and edit information within the service.',
+              checked:  checked('serviceRole','REACH Manager')
             },
             {
-              value: "RE Reader",
-              html: 'RE Reader - they can only view information submitted to the service. They cannot edit or submit any information.',
-              checked:  checked('serviceRole2','Reader')
+              value: "REACH Reader",
+              html: 'REACH Reader - this person can view all information held by the service.',
+              checked:  checked('serviceRole','REACH Reader')
             }
           ]
         }) }}

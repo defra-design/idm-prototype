@@ -14,7 +14,7 @@
         {{title}}
         <span class="govuk-caption-xl">{{releaseVersion}}</span>
       </h1>{{releaseVersion | log }}
-      <h2 class="govuk-heading-s">Final (WIP)
+      <h2 class="govuk-heading-m">Final (WIP)
       </h2>
       <ul class="govuk-list govuk-list--bullet">
         <li><a href="service-start-logged-out" class="govuk-link--no-visited-state">New user: registration</a></li>
@@ -22,22 +22,24 @@
         <li><a href="service-start-service-incomplete" class="govuk-link--no-visited-state">Return user: Incomplete registration - service not finished</a></li>
         <li><a href="service-start-pending" class="govuk-link--no-visited-state">Return user: Registration is pending</a></li>
         <li><a href="service-start-complete" class="govuk-link--no-visited-state">Return user: Registration is complete</a></li>
-
-
       </ul>
-      <h2 class="govuk-heading-s">Quick links</h2>
+      <h3 class="govuk-heading-s">Quick links
+      </h3>
       <ul class="govuk-list govuk-list--bullet">
         <li><a href="new-user-reg/limited-company/task-list-page-account" class="govuk-link--no-visited-state">Task list - Ltd company or PLC</a></li>
         <li><a href="new-user-reg/limited-company/task-list-page-account-error" class="govuk-link--no-visited-state">Task list - error page</a></li>
         <li><a href="new-user-reg/sole-trader/task-list-page-account" class="govuk-link--no-visited-state">Task list - Sole trader</a></li>
+        <li><a href="/service-start-complete-standard-user" class="govuk-link--no-visited-state">Standard User: account</a></li>
       </ul>
 
-      <h2 class="govuk-heading-s">Group manangement
+      <h2 class="govuk-heading-m">Group manangement
       </h2>
       <ul class="govuk-list govuk-list--bullet">
         <li><a href="/manage/dashboard-all-1" class="govuk-link--no-visited-state">Admin: New User Dashboard</a></li>
         <li><a href="/manage/dashboard-all" class="govuk-link--no-visited-state">Admin: Full dashboard</a></li>
       </ul>
+      <h3 class="govuk-heading-s">Invite user
+      </h3>
       <ul class="govuk-list govuk-list--bullet">
         <li><a href="/manage/team-members/chemicals/add-user-1/add-user-details" class="govuk-link--no-visited-state">Chemicals: Invite New User - 1 service, 1 org</a></li>
         <li><a href="/manage/team-members/chemicals/add-user-all/add-user-details" class="govuk-link--no-visited-state">Chemicals: Invite New User - multi service/ org</a></li>
@@ -46,15 +48,17 @@
         <li><a href="/manage/team-members/imports/add-user-1/add-user-details" class="govuk-link--no-visited-state">Imports: Invite New User - 1 service, 1 org</a></li>
         <li><a href="/manage/team-members/imports/add-user-all/add-user-details" class="govuk-link--no-visited-state">Imports: Invite New User - multi service/ org</a></li>
       </ul>
-
       <ul class="govuk-list govuk-list--bullet">
-        <li><a href="/manage/team-members/services-on-team-member-invited-2" class="govuk-link--no-visited-state">Admin: give service access to a user</a></li>
-        <li><a href="/manage/team-members/services-on-team-member-invited-2" class="govuk-link--no-visited-state">Admin: manage access for a user</a></li>
+        <li><a href="/manage/invited-user/invite-email-chemicals" class="govuk-link--no-visited-state">Accept Invite - create an account / signin happy path</a></li>
+        <li><a href="/manage/invited-user/invite-email-sad" class="govuk-link--no-visited-state">Accept Invite - sign in unhappy path</a></li>
       </ul>
+
+      <h2 class="govuk-heading-m">Intermediary/ Agent
+      </h2>
       <ul class="govuk-list govuk-list--bullet">
-        <li><a href="/manage/invited-user/invite-email-chemicals" class="govuk-link--no-visited-state">Standard User: Accept Invite - create an account / signin happy path</a></li>
-        <li><a href="/manage/invited-user/invite-email-sad" class="govuk-link--no-visited-state">Standard User: Accept Invite - sign in unhappy path</a></li>
-        <li><a href="/service-start-complete-standard-user" class="govuk-link--no-visited-state">Standard User: account</a></li>
+        <li><a href="manage/dashboard-all-1" class="govuk-link--no-visited-state">Deligate access to intermediary (Chemicals: 1 service, 1 org)</a></li>
+        <li><a href="manage/dashboard-all" class="govuk-link--no-visited-state">Deligate access to intermediary (Chemicals: many service, many org)</a></li>
+        <li><a href="new-user-reg/organisation-type-agent" class="govuk-link--no-visited-state">Choose account type</a></li>
       </ul>
 
     </div>

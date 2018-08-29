@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% set title = "Manage intermediary access" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/account-nav-admin-corp-all-1.html" %}
+  {% include "includes/breadcrumb-three-level.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-xl">{{title}}</h1>
+    <p>An intermediary is a third party (such as an agent or consultant) who you authorise to interact with Defra on your behalf.</p>
+    {{ govukButton({
+      text: "Add an intermediary",
+      href: "/manage/agent/add-agent-1/add-agent-details"
+    }) }}
+
+  </div>
+</div>
+
+{% endblock %}

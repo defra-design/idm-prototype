@@ -18,33 +18,14 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-        <form class="add-user-roles" onsubmit="return myFunction()" method="post">
-
-          <script>
-            const form = document.querySelector('.add-user-roles')
-
-            function myFunction() {
-              const checked = document.querySelector('[name="serviceName"]:checked')
-              const checkedValue = checked.value
-
-              switch(checkedValue){
-                case 'UK-REACH-IT':
-                form.action = 'add-user-roles-1'
-
-                break;
-                default:
-                form.action = 'add-user-roles'
-              }
-              return true
-            }
-          </script>
+        <form class="add-user-roles" action="add-agent-roles-service-roles" method="post">
 
         {{ govukRadios({
           idPrefix: "serviceName",
           name: "serviceName",
           fieldset: {
             legend: {
-              text: "Which service or system do you want this person to use?",
+              text: "Which service do you want this person to use?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--xl"
             }
@@ -55,6 +36,12 @@
               value: "UK-REACH-IT",
               html: 'UK-REACH-IT',
               checked:  checked('serviceName','UK-REACH-IT')
+            },
+
+            {
+              value: "ANOther Service",
+              html: 'ANOther Service',
+              checked:  checked('serviceName','ANOther Service')
             }
           ]
         }) }}

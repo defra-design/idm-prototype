@@ -27,8 +27,8 @@
           },
           classes: "govuk-input--width-20",
           id: "personalFirstName",
-          name: "personalFirstName",
-          value: data['personalFirstName']
+          name: "agentFirstName",
+          value: data['agentFirstName']
         }) }}
 
         {{ govukInput({
@@ -36,9 +36,9 @@
             text: "Surname or family name"
           },
           classes: "govuk-input--width-20",
-          id: "personalSurname",
-          name: "personalSurname",
-          value: data['personalSurname']
+          id: "agentSurname",
+          name: "agentSurname",
+          value: data['agentSurname']
         }) }}
 
         {{ govukInput({
@@ -46,9 +46,9 @@
             text: "Business email address"
           },
           classes: "govuk-input--width-20",
-          id: "businessEmail",
-          name: "businessEmail",
-          value: data['businessEmail'],
+          id: "agentEmail",
+          name: "agentEmail",
+          value: data['agentEmail'],
           type: email
         }) }}
 
@@ -57,15 +57,19 @@
             text: "Business telephone number "
           },
           classes: "govuk-input--width-10",
-          id: "businessTelephone",
-          name: "businessTelephone",
-          value: data['businessTelephone'],
+          id: "agentTelephone",
+          name: "agentTelephone",
+          value: data['agentTelephone'],
           type: tel
         }) }}
 
         {{ govukButton({
           text: "Continue"
         }) }}
+
+        <input type="hidden" name="serviceName" value="UK-REACH-IT">
+        <input type="hidden" name="orgName" value="AstraZeneca UK Limited">
+
 
       </form>
     </div>

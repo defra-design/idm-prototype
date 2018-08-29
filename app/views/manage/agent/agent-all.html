@@ -18,107 +18,83 @@
     <h1 class="govuk-heading-xl">{{title}}</h1>
     {{ govukButton({
       text: "Add new intermediary",
-      href: "#"
+      href: "add-agent-all/add-agent-details"
     }) }}
+
+    {% set setUserNameHtml %}
+        <a class="govuk-link--no-visited-state" href="services-on-team-member-invited-2">
+          {{ data['agentFirstName'] }}
+          {{ data['agentSurname'] }}</a>
+    {% endset %}
+
+    {% set setUserEmailHtml %}
+          {{ data['agentEmail'] }}
+    {% endset %}
+
     {{ govukTable({
-      caption: "Intermediaries",
+      caption: "All team members",
       captionClasses: "govuk-visually-hidden",
       firstCellIsHeader: false,
       head: [
         {
-          html: '<a class="govuk-link--no-visited-state" href="">User</a>',
-          format: 'column-third'
+          html: 'Intermediary',
+          format: 'column-quarter column-full'
         },
         {
-          html: '<a class="govuk-link--no-visited-state" href="">System role</a>',
-          format: 'column-quarter'
+          html: 'Organisation',
+          format: 'column-quarter column-full'
         },
         {
-          html: '<a class="govuk-link--no-visited-state" href="">Status</a>',
-          format: 'column-quarter'
+          html: 'Email address',
+          format: 'column-third column-full'
         },
         {
-          html: '<span class="govuk-visually-hidden">Action</span>',
-          format: 'column-sixth'
+          html: 'Account status',
+          format: 'column-sixth column-full'
         }
       ],
       rows: [
         [
           {
-            html: '<a href="services-on-team-member-agent" class="govuk-link--no-visited-state">Roy Wickes</a>
-              <br><span class="govuk-body-s">C T Henderson and Co</span>'
+            html: '<a href="#" class="govuk-link--no-visited-state">Jenny Lordes</a>'
           },
           {
-            text: "Standard user"
+            html: 'Agents.com'
           },
           {
-            text: ""
+            text: "Jenny.Lordes@agent.com"
           },
           {
-            html: '<a class="govuk-link--no-visited-state" href="">Remove user</a>'
+            html: '<span class="govuk-visually-hidden--desktop td-header">Account status:</span> Invite sent'
           }
         ],
         [
           {
-            html: '<a href="#" class="govuk-link--no-visited-state">Jenny Lordes</a>
-              <br><span class="govuk-body-s">C T Henderson and Co</span>'
+            html: '<a href="services-on-team-member-agent" class="govuk-link--no-visited-state">Marcy Ponds</a>'
+
           },
           {
-            text: "Standard user"
+            html: 'CJ Henderson & Sons'
           },
           {
-            text: ""
+            html: 'Marcy.Ponds@cjhenderson.co.uk'
           },
           {
-            html: '<a class="govuk-link--no-visited-state" href="">Remove user</a>'
+            html: '<span class="govuk-visually-hidden--desktop td-header">Account status:</span> Approved'
           }
-        ]
-        ,
+        ],
         [
           {
-            html: '<a href="#" class="govuk-link--no-visited-state">Jenny Lordes</a>
-              <br><span class="govuk-body-s">C T Henderson and Co</span>'
+            html: '<a href="services-on-team-member-agent" class="govuk-link--no-visited-state">Roy Wickes</a>'
           },
           {
-            text: "Standard user"
+            html: 'Agents R Us'
           },
           {
-            text: ""
+            text: "Roy.Wickes@otheragent.co.uk"
           },
           {
-            html: '<a class="govuk-link--no-visited-state" href="">Remove user</a>'
-          }
-        ]
-        ,
-        [
-          {
-            html: '<a href="#" class="govuk-link--no-visited-state">Jenny Lordes</a>
-              <br><span class="govuk-body-s">C T Henderson and Co</span>'
-          },
-          {
-            text: "Standard user"
-          },
-          {
-            text: ""
-          },
-          {
-            html: '<a class="govuk-link--no-visited-state" href="">Remove user</a>'
-          }
-        ]
-        ,
-        [
-          {
-            html: '<a href="#" class="govuk-link--no-visited-state">Jenny Lordes</a>
-              <br><span class="govuk-body-s">C T Henderson and Co</span>'
-          },
-          {
-            text: "Standard user"
-          },
-          {
-            text: ""
-          },
-          {
-            html: '<a class="govuk-link--no-visited-state" href="">Remove user</a>'
+            html: '<span class="govuk-visually-hidden--desktop td-header">Account status:</span> Approved'
           }
         ]
 

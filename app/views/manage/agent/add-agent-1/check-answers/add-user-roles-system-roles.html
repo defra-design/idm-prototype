@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+
+{% set title = "Do you want to give this person any other responsibilities?" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+      <form action="check-answers/check-your-answers-standard" method="post">
+
+        {{ govukRadios ({
+          idPrefix: "systemRole",
+          name: "systemRole",
+          fieldset: {
+            legend: {
+              text: "Do you want to give this person any other responsibilities?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+          items: [
+            {
+              value: "LE Manager",
+              html: 'LE Manager - this person can view and edit the information the service holds about your organisation. They can also manage other people\'s access to the service.',
+              checked:  checked('systemRole','LE Manager')
+            },
+            {
+              value: "LE Reader",
+              html: 'LE Reader - this person can view a list of the services your organisation is registered to use, and who can access the services. They cannot view, edit or submit any information on behalf of your organisation.',
+              checked:  checked('systemRole','LE Reader')
+            },
+            {
+              value: "None",
+              html: 'No extra responsibilities - this person can only perform the tasks you chose within the service.',
+              checked:  checked('systemRole','None')
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+
+
+
+{% endblock %}

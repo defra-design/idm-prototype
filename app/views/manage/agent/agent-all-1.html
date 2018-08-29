@@ -8,7 +8,7 @@
 
 {% block beforeContent %}
   {% include "includes/account-nav-admin-corp-all-1.html" %}
-  {% include "includes/breadcrumb-three-level.html" %}
+  {% include "includes/breadcrumb-three-level-all-2.html" %}
 {% endblock %}
 
 {% block content %}
@@ -16,10 +16,60 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
     <h1 class="govuk-heading-xl">{{title}}</h1>
-    <p>An intermediary is a third party (such as an agent or consultant) who you authorise to interact with Defra on your behalf.</p>
     {{ govukButton({
       text: "Add an intermediary",
-      href: "/manage/agent/add-agent/add-agent-details"
+      href: "#"
+    }) }}
+
+    {% set setUserNameHtml %}
+        <a class="govuk-link--no-visited-state" href="services-on-team-member-invited-2">
+          {{ data['agentFirstName'] }}
+          {{ data['agentSurname'] }}</a>
+    {% endset %}
+
+    {% set setUserEmailHtml %}
+          {{ data['agentEmail'] }}
+    {% endset %}
+
+    {{ govukTable({
+      caption: "All team members",
+      captionClasses: "govuk-visually-hidden",
+      firstCellIsHeader: false,
+      head: [
+        {
+          html: 'Intermediary',
+          format: 'column-quarter column-full'
+        },
+        {
+          html: 'Organisation',
+          format: 'column-quarter column-full'
+        },
+        {
+          html: 'Email address',
+          format: 'column-third column-full'
+        },
+        {
+          html: 'Account status',
+          format: 'column-sixth column-full'
+        }
+      ],
+      rows: [
+        [
+          {
+            html: setUserNameHtml
+          },
+          {
+            html: 'CJ Henderson & Sons'
+          },
+          {
+            html: setUserEmailHtml
+          },
+          {
+            html: '<span class="govuk-visually-hidden--desktop td-header">Account status:</span> Invite sent'
+          }
+        ]
+
+      ]
     }) }}
 
   </div>
