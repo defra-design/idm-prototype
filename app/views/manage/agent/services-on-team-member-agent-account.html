@@ -1,0 +1,121 @@
+{% extends "layout.html" %}
+
+{% set title = "Account details" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/account-nav-admin-agent-account.html" %}
+  {% include "includes/breadcrumb-two-level.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <h1 class="govuk-heading-xl">
+      Marcy Ponds
+    </h1>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <p class="govuk-body">
+      <span class="govuk-!-font-weight-bold">Full name:</span> Marcy Ponds<br>
+      <!--<span class="govuk-!-font-weight-bold">Account access level:</span> Full access<br>-->
+      <span class="govuk-!-font-weight-bold">Email address:</span> Marcy.Ponds@cjhenderson.co.uk<br>
+      <span class="govuk-!-font-weight-bold">Organisation:</span> CJ Henderson & Sons<br>
+      <span class="govuk-!-font-weight-bold">Telephone:</span> 01179267473
+  </p>
+    <p class="govuk-body"><span class="govuk-!-font-weight-bold">Added on:</span> 10 March 2011<br>
+    <span class="govuk-!-font-weight-bold">Last signed in:</span> 27 June 2018</p>
+  </div>
+  <div class="govuk-grid-column-one-third">
+    <p class="govuk-body"><a href="user-account" class="govuk-link--no-visited-state">Edit details</a></p>
+    <p class="govuk-body"><a href="" class="govuk-link--no-visited-state">Reset password</a><br>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <br>
+    {{ govukTable({
+      caption: "Access to services",
+      captionClasses: "govuk-heading-l",
+      firstCellIsHeader: false,
+      head: [
+        {
+          html: 'Service',
+          format: 'column-quarter column-full'
+
+        },
+        {
+          html: 'Location',
+          format: 'column-third column-full'
+
+        },
+        {
+          html: 'Role',
+          format: 'column-fifth column-full'
+
+        }
+      ],
+      rows: [
+      [
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> UK CLP'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Location:</span> AstraZeneca Has Chem'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Role: </span>Standard user'
+        }
+      ],
+      [
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> UK ePIC'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Location:</span> AstraZeneca UK Limited'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Role: </span>Standard user'
+        }
+      ],
+      [
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> UK ePIC'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Location:</span> AstraZeneca Farma'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Role: </span>Standard user'
+        }
+      ],
+      [
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> UK-REACH-IT'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Location:</span> AstraZeneca UK Limited'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Role: </span>RE Manager, LE Manager'
+        }
+      ]
+
+      ]
+    }) }}
+
+
+  </div>
+</div>
+
+
+{% endblock %}
