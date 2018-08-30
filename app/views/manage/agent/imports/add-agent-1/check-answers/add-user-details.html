@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Who do you want to access the service?" %}
+{% set title = "Who do you want to access your organisation's Defra account?" %}
 
 {% block pageTitle %}
     {{title}} - GOV.UK
@@ -17,11 +17,9 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-xl">Who do you want to access the Imports service?</h1>
+    <h1 class="govuk-heading-xl">{{title}}</h1>
 
-      <form action="add-user-roles-system-roles" method="post">
-        <input type="hidden" name="serviceName" value="Imports-1">
-        <input type="hidden" name="orgName" value="AstraZeneca UK Limited">
+      <form action="check-your-answers" method="post">
 
         {{ govukInput({
           label: {
@@ -29,8 +27,8 @@
           },
           classes: "govuk-input--width-20",
           id: "personalFirstName",
-          name: "personalFirstName",
-          value: data['personalFirstName']
+          name: "agentFirstName",
+          value: data['agentFirstName']
         }) }}
 
         {{ govukInput({
@@ -38,9 +36,9 @@
             text: "Surname or family name"
           },
           classes: "govuk-input--width-20",
-          id: "personalSurname",
-          name: "personalSurname",
-          value: data['personalSurname']
+          id: "agentSurname",
+          name: "agentSurname",
+          value: data['agentSurname']
         }) }}
 
         {{ govukInput({
@@ -48,9 +46,9 @@
             text: "Business email address"
           },
           classes: "govuk-input--width-20",
-          id: "businessEmail",
-          name: "businessEmail",
-          value: data['businessEmail'],
+          id: "agentEmail",
+          name: "agentEmail",
+          value: data['agentEmail'],
           type: email
         }) }}
 
@@ -59,9 +57,9 @@
             text: "Business telephone number "
           },
           classes: "govuk-input--width-10",
-          id: "businessTelephone",
-          name: "businessTelephone",
-          value: data['businessTelephone'],
+          id: "agentTelephone",
+          name: "agentTelephone",
+          value: data['agentTelephone'],
           type: tel
         }) }}
 
@@ -69,13 +67,8 @@
           text: "Continue"
         }) }}
 
-
-
-
-
       </form>
     </div>
   </div>
-
 
 {% endblock %}

@@ -17,9 +17,12 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-xl">Who do you want to access the {{ data['serviceName']}} service?</h1>
+    <h1 class="govuk-heading-xl">Who do you want to access the service?</h1>
 
       <form action="add-user-roles-service-roles" method="post">
+        <input type="hidden" name="serviceName" value="UK-REACH-IT">
+        <input type="hidden" name="orgName" value="AstraZeneca UK Limited">
+
 
         {{ govukInput({
           label: {
@@ -66,10 +69,6 @@
         {{ govukButton({
           text: "Continue"
         }) }}
-
-        <input type="hidden" name="serviceName" value="UK-REACH-IT">
-        <input type="hidden" name="orgName" value="AstraZeneca UK Limited">
-
 
 
       </form>

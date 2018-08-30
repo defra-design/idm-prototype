@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Who do you want to access your organisation's Defra account?" %}
+{% set title = "Who do you want to access the service?" %}
 
 {% block pageTitle %}
     {{title}} - GOV.UK
@@ -17,9 +17,10 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-xl">{{title}}</h1>
+    <h1 class="govuk-heading-xl">Who do you want to access the service?</h1>
 
       <form action="add-user-service" method="post">
+        <input type="hidden" name="orgName" value="AstraZeneca UK Limited">
 
         {{ govukInput({
           label: {
@@ -66,6 +67,8 @@
         {{ govukButton({
           text: "Continue"
         }) }}
+
+
 
       </form>
     </div>

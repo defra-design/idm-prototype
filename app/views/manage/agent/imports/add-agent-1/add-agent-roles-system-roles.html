@@ -18,14 +18,14 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-      <form action="add-user-org" method="post">
+      <form action="check-answers/check-your-answers-standard" method="post">
 
         {{ govukRadios ({
           idPrefix: "systemRole",
           name: "systemRole",
           fieldset: {
             legend: {
-              text: "Do you want to give this person any admin responsibilities?",
+              text: "Do you want to give this person any other responsibilities?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--xl"
             }
@@ -38,7 +38,7 @@
             },
             {
               value: "None",
-              html: 'No extra responsibilities - this person can only perform allocated tasks within the service.',
+              html: 'No extra responsibilities - this person can only perform the tasks you chose within the service.',
               checked:  checked('systemRole','None')
             }
           ]
