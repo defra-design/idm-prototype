@@ -17,24 +17,26 @@
   <div class="govuk-grid-column-full">
 
     <h1 class="govuk-heading-xl">
-      Roy Wickes
+      Marcy Ponds
     </h1>
   </div>
 </div>
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <p class="govuk-body"><span class="govuk-!-font-weight-bold">Full name:</span> Roy Wickes<br>
-    <span class="govuk-!-font-weight-bold">Email address:</span> Roy.Wickes@email.com<br>
-    <span class="govuk-!-font-weight-bold">Company:</span> C T Henderson and Co<br>
-    <span class="govuk-!-font-weight-bold">System role:</span> Standard user</p>
-    <p class="govuk-body"><span class="govuk-!-font-weight-bold">Added on:</span> 15 June 2018<br>
-    <span class="govuk-!-font-weight-bold">Last signed in:</span> 3 July 2018</p>
+    <p class="govuk-body">
+      <span class="govuk-!-font-weight-bold">Full name:</span> Marcy Ponds<br>
+      <!--<span class="govuk-!-font-weight-bold">Account access level:</span> Full access<br>-->
+      <span class="govuk-!-font-weight-bold">Email address:</span> Marcy.Ponds@cjhenderson.co.uk<br>
+      <span class="govuk-!-font-weight-bold">Organisation:</span> CJ Henderson & Sons<br>
+      <span class="govuk-!-font-weight-bold">Telephone:</span> 01179267473
+  </p>
+    <p class="govuk-body"><span class="govuk-!-font-weight-bold">Added on:</span> 10 March 2011<br>
+    <span class="govuk-!-font-weight-bold">Last signed in:</span> 27 June 2018</p>
   </div>
-  <div class="govuk-grid-column-one-thirds">
-    <p class="govuk-body"><a href="user-account" class="govuk-link--no-visited-state">Edit details</a></p>
+  <div class="govuk-grid-column-one-third">
+    <p class="govuk-body"><a href="user-account" class="govuk-link--no-visited-state">Edit intermediary details</a></p>
     <p class="govuk-body"><a href="" class="govuk-link--no-visited-state">Reset password</a><br>
-    <a href="" class="govuk-link--no-visited-state">Resend user ID</a></p>
     <p class="govuk-body"><a href="" class="govuk-link--no-visited-state">Delete intermediary</a></p>
   </div>
 </div>
@@ -42,78 +44,108 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
     <br>
-    {{ govukButton({
-      text: "Request service access",
-      href: ""
-    }) }}
-
     {{ govukTable({
-      caption: "Your services",
+      caption: "Access to services",
       captionClasses: "govuk-heading-l",
       firstCellIsHeader: false,
       head: [
         {
-          html: '<a class="govuk-link--no-visited-state" href="">Service</a>',
-          format: 'column-quarter'
+          html: 'Service',
+          format: 'column-quarter column-full'
 
         },
         {
-          html: '<a class="govuk-link--no-visited-state" href="">Organisation</a>',
-          format: 'column-third'
+          html: 'Location',
+          format: 'column-quarter column-full'
 
         },
         {
-          html: '<a class="govuk-link--no-visited-state" href="">Service role</a>',
-          format: 'column-fifth'
+          html: 'Role',
+          format: 'column-fifth column-full'
 
         },
         {
-          html: '<span class="govuk-visually-hidden">Action</span>',
+          html: '<span class="govuk-visually-hidden column-full">Action</span>',
           format: ''
         },
         {
-          html: '<span class="govuk-visually-hidden">Action</span>',
+          html: '<span class="govuk-visually-hidden column-full">Action</span>',
           format: ''
         }
       ],
       rows: [
       [
         {
-          text: "UK CLP"
+          html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> UK CLP'
         },
         {
-          text: "AstraZeneca - Farma"
+          html: '<span class="govuk-visually-hidden--desktop td-header">Location:</span> AstraZeneca Has Chem'
         },
         {
-          text: "Manager"
+          html: '<span class="govuk-visually-hidden--desktop td-header">Role: </span>Standard user'
         },
         {
-          html: '<a href="services-on-team-member-roles2" class="govuk-link--no-visited-statek">Manage access</a>'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="add-user-service/add-user-roles-1" class="govuk-link--no-visited-state">Change role <span class="govuk-visually-hidden">to [Service name]</span></a>'
         },
         {
-          html: '<a href="#" class="govuk-link--no-visited-state">Remove access</a>'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="#" class="govuk-link--no-visited-state">Remove access <span class="govuk-visually-hidden">to [Service name]</span></a>'
         }
       ],
       [
         {
-          text: "UK BPR"
+          html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> UK ePIC'
         },
         {
-          html: 'AstraZeneca UK Limited <br><span class="govuk-body-s">03674842</span>'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Location:</span> AstraZeneca UK Limited'
         },
         {
-          html: 'Manager'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Role: </span>Standard user'
         },
         {
-          html: '<a href="services-on-team-member-roles2" class="govuk-link--no-visited-state">Manage access</a>'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="add-user-service/add-user-roles-1" class="govuk-link--no-visited-state">Change role <span class="govuk-visually-hidden">to [Service name]</span></a>'
         },
         {
-          html: '<a href="#" class="govuk-link--no-visited-state">Remove access</a>'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="#" class="govuk-link--no-visited-state">Remove access <span class="govuk-visually-hidden">to [Service name]</span></a>'
+        }
+      ],
+      [
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> UK ePIC'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Location:</span> AstraZeneca Farma'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Role: </span>Standard user'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="add-user-service/add-user-roles-1" class="govuk-link--no-visited-state">Change role <span class="govuk-visually-hidden">to [Service name]</span></a>'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="#" class="govuk-link--no-visited-state">Remove access <span class="govuk-visually-hidden">to [Service name]</span></a>'
+        }
+      ],
+      [
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> UK-REACH-IT'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Location:</span> AstraZeneca UK Limited'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Role: </span>RE Manager, LE Manager'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="add-user-service/add-user-roles-1" class="govuk-link--no-visited-state">Change role <span class="govuk-visually-hidden">to [Service name]</span></a>'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="#" class="govuk-link--no-visited-state">Remove access <span class="govuk-visually-hidden">to [Service name]</span></a>'
         }
       ]
 
       ]
     }) }}
+
 
   </div>
 </div>
