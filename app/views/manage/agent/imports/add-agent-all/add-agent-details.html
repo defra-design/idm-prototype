@@ -19,7 +19,7 @@
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-xl">{{title}}</h1>
 
-      <form action="add-agent-roles-system-roles" method="post">
+      <form action="add-agent-service" method="post">
         <input type="hidden" name="serviceName" value="Imports-1">
         <input type="hidden" name="orgName" value="AstraZeneca UK Limited">
 
@@ -29,8 +29,8 @@
           },
           classes: "govuk-input--width-20",
           id: "personalFirstName",
-          name: "agentFirstName",
-          value: data['agentFirstName']
+          name: "personalFirstName",
+          value: data['personalFirstName']
         }) }}
 
         {{ govukInput({
@@ -38,9 +38,9 @@
             text: "Surname or family name"
           },
           classes: "govuk-input--width-20",
-          id: "agentSurname",
-          name: "agentSurname",
-          value: data['agentSurname']
+          id: "personalSurname",
+          name: "personalSurname",
+          value: data['personalSurname']
         }) }}
 
         {{ govukInput({
@@ -48,9 +48,9 @@
             text: "Business email address"
           },
           classes: "govuk-input--width-20",
-          id: "agentEmail",
-          name: "agentEmail",
-          value: data['agentEmail'],
+          id: "businessEmail",
+          name: "businessEmail",
+          value: data['businessEmail'],
           type: email
         }) }}
 
@@ -59,9 +59,9 @@
             text: "Business telephone number "
           },
           classes: "govuk-input--width-10",
-          id: "agentTelephone",
-          name: "agentTelephone",
-          value: data['agentTelephone'],
+          id: "businessTelephone",
+          name: "businessTelephone",
+          value: data['businessTelephone'],
           type: tel
         }) }}
 
@@ -69,9 +69,10 @@
           text: "Continue"
         }) }}
 
-    
+
       </form>
     </div>
   </div>
+
 
 {% endblock %}

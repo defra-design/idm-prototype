@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Who do you want to access the (service name) service?" %}
+{% set title = "Who do you want to access your organisation's services?" %}
 
 {% block pageTitle %}
     {{title}} - GOV.UK
@@ -19,7 +19,7 @@
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-xl">{{title}}</h1>
 
-      <form action="check-your-answers-standard" method="post">
+      <form action="check-your-answers" method="post">
 
         {{ govukInput({
           label: {

@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Who do you want to deligate access to your organisation's services?" %}
+{% set title = "Who do you want to access your organisation's services?" %}
 
 {% block pageTitle %}
     {{title}} - GOV.UK
@@ -17,9 +17,9 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-xl">Who do you want to access the {{ data['serviceName']}} service?</h1>
+    <h1 class="govuk-heading-xl">{{title}}</h1>
 
-      <form action="add-user-roles-system-roles" method="post">
+      <form action="check-your-answers" method="post">
 
         {{ govukInput({
           label: {
@@ -67,14 +67,8 @@
           text: "Continue"
         }) }}
 
-        <input type="hidden" name="serviceName" value="UK-REACH-IT">
-        <input type="hidden" name="orgName" value="AstraZeneca UK Limited">
-
-
-
       </form>
     </div>
   </div>
-
 
 {% endblock %}

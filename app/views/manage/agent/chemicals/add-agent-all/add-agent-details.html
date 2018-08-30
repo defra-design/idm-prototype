@@ -20,6 +20,8 @@
     <h1 class="govuk-heading-xl">{{title}}</h1>
 
       <form action="add-agent-service" method="post">
+        <input type="hidden" name="serviceName" value="Imports-1">
+        <input type="hidden" name="orgName" value="AstraZeneca UK Limited">
 
         {{ govukInput({
           label: {
@@ -67,10 +69,7 @@
           text: "Continue"
         }) }}
 
-        <input type="hidden" name="serviceName" value="UK-REACH-IT">
-        <input type="hidden" name="orgName" value="AstraZeneca UK Limited">
-
-
+  
       </form>
     </div>
   </div>

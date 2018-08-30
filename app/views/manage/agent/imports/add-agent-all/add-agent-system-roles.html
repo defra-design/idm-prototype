@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Do you want to give this person any other responsibilities?" %}
+{% set title = "Do you want to give this person any admin responsibilities?" %}
 
 {% block pageTitle %}
     {{title}} - GOV.UK
@@ -18,28 +18,23 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-      <form action="check-answers/check-your-answers-standard" method="post">
+      <form action="add-agent-org-multi" method="post">
 
         {{ govukRadios ({
           idPrefix: "systemRole",
           name: "systemRole",
           fieldset: {
             legend: {
-              text: "Do you want to give this person any other responsibilities?",
+              text: title,
               isPageHeading: true,
               classes: "govuk-fieldset__legend--xl"
             }
           },
           items: [
             {
-              value: "LE Manager",
-              html: 'LE Manager - this person can view and edit the information the service holds about your organisation. They can also manage other people\'s access to the service.',
-              checked:  checked('systemRole','LE Manager')
-            },
-            {
-              value: "LE Reader",
-              html: 'LE Reader - this person can view a list of the services your organisation is registered to use, and who can access the services. They cannot view, edit or submit any information on behalf of your organisation.',
-              checked:  checked('systemRole','LE Reader')
+              value: "Administrator",
+              html: 'Administrator - this person can view and edit the information the service holds about your organisation. They can also manage other people\'s access to the service.',
+              checked:  checked('systemRole','Administrator')
             },
             {
               value: "None",
