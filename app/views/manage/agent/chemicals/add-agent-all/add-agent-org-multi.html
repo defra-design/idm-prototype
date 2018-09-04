@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Which organisation can they use this service for?" %}
+{% set title = "Which organisation can they use this service on behalf of?" %}
 
 {% block pageTitle %}
     {{title}} - GOV.UK
@@ -21,7 +21,7 @@
       <form action="check-answers/check-your-answers" method="post">
 
         {% set setServiceTypeHtml %}
-            <p class="govuk-hint">Select one or more organisations registered with {{ data['serviceName'] }}:</p>
+            <p class="govuk-hint">Select one or more organisations you have registered with {{ data['serviceName'] }}:</p>
         {% endset %}
 
         {{ govukCheckboxes ({
@@ -29,7 +29,7 @@
           name: "orgName",
           fieldset: {
             legend: {
-              text: "Which organisation can they use this service for?",
+              text: "Which organisation can they use this service on behalf of?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--xl"
             }
