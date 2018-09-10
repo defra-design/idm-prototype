@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Do you want to give this person any other responsibilities?" %}
+{% set title = "Do you want to give this person any admin responsibilities?" %}
 
 {% block pageTitle %}
     {{title}} - GOV.UK
@@ -25,7 +25,7 @@
           name: "systemRole",
           fieldset: {
             legend: {
-              text: "Do you want to give this person any other responsibilities?",
+              text: title,
               isPageHeading: true,
               classes: "govuk-fieldset__legend--xl"
             }

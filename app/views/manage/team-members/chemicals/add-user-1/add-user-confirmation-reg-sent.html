@@ -18,24 +18,26 @@
 
     <h1 class="govuk-visually-hidden">{{title}}</h1>
     {{ govukPanel({
-          titleText: "We have sent an invitation email to [user name].",
-          html: ""
+          titleText: "Invitation sent",
+          html: "Team members registration code: <br><strong>HDJ2123F</strong>"
     })
     }}
 
-    <p class="govuk-body">We have also sent you a confirmation email.</p>
+    <p class="govuk-body">We have sent you a confirmation email with the team members one time registration code.</p>
 
     <h3 class="govuk-heading-m">What happens next</h3>
 
-    <p class="govuk-body">[User name] will need to accept the email invite.</p>
-    <p class="govuk-body">They will then be able to perform tasks and view any services you have given them permission to.</p>
-    <p class="govuk-body">You can <a href="#" class="govuk-link">change their role and access level here.</a></p>
-
+    <p class="govuk-body">[User name] will need to accept the email invite using the regsitration code above. You must give them this code.</p>
+    <p class="govuk-body">You will also need to set the team member's access with each available service. <a href="#" class="govuk-link">Set [User name] service access.</a></p>
+    <p class="govuk-body"><a href="#" class="govuk-link">Invite another team member</a></p>
 
     {{ govukButton({
-        text: "Continue",
+        text: "Done",
         href: "/manage/team-members/team-members-all-2"
     }) }}
+
+
+
 
   </div>
 </div>

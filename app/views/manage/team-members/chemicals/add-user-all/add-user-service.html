@@ -18,7 +18,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-        <form class="add-user-roles" action="add-user-roles-service-roles" method="post">
+        <form class="add-user-roles" action="add-user-roles-system-roles" method="post">
 
         {{ govukRadios({
           idPrefix: "serviceName",
@@ -37,11 +37,15 @@
               html: 'UK-REACH-IT',
               checked:  checked('serviceName','UK-REACH-IT')
             },
-
             {
-              value: "ANOther Service",
-              html: 'ANOther Service',
-              checked:  checked('serviceName','ANOther Service')
+              value: "UK-ePIC",
+              html: 'UK-ePIC',
+              checked:  checked('serviceName','UK-ePIC')
+            },
+            {
+              value: "UK-CLP",
+              html: 'UK-CLP',
+              checked:  checked('serviceName','UK-CLP')
             }
           ]
         }) }}
