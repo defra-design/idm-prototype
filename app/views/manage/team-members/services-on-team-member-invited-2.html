@@ -26,19 +26,20 @@
   <div class="govuk-grid-column-two-thirds">
     <p class="govuk-body">
       <span class="govuk-!-font-weight-bold">Full name:</span> {{ data['personalFirstName'] }} {{ data['personalSurname'] }}<br>
+      <span class="govuk-!-font-weight-bold">Account access level:</span> {{ data['syystemRole'] }}<br>
       <span class="govuk-!-font-weight-bold">Email address:</span> {{ data['businessEmail'] }}<br>
       <span class="govuk-!-font-weight-bold">Telephone:</span> {{ data['businessTelephone'] }}
 
     </p>
-    <p class="govuk-body">
+    <!--<p class="govuk-body">
       <span class="govuk-!-font-weight-bold">Added on:</span> 10 July 2018<br>
       <span class="govuk-!-font-weight-bold">Last signed in:</span> Never
-    </p>
+    </p>-->
   </div>
   <div class="govuk-grid-column-one-third">
-    <p class="govuk-body"><a href="user-account" class="govuk-link--no-visited-state">Edit team member details</a></p>
+    <!--<p class="govuk-body"><a href="user-account" class="govuk-link--no-visited-state">Edit team member details</a></p>-->
     <p class="govuk-body"><a href="" class="govuk-link--no-visited-state">Reset password</a><br>
-    <p class="govuk-body"><a href="" class="govuk-link--no-visited-state">Delete team member</a></p>
+    <!--<p class="govuk-body"><a href="" class="govuk-link--no-visited-state">Delete team member</a></p>-->
   </div>
 </div>
 
@@ -57,7 +58,7 @@
 {% endset %}
 
 {% set setServiceRoleHtml %}
-    <span class="govuk-visually-hidden--desktop td-header">Role: </span> {{ data['serviceRole'] }}, {{ data['systemRole'] }}
+    <span class="govuk-visually-hidden--desktop td-header">Role: </span> {{ data['serviceRole'] }}
 {% endset %}
 
 {{ govukTable({
