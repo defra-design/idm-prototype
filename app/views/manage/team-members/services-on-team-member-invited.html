@@ -42,7 +42,7 @@
   <div class="govuk-grid-column-two-thirds">
     <p class="govuk-body">
       <span class="govuk-!-font-weight-bold">Full name:</span> {{ data['personalFirstName'] }} {{ data['personalSurname'] }}<br>
-      <span class="govuk-!-font-weight-bold">Account access level:</span> {{ data['syystemRole'] }}<br>
+      <span class="govuk-!-font-weight-bold">Account access level:</span> {{ data['systemRole'] }}<br>
       <span class="govuk-!-font-weight-bold">Email address:</span> {{ data['businessEmail'] }}<br>
       <span class="govuk-!-font-weight-bold">Telephone:</span> {{ data['businessTelephone'] }}
 
@@ -64,14 +64,14 @@
 
 {% if data['numServices'] == 1 %}
 {{ govukButton({
-  text: "Give service access 1",
+  text: "Give service access",
   href: "/manage/team-members/chemicals/service-access/add-user-roles-service-roles"
 }) }}
 {% endif %}
 
 {% if data['numServices'] == 3 %}
 {{ govukButton({
-  text: "Give service access 3",
+  text: "Give service access",
   href: "/manage/team-members/chemicals/service-access/add-user-service"
 }) }}
 {% endif %}
