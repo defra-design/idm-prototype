@@ -18,7 +18,29 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-        <form class="add-user-roles" action="add-user-roles-service-roles" method="post">
+    <form class="add-user-roles" onsubmit="return myFunction()" method="post">
+      <script>
+        const form = document.querySelector('.add-user-roles')
+
+        function myFunction() {
+          const checked = document.querySelector('[name="serviceName"]:checked')
+          const checkedValue = checked.value
+
+          switch(checkedValue){
+            case 'UK-REACH-IT':
+            form.action = 'add-user-roles-service-roles'
+
+            break;
+            case 'UK-ePIC':
+            form.action = 'add-user-roles-service-roles-normal'
+
+            break;
+            case 'UK-CLP':
+            form.action = 'add-user-roles-service-roles-normal'
+          }
+          return true
+        }
+      </script>
 
         {{ govukRadios({
           idPrefix: "serviceName",
@@ -54,21 +76,7 @@
           text: "Continue"
         }) }}
 
-        <!--{
-          value: "UK BPR",
-          html: 'UK BPR',
-          checked:  checked('serviceName','UK BPR')
-        },
-        {
-          value: "UK CLP",
-          html: 'UK CLP',
-          checked:  checked('serviceName','UK CLP')
-        },
-        {
-          value: "UK ePIC",
-          html: 'UK ePIC',
-          checked:  checked('serviceName','UK ePIC')
-        },-->
+
 
       </form>
     </div>
