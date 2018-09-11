@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block beforeContent %}
-  {% include "includes/account-nav-admin-corp-all-1.html" %}
+  {% include "includes/account-nav-admin-corp-all-2.html" %}
   {% include "includes/breadcrumb-three-level-all-2.html" %}
 {% endblock %}
 
@@ -20,16 +20,39 @@
       {{title}}
     </h1>
 
-    {{ govukButton({
-      text: "Add a team member",
-      href: "chemicals/add-user-1/add-user-details"
-    }) }}
+    {% if data['numServices'] == 1 %}
+      {{ govukButton({
+        text: "Add a team member",
+        href: "chemicals/invite-user/add-user-details-1"
+      }) }}
+    {% endif %}
+
+    {% if data['numServices'] == 3 %}
+      {{ govukButton({
+        text: "Add a team member",
+        href: "chemicals/invite-user/add-user-details-many"
+      }) }}
+    {% endif %}
 
     {% set setUserNameHtml %}
-        <a class="govuk-link--no-visited-state" href="services-on-team-member-invited-2">
-          {{ data['personalFirstName'] }}
-          {{ data['personalSurname'] }}</a>
+    {% if data['subscribeService'] == "Yes" %}
+      <a class="govuk-link--no-visited-state" href="services-on-team-member-invited-service">
+        {{ data['personalFirstName'] }}
+        {{ data['personalSurname'] }}
+      </a>
+    {% endif %}
+
+    {% if data['subscribeService'] == "No" %}
+            <a class="govuk-link--no-visited-state" href="services-on-team-member-invited-no-service">
+              {{ data['personalFirstName'] }}
+              {{ data['personalSurname'] }}
+            </a>
+      {% endif %}
+
+
     {% endset %}
+
+
 
     {% set setUserEmailHtml %}
           {{ data['businessEmail'] }}
