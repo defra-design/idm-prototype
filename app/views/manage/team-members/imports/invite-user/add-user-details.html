@@ -20,10 +20,12 @@
     <h1 class="govuk-heading-xl">{{title}}</h1>
 
       <form action="add-user-roles-system-roles" method="post">
-        <input type="hidden" name="serviceName" value="UK-REACH-IT">
-        <input type="hidden" name="orgName" value="AstraZeneca UK Limited">
-        <input type="hidden" name="numServices" value="1">
-        <input type="hidden" name="subscribeService" value="No">
+        <input type="hidden" name="serviceName" value="Imports S01">
+        <input type="hidden" name="orgName" value="Importers UK Limited">
+        <input type="hidden" name="subscribeService" value="Yes">
+        <input type="hidden" name="userInvite" value="Yes">
+        <input type="hidden" name="serviceRole" value="Standard">
+
 
 
         {{ govukInput({

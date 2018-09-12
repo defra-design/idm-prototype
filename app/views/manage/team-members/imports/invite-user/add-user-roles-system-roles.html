@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Do you want to give this person any other responsibilities?" %}
+{% set title = "Do you want to give this person any admin responsibilities?" %}
 
 {% block pageTitle %}
     {{title}} - GOV.UK
@@ -25,20 +25,20 @@
           name: "systemRole",
           fieldset: {
             legend: {
-              text: "Do you want to give this person any other responsibilities?",
+              text: title,
               isPageHeading: true,
               classes: "govuk-fieldset__legend--xl"
             }
           },
           items: [
             {
-              value: "Administrator",
-              html: 'Administrator - this person can view and edit the information the service holds about your organisation. They can also manage other people\'s access to the service.',
-              checked:  checked('systemRole','Administrator')
+              value: "Admin",
+              html: 'Admin - this person can view and edit the information the service holds about your organisation. They can also manage other people\'s access to the service.',
+              checked:  checked('systemRole','Admin')
             },
             {
               value: "None",
-              html: 'No extra responsibilities - this person can only perform allocated tasks within the service.',
+              html: 'None - no extra responsibilities, this person can only perform tasks within the service.',
               checked:  checked('systemRole','None')
             }
           ]

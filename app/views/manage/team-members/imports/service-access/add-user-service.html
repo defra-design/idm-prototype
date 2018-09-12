@@ -18,7 +18,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-        <form class="add-user-roles" action="add-user-roles-system-roles" method="post">
+    <form action="/manage/team-members/services-on-team-member-invited-service" method="post">
 
         {{ govukRadios({
           idPrefix: "serviceName",
@@ -33,15 +33,19 @@
           items: [
 
             {
-              value: "Imports-1",
-              html: 'Imports-1',
-              checked:  checked('serviceName','Imports-1')
+              value: "Imports S01",
+              html: 'Imports S01',
+              checked:  checked('serviceName','Imports S01')
             },
-
             {
-              value: "Imports-2",
-              html: 'Imports-2',
-              checked:  checked('serviceName','Imports-2')
+              value: "Imports S02",
+              html: 'Imports S02',
+              checked:  checked('serviceName','Imports S02')
+            },
+            {
+              value: "Imports S03",
+              html: 'Imports S03',
+              checked:  checked('serviceName','Imports S03')
             }
           ]
         }) }}
@@ -50,21 +54,7 @@
           text: "Continue"
         }) }}
 
-        <!--{
-          value: "UK BPR",
-          html: 'UK BPR',
-          checked:  checked('serviceName','UK BPR')
-        },
-        {
-          value: "UK CLP",
-          html: 'UK CLP',
-          checked:  checked('serviceName','UK CLP')
-        },
-        {
-          value: "UK ePIC",
-          html: 'UK ePIC',
-          checked:  checked('serviceName','UK ePIC')
-        },-->
+
 
       </form>
     </div>

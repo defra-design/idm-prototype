@@ -119,9 +119,41 @@
     </tbody>
   </table>
 
-
-
   <h2 class="govuk-heading-l">Table 2</h2>
+  <p>An accessible, responsive, sortable table using html and javascript</p>
+  <table class="govuk-table">
+    <caption class="govuk-table__caption govuk-visually-hidden">All team members</caption>
+    <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th class="govuk-table__header govuk-table__header--column-quarter column-full" scope="col">
+        Team member
+      </th>
+      <th class="govuk-table__header govuk-table__header--column-third column-full" scope="col">
+        Email address
+      </th>
+      <th class="govuk-table__header govuk-table__header--column-sixth column-full" scope="col">
+        Account status
+      </th>
+    </tr>
+    </thead>
+
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+        <span class="govuk-visually-hidden--desktop td-header">Team member:</span>
+        <a class="govuk-link--no-visited-state" href="services-on-team-member-admin-self-all-1">Ann Cooper (you)</a>
+      </td>
+      <td class="govuk-table__cell">
+        <span class="govuk-visually-hidden--desktop td-header">Email address:</span> Ann.Cooper@email.com
+      </td>
+      <td class="govuk-table__cell">
+        <span class="govuk-visually-hidden--desktop td-header">Account status:</span> Approved
+      </td>
+    </tr>
+  </table>
+
+
+
+  <h2 class="govuk-heading-l">Table 3</h2>
   <p>An responsive table using nunjunks</p>
 
       {{ govukTable({

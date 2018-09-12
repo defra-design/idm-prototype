@@ -28,19 +28,16 @@ router.get('/tests/ac2', function (req, res) {
 // 1 user and no agents
 router.get('/manage/dashboard-all-1', function (req, res) {
     res.render('manage/dashboard',{
-      "numUsers":1,
+      "numUsers": 1,
       "numServices":1,
       "numAgents":0,
       "numLocations":1,
-      "addUserURL": 'team-members/chemicals/invite-user/add-user-details-1',
       "teamMemberURL": 'team-members/team-members-all-1',
       "addAgentURL": 'agent/chemicals/add-agent-1/add-agent-details',
       "agentURL": 'agent/agent-all-0',
       "addLocationURL": '#',
       "locationURL": 'organisations/organisation-all-1',
-      "serviceCSS": 'govuk-visually-hidden',
-      "accountNavURL": 'includes/account-nav-admin-corp-all-1.html'
-
+      "serviceCSS": 'govuk-visually-hidden'
     })
 })
 
@@ -51,14 +48,12 @@ router.get('/manage/dashboard-all-2', function (req, res) {
       "numServices":1,
       "numAgents":0,
       "numLocations":1,
-      "addUserURL": 'team-members/chemicals/invite-user/add-user-details-1',
-      "teamMemberURL": 'team-members/team-members-all-2',
+      "teamMemberURL": 'team-members/team-members-all-1',
       "addAgentURL": 'agent/chemicals/add-agent-1/add-agent-details',
       "agentURL": 'agent/agent-all-1',
       "addLocationURL": '#',
       "locationURL": 'organisations/organisation-all-1',
-      "serviceCSS": 'govuk-visually-hidden',
-      "accountNavURL": 'includes/account-nav-admin-corp-all-2.html'
+      "serviceCSS": 'govuk-visually-hidden'
     })
 })
 
@@ -69,13 +64,11 @@ router.get('/manage/dashboard-all', function (req, res) {
       "numServices":3,
       "numAgents":3,
       "numLocations":3,
-      "addUserURL": 'team-members/chemicals/invite-user/add-user-details-many',
       "teamMemberURL": 'team-members/team-members-all',
       "addAgentURL": 'agent/chemicals/add-agent-1/add-agent-details',
       "agentURL": 'agent/agent-all',
       "addLocationURL": '#',
-      "locationURL": 'organisations/organisation-all',
-      "accountNavURL": 'includes/account-nav-admin-corp.html'
+      "locationURL": 'organisations/organisation-all'
     })
 })
 
@@ -83,7 +76,7 @@ router.get('/manage/dashboard-all', function (req, res) {
 // invited user and no service
 router.get('/manage/team-members/services-on-team-member-invited-no-service', function (req, res) {
     res.render('manage/team-members/services-on-team-member-invited',{
-      "serviceCSS": 'govuk-visually-hidden',
+      "serviceHideCSS": 'govuk-visually-hidden',
       "subscribeService": "No"
     })
 })
@@ -91,7 +84,20 @@ router.get('/manage/team-members/services-on-team-member-invited-no-service', fu
 // invited user and no service
 router.get('/manage/team-members/services-on-team-member-invited-service', function (req, res) {
     res.render('manage/team-members/services-on-team-member-invited',{
-      "inviteCSS": 'govuk-visually-hidden',
       "subscribeService": "Yes"
+    })
+})
+
+// Team members config
+// Single user
+router.get('/manage/team-members/team-members-all-1', function (req, res) {
+    res.render('manage/team-members/team-members',{
+      "otherUserCSS": 'govuk-visually-hidden'
+    })
+})
+
+// all users, but no newly added user
+router.get('/manage/team-members/team-members-all', function (req, res) {
+    res.render('manage/team-members/team-members',{
     })
 })

@@ -7,8 +7,8 @@
 {% endblock %}
 
 {% block beforeContent %}
-  {% include "includes/account-nav-admin-corp-all-2.html" %}
-  {% include "includes/breadcrumb-four-level-team-all-2.html" %}
+  {% include "includes/account-nav-admin-corp.html" %}
+  {% include "includes/breadcrumb-four-level-team.html" %}
 {% endblock %}
 
 {% block content %}
@@ -22,18 +22,15 @@
   </div>
 </div>
 
-<div class="govuk-grid-row {{inviteCSS}}">
+<div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <p> {{ data['personalFirstName'] }} has not yet accepted this invitation</p>
+    <p> {{ data['personalFirstName'] }} has not yet accepted this invitation<br>
+      {{ govukButton({
+        text: "Re-send invite",
+        href: "#"
+      }) }}</p>
 
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-one-third">
-        {{ govukButton({
-          text: "Re-send invite",
-          href: "#"
-        }) }}
-      </div>
-    </div>
+    
 
   </div>
 </div>
@@ -62,23 +59,38 @@
 
 <br>
 
-{% if data['numServices'] == 1 %}
+
+{% if (data['numServices'] == 1) and (data['subscribeService'] == "No") and (data['serviceName'] == "Chemicals") %}
 {{ govukButton({
   text: "Give service access",
   href: "/manage/team-members/chemicals/service-access/add-user-roles-service-roles"
 }) }}
 {% endif %}
 
-{% if data['numServices'] == 3 %}
+{% if data['numServices'] == 3 and (data['serviceName'] == "Chemicals") %}
 {{ govukButton({
   text: "Give service access",
   href: "/manage/team-members/chemicals/service-access/add-user-service"
 }) }}
 {% endif %}
 
+{% if (data['numServices'] == 1) and (data['subscribeService'] == "No") and (data['serviceName'] == "Imports") %}
+{{ govukButton({
+  text: "Give service access",
+  href: "/manage/team-members/imports/service-access/add-user-roles-service-roles"
+}) }}
+{% endif %}
+
+{% if data['numServices'] == 3  %}
+{{ govukButton({
+  text: "Give service access",
+  href: "/manage/team-members/imports/service-access/add-user-service"
+}) }}
+{% endif %}
 
 
-<div class="{{serviceCSS}}">
+
+<div class="{{serviceHideCSS}}">
 {% set setServiceNameHtml %}
     <span class="govuk-visually-hidden--desktop td-header">Service:</span> {{ data['serviceName'] }}
 {% endset %}

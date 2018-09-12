@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block beforeContent %}
-  {% include accountNavURL %}
+  {% include "includes/account-nav-admin-corp.html" %}
 {% endblock %}
 
 {% block content %}
@@ -29,11 +29,11 @@
       <a href="{{teamMemberURL}}"></a>
       <div class="govuk-card__content">
         <h3 class="govuk-heading-m"><a href="{{teamMemberURL}}" class="govuk-link--no-visited-state">Manage team access</a></h3>
-        <p class="govuk-!-font-weight-bold govuk-!-font-size-48 govuk-!-font-weight-bold">{{numUsers}}</p>
+        <p class="govuk-!-font-weight-bold govuk-!-font-size-48 govuk-!-font-weight-bold">{{ numUsers }}</p>
       </div>
       <div class="govuk-card__actions">
         <ul class="govuk-list govuk-!-mb-r0">
-          <li><a href="{{addUserURL}}" class="govuk-link--no-visited-state">Add a team member</a></li>
+          <li><a href="team-members/chemicals/invite-user/add-user-details" class="govuk-link--no-visited-state">Add a team member</a></li>
         </ul>
       </div>
     </div>
@@ -86,7 +86,7 @@
 
         <div class="govuk-grid-column-one-third">
           <div class="govuk-card govuk-card--contained govuk-card--selectable">
-              <a href="manage-access-1"></a>
+              <a href="#"></a>
               <div class="govuk-card__content">
                 <h3 class="govuk-heading-m">Chemicals - REACH-IT</h3>
                 <p class="govuk-body">A short summary of the tasks you can complete with this service.
@@ -126,8 +126,5 @@
           }) }}
         </div>
       </div>
-
-
-      <input type="hidden" name="numberUsers" value="{{numUsers}}">
 
 {% endblock %}

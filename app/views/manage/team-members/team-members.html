@@ -1,0 +1,168 @@
+{% extends "layout.html" %}
+
+{% set title = "Manage team access" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/account-nav-admin-corp.html" %}
+  {% include "includes/breadcrumb-three-level.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <h1 class="govuk-heading-xl">
+      {{title}}
+    </h1>
+
+    {{ govukButton({
+      text: "Add a team member",
+      href: "chemicals/invite-user/add-user-details"
+    }) }}
+
+    {% set setAnnURL %}
+      {% if data['numUsers'] == "1" %}
+        services-on-team-member-admin-self-all-1
+      {% endif %}
+
+      {% if data['numUsers'] == "22" %}
+        services-on-team-member-admin-self
+      {% endif %}
+    {% endset %}
+
+    {% set setUserNameURL %}
+      {% if data['subscribeService'] == "Yes" %}
+        services-on-team-member-invited-service
+      {% endif %}
+
+      {% if data['subscribeService'] == "No" %}
+        services-on-team-member-invited-no-service
+      {% endif %}
+    {% endset %}
+
+    {% set setUserEmailHtml %}
+      {{ data['businessEmail'] }}
+    {% endset %}
+
+
+    {% set newUserCSS = " govuk-visually-hidden" %}
+
+    {% if data['userInvite'] == "Yes" %}
+      {% set newUserCSS = "" %}
+
+    {% endif %}
+
+
+    <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-visually-hidden">All team members</caption>
+      <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th class="govuk-table__header govuk-table__header--column-quarter column-full" scope="col">
+          Team member
+        </th>
+        <th class="govuk-table__header govuk-table__header--column-third column-full" scope="col">
+          Email address
+        </th>
+        <th class="govuk-table__header govuk-table__header--column-sixth column-full" scope="col">
+          Account status
+        </th>
+      </tr>
+      </thead>
+
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell">
+          <span class="govuk-visually-hidden--desktop td-header">Team member:</span>
+          <a class="govuk-link--no-visited-state" href="{{setAnnURL}}">Ann Cooper (you)</a>
+        </td>
+        <td class="govuk-table__cell">
+          <span class="govuk-visually-hidden--desktop td-header">Email address:</span> Ann.Cooper@email.com
+        </td>
+        <td class="govuk-table__cell">
+          <span class="govuk-visually-hidden--desktop td-header">Account status:</span> Approved
+        </td>
+      </tr>
+
+      <tr class="govuk-table__row{{newUserCSS}}">
+        <td class="govuk-table__cell">
+          <span class="govuk-visually-hidden--desktop td-header">Team member:</span>
+          <a class="govuk-link--no-visited-state" href="{{setUserNameURL}}"> {{ data['personalFirstName'] }}
+          {{ data['personalSurname'] }}</a>
+        </td>
+        <td class="govuk-table__cell">
+          <span class="govuk-visually-hidden--desktop td-header">Email address:</span> {{setUserEmailHtml}}
+        </td>
+        <td class="govuk-table__cell">
+          <span class="govuk-visually-hidden--desktop td-header">Account status:</span> Invite email sent
+        </td>
+      </tr>
+
+      <tr class="govuk-table__row {{otherUserCSS}}">
+        <td class="govuk-table__cell">
+          <span class="govuk-visually-hidden--desktop td-header">Team member:</span>
+          <a class="govuk-link--no-visited-state" href="services-on-team-member-standard">Adam Mastly</a>
+        </td>
+        <td class="govuk-table__cell">
+          <span class="govuk-visually-hidden--desktop td-header">Email address:</span> Adam.Mastly@email.com
+        </td>
+        <td class="govuk-table__cell">
+          <span class="govuk-visually-hidden--desktop td-header">Account status:</span> Approved
+        </td>
+      </tr>
+
+      <tr class="govuk-table__row {{otherUserCSS}}">
+        <td class="govuk-table__cell">
+          <span class="govuk-visually-hidden--desktop td-header">Team member:</span>
+          <a class="govuk-link--no-visited-state" href="services-on-team-member-admin">Barry Anders</a>
+        </td>
+        <td class="govuk-table__cell">
+          <span class="govuk-visually-hidden--desktop td-header">Email address:</span> Barry.Anders@email.com
+        </td>
+        <td class="govuk-table__cell">
+          <span class="govuk-visually-hidden--desktop td-header">Account status:</span> Approved
+        </td>
+      </tr>
+
+      <tr class="govuk-table__row {{otherUserCSS}}">
+        <td class="govuk-table__cell">
+          <span class="govuk-visually-hidden--desktop td-header">Team member:</span>
+          <a class="govuk-link--no-visited-state" href="services-on-team-member-invited-1">Sara Chippers</a>
+        </td>
+        <td class="govuk-table__cell">
+          <span class="govuk-visually-hidden--desktop td-header">Email address:</span> Sara.Chippers@email.com
+        </td>
+        <td class="govuk-table__cell">
+          <span class="govuk-visually-hidden--desktop td-header">Account status:</span> Invite email sent
+        </td>
+      </tr>
+
+      <tr class="govuk-table__row {{otherUserCSS}}">
+        <td class="govuk-table__cell">
+          <span class="govuk-visually-hidden--desktop td-header">Team member:</span>
+          <a class="govuk-link--no-visited-state" href="services-on-team-member-service-request">Tiegan Mole</a>
+        </td>
+        <td class="govuk-table__cell">
+          <span class="govuk-visually-hidden--desktop td-header">Email address:</span> Tiegan.Mole@email.com
+        </td>
+        <td class="govuk-table__cell">
+          <span class="govuk-visually-hidden--desktop td-header">Account status:</span> Access request received
+        </td>
+      </tr>
+
+    </table>
+
+
+
+
+  </div>
+</div>
+
+
+
+
+
+{% endblock %}
