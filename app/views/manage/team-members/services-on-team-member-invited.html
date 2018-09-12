@@ -30,7 +30,7 @@
         href: "#"
       }) }}</p>
 
-    
+
 
   </div>
 </div>
@@ -51,8 +51,8 @@
   </div>
   <div class="govuk-grid-column-one-third">
     <!--<p class="govuk-body"><a href="user-account" class="govuk-link--no-visited-state">Edit team member details</a></p>-->
-    <p class="govuk-body"><a href="" class="govuk-link--no-visited-state">Change access level</a></p>
-    <p class="govuk-body"><a href="" class="govuk-link--no-visited-state">Reset password</a><br></p>
+    <p class="govuk-body"><a href="/manage/team-members/chemicals/service-access/add-user-roles-system-roles" class="govuk-link--no-visited-state">Change access level</a></p>
+    <!--<p class="govuk-body"><a href="" class="govuk-link--no-visited-state">Reset password</a><br></p>-->
     <!--<p class="govuk-body"><a href="" class="govuk-link--no-visited-state">Delete team member</a></p>-->
   </div>
 </div>
@@ -60,28 +60,28 @@
 <br>
 
 
-{% if (data['numServices'] == 1) and (data['subscribeService'] == "No") and (data['serviceName'] == "Chemicals") %}
+{% if (data['numServices'] == 1) and (data['subscribeService'] == "No") and (data['service'] == "Chemicals") %}
 {{ govukButton({
   text: "Give service access",
   href: "/manage/team-members/chemicals/service-access/add-user-roles-service-roles"
 }) }}
 {% endif %}
 
-{% if data['numServices'] == 3 and (data['serviceName'] == "Chemicals") %}
+{% if data['numServices'] == 3 and (data['service'] == "Chemicals") %}
 {{ govukButton({
   text: "Give service access",
   href: "/manage/team-members/chemicals/service-access/add-user-service"
 }) }}
 {% endif %}
 
-{% if (data['numServices'] == 1) and (data['subscribeService'] == "No") and (data['serviceName'] == "Imports") %}
+{% if (data['numServices'] == 1) and (data['subscribeService'] == "No") and (data['service'] == "Imports") %}
 {{ govukButton({
   text: "Give service access",
   href: "/manage/team-members/imports/service-access/add-user-roles-service-roles"
 }) }}
 {% endif %}
 
-{% if data['numServices'] == 3  %}
+{% if data['numServices'] == 3 and (data['service'] == "Imports") %}
 {{ govukButton({
   text: "Give service access",
   href: "/manage/team-members/imports/service-access/add-user-service"
