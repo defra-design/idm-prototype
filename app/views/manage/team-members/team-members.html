@@ -20,9 +20,18 @@
       {{title}}
     </h1>
 
+    {% set teamMemberURL %}
+      {% if data['service'] == "Chemicals"%}
+        /manage/team-members/chemicals/invite-user/add-user-details
+      {% endif %}
+      {% if data['service'] == "Imports"%}
+        /manage/team-members/imports/invite-user/add-user-details
+      {% endif %}
+    {% endset %}
+
     {{ govukButton({
       text: "Add a team member",
-      href: "chemicals/invite-user/add-user-details"
+      href: teamMemberURL
     }) }}
 
     {% set setAnnURL %}
