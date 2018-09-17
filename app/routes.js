@@ -24,7 +24,7 @@ router.get('/tests/ac2', function (req, res) {
     })
 })
 
-// Dashboard config:
+// Dashboard config: //
 // 1 user and no agents
 router.get('/manage/dashboard-all-1', function (req, res) {
     res.render('manage/dashboard',{
@@ -48,7 +48,7 @@ router.get('/manage/dashboard-all-2', function (req, res) {
       "numServices":1,
       "numAgents":0,
       "numLocations":1,
-      "teamMemberURL": 'team-members/team-members-all-1',
+      "teamMemberURL": 'team-members/team-members-all-2',
       "addAgentURL": 'agent/chemicals/add-agent-1/add-agent-details',
       "agentURL": 'agent/agent-all-1',
       "addLocationURL": '#',
@@ -88,9 +88,17 @@ router.get('/manage/team-members/services-on-team-member-invited-service', funct
     })
 })
 
-// Team members config
+// Team members config //
 // Single user
 router.get('/manage/team-members/team-members-all-1', function (req, res) {
+    res.render('manage/team-members/team-members',{
+      "otherUserCSS": 'govuk-visually-hidden',
+      "newUserCSS": 'govuk-visually-hidden'
+    })
+})
+
+// Two users
+router.get('/manage/team-members/team-members-all-2', function (req, res) {
     res.render('manage/team-members/team-members',{
       "otherUserCSS": 'govuk-visually-hidden'
     })
@@ -99,5 +107,73 @@ router.get('/manage/team-members/team-members-all-1', function (req, res) {
 // all users, but no newly added user
 router.get('/manage/team-members/team-members-all', function (req, res) {
     res.render('manage/team-members/team-members',{
+    })
+})
+
+// Start Login Create //
+// Existing user but new to IDM user
+router.get('/start-login-create-new', function (req, res) {
+    res.render('start-login-create',{
+      "signinURL": '/scp/login-new-idm',
+      "createURL": '/new-user-reg/about-data-new-idm'
+    })
+})
+// Invite user
+router.get('/start-login-create-invite', function (req, res) {
+    res.render('start-login-create',{
+      "signinURL": '/scp/login-invite',
+      "createURL": '/new-user-reg/about-data-invited'
+    })
+})
+
+////// SCP Login config /////
+// Existing user but new to IDM user
+router.get('/scp/login-new-idm', function (req, res) {
+    res.render('scp/login',{
+      "signinButton": '/new-user-reg/about-data',
+    })
+})
+// Existing user - incomplete app: tasklist
+router.get('/scp/login-incomplete-tasklist', function (req, res) {
+    res.render('scp/login',{
+      "signinButton": '/service-start-tasklist-incomplete',
+    })
+})
+// Existing user - incomplete app: service
+router.get('/scp/login-incomplete-service', function (req, res) {
+    res.render('scp/login',{
+      "signinButton": '/service-start-service-incomplete',
+    })
+})
+// Existing user - complete app
+router.get('/scp/login-complete', function (req, res) {
+    res.render('scp/login',{
+      "signinButton": '/service-start-complete',
+    })
+})
+// Existing user - pending app
+router.get('/scp/login-pending', function (req, res) {
+    res.render('scp/login',{
+      "signinButton": '/service-start-pending',
+    })
+})
+// Existing user - pending app
+router.get('/scp/login-invite', function (req, res) {
+    res.render('scp/login',{
+      "signinButton": '/new-user-reg/about-data-invited',
+    })
+})
+
+////// T&C's /////
+// Existing user but new to IDM user
+router.get('/new-user-reg/about-data-new-idm', function (req, res) {
+    res.render('new-user-reg/about-data',{
+      "tcButton": 'organisation-type',
+    })
+})
+// Invited user
+router.get('/new-user-reg/about-data-invited', function (req, res) {
+    res.render('new-user-reg/about-data',{
+      "tcButton": '/manage/team-members/invited-user/enter-code',
     })
 })

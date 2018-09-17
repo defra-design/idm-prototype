@@ -41,17 +41,17 @@
 
 
     {% if data['numServices'] == 1 %}
-    {{ govukButton({
-      text: "Done",
-      href: "/manage/team-members/team-members-all-1"
-    }) }}
+      {{ govukButton({
+        text: "Done",
+        href: "/manage/team-members/team-members-all-1"
+      }) }}
     {% endif %}
 
     {% if data['numServices'] == 3 %}
-    {{ govukButton({
-      text: "Done",
-      href: "/manage/team-members/team-members-all"
-    }) }}
+      {{ govukButton({
+        text: "Done",
+        href: "/manage/team-members/team-members-all"
+      }) }}
     {% endif %}
 
 

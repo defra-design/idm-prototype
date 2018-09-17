@@ -35,7 +35,7 @@
       {% endif %}
     {% endset %}
 
-    {% set setUserNameURL %}
+    {% set setnewUserURL %}
       {% if data['subscribeService'] == "Yes" %}
         services-on-team-member-invited-service
       {% endif %}
@@ -54,7 +54,6 @@
 
     {% if data['userInvite'] == "Yes" %}
       {% set newUserCSS = "" %}
-
     {% endif %}
 
 
@@ -77,7 +76,7 @@
       <tr class="govuk-table__row">
         <td class="govuk-table__cell">
           <span class="govuk-visually-hidden--desktop td-header">Team member:</span>
-          <a class="govuk-link--no-visited-state" href="{{setAnnURL}}">Ann Cooper (you)</a>
+          <a class="govuk-link--no-visited-state" href="{{ setAnnURL }}">Ann Cooper (you)</a>
         </td>
         <td class="govuk-table__cell">
           <span class="govuk-visually-hidden--desktop td-header">Email address:</span> Ann.Cooper@email.com
@@ -87,10 +86,10 @@
         </td>
       </tr>
 
-      <tr class="govuk-table__row{{newUserCSS}}">
+      <tr class="govuk-table__row{{ newUserCSS }}">
         <td class="govuk-table__cell">
           <span class="govuk-visually-hidden--desktop td-header">Team member:</span>
-          <a class="govuk-link--no-visited-state" href="{{setUserNameURL}}"> {{ data['personalFirstName'] }}
+          <a class="govuk-link--no-visited-state" href="{{ setnewUserURL }}"> {{ data['personalFirstName'] }}
           {{ data['personalSurname'] }}</a>
         </td>
         <td class="govuk-table__cell">
@@ -101,7 +100,7 @@
         </td>
       </tr>
 
-      <tr class="govuk-table__row {{otherUserCSS}}">
+      <tr class="govuk-table__row {{ otherUserCSS }}">
         <td class="govuk-table__cell">
           <span class="govuk-visually-hidden--desktop td-header">Team member:</span>
           <a class="govuk-link--no-visited-state" href="services-on-team-member-standard">Adam Mastly</a>
@@ -114,7 +113,7 @@
         </td>
       </tr>
 
-      <tr class="govuk-table__row {{otherUserCSS}}">
+      <tr class="govuk-table__row {{ otherUserCSS }}">
         <td class="govuk-table__cell">
           <span class="govuk-visually-hidden--desktop td-header">Team member:</span>
           <a class="govuk-link--no-visited-state" href="services-on-team-member-admin">Barry Anders</a>
@@ -127,7 +126,7 @@
         </td>
       </tr>
 
-      <tr class="govuk-table__row {{otherUserCSS}}">
+      <tr class="govuk-table__row {{ otherUserCSS }}">
         <td class="govuk-table__cell">
           <span class="govuk-visually-hidden--desktop td-header">Team member:</span>
           <a class="govuk-link--no-visited-state" href="services-on-team-member-invited-1">Sara Chippers</a>
@@ -140,7 +139,7 @@
         </td>
       </tr>
 
-      <tr class="govuk-table__row {{otherUserCSS}}">
+      <tr class="govuk-table__row {{ otherUserCSS }}">
         <td class="govuk-table__cell">
           <span class="govuk-visually-hidden--desktop td-header">Team member:</span>
           <a class="govuk-link--no-visited-state" href="services-on-team-member-service-request">Tiegan Mole</a>

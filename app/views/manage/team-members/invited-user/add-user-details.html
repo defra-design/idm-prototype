@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Who do you want to access your organisation's services?" %}
+{% set title = "Check your registration details" %}
 
 {% block pageTitle %}
     {{title}} - GOV.UK
@@ -19,13 +19,7 @@
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-xl">{{title}}</h1>
 
-      <form action="add-user-roles-system-roles" method="post">
-        <input type="hidden" name="serviceName" value="Imports S01">
-        <input type="hidden" name="orgName" value="Importers UK Limited">
-        <input type="hidden" name="userInvite" value="Yes">
-        <input type="hidden" name="serviceRole" value="Standard">
-
-
+      <form action="invite-accepted-confirmation" method="post">
 
         {{ govukInput({
           label: {
@@ -58,18 +52,16 @@
           type: email
         }) }}
 
-      <!--  {{ govukInput({
+        {{ govukInput({
           label: {
-            text: "Business telephone number "
+            text: "Business telephone number"
           },
-          classes: "govuk-input--width-10",
+          classes: "govuk-input--width-20",
           id: "businessTelephone",
           name: "businessTelephone",
           value: data['businessTelephone'],
           type: tel
         }) }}
-
-      -->
 
         {{ govukButton({
           text: "Continue"

@@ -13,22 +13,17 @@
       <h1 class="govuk-heading-xl">
         {{title}} </h1>
         <p class="govuk-body">Hello [First name],</p>
-        <p class="govuk-body">((sender)) has invited you to access the ((service name)) service on behalf of [organisation's name].</p>
-        <p class="govuk-body">You have been given the following level of access:</p>
-        <ul class="govuk-list govuk-list--bullet">
-          <li>{{ data['serviceRole']}} - ((service role description))</li>
-          <li>{{ data['systemRole']}} - ((system role description))</li>
-        </ul>
-
+        <p class="govuk-body">((sender)) has invited you to access Defra services on behalf of [organisation's name].</p>
+        <p class="govuk-body">To accept this invite you need to follow the link below and enter the Registration Code that the Administrator needs to provide to you.</p>
         <div class="govuk-inset-text">
-          To access this service,<p class="govuk-link"><a href="start-login-create-happy">please follow this link to the Defra website.</a></p>
+          <p class="govuk-link"><a href="/start-login-create-invite">Please follow this link to accept your invite.</a></p>
         </div>
 
         <div class="govuk-warning-text">
           <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
           <strong class="govuk-warning-text__text">
             <span class="govuk-warning-text__assistive">Warning</span>
-            To withdraw your consent for this Defra service to store and use your email address, please follow the guidance in our privacy policy: URL.
+            To withdraw your consent for this Defra to store and use your email address, please follow the guidance in our privacy policy: URL.
           </strong>
         </div>
 

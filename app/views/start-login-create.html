@@ -29,11 +29,11 @@
 
           switch(checkedValue){
             case 'create':
-            form.action = 'new-user-reg/about-data'
+            form.action = '{{ createURL }}'
 
             break;
             case 'signin':
-            form.action = '#'
+            form.action = '{{ signinURL }}'
 
             break;
             default:
@@ -42,6 +42,8 @@
           return true
         }
       </script>
+
+      
 
       {{ govukRadios({
         idPrefix: "createSignin",

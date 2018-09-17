@@ -16,12 +16,12 @@
         <p class="govuk-body">((sender)) has invited you to access the ((service name)) service on behalf of [organisation's name].</p>
         <p class="govuk-body">You have been given the following level of access:</p>
         <ul class="govuk-list govuk-list--bullet">
-          <li>Full - ((service role description))</li>
-          <li>Administrator - you can edit and add information, and give other people (for example colleagues or agents you work with) access to use the service too.</li>
+          <li>{{ data['serviceRole']}} - ((service role description))</li>
+          <li>{{ data['systemRole']}} - ((system role description))</li>
         </ul>
 
         <div class="govuk-inset-text">
-          To access this service,<p class="govuk-link"><a href="start-login-create-happy">please follow this link to the Defra website.</a></p>
+          To access this service,<p class="govuk-link"><a href="/start-login-create-invite">please follow this link to the Defra website.</a></p>
         </div>
 
         <div class="govuk-warning-text">

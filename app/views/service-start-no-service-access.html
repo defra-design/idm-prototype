@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block beforeContent %}
-  {% include "includes/account-nav-admin-corp.html" %}
+  {% include "includes/account-nav-admin-standard-account.html" %}
   {% include "includes/breadcrumb-two-level.html" %}
 {% endblock %}
 
@@ -17,18 +17,14 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-xl">
-        [Service name]
+        [Service name]????? Won't know service name...
       </h1>
-      {{ govukWarningText({
-        text: "Your registration request is complete and will now be reviewed."
-      }) }}
 
-      <p class="govuk-body">We will contact you by [email/telephone/letter] within [SLA timeframe] about your request to use this service.</p>
+{% from "inset-text/macro.njk" import govukInsetText %}
 
-      {{ govukButton({
-        text: "Sign out",
-        href: "service-start-logged-out"
-      }) }}
+  {{ govukInsetText({
+  text: "You do not currently have access to any services. Please contact your administrator to get access to the service you need."
+}) }}
 
     </div>
 

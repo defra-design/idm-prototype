@@ -29,7 +29,13 @@
 
     <p class="govuk-body">{{data['personalFirstName']}} will need to accept the email invite using the regsitration code above. You must give them this code.</p>
     <p class="govuk-body">Once they have accepted the invite they will be able to access the service</p>
-    
+
+    {% if data['numServices'] == 1 %}
+    {% endif %}
+    {% if data['numServices'] == 3 %}
+      <p><a href="../service-access/add-user-service" class="govuk-link">Set {{data['personalFirstName']}}'s service access.</a></p>
+    {% endif %}
+
     <p class="govuk-body"><a href="#" class="govuk-link">Invite another team member</a></p>
 
 
