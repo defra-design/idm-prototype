@@ -31,6 +31,23 @@
     <p class="govuk-body">Once they have accepted the invite they will be able to access the service</p>
 
     {% if data['numServices'] == 1 %}
+      {{ govukButton({
+        text: "Give service access",
+        href: "/manage/team-members/services-on-team-member-invited-service"
+      }) }}
+    {% endif %}
+
+    {% if data['numServices'] == 3 %}
+      {{ govukButton({
+        text: "Give service access",
+        href: "../service-access/add-user-service"
+      }) }}
+    {% endif %}
+
+
+
+    <!--
+    {% if data['numServices'] == 1 %}
     {% endif %}
     {% if data['numServices'] == 3 %}
       <p><a href="../service-access/add-user-service" class="govuk-link">Set {{data['personalFirstName']}}'s service access.</a></p>
@@ -52,6 +69,7 @@
       href: "/manage/team-members/team-members-all?numUsers=22"
     }) }}
     {% endif %}
+  -->
 
 
 

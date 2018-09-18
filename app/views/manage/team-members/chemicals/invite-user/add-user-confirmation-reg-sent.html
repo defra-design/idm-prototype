@@ -28,8 +28,23 @@
     <h3 class="govuk-heading-m">What happens next</h3>
 
     <p class="govuk-body">{{data['personalFirstName']}} will need to accept the email invite using the regsitration code above. You must give them this code.</p>
-    <p class="govuk-body">You will also need to set the team member's access with each available service.</p>
+    <p class="govuk-body">Select 'Continue' below to set the team member's access with each available service.</p>
+
     {% if data['numServices'] == 1 %}
+      {{ govukButton({
+        text: "Give service access",
+        href: "../service-access/add-user-roles-service-roles"
+      }) }}
+    {% endif %}
+
+    {% if data['numServices'] == 3 %}
+      {{ govukButton({
+        text: "Give service access",
+        href: "../service-access/add-user-service"
+      }) }}
+    {% endif %}
+
+    <!--{% if data['numServices'] == 1 %}
        <p><a href="../service-access/add-user-roles-service-roles" class="govuk-link">Set {{data['personalFirstName']}}'s service access.</a></p>
     {% endif %}
     {% if data['numServices'] == 3 %}
@@ -53,6 +68,7 @@
         href: "/manage/team-members/team-members-all?numUsers=22"
       }) }}
     {% endif %}
+  -->
 
 
 

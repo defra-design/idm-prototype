@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "You have been given online access to your Defra services" %}
+{% set title = "You have given online access to ((First name)) ((Last name))" %}
 
 {% block pageTitle %}
     {{title}} - GOV.UK
@@ -13,17 +13,17 @@
       <h1 class="govuk-heading-xl">
         {{title}} </h1>
         <p class="govuk-body">Hello [First name],</p>
-        <p class="govuk-body">((sender)) has invited you to access Defra services on behalf of [organisation's name].</p>
-        <p class="govuk-body">To accept this invite you need to follow the link below and enter the Registration Code that the Administrator will provide to you.</p>
+        <p class="govuk-body">This is a reminder that you invited ((First name)) ((Last name)) to access your organisations Defra services.</p>
+        <p class="govuk-body">For the team member to accept the invite they will need the Registration Code below and either create or signin in to a Government Gateway account.</p>
         <div class="govuk-inset-text">
-          <p class="govuk-link"><a href="/start-login-create-invite">Please follow this link to accept your invite.</a></p>
+          <p class="govuk-link"><a href="/start-login-create-invite">Registration code: ((XXXXXXX))</a></p>
         </div>
 
         <div class="govuk-warning-text">
           <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
           <strong class="govuk-warning-text__text">
             <span class="govuk-warning-text__assistive">Warning</span>
-            To withdraw your consent for this Defra to store and use your email address, please follow the guidance in our privacy policy: URL.
+            For security purposes we do not recommend that you email the team member the Registration code
           </strong>
         </div>
 

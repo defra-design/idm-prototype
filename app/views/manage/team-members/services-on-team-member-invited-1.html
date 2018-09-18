@@ -24,12 +24,18 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <p> Sara has not yet accepted this invitation</p>
+    <p class="govuk-body"> Sara has not yet accepted this invitation</p>
 
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-one-third">
         {{ govukButton({
           text: "Re-send invite",
+          href: "#"
+        }) }}
+      </div>
+      <div class="govuk-grid-column-one-third">
+        {{ govukButton({
+          text: "Cancel invite",
           href: "#"
         }) }}
       </div>
@@ -45,7 +51,7 @@
   <div class="govuk-grid-column-two-thirds">
     <p class="govuk-body">
       <span class="govuk-!-font-weight-bold">Full name:</span> Sara Chippers<br>
-      <span class="govuk-!-font-weight-bold">Account access level:</span> Standard<br>
+      <span class="govuk-!-font-weight-bold">Account access level:</span> None<br>
       <span class="govuk-!-font-weight-bold">Email address:</span> Sara.Chippers@email.com<br>
       <span class="govuk-!-font-weight-bold">Telephone:</span> 01179267473
     </p>
@@ -63,6 +69,10 @@
 </div>
 
 <br>
+{{ govukButton({
+  text: "Give service access",
+  href: "/manage/team-members/chemicals/service-access/add-user-roles-service-roles"
+}) }}
 
 
 {% endblock %}

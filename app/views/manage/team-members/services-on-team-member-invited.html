@@ -15,24 +15,36 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-
     <h1 class="govuk-heading-xl">
       {{ data['personalFirstName'] }} {{ data['personalSurname'] }}
     </h1>
   </div>
 </div>
 
-<!--
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <p> {{ data['personalFirstName'] }} has not yet accepted this invitation<br>
-      {{ govukButton({
-        text: "Re-send invite",
-        href: "#"
-      }) }}</p>
+    <p class="govuk-body"> {{ data['personalFirstName'] }} has not yet accepted this invitation</p>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-third">
+        {{ govukButton({
+          text: "Re-send invite",
+          href: "#"
+        }) }}
+      </div>
+      <div class="govuk-grid-column-one-third">
+        {{ govukButton({
+          text: "Cancel invite",
+          href: "#"
+        }) }}
+      </div>
+    </div>
+
   </div>
 </div>
--->
+<hr class="govuk-section-break--s">
+<br>
+
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
