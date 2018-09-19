@@ -19,11 +19,14 @@
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-xl">{{title}}</h1>
 
+    {% set numAgents = data['numAgents'] | int %}
+    {% set numAgents = numAgents+1 %}
+
       <form action="add-user-confirmation-reg-sent" method="post">
-        <input type="hidden" name="serviceName" value="UK-REACH-IT">
         <input type="hidden" name="orgName" value="AstraZeneca UK Limited">
         <input type="hidden" name="subscribeService" value="No">
         <input type="hidden" name="userInvite" value="Yes">
+        <input type="hidden" name="numAgents" value="{{numAgents}}">
 
 
         {{ govukInput({

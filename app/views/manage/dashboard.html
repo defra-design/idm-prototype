@@ -22,6 +22,16 @@
 
 </div>
 
+{% set addUserURL %}
+  {% if data['service'] == "Chemicals"%}
+    /manage/team-members/chemicals/invite-user/add-user-details
+  {% endif %}
+
+  {% if data['service'] == "Imports"%}
+    /manage/team-members/imports/invite-user/add-user-details
+  {% endif %}
+{% endset %}
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-one-third">
 
@@ -33,7 +43,7 @@
       </div>
       <div class="govuk-card__actions">
         <ul class="govuk-list govuk-!-mb-r0">
-          <li><a href="team-members/chemicals/invite-user/add-user-details" class="govuk-link--no-visited-state">Add a team member</a></li>
+          <li><a href="/manage/team-members/invite-user/add-user-details" class="govuk-link--no-visited-state">Add a team member</a></li>
         </ul>
       </div>
     </div>
@@ -86,9 +96,9 @@
 
         <div class="govuk-grid-column-one-third">
           <div class="govuk-card govuk-card--contained govuk-card--selectable">
-              <a href="#"></a>
+              <a href="/service-start-complete"></a>
               <div class="govuk-card__content">
-                <h3 class="govuk-heading-m">{{ data['service'] }} - REACH-IT</h3>
+                <h3 class="govuk-heading-m">{{ data['service'] }} - {{ data['serviceLine'] }}</h3>
                 <p class="govuk-body">A short summary of the tasks you can complete with this service.
                 </p>
               </div>
@@ -96,9 +106,9 @@
         </div>
         <div class="govuk-grid-column-one-third {{serviceCSS}}">
           <div class="govuk-card govuk-card--contained govuk-card--selectable">
-              <a href="#"></a>
+              <a href="/service-start-complete"></a>
               <div class="govuk-card__content">
-                <h3 class="govuk-heading-m">Chemicals - UK ePIC</h3>
+                <h3 class="govuk-heading-m">{{ data['service'] }} - UK SO2</h3>
                 <p class="govuk-body">A short summary of the tasks you can complete with this service.
                 </p>
               </div>
@@ -106,9 +116,9 @@
         </div>
         <div class="govuk-grid-column-one-third {{serviceCSS}}">
           <div class="govuk-card govuk-card--contained govuk-card--selectable">
-              <a href="#"></a>
+              <a href="/service-start-complete"></a>
               <div class="govuk-card__content">
-                <h3 class="govuk-heading-m">Chemicals - UK CLP</h3>
+                <h3 class="govuk-heading-m">{{ data['service'] }} - UK SO3</h3>
                 <p class="govuk-body">A short summary of the tasks you can complete with this service.
                 </p>
               </div>

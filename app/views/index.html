@@ -35,24 +35,20 @@
       <h2 class="govuk-heading-m">RC 1.1 Group manangement
       </h2>
       <ul class="govuk-list govuk-list--bullet">
-        <li><a href="/manage/dashboard-all-1?numUsers=1&numServices=1&numAgents=0&numLocations=1&service=Chemicals" class="govuk-link--no-visited-state">Admin: New User Dashboard</a></li>
-        <li><a href="/manage/dashboard-all?numUsers=22&numAgents=3&numServices=3&numLocations=1&service=Chemicals" class="govuk-link--no-visited-state">Admin: Full dashboard</a></li>
+        <li><a href="/manage/dashboard-all-1?numUsers=1&numServices=1&numAgents=0&numLocations=1&service=Chemicals&serviceLine=UK-Reach-IT" class="govuk-link--no-visited-state">Admin: New User Dashboard</a></li>
+        <li><a href="/manage/dashboard-all?numUsers=5&numAgents=3&numServices=3&numLocations=1&service=Chemicals&serviceLine=UK-Reach-IT" class="govuk-link--no-visited-state">Admin: Full dashboard</a></li>
       </ul>
       <h3 class="govuk-heading-s">Invite user
       </h3>
       <ul class="govuk-list govuk-list--bullet">
-        <li><a href="manage/dashboard-all-1?numUsers=1&numServices=1&numAgents=0&numLocations=1&service=Chemicals" class="govuk-link--no-visited-state">Chemicals: Invite New User - one service</a></li>
-        <li><a href="manage/dashboard-all?numUsers=22&numAgents=3&numServices=3&numLocations=1&service=Chemicals" class="govuk-link--no-visited-state">Chemicals: Invite New User - multiple services</a></li>
-        <li><a href="manage/team-members/imports/invite-user/add-user-details?numUsers=1&numServices=1&numAgents=0&numLocations=1&service=Imports&subscribeService=Yes" class="govuk-link--no-visited-state">Imports: Invite New User - one service</a></li>
-        <li><a href="manage/team-members/imports/invite-user/add-user-details?numUsers=22&numServices=3&numAgents=3&numLocations=3&service=Imports&subscribeService=No" class="govuk-link--no-visited-state">Imports: Invite New User - multiple services</a></li>
+        <li><a href="manage/dashboard-all-1?numUsers=1&numServices=1&numAgents=0&numLocations=1&service=Chemicals&serviceLine=UK-Reach-IT" class="govuk-link--no-visited-state">Chemicals: Invite New User - one service</a></li>
+        <li><a href="manage/dashboard-all?numUsers=5&numAgents=3&numServices=3&numLocations=1&service=Chemicals&serviceLine=UK-Reach-IT" class="govuk-link--no-visited-state">Chemicals: Invite New User - multiple services</a></li>
+        <li><a href="manage/dashboard-all-1?numUsers=1&numServices=1&numAgents=0&numLocations=1&service=Imports&serviceLine=IMP-S01&subscribeService=Yes" class="govuk-link--no-visited-state">Imports: Invite New User - one service</a></li>
+        <li><a href="manage/dashboard-all?numUsers=5&numServices=3&numAgents=3&numLocations=3&service=Imports&serviceLine=Imp-S01&subscribeService=No" class="govuk-link--no-visited-state">Imports: Invite New User - multiple services</a></li>
       </ul>
       <ul class="govuk-list govuk-list--bullet">
         <li><a href="/manage/team-members/invited-user/invite-email-general?subscribeService=No&numUser=2" class="govuk-link--no-visited-state">Accept invite - no service access</a></li>
         <li><a href="/manage/team-members/invited-user/invite-email-general?subscribeService=Yes&numUser=2" class="govuk-link--no-visited-state">Accept invite - service access given</a></li>
-        <!--
-        <li><a href="/manage/team-members/invited-user/invite-email-imports-admin" class="govuk-link--no-visited-state">Imports admin user: Accept invite</a></li>
-        <li><a href="/manage/team-members/invited-user/invite-email-imports-standard" class="govuk-link--no-visited-state">Imports standard user: Accept invite</a></li>
-        -->
       </ul>
       <ul class="govuk-list govuk-list--bullet">
         <li><a href="/manage/team-members/invited-user/invite-email-general?numUsers=2&numServices=1&numAgents=0&numLocations=1&service=Chemicals&subscribeService=No" class="govuk-link--no-visited-state">Invite email - team member</a></li>
@@ -62,21 +58,29 @@
     </h3>
     <ul class="govuk-list govuk-list--bullet">
       <li><a href="manage/dashboard-all-1?numUsers=1&numServices=1&numAgents=0&numLocations=1&service=Chemicals" class="govuk-link--no-visited-state">Chemicals: Invite intermediary - one service</a></li>
-      <li><a href="manage/dashboard-all?numUsers=22&numServices=3&numAgents=3&numLocations=3&service=Chemicals" class="govuk-link--no-visited-state">Chemicals: Invite intermediary - multiple services</a></li>
+      <li><a href="manage/dashboard-all?numUsers=5&numServices=3&numAgents=3&numLocations=3&service=Chemicals" class="govuk-link--no-visited-state">Chemicals: Invite intermediary - multiple services</a></li>
     </ul>
     <ul class="govuk-list govuk-list--bullet">
       <li><a href="/manage/team-members/invited-user/invite-email-general?subscribeService=No&numUser=2&agent=agent" class="govuk-link--no-visited-state">Accept invite - no service access</a></li>
       <li><a href="/manage/team-members/invited-user/invite-email-general?subscribeService=Yes&numUser=2&agent=agent" class="govuk-link--no-visited-state">Accept invite - service access given</a></li>
     </ul>
 
+    <p><a href="manage/team-members/invite-user/add-user-details?numUsers=5&numServices=3&numAgents=3&numLocations=3&service=Imports&serviceLine=Imp-S01&subscribeService=No" class="govuk-link--no-visited-state">Imports: Invite New User - multiple services</a></p>
+
+
     </div>
 
-    <div class="govuk-visually-hidden">
-      numUsers=1&numServices=1&numAgents=0&numLocations=1&service=Chemicals
-      numUsers=22&numServices=3&numAgents=3&numLocations=3&service=Chemicals
 
-      numUsers=1&numServices=1&numAgents=0&numLocations=1&service=Imports
-      numUsers=22&numServices=3&numAgents=3&numLocations=3&service=Imports
+
+    <div class="govuk-visually-hidden">
+      numUsers=1&numServices=1&numAgents=0&numLocations=1&service=Chemicals&serviceLine=UK-Reach-IT
+      numUsers=5&numServices=3&numAgents=3&numLocations=3&service=Chemicals&serviceLine=UK-Reach-IT
+
+      numUsers=1&numServices=1&numAgents=0&numLocations=1&service=Imports&serviceLine=Imports-S01
+      numUsers=5&numServices=3&numAgents=3&numLocations=3&service=Imports&serviceLine=Imports-S01
+
+      numUsers=1&numServices=1&numAgents=0&numLocations=1&service=Imports&serviceLine=Imports-S01
+
 
       agent=agent
     </div>

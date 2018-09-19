@@ -49,7 +49,7 @@ router.get('/manage/dashboard-all-2', function (req, res) {
     })
 })
 
-// 22 users and 3 agents
+// 5 users and 3 agents
 router.get('/manage/dashboard-all', function (req, res) {
     res.render('manage/dashboard',{
       "teamMemberURL": 'team-members/team-members-all',

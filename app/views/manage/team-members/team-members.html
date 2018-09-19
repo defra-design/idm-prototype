@@ -20,19 +20,9 @@
       {{title}}
     </h1>
 
-    {% set addUserURL %}
-      {% if data['service'] == "Chemicals"%}
-        /manage/team-members/chemicals/invite-user/add-user-details
-      {% endif %}
-
-      {% if data['service'] == "Imports"%}
-        /manage/team-members/imports/invite-user/add-user-details
-      {% endif %}
-    {% endset %}
-
     {{ govukButton({
       text: "Add a team member",
-      href: addUserURL
+      href: "/manage/team-members/invite-user/add-user-details"
     }) }}
 
 <!-- Setting Ann's urls -->
@@ -41,7 +31,7 @@
         services-on-team-member-admin-self-all-1
       {% endif %}
 
-      {% if data['numUsers'] == "22" %}
+      {% if data['numUsers'] == "5" %}
         services-on-team-member-admin-self
       {% endif %}
     {% endset %}
