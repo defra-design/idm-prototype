@@ -30,21 +30,21 @@
     <p class="govuk-body">{{data['personalFirstName']}} will need to accept the email invite using the regsitration code above. You must give them this code.</p>
     <p class="govuk-body">Select 'Give service access' below to set the team member's access with each available service.</p>
 
-<!-- Decides where there Give Service Access button goes according to number of services-->
+<!-- Decides where there Give Service Access button goes according to the service and number of services-->
       {% if (data['numServices'] == 1) and (data['service'] == "Imports") %}
-        {% set giveAccessButton  = "/manage/team-members/services-on-team-member-invited?orgName=ImportersUK" %}
+        {% set giveAccessButton  = "/manage/team-members/invite-user/services-on-team-member-invited?orgName=ImportersUK" %}
       {% endif %}
 
       {% if (data['numServices'] == 3) and (data['service'] == "Imports") %}
-        {% set giveAccessButton  = "/manage/team-members/imports/add-user-service?orgName=ImportersUK" %}
+        {% set giveAccessButton  = "/manage/team-members/invite-user/imports/add-user-service?orgName=ImportersUK" %}
       {% endif %}
 
       {% if (data['numServices'] == 1) and (data['service'] == "Chemicals") %}
-        {% set giveAccessButton  = "/manage/team-members/chemicals/add-user-roles-service-roles?orgName=AstraZeneca" %}
+        {% set giveAccessButton  = "/manage/team-members/invite-user/chemicals/add-user-roles-service-roles?orgName=AstraZeneca" %}
       {% endif %}
 
       {% if (data['numServices'] == 3) and (data['service'] == "Chemicals") %}
-        {% set giveAccessButton  = "/manage/team-members/chemicals/add-user-service?orgName=AstraZeneca" %}
+        {% set giveAccessButton  = "/manage/team-members/invite-user/chemicals/add-user-service?orgName=AstraZeneca" %}
       {% endif %}
 
       {{ govukButton({
