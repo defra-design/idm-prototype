@@ -32,11 +32,11 @@
 
 <!-- Decides where there Give Service Access button goes according to the service and number of services-->
       {% if (data['numServices'] == 1) and (data['service'] == "Imports") %}
-        {% set giveAccessButton  = "/manage/team-members/invite-user/services-on-team-member-invited?orgName=ImportersUK" %}
+        {% set giveAccessButton  = "/manage/team-members/services-on-team-member-invited?orgName=ImportersUK&subscribeService=Yes" %}
       {% endif %}
 
       {% if (data['numServices'] == 3) and (data['service'] == "Imports") %}
-        {% set giveAccessButton  = "/manage/team-members/invite-user/imports/add-user-service?orgName=ImportersUK" %}
+        {% set giveAccessButton  = "/manage/team-members/invite-user/imports/add-user-service?orgName=ImportersUK&subscribeService=Yes" %}
       {% endif %}
 
       {% if (data['numServices'] == 1) and (data['service'] == "Chemicals") %}

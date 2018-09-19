@@ -19,20 +19,9 @@
 
     <p class="govuk-body {{ introCSS }}">An intermediary is a third party (such as an agent or consultant) who you authorise to interact with Defra and related agencies and public bodies on your behalf.</p>
 
-<!-- Setting the URL for the Add team member button according to service-->
-    {% set addUserURL %}
-      {% if data['service'] == "Chemicals"%}
-        /manage/agent/chemicals/invite-user/add-user-details
-      {% endif %}
-
-      {% if data['service'] == "Imports"%}
-        /manage/agent/imports/invite-user/add-user-details
-      {% endif %}
-    {% endset %}
-
     {{ govukButton({
       text: "Add an Intermediary",
-      href: addUserURL
+      href: "/manage/agent/invite-user/add-user-details"
     }) }}
 
 <!-- Hiding/ showing the New User row according to the userInvite Yes/ No -->

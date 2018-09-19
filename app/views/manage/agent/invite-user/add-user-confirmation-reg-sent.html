@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{% set title = "Invite team member" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-visually-hidden">{{title}}</h1>
+
+    {{ govukPanel({
+          titleText: "Invitation sent",
+          html: "Registration code: <br><strong>HDJ2123F</strong>"
+        })
+    }}
+
+    <p class="govuk-body">We have sent you a confirmation email with the intermediary's one time registration code.</p>
+
+    <h3 class="govuk-heading-m">What happens next</h3>
+
+    <p class="govuk-body">{{data['agentFirstName']}} will need to accept the email invite using the regsitration code above. You must give them this code.</p>
+    <p class="govuk-body">Select 'Give service access' below to set the intermediary access with each available service.</p>
+
+    <!-- Decides where there Give Service Access button goes according to the service and number of services-->
+          {% if (data['numServices'] == 1) and (data['service'] == "Imports") %}
+            {% set giveAccessButton  = "/manage/agent/services-on-team-member-agent-invited?orgName=ImportersUK" %}
+          {% endif %}
+
+          {% if (data['numServices'] == 3) and (data['service'] == "Imports") %}
+            {% set giveAccessButton  = "/manage/agent/invite-user/imports/add-user-service?orgName=ImportersUK" %}
+          {% endif %}
+
+          {% if (data['numServices'] == 1) and (data['service'] == "Chemicals") %}
+            {% set giveAccessButton  = "/manage/agent/invite-user/chemicals/add-user-roles-service-roles?orgName=AstraZeneca" %}
+          {% endif %}
+
+          {% if (data['numServices'] == 3) and (data['service'] == "Chemicals") %}
+            {% set giveAccessButton  = "/manage/agent/invite-user/chemicals/add-user-service?orgName=AstraZeneca" %}
+          {% endif %}
+
+          {{ govukButton({
+            text: "Give service access",
+            href: giveAccessButton
+          }) }}
+
+  </div>
+</div>
+
+
+{% endblock %}

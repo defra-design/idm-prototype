@@ -69,7 +69,7 @@ router.get('/manage/team-members/services-on-team-member-invited-no-service', fu
     })
 })
 
-// invited user and no service
+// invited user and service
 router.get('/manage/team-members/services-on-team-member-invited-service', function (req, res) {
     res.render('manage/team-members/services-on-team-member-invited',{
       "subscribeService": "Yes"

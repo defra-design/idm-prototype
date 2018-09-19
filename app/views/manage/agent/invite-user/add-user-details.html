@@ -23,9 +23,9 @@
     {% set numAgents = numAgents+1 %}
 
       <form action="add-user-confirmation-reg-sent" method="post">
-        <input type="hidden" name="orgName" value="AstraZeneca UK Limited">
         <input type="hidden" name="subscribeService" value="No">
         <input type="hidden" name="userInvite" value="Yes">
+        <input type="hidden" name="serviceRole" value="Standard">
         <input type="hidden" name="numAgents" value="{{numAgents}}">
 
 
