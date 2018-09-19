@@ -28,29 +28,21 @@ router.get('/tests/ac2', function (req, res) {
 // 1 user and no agents
 router.get('/manage/dashboard-all-1', function (req, res) {
     res.render('manage/dashboard',{
-      "numUsers": 1,
-      "numServices":1,
-      "numAgents":0,
-      "numLocations":1,
       "teamMemberURL": 'team-members/team-members-all-1',
-      "addAgentURL": 'agent/chemicals/add-agent-1/add-agent-details',
-      "agentURL": 'agent/agent-all-0',
+      "addAgentURL": 'agent/chemicals/invite-user/add-user-details',
+      "agentURL": 'agent/agent-0',
       "addLocationURL": '#',
       "locationURL": 'organisations/organisation-all-1',
       "serviceCSS": 'govuk-visually-hidden'
     })
 })
 
-// 2 users and no agents
+// 2 users and 1 agents
 router.get('/manage/dashboard-all-2', function (req, res) {
     res.render('manage/dashboard',{
-      "numUsers":2,
-      "numServices":1,
-      "numAgents":0,
-      "numLocations":1,
       "teamMemberURL": 'team-members/team-members-all-2',
-      "addAgentURL": 'agent/chemicals/add-agent-1/add-agent-details',
-      "agentURL": 'agent/agent-all-1',
+      "addAgentURL": 'agent/chemicals/invite-user/add-user-details',
+      "agentURL": 'agent/agent-0',
       "addLocationURL": '#',
       "locationURL": 'organisations/organisation-all-1',
       "serviceCSS": 'govuk-visually-hidden'
@@ -60,12 +52,8 @@ router.get('/manage/dashboard-all-2', function (req, res) {
 // 22 users and 3 agents
 router.get('/manage/dashboard-all', function (req, res) {
     res.render('manage/dashboard',{
-      "numUsers":22,
-      "numServices":3,
-      "numAgents":3,
-      "numLocations":3,
       "teamMemberURL": 'team-members/team-members-all',
-      "addAgentURL": 'agent/chemicals/add-agent-1/add-agent-details',
+      "addAgentURL": 'agent/chemicals/invite-user/add-user-details',
       "agentURL": 'agent/agent-all',
       "addLocationURL": '#',
       "locationURL": 'organisations/organisation-all'
@@ -89,26 +77,38 @@ router.get('/manage/team-members/services-on-team-member-invited-service', funct
 })
 
 // Team members config //
-// Single user
+// Single user / plus 1
 router.get('/manage/team-members/team-members-all-1', function (req, res) {
     res.render('manage/team-members/team-members',{
       "otherUserCSS": 'govuk-visually-hidden',
+      "newUserCSS": ' govuk-visually-hidden'
+    })
+})
+
+// All users / plus 1
+router.get('/manage/team-members/team-members-all', function (req, res) {
+    res.render('manage/team-members/team-members',{
+      "newUserCSS": ' govuk-visually-hidden'
+    })
+})
+
+// Agent config //
+// No agent / plus 1
+router.get('/manage/agent/agent-0', function (req, res) {
+    res.render('manage/agent/agent',{
+      "otherUserCSS": 'govuk-visually-hidden',
+      "tableCSS": 'govuk-visually-hidden'
+    })
+})
+
+// All agents / plus 1
+router.get('/manage/agent/agent-all', function (req, res) {
+    res.render('manage/agent/agent',{
+      "introCSS": 'govuk-visually-hidden',
       "newUserCSS": 'govuk-visually-hidden'
     })
 })
 
-// Two users
-router.get('/manage/team-members/team-members-all-2', function (req, res) {
-    res.render('manage/team-members/team-members',{
-      "otherUserCSS": 'govuk-visually-hidden'
-    })
-})
-
-// all users, but no newly added user
-router.get('/manage/team-members/team-members-all', function (req, res) {
-    res.render('manage/team-members/team-members',{
-    })
-})
 
 // Start Login Create //
 // Existing user but new to IDM user

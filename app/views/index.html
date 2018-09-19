@@ -35,16 +35,16 @@
       <h2 class="govuk-heading-m">RC 1.1 Group manangement
       </h2>
       <ul class="govuk-list govuk-list--bullet">
-        <li><a href="/manage/dashboard-all-1?numUsers=1&numServices=1&service=Chemicals" class="govuk-link--no-visited-state">Admin: New User Dashboard</a></li>
-        <li><a href="/manage/dashboard-all?numUsers=22&numServices=3&service=Chemicals" class="govuk-link--no-visited-state">Admin: Full dashboard</a></li>
+        <li><a href="/manage/dashboard-all-1?numUsers=1&numServices=1&numAgents=0&numLocations=1&service=Chemicals" class="govuk-link--no-visited-state">Admin: New User Dashboard</a></li>
+        <li><a href="/manage/dashboard-all?numUsers=22&numAgents=3&numServices=3&numLocations=1&service=Chemicals" class="govuk-link--no-visited-state">Admin: Full dashboard</a></li>
       </ul>
       <h3 class="govuk-heading-s">Invite user
       </h3>
       <ul class="govuk-list govuk-list--bullet">
-        <li><a href="manage/dashboard-all-1?numUsers=1&numServices=1&service=Chemicals" class="govuk-link--no-visited-state">Chemicals: Invite New User - one service</a></li>
-        <li><a href="manage/dashboard-all?numUsers=22&numServices=3&service=Chemicals" class="govuk-link--no-visited-state">Chemicals: Invite New User - multiple services</a></li>
-        <li><a href="manage/team-members/imports/invite-user/add-user-details?numUsers=1&numServices=1&service=Imports&subscribeService=Yes" class="govuk-link--no-visited-state">Imports: Invite New User - one service</a></li>
-        <li><a href="manage/team-members/imports/invite-user/add-user-details?numUsers=22&numServices=3&service=Imports&subscribeService=No" class="govuk-link--no-visited-state">Imports: Invite New User - multiple services</a></li>
+        <li><a href="manage/dashboard-all-1?numUsers=1&numServices=1&numAgents=0&numLocations=1&service=Chemicals" class="govuk-link--no-visited-state">Chemicals: Invite New User - one service</a></li>
+        <li><a href="manage/dashboard-all?numUsers=22&numAgents=3&numServices=3&numLocations=1&service=Chemicals" class="govuk-link--no-visited-state">Chemicals: Invite New User - multiple services</a></li>
+        <li><a href="manage/team-members/imports/invite-user/add-user-details?numUsers=1&numServices=1&numAgents=0&numLocations=1&service=Imports&subscribeService=Yes" class="govuk-link--no-visited-state">Imports: Invite New User - one service</a></li>
+        <li><a href="manage/team-members/imports/invite-user/add-user-details?numUsers=22&numServices=3&numAgents=3&numLocations=3&service=Imports&subscribeService=No" class="govuk-link--no-visited-state">Imports: Invite New User - multiple services</a></li>
       </ul>
       <ul class="govuk-list govuk-list--bullet">
         <li><a href="/manage/team-members/invited-user/invite-email-general?subscribeService=No&numUser=2" class="govuk-link--no-visited-state">Accept invite - no service access</a></li>
@@ -55,29 +55,26 @@
         -->
       </ul>
       <ul class="govuk-list govuk-list--bullet">
-        <li><a href="/manage/team-members/invited-user/invite-email-general?subscribeService=No&numUser=2" class="govuk-link--no-visited-state">Invite email - team member</a></li>
-        <li><a href="/manage/team-members/invited-user/invite-email-admin" class="govuk-link--no-visited-state">Invite email - admin</a></li>
+        <li><a href="/manage/team-members/invited-user/invite-email-general?numUsers=2&numServices=1&numAgents=0&numLocations=1&service=Chemicals&subscribeService=No" class="govuk-link--no-visited-state">Invite email - team member</a></li>
+        <li><a href="/manage/team-members/invited-user/invite-email-admin??numUsers=2&numServices=1&numAgents=0&numLocations=1&service=Chemicals&subscribeService=Yes" class="govuk-link--no-visited-state">Invite email - admin</a></li>
       </ul>
-      <!--
-        <h2 class="govuk-heading-m">Intermediary/ Agent
-      </h2>
-      <ul class="govuk-list govuk-list--bullet">
-        <li><a href="manage/dashboard-all-1" class="govuk-link--no-visited-state">Chemicals: delegate access to intermediary - 1 service, 1 org</a></li>
-        <li><a href="manage/dashboard-all" class="govuk-link--no-visited-state">Chemicals: delegate access to intermediary - many service, many org</a></li>
-      </ul>
-      <ul class="govuk-list govuk-list--bullet">
-        <li><a href="manage/agent/imports/add-agent-1/add-agent-details" class="govuk-link--no-visited-state">Imports: delegate access to intermediary - 1 service, 1 org</a></li>
-        <li><a href="manage/agent/imports/add-agent-all/add-agent-details" class="govuk-link--no-visited-state">Imports: delegate access to intermediary - many service, many org</a></li>
-      </ul>
-      <ul class="govuk-list govuk-list--bullet">
-        <li><a href="/manage/agent/invited-agent/invite-email-chemicals" class="govuk-link--no-visited-state">Accept Invite - create an account / signin happy path</a></li>
-      </ul>
-      <ul class="govuk-list govuk-list--bullet">
-        <li><a href="new-user-reg/organisation-type-agent" class="govuk-link--no-visited-state">Choose account type</a></li>
-      </ul>
-    -->
+    <h3 class="govuk-heading-s">Intermediary/ 3rd Party/ Agent
+    </h3>
+    <ul class="govuk-list govuk-list--bullet">
+      <li><a href="manage/dashboard-all-1?numUsers=1&numServices=1&numAgents=0&numLocations=1&service=Chemicals" class="govuk-link--no-visited-state">Chemicals: Invite intermediary - one service</a></li>
+      <li><a href="manage/dashboard-all?numUsers=22&numServices=3&numAgents=3&numLocations=3&service=Chemicals" class="govuk-link--no-visited-state">Chemicals: Invite intermediary - multiple services</a></li>
+    </ul>
 
     </div>
+
+    numUsers=1&numServices=1&numAgents=0&numLocations=1&service=Chemicals
+    numUsers=22&numServices=3&numAgents=3&numLocations=3&service=Chemicals
+
+    numUsers=1&numServices=1&numAgents=0&numLocations=1&service=Imports
+    numUsers=22&numServices=3&numAgents=3&numLocations=3&service=Imports
+
+
+
 </div>
 
 {% endblock %}

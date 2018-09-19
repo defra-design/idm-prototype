@@ -1,0 +1,178 @@
+{% extends "layout.html" %}
+
+{% set title = "Intermediary" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/account-nav-admin-corp.html" %}
+  {% include "includes/breadcrumb-four-level-agent.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-xl">
+      {{ data['agentFirstName'] }} {{ data['agentSurname'] }}
+    </h1>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <p class="govuk-body"> {{ data['agentFirstName'] }} has not yet accepted this invitation</p>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-third">
+        {{ govukButton({
+          text: "Re-send invite",
+          href: "#"
+        }) }}
+      </div>
+      <div class="govuk-grid-column-one-third">
+        {{ govukButton({
+          text: "Cancel invite",
+          href: "#"
+        }) }}
+      </div>
+    </div>
+
+  </div>
+</div>
+<hr class="govuk-section-break--s">
+<br>
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <p class="govuk-body">
+      <span class="govuk-!-font-weight-bold">Full name:</span> {{ data['agentFirstName'] }} {{ data['agentSurname'] }}<br>
+      <span class="govuk-!-font-weight-bold">Account access level:</span> {{ data['systemRole'] }}<br>
+      <span class="govuk-!-font-weight-bold">Email address:</span> {{ data['agentEmail'] }}<br>
+      <span class="govuk-!-font-weight-bold">Telephone:</span> {{ data['agentTelephone'] }}
+
+    </p>
+    <!--<p class="govuk-body">
+      <span class="govuk-!-font-weight-bold">Added on:</span> 10 July 2018<br>
+      <span class="govuk-!-font-weight-bold">Last signed in:</span> Never
+    </p>-->
+  </div>
+  <div class="govuk-grid-column-one-third">
+    <!--<p class="govuk-body"><a href="user-account" class="govuk-link--no-visited-state">Edit team member details</a></p>-->
+    <p class="govuk-body"><a href="/manage/agent/chemicals/service-access/add-user-roles-system-roles" class="govuk-link--no-visited-state">Change access level</a></p>
+    <p class="govuk-body"><a href="" class="govuk-link--no-visited-state">Reset password</a><br></p>
+    <!--<p class="govuk-body"><a href="" class="govuk-link--no-visited-state">Delete team member</a></p>-->
+  </div>
+</div>
+
+<br>
+
+<!-- Determins the 'Give service access' according to numer of services and the service-->
+{% if (data['numServices'] == 1) and (data['subscribeService'] == "No") and (data['service'] == "Chemicals") %}
+{{ govukButton({
+  text: "Give service access",
+  href: "/manage/agent/chemicals/service-access/add-user-roles-service-roles"
+}) }}
+{% endif %}
+
+{% if data['numServices'] == 3 and (data['service'] == "Chemicals") %}
+{{ govukButton({
+  text: "Give service access",
+  href: "/manage/agent/chemicals/service-access/add-user-service"
+}) }}
+{% endif %}
+
+{% if (data['numServices'] == 1) and (data['subscribeService'] == "No") and (data['service'] == "Imports") %}
+{{ govukButton({
+  text: "Give service access",
+  href: "/manage/agent/imports/service-access/add-user-roles-service-roles"
+}) }}
+{% endif %}
+
+{% if data['numServices'] == 3 and (data['service'] == "Imports") %}
+{{ govukButton({
+  text: "Give service access",
+  href: "/manage/agent/imports/service-access/add-user-service"
+}) }}
+{% endif %}
+
+
+<!-- Hide the list of services if the user hasn't subscribed to a service yet -->
+{% if data['subscribeService'] == "No"%}
+ {% set serviceHideCSS %}
+  govuk-visually-hidden
+ {% endset %}
+{% endif %}
+
+
+
+<div class="{{ serviceHideCSS }}">
+{% set setServiceNameHtml %}
+    <span class="govuk-visually-hidden--desktop td-header">Service:</span> {{ data['serviceName'] }}
+{% endset %}
+
+{% set setOrgHtml %}
+    <span class="govuk-visually-hidden--desktop td-header">Location:</span> {{ data['orgName'] }}
+{% endset %}
+
+{% set setServiceRoleHtml %}
+    <span class="govuk-visually-hidden--desktop td-header">Role: </span> {{ data['serviceRole'] }}
+{% endset %}
+
+
+  {{ govukTable({
+  caption: "Access to services",
+  captionClasses: "govuk-heading-l",
+  firstCellIsHeader: false,
+  head: [
+    {
+      html: 'Service',
+      format: 'column-quarter column-full'
+
+    },
+    {
+      html: 'Location',
+      format: 'column-quarter column-full'
+
+    },
+    {
+      html: 'Role',
+      format: 'column-fifth column-full'
+
+    },
+    {
+      html: '<span class="govuk-visually-hidden column-full">Action</span>',
+      format: ''
+    },
+    {
+      html: '<span class="govuk-visually-hidden column-full">Action</span>',
+      format: ''
+    }
+  ],
+  rows: [
+  [
+    {
+      html: setServiceNameHtml
+    },
+    {
+      html: setOrgHtml
+    },
+    {
+      html: setServiceRoleHtml
+    },
+    {
+      html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="/manage/team-members/chemicals/invite-user/add-user-roles-service-roles" class="govuk-link--no-visited-state">Change role <span class="govuk-visually-hidden">to [Service name]</span></a>'
+    },
+    {
+      html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="#" class="govuk-link--no-visited-state">Remove access <span class="govuk-visually-hidden">to [Service name]</span></a>'
+    }
+  ]
+
+  ]
+}) }}
+</div>
+
+{% endblock %}

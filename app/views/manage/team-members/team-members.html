@@ -20,10 +20,11 @@
       {{title}}
     </h1>
 
-    {% set teamMemberURL %}
+    {% set addUserURL %}
       {% if data['service'] == "Chemicals"%}
         /manage/team-members/chemicals/invite-user/add-user-details
       {% endif %}
+
       {% if data['service'] == "Imports"%}
         /manage/team-members/imports/invite-user/add-user-details
       {% endif %}
@@ -31,9 +32,10 @@
 
     {{ govukButton({
       text: "Add a team member",
-      href: teamMemberURL
+      href: addUserURL
     }) }}
 
+<!-- Setting Ann's urls -->
     {% set setAnnURL %}
       {% if data['numUsers'] == "1" %}
         services-on-team-member-admin-self-all-1
@@ -44,6 +46,7 @@
       {% endif %}
     {% endset %}
 
+<!-- Setting the new user profile url -->
     {% set setnewUserURL %}
       {% if data['subscribeService'] == "Yes" %}
         services-on-team-member-invited-service
@@ -54,14 +57,8 @@
       {% endif %}
     {% endset %}
 
-    {% set setUserEmailHtml %}
-      {{ data['businessEmail'] }}
-    {% endset %}
-
-
-    {% set newUserCSS = " govuk-visually-hidden" %}
-
-    {% if data['userInvite'] == "User" %}
+<!-- Hiding/ showing the New User row according to the userInvite Yes/ No -->
+    {% if data['userInvite'] == "Yes" %}
       {% set newUserCSS = "" %}
     {% endif %}
 
@@ -102,7 +99,7 @@
           {{ data['personalSurname'] }}</a>
         </td>
         <td class="govuk-table__cell">
-          <span class="govuk-visually-hidden--desktop td-header">Email address:</span> {{setUserEmailHtml}}
+          <span class="govuk-visually-hidden--desktop td-header">Email address:</span> {{ data['businessEmail'] }}
         </td>
         <td class="govuk-table__cell">
           <span class="govuk-visually-hidden--desktop td-header">Account status:</span> Invite email sent

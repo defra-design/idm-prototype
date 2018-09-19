@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Who do you want to delegate access to your organisation's services?" %}
+{% set title = "Who do you want to access your organisation's services?" %}
 
 {% block pageTitle %}
     {{title}} - GOV.UK
@@ -19,18 +19,21 @@
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-xl">{{title}}</h1>
 
-      <form action="add-agent-service" method="post">
-        <input type="hidden" name="serviceName" value="Imports-1">
+      <form action="add-user-confirmation-reg-sent" method="post">
+        <input type="hidden" name="serviceName" value="UK-REACH-IT">
         <input type="hidden" name="orgName" value="AstraZeneca UK Limited">
+        <input type="hidden" name="subscribeService" value="No">
+        <input type="hidden" name="userInvite" value="Yes">
+
 
         {{ govukInput({
           label: {
             text: "First or given name"
           },
           classes: "govuk-input--width-20",
-          id: "personalFirstName",
-          name: "personalFirstName",
-          value: data['personalFirstName']
+          id: "agentFirstName",
+          name: "agentFirstName",
+          value: data['agentFirstName']
         }) }}
 
         {{ govukInput({
@@ -38,9 +41,9 @@
             text: "Surname or family name"
           },
           classes: "govuk-input--width-20",
-          id: "personalSurname",
-          name: "personalSurname",
-          value: data['personalSurname']
+          id: "agentSurname",
+          name: "agentSurname",
+          value: data['agentSurname']
         }) }}
 
         {{ govukInput({
@@ -48,21 +51,10 @@
             text: "Business email address"
           },
           classes: "govuk-input--width-20",
-          id: "businessEmail",
-          name: "businessEmail",
-          value: data['businessEmail'],
+          id: "agentEmail",
+          name: "agentEmail",
+          value: data['agentEmail'],
           type: email
-        }) }}
-
-        {{ govukInput({
-          label: {
-            text: "Business telephone number "
-          },
-          classes: "govuk-input--width-10",
-          id: "businessTelephone",
-          name: "businessTelephone",
-          value: data['businessTelephone'],
-          type: tel
         }) }}
 
         {{ govukButton({

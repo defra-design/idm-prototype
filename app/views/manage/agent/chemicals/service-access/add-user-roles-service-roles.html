@@ -18,7 +18,11 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-      <form action="check-your-answers" method="post">
+      <form action="/manage/agent/services-on-team-member-agent-invited" method="post">
+
+      <!-- Setting subscribeService to be Yes -->
+      <input type="hidden" name="subscribeService" value="Yes">
+
 
         {{ govukRadios ({
           idPrefix: "serviceRole",
@@ -43,6 +47,11 @@
               value: "RE-Reader",
               html: 'RE-Reader - this person can view all information held by the service.',
               checked:  checked('serviceRole','RE-Reader')
+            },
+            {
+              value: "No service access",
+              html: 'None - this person cannot access the service.',
+              checked:  checked('serviceRole','No service access')
             }
           ]
         }) }}

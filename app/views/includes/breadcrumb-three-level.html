@@ -1,13 +1,13 @@
 {% set setDashURL %}
-  {% if data['numUsers'] == "1" %}
+  {% if (data['numUsers'] == "1") and (data['numAgents'] == "0") %}
     /manage/dashboard-all-1
   {% endif %}
 
-  {% if data['numUsers'] == "2" %}
+  {% if (data['numUsers'] == "2") and (data['numAgents'] == "1") %}
     /manage/dashboard-all-2
   {% endif %}
 
-  {% if data['numUsers'] == "22" %}
+  {% if (data['numUsers'] == "22") and (data['numAgents'] == "3") %}
     /manage/dashboard-all
   {% endif %}
 {% endset %}

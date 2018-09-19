@@ -19,7 +19,9 @@
   <div class="govuk-grid-column-two-thirds">
 
       <form action="/manage/team-members/services-on-team-member-invited-service" method="post">
-        <input type="hidden" name="subscribeService" value="Yes">
+
+      <!-- Setting subscribeService to be Yes -->        
+      <input type="hidden" name="subscribeService" value="Yes">
 
 
         {{ govukRadios ({
