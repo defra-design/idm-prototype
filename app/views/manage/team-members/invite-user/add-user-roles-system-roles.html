@@ -20,6 +20,36 @@
 
       <form action="check-answers/check-your-answers" method="post">
 
+        {% if data['service'] == "Imports"%}
+
+        {{ govukRadios ({
+          idPrefix: "systemRole",
+          name: "systemRole",
+          fieldset: {
+            legend: {
+              text: title,
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+          items: [
+            {
+              value: "Admin",
+              html: 'Admin - this person can view and edit the information the service holds about your organisation. They can also manage other people\'s access to the service.',
+              checked:  checked('systemRole','Admin')
+            },
+            {
+              value: "None",
+              html: 'None - no extra responsibilities, this person can only perform the tasks you chose within the service.',
+              checked:  checked('systemRole','None')
+            }
+          ]
+        }) }}
+
+        {% endif %}
+
+        {% if data['service'] == "Chemicals"%}
+
         {{ govukRadios ({
           idPrefix: "systemRole",
           name: "systemRole",
@@ -48,6 +78,8 @@
             }
           ]
         }) }}
+
+        {% endif %}
 
         {{ govukButton({
           text: "Continue"
