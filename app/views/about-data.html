@@ -21,7 +21,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form action="{{ tcButton }}" method="post">
+    <form action="" method="post">
 
 
       {{ govukCheckboxes({
@@ -46,9 +46,38 @@
         ]
       }) }}
 
+      <!-- For invited users-->
+      {% if data['userType'] == "invited" %}
+        {% set tcButton  = "/manage/team-members/invited-user/invite-accepted-confirmation" %}
+      {% endif %}
+
+      {% if (data['userType'] == "new") and (data['createSignin'] == "signin") %}
+        {% set tcButton  = "/new-user-reg/organisation-type" %}
+      {% endif %}
+
+
+
+
+
+      <!-- For new account registration-->
+      {% if (data['businessType'] == "Sole trader") and (data['createSignin'] == "create") %}
+        {% set tcButton  = "/new-user-reg/sole-trader/task-list-page-account" %}
+      {% endif %}
+
+      {% if ((data['businessType'] == "Limited company") or (data['businessType'] == "Public limited company")) and (data['createSignin'] == "create") %}
+        {% set tcButton  = "/new-user-reg/limited-company/task-list-page-account" %}
+      {% endif %}
+
+      {% if (data['orgType'] == "individual") and (data['createSignin'] == "create") %}
+        {% set tcButton  = "/new-user-reg/individual/task-list-page-account" %}
+      {% endif %}
+
+
       {{ govukButton({
-        text: "Continue"
+        text: "Continue",
+        href: tcButton
       }) }}
+
 
     </form>
 

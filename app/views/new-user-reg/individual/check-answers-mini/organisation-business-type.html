@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "What type of business or organisation do you own or represent?" %}
+{% set title = "What type of business do you own or represent?" %}
 
 {% block pageTitle %}
     {{title}} - GOV.UK
@@ -21,8 +21,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    {% if data['createSignin'] == "signin" %}
-    <form class="org-type" onsubmit="return myFunction()" method="post">
+    <form class="org-type" onsubmit="return myFunction()" action="../task-list-page-account" method="post">
       <script>
         const form = document.querySelector('.org-type')
 
@@ -32,15 +31,15 @@
 
           switch(checkedValue){
             case 'Sole trader':
-            form.action = '/new-user-reg/sole-trader/task-list-page-account'
+            form.action = '../../sole-trader/task-list-page-account'
 
             break;
             case 'Limited company':
-            form.action = '/new-user-reg/limited-company/task-list-page-account'
+            form.action = '../../limited-company/task-list-page-account'
 
             break;
             case 'Public limited company':
-            form.action = '/new-user-reg/limited-company/task-list-page-account'
+            form.action = '../../limited-company/task-list-page-account'
 
             break;
             default:
@@ -49,38 +48,6 @@
           return true
         }
       </script>
-    {% endif %}
-
-    {% if data['createSignin'] == "create" %}
-    <form class="org-type" onsubmit="return myFunction()" method="post">
-      <script>
-        const form = document.querySelector('.org-type')
-
-        function myFunction() {
-          const checked = document.querySelector('[name="businessType"]:checked')
-          const checkedValue = checked.value
-
-          switch(checkedValue){
-            case 'Sole trader':
-            form.action = '/scp/email-address'
-
-            break;
-            case 'Limited company':
-            form.action = '/scp/email-address'
-
-            break;
-            case 'Public limited company':
-            form.action = '/scp/email-address'
-
-            break;
-            default:
-            form.action = '/new-user-reg/organisation-business-coming-soon'
-          }
-          return true
-        }
-      </script>
-
-      {% endif %}
 
       {{ govukRadios({
         idPrefix: "businessType",
@@ -103,7 +70,7 @@
           {
             value: "Limited company",
             text: "Limited company",
-            checked:  checked('businessType', 'Limited company')
+            checked:  checked('businessType','Limited company')
 
           },
           {

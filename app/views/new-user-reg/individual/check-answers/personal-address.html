@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "What is your business address?" %}
+{% set title = "Select your address" %}
 
 {% block pageTitle %}
     {{title}} - GOV.UK
@@ -23,10 +23,11 @@
     <h1 class="govuk-heading-xl">{{title}}</h1>
     <p class="govuk-body">
       Postcode:
-      <span class="govuk-!-font-weight-bold">{{ data['postcode'] }}  </span>
-      <a href="company-postcode" class="govuk-link">Change<span class="govuk-visually-hidden"> postcode</span>
+      <span class="govuk-!-font-weight-bold">{{ data['postcode'] }}</span>&nbsp;&nbsp;
+      <a href="personal-postcode" class="govuk-link">Change<span class="govuk-visually-hidden"> postcode</span>
       </a>
     </p>
+
 
     <form action="check-your-answers" method="post">
 
@@ -34,7 +35,6 @@
         id: "addressList",
         name: "addressList",
         label: {
-          text: "Select the address"
         },
         items: [
           {
@@ -87,7 +87,7 @@
       }) }}
 
       <p class="govuk-body">
-        <a href="company-address-manual">
+        <a href="personal-address-manual">
           I cannot find the address in the list
         </a>
       </p>
@@ -97,6 +97,10 @@
       }) }}
 
     </form>
+
+
+
+
 
   </div>
 </div>

@@ -21,17 +21,26 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-      <form method="post" action="organisation-business-type" onsubmit="return myFunction()">
+        <form method="post" class="acc-type" onsubmit="return myFunction()">
 
-        <script>
-        function myFunction() {
-          if(!document.getElementById('orgType-1').checked){
-            alert('This page is in work in progress');
-            return false
-          }
-          return true
-        }
-        </script>
+          <script>
+            const form = document.querySelector('.acc-type')
+
+            function myFunction() {
+              const checked = document.querySelector('[name="orgType"]:checked')
+              const checkedValue = checked.value
+
+              switch(checkedValue){
+                case 'business':
+                form.action = 'organisation-business-type'
+
+                break;
+                default:
+                form.action = '../../individual/task-list-page-account'
+              }
+              return true
+            }
+          </script>
 
         {{ govukRadios({
           idPrefix: "orgType",
@@ -53,10 +62,10 @@
 
             },
             {
-              value: "individual",
+              value: "Individual",
               html: ' <span class="govuk-body govuk-!-font-weight-bold">A personal account</span><br>
                       I want to use this service as an individual. I am not a sole trader, and do not own or represent a relevant business or organisation.',
-              checked:  checked('orgType','individual')
+              checked:  checked('orgType','Individual')
             }
 
           ]

@@ -17,7 +17,7 @@
       <h2 class="govuk-heading-m">RC1.0 Registration
       </h2>
       <ul class="govuk-list govuk-list--bullet">
-        <li><a href="service-start-logged-out" class="govuk-link--no-visited-state">New user: registration</a></li>
+        <li><a href="service-start-logged-out?userType=new" class="govuk-link--no-visited-state">New user: registration</a></li>
         <li><a href="/scp/login-incomplete-tasklist" class="govuk-link--no-visited-state">Return user: Incomplete registration - task list not finished</a></li>
         <li><a href="/scp/login-incomplete-service" class="govuk-link--no-visited-state">Return user: Incomplete registration - service not finished</a></li>
         <li><a href="/scp/login-pending" class="govuk-link--no-visited-state">Return user: Registration is pending</a></li>
@@ -27,8 +27,9 @@
       </h3>
       <ul class="govuk-list govuk-list--bullet">
         <li><a href="new-user-reg/limited-company/task-list-page-account" class="govuk-link--no-visited-state">Task list - Ltd company or PLC</a></li>
-        <li><a href="new-user-reg/limited-company/task-list-page-account-error" class="govuk-link--no-visited-state">Task list - error page</a></li>
         <li><a href="new-user-reg/sole-trader/task-list-page-account" class="govuk-link--no-visited-state">Task list - Sole trader</a></li>
+        <li><a href="new-user-reg/individual/task-list-page-account" class="govuk-link--no-visited-state">Task list - Individual</a></li>                
+        <li><a href="new-user-reg/limited-company/task-list-page-account-error" class="govuk-link--no-visited-state">Task list - error page</a></li>
       </ul>
 
       <h2 class="govuk-heading-m">RC 1.1 Group manangement
@@ -49,12 +50,12 @@
         <li><a href="manage/dashboard-all?numUsers=5&numServices=3&numAgents=3&numLocations=3&service=Imports&serviceLine=Imp-S01" class="govuk-link--no-visited-state">Imports: Invite New User - multiple services</a></li>
       </ul>
       <ul class="govuk-list govuk-list--bullet">
-        <li><a href="/manage/team-members/invited-user/invite-email-general?subscribeService=No&numUser=2" class="govuk-link--no-visited-state">Accept invite - no service access</a></li>
-        <li><a href="/manage/team-members/invited-user/invite-email-general?subscribeService=Yes&numUser=2" class="govuk-link--no-visited-state">Accept invite - service access given</a></li>
+        <li><a href="/manage/team-members/invited-user/invite-email-general?userType=invited&subscribeService=No&numUser=2" class="govuk-link--no-visited-state">Accept invite - no service access</a></li>
+        <li><a href="/manage/team-members/invited-user/invite-email-general?userType=invited&subscribeService=Yes&numUser=2" class="govuk-link--no-visited-state">Accept invite - service access given</a></li>
       </ul>
       <ul class="govuk-list govuk-list--bullet">
-        <li><a href="/manage/team-members/invited-user/invite-email-general?numUsers=2&numServices=1&numAgents=0&numLocations=1&service=Chemicals&subscribeService=No" class="govuk-link--no-visited-state">Invite email - team member</a></li>
-        <li><a href="/manage/team-members/invited-user/invite-email-admin??numUsers=2&numServices=1&numAgents=0&numLocations=1&service=Chemicals&subscribeService=Yes" class="govuk-link--no-visited-state">Invite email - admin</a></li>
+        <li><a href="/manage/team-members/invited-user/invite-email-general?userType=invited&numUsers=2&numServices=1&numAgents=0&numLocations=1&service=Chemicals&subscribeService=No" class="govuk-link--no-visited-state">Invite email - team member</a></li>
+        <li><a href="/manage/team-members/invited-user/invite-email-admin?userType=invited&numUsers=2&numServices=1&numAgents=0&numLocations=1&service=Chemicals&subscribeService=Yes" class="govuk-link--no-visited-state">Invite email - admin</a></li>
       </ul>
     <h3 class="govuk-heading-s">Intermediary/ 3rd Party/ Agent
     </h3>
@@ -65,8 +66,8 @@
       <li><a href="manage/dashboard-all?numUsers=5&numServices=3&numAgents=3&numLocations=3&service=Imports&serviceLine=Imp-S01&subscribeService=Yes" class="govuk-link--no-visited-state">Imports: Invite New User - multiple services</a></li>
     </ul>
     <ul class="govuk-list govuk-list--bullet">
-      <li><a href="/manage/team-members/invited-user/invite-email-general?subscribeService=No&numUser=2&agent=agent" class="govuk-link--no-visited-state">Accept invite - no service access</a></li>
-      <li><a href="/manage/team-members/invited-user/invite-email-general?subscribeService=Yes&numUser=2&agent=agent" class="govuk-link--no-visited-state">Accept invite - service access given</a></li>
+      <li><a href="/manage/team-members/invited-user/invite-email-general?userType=invited&subscribeService=No&numUser=2&agent=agent" class="govuk-link--no-visited-state">Accept invite - no service access</a></li>
+      <li><a href="/manage/team-members/invited-user/invite-email-general?userType=invited&subscribeService=Yes&numUser=2&agent=agent" class="govuk-link--no-visited-state">Accept invite - service access given</a></li>
     </ul>
   </div>
 

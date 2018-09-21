@@ -60,22 +60,6 @@ router.get('/manage/dashboard-all', function (req, res) {
     })
 })
 
-// Invite user config
-// invited user and no service
-router.get('/manage/team-members/services-on-team-member-invited-no-service', function (req, res) {
-    res.render('manage/team-members/services-on-team-member-invited',{
-      "serviceHideCSS": 'govuk-visually-hidden',
-      "subscribeService": "No"
-    })
-})
-
-// invited user and service
-router.get('/manage/team-members/services-on-team-member-invited-service', function (req, res) {
-    res.render('manage/team-members/services-on-team-member-invited',{
-      "subscribeService": "Yes"
-    })
-})
-
 // Team members config //
 // Single user / plus 1
 router.get('/manage/team-members/team-members-all-1', function (req, res) {
@@ -115,14 +99,14 @@ router.get('/manage/agent/agent-all', function (req, res) {
 router.get('/start-login-create-new', function (req, res) {
     res.render('start-login-create',{
       "signinURL": '/scp/login-new-idm',
-      "createURL": '/new-user-reg/about-data-new-idm'
+      "createURL": '/new-user-reg/organisation-type'
     })
 })
-// Invite user
+// Invited user
 router.get('/start-login-create-invite', function (req, res) {
     res.render('start-login-create',{
       "signinURL": '/scp/login-invite',
-      "createURL": '/new-user-reg/about-data-invited'
+      "createURL": '/manage/team-members/invited-user/enter-code'
     })
 })
 
@@ -130,7 +114,7 @@ router.get('/start-login-create-invite', function (req, res) {
 // Existing user but new to IDM user
 router.get('/scp/login-new-idm', function (req, res) {
     res.render('scp/login',{
-      "signinButton": '/new-user-reg/about-data',
+      "signinButton": '/about-data',
     })
 })
 // Existing user - incomplete app: tasklist
@@ -157,21 +141,22 @@ router.get('/scp/login-pending', function (req, res) {
       "signinButton": '/service-start-pending',
     })
 })
-// Existing user - pending app
+
+// Invited user
 router.get('/scp/login-invite', function (req, res) {
     res.render('scp/login',{
-      "signinButton": '/new-user-reg/about-data-invited',
+      "signinButton": '/manage/team-members/invited-user/enter-code',
     })
 })
 
 ////// T&C's /////
 // Existing user but new to IDM user
 router.get('/new-user-reg/about-data-new-idm', function (req, res) {
-    res.render('new-user-reg/about-data',{
+   res.render('new-user-reg/about-data',{
       "tcButton": 'organisation-type',
     })
 })
-// Invited user
+ // Invited user
 router.get('/new-user-reg/about-data-invited', function (req, res) {
     res.render('new-user-reg/about-data',{
       "tcButton": '/manage/team-members/invited-user/enter-code',

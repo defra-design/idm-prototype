@@ -21,30 +21,6 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-      {% if data['createSignin'] == "signin" %}
-      <form method="post" class="acc-type" onsubmit="return myFunction()">
-
-        <script>
-          const form = document.querySelector('.acc-type')
-
-          function myFunction() {
-            const checked = document.querySelector('[name="orgType"]:checked')
-            const checkedValue = checked.value
-
-            switch(checkedValue){
-              case 'business':
-              form.action = 'organisation-business-type'
-
-              break;
-              default:
-              form.action = '/new-user-reg/individual/task-list-page-account'
-            }
-            return true
-          }
-        </script>
-      {% endif %}
-
-      {% if data['createSignin'] == "create" %}
         <form method="post" class="acc-type" onsubmit="return myFunction()">
 
           <script>
@@ -60,12 +36,11 @@
 
                 break;
                 default:
-                form.action = '/scp/email-address'
+                form.action = '../task-list-page-account'
               }
               return true
             }
           </script>
-          {% endif %}
 
         {{ govukRadios({
           idPrefix: "orgType",
@@ -87,18 +62,15 @@
 
             },
             {
-              value: "individual",
+              value: "Individual",
               html: ' <span class="govuk-body govuk-!-font-weight-bold">A personal account</span><br>
                       I want to use this service as an individual. I am not a sole trader, and do not own or represent a relevant business or organisation.',
-              checked:  checked('orgType','individual')
+              checked:  checked('orgType','Individual')
             }
 
           ]
-
-
-
-
         }) }}
+
 
         {{ govukButton({
           text: "Continue"

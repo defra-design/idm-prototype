@@ -21,26 +21,26 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-      <form method="post" class="acc-type" onsubmit="return myFunction()">
+    <form method="post" class="acc-type" onsubmit="return myFunction()">
 
-        <script>
-          const form = document.querySelector('.acc-type')
+      <script>
+        const form = document.querySelector('.acc-type')
 
-          function myFunction() {
-            const checked = document.querySelector('[name="orgType"]:checked')
-            const checkedValue = checked.value
+        function myFunction() {
+          const checked = document.querySelector('[name="orgType"]:checked')
+          const checkedValue = checked.value
 
-            switch(checkedValue){
-              case 'business':
-              form.action = 'organisation-business-type'
+          switch(checkedValue){
+            case 'business':
+            form.action = 'organisation-business-type'
 
-              break;
-              default:
-              form.action = 'organisation-business-coming-soon'
-            }
-            return true
+            break;
+            default:
+            form.action = 'check-your-answers'
           }
-        </script>
+          return true
+        }
+      </script>
 
         {{ govukRadios({
           idPrefix: "orgType",
@@ -57,29 +57,20 @@
             {
               value: "business",
               html: ' <span class="govuk-body govuk-!-font-weight-bold">A business account</span><br>
-                      I own or directly represent the business or organisation that wants to use this service.',
+                      I own or represent the business or organisation that wants to use this service.',
               checked:  checked('orgType','business')
 
             },
             {
-              value: "intermediary",
-              html: ' <span class="govuk-body govuk-!-font-weight-bold">An intermediary account</span><br>
-                      I want to register my business or organisation so that I can use the service on behalf of other businesses or organisations.',
-              checked:  checked('orgType','individual')
-            },
-            {
-              value: "individual",
+              value: "Individual",
               html: ' <span class="govuk-body govuk-!-font-weight-bold">A personal account</span><br>
                       I want to use this service as an individual. I am not a sole trader, and do not own or represent a relevant business or organisation.',
-              checked:  checked('orgType','individual')
+              checked:  checked('orgType','Individual')
             }
 
           ]
-
-
-
-
         }) }}
+
 
         {{ govukButton({
           text: "Continue"
