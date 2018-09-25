@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% set title = "You have been given online access to your Defra services" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        {{title}} </h1>
+        <p class="govuk-body">Hello [First name],</p>
+        <p class="govuk-body">((sender)) has invited you to access Defra services on behalf of [organisation's name].</p>
+        <p class="govuk-body">To accept this invite you need to follow the link below and enter the Registration Code that the Administrator will provide to you.</p>
+        <div class="govuk-inset-text">
+          <p class="govuk-link"><a href="/start-login-create-invite?flow=accept">Please follow this link to accept your invite.</a></p>
+        </div>
+
+        <div class="govuk-warning-text">
+          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+          <strong class="govuk-warning-text__text">
+            <span class="govuk-warning-text__assistive">Warning</span>
+            To withdraw your consent for this Defra to store and use your email address, please follow the guidance in our privacy policy: URL.
+          </strong>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

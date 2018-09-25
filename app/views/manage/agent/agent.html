@@ -24,8 +24,8 @@
       href: "/manage/agent/invite-user/add-user-details"
     }) }}
 
-<!-- Hiding/ showing the New User row according to the userInvite Yes/ No -->
-    {% if data['userInvite'] == "Yes" %}
+<!-- Hiding/ showing the New User row according to the userType invite/new -->
+    {% if data['userType'] == "invite" %}
       {% set newUserCSS = "" %}
     {% endif %}
 

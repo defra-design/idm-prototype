@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+
+{% set title = "Enter your registration code" %}
+
+{% block header %}
+    {{ govukHeader({ serviceName: "" }) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">{{title}}</h1>
+      <h2 class="govuk-body-l">Please contact your administrator for your registration code.</h2>
+
+      <form method="post">
+
+        {{ govukInput({
+          label: {
+            text: "Enter your registration code"
+          },
+          hint: {
+            text: "For example, CF-DNCLRK"
+          },
+          classes: "govuk-input--width-10",
+          id: "regCode",
+          name: "regCode"
+        }) }}
+
+        {% if data['createSignin'] == "signin" %}
+          {{ govukButton({
+            text: "Continue",
+            href: "invite-accepted-confirmation"
+          }) }}
+
+        {% else %}
+          {{ govukButton({
+            text: "Continue",
+            href: "/scp/email-address"
+          }) }}
+        {% endif %}
+
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

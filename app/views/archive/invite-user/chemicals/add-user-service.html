@@ -1,0 +1,88 @@
+{% extends "layout.html" %}
+
+{% set title = "Add service access" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="add-user-roles" onsubmit="return myFunction()" method="post">
+      <script>
+        const form = document.querySelector('.add-user-roles')
+
+        function myFunction() {
+          const checked = document.querySelector('[name="serviceLine"]:checked')
+          const checkedValue = checked.value
+
+          switch(checkedValue){
+            case 'UK-REACH-IT':
+            form.action = 'add-user-roles-service-roles'
+
+            break;
+            case 'UK-ePIC':
+            form.action = 'add-user-roles-service-roles-normal'
+
+            break;
+            case 'UK-CLP':
+            form.action = 'add-user-roles-service-roles-normal'
+          }
+          return true
+        }
+      </script>
+
+        {{ govukRadios({
+          idPrefix: "serviceLine",
+          name: "serviceLine",
+          fieldset: {
+            legend: {
+              text: "Which service do you want this person to use?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+          items: [
+
+            {
+              value: "UK-REACH-IT",
+              html: 'UK-REACH-IT',
+              checked:  checked('serviceLine','UK-REACH-IT')
+            },
+            {
+              value: "UK-ePIC",
+              html: 'UK-ePIC',
+              checked:  checked('serviceLine','UK-ePIC')
+            },
+            {
+              value: "UK-CLP",
+              html: 'UK-CLP',
+              checked:  checked('serviceLine','UK-CLP')
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+
+
+      </form>
+    </div>
+  </div>
+
+
+
+
+{% endblock %}

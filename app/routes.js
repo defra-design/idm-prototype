@@ -33,7 +33,9 @@ router.get('/manage/dashboard-all-1', function (req, res) {
       "agentURL": 'agent/agent-0',
       "addLocationURL": '#',
       "locationURL": 'organisations/organisation-all-1',
-      "serviceCSS": 'govuk-visually-hidden'
+      "serviceCSS": 'govuk-visually-hidden',
+      "orgSwitch": 'govuk-visually-hidden',
+      "title": 'My Company'
     })
 })
 
@@ -45,7 +47,9 @@ router.get('/manage/dashboard-all-2', function (req, res) {
       "agentURL": 'agent/agent-0',
       "addLocationURL": '#',
       "locationURL": 'organisations/organisation-all-1',
-      "serviceCSS": 'govuk-visually-hidden'
+      "serviceCSS": 'govuk-visually-hidden',
+      "orgSwitch": 'govuk-visually-hidden',
+      "title": 'My Company'
     })
 })
 
@@ -56,7 +60,21 @@ router.get('/manage/dashboard-all', function (req, res) {
       "addAgentURL": 'agent/chemicals/invite-user/add-user-details',
       "agentURL": 'agent/agent-all',
       "addLocationURL": '#',
-      "locationURL": 'organisations/organisation-all'
+      "locationURL": 'organisations/organisation-all',
+      "orgSwitch": 'govuk-visually-hidden',
+      "title": 'My Company',
+      "cheese": 33
+    })
+})
+
+// Multi orgs eg agent
+router.get('/manage/dashboard-all-agent', function (req, res) {
+    res.render('manage/dashboard',{
+      "teamMemberURL": 'team-members/team-members-all',
+      "addAgentURL": 'agent/chemicals/invite-user/add-user-details',
+      "agentURL": 'agent/agent-all',
+      "addLocationURL": '#',
+      "locationURL": 'organisations/organisation-all',
     })
 })
 
