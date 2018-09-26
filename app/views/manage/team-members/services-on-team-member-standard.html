@@ -44,12 +44,38 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
     <br>
-    {{ govukButton({
-      text: "Give service access",
-      href: "#"
-    }) }}
 
-    {{ govukTable({
+    {% if (data['service'] == "Imports") %}
+      {{ govukButton({
+        text: "Give service access",
+        href: "/manage/team-members/invite-user/imports/add-user-service?orgName=ImportersUK"
+      }) }}
+    {% endif %}
+
+    {% if (data['service'] == "Chemicals") %}
+      {{ govukButton({
+        text: "Give service access",
+        href: "/manage/team-members/invite-user/chemicals/add-user-service?orgName=AstraZeneca"
+      }) }}
+    {% endif %}
+
+<!-- Decides where there Give Service Access button goes according to the service and number of services-->
+{% if (data['subscribeService'] == "Yes") %}
+
+    {% set setServiceNameHtml %}
+        <span class="govuk-visually-hidden--desktop td-header">Service:</span> {{ data['serviceLine'] }}
+    {% endset %}
+
+    {% set setOrgHtml %}
+        <span class="govuk-visually-hidden--desktop td-header">Location:</span> {{ data['orgName'] }}
+    {% endset %}
+
+    {% set setServiceRoleHtml %}
+        <span class="govuk-visually-hidden--desktop td-header">Role: </span> {{ data['serviceRole'] }}
+    {% endset %}
+
+
+      {{ govukTable({
       caption: "Access to services",
       captionClasses: "govuk-heading-l",
       firstCellIsHeader: false,
@@ -81,13 +107,13 @@
       rows: [
       [
         {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> UK-REACH-IT'
+          html: setServiceNameHtml
         },
         {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Location:</span> AstraZeneca UK Limited'
+          html: setOrgHtml
         },
         {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Role: </span>RE Manager'
+          html: setServiceRoleHtml
         },
         {
           html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="#" class="govuk-link--no-visited-state">Change role <span class="govuk-visually-hidden">to [Service name]</span></a>'
@@ -99,6 +125,8 @@
 
       ]
     }) }}
+
+    {% endif %}
 
   </div>
 </div>

@@ -71,7 +71,7 @@
 <br>
 
 <!-- Decides where there Give Service Access button goes according to the service and number of services-->
-
+{% if (data['subscribeService'] == "Yes") %}
 
 {% if (data['numServices'] == 3) and (data['service'] == "Imports") %}
   {{ govukButton({
@@ -153,5 +153,6 @@
   ]
 }) }}
 
+{% endif %}
 
 {% endblock %}
