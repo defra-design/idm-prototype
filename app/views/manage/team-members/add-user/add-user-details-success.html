@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% set title = "Is this the person you want to give access to?" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">{{title}}</h1>
+      <p class="govuk-body">
+        {{ data['personalFirstName'] }} {{ data['personalSurname'] }}
+        <br>
+        {{ data['inviteEmail'] }}
+      </p>
+
+      {% if (data['numUsers'] == 1) or (data['numUsers'] == 2) %}
+        {% set confirmURL = "/manage/team-members/team-members-all-1" %}
+        {% else %}
+        {% set confirmURL = "/manage/team-members/team-members-all" %}
+      {% endif %}
+
+      {{ govukButton({
+        text: "Yes, add this person",
+        href: "add-user-roles-system-roles"
+      }) }}
+      <p class="govuk-body"><a class="govuk-link" href="add-user-details">No, search again</a></p>
+
+  </div>
+</div>
+
+
+{% endblock %}

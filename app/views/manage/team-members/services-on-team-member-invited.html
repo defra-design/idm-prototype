@@ -23,36 +23,11 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <p class="govuk-body"> {{ data['personalFirstName'] }} has not yet accepted this invitation</p>
-
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-one-third">
-        {{ govukButton({
-          text: "Re-send invite",
-          href: "#"
-        }) }}
-      </div>
-      <div class="govuk-grid-column-one-third">
-        {{ govukButton({
-          text: "Cancel invite",
-          href: "#"
-        }) }}
-      </div>
-    </div>
-
-  </div>
-</div>
-<hr class="govuk-section-break--s">
-<br>
-
-
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
     <p class="govuk-body">
       <span class="govuk-!-font-weight-bold">Full name:</span> {{ data['personalFirstName'] }} {{ data['personalSurname'] }}<br>
       <span class="govuk-!-font-weight-bold">Account access level:</span> {{ data['systemRole'] }}<br>
-      <span class="govuk-!-font-weight-bold">Email address:</span> {{ data['businessEmail'] }}<br>
-      <span class="govuk-!-font-weight-bold">Telephone:</span> {{ data['businessTelephone'] }}
+      <span class="govuk-!-font-weight-bold">Email address:</span> {{ data['inviteEmail'] }}<br>
+      <span class="govuk-!-font-weight-bold">Telephone:</span> 07846959366
 
     </p>
     <!--<p class="govuk-body">
@@ -62,8 +37,8 @@
   </div>
   <div class="govuk-grid-column-one-third">
     <!--<p class="govuk-body"><a href="user-account" class="govuk-link--no-visited-state">Edit team member details</a></p>-->
-    <p class="govuk-body"><a href="/manage/team-members/chemicals/service-access/add-user-roles-system-roles" class="govuk-link--no-visited-state">Change access level</a></p>
-    <p class="govuk-body"><a href="" class="govuk-link--no-visited-state">Reset password</a><br></p>
+    <p class="govuk-body"><a href="#" class="govuk-link--no-visited-state">Change access level</a></p>
+    <p class="govuk-body"><a href="#" class="govuk-link--no-visited-state">Reset password</a><br></p>
     <!--<p class="govuk-body"><a href="" class="govuk-link--no-visited-state">Delete team member</a></p>-->
   </div>
 </div>
@@ -71,19 +46,17 @@
 <br>
 
 <!-- Decides where there Give Service Access button goes according to the service and number of services-->
-{% if (data['subscribeService'] == "Yes") %}
-
 {% if (data['numServices'] == 3) and (data['service'] == "Imports") %}
   {{ govukButton({
     text: "Give service access",
-    href: "/manage/team-members/invite-user/imports/add-user-service?orgName=ImportersUK"
+    href: "/manage/team-members/add-user/imports/add-user-service?orgName=ImportersUK"
   }) }}
 {% endif %}
 
 {% if (data['numServices'] == 3) and (data['service'] == "Chemicals") %}
   {{ govukButton({
     text: "Give service access",
-    href: "/manage/team-members/invite-user/chemicals/add-user-service?orgName=AstraZeneca"
+    href: "/manage/team-members/add-user/chemicals/add-user-service?orgName=AstraZeneca"
   }) }}
 {% endif %}
 
@@ -153,6 +126,5 @@
   ]
 }) }}
 
-{% endif %}
 
 {% endblock %}

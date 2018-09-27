@@ -124,7 +124,7 @@ router.get('/start-login-create-new', function (req, res) {
 router.get('/start-login-create-invite', function (req, res) {
     res.render('start-login-create',{
       "signinURL": '/scp/login-invite',
-      "createURL": '/manage/team-members/invited-user/enter-code'
+      "createURL": '/scp/email-address'
     })
 })
 
@@ -163,20 +163,6 @@ router.get('/scp/login-pending', function (req, res) {
 // Invited user
 router.get('/scp/login-invite', function (req, res) {
     res.render('scp/login',{
-      "signinButton": '/manage/team-members/invited-user/enter-code',
-    })
-})
-
-////// T&C's /////
-// Existing user but new to IDM user
-router.get('/new-user-reg/about-data-new-idm', function (req, res) {
-   res.render('new-user-reg/about-data',{
-      "tcButton": 'organisation-type',
-    })
-})
- // Invited user
-router.get('/new-user-reg/about-data-invited', function (req, res) {
-    res.render('new-user-reg/about-data',{
-      "tcButton": '/manage/team-members/invited-user/enter-code',
+      "signinButton": '/about-data',
     })
 })

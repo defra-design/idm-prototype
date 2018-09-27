@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+
+{% set title = "Who do you want to access your organisation's services?" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">{{title}}</h1>
+
+      {% if data['addSuccess'] == "fail" %}
+        {% set continueURL = "add-user-details-fail" %}
+      {% else %}
+          {% set continueURL = "add-user-details-success" %}
+      {% endif %}
+
+      <form action="{{ continueURL }}" method="post">
+        <input type="hidden" name="subscribeService" value="No">
+        <input type="hidden" name="userType" value="invite">
+        <input type="hidden" name="serviceRole" value="Standard">
+        <input type="hidden" name="personalFirstName" value="Jenny">
+        <input type="hidden" name="personalSurname" value="Flow">
+
+        {% if data['service'] == "Imports" %}
+          <input type="hidden" name="orgName" value="ImportersUK">
+          {% else %}
+          <input type="hidden" name="orgName" value="AstraZeneca">
+        {% endif %}
+
+
+
+        {{ govukInput({
+          label: {
+            text: "Email address",
+            classes: "govuk-label--s"
+          },
+
+          classes: "govuk-input--width-20",
+          id: "inviteEmail",
+          name: "inviteEmail",
+          value: data['inviteEmail'],
+          type: email
+        }) }}
+
+        {{ govukButton({
+          text: "Yes, add this person"
+        }) }}
+
+
+      </form>
+    </div>
+  </div>
+
+
+{% endblock %}

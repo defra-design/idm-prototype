@@ -25,16 +25,6 @@
 
 </div>
 
-  {% set addUserURL %}
-    {% if data['service'] == "Chemicals"%}
-      /manage/team-members/chemicals/invite-user/add-user-details
-    {% endif %}
-
-    {% if data['service'] == "Imports"%}
-      /manage/team-members/imports/invite-user/add-user-details
-    {% endif %}
-  {% endset %}
-
 
 
 
@@ -103,6 +93,7 @@
 
   </div>
 
+ {% set addUserURL = "/manage/team-members/add-user/add-user-details"%}
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-one-third">
@@ -114,7 +105,7 @@
         </div>
         <div class="govuk-card__actions">
           <ul class="govuk-list govuk-!-mb-r0">
-            <li><a href="/manage/team-members/invite-user/add-user-details" class="govuk-link--no-visited-state">Add a team member</a></li>
+            <li><a href="{{ addUserURL }}" class="govuk-link--no-visited-state">Add a team member</a></li>
           </ul>
         </div>
       </div>

@@ -18,7 +18,23 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-      <form action="check-answers/check-your-answers" method="post">
+    {% if (data['service'] == "Chemicals") and (data['numServices'] == "1") %}
+      {% set continueURL = "chemicals/add-user-service-roles" %}
+    {% endif %}
+
+    {% if (data['service'] == "Chemicals") and (data['numServices'] == "3") %}
+      {% set continueURL = "chemicals/add-user-service" %}
+    {% endif %}
+
+    {% if (data['service'] == "Imports") and (data['numServices'] == "1") %}
+      {% set continueURL = "../services-on-team-member-invited" %}
+    {% endif %}
+
+    {% if (data['service'] == "Imports") and (data['numServices'] == "3") %}
+      {% set continueURL = "imports/add-user-service" %}
+    {% endif %}
+
+      <form action="{{ continueURL }}" method="post">
 
         {% if data['service'] == "Imports"%}
 
@@ -79,11 +95,14 @@
           ]
         }) }}
 
+
         {% endif %}
 
         {{ govukButton({
           text: "Continue"
         }) }}
+
+
 
       </form>
     </div>
