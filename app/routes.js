@@ -166,3 +166,10 @@ router.get('/scp/login-invite', function (req, res) {
       "signinButton": '/about-data',
     })
 })
+
+// Existing user
+router.get('/scp/login-existing', function (req, res) {
+    res.render('scp/login',{
+      "signinButton": '/manage/team-members/services-on-team-member-standard-account',
+    })
+})

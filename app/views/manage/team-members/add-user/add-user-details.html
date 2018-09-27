@@ -27,7 +27,7 @@
 
       <form action="{{ continueURL }}" method="post">
         <input type="hidden" name="subscribeService" value="No">
-        <input type="hidden" name="userType" value="invite">
+        <input type="hidden" name="userType" value="invited">
         <input type="hidden" name="serviceRole" value="Standard">
         <input type="hidden" name="personalFirstName" value="Jenny">
         <input type="hidden" name="personalSurname" value="Flow">
@@ -54,7 +54,7 @@
         }) }}
 
         {{ govukButton({
-          text: "Yes, add this person"
+          text: "Continue"
         }) }}
 
 

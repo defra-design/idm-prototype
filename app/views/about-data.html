@@ -27,10 +27,6 @@
       {% set tcButton  = "/new-user-reg/business-individual/task-list-page-personal-details" %}
     {% endif %}
 
-    {% if (data['userType'] == "new") and (data['createSignin'] == "signin") %}
-      {% set tcButton  = "/new-user-reg/organisation-type" %}
-    {% endif %}
-
     <!-- For new account registration-->
     {% if (data['businessType'] == "Sole trader") and (data['createSignin'] == "create") %}
       {% set tcButton  = "/new-user-reg/sole-trader/task-list-page-account" %}
