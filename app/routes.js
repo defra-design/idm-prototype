@@ -111,30 +111,28 @@ router.get('/manage/agent/agent-all', function (req, res) {
     })
 })
 
-
-// Start Login Create //
-// Existing user but new to IDM user
-router.get('/start-login-create-new', function (req, res) {
-    res.render('start-login-create',{
-      "signinURL": '/scp/login-new-idm',
-      "createURL": '/new-user-reg/organisation-type'
-    })
-})
-// Invited user
-router.get('/start-login-create-invite', function (req, res) {
-    res.render('start-login-create',{
-      "signinURL": '/scp/login-invite',
-      "createURL": '/scp/email-address'
-    })
-})
-
 ////// SCP Login config /////
 // Existing user but new to IDM user
-router.get('/scp/login-new-idm', function (req, res) {
+router.get('/scp/login-new', function (req, res) {
     res.render('scp/login',{
       "signinButton": '/about-data',
     })
 })
+
+// Invited user
+router.get('/scp/login-invite', function (req, res) {
+    res.render('scp/login',{
+      "signinButton": '/about-data',
+    })
+})
+
+// Existing user
+router.get('/scp/login-existing', function (req, res) {
+    res.render('scp/login',{
+      "signinButton": '/manage/team-members/services-on-team-member-admin-self-all-1',
+    })
+})
+
 // Existing user - incomplete app: tasklist
 router.get('/scp/login-incomplete-tasklist', function (req, res) {
     res.render('scp/login',{
@@ -157,19 +155,5 @@ router.get('/scp/login-complete', function (req, res) {
 router.get('/scp/login-pending', function (req, res) {
     res.render('scp/login',{
       "signinButton": '/service-start-pending',
-    })
-})
-
-// Invited user
-router.get('/scp/login-invite', function (req, res) {
-    res.render('scp/login',{
-      "signinButton": '/about-data',
-    })
-})
-
-// Existing user
-router.get('/scp/login-existing', function (req, res) {
-    res.render('scp/login',{
-      "signinButton": '/manage/team-members/services-on-team-member-standard-account',
     })
 })

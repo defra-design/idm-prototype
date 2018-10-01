@@ -36,11 +36,19 @@
         <li>Sends the user back into their chosen service to complete the required registration process.</li>
       </ol>
 
-        {{ govukButton({
-          text: "Start now",
-          href: "start-login-create-new",
-          classes: "govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-8"
-        }) }}
+      {% if data['userType'] == "new" %}
+            {% set startURL = "/scp/login-new" %}
+      {% endif %}
+
+      {% if data['userType'] == "existing" %}
+            {% set startURL = "/scp/login-existing" %}
+      {% endif %}
+
+      {{ govukButton({
+        text: "Start now",
+        href: startURL,
+        classes: "govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-8"
+      }) }}
 
       <hr class="govuk-section-break--m">
 

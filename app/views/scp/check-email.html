@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Confirm your email" %}
+{% set title = "Confirm your email address" %}
 
 {% block header %}
     {{ govukHeader({ serviceName: "" }) }}
@@ -26,13 +26,13 @@
   <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-xl">{{title}}</h1>
-      <h2 class="govuk-body-l">We have sent a code to <span class="govuk-!-font-weight-bold">{{ data['email'] }}</span></h2>
+      <p class="govuk-body">We have sent a code to <span class="govuk-!-font-weight-bold">{{ data['email'] }}</span></p>
 
       <form action="email-confirmed" method="post">
 
         {{ govukInput({
           label: {
-            text: "Enter your code"
+            text: "Code"
           },
           hint: {
             text: "For example, CF-DNCLRK"
@@ -51,7 +51,7 @@
         }) }}
 
         {{ govukButton({
-          text: "Continue"
+          text: "Confirm"
         }) }}
 
     </form>

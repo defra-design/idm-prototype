@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Create your memorable word" %}
+{% set title = "Set up a recovery word" %}
 
 {% block pageTitle %}
     {{title}} - GOV.UK
@@ -27,14 +27,13 @@
 				<p>The word must:</p>
 				<ul class="govuk-list govuk-list--bullet">
 					<li>be between 6 and 12 characters</li>
-					<li>not contain numbers</li>
 					<li>not contain spaces or special characters</li>
+					<li>not contain numbers</li>
 				</ul>
 
         {{ govukInput({
           label: {
-            text: "Create your memorable word",
-            classes: "govuk-visually-hidden"
+            text: "Recovery word"
           },
           id: "email",
           name: "email",

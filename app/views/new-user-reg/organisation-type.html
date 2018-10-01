@@ -21,7 +21,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-      {% if data['createSignin'] == "signin" %}
+
       <form method="post" class="acc-type" onsubmit="return myFunction()">
 
         <script>
@@ -42,30 +42,6 @@
             return true
           }
         </script>
-      {% endif %}
-
-      {% if data['createSignin'] == "create" %}
-        <form method="post" class="acc-type" onsubmit="return myFunction()">
-
-          <script>
-            const form = document.querySelector('.acc-type')
-
-            function myFunction() {
-              const checked = document.querySelector('[name="orgType"]:checked')
-              const checkedValue = checked.value
-
-              switch(checkedValue){
-                case 'business':
-                form.action = 'organisation-business-type'
-
-                break;
-                default:
-                form.action = '/scp/email-address'
-              }
-              return true
-            }
-          </script>
-          {% endif %}
 
         {{ govukRadios({
           idPrefix: "orgType",
