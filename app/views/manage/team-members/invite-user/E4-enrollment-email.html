@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% set title = "You now have access to use an online service for [organisation name]" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        {{title}} </h1>
+        <p class="govuk-body">Hello [first name],</p>
+        <p class="govuk-body">[Admin first name] [Admin last name] has given you permission to access the following online service from Defra and related agencies and public bodies on behalf of [organisation name]:</p>
+        <ul class="govuk-list govuk-list--number">
+          <li>[service name]</li>
+        </ul>
+        <div class="govuk-inset-text">
+          <p class="govuk-link"><a href="/scp/login-existing">Sign in to access this service</a></p>
+        </div>
+
+        <div class="govuk-warning-text">
+          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+          <strong class="govuk-warning-text__text">
+            <span class="govuk-warning-text__assistive">Warning</span>
+            To withdraw your consent for Defra to store and use your email address, please follow the guidance in our privacy policy: URL.
+          </strong>
+        </div>
+
+
+
+
+    </div>
+</div>
+
+{% endblock %}
