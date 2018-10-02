@@ -19,40 +19,23 @@
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-xl">{{title}}</h1>
 
-      <form action="add-user-roles-system-roles" method="post">
-        <input type="hidden" name="subscribeService" value="No">
-        <input type="hidden" name="userType" value="invite">
-        <input type="hidden" name="serviceRole" value="Standard">
+    <form action="add-user-confirmation-reg-sent" method="post">
+      <input type="hidden" name="subscribeService" value="No">
+      <input type="hidden" name="userType" value="invite">
+      <input type="hidden" name="serviceRole" value="Standard">
 
 
-        {{ govukInput({
-          label: {
-            text: "First or given name"
-          },
-          classes: "govuk-input--width-20",
-          id: "personalFirstName",
-          name: "personalFirstName",
-          value: data['personalFirstName']
-        }) }}
 
         {{ govukInput({
           label: {
-            text: "Surname or family name"
+            text: "Email address",
+            classes: "govuk-label--s"
           },
-          classes: "govuk-input--width-20",
-          id: "personalSurname",
-          name: "personalSurname",
-          value: data['personalSurname']
-        }) }}
 
-        {{ govukInput({
-          label: {
-            text: "Business email address"
-          },
           classes: "govuk-input--width-20",
-          id: "businessEmail",
-          name: "businessEmail",
-          value: data['businessEmail'],
+          id: "inviteEmail",
+          name: "inviteEmail",
+          value: data['inviteEmail'],
           type: email
         }) }}
 

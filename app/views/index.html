@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Identity Management - service enrollement" %}
+{% set title = "Identity Management - service enrollment" %}
 
 {% block pageTitle %}
     {{title}} - GOV.UK
@@ -47,17 +47,17 @@
       <h3 class="govuk-heading-s">Add User
       </h3>
       <ul class="govuk-list govuk-list--bullet">
-        <li><a href="manage/dashboard-all-1?numUsers=1&numServices=1&numAgents=0&numLocations=1&service=Chemicals&serviceLine=UK-Reach-IT&addSuccess=success" class="govuk-link--no-visited-state">Chemicals: Add Existing User - one service</a></li>
-        <li><a href="manage/dashboard-all?numUsers=5&numAgents=3&numServices=3&numLocations=1&service=Chemicals&addSuccess=success" class="govuk-link--no-visited-state">Chemicals: Add Existing User - multiple services</a></li>
-        <li><a href="manage/dashboard-all-1?numUsers=1&numServices=1&numAgents=0&numLocations=1&service=Imports&serviceLine=IMP-S01&addSuccess=success" class="govuk-link--no-visited-state">Imports: Add Existing User - one service</a></li>
-        <li><a href="manage/dashboard-all?numUsers=5&numServices=3&numAgents=3&numLocations=3&service=Imports&addSuccess=success" class="govuk-link--no-visited-state">Imports: Add Existing User - multiple services</a></li>
+        <li><a href="manage/team-members/invite-user/add-user-details?numUsers=1&numServices=1&numAgents=0&numLocations=1&service=Chemicals&serviceLine=UK-Reach-IT&orgName=AstraZeneca&subscribeService=No" class="govuk-link--no-visited-state">Chemicals: Invite user - one service</a></li>
+        <li><a href="manage/team-members/invite-user/add-user-details?numUsers=5&numServices=3&numAgents=3&numLocations=3&service=Chemicals&orgName=AstraZeneca" class="govuk-link--no-visited-state">Chemicals: Invite user - multiple services</a></li>
+        <li><a href="manage/team-members/invite-user/add-user-details?numUsers=1&numServices=1&numAgents=0&numLocations=1&service=Imports&orgName=ImportersUK&serviceLine=IMP-S01" class="govuk-link--no-visited-state">Imports: Invite user - one service</a></li>
+        <li><a href="manage/team-members/invite-user/add-user-details?numUsers=5&numServices=3&numAgents=3&numLocations=3&service=Imports&orgName=ImportersUK" class="govuk-link--no-visited-state">Imports: Invite user - multiple services</a></li>
       </ul>
       <ul class="govuk-list govuk-list--bullet">
-        <li><a href="manage/dashboard-all-1?numUsers=1&numServices=1&numAgents=0&numLocations=1&service=Chemicals&serviceLine=UK-Reach-IT&addSuccess=fail" class="govuk-link--no-visited-state">Add New User</a></li>
         <li><a href="/manage/team-members/add-user/invite-email?userType=invited" class="govuk-link--no-visited-state">New User - accept invite</a></li>
         <li><a href="/new-user-reg/business-individual/reg-confirmation-email" class="govuk-link--no-visited-state">New User - registration complete email</a></li>
         <li><a href="/manage/team-members/add-user/enrollment-email?userType=existing" class="govuk-link--no-visited-state">Enrollment email - team member</a></li>
       </ul>
+<!--
     <h3 class="govuk-heading-s">Intermediary/ 3rd Party/ Agent
     </h3>
     <ul class="govuk-list govuk-list--bullet">
@@ -66,11 +66,14 @@
       <li><a href="manage/dashboard-all-1?numUsers=1&numServices=1&numAgents=0&numLocations=1&service=Imports&serviceLine=IMP-S01&subscribeService=Yes" class="govuk-link--no-visited-state">Imports: Invite New User - one service</a></li>
       <li><a href="manage/dashboard-all?numUsers=5&numServices=3&numAgents=3&numLocations=3&service=Imports&serviceLine=Imp-S01&subscribeService=Yes" class="govuk-link--no-visited-state">Imports: Invite New User - multiple services</a></li>
     </ul>
+
     <ul class="govuk-list govuk-list--bullet">
       <li><a href="/manage/team-members/invited-user/invite-email-general?userType=invited&subscribeService=No&numUser=2&agent=agent" class="govuk-link--no-visited-state">Accept invite - no service access</a></li>
       <li><a href="/manage/team-members/invited-user/invite-email-general?userType=invited&subscribeService=Yes&numUser=2&agent=agent" class="govuk-link--no-visited-state">Accept invite - service access given</a></li>
     </ul>
+  -->
   </div>
+
 
 
 

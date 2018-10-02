@@ -16,17 +16,32 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
     <h1 class="govuk-heading-xl">
-      {{ data['personalFirstName'] }} {{ data['personalSurname'] }}
+      Sara Chippers
     </h1>
+
+    {% if data['subscribeService'] == "Yes" %}
+    {% else %}
+
+        <p class="govuk-body">Sara has completed the registration process ready to use our online services. You should now choose what information and tasks you would like this person to see and do.</p>
+
+        {{ govukButton({
+          text: "Give service access",
+          href: "/manage/team-members/invite-user/add-user-roles-system-roles"
+        }) }}
+
+        <hr class="govuk-section-break--s">
+        <br>
+    {% endif %}
+
   </div>
 </div>
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <p class="govuk-body">
-      <span class="govuk-!-font-weight-bold">Full name:</span> {{ data['personalFirstName'] }} {{ data['personalSurname'] }}<br>
+      <span class="govuk-!-font-weight-bold">Full name:</span> Sara Chippers<br>
       <span class="govuk-!-font-weight-bold">Account access level:</span> {{ data['systemRole'] }}<br>
-      <span class="govuk-!-font-weight-bold">Email address:</span> {{ data['inviteEmail'] }}<br>
+      <span class="govuk-!-font-weight-bold">Email address:</span> Sara.Chippers@email.com<br>
       <span class="govuk-!-font-weight-bold">Telephone:</span> 07846959366
 
     </p>
@@ -44,87 +59,89 @@
 </div>
 
 <br>
+<!-- Show table if the user has subscribed to one service -->
+{% if data['subscribeService'] == "Yes" %}
+  <!-- Decides where there Give Service Access button goes according to the service and number of services-->
+  {% if (data['numServices'] == 3) and (data['service'] == "Imports") %}
+    {{ govukButton({
+      text: "Give service access",
+      href: "/manage/team-members/add-user/imports/add-user-service"
+    }) }}
+  {% endif %}
 
-<!-- Decides where there Give Service Access button goes according to the service and number of services-->
-{% if (data['numServices'] == 3) and (data['service'] == "Imports") %}
-  {{ govukButton({
-    text: "Give service access",
-    href: "/manage/team-members/add-user/imports/add-user-service?orgName=ImportersUK"
+  {% if (data['numServices'] == 3) and (data['service'] == "Chemicals") %}
+    {{ govukButton({
+      text: "Give service access",
+      href: "/manage/team-members/add-user/chemicals/add-user-service"
+    }) }}
+  {% endif %}
+
+
+  {% set setServiceNameHtml %}
+      <span class="govuk-visually-hidden--desktop td-header">Service:</span> {{ data['serviceLine'] }}
+  {% endset %}
+
+  {% set setOrgHtml %}
+      <span class="govuk-visually-hidden--desktop td-header">Location:</span> {{ data['orgName'] }}
+  {% endset %}
+
+  {% set setServiceRoleHtml %}
+      <span class="govuk-visually-hidden--desktop td-header">Role: </span> {{ data['serviceRole'] }}
+  {% endset %}
+
+
+    {{ govukTable({
+    caption: "Access to services",
+    captionClasses: "govuk-heading-l",
+    firstCellIsHeader: false,
+    head: [
+      {
+        html: 'Service',
+        format: 'column-quarter column-full'
+
+      },
+      {
+        html: 'Location',
+        format: 'column-quarter column-full'
+
+      },
+      {
+        html: 'Role',
+        format: 'column-fifth column-full'
+
+      },
+      {
+        html: '<span class="govuk-visually-hidden column-full">Action</span>',
+        format: ''
+      },
+      {
+        html: '<span class="govuk-visually-hidden column-full">Action</span>',
+        format: ''
+      }
+    ],
+    rows: [
+    [
+      {
+        html: setServiceNameHtml
+      },
+      {
+        html: setOrgHtml
+      },
+      {
+        html: setServiceRoleHtml
+      },
+      {
+        html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="#" class="govuk-link--no-visited-state">Change role <span class="govuk-visually-hidden">to [Service name]</span></a>'
+      },
+      {
+        html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="#" class="govuk-link--no-visited-state">Remove access <span class="govuk-visually-hidden">to [Service name]</span></a>'
+      }
+    ]
+
+    ]
   }) }}
+
 {% endif %}
-
-{% if (data['numServices'] == 3) and (data['service'] == "Chemicals") %}
-  {{ govukButton({
-    text: "Give service access",
-    href: "/manage/team-members/add-user/chemicals/add-user-service?orgName=AstraZeneca"
-  }) }}
-{% endif %}
-
-
-
-{% set setServiceNameHtml %}
-    <span class="govuk-visually-hidden--desktop td-header">Service:</span> {{ data['serviceLine'] }}
-{% endset %}
-
-{% set setOrgHtml %}
-    <span class="govuk-visually-hidden--desktop td-header">Location:</span> {{ data['orgName'] }}
-{% endset %}
-
-{% set setServiceRoleHtml %}
-    <span class="govuk-visually-hidden--desktop td-header">Role: </span> {{ data['serviceRole'] }}
-{% endset %}
-
-
-  {{ govukTable({
-  caption: "Access to services",
-  captionClasses: "govuk-heading-l",
-  firstCellIsHeader: false,
-  head: [
-    {
-      html: 'Service',
-      format: 'column-quarter column-full'
-
-    },
-    {
-      html: 'Location',
-      format: 'column-quarter column-full'
-
-    },
-    {
-      html: 'Role',
-      format: 'column-fifth column-full'
-
-    },
-    {
-      html: '<span class="govuk-visually-hidden column-full">Action</span>',
-      format: ''
-    },
-    {
-      html: '<span class="govuk-visually-hidden column-full">Action</span>',
-      format: ''
-    }
-  ],
-  rows: [
-  [
-    {
-      html: setServiceNameHtml
-    },
-    {
-      html: setOrgHtml
-    },
-    {
-      html: setServiceRoleHtml
-    },
-    {
-      html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="#" class="govuk-link--no-visited-state">Change role <span class="govuk-visually-hidden">to [Service name]</span></a>'
-    },
-    {
-      html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="#" class="govuk-link--no-visited-state">Remove access <span class="govuk-visually-hidden">to [Service name]</span></a>'
-    }
-  ]
-
-  ]
-}) }}
 
 
 {% endblock %}

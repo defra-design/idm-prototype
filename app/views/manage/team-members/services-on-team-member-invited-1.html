@@ -19,39 +19,24 @@
     <h1 class="govuk-heading-xl">
       Sara Chippers
     </h1>
+    <p class="govuk-body"> Sara has accepted your invitation. Please assign roles</p>
+
+    {{ govukButton({
+      text: "Give service access",
+      href: "/manage/team-members/invite-user/add-user-roles-system-roles"
+    }) }}
+
+    <hr class="govuk-section-break--s">
+    <br>
   </div>
 </div>
 
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <p class="govuk-body"> Sara has not yet accepted this invitation</p>
-
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-one-third">
-        {{ govukButton({
-          text: "Re-send invite",
-          href: "#"
-        }) }}
-      </div>
-      <div class="govuk-grid-column-one-third">
-        {{ govukButton({
-          text: "Cancel invite",
-          href: "#"
-        }) }}
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<hr class="govuk-section-break--s">
-<br>
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <p class="govuk-body">
       <span class="govuk-!-font-weight-bold">Full name:</span> Sara Chippers<br>
-      <span class="govuk-!-font-weight-bold">Account access level:</span> None<br>
+      <span class="govuk-!-font-weight-bold">Account access level:</span> Unassigned<br>
       <span class="govuk-!-font-weight-bold">Email address:</span> Sara.Chippers@email.com<br>
       <span class="govuk-!-font-weight-bold">Telephone:</span> 01179267473
     </p>
@@ -67,12 +52,6 @@
     <!--<p class="govuk-body"><a href="#" class="govuk-link--no-visited-state">Delete team member</a></p>-->
   </div>
 </div>
-
-<br>
-{{ govukButton({
-  text: "Give service access",
-  href: "/manage/team-members/chemicals/service-access/add-user-roles-service-roles"
-}) }}
 
 
 {% endblock %}
