@@ -14,46 +14,57 @@
 
 {% block content %}
 
+
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
 
     <span class="govuk-caption-xl">Account for</span>
     <h1 class="govuk-heading-xl">
-      {{ title }}
+      {% set orgName = data['orgName'] %}
+
+      {{ orgName }}
+      {{ numServices }}
+      {{ numUsers }}
+      {{ numAgents }}
+
+
+
+
+
+
     </h1>
   </div>
 
 </div>
 
-
-
-
   <div class="govuk-grid-row {{ orgSwitch }}">
 
-    {% set dashboardURL %}
-      {% if data['account'] == "My Organisation" %}
-        dashboard-all-agent?numUsers=12&numServices=2&numAgents=4
-      {% endif %}
 
-      {% if data['account'] == "FarmerRUS" %}
-        dashboard-all-agent?numUsers=7&numServices=3&numAgents=10
-      {% endif %}
+    <form action="{{ dashboardURL }}" method="get">
 
-      {% if data['account'] == "Client2 Ltd" %}
-        dashboard-all-agent?numUsers=3&numServices=3&numAgents=3
-      {% endif %}
+      {% set dashboardURL %}
+        {% if data['orgName'] == "My Organisation" %}
+          dashboard-all-agent?numUsers=1&numServices=1&numAgents=0
+        {% endif %}
 
-      {% if data['account'] == "Client2.com" %}
-        dashboard-all-agent?numUsers=4&numServices=1&numAgents=23
-      {% endif %}
-    {% endset %}
+        {% if data['orgName'] == "FarmerRUS" %}
+          dashboard-all-agent?numUsers=7&numServices=3&numAgents=10
+        {% endif %}
 
-    <form action="{{ dashboardURL }}" method="post">
+        {% if data['orgName'] == "Client1 Ltd" %}
+          dashboard-all-agent?numUsers=3&numServices=3&numAgents=3
+        {% endif %}
+
+        {% if data['orgName'] == "Client2.com" %}
+          dashboard-all-agent?numUsers=4&numServices=1&numAgents=23
+        {% endif %}
+      {% endset %}
 
       <div class="govuk-grid-column-one-third">
         {{ govukSelect({
-          id: "account",
-          name: "account",
+          id: "orgName",
+          name: "orgName",
           label: {
           },
           items: [
@@ -161,7 +172,7 @@
 
           <div class="govuk-grid-column-one-third">
             <div class="govuk-card govuk-card--contained govuk-card--selectable">
-                <a href="/service-start-complete"></a>
+                <a href="https://chemicals-prototypes.herokuapp.com/prototype/rc4/iu/dashboard"></a>
                 <div class="govuk-card__content">
                   <h3 class="govuk-heading-m">{{ data['service'] }} - {{ data['serviceLine'] }}</h3>
                   <p class="govuk-body">A short summary of the tasks you can complete with this service.
