@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "You have been invited to access online services for [organisation name]" %}
+{% set title = "You can now give [added user’s email address] access to online services
 
 {% block pageTitle %}
     {{title}} - GOV.UK
@@ -12,31 +12,21 @@
     <div class="govuk-grid-column-two-thirds">
       <h1 class="govuk-heading-xl">
         {{title}} </h1>
-        <p class="govuk-body">Hello,</p>
-        <p class="govuk-body">[Admin first name] [Admin last name] has invited you to access online services from Defra and related agencies and public bodies on behalf of [organisation name]. </p>
-        <p class="govuk-body">To access these services, you need to:</p>
-        <ol class="govuk-list govuk-list--number">
-          <li>Sign in using a Government Gateway account you have already created for email address [recipient’s email address], or create a new Government Gateway account using this email address.</li>
-          <li>Read and accept our terms and conditions.</li>
-          <li>Complete a short registration process to tell us your name and contact number.</li>
-          <li>Contact [admin email address] to confirm that you have completed this registration process.</li>
-        </ol>
+        <p class="govuk-body">Hello [first name],</p>
+        <p class="govuk-body">This person received your email invitation and has completed the registration process ready to use our online services:</p>
+        
+        <ul class="govuk-list">
+          <li>Name: [Added user’s first name] [Added user’s last name]</li>
+          <li>Email address: [added user’s email address]</li>
+        </ul>
+
+        <p class="govuk-body">You should now choose what information and tasks you would like [Added user’s first name] to see and do on behalf of [organisation name].</p>
         <div class="govuk-inset-text">
-          <p class="govuk-link"><a href="/scp/login-invite">Start your secure registration process on GOV.UK</a></p>
+          <p class="govuk-link"><a href="/scp/login-new">Give this person access to use online services</a></p>
         </div>
 
-        <h2 class="govuk-heading-m">What happens next?</h2>
-        <p class="govuk-body">[Admin first name] [Admin last name] will choose which information you can see and which tasks you can perform on behalf of [organisation name]. We will email you to let you know when you can sign in and access services.</p>
-
-        <div class="govuk-warning-text">
-          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-          <strong class="govuk-warning-text__text">
-            <span class="govuk-warning-text__assistive">Warning</span>
-            To withdraw your consent for Defra to store and use your email address, please follow the guidance in our privacy policy: URL.
-          </strong>
-        </div>
-
-
+        <h2 class="govuk-heading-m">If you do not want to give this person access to services</h2>
+        <p class="govuk-body">If you know this person but they have registered using an email address you do not recognise, please ask them to register again using an email address approved by you.</p>
 
 
     </div>
