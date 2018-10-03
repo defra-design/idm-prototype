@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Invite team member" %}
+{% set title = "This person can now access this service" %}
 
 {% block pageTitle %}
     {{title}} - GOV.UK
@@ -19,19 +19,20 @@
     <h1 class="govuk-visually-hidden">{{title}}</h1>
     <div class="govuk-panel govuk-panel--confirmation">
       <h1 class="govuk-panel__title">
-        Sara has been added to {{data['serviceLine']}}
+        [first name] can now access the {{data['serviceLine']}} service
       </h1>
 
     </div>
 
     <h3 class="govuk-heading-m">What happens next</h3>
 
-    <p class="govuk-body">Words go here </p>
+    <p class="govuk-body">We will notify [first name] about the access you have given.</p>
+    <p class="govuk-body">You can change or remove this access at any time.</p>
     
 
 
       {{ govukButton({
-        text: "Continue",
+        text: "Back",
         href: "/manage/team-members/services-on-team-member-invited"
       }) }}
 

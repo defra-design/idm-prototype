@@ -22,7 +22,8 @@
     {% if data['subscribeService'] == "Yes" %}
     {% else %}
 
-        <p class="govuk-body">Sara has completed the registration process ready to use our online services. You should now choose what information and tasks you would like this person to see and do.</p>
+        <p class="govuk-body">Sara has completed the registration process ready to use our online services.</p>
+        <p class="govuk-body">You should now choose what information and tasks you would like this person to see and do.</p>
 
         {{ govukButton({
           text: "Give service access",
@@ -86,7 +87,7 @@
   {% endset %}
 
   {% set setServiceRoleHtml %}
-      <span class="govuk-visually-hidden--desktop td-header">Role: </span> {{ data['serviceRole'] }}
+      <span class="govuk-visually-hidden--desktop td-header">Access level: </span> {{ data['serviceRole'] }}
   {% endset %}
 
 
@@ -106,7 +107,7 @@
 
       },
       {
-        html: 'Role',
+        html: 'Access level',
         format: 'column-fifth column-full'
 
       },
@@ -131,7 +132,7 @@
         html: setServiceRoleHtml
       },
       {
-        html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="#" class="govuk-link--no-visited-state">Change role <span class="govuk-visually-hidden">to [Service name]</span></a>'
+        html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="#" class="govuk-link--no-visited-state">Change access <span class="govuk-visually-hidden">to [Service name]</span></a>'
       },
       {
         html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="#" class="govuk-link--no-visited-state">Remove access <span class="govuk-visually-hidden">to [Service name]</span></a>'
