@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Identity Management - service enrollment" %}
+{% set title = "Identity Management - service enrolment" %}
 
 {% block pageTitle %}
     {{title}} - GOV.UK
@@ -14,6 +14,11 @@
         {{title}}
         <span class="govuk-caption-xl">{{releaseVersion}}</span>
       </h1>{{releaseVersion | log }}
+      <p class="govuk-body">This service will help our users to create a single set of sign-in credentials that they can use to access one or more Defra services. This will save users time and effort.</p>
+      <p class="govuk-body">We will store important information about the user (and their business, if relevant) in the Dynamics database so that they do not have to re-enter it each time they want to use a new online service.</p>
+      <p class="govuk-body">It will also allow them to give other people (for example colleagues or agents they work with) access to one or more of the online services they use.</p>
+
+
       <h2 class="govuk-heading-m">RC1.0 Registration
       </h2>
       <ul class="govuk-list govuk-list--bullet">
