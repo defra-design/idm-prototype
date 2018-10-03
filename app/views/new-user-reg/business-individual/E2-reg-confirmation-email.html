@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "You have registered" %}
+{% set title = "Your registration is complete, here is what happens next" %}
 
 {% block pageTitle %}
     {{title}} - GOV.UK
@@ -13,20 +13,11 @@
       <h1 class="govuk-heading-xl">
         {{title}} </h1>
         <p class="govuk-body">Hello [First name],</p>
-        <p class="govuk-body">Thank you for registering...some words here... </p>
+        <p class="govuk-body">Thank you for registering to use online services from Defra and related organisations.</p>
 
-        <div class="govuk-inset-text">Please contact [admin email address] to tell them that you have completed this registration process.</div>
-        <p class="govuk-body">They will choose which information you can see and which tasks you can perform on behalf of [organisation name].</p>
-
-        <div class="govuk-warning-text">
-          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-          <strong class="govuk-warning-text__text">
-            <span class="govuk-warning-text__assistive">Warning</span>
-            To withdraw your consent for Defra to store and use your email address, please follow the guidance in our privacy policy: URL.
-          </strong>
-        </div>
-
-
+        <h2 class="govuk-heading-m">What happens next?</h2>
+        <p class="govuk-body">We will contact [admin email address] to tell them that you have completed this registration process.</p>
+        <p class="govuk-body">They will choose which information you can see and which tasks you can perform on behalf of [organisation name]. We will email you to let you know when you can sign in and access services.</p>
 
 
     </div>

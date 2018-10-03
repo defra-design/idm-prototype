@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "You can now give [added user’s email address] access to online services
+{% set title = "You can now give [added user’s email address] access to online services" %}
 
 {% block pageTitle %}
     {{title}} - GOV.UK
@@ -14,6 +14,7 @@
         {{title}} </h1>
         <p class="govuk-body">Hello [first name],</p>
         <p class="govuk-body">This person received your email invitation and has completed the registration process ready to use our online services:</p>
+
         
         <ul class="govuk-list">
           <li>Name: [Added user’s first name] [Added user’s last name]</li>
@@ -30,6 +31,6 @@
 
 
     </div>
-</div>
+  </div>
 
 {% endblock %}
