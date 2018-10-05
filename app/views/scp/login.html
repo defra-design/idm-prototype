@@ -21,6 +21,7 @@
     </h1>
 
     <form method="post" action="{{ signinButton }}">
+      <input type="hidden" value="yourname@email.com" name="scpEmail">
 
       {{ govukInput({
         label: {

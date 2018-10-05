@@ -44,10 +44,9 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-    <br>
 
     {{ govukTable({
-      caption: "Access to services",
+      caption: "Service access",
       captionClasses: "govuk-heading-l",
       firstCellIsHeader: false,
       head: [
@@ -57,7 +56,7 @@
 
         },
         {
-          html: 'Location',
+          html: 'Organisation',
           format: 'column-quarter column-full'
 
         },
@@ -81,7 +80,7 @@
           html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> UK SO3'
         },
         {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Location:</span> AstraZeneca UK Limited'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Organisation:</span> AstraZeneca UK Limited'
         },
         {
           html: '<span class="govuk-visually-hidden--desktop td-header">Role: </span>Standard'
@@ -98,7 +97,7 @@
           html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> UK SO3'
         },
         {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Location:</span> AstraZeneca Farma'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Organisation:</span> AstraZeneca UK Limited'
         },
         {
           html: '<span class="govuk-visually-hidden--desktop td-header">Role: </span>Standard'
@@ -115,7 +114,7 @@
           html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> UK SO2'
         },
         {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Location:</span> AstraZeneca UK Limited'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Organisation:</span> AstraZeneca UK Limited'
         },
         {
           html: '<span class="govuk-visually-hidden--desktop td-header">Role: </span>Standard'
@@ -132,7 +131,7 @@
           html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> UK SO2'
         },
         {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Location:</span> AstraZeneca Farma'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Organisation:</span> AstraZeneca UK Limited'
         },
         {
           html: '<span class="govuk-visually-hidden--desktop td-header">Role: </span>Standard'
@@ -149,7 +148,7 @@
           html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> UK Reach-IT'
         },
         {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Location:</span> AstraZeneca UK Limited'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Organisation:</span> AstraZeneca UK Limited'
         },
         {
           html: '<span class="govuk-visually-hidden--desktop td-header">Role: </span>RE Manager'
@@ -166,7 +165,7 @@
           html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> UK Reach-IT'
         },
         {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Location:</span> AstraZeneca Farma'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Organisation:</span> AstraZeneca UK Limited'
         },
         {
           html: '<span class="govuk-visually-hidden--desktop td-header">Role: </span>RE Manager'
@@ -183,7 +182,7 @@
           html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> UK Reach-IT'
         },
         {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Location:</span> AstraZeneca Has Chem'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Organisation:</span> AstraZeneca UK Limited'
         },
         {
           html: '<span class="govuk-visually-hidden--desktop td-header">Role: </span>RE Manager'
@@ -199,6 +198,44 @@
       ]
     }) }}
 
+  </div>
+</div>
+
+<div class="govuk-card__content">
+  <h3 class="govuk-heading-m">Link to services</h3>
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-one-third">
+      <div class="govuk-card govuk-card--contained govuk-card--selectable">
+          <a href="https://chemicals-prototypes.herokuapp.com/prototype/rc4/iu/dashboard"></a>
+          <div class="govuk-card__content">
+            <h3 class="govuk-heading-m">{{ data['service'] }} - {{ data['serviceLine'] }}</h3>
+            <p class="govuk-body">A short summary of the tasks you can complete with this service.
+            </p>
+          </div>
+        </div>
+    </div>
+    <div class="govuk-grid-column-one-third {{serviceCSS}}">
+      <div class="govuk-card govuk-card--contained govuk-card--selectable">
+          <a href="/service-start-complete"></a>
+          <div class="govuk-card__content">
+            <h3 class="govuk-heading-m">{{ data['service'] }} - UK SO2</h3>
+            <p class="govuk-body">A short summary of the tasks you can complete with this service.
+            </p>
+          </div>
+        </div>
+    </div>
+    <div class="govuk-grid-column-one-third {{serviceCSS}}">
+      <div class="govuk-card govuk-card--contained govuk-card--selectable">
+          <a href="/service-start-complete"></a>
+          <div class="govuk-card__content">
+            <h3 class="govuk-heading-m">{{ data['service'] }} - UK SO3</h3>
+            <p class="govuk-body">A short summary of the tasks you can complete with this service.
+            </p>
+          </div>
+        </div>
+    </div>
   </div>
 </div>
 

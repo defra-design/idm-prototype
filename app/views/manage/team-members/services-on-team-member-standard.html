@@ -59,23 +59,8 @@
       }) }}
     {% endif %}
 
-<!-- Decides where there Give Service Access button goes according to the service and number of services-->
-{% if (data['subscribeService'] == "Yes") %}
 
-    {% set setServiceNameHtml %}
-        <span class="govuk-visually-hidden--desktop td-header">Service:</span> {{ data['serviceLine'] }}
-    {% endset %}
-
-    {% set setOrgHtml %}
-        <span class="govuk-visually-hidden--desktop td-header">Location:</span> {{ data['orgName'] }}
-    {% endset %}
-
-    {% set setServiceRoleHtml %}
-        <span class="govuk-visually-hidden--desktop td-header">Role: </span> {{ data['serviceRole'] }}
-    {% endset %}
-
-
-      {{ govukTable({
+    {{ govukTable({
       caption: "Access to services",
       captionClasses: "govuk-heading-l",
       firstCellIsHeader: false,
@@ -86,7 +71,7 @@
 
         },
         {
-          html: 'Location',
+          html: 'Organisation',
           format: 'column-quarter column-full'
 
         },
@@ -106,27 +91,44 @@
       ],
       rows: [
       [
-        {
-          html: setServiceNameHtml
-        },
-        {
-          html: setOrgHtml
-        },
-        {
-          html: setServiceRoleHtml
-        },
-        {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="#" class="govuk-link--no-visited-state">Change role <span class="govuk-visually-hidden">to [Service name]</span></a>'
-        },
-        {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="#" class="govuk-link--no-visited-state">Remove access <span class="govuk-visually-hidden">to [Service name]</span></a>'
-        }
+      {
+        html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> UK Reach-IT'
+      },
+      {
+        html: '<span class="govuk-visually-hidden--desktop td-header">Organisation:</span> AstraZeneca UK Limited'
+      },
+      {
+        html: '<span class="govuk-visually-hidden--desktop td-header">Role: </span>RE Manager'
+      },
+      {
+        html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="#" class="govuk-link--no-visited-state">Change role <span class="govuk-visually-hidden">to [Service name]</span></a>'
+      },
+      {
+        html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="#" class="govuk-link--no-visited-state">Remove access <span class="govuk-visually-hidden">to [Service name]</span></a>'
+      }
       ]
 
       ]
     }) }}
 
-    {% endif %}
+  </div>
+</div>
+
+<div class="govuk-card__content">
+  <h2 class="govuk-heading-m">Link to services</h2>
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-one-third">
+      <div class="govuk-card govuk-card--contained govuk-card--selectable">
+          <a href="https://chemicals-prototypes.herokuapp.com/prototype/rc4/iu/dashboard"></a>
+          <div class="govuk-card__content">
+            <h3 class="govuk-heading-m">{{ data['service'] }} - {{ data['serviceLine'] }}</h3>
+            <p class="govuk-body">A short summary of the tasks you can complete with this service.
+            </p>
+          </div>
+        </div>
+    </div>
 
   </div>
 </div>

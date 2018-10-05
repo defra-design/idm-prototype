@@ -21,17 +21,13 @@
 
     <span class="govuk-caption-xl">Account for</span>
     <h1 class="govuk-heading-xl">
-      {% set orgName = data['orgName'] %}
 
       {{ orgName }}
       {{ numServices }}
       {{ numUsers }}
       {{ numAgents }}
 
-
-
-
-
+      {{ data['orgName'] }}
 
     </h1>
   </div>
@@ -39,28 +35,7 @@
 </div>
 
   <div class="govuk-grid-row {{ orgSwitch }}">
-
-
-    <form action="{{ dashboardURL }}" method="get">
-
-      {% set dashboardURL %}
-        {% if data['orgName'] == "My Organisation" %}
-          dashboard-all-agent?numUsers=1&numServices=1&numAgents=0
-        {% endif %}
-
-        {% if data['orgName'] == "FarmerRUS" %}
-          dashboard-all-agent?numUsers=7&numServices=3&numAgents=10
-        {% endif %}
-
-        {% if data['orgName'] == "Client1 Ltd" %}
-          dashboard-all-agent?numUsers=3&numServices=3&numAgents=3
-        {% endif %}
-
-        {% if data['orgName'] == "Client2.com" %}
-          dashboard-all-agent?numUsers=4&numServices=1&numAgents=23
-        {% endif %}
-      {% endset %}
-
+    <form  action="{{ dashboardURL }}" method="get">
       <div class="govuk-grid-column-one-third">
         {{ govukSelect({
           id: "orgName",
@@ -82,8 +57,8 @@
               text: "FarmerRUS"
             },
             {
-              value: "Client1 Ltd",
-              text: "Client1 Ltd"
+              value: "Importers RUS",
+              text: "Importers RUS"
             },
             {
               value: "Client2.com",
@@ -101,7 +76,6 @@
         }) }}
       </div>
     </form>
-
   </div>
 
  {% set addUserURL = "/manage/team-members/invite-user/add-user-details"%}

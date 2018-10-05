@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "What is your telephone number?" %}
+{% set title = "What are your contact details?" %}
 
 {% block pageTitle %}
     {{title}} - GOV.UK
@@ -20,21 +20,27 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">{{ title }}</h1>
+
 
     <form action="check-your-answers" method="post">
 
       {{ govukInput({
         label: {
-          text: title,
-          classes: "govuk-label--xl",
-          isPageHeading: true
+          text: "What is your telephone number?",
+          isPageHeading: false
         },
         classes: "govuk-input--width-10",
-        id: "businessTelephone",
-        name: "businessTelephone",
-        value: data['businessTelephone'],
+        id: "personalTelephone",
+        name: "personalTelephone",
+        value: data['personalTelephone'],
         type: "tel"
       }) }}
+
+      <div class="govuk-inset-text">
+        We use your Govenment Gateway email address for all corespondance: <br>
+        <span class="govuk-!-font-weight-bold">{{data['scpEmail']}}</span>
+      </div>
 
       {{ govukButton({
         text: "Continue"
