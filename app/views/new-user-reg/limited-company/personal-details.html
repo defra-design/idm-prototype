@@ -23,6 +23,11 @@
 
     <h1 class="govuk-heading-xl">{{title}}</h1>
 
+    {{ govukDetails({
+        summaryText: "Why do we ask for this?",
+        html: ' <p class="govuk-body">We need to know your name to create a unique account for you. We may also need to contact you about the services you use on behalf of your organisation. You can find out more by reading our privacy notice (LINK)</a>.</p>'
+      }) }}
+
       <form action="personal-contact" method="post">
 
         {{ govukInput({
