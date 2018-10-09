@@ -2,6 +2,10 @@
 
 {% set title = "Sign in using Government Gateway" %}
 
+{% block header %}
+    {{ govukHeader({ serviceName: "" }) }}
+{% endblock %}
+
 {% block pageTitle %}
     {{title}} - GOV.UK
 {% endblock %}
