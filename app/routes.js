@@ -117,6 +117,7 @@ router.get('/manage/agent/agent-all', function (req, res) {
 router.get('/scp/login-new', function (req, res) {
     res.render('scp/login',{
       "signinButton": '/about-data',
+      "userType": 'new'
     })
 })
 
@@ -124,6 +125,7 @@ router.get('/scp/login-new', function (req, res) {
 router.get('/scp/login-invite', function (req, res) {
     res.render('scp/login',{
       "signinButton": '/about-data',
+      "userType": 'invited'
     })
 })
 
@@ -131,6 +133,7 @@ router.get('/scp/login-invite', function (req, res) {
 router.get('/scp/login-existing', function (req, res) {
     res.render('scp/login',{
       "signinButton": '/manage/team-members/services-on-team-member-admin-self-all-1',
+      "userType": 'existing'
     })
 })
 

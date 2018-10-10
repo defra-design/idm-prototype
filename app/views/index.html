@@ -55,7 +55,9 @@
       <ul class="govuk-list govuk-list--bullet">
         <li><a href="/manage/dashboard-all-1?numUsers=1&numServices=1&numAgents=0&numLocations=1&service=Chemicals&serviceLine=UK Reach-IT&addSuccess=success" class="govuk-link--no-visited-state">Admin: New User Dashboard</a></li>
         <li><a href="/manage/dashboard-all?numUsers=5&numAgents=3&numServices=3&numLocations=1&service=Chemicals&serviceLine=UK Reach-IT&addSuccess=success" class="govuk-link--no-visited-state">Admin: Full dashboard</a></li>
-        <li><a href="/manage/dashboard-all-agent?numUsers=5&numAgents=3&numServices=3&numLocations=1&service=Chemicals&serviceLine=UK Reach-IT&account=My Company" class="govuk-link--no-visited-state">Admin: Agent Dashboard</a></li>
+        <!--
+        <li><a href="/manage/dashboard-all-agent?numUsers=5&numAgents=3&numServices=3&numLocations=1&service=Chemicals&serviceLine=UK Reach-IT&orgName=My Company" class="govuk-link--no-visited-state">Admin: Agent Dashboard</a></li>
+      -->
       </ul>
       <ul class="govuk-list govuk-list--bullet">
         <li><a href="/service-start-complete-standard-user?personalFirstName=Adam&personalSurname=Mastly" class="govuk-link--no-visited-state">Standard User: account</a></li>
@@ -64,6 +66,7 @@
         <li><a href="/manage/agent/services-on-team-member-agent-account" class="govuk-link--no-visited-state">Agent User: account</a></li>
       -->
       </ul>
+
       <h3 class="govuk-heading-s">Add User
       </h3>
       <ul class="govuk-list govuk-list--bullet">
@@ -82,17 +85,16 @@
 
     <h2 class="govuk-heading-m">RC 1.2 Intermediary/ agents
     </h2>
+    <h3 class="govuk-heading-s">Add Intermediary/ agent
+    </h3>
     <ul class="govuk-list govuk-list--bullet">
-      <li><a href="manage/dashboard-all-1?numUsers=1&numServices=1&numAgents=0&numLocations=1&service=Chemicals&serviceLine=UK Reach-IT" class="govuk-link--no-visited-state">Chemicals: Invite intermediary - one service</a></li>
-      <li><a href="manage/dashboard-all?numUsers=5&numServices=3&numAgents=3&numLocations=3&service=Chemicals&serviceLine=UK Reach-IT" class="govuk-link--no-visited-state">Chemicals: Invite intermediary - multiple services</a></li>
-      <li><a href="manage/dashboard-all-1?numUsers=1&numServices=1&numAgents=0&numLocations=1&service=Imports&serviceLine=IMP-S01&subscribeService=Yes" class="govuk-link--no-visited-state">Imports: Invite New User - one service</a></li>
-      <li><a href="manage/dashboard-all?numUsers=5&numServices=3&numAgents=3&numLocations=3&service=Imports&serviceLine=Imp-S01&subscribeService=Yes" class="govuk-link--no-visited-state">Imports: Invite New User - multiple services</a></li>
+      <li><a href="manage/team-members/invite-user/add-user-details?numUsers=5&numServices=3&numAgents=0&numLocations=1&service=Chemicals&subscribeService=No" class="govuk-link--no-visited-state">Invite user</a></li>
+      <li><a href="manage/team-members/team-members-all?numUsers=5&numServices=1&numAgents=0&numLocations=1&service=Chemicals&serviceLine=UK Reach-IT&orgName=AstraZeneca&subscribeService=No" class="govuk-link--no-visited-state">Chemicals: Give access - one service</a></li>
+      <li><a href="manage/team-members/team-members-all?numUsers=5&numServices=3&numAgents=3&numLocations=3&service=Chemicals&orgName=AstraZeneca&subscribeService=No" class="govuk-link--no-visited-state">Chemicals: Give access - multiple services</a></li>
+      <li><a href="manage/team-members/team-members-all?numUsers=5&numServices=1&numAgents=0&numLocations=1&service=Imports&orgName=ImportersUK&serviceLine=IMP-S01&subscribeService=No" class="govuk-link--no-visited-state">Imports: Give access - one service</a></li>
+      <li><a href="manage/team-members/team-members-all?numUsers=5&numServices=3&numAgents=3&numLocations=3&service=Imports&orgName=ImportersUK&subscribeService=No" class="govuk-link--no-visited-state">Imports: Give access - multiple services</a></li>
     </ul>
 
-    <ul class="govuk-list govuk-list--bullet">
-      <li><a href="/manage/team-members/invited-user/invite-email-general?userType=invited&subscribeService=No&numUser=2&agent=agent" class="govuk-link--no-visited-state">Accept invite - no service access</a></li>
-      <li><a href="/manage/team-members/invited-user/invite-email-general?userType=invited&subscribeService=Yes&numUser=2&agent=agent" class="govuk-link--no-visited-state">Accept invite - service access given</a></li>
-    </ul>
 
   </div>
 
@@ -104,19 +106,22 @@
 
 
 
-
-    <div class="govuk-visually-hidden">
-      numUsers=1&numServices=1&numAgents=0&numLocations=1&service=Chemicals&serviceLine=UK Reach-IT
-      numUsers=5&numServices=3&numAgents=3&numLocations=3&service=Chemicals&serviceLine=UK Reach-IT
-
-      numUsers=1&numServices=1&numAgents=0&numLocations=1&service=Imports&serviceLine=Imports-S01
-      numUsers=5&numServices=3&numAgents=3&numLocations=3&service=Imports&serviceLine=Imports-S01
-
-      numUsers=1&numServices=1&numAgents=0&numLocations=1&service=Imports&serviceLine=Imports-S01
-
-
-      agent=agent
-    </div>
+  <div class="govuk-visually-hidden">
+    numUsers= 1 / 2 / 5
+    numServices= 1 / 3
+    numAgents= 0 / 1 / 3
+    numLocations= defunct
+    service= Chemicals / Imports
+    serviceLine= UK Reach-IT / Imports-S01
+    createSignin= create / signin
+    businessType= Limited company / Sole trader / Public limited company / Competent authority / Limited liability partnership /  Non-commercial organisation / Government
+    orgType= Business / Individual
+    userType= invite / new / existing
+    serviceRole=  RE-Manager / RE-Reader / Manager / No service access / Standard
+    subscribeService= Yes / No
+    orgName= AstraZeneca / ImportersUK / My Organisation etc
+    agent= Yes / No
+  </div>
 
 
 

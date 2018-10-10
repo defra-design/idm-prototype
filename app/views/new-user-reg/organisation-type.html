@@ -33,7 +33,7 @@
             const checkedValue = checked.value
 
             switch(checkedValue){
-              case 'business':
+              case 'Business':
               form.action = 'organisation-business-type'
 
               break;
@@ -57,23 +57,20 @@
 
           items: [
             {
-              value: "business",
+              value: "Business",
               html: ' <span class="govuk-body govuk-!-font-weight-bold">A business account</span><br>
                       I own or represent the business or organisation that wants to use this service.',
-              checked:  checked('orgType','business')
+              checked:  checked('orgType','Business')
 
             },
             {
-              value: "individual",
+              value: "Individual",
               html: ' <span class="govuk-body govuk-!-font-weight-bold">A personal account</span><br>
                       I want to use this service as an individual. I am not a sole trader, and do not own or represent a relevant business or organisation.',
-              checked:  checked('orgType','individual')
+              checked:  checked('orgType','Individual')
             }
 
           ]
-
-
-
 
         }) }}
 
