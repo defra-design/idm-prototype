@@ -35,7 +35,7 @@ router.get('/manage/dashboard-all-1', function (req, res) {
       "locationURL": 'organisations/organisation-all-1',
       "serviceCSS": 'govuk-visually-hidden',
       "orgSwitch": 'govuk-visually-hidden',
-      "orgName": 'My Organisation'
+      "orgName": "My Organisation"
     })
 })
 
@@ -49,7 +49,7 @@ router.get('/manage/dashboard-all-2', function (req, res) {
       "locationURL": 'organisations/organisation-all-1',
       "serviceCSS": 'govuk-visually-hidden',
       "orgSwitch": 'govuk-visually-hidden',
-      "orgName": 'My Organisation'
+      "orgName": "My Organisation"
     })
 })
 
@@ -62,7 +62,7 @@ router.get('/manage/dashboard-all', function (req, res) {
       "addLocationURL": '#',
       "locationURL": 'organisations/organisation-all',
       "orgSwitch": 'govuk-visually-hidden',
-      "orgName": 'My Organisation'
+      "orgName": "My Organisation"
     })
 })
 
@@ -74,7 +74,7 @@ router.get('/manage/dashboard-all-agent', function (req, res) {
       "agentURL": 'agent/agent-all',
       "addLocationURL": '#',
       "locationURL": 'organisations/organisation-all',
-      "orgName": 'My Organisation'
+      "orgName": "My Organisation"
 
     })
 })
@@ -117,7 +117,7 @@ router.get('/manage/agent/agent-all', function (req, res) {
 router.get('/scp/login-new', function (req, res) {
     res.render('scp/login',{
       "signinButton": '/about-data',
-      "userType": 'new'
+      "userType": "new"
     })
 })
 
@@ -125,7 +125,8 @@ router.get('/scp/login-new', function (req, res) {
 router.get('/scp/login-invite', function (req, res) {
     res.render('scp/login',{
       "signinButton": '/about-data',
-      "userType": 'invited'
+      "userType": "invited"
+
     })
 })
 
@@ -133,31 +134,31 @@ router.get('/scp/login-invite', function (req, res) {
 router.get('/scp/login-existing', function (req, res) {
     res.render('scp/login',{
       "signinButton": '/manage/team-members/services-on-team-member-admin-self-all-1',
-      "userType": 'existing'
+      "userType": "existing"
     })
 })
 
 // Existing user - incomplete app: tasklist
 router.get('/scp/login-incomplete-tasklist', function (req, res) {
     res.render('scp/login',{
-      "signinButton": '/service-start-tasklist-incomplete',
+      "signinButton": '/service-start-tasklist-incomplete'
     })
 })
 // Existing user - incomplete app: service
 router.get('/scp/login-incomplete-service', function (req, res) {
     res.render('scp/login',{
-      "signinButton": '/service-start-service-incomplete',
+      "signinButton": '/service-start-service-incomplete'
     })
 })
 // Existing user - complete app
 router.get('/scp/login-complete', function (req, res) {
     res.render('scp/login',{
-      "signinButton": '/service-start-complete',
+      "signinButton": '/service-start-complete'
     })
 })
 // Existing user - pending app
 router.get('/scp/login-pending', function (req, res) {
     res.render('scp/login',{
-      "signinButton": '/service-start-pending',
+      "signinButton": '/service-start-pending'
     })
 })

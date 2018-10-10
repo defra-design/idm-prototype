@@ -68,3 +68,9 @@
     {% set setServiceNameHtml %}
         What do you want them to be able to do in the {{ data['serviceLine'] }} service?
     {% endset %}
+
+    router.get('/scp/login-invite', function (req, res) {
+   req.session.data[userType]="invited"
+   res.render('scp/login',{
+     "signinButton": '/about-data'
+   })})
