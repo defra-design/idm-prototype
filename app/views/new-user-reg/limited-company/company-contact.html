@@ -23,8 +23,11 @@
 
     <h1 class="govuk-heading-xl">{{title}}
     </h1>
-      <form action="task-list-page-company-details" method="post">
+        <span id="national-insurance-number-hint" class="govuk-hint">
+        For example, contact details for your head office or management team.
+        </span>
 
+      <form action="task-list-page-company-details" method="post">
         {{ govukInput({
           label: {
             text: "Telephone number"
