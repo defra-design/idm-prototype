@@ -29,7 +29,7 @@ router.get('/tests/ac2', function (req, res) {
 router.get('/manage/dashboard-all-1', function (req, res) {
     res.render('manage/dashboard',{
       "teamMemberURL": 'team-members/team-members-all-1',
-      "addAgentURL": 'agent/chemicals/invite-user/add-user-details',
+      "addAgentURL": 'agent/invite-user/add-user-details',
       "agentURL": 'agent/agent-0',
       "addLocationURL": '#',
       "locationURL": 'organisations/organisation-all-1',
@@ -39,11 +39,11 @@ router.get('/manage/dashboard-all-1', function (req, res) {
     })
 })
 
-// 2 users and 1 agents
+// 2 users and 1 agent
 router.get('/manage/dashboard-all-2', function (req, res) {
     res.render('manage/dashboard',{
       "teamMemberURL": 'team-members/team-members-all-2',
-      "addAgentURL": 'agent/chemicals/invite-user/add-user-details',
+      "addAgentURL": 'agent/invite-user/add-user-details',
       "agentURL": 'agent/agent-0',
       "addLocationURL": '#',
       "locationURL": 'organisations/organisation-all-1',
@@ -116,25 +116,22 @@ router.get('/manage/agent/agent-all', function (req, res) {
 // Existing user but new to IDM user
 router.get('/scp/login-new', function (req, res) {
     res.render('scp/login',{
-      "signinButton": '/about-data',
-      "userType": "new"
-    })
-})
-
-// Invited user
-router.get('/scp/login-invite', function (req, res) {
-    res.render('scp/login',{
-      "signinButton": '/about-data',
-      "userType": "invited"
-
+      "signinButton": '/about-data'
     })
 })
 
 // Existing user
 router.get('/scp/login-existing', function (req, res) {
     res.render('scp/login',{
-      "signinButton": '/manage/team-members/services-on-team-member-admin-self-all-1',
-      "userType": "existing"
+      "signinButton": '/manage/team-members/services-on-team-member-admin-self-all-1'
+    })
+})
+
+// Invited user
+router.get('/scp/login-invite', function (req, res) {
+    res.render('scp/login',{
+      "signinButton": '/about-data'
+
     })
 })
 

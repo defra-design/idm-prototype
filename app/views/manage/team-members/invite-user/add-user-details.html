@@ -19,11 +19,14 @@
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-xl">{{title}}</h1>
 
+    {% set numUsers = data['numUsers'] | int %}
+    {% set numUsers = numUsers+1 %}
+
     <form action="add-user-confirmation-reg-sent" method="post">
       <input type="hidden" name="subscribeService" value="No">
       <input type="hidden" name="userType" value="invite">
       <input type="hidden" name="serviceRole" value="Standard">
-
+      <input type="hidden" name="numUsers" value="{{ numUsers }}">
 
 
         {{ govukInput({

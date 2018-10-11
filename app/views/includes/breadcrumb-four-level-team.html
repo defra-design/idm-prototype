@@ -9,15 +9,11 @@
 {% endset %}
 
 {% set setDashURL %}
-  {% if data['numUsers'] == "1" %}
+  {% if data['numUsers'] <= "4" %}
     /manage/dashboard-all-1
   {% endif %}
 
-  {% if data['numUsers'] == "2" %}
-    /manage/dashboard-all-2
-  {% endif %}
-
-  {% if data['numUsers'] == "5" %}
+  {% if data['numUsers'] >= "5" %}
     /manage/dashboard-all
   {% endif %}
 {% endset %}

@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Invite team member" %}
+{% set title = "Invite Intermediary" %}
 
 {% block pageTitle %}
     {{title}} - GOV.UK
@@ -17,41 +17,30 @@
   <div class="govuk-grid-column-two-thirds">
 
     <h1 class="govuk-visually-hidden">{{title}}</h1>
+    <div class="govuk-panel govuk-panel--confirmation">
+      <h1 class="govuk-panel__title">
+        An invitation email has been sent to {{data['agentEmail']}}
+      </h1>
 
-    {{ govukPanel({
-          titleText: "Invitation sent",
-          html: "Registration code: <br><strong>HDJ2123F</strong>"
-        })
-    }}
-
-    <p class="govuk-body">We have sent you a confirmation email with the intermediary's one time registration code.</p>
+    </div>
 
     <h3 class="govuk-heading-m">What happens next</h3>
 
-    <p class="govuk-body">{{data['agentFirstName']}} will need to accept the email invite using the regsitration code above. You must give them this code.</p>
-    <p class="govuk-body">Select 'Give service access' below to set the intermediary access with each available service.</p>
+    <p class="govuk-body">This person must respond to the invitation email within <span class="govuk-!-font-weight-bold">30 days</span> before it expires. After that time you will need to repeat this process to invite them again.</p>
+    <p class="govuk-body">Once this person has registered to use online services, you can choose which information and tasks they can see and do on behalf of your organisation.</p>
 
-    <!-- Decides where there Give Service Access button goes according to the service and number of services-->
-          {% if (data['numServices'] == 1) and (data['service'] == "Imports") %}
-            {% set giveAccessButton  = "/manage/agent/services-on-team-member-agent-invited?orgName=ImportersUK" %}
-          {% endif %}
+    {% if data['numAgents'] <= "2" %}
+          {% set continueURL = "/manage/agent/agent-0" %}
+    {% endif %}
 
-          {% if (data['numServices'] == 3) and (data['service'] == "Imports") %}
-            {% set giveAccessButton  = "/manage/agent/invite-user/imports/add-user-service?orgName=ImportersUK" %}
-          {% endif %}
+    {% if data['numUsers'] >= "3" %}
+          {% set continueURL = "/manage/agent/agent-all" %}
+    {% endif %}
 
-          {% if (data['numServices'] == 1) and (data['service'] == "Chemicals") %}
-            {% set giveAccessButton  = "/manage/agent/invite-user/chemicals/add-user-roles-service-roles?orgName=AstraZeneca" %}
-          {% endif %}
-
-          {% if (data['numServices'] == 3) and (data['service'] == "Chemicals") %}
-            {% set giveAccessButton  = "/manage/agent/invite-user/chemicals/add-user-service?orgName=AstraZeneca" %}
-          {% endif %}
-
-          {{ govukButton({
-            text: "Give service access",
-            href: giveAccessButton
-          }) }}
+    {{ govukButton({
+      text: "Continue",
+      href: continueURL
+    }) }}
 
   </div>
 </div>

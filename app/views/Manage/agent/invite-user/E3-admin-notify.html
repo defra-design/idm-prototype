@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% set title = "You can now give [added user’s email address] access to online services" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        {{title}} </h1>
+        <p class="govuk-body">Hello [first name],</p>
+        <p class="govuk-body">This person received your email invitation and has completed the registration process ready to use our online services:</p>
+
+        
+        <ul class="govuk-list">
+          <li>Name: [Added user’s first name] [Added user’s last name]</li>
+          <li>Email address: [added user’s email address]</li>
+        </ul>
+
+        <p class="govuk-body">You should now choose what information and tasks you would like [Added user’s first name] to see and do on behalf of [organisation name].</p>
+        <div class="govuk-inset-text">
+          <p class="govuk-link"><a href="/scp/login-new">Give this person access to use online services</a></p>
+        </div>
+
+        <h2 class="govuk-heading-m">If you do not want to give this person access to services</h2>
+        <p class="govuk-body">If you know this person but they have registered using an email address you do not recognise, please ask them to register again using an email address approved by you.</p>
+
+
+    </div>
+  </div>
+
+{% endblock %}
