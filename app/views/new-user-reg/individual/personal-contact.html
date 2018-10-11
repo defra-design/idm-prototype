@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "What are your contact details?" %}
+{% set title = "What is your telephone number?" %}
 
 {% block pageTitle %}
     {{title}} - GOV.UK
@@ -26,7 +26,7 @@
 
       {{ govukInput({
         label: {
-          text: "What is your telephone number?",
+          text: "Enter your telephone number",
           isPageHeading: false
         },
         classes: "govuk-input--width-10",
@@ -37,7 +37,7 @@
       }) }}
 
       <div class="govuk-inset-text">
-        We use your Govenment Gateway email address for all corespondance: <br>
+        We may also contact you by email, using the address registered with your Government Gateway account.<br>
         <span class="govuk-!-font-weight-bold">{{data['scpEmail']}}</span>
       </div>
 
