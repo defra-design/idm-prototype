@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Tell us your details" %}
+{% set title = "Register to use online services" %}
 
 {% block pageTitle %}
     {{title}} - GOV.UK
@@ -19,7 +19,9 @@
       {{title}}
     </h1>
 
-      <p class="govuk-body">Please complete each of these sections.</p>
+    <p class="govuk-body">If you sign out before you complete everything, we will save your answers for <strong>3 days</strong> so that you can return and continue.</p>
+      <br>
+      
       {{ govukErrorSummary({
         titleText: "There is a problem",
         errorList: [
