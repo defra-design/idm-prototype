@@ -22,37 +22,18 @@
     {% set numAgents = data['numAgents'] | int %}
     {% set numAgents = numAgents+1 %}
 
-      <form action="add-user-confirmation-reg-sent" method="post">
-        <input type="hidden" name="subscribeService" value="No">
-        <input type="hidden" name="userType" value="invite">
-        <input type="hidden" name="serviceRole" value="Standard">
-        <input type="hidden" name="numAgents" value="{{numAgents}}">
-
-
-        {{ govukInput({
-          label: {
-            text: "First or given name"
-          },
-          classes: "govuk-input--width-20",
-          id: "agentFirstName",
-          name: "agentFirstName",
-          value: data['agentFirstName']
-        }) }}
+    <form action="add-user-confirmation-reg-sent" method="post">
+      <input type="hidden" name="subscribeService" value="No">
+      <input type="hidden" name="userType" value="inviteAgent">
+      <input type="hidden" name="serviceRole" value="Standard">
+      <input type="hidden" name="numAgents" value="{{numAgents}}">
 
         {{ govukInput({
           label: {
-            text: "Surname or family name"
+            text: "Email address",
+            classes: "govuk-label--s"
           },
-          classes: "govuk-input--width-20",
-          id: "agentSurname",
-          name: "agentSurname",
-          value: data['agentSurname']
-        }) }}
 
-        {{ govukInput({
-          label: {
-            text: "Business email address"
-          },
           classes: "govuk-input--width-20",
           id: "agentEmail",
           name: "agentEmail",

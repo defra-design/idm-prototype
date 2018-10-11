@@ -1,23 +1,19 @@
 {% set setAgentURL %}
-  {% if data['numAgents'] == "1" %}
+  {% if data['numAgents'] <= "2" %}
     /manage/agent/agent-0
   {% endif %}
 
-  {% if data['numAgents'] == "3" %}
+  {% if data['numAgents'] >= "3" %}
     /manage/agent/agent-all
   {% endif %}
 {% endset %}
 
 {% set setDashURL %}
-  {% if data['numAgents'] == "0" %}
+  {% if data['numAgents'] <= "2" %}
     /manage/dashboard-all-1
   {% endif %}
 
-  {% if data['numAgents'] == "1" %}
-    /manage/dashboard-all-2
-  {% endif %}
-
-  {% if data['numAgents'] == "3" %}
+  {% if data['numAgents'] >= "3" %}
     /manage/dashboard-all
   {% endif %}
 {% endset %}

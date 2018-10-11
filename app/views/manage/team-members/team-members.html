@@ -13,6 +13,15 @@
 
 {% block content %}
 
+<!-- Hiding/ showing the New User row according to the userType invite/new -->
+    {% if data['userType'] == "invite" %}
+      {% set newUserCSS = "" %}
+    {% endif %}
+
+    {% if data['numUsers']== "2" %}
+      {% set otherUserCSS = "govuk-visually-hidden" %}
+    {% endif %}
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
 
@@ -34,13 +43,8 @@
       {% endif %}
     {% endset %}
 
-<!-- Hiding/ showing the New User row according to the userType invite -->
-    {% if data['userType'] == "invite" %}
-      {% set newUserCSS = "" %}
-    {% endif %}
 
-
-    <table class="govuk-table">
+    <table class="govuk-table {{ tableCSS }}">
       <caption class="govuk-table__caption govuk-visually-hidden">All team members</caption>
       <thead class="govuk-table__head">
       <tr class="govuk-table__row">
