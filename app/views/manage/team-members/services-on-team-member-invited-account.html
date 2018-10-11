@@ -50,14 +50,14 @@
 {% if (data['numServices'] == 3) and (data['service'] == "Imports") %}
   {{ govukButton({
     text: "Give service access",
-    href: "/manage/team-members/invite-user/imports/add-user-service?orgName=ImportersUK"
+    href: "/manage/team-members/invite-user/imports/add-user-service"
   }) }}
 {% endif %}
 
 {% if (data['numServices'] == 3) and (data['service'] == "Chemicals") %}
   {{ govukButton({
     text: "Give service access",
-    href: "/manage/team-members/invite-user/chemicals/add-user-service?orgName=AstraZeneca"
+    href: "/manage/team-members/invite-user/chemicals/add-user-service"
   }) }}
 {% endif %}
 

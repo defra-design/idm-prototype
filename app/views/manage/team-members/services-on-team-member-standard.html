@@ -48,14 +48,14 @@
     {% if (data['service'] == "Imports") %}
       {{ govukButton({
         text: "Give service access",
-        href: "/manage/team-members/invite-user/imports/add-user-service?orgName=ImportersUK"
+        href: "/manage/team-members/invite-user/imports/add-user-service&userType=invite&name=Adam Mastly"
       }) }}
     {% endif %}
 
     {% if (data['service'] == "Chemicals") %}
       {{ govukButton({
         text: "Give service access",
-        href: "/manage/team-members/invite-user/chemicals/add-user-service?orgName=AstraZeneca"
+        href: "/manage/team-members/invite-user/chemicals/add-user-service?&userType=invite&name=Adam Mastly"
       }) }}
     {% endif %}
 
@@ -95,7 +95,7 @@
         html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> UK Reach-IT'
       },
       {
-        html: '<span class="govuk-visually-hidden--desktop td-header">Organisation:</span> AstraZeneca UK Limited'
+        html: '<span class="govuk-visually-hidden--desktop td-header">Organisation:</span> My Organisation'
       },
       {
         html: '<span class="govuk-visually-hidden--desktop td-header">Role: </span>RE Manager'
