@@ -46,6 +46,8 @@
 
       <form action="{{ continueURL }}" method="post">
         <input type="hidden" name="subscribeService" value="Yes">
+        <input type="hidden" name="serviceRole" value="Standard">
+
 
         {% if (data['service'] == "Imports") or (data['service'] == "VMD") %}
 
