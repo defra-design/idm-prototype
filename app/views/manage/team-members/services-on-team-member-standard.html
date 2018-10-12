@@ -59,6 +59,13 @@
       }) }}
     {% endif %}
 
+    {% if (data['service'] == "VMD") %}
+      {{ govukButton({
+        text: "Give service access",
+        href: "/manage/team-members/invite-user/vmd/add-user-service?&userType=invite&name=Adam Mastly"
+      }) }}
+    {% endif %}
+
 
     {{ govukTable({
       caption: "Access to services",
@@ -95,7 +102,7 @@
         html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> UK Reach-IT'
       },
       {
-        html: '<span class="govuk-visually-hidden--desktop td-header">Organisation:</span> My Organisation'
+        html: '<span class="govuk-visually-hidden--desktop td-header">Organisation:</span> Acme Org'
       },
       {
         html: '<span class="govuk-visually-hidden--desktop td-header">Role: </span>RE Manager'

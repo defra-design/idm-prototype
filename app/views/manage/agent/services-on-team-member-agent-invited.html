@@ -8,7 +8,7 @@
 
 {% block beforeContent %}
   {% include "includes/account-nav-admin-corp.html" %}
-  {% include "includes/breadcrumb-four-level-team.html" %}
+  {% include "includes/breadcrumb-four-level-agent.html" %}
 {% endblock %}
 
 {% block content %}
@@ -63,6 +63,7 @@
 <!-- Show table if the user has subscribed to one service -->
 {% if data['subscribeService'] == "Yes" %}
   <!-- Decides where there Give Service Access button goes according to the service and number of services-->
+
   {% if (data['numServices'] == 3) and (data['service'] == "Imports") %}
     {{ govukButton({
       text: "Give service access",
@@ -77,13 +78,20 @@
     }) }}
   {% endif %}
 
+  {% if (data['numServices'] == 3) and (data['service'] == "VMD") %}
+    {{ govukButton({
+      text: "Give service access",
+      href: "/manage/team-members/invite-user/vmd/add-user-service?userType=invitedAgent&name=Bob Holmness"
+    }) }}
+  {% endif %}
+
 
   {% set setServiceNameHtml %}
       <span class="govuk-visually-hidden--desktop td-header">Service:</span> {{ data['serviceLine'] }}
   {% endset %}
 
   {% set setOrgHtml %}
-      <span class="govuk-visually-hidden--desktop td-header">Organisation:</span> {{ data['orgName'] }}
+      <span class="govuk-visually-hidden--desktop td-header">Organisation:</span> Acme Org
   {% endset %}
 
   {% set setServiceRoleHtml %}
