@@ -44,14 +44,14 @@
         {% if (data['numServices'] == 3) and (data['service'] == "VMD") %}
           {{ govukButton({
             text: "Give service access",
-            href: "/manage/team-members/invite-user/vmd/add-user-service?subscribeService=Yes&userType=invitedAgent&name=Bob Holmness"
+            href: "/manage/team-members/invite-user/vmd/add-user-service?subscribeService=Yes&serviceRole=Standard&userType=invitedAgent&name=Bob Holmness"
           }) }}
         {% endif %}
 
         {% if (data['numServices'] == 1) %}
           {{ govukButton({
             text: "Give service access",
-            href: "/manage/team-members/invite-user/enrollment-confirmation?subscribeService=Yes&&serviceRole=Standard&userType=invitedAgent&name=Bob Holmness"
+            href: "/manage/team-members/invite-user/enrollment-confirmation?subscribeService=Yes&serviceRole=Standard&userType=invitedAgent&name=Bob Holmness"
           }) }}
         {% endif %}
 
