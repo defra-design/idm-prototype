@@ -18,29 +18,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form class="add-user-roles" onsubmit="return myFunction()" method="post">
-      <script>
-        const form = document.querySelector('.add-user-roles')
-
-        function myFunction() {
-          const checked = document.querySelector('[name="serviceLine"]:checked')
-          const checkedValue = checked.value
-
-          switch(checkedValue){
-            case 'UK Reach-IT':
-            form.action = 'add-user-roles-service-roles'
-
-            break;
-            case 'UK-ePIC':
-            form.action = 'add-user-roles-service-roles-normal'
-
-            break;
-            case 'UK-CLP':
-            form.action = 'add-user-roles-service-roles-normal'
-          }
-          return true
-        }
-      </script>
+    <form action="/manage/team-members/invite-user/enrollment-confirmation" method="post">
 
         {{ govukRadios({
           idPrefix: "serviceLine",
@@ -55,29 +33,26 @@
           items: [
 
             {
-              value: "UK Reach-IT",
-              html: 'UK Reach-IT',
-              checked:  checked('serviceLine','UK Reach-IT')
+              value: "Adverse Event Reporting",
+              html: 'Adverse Event Reporting',
+              checked:  checked('serviceLine','Adverse Event Reporting')
             },
             {
-              value: "UK-ePIC",
-              html: 'UK-ePIC',
-              checked:  checked('serviceLine','UK-ePIC')
+              value: "Licencing",
+              html: 'Licencing',
+              checked:  checked('serviceLine','Licencing')
             },
             {
-              value: "UK-CLP",
-              html: 'UK-CLP',
-              checked:  checked('serviceLine','UK-CLP')
+              value: "Secure Messaging",
+              html: 'Secure Messaging',
+              checked:  checked('serviceLine','Secure Messaging')
             }
           ]
         }) }}
 
         {{ govukButton({
-          text: "Continue"
+          text: "hello"
         }) }}
-
-
-
       </form>
     </div>
   </div>
