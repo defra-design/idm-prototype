@@ -32,6 +32,11 @@
       {% set tcButton  = "/new-user-reg/organisation-type" %}
     {% endif %}
 
+    <!-- For new account registration-->
+    {% if data['userType'] == "existing" %}
+      {% set tcButton  = "/new-user-reg/organisation-type" %}
+    {% endif %}
+
     <form action="{{ tcButton }}" method="post">
 
 
