@@ -1,0 +1,152 @@
+{% extends "layout.html" %}
+
+{% set title = "Intermediary" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/account-nav-admin-corp.html" %}
+  {% include "includes/breadcrumb-four-level-agent.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-xl">
+      Marcy Ponds
+    </h1>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <p class="govuk-body">
+      <span class="govuk-!-font-weight-bold">Full name:</span> Marcy Ponds<br>
+      <span class="govuk-!-font-weight-bold">Account access level:</span> None<br>
+      <span class="govuk-!-font-weight-bold">Email address:</span> Marcy.Ponds@agent.com<br>
+      <span class="govuk-!-font-weight-bold">Telephone:</span> 01179267473
+    </p>
+    <!--
+    <p class="govuk-body">
+      <span class="govuk-!-font-weight-bold">Added on:</span> 10 March 2011<br>
+      <span class="govuk-!-font-weight-bold">Last signed in:</span> 27 June 2018
+    </p>
+    -->
+  </div>
+  <div class="govuk-grid-column-one-third">
+    <!--
+    <p class="govuk-body"><a href="user-account" class="govuk-link--no-visited-state">Edit intermediary details</a></p>
+    -->
+    <p class="govuk-body"><a href="" class="govuk-link--no-visited-state">Reset password</a><br>
+    <!--
+    <p class="govuk-body"><a href="" class="govuk-link--no-visited-state">Delete intermediary</a></p>
+    -->
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <br>
+    {{ govukTable({
+      caption: "Access to services",
+      captionClasses: "govuk-heading-l",
+      firstCellIsHeader: false,
+      head: [
+        {
+          html: 'Service',
+          format: 'column-quarter column-full'
+
+        },
+        {
+          html: 'Organisation',
+          format: 'column-quarter column-full'
+
+        },
+        {
+          html: 'Access level',
+          format: 'column-fifth column-full'
+
+        },
+        {
+          html: '<span class="govuk-visually-hidden column-full">Action</span>',
+          format: ''
+        },
+        {
+          html: '<span class="govuk-visually-hidden column-full">Action</span>',
+          format: ''
+        }
+      ],
+      rows: [
+      [
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> UK SO2'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Organisation:</span> Acme Org'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Access level: </span>Standard user'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="add-user-service/add-user-roles-1" class="govuk-link--no-visited-state">Change access <span class="govuk-visually-hidden">to [Service name]</span></a>'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="#" class="govuk-link--no-visited-state">Remove access <span class="govuk-visually-hidden">to [Service name]</span></a>'
+        }
+      ],
+      [
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> UK Reach-IT'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Organisation:</span> Acme Org'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Access level: </span>RE Manager'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="add-user-service/add-user-roles-1" class="govuk-link--no-visited-state">Change access <span class="govuk-visually-hidden">to [Service name]</span></a>'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="#" class="govuk-link--no-visited-state">Remove access <span class="govuk-visually-hidden">to [Service name]</span></a>'
+        }
+      ]
+
+      ]
+    }) }}
+  </div>
+</div>
+
+<div class="govuk-card__content">
+  <h3 class="govuk-heading-m">Link to services</h3>
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-one-third">
+      <div class="govuk-card govuk-card--contained govuk-card--selectable">
+          <a href="https://chemicals-prototypes.herokuapp.com/prototype/rc4/iu/dashboard"></a>
+          <div class="govuk-card__content">
+            <h3 class="govuk-heading-m">Chemicals - UK Reach-IT</h3>
+            <p class="govuk-body">A short summary of the tasks you can complete with this service.
+            </p>
+          </div>
+        </div>
+    </div>
+    <div class="govuk-grid-column-one-third {{serviceCSS}}">
+      <div class="govuk-card govuk-card--contained govuk-card--selectable">
+          <a href="/service-start-complete"></a>
+          <div class="govuk-card__content">
+            <h3 class="govuk-heading-m">Chemicals - UK SO2</h3>
+            <p class="govuk-body">A short summary of the tasks you can complete with this service.
+            </p>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}

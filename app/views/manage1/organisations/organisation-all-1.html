@@ -1,0 +1,69 @@
+{% extends "layout.html" %}
+
+{% set title = "Manage your locations" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/account-nav-admin-corp.html" %}
+  {% include "includes/breadcrumb-three-level.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-xl">
+      {{title}}
+    </h1>
+
+    {{ govukButton({
+      text: "Add location",
+      href: "#"
+    }) }}
+
+    {{ govukTable({
+      caption: "All locations",
+      captionClasses: "govuk-visually-hidden",
+      firstCellIsHeader: false,
+      head: [
+        {
+          html: 'Organisation',
+          format: 'column-half'
+        },
+        {
+          html: '<span class="govuk-visually-hidden">Action</span>',
+          format: 'column-sixth'
+        },
+        {
+          html: '<span class="govuk-visually-hidden">Action</span>',
+          format: 'column-sixth'
+        },
+        {
+          html: '<span class="govuk-visually-hidden">Action</span>',
+          format: 'column-sixth'
+        }
+      ],
+      rows: [
+        [
+          {
+            html: '<a href="organisation-details-all-1" class="govuk-link--no-visited-state">Acme Org</a>'
+          },
+          {
+            html: '<a href="organisation-services" class="govuk-link--no-visited-state">View services</a>'
+          },
+          {
+            html: '<a href="organisation-team-members" class="govuk-link--no-visited-state">View members</a>'
+          },
+          {
+            html: '<a href="#" class="govuk-link--no-visited-state">Remove location</a>'
+          }
+        ]
+
+        ]
+      }) }}
+
+
+{% endblock %}

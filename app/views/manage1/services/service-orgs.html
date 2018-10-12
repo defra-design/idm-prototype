@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+{% set title = "Service organisations" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/account-nav-admin-corp.html" %}
+  {% include "includes/breadcrumb-four-level-service.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <h1 class="govuk-heading-xl">[Service line] - organisations</h1>
+
+    {{ govukButton({
+      text: "Add organisation",
+      href: "#"
+    }) }}
+
+    {{ govukTable({
+      caption: "Organisations",
+      captionClasses: "govuk-visually-hidden",
+      firstCellIsHeader: false,
+      head: [
+        {
+          html: '<a class="govuk-link--no-visited-state" href="">Organisation</a>',
+          format: 'column-half'
+
+        },
+        {
+          html: '<span class="govuk-visually-hidden">Action</span>',
+          format: ''
+        }
+      ],
+      rows: [
+      [
+        {
+          html: '<a class="govuk-link--no-visited-state" href="/manage/organisations/organisation-details">Acme Org</a><br>
+                  <span class="govuk-body-s">03674842</span>'
+        },
+        {
+          html: '<a href="#" class="govuk-link--no-visited-state">Remove organisation from service</a>'
+        }
+      ],
+      [
+        {
+          html: '<a class="govuk-link--no-visited-state" href="/manage/agent/services-on-team-member-standard">AstraZeneca - Farma</a><br>'
+        },
+
+        {
+          html: '<a href="#" class="govuk-link--no-visited-state">Remove organisation from service</a>'
+        }
+      ]
+
+      ]
+    }) }}
+
+  </div>
+</div>
+
+
+{% endblock %}

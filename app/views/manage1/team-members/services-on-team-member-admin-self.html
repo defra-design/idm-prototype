@@ -1,0 +1,243 @@
+{% extends "layout.html" %}
+
+{% set title = "Team member" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/account-nav-admin-corp.html" %}
+  {% include "includes/breadcrumb-four-level-team.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <h1 class="govuk-heading-xl">
+      Ann Cooper
+    </h1>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <p class="govuk-body">
+      <span class="govuk-!-font-weight-bold">Full name:</span> Ann Cooper<br>
+      <span class="govuk-!-font-weight-bold">Account access level:</span> Admin<br>
+      <span class="govuk-!-font-weight-bold">Email address:</span> Ann.Cooper@email.com<br>
+      <span class="govuk-!-font-weight-bold">Telephone:</span> 01179267473
+    </p>
+    <!--<p class="govuk-body">
+      <span class="govuk-!-font-weight-bold">Added on:</span> 10 January 2010<br>
+      <span class="govuk-!-font-weight-bold">Last signed in:</span> 27 June 2018
+    </p>-->
+  </div>
+  <div class="govuk-grid-column-one-third">
+    <!--<p class="govuk-body"><a href="user-account" class="govuk-link--no-visited-state">Edit team member details</a></p>-->
+    <p class="govuk-body"><a href="" class="govuk-link--no-visited-state">Change access level</a></p>
+    <p class="govuk-body"><a href="" class="govuk-link--no-visited-state">Reset password</a><br></p>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    {{ govukTable({
+      caption: "Service access",
+      captionClasses: "govuk-heading-l",
+      firstCellIsHeader: false,
+      head: [
+        {
+          html: 'Service',
+          format: 'column-quarter column-full'
+
+        },
+        {
+          html: 'Organisation',
+          format: 'column-quarter column-full'
+
+        },
+        {
+          html: 'Role',
+          format: 'column-fifth column-full'
+
+        },
+        {
+          html: '<span class="govuk-visually-hidden column-full">Action</span>',
+          format: ''
+        },
+        {
+          html: '<span class="govuk-visually-hidden column-full">Action</span>',
+          format: ''
+        }
+      ],
+      rows: [
+      [
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> UK SO3'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Organisation:</span> Acme Org'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Role: </span>Standard'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="#" class="govuk-link--no-visited-state">Change role <span class="govuk-visually-hidden">to [Service name]</span></a>'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="#" class="govuk-link--no-visited-state">Remove access <span class="govuk-visually-hidden">to [Service name]</span></a>'
+        }
+      ],
+      [
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> UK SO3'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Organisation:</span> Acme Org'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Role: </span>Standard'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="#" class="govuk-link--no-visited-state">Change role <span class="govuk-visually-hidden">to [Service name]</span></a>'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="#" class="govuk-link--no-visited-state">Remove access <span class="govuk-visually-hidden">to [Service name]</span></a>'
+        }
+      ],
+      [
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> UK SO2'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Organisation:</span> Acme Org'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Role: </span>Standard'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="#" class="govuk-link--no-visited-state">Change role <span class="govuk-visually-hidden">to [Service name]</span></a>'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="#" class="govuk-link--no-visited-state">Remove access <span class="govuk-visually-hidden">to [Service name]</span></a>'
+        }
+      ],
+      [
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> UK SO2'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Organisation:</span> Acme Org'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Role: </span>Standard'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="#" class="govuk-link--no-visited-state">Change role <span class="govuk-visually-hidden">to [Service name]</span></a>'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="#" class="govuk-link--no-visited-state">Remove access <span class="govuk-visually-hidden">to [Service name]</span></a>'
+        }
+      ],
+      [
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> UK Reach-IT'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Organisation:</span> Acme Org'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Role: </span>RE Manager'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="#" class="govuk-link--no-visited-state">Change role <span class="govuk-visually-hidden">to [Service name]</span></a>'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="#" class="govuk-link--no-visited-state">Remove access <span class="govuk-visually-hidden">to [Service name]</span></a>'
+        }
+      ],
+      [
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> UK Reach-IT'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Organisation:</span> Acme Org'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Role: </span>RE Manager'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="#" class="govuk-link--no-visited-state">Change role <span class="govuk-visually-hidden">to [Service name]</span></a>'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="#" class="govuk-link--no-visited-state">Remove access <span class="govuk-visually-hidden">to [Service name]</span></a>'
+        }
+      ],
+      [
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> UK Reach-IT'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Organisation:</span> Acme Org'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Role: </span>RE Manager'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="#" class="govuk-link--no-visited-state">Change role <span class="govuk-visually-hidden">to [Service name]</span></a>'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="#" class="govuk-link--no-visited-state">Remove access <span class="govuk-visually-hidden">to [Service name]</span></a>'
+        }
+      ]
+
+      ]
+    }) }}
+
+  </div>
+</div>
+
+<div class="govuk-card__content">
+  <h3 class="govuk-heading-m">Link to services</h3>
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-one-third">
+      <div class="govuk-card govuk-card--contained govuk-card--selectable">
+          <a href="https://chemicals-prototypes.herokuapp.com/prototype/rc4/iu/dashboard"></a>
+          <div class="govuk-card__content">
+            <h3 class="govuk-heading-m">{{ data['service'] }} - {{ data['serviceLine'] }}</h3>
+            <p class="govuk-body">A short summary of the tasks you can complete with this service.
+            </p>
+          </div>
+        </div>
+    </div>
+    <div class="govuk-grid-column-one-third {{serviceCSS}}">
+      <div class="govuk-card govuk-card--contained govuk-card--selectable">
+          <a href="/service-start-complete"></a>
+          <div class="govuk-card__content">
+            <h3 class="govuk-heading-m">{{ data['service'] }} - UK SO2</h3>
+            <p class="govuk-body">A short summary of the tasks you can complete with this service.
+            </p>
+          </div>
+        </div>
+    </div>
+    <div class="govuk-grid-column-one-third {{serviceCSS}}">
+      <div class="govuk-card govuk-card--contained govuk-card--selectable">
+          <a href="/service-start-complete"></a>
+          <div class="govuk-card__content">
+            <h3 class="govuk-heading-m">{{ data['service'] }} - UK SO3</h3>
+            <p class="govuk-body">A short summary of the tasks you can complete with this service.
+            </p>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}
