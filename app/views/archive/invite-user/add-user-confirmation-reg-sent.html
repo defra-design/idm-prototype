@@ -32,19 +32,19 @@
 
 <!-- Decides where there Give Service Access button goes according to the service and number of services-->
       {% if (data['numServices'] == 1) and (data['service'] == "Imports") %}
-        {% set giveAccessButton  = "/manage/team-members/services-on-team-member-invited?orgName=ImportersUK&subscribeService=Yes" %}
+        {% set giveAccessButton  = "/manage/team-members/services-on-team-member-invited&subscribeService=Yes" %}
       {% endif %}
 
       {% if (data['numServices'] == 3) and (data['service'] == "Imports") %}
-        {% set giveAccessButton  = "/manage/team-members/invite-user/imports/add-user-service?orgName=ImportersUK&subscribeService=Yes" %}
+        {% set giveAccessButton  = "/manage/team-members/invite-user/imports/add-user-service&subscribeService=Yes" %}
       {% endif %}
 
       {% if (data['numServices'] == 1) and (data['service'] == "Chemicals") %}
-        {% set giveAccessButton  = "/manage/team-members/invite-user/chemicals/add-user-roles-service-roles?orgName=AstraZeneca" %}
+        {% set giveAccessButton  = "/manage/team-members/invite-user/chemicals/add-user-roles-service-roles" %}
       {% endif %}
 
       {% if (data['numServices'] == 3) and (data['service'] == "Chemicals") %}
-        {% set giveAccessButton  = "/manage/team-members/invite-user/chemicals/add-user-service?orgName=AstraZeneca" %}
+        {% set giveAccessButton  = "/manage/team-members/invite-user/chemicals/add-user-service" %}
       {% endif %}
 
       {{ govukButton({

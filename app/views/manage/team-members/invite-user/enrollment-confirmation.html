@@ -19,22 +19,28 @@
     <h1 class="govuk-visually-hidden">{{title}}</h1>
     <div class="govuk-panel govuk-panel--confirmation">
       <h1 class="govuk-panel__title">
-        [first name] can now access the {{data['serviceLine']}} service
+        {{ data['name'] }} can now access the {{data['serviceLine']}} service
       </h1>
-
     </div>
 
     <h3 class="govuk-heading-m">What happens next</h3>
 
-    <p class="govuk-body">We will notify [first name] about the access you have given.</p>
+    <p class="govuk-body">We will notify {{ data['name'] }} about the access you have given.</p>
     <p class="govuk-body">You can change or remove this access at any time.</p>
-    
 
+    {% if data['userType'] == "invite" %}
+          {% set backURL = "/manage/team-members/services-on-team-member-invited" %}
+    {% endif %}
 
-      {{ govukButton({
-        text: "Back",
-        href: "/manage/team-members/services-on-team-member-invited"
-      }) }}
+    {% if data['userType'] == "invitedAgent" %}
+          {% set backURL = "/manage/agent/services-on-team-member-agent-invited" %}
+    {% endif %}
+
+    {{ govukButton({
+      text: "Back",
+      href: backURL
+    }) }}
+
 
   </div>
 </div>

@@ -20,19 +20,19 @@
 
     <!-- Decides where Continue button goes according to the service and number of services-->
     {% if (data['numServices'] == 1) and (data['service'] == "Imports") %}
-      {% set continueURL = "/manage/team-members/invite-user/enrollment-confirmation?orgName=ImportersUK" %}
+      {% set continueURL = "/manage/team-members/invite-user/enrollment-confirmation" %}
     {% endif %}
 
     {% if (data['numServices'] == 3) and (data['service'] == "Imports") %}
-      {% set continueURL = "/manage/team-members/invite-user/imports/add-user-service?orgName=ImportersUK" %}
+      {% set continueURL = "/manage/team-members/invite-user/imports/add-user-service" %}
     {% endif %}
 
     {% if (data['numServices'] == 1) and (data['service'] == "Chemicals") %}
-      {% set continueURL="/manage/team-members/invite-user/chemicals/add-user-roles-service-roles?orgName=AstraZeneca" %}
+      {% set continueURL="/manage/team-members/invite-user/chemicals/add-user-roles-service-roles" %}
     {% endif %}
 
     {% if (data['numServices'] == 3) and (data['service'] == "Chemicals") %}
-      {% set continueURL="/manage/team-members/invite-user/chemicals/add-user-service?orgName=AstraZeneca" %}
+      {% set continueURL="/manage/team-members/invite-user/chemicals/add-user-service" %}
     {% endif %}
 
 

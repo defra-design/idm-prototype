@@ -32,13 +32,6 @@
         <input type="hidden" name="personalFirstName" value="Jenny">
         <input type="hidden" name="personalSurname" value="Beach">
 
-        {% if data['service'] == "Imports" %}
-          <input type="hidden" name="orgName" value="ImportersUK">
-          {% else %}
-          <input type="hidden" name="orgName" value="AstraZeneca">
-        {% endif %}
-
-
 
         {{ govukInput({
           label: {

@@ -16,18 +16,18 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
     <h1 class="govuk-heading-xl">
-      Sara Chippers
+      {{ data['name'] }}
     </h1>
 
     {% if data['subscribeService'] == "Yes" %}
     {% else %}
 
-        <p class="govuk-body">Sara has completed the registration process ready to use our online services.</p>
+        <p class="govuk-body">{{ data['name'] }} has completed the registration process ready to use our online services.</p>
         <p class="govuk-body">You should now choose what information and tasks you would like this person to see and do.</p>
 
         {{ govukButton({
           text: "Give service access",
-          href: "/manage/team-members/invite-user/add-user-roles-system-roles"
+          href: "/manage/team-members/invite-user/add-user-roles-system-roles?userType=invite"
         }) }}
 
         <hr class="govuk-section-break--s">
@@ -40,9 +40,9 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <p class="govuk-body">
-      <span class="govuk-!-font-weight-bold">Full name:</span> Sara Chippers<br>
+      <span class="govuk-!-font-weight-bold">Full name:</span> {{ data['name'] }}<br>
       <span class="govuk-!-font-weight-bold">Account access level:</span> {{ data['systemRole'] }}<br>
-      <span class="govuk-!-font-weight-bold">Email address:</span> Sara.Chippers@email.com<br>
+      <span class="govuk-!-font-weight-bold">Email address:</span> name@email.com<br>
       <span class="govuk-!-font-weight-bold">Telephone:</span> 07846959366
 
     </p>
@@ -66,14 +66,14 @@
   {% if (data['numServices'] == 3) and (data['service'] == "Imports") %}
     {{ govukButton({
       text: "Give service access",
-      href: "/manage/team-members/add-user/imports/add-user-service"
+      href: "/manage/team-members/invite-user/imports/add-user-service?userType=invite"
     }) }}
   {% endif %}
 
   {% if (data['numServices'] == 3) and (data['service'] == "Chemicals") %}
     {{ govukButton({
       text: "Give service access",
-      href: "/manage/team-members/add-user/chemicals/add-user-service"
+      href: "/manage/team-members/invite-user/chemicals/add-user-service?userType=invite"
     }) }}
   {% endif %}
 
