@@ -35,7 +35,7 @@ router.get('/manage/dashboard-all-1', function (req, res) {
       "locationURL": 'organisations/organisation-all-1',
       "serviceCSS": 'govuk-visually-hidden',
       "orgSwitch": 'govuk-visually-hidden',
-      "orgName": "My Organisation"
+      "orgName": "Acme Org"
     })
 })
 
@@ -49,7 +49,7 @@ router.get('/manage/dashboard-all-2', function (req, res) {
       "locationURL": 'organisations/organisation-all-1',
       "serviceCSS": 'govuk-visually-hidden',
       "orgSwitch": 'govuk-visually-hidden',
-      "orgName": "My Organisation"
+      "orgName": "Acme Org"
     })
 })
 
@@ -62,7 +62,7 @@ router.get('/manage/dashboard-all', function (req, res) {
       "addLocationURL": '#',
       "locationURL": 'organisations/organisation-all',
       "orgSwitch": 'govuk-visually-hidden',
-      "orgName": "My Organisation"
+      "orgName": "Acme Org"
     })
 })
 
@@ -74,7 +74,7 @@ router.get('/manage/dashboard-all-agent', function (req, res) {
       "agentURL": 'agent/agent-all',
       "addLocationURL": '#',
       "locationURL": 'organisations/organisation-all',
-      "orgName": "My Organisation"
+      "orgName": "Acme Org"
 
     })
 })

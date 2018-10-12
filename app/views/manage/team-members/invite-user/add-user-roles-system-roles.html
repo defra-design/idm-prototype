@@ -35,11 +35,19 @@
       {% set continueURL="/manage/team-members/invite-user/chemicals/add-user-service" %}
     {% endif %}
 
+    {% if (data['numServices'] == 1) and (data['service'] == "VMD") %}
+    {% set continueURL = "/manage/team-members/invite-user/enrollment-confirmation" %}
+    {% endif %}
+
+    {% if (data['numServices'] == 3) and (data['service'] == "VMD") %}
+      {% set continueURL="/manage/team-members/invite-user/vmd/add-user-service" %}
+    {% endif %}
+
 
       <form action="{{ continueURL }}" method="post">
         <input type="hidden" name="subscribeService" value="Yes">
 
-        {% if data['service'] == "Imports"%}
+        {% if (data['service'] == "Imports") or (data['service'] == "VMD") %}
 
           {{ govukRadios ({
             idPrefix: "systemRole",
