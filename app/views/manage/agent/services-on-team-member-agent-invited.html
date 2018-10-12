@@ -19,16 +19,43 @@
       Bob Holmness
     </h1>
 
+
     {% if data['subscribeService'] == "Yes" %}
     {% else %}
 
         <p class="govuk-body">Bob has completed the registration process ready to use our online services.</p>
         <p class="govuk-body">You should now choose what information and tasks you would like this person to see and do.</p>
 
-        {{ govukButton({
-          text: "Give service access",
-          href: "/manage/team-members/invite-user/add-user-roles-system-roles?userType=invitedAgent&name=Bob Holmness"
-        }) }}
+
+        {% if (data['numServices'] == 3) and (data['service'] == "Imports") %}
+          {{ govukButton({
+            text: "Give service access",
+            href: "/manage/team-members/invite-user/imports/add-user-service?userType=invitedAgent&name=Bob Holmness"
+          }) }}
+        {% endif %}
+
+        {% if (data['numServices'] == 3) and (data['service'] == "Chemicals") %}
+          {{ govukButton({
+            text: "Give service access",
+            href: "/manage/team-members/invite-user/chemicals/add-user-service?userType=invitedAgent&name=Bob Holmness"
+          }) }}
+        {% endif %}
+
+        {% if (data['numServices'] == 3) and (data['service'] == "VMD") %}
+          {{ govukButton({
+            text: "Give service access",
+            href: "/manage/team-members/invite-user/vmd/add-user-service?subscribeService=Yes&userType=invitedAgent&name=Bob Holmness"
+          }) }}
+        {% endif %}
+
+        {% if (data['numServices'] == 1) %}
+          {{ govukButton({
+            text: "Give service access",
+            href: "/manage/team-members/invite-user/enrollment-confirmation?subscribeService=Yes&userType=invitedAgent&name=Bob Holmness"
+          }) }}
+        {% endif %}
+
+
 
         <hr class="govuk-section-break--s">
         <br>
@@ -41,7 +68,7 @@
   <div class="govuk-grid-column-two-thirds">
     <p class="govuk-body">
       <span class="govuk-!-font-weight-bold">Full name:</span> Bob Holmness<br>
-      <span class="govuk-!-font-weight-bold">Account access level:</span> {{ data['systemRole'] }}<br>
+      <span class="govuk-!-font-weight-bold">Account access level:</span> None<br>
       <span class="govuk-!-font-weight-bold">Email address:</span> Bob.Holmness@email.com<br>
       <span class="govuk-!-font-weight-bold">Telephone:</span> 07846959366
 
@@ -53,7 +80,7 @@
   </div>
   <div class="govuk-grid-column-one-third">
     <!--<p class="govuk-body"><a href="user-account" class="govuk-link--no-visited-state">Edit team member details</a></p>-->
-    <p class="govuk-body"><a href="#" class="govuk-link--no-visited-state">Change access level</a></p>
+    <!--<p class="govuk-body"><a href="#" class="govuk-link--no-visited-state">Change access level</a></p>-->
     <p class="govuk-body"><a href="#" class="govuk-link--no-visited-state">Reset password</a><br></p>
     <!--<p class="govuk-body"><a href="" class="govuk-link--no-visited-state">Delete team member</a></p>-->
   </div>
