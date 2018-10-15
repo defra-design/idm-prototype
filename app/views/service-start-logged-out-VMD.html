@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+{% set title = "Enrol to use the Veterinary Medicines Directorate (VMD) professional service" %}
+
+{% block header %}
+    {{ govukHeader({ serviceName: "" }) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/breadcrumb-two-level.html" %}
+{% endblock %}
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+      {{ title }}      </h1>
+      <p class="govuk-!-font-weight-bold">Assurance for a limited company</p>
+      <p>To enrol your organisation with the VMD service you need to:</p>
+             <ul class="govuk-list govuk-list--bullet">
+               <li>agree to VMD policies</li>
+               <li>tell us your market authority holder number (if known)</li>
+               <li>nominate another person in your organisation who we can contact to authorise the application</li>
+            </ul>
+
+
+      {% if data['userType'] == "new" %}
+            {% set startURL = "/scp/login-new" %}
+      {% endif %}
+
+      {% if data['userType'] == "existing" %}
+            {% set startURL = "/scp/login-existing" %}
+      {% endif %}
+
+      {{ govukButton({
+        text: "Start now",
+        href: startURL,
+        classes: "govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-8"
+      }) }}
+
+      <h2 class="govuk-heading-m">Before you start</h2>
+
+      <p class="govuk-body">You will need:</p>
+
+          <ul class="govuk-list govuk-list--bullet">
+      <li>your email address, phone number and postal address</li>
+      <li>your Government Gateway user ID and password (if you already have an account, if not you will be guided to create one)</li>
+      <li>the main contact details for your organisation (for example, head office contact details)</li>
+      <li>the Companies House number for the limited company you want to enrol</li>
+          </ul>
+          <br>
+
+
+      <hr class="govuk-section-break--m">
+
+      <p class="govuk-body">This prototype is being updated regularly.</p>
+
+
+    </div>
+  </div>
+
+{% endblock %}
