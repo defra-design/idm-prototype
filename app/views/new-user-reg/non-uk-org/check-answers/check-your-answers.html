@@ -8,8 +8,6 @@
 
 {% block beforeContent %}
 
-  {% include "includes/account-nav-admin-task.html" %}
-
   {{ govukBackLink({
     text: "Back",
     href: "javascript:history.back()"
@@ -28,8 +26,8 @@
     <h2 class="govuk-heading-m">
       Your account
     </h2>
-
     <dl class="app-check-your-answers app-check-your-answers--short">
+
       <div class="app-check-your-answers__contents">
         <dt class="app-check-your-answers__question">
           Your type of account
@@ -45,49 +43,9 @@
       </div>
 
     </dl>
-
     <h2 class="govuk-heading-m">
-      About your business or organisation
+      About you and your business
     </h2>
-    <dl class="app-check-your-answers app-check-your-answers--short">
-
-      <div class="app-check-your-answers__contents">
-        <dt class="app-check-your-answers__question">
-          Your business or organisation details
-        </dt>
-        <dd class="app-check-your-answers__answer">
-          Acme Org ({{ data['companyRegNum'] }})<br>
-          1 Francis Crick Avenue, Cambridge Biomedical Campus, Cambridge, United Kingdom, CB2 0AA
-        </dd>
-        <dd class="app-check-your-answers__change">
-          <a href="company-lookup" class="govuk-link">
-            Change<span class="govuk-visually-hidden"> registered company</span>
-          </a>
-        </dd>
-      </div>
-
-      <div class="app-check-your-answers__contents">
-        <dt class="app-check-your-answers__question">
-          Main contact details
-        </dt>
-        <dd class="app-check-your-answers__answer">
-          {{ data['businessTelephone'] }}<br>
-          {{ data['businessEmail'] }}
-        </dd>
-        <dd class="app-check-your-answers__change">
-          <a href="company-contact" class="govuk-link" >
-            Change<span class="govuk-visually-hidden"> registered company contact details</span>
-          </a>
-        </dd>
-      </div>
-
-    </dl>
-
-    <h2 class="govuk-heading-m">
-      About you
-    </h2>
-
-
     <dl class="app-check-your-answers app-check-your-answers--short">
 
       <div class="app-check-your-answers__contents">
@@ -118,15 +76,45 @@
         </dd>
       </div>
 
+    </dl>
+    <dl class="app-check-your-answers app-check-your-answers--short">
       <div class="app-check-your-answers__contents">
         <dt class="app-check-your-answers__question">
-          Authority to act?
+          Business trading name
         </dt>
         <dd class="app-check-your-answers__answer">
-          {{ data['personalSRO']}}
+          {{ data['companyName'] }}
+        </dd>
         <dd class="app-check-your-answers__change">
-          <a href="personal-sro" class="govuk-link" >
-            Change<span class="govuk-visually-hidden"> your level</span>
+          <a href="sole-trader-name" class="govuk-link">
+            Change<span class="govuk-visually-hidden"> trading name</span>
+          </a>
+        </dd>
+      </div>
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">
+          Business trading address
+        </dt>
+        <dd class="app-check-your-answers__answer">
+          7, Grange Road, Bristol, BS1 5AH
+        </dd>
+        <dd class="app-check-your-answers__change">
+          <a href="company-postcode" class="govuk-link">
+            Change<span class="govuk-visually-hidden"> trading address</span>
+          </a>
+        </dd>
+      </div>
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">
+          Business contact details
+        </dt>
+        <dd class="app-check-your-answers__answer">
+          {{ data['businessTelephone'] }} <br>
+          {{ data['businessEmail'] }}
+        </dd>
+        <dd class="app-check-your-answers__change">
+          <a href="company-contact-radio" class="govuk-link">
+            Change<span class="govuk-visually-hidden"> company contact details</span>
           </a>
         </dd>
       </div>
