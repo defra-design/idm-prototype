@@ -33,13 +33,30 @@
          </div>
 
 
-      {% if data['userType'] == "new" %}
-            {% set startURL = "/scp/login-new" %}
-      {% endif %}
+         {% if data['userType'] == "new" %}
+               {% set startURL = "/scp/login-new" %}
+         {% endif %}
 
-      {% if data['userType'] == "existing" %}
-            {% set startURL = "/scp/login-existing" %}
-      {% endif %}
+         {% if data['userType'] == "existing" %}
+               {% set startURL = "/scp/login-existing" %}
+         {% endif %}
+
+         {% if data['userType'] == "new-pending" %}
+               {% set startURL = "/scp/login-pending" %}
+         {% endif %}
+
+         {% if data['userType'] == "new-complete" %}
+               {% set startURL = "/scp/login-complete" %}
+         {% endif %}
+
+         {% if data['userType'] == "new-incomplete-tasklist" %}
+               {% set startURL = "/scp/login-incomplete-tasklist" %}
+         {% endif %}
+
+         {% if data['userType'] == "new-incomplete-service" %}
+               {% set startURL = "/scp/login-incomplete-service" %}
+         {% endif %}
+
 
       {{ govukButton({
         text: "Start now",
@@ -56,7 +73,7 @@
       <li>your Government Gateway user ID and password (if you already have an account, if not you will be guided to create one)</li>
           </ul>
 
-      <p class="govuk-body">If you are registering on behalf of a business or organisation, you will also need:</p>  
+      <p class="govuk-body">If you are registering on behalf of a business or organisation, you will also need:</p>
 
           <ul class="govuk-list govuk-list--bullet">
       <li>the main contact details for your business or organisation (for example, head office contact details)</li>
@@ -71,7 +88,7 @@
 
     </div>
 
-   
+
 
     <div class="govuk-grid-column-one-third">
 

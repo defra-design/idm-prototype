@@ -119,14 +119,12 @@ router.get('/scp/login-new', function (req, res) {
       "signinButton": '/about-data'
     })
 })
-
 // Existing user
 router.get('/scp/login-existing', function (req, res) {
     res.render('scp/login',{
       "signinButton": '/manage/team-members/services-on-team-member-admin-self-all-1'
     })
 })
-
 // Invited user
 router.get('/scp/login-invite', function (req, res) {
     res.render('scp/login',{
@@ -134,7 +132,6 @@ router.get('/scp/login-invite', function (req, res) {
 
     })
 })
-
 // Existing user - incomplete app: tasklist
 router.get('/scp/login-incomplete-tasklist', function (req, res) {
     res.render('scp/login',{
