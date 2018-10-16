@@ -20,7 +20,8 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-xl">
-      {{ title }}      </h1>
+        {{ title }}
+      </h1>
       <p class="govuk-!-font-weight-bold">Assurance for a limited company</p>
       <p>To enrol your organisation with the VMD service you need to:</p>
             <div class="govuk-inset-text">
@@ -32,9 +33,9 @@
           </div>
 
       <p class="govuk-heading-m">You need to use a Government Gateway account to register for this service</p>
-      <p class="govuk-body">We ask you to use or create a Government Gateway account to register with this service, as well as other services provided by Defra and related agencies and public bodies.</p> 
+      <p class="govuk-body">We ask you to use or create a Government Gateway account to register with this service, as well as other services provided by Defra and related agencies and public bodies.</p>
 
-      <p class="govuk-body">Having one set of sign in details (a user ID and password) will save you time. We will store basic information about you (and your business, if relevant) so that you do not have to re-enter the information each time you want to use a new online service.</p> 
+      <p class="govuk-body">Having one set of sign in details (a user ID and password) will save you time. We will store basic information about you (and your business, if relevant) so that you do not have to re-enter the information each time you want to use a new online service.</p>
 
       <p class="govuk-body">If you have administrator access, you will also be able to give other people (for example colleagues or agents you work with) access to one or more of the online services you use.</p>
 
@@ -58,7 +59,7 @@
       <li>the main contact details for your organisation (for example, head office contact details)</li>
       <li>the Companies House number for the limited company you want to enrol</li>
           </ul>
-       
+
 
       {% if data['userType'] == "new" %}
             {% set startURL = "/scp/login-new" %}
@@ -90,7 +91,7 @@
         classes: "govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-8"
       }) }}
 
-    
+
           <br>
 
 

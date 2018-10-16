@@ -8,7 +8,6 @@
 
 {% block beforeContent %}
   {% include "includes/account-nav-admin-task.html" %}
-  {% include "includes/breadcrumb-two-level.html" %}
 {% endblock %}
 
 
@@ -17,7 +16,7 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-xl">
-        [Service name]
+        {{ data['serviceLine'] }}
       </h1>
       {{ govukWarningText({
         text: "You need to complete your registration before you can use this service."
@@ -32,24 +31,7 @@
 
     </div>
 
-    <div class="govuk-grid-column-one-third">
 
-      <aside class="app-related-items" role="complementary">
-        <h2 class="govuk-heading-m" id="subsection-title">Subsection</h2>
-        <nav role="navigation" aria-labelledby="subsection-title">
-          <ul class="govuk-list govuk-body-s">
-            <li><a href="#">Related link</a></li>
-            <li><a href="#">Related link</a></li>
-            <li>
-              <a href="#" class="govuk-!-font-weight-bold">
-                More <span class="govuk-visually-hidden">in Subsection</span>
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </aside>
-
-    </div>
   </div>
 
 {% endblock %}

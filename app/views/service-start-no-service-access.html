@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Service name" %}
+{% set title = "There's a problem" %}
 
 {% block pageTitle %}
     {{title}} - GOV.UK
@@ -16,15 +16,14 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-xl">
-        [Service name]????? Won't know service name...
+      <h1 class="govuk-heading-xl">{{ title }}
       </h1>
 
-{% from "inset-text/macro.njk" import govukInsetText %}
+      {% from "inset-text/macro.njk" import govukInsetText %}
 
-  {{ govukInsetText({
-  text: "You do not currently have access to any services. Please contact your administrator to get access to the service you need."
-}) }}
+        {{ govukInsetText({
+        text: "You do not currently have access to any services. Please contact your administrator to get access to the service you need."
+      }) }}
 
     </div>
 

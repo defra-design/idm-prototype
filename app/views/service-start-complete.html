@@ -8,7 +8,6 @@
 
 {% block beforeContent %}
   {% include "includes/account-nav-admin-corp.html" %}
-  {% include "includes/breadcrumb-two-level.html" %}
 {% endblock %}
 
 
@@ -17,42 +16,25 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-xl">
-        [Service name]
+        {{ data['serviceLine'] }}
       </h1>
 
-{% from "inset-text/macro.njk" import govukInsetText %}
+      {% from "inset-text/macro.njk" import govukInsetText %}
 
-  {{ govukInsetText({
-  text: "Your service registration is complete."
-}) }}
+        {{ govukInsetText({
+        text: "Your service registration is complete."
+      }) }}
 
       <p class="govuk-body">You can now:</p>
-<ul class="govuk-list govuk-list--bullet">
-  <li>service task</li>
-  <li>service task</li>
-  <li>service task</li>
-</ul>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>service task</li>
+        <li>service task</li>
+        <li>service task</li>
+      </ul>
 
     </div>
 
-    <div class="govuk-grid-column-one-third">
 
-      <aside class="app-related-items" role="complementary">
-        <h2 class="govuk-heading-m" id="subsection-title">Subsection</h2>
-        <nav role="navigation" aria-labelledby="subsection-title">
-          <ul class="govuk-list govuk-body-s">
-            <li><a href="#">Related link</a></li>
-            <li><a href="#">Related link</a></li>
-            <li>
-              <a href="#" class="govuk-!-font-weight-bold">
-                More <span class="govuk-visually-hidden">in Subsection</span>
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </aside>
-
-    </div>
   </div>
 
 {% endblock %}
