@@ -1,0 +1,85 @@
+{% extends "layout.html" %}
+
+{% set title = "Read and accept our terms and conditions" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+{% endblock %}
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <!-- For invited users-->
+    {% if data['userType'] == "invite" %}
+      {% set tcButton  = "/new-user-reg/business-individual/task-list-page-personal-details" %}
+    {% endif %}
+
+    <!-- For new account registration-->
+    {% if data['userType'] == "new" %}
+      {% set tcButton  = "/new-user-reg/organisation-type" %}
+    {% endif %}
+
+    <!-- For new account registration-->
+    {% if data['userType'] == "existing" %}
+      {% set tcButton  = "/new-user-reg/organisation-type" %}
+    {% endif %}
+
+    <form action="{{ tcButton }}" method="post">
+
+
+
+
+      {{ govukCheckboxes({
+        idPrefix: "terms",
+        name: "terms",
+        fieldset: {
+          legend: {
+            text: "Read and accept our terms and conditions",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--xl"
+          }
+        },
+        hint: {
+          text: "To continue using this service please read and accept our terms and conditions."
+        },
+        items: [
+          {
+            value: "terms",
+            html: ' I have read and accept the <a href="/" class="govuk-link">terms and conditions</a>.'
+
+          }
+        ]
+      }) }}
+
+        <p class="govuk-body">Please take time to read how we use your data in our <a href="">Privacy Policy</a></p>
+
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+<br>
+<br>
+<br>
+<br>
+<p class="govuk-body-s">User type: {{ data['userType']}}</p>
+
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

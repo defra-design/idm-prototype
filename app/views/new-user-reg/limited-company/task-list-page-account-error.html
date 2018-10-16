@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block beforeContent %}
-
+  {% include "includes/account-nav-admin-task.html" %}
 {% endblock %}
 
 {% block content %}
@@ -21,7 +21,7 @@
 
     <p class="govuk-body">If you sign out before you complete everything, we will save your answers for <strong>3 days</strong> so that you can return and continue.</p>
       <br>
-      
+
       {{ govukErrorSummary({
         titleText: "There is a problem",
         errorList: [

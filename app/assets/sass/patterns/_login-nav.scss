@@ -1,61 +1,77 @@
 // Task list pattern
-@media (min-width: 641px){
 .login-nav {
-    padding-bottom: 10px;
-}}
-.login-nav {
-    padding: 10px 0 24px;
-    border-bottom: 1px solid #bfc1c3;
+  @include govuk-clearfix;
+  @include govuk-font($size: 16);
+  @include govuk-text-colour;
+  margin-top: govuk-spacing(3);
+  margin-bottom: govuk-spacing(2);
+  border-bottom: 1px solid #bfc1c3;
+
+
 }
 
-@media (min-width: 641px) {
-.login-nav p {
-    font-size: 16px;
-    line-height: 1.25;
-}}
+.login-nav__list {
+  @include govuk-clearfix;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  float: right;
 
+
+}
+
+.login-nav__list-item {
+
+    display: inline-block;
+    position: relative;
+    margin-bottom: govuk-spacing(1);
+    margin-bottom: 10px;
+    margin-left: 10px;
+    padding-left: 10px;
+  }
+
+  .login-nav__link {
+    @include govuk-link-common;
+    @include govuk-link-style-text;
+  }
+
+
+/*.login-nav {
+    padding: 10px 0 0 0;
+    border-bottom: 1px solid #bfc1c3;
+    float: left;
+    width: 100%;
+  }
+  */
+
+
+
+/*
 .login-nav p {
     display: table;
-    margin: 0;
-    color: #000;
-    font-family: "nta", Arial, sans-serif;
-    font-weight: 400;
-    text-transform: none;
     font-size: 14px;
-    line-height: 1.14286;
     float: right;
+    overflow: hidden;
 }
 
-@media (min-width: 641px){
-a.sign-out-link {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    float: right;
-    margin-top: 4px;
-    margin-left:4px;
-}}
-a.sign-out-link {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    float: right;
-    margin-top: 2px;
-    margin-left:4px;
-}
 
-a.account-nav {
-  text-decoration: none;
-}
-
-.align-right {
-  float: right;
-}
-
-.align-left {
+.login {
   float: left;
+  width: 100%;
+  border-bottom: 1px solid #bfc1c3;
+  padding: 10px 0 10px 0;
+  margin-bottom: 20px
 }
 
-.block {
-  display: block;
+.login ul{
+  float: right;
+  margin: 0;
+
 }
+
+.login li {
+
+  float: right;
+  padding: 0 0 0 10px;
+}
+*/
