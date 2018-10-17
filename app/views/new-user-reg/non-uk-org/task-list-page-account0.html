@@ -1,13 +1,13 @@
 {% extends "layout.html" %}
 
-{% set title = "Tell us your details" %}
+{% set title = "Register to use online services" %}
 
 {% block pageTitle %}
     {{title}} - GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
-
+  {% include "includes/account-nav-admin-task.html" %}
 {% endblock %}
 
 {% block content %}
@@ -19,7 +19,8 @@
       {{title}}
     </h1>
 
-      <p class="govuk-body">Please complete each of these sections.</p>
+    <p class="govuk-body">If you sign out before you complete everything, we will save your answers for <strong>3 days</strong> so that you can return and continue.</p>
+      <br>
 
       <ol class="app-task-list">
         <li>
@@ -43,13 +44,13 @@
           </h2>
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
-              <a class="app-task-list__task-name" href="company-lookup">
-                Your business or organisation address
+              <a class="app-task-list__task-name" href="company-address-manual">
+                Your business or organisation details
               </a>
             </li>
-            <li class="app-task-list__item">
+          <li class="app-task-list__item">
               <a class="app-task-list__task-name" href="company-contact">
-                Your business contact details
+                Contact details
               </a>
             </li>
           </ul>

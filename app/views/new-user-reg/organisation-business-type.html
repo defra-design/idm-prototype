@@ -40,6 +40,10 @@
             break;
             case 'Public limited company':
             form.action = '/new-user-reg/limited-company/task-list-page-account'
+            break;
+
+            case 'Non-UK organisation':
+            form.action = '/new-user-reg/non-uk-org/task-list-page-account'
 
             break;
             default:
@@ -108,7 +112,14 @@
             text: "Government",
             checked:  checked('businessType','Government')
 
+          },
+          {
+            value: "Non-UK organisation",
+            text: "Non-UK organisation",
+            checked:  checked('businessType','Non-UK organisation')
+
           }
+
 
         ]
       }) }}

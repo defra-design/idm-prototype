@@ -1,5 +1,7 @@
 <div class="login-nav">
-    <p>Signed in as: {{ data['personalFirstName'] }} {{ data['personalSurname'] }} &nbsp &nbsp &nbsp|&nbsp &nbsp
-      <a href="/manage/team-members/services-on-team-member-invited-account" class="govuk-link--no-visited-state govuk-nav__link">Account details</a>
-    </p>
+  <ul class="login-nav__list">
+    <li class="login-nav__list-item">Signed in as: {{ data['personalFirstName'] }} {{ data['personalSurname'] }}</li>
+    <li class="login-nav__list-item"><a href="/service-start-logged-out" class="govuk-nav__link govuk-link--no-visited-state">Sign out</a></li>
+    <li><a href="/manage/team-members/services-on-team-member-invited-account" class="govuk-link--no-visited-state govuk-nav__link">Account details</a></li>
+  </ul>
 </div>

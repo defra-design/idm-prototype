@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% set title = "What is your telephone number?" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="check-your-answers" method="post">
+
+      {{ govukInput({
+        label: {
+          text: title,
+          classes: "govuk-label--xl",
+          isPageHeading: true
+        },
+        classes: "govuk-input--width-10",
+        id: "personalTelephone",
+        name: "personalTelephone",
+        value: data['personalTelephone'],
+        type: "tel"
+      }) }}
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

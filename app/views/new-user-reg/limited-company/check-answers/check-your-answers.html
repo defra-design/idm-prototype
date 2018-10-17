@@ -8,6 +8,8 @@
 
 {% block beforeContent %}
 
+  {% include "includes/account-nav-admin-task.html" %}
+
   {{ govukBackLink({
     text: "Back",
     href: "javascript:history.back()"
@@ -131,10 +133,21 @@
 
     </dl>
 
+    {% if data['service'] == "Imports"%}
+
+    {{ govukButton({
+      text: "Continue",
+      href: "../../confirmation-reg-sent-success"
+    }) }}
+
+    {% else %}
+
     {{ govukButton({
       text: "Continue",
       href: "../../service-questions"
     }) }}
+
+    {% endif %}
 
   </div>
 </div>

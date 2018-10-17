@@ -7,6 +7,7 @@
 {% endblock %}
 
 {% block beforeContent %}
+  {% include "includes/account-nav-admin-task.html" %}
 
 {% endblock %}
 
@@ -18,7 +19,7 @@
 
     <h1 class="govuk-heading-xl">{{title}}</h1>
     {{ govukPanel({
-          titleText: "Application pending",
+          titleText: "Application complete",
           html: "Your reference number<br><strong>HDJ2123F</strong>"
     })
     }}
@@ -27,13 +28,14 @@
 
     <h3 class="govuk-heading-m">What happens next</h3>
 
-    <p class="govuk-body">[Service name] will contact you either to confirm your enrollment or to ask for more information.</p>
+    <p class="govuk-body">You can view your account and access the service.</p>
 
     <p class="govuk-body"><a href="#" class="govuk-link">What did you think of this service?</a> (takes 30 seconds)</p>
 
+
     {{ govukButton({
-        text: "Continue to service",
-        href: "/service-start-pending"
+        text: "Continue",
+        href: "/manage/dashboard-all-1?numUsers=1&numServices=1&numAgents=0&numLocations=1&service=Imports&serviceLine=IMP01"
     }) }}
 
   </div>

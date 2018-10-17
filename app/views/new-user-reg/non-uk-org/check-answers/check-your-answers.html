@@ -1,0 +1,143 @@
+{% extends "layout.html" %}
+
+{% set title = "Check your information" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">{{title}}</h1>
+
+    <h2 class="govuk-heading-m">
+      Your account
+    </h2>
+    <dl class="app-check-your-answers app-check-your-answers--short">
+
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">
+          Your type of account
+        </dt>
+        <dd class="app-check-your-answers__answer">
+          {{ data['businessType']}}
+        </dd>
+        <dd class="app-check-your-answers__change">
+          <a href="organisation-type" class="govuk-link" >
+            Change<span class="govuk-visually-hidden"> account type</span>
+          </a>
+        </dd>
+      </div>
+
+    </dl>
+    <h2 class="govuk-heading-m">
+      About you and your business
+    </h2>
+    <dl class="app-check-your-answers app-check-your-answers--short">
+
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">
+          Your name
+        </dt>
+        <dd class="app-check-your-answers__answer">
+          {{ data['personalFirstName']}} {{ data['personalSurname']}}
+        </dd>
+        <dd class="app-check-your-answers__change">
+          <a href="personal-details" class="govuk-link" >
+            Change<span class="govuk-visually-hidden"> name</span>
+          </a>
+        </dd>
+      </div>
+
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">
+          Your telephone number
+        </dt>
+        <dd class="app-check-your-answers__answer">
+          {{ data['personalTelephone'] }}
+        </dd>
+        <dd class="app-check-your-answers__change">
+          <a href="personal-contact" class="govuk-link" >
+            Change<span class="govuk-visually-hidden"> contact number</span>
+          </a>
+        </dd>
+      </div>
+
+    </dl>
+    <dl class="app-check-your-answers app-check-your-answers--short">
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">
+          Business trading name
+        </dt>
+        <dd class="app-check-your-answers__answer">
+          {{ data['companyName'] }}
+        </dd>
+        <dd class="app-check-your-answers__change">
+          <a href="sole-trader-name" class="govuk-link">
+            Change<span class="govuk-visually-hidden"> trading name</span>
+          </a>
+        </dd>
+      </div>
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">
+          Business trading address
+        </dt>
+        <dd class="app-check-your-answers__answer">
+          7, Grange Road, Bristol, BS1 5AH
+        </dd>
+        <dd class="app-check-your-answers__change">
+          <a href="company-postcode" class="govuk-link">
+            Change<span class="govuk-visually-hidden"> trading address</span>
+          </a>
+        </dd>
+      </div>
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">
+          Business contact details
+        </dt>
+        <dd class="app-check-your-answers__answer">
+          {{ data['businessTelephone'] }} <br>
+          {{ data['businessEmail'] }}
+        </dd>
+        <dd class="app-check-your-answers__change">
+          <a href="company-contact-radio" class="govuk-link">
+            Change<span class="govuk-visually-hidden"> company contact details</span>
+          </a>
+        </dd>
+      </div>
+
+    </dl>
+
+    {% if data['service'] == "Imports"%}
+
+    {{ govukButton({
+      text: "Continue",
+      href: "../../confirmation-reg-sent-success"
+    }) }}
+
+    {% else %}
+
+    {{ govukButton({
+      text: "Continue",
+      href: "../../service-questions"
+    }) }}
+
+    {% endif %}
+
+  </div>
+</div>
+
+{% endblock %}

@@ -34,11 +34,20 @@
       <h2 class="govuk-heading-m">RC1.0 Registration
       </h2>
       <ul class="govuk-list govuk-list--bullet">
-        <li><a href="service-start-logged-out?userType=new" class="govuk-link--no-visited-state">New user: registration</a></li>
-        <li><a href="/scp/login-incomplete-tasklist?numUsers=1&numServices=1&numAgents=0&numLocations=1&service=Chemicals&serviceLine=UK Reach-IT&userType=existing" class="govuk-link--no-visited-state">Return user: Incomplete registration - task list not finished</a></li>
-        <li><a href="/scp/login-incomplete-service?numUsers=1&numServices=1&numAgents=0&numLocations=1&service=Chemicals&serviceLine=UK Reach-IT&userType=existing" class="govuk-link--no-visited-state">Return user: Incomplete registration - service not finished</a></li>
-        <li><a href="/scp/login-pending?numUsers=1&numServices=1&numAgents=0&numLocations=1&service=Chemicals&serviceLine=UK Reach-IT&userType=existing" class="govuk-link--no-visited-state">Return user: Registration is pending</a></li>
-        <li><a href="/scp/login-complete?numUsers=1&numServices=1&numAgents=0&numLocations=1&service=Chemicals&serviceLine=UK Reach-IT&userType=existing" class="govuk-link--no-visited-state">Return user: Registration is complete</a></li>
+        <li><a href="service-start-logged-out?service=Chemicals&userType=new&regSuccess=pending" class="govuk-link--no-visited-state">New user: registration pending (Chemicals)</a></li>
+        <li><a href="service-start-logged-out?service=Imports&serviceLine=IMP01&userType=new&regSuccess=success" class="govuk-link--no-visited-state">New user: registration success (Imports)</a></li>
+        <!--
+        <li><a href="service-start-logged-out-imports?userType=new" class="govuk-link--no-visited-state">New user: registration (Imports)</a></li>
+      -->
+        <li><a href="service-start-logged-out-VMD?userType=new" class="govuk-link--no-visited-state">New user: registration (VMD)</a></li>
+        <li><a href="service-start-logged-out?userType=new" class="govuk-link--no-visited-state">SCP user: registration</a></li>
+      </ul>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="service-start-logged-out?userType=new-incomplete-tasklist&serviceLine=UK REACH-IT" class="govuk-link--no-visited-state">Return user: Incomplete registration - task list not finished</a></li>
+        <li><a href="service-start-logged-out?userType=new-incomplete-service&serviceLine=UK REACH-IT" class="govuk-link--no-visited-state">Return user: Incomplete registration - service not finished</a></li>
+        <li><a href="service-start-logged-out?userType=new-pending&serviceLine=UK REACH-IT" class="govuk-link--no-visited-state">Return user: Registration is pending</a></li>
+        <li><a href="service-start-logged-out?userType=new-complete&serviceLine=UK REACH-IT" class="govuk-link--no-visited-state">Return user: Registration is complete</a></li>
       </ul>
       <h3 class="govuk-heading-s">Quick links
       </h3>
@@ -47,6 +56,7 @@
         <li><a href="new-user-reg/sole-trader/task-list-page-account" class="govuk-link--no-visited-state">Task list - Sole trader</a></li>
         <li><a href="new-user-reg/individual/task-list-page-account" class="govuk-link--no-visited-state">Task list - Individual</a></li>
         <li><a href="new-user-reg/business-individual/task-list-page-personal-details" class="govuk-link--no-visited-state">Task list - Business Individual</a></li>
+        <li><a href="new-user-reg/non-uk-org/task-list-page-account" class="govuk-link--no-visited-state">Task list - Non-UK Organisation</a></li>
         <li><a href="new-user-reg/limited-company/task-list-page-account-error" class="govuk-link--no-visited-state">Task list - error page</a></li>
       </ul>
 
@@ -55,7 +65,9 @@
       <ul class="govuk-list govuk-list--bullet">
         <li><a href="/manage/dashboard-all-1?numUsers=1&numServices=1&numAgents=0&numLocations=1&service=Chemicals&serviceLine=UK Reach-IT" class="govuk-link--no-visited-state">Admin: New User Dashboard (Chemicals)</a></li>
         <li><a href="/manage/dashboard-all?numUsers=5&numAgents=3&numServices=3&numLocations=1&service=Chemicals&serviceLine=UK Reach-IT" class="govuk-link--no-visited-state">Admin: Full dashboard (Chemicals)</a></li>
+        <li><a href="/manage/dashboard-all?numUsers=5&numAgents=3&numServices=3&numLocations=1&service=Imports&serviceLine=IMP-S01" class="govuk-link--no-visited-state">Admin: Full dashboard (Imports)</a></li>
         <li><a href="/manage/dashboard-all?numUsers=5&numAgents=3&numServices=3&numLocations=1&service=VMD&serviceLine=Adverse Event Reporting" class="govuk-link--no-visited-state">Admin: Full dashboard (VMD)</a></li>
+
         <!--
         <li><a href="/manage/dashboard-all-agent?numUsers=5&numAgents=3&numServices=3&numLocations=1&service=Chemicals&serviceLine=UK Reach-IT&orgName=My Company" class="govuk-link--no-visited-state">Admin: Agent Dashboard</a></li>
       -->

@@ -59,10 +59,21 @@
 
     </dl>
 
+    {% if data['service'] == "Imports"%}
+
     {{ govukButton({
       text: "Continue",
-      href: "../reg-confirmation"
+      href: "../../confirmation-reg-sent-success"
     }) }}
+
+    {% else %}
+
+    {{ govukButton({
+      text: "Continue",
+      href: "../../service-questions"
+    }) }}
+
+    {% endif %}
 
   </div>
 </div>

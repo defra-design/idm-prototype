@@ -8,6 +8,8 @@
 
 {% block beforeContent %}
 
+  {% include "includes/account-nav-admin-task.html" %}
+
   {{ govukBackLink({
     text: "Back",
     href: "javascript:history.back()"
@@ -23,7 +25,13 @@
 
     <h1 class="govuk-heading-xl">{{title}}</h1>
 
-    <form action="confirmation-reg-sent" method="post">
+    {% if data['regSuccess'] == "success" %}
+      <form action="confirmation-reg-sent-success" method="post">
+    {% endif %}
+
+    {% if data['regSuccess'] == "pending" %}
+      <form action="confirmation-reg-sent-pending" method="post">
+    {% endif %}
 
       <p class="govuk-body">[Insert service question content here]</p>
 
