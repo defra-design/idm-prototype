@@ -67,19 +67,36 @@
           </ul>
 
 
-      {% if data['userType'] == "new" %}
-            {% set startURL = "/scp/login-new" %}
-      {% endif %}
+{% if data['userType'] == "new" %}
+              {% set startURL = "/scp/login-new" %}
+        {% endif %}
 
-      {% if data['userType'] == "existing" %}
-            {% set startURL = "/scp/login-existing" %}
-      {% endif %}
+        {% if data['userType'] == "existing" %}
+              {% set startURL = "/scp/login-existing" %}
+        {% endif %}
 
-      {{ govukButton({
-        text: "Start now",
-        href: startURL,
-        classes: "govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-8"
-      }) }}
+        {% if data['userType'] == "new-pending" %}
+              {% set startURL = "/scp/login-pending" %}
+        {% endif %}
+
+        {% if data['userType'] == "new-complete" %}
+              {% set startURL = "/scp/login-complete" %}
+        {% endif %}
+
+        {% if data['userType'] == "new-incomplete-tasklist" %}
+              {% set startURL = "/scp/login-incomplete-tasklist" %}
+        {% endif %}
+
+        {% if data['userType'] == "new-incomplete-service" %}
+              {% set startURL = "/scp/login-incomplete-service" %}
+        {% endif %}
+
+
+     {{ govukButton({
+       text: "Start now",
+       href: startURL,
+       classes: "govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-8"
+     }) }}
 
 
 
