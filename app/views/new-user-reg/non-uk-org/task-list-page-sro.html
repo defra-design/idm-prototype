@@ -19,7 +19,7 @@
       {{title}}
     </h1>
 
-    <p class="govuk-body">If you sign out before you complete everything, we will save your answers for <strong>3 days</strong> so that you can return and continue.</p>
+      <p class="govuk-body">If you sign out before you complete everything, we will save your answers for <strong>3 days</strong> so that you can return and continue.</p>
       <br>
 
       <ol class="app-task-list">
@@ -44,7 +44,7 @@
           </h2>
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
-              <a class="tapp-task-list__task-name" href="org-name" aria-describedby="company-details-completed">
+              <a class="app-task-list__task-name" href="org-name" aria-describedby="company-details-completed">
                 Your business or organisation details
               </a>
               <strong class="govuk-tag app-task-list__task-completed" id="company-details-completed">
@@ -68,16 +68,20 @@
           </h2>
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
-              <a class="app-task-list__task-name" href="personal-details">
+              <a class="app-task-list__task-name" href="personal-details" aria-describedby="personal-details-completed">
                 Your contact details
               </a>
-
+              <strong class="govuk-tag app-task-list__task-completed" id="personal-details-completed">
+                Completed
+              </strong>
             </li>
             <li class="app-task-list__item">
-              <a class="app-task-list__task-name" href="personal-sro">
+              <a class="app-task-list__task-name" href="personal-sro" aria-describedby="sro-details-completed">
                 Your level of responsibility
               </a>
-
+              <strong class="govuk-tag app-task-list__task-completed" id="sro-details-completed">
+                Completed
+              </strong>
             </li>
           </ul>
         </li>
@@ -87,7 +91,7 @@
             <li>
               {{ govukButton({
                 text: "Check your answers",
-                href: "task-list-page-account-error"
+                href: "check-your-answers"
               }) }}
             </li>
           </ul>

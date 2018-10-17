@@ -1,13 +1,13 @@
 {% extends "layout.html" %}
 
-{% set title = "Tell us your details" %}
+{% set title = "Register to use online services" %}
 
 {% block pageTitle %}
     {{title}} - GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
-
+  {% include "includes/account-nav-admin-task.html" %}
 {% endblock %}
 
 {% block content %}
@@ -19,67 +19,86 @@
       {{title}}
     </h1>
 
-    <p class="govuk-body">Please complete each of these sections.</p>
+    <p class="govuk-body">If you sign out before you complete everything, we will save your answers for <strong>3 days</strong> so that you can return and continue.</p>
+      <br>
 
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: [
+          {
+            text: "EXAMPLE ERROR. [Section name] must be completed",
+            href: "#error"
+          }
+        ]
+      }) }}
 
-    {{ govukErrorSummary({
-      titleText: "There is a problem",
-      errorList: [
-        {
-          text: "EXAMPLE ERROR. [Section name] must be completed",
-          href: "#dob-error"
-        }
-      ]
-    }) }}
+      <ol class="app-task-list">
+        <li>
+          <h2 class="app-task-list__section">
+            <span class="app-task-list__section-number">1. </span> Your account
+          </h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              <a class="app-task-list__task-name" href="/new-user-reg/organisation-type" aria-describedby="account-type-completed">
+                Your type of account
+              </a>
+              <strong class="govuk-tag app-task-list__task-completed" id="account-type-completed">
+                Completed
+              </strong>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <h2 class="app-task-list__section">
+            <span class="app-task-list__section-number">2. </span>About your business or organisation
+          </h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item govuk-form-group--error">
+              <span id="error" class="govuk-error-message">
+                You must complete your business or organisation details
+                </span>
+                <a class="app-task-list__task-name" href="org-name">
+                Your business or organisation details
+              </a>
+            </li>
+          <!--  <li class="app-task-list__item">
+              <a class="app-task-list__task-name" href="company-contact">
+                Contact details
+              </a>
+            </li>-->
+          </ul>
+        </li>
 
-    <ol class="app-task-list">
-      <li>
-        <h2 class="app-task-list__section">
-          <span class="app-task-list__section-number">1. </span> Your account
-        </h2>
-        <ul class="app-task-list__items">
-          <li class="app-task-list__item">
-            <a class="task-name" href="/new-user-reg/organisation-type" aria-describedby="account-type-completed">
-              Your type of account
-            </a>
-            <strong class="govuk-tag app-task-list__task-completed" id="account-type-completed">
-              Completed
-            </strong>
-          </li>
-        </ul>
-      </li>
-      <li>
-        <h2 class="app-task-list__section">
-          <span class="app-task-list__section-number">2. </span> About you and your business
-        </h2>
-        <ul class="app-task-list__items">
-          <li class="app-task-list__item govuk-form-group--error">
-            <span id="error" class="govuk-error-message">
-              You must complete your contact details
-              </span>
-              <a class="task-name" href="personal-details">
-              Your contact details
-            </a>
-          </li>
-          <li class="app-task-list__item">
-              <a class="task-name" href="org-name">
-              Your business details
-            </a>
-          </li>
-        </ul>
-      </li>
+        <li>
+          <h2 class="app-task-list__section">
+            <span class="app-task-list__section-number">3. </span> About you
+          </h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              <a class="app-task-list__task-name" href="personal-details">
+                Your contact details
+              </a>
+            </li>
+            <li class="app-task-list__item">
+              <a class="app-task-list__task-name" href="personal-sro">
+                Your level of responsibility
+              </a>
+            </li>
+          </ul>
+        </li>
 
-      <li>
-        <ul class="app-task-list__items">
-          <li>
-            {{ govukButton({
-              text: "Check your answers",
-              href: "task-list-page-account-error"
-            }) }}
-          </li>
-        </ul>
-      </li>
-    </ol>
+        <li>
+          <ul class="app-task-list__items">
+            <li>
+              {{ govukButton({
+                text: "Check your answers",
+                href: "task-list-page-account-error"
+              }) }}
+            </li>
+          </ul>
+        </li>
+
+      </ol>
 
   </div>
 </div>
