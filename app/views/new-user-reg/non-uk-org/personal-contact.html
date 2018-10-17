@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block beforeContent %}
-
+  {% include "includes/account-nav-admin-task.html" %}
   {{ govukBackLink({
     text: "Back",
     href: "javascript:history.back()"
@@ -21,7 +21,9 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
+
     <form action="task-list-page-personal-details" method="post">
+
 
       {{ govukInput({
         label: {
@@ -29,6 +31,7 @@
           classes: "govuk-label--xl",
           isPageHeading: true
         },
+
         classes: "govuk-input--width-10",
         id: "personalTelephone",
         name: "personalTelephone",
@@ -36,10 +39,11 @@
         type: "tel"
       }) }}
 
-       <div class="govuk-inset-text">
-        We may also contact you by email, using the address registered with your Government Gateway account: {{data['scpEmail']}}<br>
-        <span class="govuk-!-font-weight-bold">{{data['scpEmail']}}</span>
-      </div>
+
+      <div class="govuk-inset-text">
+       We may also contact you by email, using the address registered with your Government Gateway account: <br>
+       <span class="govuk-!-font-weight-bold">{{data['scpEmail']}}</span>
+     </div>
 
       {{ govukButton({
         text: "Continue"

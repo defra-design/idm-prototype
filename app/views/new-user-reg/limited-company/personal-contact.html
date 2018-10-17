@@ -39,11 +39,10 @@
         type: "tel"
       }) }}
 
-
-      {{ govukDetails({
-        summaryText: "Why do we ask for this?",
-        html: ' <p class="govuk-body">We may need to contact you about the services you use on behalf of your organisation. You can find out more about how and why we ask for your personal information by reading our privacy notice (LINK)</a>.</p>'
-      }) }}
+      <div class="govuk-inset-text">
+       We may also contact you by email, using the address registered with your Government Gateway account:<br>
+       <span class="govuk-!-font-weight-bold">{{data['scpEmail']}}</span>
+     </div>
 
       {{ govukButton({
         text: "Continue"
