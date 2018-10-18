@@ -69,8 +69,20 @@
         What do you want them to be able to do in the {{ data['serviceLine'] }} service?
     {% endset %}
 
-    router.get('/scp/login-invite', function (req, res) {
+  router.get('/scp/login-invite', function (req, res) {
    req.session.data[userType]="invite"
    res.render('scp/login',{
      "signinButton": '/about-data'
    })})
+
+<!--routes for checkboxes -->
+  router.post('/originPage', function (req, res) {
+
+  if (req.session.data['nameOfCheckboxes'].includes('ValueOfCheckbox')) {
+    res.redirect('/route1')
+  } else {
+    res.redirect('/route2')
+  }
+})
+
+Single line form fields: class="govuk-!-display-inline-block"

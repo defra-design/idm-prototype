@@ -19,6 +19,7 @@
 
 
 {% block content %}
+{{data['userType']}}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
@@ -144,7 +145,7 @@
 
     {{ govukButton({
       text: "Continue",
-      href: "../../service-questions"
+      href: "../service-questions"
     }) }}
 
     {% endif %}
