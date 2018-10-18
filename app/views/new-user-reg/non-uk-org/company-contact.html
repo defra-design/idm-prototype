@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "What are the main contact details for this registered company?" %}
+{% set title = "What are the main contact details for your business?" %}
 
 {% block pageTitle %}
     {{title}} - GOV.UK
@@ -35,7 +35,7 @@
 
         {{ govukInput({
           label: {
-            text: "Telephone number"
+            text: "Telephone number (including the country code)"
           },
           classes: "govuk-input--width-10",
           id: "businessTelephone",
