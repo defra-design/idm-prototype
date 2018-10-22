@@ -60,8 +60,11 @@
         {% if data['userType'] == "new-pending" %}
               {% set startURL = "/scp/login-pending" %}
         {% endif %}
-        {% if data['userType'] == "new-complete" %}
-              {% set startURL = "/scp/login-complete" %}
+        {% if data['userType'] == "new-complete-admin" %}
+              {% set startURL = "/scp/login-complete-admin" %}
+        {% endif %}
+        {% if data['userType'] == "new-complete-standard" %}
+              {% set startURL = "/scp/login-complete-standard" %}
         {% endif %}
         {% if data['userType'] == "new-incomplete-tasklist" %}
               {% set startURL = "/scp/login-incomplete-tasklist" %}

@@ -21,28 +21,38 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <h1 class="govuk-heading-xl">{{title}}
-    </h1>
-      <span id="national-insurance-number-hint" class="govuk-hint">
-      For example, contact details for your head office or management team.
-      </span>
+  {% if data['flowType'] == "check" %}
+    <form method="post" action="check-your-answers">
+  {% else %}
+    <form method="post" action="task-list-page-company-contact">
+  {% endif %}
 
-      {% if data['flowType'] == "check" %}
-        <form method="post" action="check-your-answers">
-      {% else %}
-        <form method="post" action="task-list-page-company-contact">
-      {% endif %}
+  <h1 class="govuk-heading-xl">
+    {{ title }}
+  </h1>
+  <span class="govuk-hint">
+  For example, contact details for your head office or management team.
+  </span>
 
-        {{ govukInput({
-          label: {
-            text: "Telephone number (including the country code)"
-          },
-          classes: "govuk-input--width-10",
-          id: "businessTelephone",
-          name: "businessTelephone",
-          value: data['businessTelephone'],
-          type: "tel"
-        }) }}
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+            <p class="govuk-fieldset__body">Telephone number with international code</p>
+          </legend>
+          <div class="govuk-form-group govuk-!-display-inline-block">
+            <label class="govuk-label govuk-visually-hidden" for="countryCode">
+              Country code
+            </label>
+            <input class="govuk-input govuk-input--width-2" id="countryCode" name="countryCode" type="tel" placeholder="+44">
+          </div>
+          <div class="govuk-form-group govuk-!-display-inline-block">
+            <label class="govuk-label govuk-visually-hidden" for="businessTelephone">
+              Telephone
+            </label>
+            <input class="govuk-input" id="businessTelephone" name="businessTelephone" type="tel" placeholder="020 7946 0290">
+          </div>
+        </fieldset>
+      </div>
 
         {{ govukInput({
           label: {

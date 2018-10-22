@@ -144,10 +144,16 @@ router.get('/scp/login-incomplete-service', function (req, res) {
       "signinButton": '/service-start-service-incomplete'
     })
 })
-// Existing user - complete app
-router.get('/scp/login-complete', function (req, res) {
+// Existing admin user - complete app
+router.get('/scp/login-complete-admin', function (req, res) {
     res.render('scp/login',{
-      "signinButton": '/service-start-complete'
+      "signinButton": '/manage/team-members/services-on-team-member-admin-self'
+    })
+})
+// Existing standard user - complete app
+router.get('/scp/login-complete-standard', function (req, res) {
+    res.render('scp/login',{
+      "signinButton": '/manage/team-members/services-on-team-member-standard-account'
     })
 })
 // Existing user - pending app
