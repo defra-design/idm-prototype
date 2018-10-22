@@ -32,7 +32,7 @@ router.get('/manage/dashboard-all-1', function (req, res) {
       "addAgentURL": 'agent/invite-user/add-user-details',
       "agentURL": 'agent/agent-0',
       "addLocationURL": '#',
-      "locationURL": 'organisations/organisation-all-1',
+      "locationURL": 'organisations/organisation-details',
       "serviceCSS": 'govuk-visually-hidden',
       "orgSwitch": 'govuk-visually-hidden',
       "orgName": "Acme Org"
@@ -46,7 +46,7 @@ router.get('/manage/dashboard-all-2', function (req, res) {
       "addAgentURL": 'agent/invite-user/add-user-details',
       "agentURL": 'agent/agent-0',
       "addLocationURL": '#',
-      "locationURL": 'organisations/organisation-all-1',
+      "locationURL": 'organisations/organisation-details?orgName=Acme Org',
       "serviceCSS": 'govuk-visually-hidden',
       "orgSwitch": 'govuk-visually-hidden',
       "orgName": "Acme Org"
@@ -60,7 +60,7 @@ router.get('/manage/dashboard-all', function (req, res) {
       "addAgentURL": 'agent/chemicals/invite-user/add-user-details',
       "agentURL": 'agent/agent-all',
       "addLocationURL": '#',
-      "locationURL": 'organisations/organisation-all',
+      "locationURL": 'organisations/organisation-details?orgName=Acme Org',
       "orgSwitch": 'govuk-visually-hidden',
       "orgName": "Acme Org"
     })
@@ -73,7 +73,7 @@ router.get('/manage/dashboard-all-agent', function (req, res) {
       "addAgentURL": 'agent/chemicals/invite-user/add-user-details',
       "agentURL": 'agent/agent-all',
       "addLocationURL": '#',
-      "locationURL": 'organisations/organisation-all',
+      "locationURL": 'organisations/organisation-all?orgName=Acme Org',
       "orgName": "Acme Org"
 
     })

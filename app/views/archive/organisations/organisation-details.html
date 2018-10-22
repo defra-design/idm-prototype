@@ -8,7 +8,7 @@
 
 {% block beforeContent %}
   {% include "includes/account-nav-admin-corp.html" %}
-  {% include "includes/breadcrumb-three-level.html" %}
+  {% include "includes/breadcrumb-four-level-org.html" %}
 {% endblock %}
 
 {% block content %}
@@ -16,7 +16,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
     <h1 class="govuk-heading-xl">
-      {{ data['orgName'] }} details
+      {{ orgName }} {{ data['orgName'] }}
     </h1>
   </div>
 </div>
@@ -32,8 +32,8 @@
     <span class="govuk-!-font-weight-bold">Email:</span> simone@org.com<br></p>
   </div>
   <div class="govuk-grid-column-one-thirds">
-    <p class="govuk-body"><a href="#" class="govuk-link--no-visited-state">Edit Address</a></p>
-    <p class="govuk-body"><a href="#" class="govuk-link--no-visited-state">Edit contact details</a></p>
+    <p class="govuk-body"><a href="user-account" class="govuk-link--no-visited-state">Edit Address</a><br>
+    <a href="" class="govuk-link--no-visited-state">Edit contact details</a></p>
   </div>
 </div>
 
