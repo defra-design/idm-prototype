@@ -147,7 +147,7 @@ router.get('/scp/login-incomplete-service', function (req, res) {
 // Existing admin user - complete app
 router.get('/scp/login-complete-admin', function (req, res) {
     res.render('scp/login',{
-      "signinButton": '/manage/team-members/services-on-team-member-admin-self'
+      "signinButton": '/manage/team-members/services-on-team-member-admin-self-all-1'
     })
 })
 // Existing standard user - complete app
