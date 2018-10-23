@@ -31,23 +31,23 @@
 
           switch(checkedValue){
             case 'Sole trader':
-            form.action = '/new-user-reg/sole-trader/task-list-page-account'
+            form.action = '/new-user-reg/sole-trader/task-list-page-account?flowType=task'
 
             break;
             case 'Limited company':
-            form.action = '/new-user-reg/limited-company/task-list-page-account'
+            form.action = '/new-user-reg/limited-company/task-list-page-account?flowType=task'
 
             break;
             case 'Public limited company':
-            form.action = '/new-user-reg/limited-company/task-list-page-account'
+            form.action = '/new-user-reg/limited-company/task-list-page-account?flowType=task'
             break;
 
             case 'Non-UK organisation':
-            form.action = '/new-user-reg/non-uk-org/task-list-page-account'
+            form.action = '/new-user-reg/non-uk-org/task-list-page-account?flowType=task'
 
             break;
             default:
-            form.action = '/new-user-reg/organisation-business-coming-soon'
+            form.action = '/new-user-reg/organisation-business-coming-soon?flowType=task'
           }
           return true
         }

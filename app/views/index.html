@@ -29,8 +29,6 @@
       <p class="govuk-body">It will also allow them to give other people (for example colleagues or agents they work with) access to one or more of the online services they use.</p>
 
 
-
-
       <h2 class="govuk-heading-m">RC1.0 Registration
       </h2>
       <ul class="govuk-list govuk-list--bullet">
@@ -48,17 +46,16 @@
         <li><a href="service-start-logged-out?userType=new-incomplete-service&serviceLine=UK REACH-IT" class="govuk-link--no-visited-state">Return user: Incomplete registration - service not finished</a></li>
         <li><a href="service-start-logged-out?userType=new-pending&serviceLine=UK REACH-IT" class="govuk-link--no-visited-state">Return user: Registration is pending</a></li>
         <li><a href="service-start-logged-out?userType=new-complete-admin&numUsers=1&numServices=1&numAgents=0&numLocations=1&service=Chemicals&serviceLine=UK Reach-IT" class="govuk-link--no-visited-state">Return user: Admin registration is complete</a></li>
-        <li><a href="service-start-logged-out?userType=new-complete-standard&serviceLine=UK REACH-IT" class="govuk-link--no-visited-state">Return user: Standard user registration is complete</a></li>
       </ul>
       <h3 class="govuk-heading-s">Quick links
       </h3>
       <ul class="govuk-list govuk-list--bullet">
-        <li><a href="new-user-reg/limited-company/task-list-page-account?userType=new" class="govuk-link--no-visited-state">Task list - Ltd company or PLC</a></li>
-        <li><a href="new-user-reg/sole-trader/task-list-page-account?userType=new" class="govuk-link--no-visited-state">Task list - Sole trader</a></li>
-        <li><a href="new-user-reg/individual/task-list-page-account?userType=new" class="govuk-link--no-visited-state">Task list - Individual</a></li>
-        <li><a href="new-user-reg/business-individual/task-list-page-personal-details?userType=new" class="govuk-link--no-visited-state">Task list - Business Individual</a></li>
-        <li><a href="new-user-reg/non-uk-org/task-list-page-account?userType=new" class="govuk-link--no-visited-state">Task list - Non-UK Organisation</a></li>
-        <li><a href="new-user-reg/limited-company/task-list-page-account-error?userType=new" class="govuk-link--no-visited-state">Task list - error page</a></li>
+        <li><a href="new-user-reg/limited-company/task-list-page-account?userType=new&flowType=task" class="govuk-link--no-visited-state">Task list - Ltd company or PLC</a></li>
+        <li><a href="new-user-reg/sole-trader/task-list-page-account?userType=new&flowType=task" class="govuk-link--no-visited-state">Task list - Sole trader</a></li>
+        <li><a href="new-user-reg/individual/task-list-page-account?userType=new&flowType=task" class="govuk-link--no-visited-state">Task list - Individual</a></li>
+        <li><a href="new-user-reg/business-individual/task-list-page-account?userType=new&flowType=task" class="govuk-link--no-visited-state">Task list - Team Member</a></li>
+        <li><a href="new-user-reg/non-uk-org/task-list-page-account?userType=new&flowType=task" class="govuk-link--no-visited-state">Task list - Non-UK Organisation</a></li>
+        <li><a href="new-user-reg/limited-company/task-list-page-account-error?userType=new&flowType=task" class="govuk-link--no-visited-state">Task list - error page</a></li>
       </ul>
 
       <h2 class="govuk-heading-m">RC 1.1 Group management
@@ -68,13 +65,13 @@
         <li><a href="/manage/dashboard-all?numUsers=5&numAgents=3&numServices=3&numLocations=1&service=Chemicals&serviceLine=UK Reach-IT" class="govuk-link--no-visited-state">Admin: Full dashboard (Chemicals)</a></li>
         <li><a href="/manage/dashboard-all?numUsers=5&numAgents=3&numServices=3&numLocations=1&service=Imports&serviceLine=IMP-S01" class="govuk-link--no-visited-state">Admin: Full dashboard (Imports)</a></li>
         <li><a href="/manage/dashboard-all?numUsers=5&numAgents=3&numServices=3&numLocations=1&service=VMD&serviceLine=Adverse Event Reporting" class="govuk-link--no-visited-state">Admin: Full dashboard (VMD)</a></li>
-
         <!--
         <li><a href="/manage/dashboard-all-agent?numUsers=5&numAgents=3&numServices=3&numLocations=1&service=Chemicals&serviceLine=UK Reach-IT&orgName=My Company" class="govuk-link--no-visited-state">Admin: Agent Dashboard</a></li>
       -->
       </ul>
+
       <ul class="govuk-list govuk-list--bullet">
-        <li><a href="/service-start-complete-standard-user?personalFirstName=Adam&personalSurname=Mastly" class="govuk-link--no-visited-state">Standard User: account</a></li>
+        <li><a href="/manage/team-members/services-on-team-member-standard-account?personalFirstName=Adam&personalSurname=Mastly" class="govuk-link--no-visited-state">Standard User: account</a></li>
         <li><a href="/manage/team-members/services-on-team-member-admin-self" class="govuk-link--no-visited-state">Admin User: account</a></li>
         <li><a href="/manage/agent/services-on-team-member-agent-account" class="govuk-link--no-visited-state">Agent User: account</a></li>
       </ul>
@@ -90,6 +87,7 @@
         <li><a href="manage/team-members/team-members-all?numUsers=5&numServices=1&numAgents=0&numLocations=1&service=VMD&serviceLine=Adverse Event Reporting&subscribeService=No" class="govuk-link--no-visited-state">VMD: Give access - one service</a></li>
         <li><a href="manage/team-members/team-members-all?numUsers=5&numServices=3&numAgents=3&numLocations=3&service=VMD&subscribeService=No" class="govuk-link--no-visited-state">VMD: Give access - multiple services</a></li>
       </ul>
+
       <ul class="govuk-list govuk-list--bullet">
         <li><a href="/manage/team-members/invite-user/E1-invite-email" class="govuk-link--no-visited-state">E1: New User - accept invite email</a></li>
         <li><a href="/new-user-reg/business-individual/E2-reg-confirmation-email" class="govuk-link--no-visited-state">E2: New User - registration complete email</a></li>
@@ -137,7 +135,8 @@
     subscribeService= Yes / No
     orgName= Acme Org
     flow= accept
-    name=
+    flowType= task / check
+
   </div>
 
 
