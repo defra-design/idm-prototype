@@ -38,7 +38,7 @@
           {{ data['businessType']}}
         </dd>
         <dd class="app-check-your-answers__change">
-          <a href="../organisation-type?flowType=check" class="govuk-link" >
+          <a href="../organisation-type" class="govuk-link" >
             Change<span class="govuk-visually-hidden"> account type</span>
           </a>
         </dd>
@@ -106,10 +106,11 @@
 
       <div class="app-check-your-answers__contents">
         <dt class="app-check-your-answers__question">
-          Your telephone number
+          Your contact details
         </dt>
         <dd class="app-check-your-answers__answer">
-          {{ data['personalTelephone'] }}
+          {{ data['personalTelephone'] }}<br>
+          {{data['scpEmail']}}
         </dd>
         <dd class="app-check-your-answers__change">
           <a href="personal-contact?flowType=check" class="govuk-link" >
