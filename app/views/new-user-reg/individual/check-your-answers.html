@@ -36,7 +36,7 @@
           {{ data['orgType']}}
         </dd>
         <dd class="app-check-your-answers__change">
-          <a href="organisation-type" class="govuk-link" >
+          <a href="../organisation-type" class="govuk-link" >
             Change<span class="govuk-visually-hidden"> account type</span>
           </a>
         </dd>
@@ -67,8 +67,9 @@
           Your contact details
         </dt>
         <dd class="app-check-your-answers__answer">
-          {{data['scpEmail']}}<br>
-          {{ data['personalTelephone'] }}
+          {{ data['personalTelephone'] }}<br>
+          {{data['scpEmail']}}
+
         </dd>
         <dd class="app-check-your-answers__change">
           <a href="personal-contact" class="govuk-link" >
@@ -96,14 +97,14 @@
 
     {{ govukButton({
       text: "Continue",
-      href: "../../confirmation-reg-sent-success"
+      href: "../confirmation-reg-sent-success"
     }) }}
 
     {% else %}
 
     {{ govukButton({
       text: "Continue",
-      href: "../../service-questions"
+      href: "../service-questions"
     }) }}
 
     {% endif %}
