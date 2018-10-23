@@ -30,18 +30,13 @@
       <h1 class="govuk-heading-xl">
         {{ title }}
       </h1>
-      <p class="govuk-body">
+      <span class="govuk-hint">
       For example, contact details for your head office or management team.
-      </p>
-
+      </span>
       <fieldset class="govuk-fieldset">
-        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-          Telephone number
+        <legend class="govuk-fieldset__legend">
+          What is your telephone number including country code?
         </legend>
-        <span class="govuk-hint">
-        Please include the country calling code for this number
-        </span>
-
         <div class="govuk-form-group govuk-!-display-inline-block">
           <label class="govuk-label govuk-visually-hidden" for="countryCode">
             Country calling code
@@ -57,7 +52,7 @@
         </div>
 
         <div class="govuk-form-group">
-          <label class="govuk-label govuk-label--s" for="businessEmail">
+          <label class="govuk-label" for="businessEmail">
             Email
           </label>
           <input class="govuk-input govuk-input--width-20" id="businessEmail" name="businessEmail" type="email">
