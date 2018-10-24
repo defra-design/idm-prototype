@@ -31,25 +31,19 @@
         {{ title }}
       </h1>
       <span class="govuk-hint">
-      For example, contact details for your head office or management team.
+      These could be the details you include on your website, or contact details for your head office or management team.
       </span>
-      <fieldset class="govuk-fieldset">
-        <legend class="govuk-fieldset__legend">
-          What is your telephone number including country code?
-        </legend>
-        <div class="govuk-form-group govuk-!-display-inline-block">
-          <label class="govuk-label govuk-visually-hidden" for="countryCode">
-            Country calling code
-          </label>
-          <input class="govuk-input govuk-input--width-3" id="countryCode" name="countryCode" type="tel" placeholder="+44">
-        </div>
+    </br>
 
-        <div class="govuk-form-group govuk-!-display-inline-block">
-          <label class="govuk-label govuk-visually-hidden" for="businessTelephone">
-            Telephone
-          </label>
-          <input class="govuk-input govuk-input--width-20" id="businessTelephone" name="businessTelephone" type="tel" placeholder="020 7946 0290">
-        </div>
+<div class="govuk-form-group">
+  <label class="govuk-label" for="businessTelephone">
+    Telephone number including the country calling code
+  </label>
+  <span id="businessTelephone-hint" class="govuk-hint">
+    For example, '+44 020 7946 0290'.
+  </span>
+  <input class="govuk-input govuk-input--width-10" id="businessTelephone" name="businessTelephone" type="text" aria-describedby="businessTelephone-hint">
+</div>
 
         <div class="govuk-form-group">
           <label class="govuk-label" for="businessEmail">
@@ -58,16 +52,6 @@
           <input class="govuk-input govuk-input--width-20" id="businessEmail" name="businessEmail" type="email">
         </div>
 
-        <details class="govuk-details">
-          <summary class="govuk-details__summary">
-            <span class="govuk-details__summary-text">
-              Help with country calling codes
-            </span>
-          </summary>
-          <div class="govuk-details__text">
-            If you do not know the country calling code for your telephone number please visit <a href="https://en.wikipedia.org/wiki/List_of_country_calling_codes" class="govuk-links" target="_blank">List of country calling codes</a>. Opens in new window.
-          </div>
-        </details>
 
         {{ govukButton({
           text: "Continue"

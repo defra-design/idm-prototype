@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "What is your telephone number including country code?" %}
+{% set title = "What is your telephone number?" %}
 
 {% block pageTitle %}
     {{title}} - GOV.UK
@@ -27,20 +27,23 @@
       <form method="post" action="task-list-page-personal-contact">
     {% endif %}
 
-      {{ govukInput({
-        label: {
-          text: title,
-          classes: "govuk-label--xl",
-          isPageHeading: true
-        },
+      <h1 class="govuk-heading-xl">
+        {{ title }}
+      </h1>
+      <span class="govuk-hint">
+      We ask for this in case we need to call you directly with any queries about your registration.
+      </span>
+    </br>
 
-        classes: "govuk-input--width-10",
-        id: "personalTelephone",
-        name: "personalTelephone",
-        value: data['personalTelephone'],
-        type: "tel"
-      }) }}
-
+<div class="govuk-form-group">
+  <label class="govuk-label" for="businessTelephone">
+    Telephone number including the country calling code
+  </label>
+  <span id="businessTelephone-hint" class="govuk-hint">
+    For example, '+44 7700 900260'.
+  </span>
+  <input class="govuk-input govuk-input--width-10" id="businessTelephone" name="businessTelephone" type="text" aria-describedby="businessTelephone-hint">
+</div>
 
       <div class="govuk-inset-text">
        We may also contact you by email, using the address registered with your Government Gateway account:
