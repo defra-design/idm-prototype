@@ -22,8 +22,8 @@
     {% if data['subscribeService'] == "Yes" %}
     {% else %}
 
-        <p class="govuk-body">{{ data['name'] }} has completed the registration process ready to use our online services.</p>
-        <p class="govuk-body">You should now choose what information and tasks you would like this person to see and do.</p>
+        <p class="govuk-body">{{ data['name'] }} is ready to use our online services.</p>
+        <p class="govuk-body">You should choose what information and tasks you would like this person to see and do.</p>
 
         {{ govukButton({
           text: "Give service access",
@@ -53,7 +53,7 @@
   </div>
   <div class="govuk-grid-column-one-third">
     <!--<p class="govuk-body"><a href="user-account" class="govuk-link--no-visited-state">Edit team member details</a></p>-->
-    <p class="govuk-body"><a href="" class="govuk-link--no-visited-state">Change access level</a></p>
+    <p class="govuk-body"><a href="edit-user-system-roles" class="govuk-link--no-visited-state">Change access level</a></p>
     <p class="govuk-body"><a href="#" class="govuk-link--no-visited-state">Reset password</a><br></p>
     <!--<p class="govuk-body"><a href="" class="govuk-link--no-visited-state">Delete team member</a></p>-->
   </div>
@@ -132,10 +132,10 @@
         html: setServiceRoleHtml
       },
       {
-        html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="#" class="govuk-link--no-visited-state">Change access <span class="govuk-visually-hidden">to [Service name]</span></a>'
+        html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="edit-user-service-roles-chems" class="govuk-link--no-visited-state">Change access <span class="govuk-visually-hidden">to [Service name]</span></a>'
       },
       {
-        html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="#" class="govuk-link--no-visited-state">Remove access <span class="govuk-visually-hidden">to [Service name]</span></a>'
+        html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="edit-user-remove-access-confirm" class="govuk-link--no-visited-state">Remove access <span class="govuk-visually-hidden">to [Service name]</span></a>'
       }
     ]
 

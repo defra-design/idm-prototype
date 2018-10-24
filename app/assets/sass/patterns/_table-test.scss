@@ -8,6 +8,9 @@ td, th { counter-increment: cellcount; }
   content: "Row "counter(rowcount)". ";
 }
 
+.govuk-body--grey{
+  color: govuk-colour("grey-1"); 
+}
 
 
 /*** Small viewports ***/
