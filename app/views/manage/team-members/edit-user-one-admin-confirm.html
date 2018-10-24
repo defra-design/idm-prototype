@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% set title = "You cannot change the access role of an Admin if there is only one Admin user" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+      <form method="post" action="services-on-team-member-invited">
+        <h1 class="govuk-heading-xl">{{ title }}</h1>
+        <p class="govuk-body">Some words go here to explain what is going on</p>
+
+
+
+        {{ govukButton({
+          text: "OK"
+        }) }}
+
+
+      </form>
+    </div>
+  </div>
+
+
+
+
+{% endblock %}
