@@ -35,15 +35,15 @@
       </span>
     </br>
 
-<div class="govuk-form-group">
-  <label class="govuk-label" for="businessTelephone">
-    Telephone number including the country calling code
-  </label>
-  <span id="businessTelephone-hint" class="govuk-hint">
-    For example, '+44 7700 900260'.
-  </span>
-  <input class="govuk-input govuk-input--width-10" id="businessTelephone" name="businessTelephone" type="text" aria-describedby="businessTelephone-hint">
-</div>
+    <div class="govuk-form-group">
+      <label class="govuk-label" for="personalTelephone">
+        Telephone number including the country calling code
+      </label>
+      <span id="businessTelephone-hint" class="govuk-hint">
+        For example, '+44 7700 900260'.
+      </span>
+      <input class="govuk-input govuk-input--width-10" id="personalTelephone" name="personalTelephone" type="text" aria-describedby="personalTelephone-hint" value="{{ data['personalTelephone'] }}">
+    </div>
 
       <div class="govuk-inset-text">
        We may also contact you by email, using the address registered with your Government Gateway account:

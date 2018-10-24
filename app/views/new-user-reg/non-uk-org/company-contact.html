@@ -33,31 +33,35 @@
       <span class="govuk-hint">
       These could be the details you include on your website, or contact details for your head office or management team.
       </span>
-    </br>
+      </br>
 
-<div class="govuk-form-group">
-  <label class="govuk-label" for="businessTelephone">
-    Telephone number including the country calling code
-  </label>
-  <span id="businessTelephone-hint" class="govuk-hint">
-    For example, '+44 020 7946 0290'.
-  </span>
-  <input class="govuk-input govuk-input--width-10" id="businessTelephone" name="businessTelephone" type="text" aria-describedby="businessTelephone-hint">
-</div>
+      {{ govukInput({
+        label: {
+          text: "Telephone number including the country calling code"
+        },
+        hint: {
+          text: "For example, \'+44 020 7946 0290\'."
+        },
+        classes: "govuk-input--width-10",
+        id: "businessTelephone",
+        name: "businessTelephone",
+        value: data['businessTelephone']
+      }) }}
 
-        <div class="govuk-form-group">
-          <label class="govuk-label" for="businessEmail">
-            Email
-          </label>
-          <input class="govuk-input govuk-input--width-20" id="businessEmail" name="businessEmail" type="email">
-        </div>
+      {{ govukInput({
+        label: {
+          text: "Email"
+        },
+        classes: "govuk-input--width-20",
+        id: "businessEmail",
+        name: "businessEmail",
+        value: data['businessEmail'],
+        type: "tel"
+      }) }}
 
-
-        {{ govukButton({
-          text: "Continue"
-        }) }}
-
-      </fieldset>
+      {{ govukButton({
+        text: "Continue"
+      }) }}
 
     </form>
 
