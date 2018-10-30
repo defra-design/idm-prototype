@@ -7,7 +7,20 @@
 {% endblock %}
 
 {% block beforeContent %}
-  {% include "includes/account-nav-admin-corp.html" %}
+
+  {% if data['userType'] == "new-complete-admin" %}
+        {% include "includes/account-nav-admin-corp.html" %}
+  {% endif %}
+
+  {% if data['userType'] == "new-complete-standard" %}
+        {% include "includes/account-nav-standard-account.html" %}
+  {% endif %}
+
+  {% if data['userType'] == "new-complete-agent" %}
+        {% include "includes/account-nav-admin-agent-account.html" %}
+  {% endif %}
+
+
 {% endblock %}
 
 

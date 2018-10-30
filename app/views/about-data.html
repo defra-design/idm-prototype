@@ -23,8 +23,8 @@
   <div class="govuk-grid-column-two-thirds">
 
     <!-- For invited users-->
-    {% if data['userType'] == "invite" %}
-      {% set tcButton  = "/new-user-reg/business-individual/task-list-page-personal-details" %}
+    {% if (data['userType'] == "invite") or  (data['userType'] == "invitedAgent") %}
+      {% set tcButton  = "/new-user-reg/business-individual/task-list-page-account" %}
     {% endif %}
 
     <!-- For new account registration-->
