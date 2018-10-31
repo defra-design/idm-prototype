@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "You cannot change the access role of an Admin if there is only one Admin user" %}
+{% set title = "You cannot remove the only administrator from this account" %}
 
 {% block pageTitle %}
     {{title}} - GOV.UK
@@ -20,12 +20,19 @@
 
       <form method="post" action="services-on-team-member-invited">
         <h1 class="govuk-heading-xl">{{ title }}</h1>
-        <p class="govuk-body">Some words go here to explain what is going on</p>
+    <div class="govuk-warning-text">
+           <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+           <strong class="govuk-warning-text__text">
+           <span class="govuk-warning-text__assistive">Warning</span>
+           Your organisation must have at least one person with an administrator role to use our services.
+        </strong>
+    </div>
+        <p class="govuk-body">You must give someone else administrator access before you can change your own access level.</p>
 
 
 
         {{ govukButton({
-          text: "OK"
+          text: "Continue"
         }) }}
 
 
