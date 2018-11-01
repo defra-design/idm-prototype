@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+
+{% set title = "3. Specific information needed by the VMD service" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+{% endblock %}
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <!-- For invited users-->
+    {% if (data['userType'] == "invite") or  (data['userType'] == "invitedAgent") %}
+      {% set tcButton  = "/new-user-reg/business-individual/task-list-page-account" %}
+    {% endif %}
+
+    <!-- For new account registration-->
+    {% if data['userType'] == "new" %}
+      {% set tcButton  = "/new-user-reg/organisation-type" %}
+    {% endif %}
+
+    <!-- For new account registration-->
+    {% if data['userType'] == "existing" %}
+      {% set tcButton  = "/new-user-reg/organisation-type" %}
+    {% endif %}
+    <form action="{{ tcButton }}" method="post">
+
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+      <h1 class="govuk-fieldset__heading">
+        {{title}}
+      </h1>
+    </legend>
+    {% from "inset-text/macro.njk" import govukInsetText %}
+
+      {{ govukInsetText({
+         text: "We have saved the information you told us about you and your organisation. This means you will not be asked to enter it again when you register to use other Defra online services."
+       }) }}
+    <p class="govuk-body">You will now be asked to provide some specific information needed to complete your enrolment with the VMD service.</p>
+    <p class="govuk-body">You will then be able to use the VMD service straight away.</p>
+
+  </fieldset>
+</div>
+
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+<br>
+<br>
+<br>
+<br>
+<p class="govuk-body-s">User type: {{ data['userType']}}</p>
+
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}
