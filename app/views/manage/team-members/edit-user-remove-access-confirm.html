@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Are you sure you want to remove access?" %}
+{% set title = "Are you sure you want to remove this person's access?" %}
 
 {% block pageTitle %}
     {{title}} - GOV.UK
@@ -51,7 +51,7 @@
             }
           },
           hint: {
-            text: "Some hint text here"
+            text: "They will no longer be able to use the [service name] service on behalf of your organisation. You can give them access again at any time."
           },
           items: [
             {
