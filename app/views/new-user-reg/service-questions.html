@@ -6,6 +6,18 @@
     {{title}} - GOV.UK
 {% endblock %}
 
+{% block header %}
+  {% if data['service'] == "Imports" %}
+    {{ govukHeader({ serviceName: "Imports" }) }}
+  {% endif %}
+  {% if data['service'] == "Chemicals" %}
+    {{ govukHeader({ serviceName: "Chemicals" }) }}
+  {% endif %}
+  {% if data['service'] == "VMD" %}
+    {{ govukHeader({ serviceName: "VMD" }) }}
+  {% endif %}
+{% endblock %}
+
 {% block beforeContent %}
 
   {% include "includes/account-nav-admin-reg.html" %}

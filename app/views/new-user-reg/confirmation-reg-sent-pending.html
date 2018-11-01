@@ -6,6 +6,18 @@
     {{title}} - GOV.UK
 {% endblock %}
 
+{% block header %}
+  {% if data['service'] == "Imports" %}
+    {{ govukHeader({ serviceName: "Imports" }) }}
+  {% endif %}
+  {% if data['service'] == "Chemicals" %}
+    {{ govukHeader({ serviceName: "Chemicals" }) }}
+  {% endif %}
+  {% if data['service'] == "VMD" %}
+    {{ govukHeader({ serviceName: "VMD" }) }}
+  {% endif %}
+{% endblock %}
+
 {% block beforeContent %}
   {% include "includes/account-nav-admin-reg.html" %}
 
@@ -17,7 +29,6 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <h1 class="govuk-heading-xl">{{title}}</h1>
     {{ govukPanel({
           titleText: "Your registration request is complete and will now be reviewed.",
           html: "Your reference number<br><strong>HDJ2123F</strong>"

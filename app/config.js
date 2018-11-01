@@ -4,7 +4,7 @@
 
 module.exports = {
   // Service name used in header. Eg: 'Renew your passport'
-  serviceName: 'Service e.g. UK-REACH-IT',
+  serviceName: 'Use Defra online',
 
   // Default port that prototype runs on
   port: '3000',

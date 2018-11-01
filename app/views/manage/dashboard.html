@@ -29,6 +29,7 @@
         {{ govukSelect({
           id: "orgName",
           name: "orgName",
+          classes: "govuk-input--width-30",
           label: {
           },
           items: [
@@ -137,8 +138,8 @@
             <div class="govuk-card govuk-card--contained govuk-card--selectable">
                 <a href="https://chemicals-prototypes.herokuapp.com/prototype/rc4/iu/dashboard"></a>
                 <div class="govuk-card__content">
-                  <h3 class="govuk-heading-m">{{ data['service'] }} - {{ data['serviceLine'] }}</h3>
-                  <p class="govuk-body">A short summary of the tasks you can complete with this service.
+                  <h3 class="govuk-heading-m">{{ data['serviceLine'] }}</h3>
+                  <p class="govuk-body">{{ data['service'] }}
                   <!--
                   <p class="govuk-body">Report unfavourable or unintended events that occur after use of veterinary medicine.
                   -->

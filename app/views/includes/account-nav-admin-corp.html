@@ -11,7 +11,7 @@
 
 {% endif %}
 
-{% if ((data['numUsers'] == "1") and (data['userType'] == "existing")) or (data['numUsers'] <= "2") %}
+{% if (data['numUsers'] == "1") or (data['numUsers'] <= "2") %}
   <div class="login-nav">
     <ul class="login-nav__list">
       <li class="login-nav__list-item">Signed in as: Ann Cooper</li>

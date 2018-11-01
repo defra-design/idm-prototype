@@ -2,13 +2,25 @@
 
 {% set title = "Service name" %}
 
+{% block header %}
+  {% if data['service'] == "Imports" %}
+    {{ govukHeader({ serviceName: "Imports" }) }}
+  {% endif %}
+  {% if data['service'] == "Chemicals" %}
+    {{ govukHeader({ serviceName: "Chemicals" }) }}
+  {% endif %}
+  {% if data['service'] == "VMD" %}
+    {{ govukHeader({ serviceName: "VMD" }) }}
+  {% endif %}
+{% endblock %}
+
 {% block pageTitle %}
     {{title}} - GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
 
-  {% if data['userType'] == "new-complete-admin" %}
+  {% if (data['userType'] == "new-complete-admin") or (data['userType'] == "new") %}
         {% include "includes/account-nav-admin-corp.html" %}
   {% endif %}
 

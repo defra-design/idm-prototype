@@ -6,8 +6,20 @@
     {{title}} - GOV.UK
 {% endblock %}
 
+{% block header %}
+  {% if data['service'] == "Imports" %}
+    {{ govukHeader({ serviceName: "Imports" }) }}
+  {% endif %}
+  {% if data['service'] == "Chemicals" %}
+    {{ govukHeader({ serviceName: "Chemicals" }) }}
+  {% endif %}
+  {% if data['service'] == "VMD" %}
+    {{ govukHeader({ serviceName: "VMD" }) }}
+  {% endif %}
+{% endblock %}
+
 {% block beforeContent %}
-  {% include "includes/account-nav-admin-reg.html" %}
+  {% include "includes/account-nav-admin-corp.html" %}
 
 {% endblock %}
 
@@ -17,7 +29,6 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <h1 class="govuk-heading-xl">{{title}}</h1>
     {{ govukPanel({
           titleText: "Your service registration is complete.",
           html: "Your reference number<br><strong>HDJ2123F</strong>"
@@ -35,7 +46,7 @@
 
     {{ govukButton({
         text: "Continue",
-        href: "/manage/dashboard-all-1?numUsers=1&numServices=1&numAgents=0&numLocations=1&service=Imports&serviceLine=IMP01"
+        href: "/service-start-complete"
     }) }}
 
   </div>
