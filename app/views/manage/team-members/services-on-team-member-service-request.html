@@ -21,7 +21,7 @@
     </h1>
   </div>
 </div>
-
+<!--
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <p>Do you approve or reject Tiegan's request to access [Service name]?.</p>
@@ -46,6 +46,8 @@
 
 <hr class="govuk-section-break--s">
 <br>
+
+-->
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
@@ -73,8 +75,16 @@
     <br>
     {{ govukButton({
       text: "Give service access",
-      href: "add-user-service/add-user-service"
+      href: "#"
     }) }}
+
+    {% set serviceLineName %}
+      <span class="govuk-visually-hidden--desktop td-header">Service:</span> {{ data['serviceLine'] }}
+    {% endset %}
+
+    {% set serviceRoleName %}
+      <span class="govuk-visually-hidden--desktop td-header">Role: </span>{{ data['serviceRole']}}
+    {% endset %}
 
     {{ govukTable({
       id: "list",
@@ -109,13 +119,13 @@
       rows: [
       [
         {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> UK-REACH-IT'
+          html: serviceLineName
         },
         {
           html: '<span class="govuk-visually-hidden--desktop td-header">Organisation:</span> Acme Org'
         },
         {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Role: </span>REACH Manager'
+          html: serviceRoleName
         },
         {
           html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="#" class="govuk-link--no-visited-state">Change role <span class="govuk-visually-hidden">to [Service name]</span></a>'

@@ -34,18 +34,18 @@
       <h2 class="govuk-heading-m">RC1.0 Registration
       </h2>
       <ul class="govuk-list govuk-list--bullet">
-        <li><a href="service-start-logged-out?service=Chemicals&serviceLine=UK-REACH-IT&userType=new&regSuccess=pending" class="govuk-link--no-visited-state">New user registration - Chemicals (service q's + pending) </a></li>
-        <li><a href="service-start-logged-out-imports?service=Imports&serviceLine=IMP01&userType=new&regSuccess=success&numUsers=1" class="govuk-link--no-visited-state">New user registration - Imports (no service q's success)</a></li>
-        <li><a href="service-start-logged-out-VMD?service=VMD&serviceLine=VMD01&userType=new&regSuccess=success&numUsers=1" class="govuk-link--no-visited-state">New user registration - VMD (service q's + success)</a></li>
+        <li><a href="service-start-logged-out?service=Chemicals&serviceLine=UK-REACH-IT&serviceRole=REACH Manager&userType=new&regSuccess=pending" class="govuk-link--no-visited-state">New user registration - Chemicals (service q's + pending) </a></li>
+        <li><a href="service-start-logged-out-imports?service=Imports&serviceLine=IMP01&serviceRole=Standard&userType=new&regSuccess=success&numUsers=1" class="govuk-link--no-visited-state">New user registration - Imports (no service q's + success)</a></li>
+        <li><a href="service-start-logged-out-VMD?service=VMD&serviceLine=Adverse event reporting&serviceRole=Standard&userType=new&regSuccess=success&numUsers=1" class="govuk-link--no-visited-state">New user registration - VMD (service q's + success)</a></li>
       </ul>
 
       <ul class="govuk-list govuk-list--bullet">
-        <li><a href="service-start-logged-out?userType=new-incomplete-tasklist&serviceLine=UK-REACH-IT" class="govuk-link--no-visited-state">Return user: Incomplete registration - task list not finished</a></li>
-        <li><a href="service-start-logged-out?userType=new-incomplete-service&serviceLine=UK-REACH-IT" class="govuk-link--no-visited-state">Return user: Incomplete registration - service not finished</a></li>
-        <li><a href="service-start-logged-out?userType=new-pending&serviceLine=UK-REACH-IT" class="govuk-link--no-visited-state">Return user: Registration is pending</a></li>
-        <li><a href="service-start-logged-out?userType=new-complete-admin&numUsers=5&numServices=3&numAgents=3&numLocations=1&service=Chemicals&serviceLine=UK-REACH-IT" class="govuk-link--no-visited-state">Return user: Admin registration is complete</a></li>
-        <li><a href="service-start-logged-out?userType=new-complete-standard&numUsers=5&numServices=3&numAgents=3&numLocations=1&service=Chemicals&serviceLine=UK-REACH-IT" class="govuk-link--no-visited-state">Return user: Non-admin registration is complete</a></li>
-        <li><a href="service-start-logged-out?userType=new-complete-agent&numUsers=5&numServices=3&numAgents=3&numLocations=1&service=Chemicals&serviceLine=UK-REACH-IT" class="govuk-link--no-visited-state">Return user: Agent registration is complete</a></li>
+        <li><a href="service-start-logged-out?userType=new-incomplete-tasklist&service=Chemicals&serviceLine=UK-REACH-IT&serviceRole=REACH Manager" class="govuk-link--no-visited-state">Return user: Incomplete registration - task list not finished</a></li>
+        <li><a href="service-start-logged-out?userType=new-incomplete-service&service=Chemicals&serviceLine=UK-REACH-IT&serviceRole=REACH Manager" class="govuk-link--no-visited-state">Return user: Incomplete registration - service not finished</a></li>
+        <li><a href="service-start-logged-out?userType=new-pending&service=Chemicals&serviceLine=UK-REACH-IT&serviceRole=REACH Manager" class="govuk-link--no-visited-state">Return user: Registration is pending</a></li>
+        <li><a href="service-start-logged-out?userType=new-complete-admin&numUsers=5&numServices=3&numAgents=3&numLocations=1&service=Chemicals&serviceLine=UK-REACH-IT&serviceRole=REACH Manager" class="govuk-link--no-visited-state">Return user: Admin registration is complete</a></li>
+        <li><a href="service-start-logged-out?userType=new-complete-standard&numUsers=5&numServices=3&numAgents=3&numLocations=1&service=Chemicals&serviceLine=UK-REACH-IT&serviceRole=REACH Manager" class="govuk-link--no-visited-state">Return user: Non-admin registration is complete</a></li>
+        <li><a href="service-start-logged-out?userType=new-complete-agent&numUsers=5&numServices=3&numAgents=3&numLocations=1&service=Chemicals&serviceLine=UK-REACH-IT&serviceRole=REACH Manager" class="govuk-link--no-visited-state">Return user: Agent registration is complete</a></li>
       </ul>
       <h3 class="govuk-heading-s">Quick links
       </h3>
@@ -61,10 +61,10 @@
       <h2 class="govuk-heading-m">RC 1.1 Group management
       </h2>
       <ul class="govuk-list govuk-list--bullet">
-        <li><a href="/manage/dashboard-all-1?numUsers=1&numServices=1&numAgents=0&numLocations=1&service=Chemicals&serviceLine=UK-REACH-IT" class="govuk-link--no-visited-state">Admin: New User Dashboard (Chemicals)</a></li>
-        <li><a href="/manage/dashboard-all?numUsers=5&numAgents=3&numServices=3&numLocations=1&service=Chemicals&serviceLine=UK-REACH-IT" class="govuk-link--no-visited-state">Admin: Full dashboard (Chemicals)</a></li>
-        <li><a href="/manage/dashboard-all?numUsers=5&numAgents=3&numServices=3&numLocations=1&service=Imports&serviceLine=IMP-S01" class="govuk-link--no-visited-state">Admin: Full dashboard (Imports)</a></li>
-        <li><a href="/manage/dashboard-all?numUsers=5&numAgents=3&numServices=3&numLocations=1&service=VMD&serviceLine=Adverse Event Reporting" class="govuk-link--no-visited-state">Admin: Full dashboard (VMD)</a></li>
+        <li><a href="/manage/dashboard-all-1?numUsers=1&numServices=1&numAgents=0&numLocations=1&service=Chemicals&serviceLine=UK-REACH-IT&serviceRole=REACH Manager" class="govuk-link--no-visited-state">Admin: New User Dashboard (Chemicals)</a></li>
+        <li><a href="/manage/dashboard-all?numUsers=5&numAgents=3&numServices=3&numLocations=1&service=Chemicals&serviceLine=UK-REACH-IT&serviceRole=REACH Manager" class="govuk-link--no-visited-state">Admin: Full dashboard (Chemicals)</a></li>
+        <li><a href="/manage/dashboard-all?numUsers=5&numAgents=3&numServices=3&numLocations=1&service=Imports&serviceLine=IMP-S01&serviceRole=Standard" class="govuk-link--no-visited-state">Admin: Full dashboard (Imports)</a></li>
+        <li><a href="/manage/dashboard-all?numUsers=5&numAgents=3&numServices=3&numLocations=1&service=VMD&serviceLine=Adverse Event Reporting&serviceRole=Standard" class="govuk-link--no-visited-state">Admin: Full dashboard (VMD)</a></li>
         <!--
         <li><a href="/manage/dashboard-all-agent?numUsers=5&numAgents=3&numServices=3&numLocations=1&service=Chemicals&serviceLine=UK-REACH-IT&orgName=My Company" class="govuk-link--no-visited-state">Admin: Agent Dashboard</a></li>
       -->
@@ -80,19 +80,19 @@
       </h3>
       <ul class="govuk-list govuk-list--bullet">
         <li><a href="manage/team-members/invite-user/add-user-details?numUsers=5&numServices=3&numAgents=0&numLocations=1&service=Chemicals&subscribeService=No" class="govuk-link--no-visited-state">Invite user</a></li>
-        <li><a href="manage/team-members/team-members-all?numUsers=5&numServices=1&numAgents=0&numLocations=1&service=Chemicals&serviceLine=UK-REACH-IT&subscribeService=No" class="govuk-link--no-visited-state">Chemicals: Give access - one service</a></li>
-        <li><a href="manage/team-members/team-members-all?numUsers=5&numServices=3&numAgents=3&numLocations=3&service=Chemicals&subscribeService=No" class="govuk-link--no-visited-state">Chemicals: Give access - multiple services</a></li>
-        <li><a href="manage/team-members/team-members-all?numUsers=5&numServices=1&numAgents=0&numLocations=1&service=Imports&serviceLine=IMP-S01&subscribeService=No" class="govuk-link--no-visited-state">Imports: Give access - one service</a></li>
-        <li><a href="manage/team-members/team-members-all?numUsers=5&numServices=3&numAgents=3&numLocations=3&service=Imports&subscribeService=No" class="govuk-link--no-visited-state">Imports: Give access - multiple services</a></li>
-        <li><a href="manage/team-members/team-members-all?numUsers=5&numServices=1&numAgents=0&numLocations=1&service=VMD&serviceLine=Adverse Event Reporting&subscribeService=No" class="govuk-link--no-visited-state">VMD: Give access - one service</a></li>
-        <li><a href="manage/team-members/team-members-all?numUsers=5&numServices=3&numAgents=3&numLocations=3&service=VMD&subscribeService=No" class="govuk-link--no-visited-state">VMD: Give access - multiple services</a></li>
+        <li><a href="manage/team-members/team-members-all?numUsers=5&numServices=1&numAgents=0&numLocations=1&service=Chemicals&serviceLine=UK-REACH-IT&serviceRole=REACH Manager&subscribeService=No" class="govuk-link--no-visited-state">Chemicals: Give access - one service</a></li>
+        <li><a href="manage/team-members/team-members-all?numUsers=5&numServices=3&numAgents=3&numLocations=3&service=Chemicals&serviceLine=UK-REACH-IT&serviceRole=REACH Manager&subscribeService=No" class="govuk-link--no-visited-state">Chemicals: Give access - multiple services</a></li>
+        <li><a href="manage/team-members/team-members-all?numUsers=5&numServices=1&numAgents=0&numLocations=1&service=Imports&serviceLine=IMP-S01&serviceRole=Standard&subscribeService=No" class="govuk-link--no-visited-state">Imports: Give access - one service</a></li>
+        <li><a href="manage/team-members/team-members-all?numUsers=5&numServices=3&numAgents=3&numLocations=3&service=Imports&serviceRole=Standard&subscribeService=No" class="govuk-link--no-visited-state">Imports: Give access - multiple services</a></li>
+        <li><a href="manage/team-members/team-members-all?numUsers=5&numServices=1&numAgents=0&numLocations=1&service=VMD&serviceLine=Adverse Event Reporting&serviceRole=Standard&subscribeService=No" class="govuk-link--no-visited-state">VMD: Give access - one service</a></li>
+        <li><a href="manage/team-members/team-members-all?numUsers=5&numServices=3&numAgents=3&numLocations=3&service=VMD&serviceRole=Standard&subscribeService=No" class="govuk-link--no-visited-state">VMD: Give access - multiple services</a></li>
       </ul>
 
       <ul class="govuk-list govuk-list--bullet">
         <li><a href="/manage/team-members/invite-user/E1-invite-email" class="govuk-link--no-visited-state">E1: New User - accept invite email</a></li>
         <li><a href="/manage/team-members/invite-user/E2-reg-confirmation-email" class="govuk-link--no-visited-state">E2: New User - registration complete email</a></li>
         <li><a href="/manage/team-members/invite-user/E3-admin-notify?userType=invite" class="govuk-link--no-visited-state">E3: Admin - notify admin email</a></li>
-        <li><a href="/manage/team-members/invite-user/E4-enrollment-email?userType=new-complete-standard&numUsers=5&numServices=3&numAgents=3&numLocations=1&service=Chemicals&serviceLine=UK-REACH-IT" class="govuk-link--no-visited-state">E4: New user - Enrollment email</a></li>
+        <li><a href="/manage/team-members/invite-user/E4-enrollment-email?userType=new-complete-standard&numUsers=5&numServices=3&numAgents=3&numLocations=1&service=Chemicals&serviceLine=UK-REACH-IT&serviceRole=REACH Manager" class="govuk-link--no-visited-state">E4: New user - Enrollment email</a></li>
       </ul>
 
     <h2 class="govuk-heading-m">RC 1.1 Enhanced Account Managmement
@@ -109,19 +109,19 @@
     <h3 class="govuk-heading-s">Add Intermediary/ agent
     </h3>
     <ul class="govuk-list govuk-list--bullet">
-      <li><a href="manage/agent/invite-user/add-user-details?numUsers=5&numServices=3&numAgents=0&numLocations=1&service=Chemicals&subscribeService=No" class="govuk-link--no-visited-state">Invite user</a></li>
-      <li><a href="manage/agent/agent-all?numUsers=5&numServices=1&numAgents=4&numLocations=1&service=Chemicals&serviceLine=UK-REACH-IT&subscribeService=No" class="govuk-link--no-visited-state">Chemicals: Give access - one service</a></li>
-      <li><a href="manage/agent/agent-all?numUsers=5&numServices=3&numAgents=3&numLocations=3&service=Chemicals&subscribeService=No" class="govuk-link--no-visited-state">Chemicals: Give access - multiple services</a></li>
-      <li><a href="manage/agent/agent-all?numUsers=5&numServices=1&numAgents=0&numLocations=1&service=Imports&serviceLine=IMP-S01&subscribeService=No" class="govuk-link--no-visited-state">Imports: Give access - one service</a></li>
-      <li><a href="manage/agent/agent-all?numUsers=5&numServices=3&numAgents=3&numLocations=3&service=Imports&subscribeService=No" class="govuk-link--no-visited-state">Imports: Give access - multiple services</a></li>
-      <li><a href="manage/agent/agent-all?numUsers=5&numServices=1&numAgents=0&numLocations=1&service=VMD&serviceLine=Adverse Event Reporting&subscribeService=No" class="govuk-link--no-visited-state">VMD: Give access - one service</a></li>
-      <li><a href="manage/agent/agent-all?numUsers=5&numServices=3&numAgents=3&numLocations=3&service=VMD&subscribeService=No" class="govuk-link--no-visited-state">VMD: Give access - multiple services</a></li>
+      <li><a href="manage/agent/invite-user/add-user-details?numUsers=5&numServices=3&numAgents=0&numLocations=1&service=Chemicals&serviceLine=UK-REACH-IT&serviceRole=REACH Manager&subscribeService=No" class="govuk-link--no-visited-state">Invite user</a></li>
+      <li><a href="manage/agent/agent-all?numUsers=5&numServices=1&numAgents=4&numLocations=1&service=Chemicals&serviceLine=UK-REACH-IT&serviceRole=REACH Manager&subscribeService=No" class="govuk-link--no-visited-state">Chemicals: Give access - one service</a></li>
+      <li><a href="manage/agent/agent-all?numUsers=5&numServices=3&numAgents=3&numLocations=3&service=Chemicals&serviceLine=UK-REACH-IT&serviceRole=REACH Manager&subscribeService=No" class="govuk-link--no-visited-state">Chemicals: Give access - multiple services</a></li>
+      <li><a href="manage/agent/agent-all?numUsers=5&numServices=1&numAgents=0&numLocations=1&service=Imports&serviceLine=IMP-S01&serviceRole=Standard&subscribeService=No" class="govuk-link--no-visited-state">Imports: Give access - one service</a></li>
+      <li><a href="manage/agent/agent-all?numUsers=5&numServices=3&numAgents=3&numLocations=3&service=Imports&serviceLine=IMP-S01&serviceRole=Standard&subscribeService=No" class="govuk-link--no-visited-state">Imports: Give access - multiple services</a></li>
+      <li><a href="manage/agent/agent-all?numUsers=5&numServices=1&numAgents=0&numLocations=1&service=VMD&serviceLine=Adverse Event Reporting&serviceRole=Standard&subscribeService=No" class="govuk-link--no-visited-state">VMD: Give access - one service</a></li>
+      <li><a href="manage/agent/agent-all?numUsers=5&numServices=3&numAgents=3&numLocations=3&service=VMD&serviceLine=Adverse Event Reporting&serviceRole=Standard&subscribeService=No" class="govuk-link--no-visited-state">VMD: Give access - multiple services</a></li>
     </ul>
     <ul class="govuk-list govuk-list--bullet">
       <li><a href="/manage/agent/invite-user/E1-invite-email" class="govuk-link--no-visited-state">E1: New User - accept invite email</a></li>
       <li><a href="/manage/agent/invite-user/E2-reg-confirmation-email" class="govuk-link--no-visited-state">E2: New User - registration complete email</a></li>
       <li><a href="/manage/agent/invite-user/E3-admin-notify?userType=invite" class="govuk-link--no-visited-state">E3: Admin - notify admin email</a></li>
-      <li><a href="/manage/agent/invite-user/E4-enrollment-email?userType=new-complete-agent&numUsers=5&numServices=3&numAgents=3&numLocations=1&service=Chemicals&serviceLine=UK-REACH-IT" class="govuk-link--no-visited-state">E4: New user - Enrollment email</a></li>
+      <li><a href="/manage/agent/invite-user/E4-enrollment-email?userType=new-complete-agent&numUsers=5&numServices=3&numAgents=3&numLocations=1&service=Chemicals&serviceLine=UK-REACH-IT%serviceRole=REACH Manager" class="govuk-link--no-visited-state">E4: New user - Enrollment email</a></li>
     </ul>
   </div>
 
@@ -143,16 +143,17 @@
     numAgents= 0 / 1 / 3
     numLocations= defunct
     service= Chemicals / Imports / VMD
-    serviceLine= UK-REACH-IT / Imports-S01 / Adverse Event Reporting
-    createSignin= create / signin
+    serviceLine= UK-REACH-IT / Imports-S01 / Adverse event reporting
     businessType= Limited company / Sole trader / Public limited company / Competent authority / Limited liability partnership /  Non-commercial organisation / Government
     orgType= Business / Individual
+    orgName= Acme Org
     userType= invite / invitedAgent / new / new-pending / new-complete-admin / new-complete-standard / new-complete-agent / new-incomplete-service
     serviceRole=  REACH Manager / REACH Reader / Manager / No service access / Standard
     subscribeService= Yes / No
-    orgName= Acme Org
-    flow= accept
-    flowType= task / check
+    flowType= task / check   (task list page or check answers)
+
+    depreciated?
+    createSignin= create / signin
 
   </div>
 

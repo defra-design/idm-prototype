@@ -45,27 +45,18 @@
   <div class="govuk-grid-column-full">
     <br>
 
-    {% if (data['service'] == "Imports") %}
-      {{ govukButton({
-        text: "Give service access",
-        href: "/manage/team-members/invite-user/imports/add-user-service&userType=invite&name=Adam Mastly"
-      }) }}
-    {% endif %}
+    {% set serviceLineName %}
+      <span class="govuk-visually-hidden--desktop td-header">Service:</span> {{ data['serviceLine'] }}
+    {% endset %}
 
-    {% if (data['service'] == "Chemicals") %}
-      {{ govukButton({
-        text: "Give service access",
-        href: "/manage/team-members/invite-user/chemicals/add-user-service?&userType=invite&name=Adam Mastly"
-      }) }}
-    {% endif %}
+    {% set serviceRoleName %}
+      <span class="govuk-visually-hidden--desktop td-header">Role: </span>{{ data['serviceRole']}}
+    {% endset %}
 
-    {% if (data['service'] == "VMD") %}
-      {{ govukButton({
-        text: "Give service access",
-        href: "/manage/team-members/invite-user/vmd/add-user-service?&userType=invite&name=Adam Mastly"
-      }) }}
-    {% endif %}
-
+    {{ govukButton({
+      text: "Give service access",
+      href: "#"
+    }) }}
 
     {{ govukTable({
       caption: "Access to services",

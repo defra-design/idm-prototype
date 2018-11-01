@@ -47,6 +47,15 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
     <br>
+
+    {% set serviceLineName %}
+      <span class="govuk-visually-hidden--desktop td-header">Service:</span> {{ data['serviceLine'] }}
+    {% endset %}
+
+    {% set serviceRoleName %}
+      <span class="govuk-visually-hidden--desktop td-header">Role: </span>{{ data['serviceRole']}}
+    {% endset %}
+
     {{ govukTable({
       caption: "Access to services",
       captionClasses: "govuk-heading-l",
@@ -79,13 +88,13 @@
       rows: [
       [
         {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> UK-REACH-IT'
+          html: serviceLineName
         },
         {
           html: '<span class="govuk-visually-hidden--desktop td-header">Organisation:</span> Acme Org'
         },
         {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Role: </span>REACH Manager'
+          html: serviceRoleName
         },
         {
           html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="#" class="govuk-link--no-visited-state">Change role <span class="govuk-visually-hidden">to [Service name]</span></a>'
