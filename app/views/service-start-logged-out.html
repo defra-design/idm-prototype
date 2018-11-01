@@ -2,7 +2,7 @@
 {% set title = "UK-REACH-IT" %}
 
 {% block header %}
-    {{ govukHeader({ serviceName: "" }) }}
+    {{ govukHeader({ serviceName: "Chemicals" }) }}
 {% endblock %}
 
 {% block pageTitle %}
@@ -56,7 +56,7 @@
 
 
 
-{% if data['userType'] == "new" %}
+        {% if data['userType'] == "new" %}
               {% set startURL = "/scp/login-new" %}
         {% endif %}
         {% if data['userType'] == "existing" %}
