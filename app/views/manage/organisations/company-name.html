@@ -1,0 +1,81 @@
+{% extends "layout.html" %}
+
+{% set title = "Does this address use a different organisation or business name?" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+      <form action="organisation-details" method="post">
+
+        {% set orgNameHint %}
+          It may differ to the name registered with Company House: {{data['orgName']}}
+        {% endset %}
+
+          {% set companyNameHTML %}
+          {{ govukInput({
+            id: "companyName",
+            name: "companyName",
+            value: data['companyName'],
+            type: "text",
+            classes: "govuk-!-width-full",
+            label: {
+              text: "What is the organisation or business name"
+            }
+          }) }}
+          {% endset %}
+
+          {{ govukRadios({
+            idPrefix: "companyNameSame",
+            name: "companyNameSame",
+            fieldset: {
+              legend: {
+                text: "Does this address use a different organisation or business name?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--xl"
+              }
+            },
+            hint: {
+              html: orgNameHint
+            },
+            items: [
+              {
+                value: "yes",
+                text: "Yes",
+                conditional: {
+                  html: companyNameHTML
+                }
+              },
+              {
+                value: "no",
+                text: "No"
+              }
+            ]
+          }) }}
+
+
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+  </div>
+</div>
+
+{% endblock %}
