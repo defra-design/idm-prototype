@@ -23,7 +23,7 @@
   <div class="govuk-grid-column-two-thirds">
 
     <!-- For invited users-->
-    {% if (data['userType'] == "invite") or  (data['userType'] == "invitedAgent") %}
+    {% if (data['userType'] == "invited") or (data['userType'] == "invitedAgent") %}
       {% set tcButton  = "/new-user-reg/business-individual/task-list-page-account" %}
     {% endif %}
 
@@ -34,8 +34,6 @@
 
 
     <form action="{{ tcButton }}" method="post">
-
-
       {{ govukCheckboxes({
         idPrefix: "terms",
         name: "terms",
@@ -52,7 +50,7 @@
         items: [
           {
             value: "terms",
-            html: ' I have read and accept the <a href="terms-and-conditions" class="govuk-link">terms and conditions</a> and <a href="privacy-notice" class="govuk-link">privacy notice<a>.'
+            html: 'I have read and accept the <a href="terms-and-conditions" class="govuk-link">terms and conditions</a> and <a href="privacy-notice" class="govuk-link">privacy notice<a>.'
 
           }
         ]
@@ -62,11 +60,11 @@
       {{ govukButton({
         text: "Continue"
       }) }}
-<br>
-<br>
-<br>
-<br>
-<p class="govuk-body-s">User type: {{ data['userType']}} {{ data['service']}} {{ data['serviceLine']}}</p>
+      <br>
+      <br>
+      <br>
+      <br>
+      <p class="govuk-body-s">User type: {{ data['userType']}} {{ data['service']}} {{ data['serviceLine']}}</p>
 
 
     </form>

@@ -124,10 +124,10 @@
                   <td style="font-family: Helvetica, Arial, sans-serif; font-size: 19px; line-height: 1.315789474;">
             <![endif]-->
             <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #0B0C0C;">
-              Hello John,
+              Hello {!Custom:UserFirstName;},
             </p>
             <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #0B0C0C;">
-              This person received your email invitation and has completed the registration process ready to use our online services:
+              {!Custom:AdminFullName;} has given you permission to access the following online service from Defra or a related organisation on behalf of {!Organisation:Name;}:
             </p>
             <table role="presentation" style="padding: 0 0 20px 0;">
               <tbody>
@@ -135,10 +135,7 @@
                   <td style="font-family: Helvetica, Arial, sans-serif;">
                     <ul style="Margin: 0 0 0 20px; padding: 0; list-style-type: decimal;">
                       <li style="Margin: 5px 0 5px; padding: 0 0 0 5px; font-size: 19px;line-height: 25px; color: #0B0C0C;">
-                        Name: Bob Holmness
-                      </li>
-                      <li style="Margin: 5px 0 5px; padding: 0 0 0 5px; font-size: 19px;line-height: 25px; color: #0B0C0C;">
-                        Email address: Bob.Holmness@email.com
+                        {!Custom:ServiceName;}
                       </li>
                     </ul>
                   </td>
@@ -146,30 +143,11 @@
               </tbody>
             </table>
 
-            <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #0B0C0C;">
-              You should now choose what information and tasks you would like Sara to see and do on behalf of Acme Org Ltd.
-            </p>
-
             <blockquote style="Margin: 0 0 20px 0; border-left: 10px solid #BFC1C3;padding: 15px 0 0.1px 15px; font-size: 19px; line-height: 25px;">
               <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #005ea5;">
-                <a href="/manage/agent/services-on-team-member-agent-invited?name=Sara%20Chippers&userType=new-complete-admin&numUsers=5&numServices=3&numAgents=3&numLocations=1&service=Chemicals&serviceLine=UK-REACH-IT" style="color: #005ea5;">Give this person access to use online services</a>
+                <a href="{!Custom:LoginScreen;}" style="color: #005ea5;">Sign in to access this service</a>
               </p>
             </blockquote>
-
-            <h2 style="Margin: 0 0 20px 0; padding: 0; font-size: 27px; line-height: 35px; font-weight: bold; color: #0B0C0C;">
-              If you do not want to give this person access to services
-            </h2>
-
-            <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #0B0C0C;">
-              If you know this person but they have registered using an email address you do not recognise, please ask them to register again using an email address approved by you.
-            </p>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <a href="/manage/team-members/invite-user/E3-admin-notify-dynamics" style="color: #005ea5;">Dynamics version</a>
 
           </td>
           <td width="10" valign="middle"><br></td>
