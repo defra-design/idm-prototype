@@ -24,12 +24,6 @@
 
         <p class="govuk-body">{{ data['name'] }} is ready to use our online services.</p>
         <p class="govuk-body">You should choose what information and tasks you would like this person to see and do.</p>
-
-        {{ govukButton({
-          text: "Give service access",
-          href: "/manage/team-members/invite-user/add-user-roles-system-roles?userType=invite"
-        }) }}
-
         <hr class="govuk-section-break--s">
         <br>
     {% endif %}
@@ -73,8 +67,7 @@
 </div>
 
 <br>
-<!-- Show table if the user has subscribed to one service -->
-{% if data['subscribeService'] == "Yes" %}
+
   <!-- Decides where there Give Service Access button goes according to the service and number of services-->
   {% if (data['numServices'] == 3) and (data['service'] == "Imports") %}
     {{ govukButton({
@@ -90,6 +83,8 @@
     }) }}
   {% endif %}
 
+  <!-- Show table if the user has subscribed to one service -->
+  {% if data['subscribeService'] == "Yes" %}
 
   {% set setServiceNameHtml %}
       <span class="govuk-visually-hidden--desktop td-header">Service:</span> {{ data['serviceLine'] }}
