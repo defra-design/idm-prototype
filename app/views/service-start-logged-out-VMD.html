@@ -60,14 +60,9 @@
       <li>the name and contact details of another person in your organisation who we can contact to authorise your application to enrol</li>
           </ul>
 
-
-      {% if data['userType'] == "new" %}
-            {% set startURL = "/scp/login-new" %}
-      {% endif %}
-
       {{ govukButton({
         text: "Start now",
-        href: startURL,
+        href: "/scp/login-new",
         classes: "govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-8"
       }) }}
 

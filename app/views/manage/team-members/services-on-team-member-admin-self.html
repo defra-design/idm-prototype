@@ -13,6 +13,17 @@
 
 {% block content %}
 
+{% if data['numUsers'] == "1" %}
+  {% set setchangeAccessHtml %}
+    edit-user-one-admin-confirm
+  {% endset %}
+
+  {% else %}
+  {% set setchangeAccessHtml %}
+    edit-user-system-roles
+  {% endset %}
+{% endif %}
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
 
@@ -37,7 +48,7 @@
   </div>
   <div class="govuk-grid-column-one-third">
     <!--<p class="govuk-body"><a href="user-account" class="govuk-link--no-visited-state">Edit team member details</a></p>-->
-    <p class="govuk-body"><a href="" class="govuk-link--no-visited-state">Change access level</a></p>
+    <p class="govuk-body"><a href="{{ setchangeAccessHtml }}" class="govuk-link--no-visited-state">Change access level</a></p>
     <p class="govuk-body"><a href="" class="govuk-link--no-visited-state">Reset password</a><br></p>
   </div>
 </div>
