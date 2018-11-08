@@ -25,38 +25,6 @@
 
         <p class="govuk-body">Bob has completed the registration process ready to use our online services.</p>
         <p class="govuk-body">You should now choose what information and tasks you would like this person to see and do.</p>
-
-
-        {% if (data['numServices'] == 3) and (data['service'] == "Imports") %}
-          {{ govukButton({
-            text: "Give service access",
-            href: "/manage/team-members/invite-user/imports/add-user-service?userType=invitedAgent&name=Bob Holmness"
-          }) }}
-        {% endif %}
-
-        {% if (data['numServices'] == 3) and (data['service'] == "Chemicals") %}
-          {{ govukButton({
-            text: "Give service access",
-            href: "/manage/team-members/invite-user/chemicals/add-user-service?userType=invitedAgent&name=Bob Holmness"
-          }) }}
-        {% endif %}
-
-        {% if (data['numServices'] == 3) and (data['service'] == "VMD") %}
-          {{ govukButton({
-            text: "Give service access",
-            href: "/manage/team-members/invite-user/vmd/add-user-service?subscribeService=Yes&serviceRole=Standard&userType=invitedAgent&name=Bob Holmness"
-          }) }}
-        {% endif %}
-
-        {% if (data['numServices'] == 1) %}
-          {{ govukButton({
-            text: "Give service access",
-            href: "/manage/team-members/invite-user/enrollment-confirmation?subscribeService=Yes&serviceRole=Standard&userType=invitedAgent&name=Bob Holmness"
-          }) }}
-        {% endif %}
-
-
-
         <hr class="govuk-section-break--s">
         <br>
     {% endif %}
@@ -85,33 +53,46 @@
     <!--<p class="govuk-body"><a href="" class="govuk-link--no-visited-state">Delete team member</a></p>-->
   </div>
 </div>
-
 <br>
+{% if data['subscribeService'] == "Yes" %}
+{% else %}
+  {{ govukButton({
+    text: "Give service access",
+    href: "/manage/team-members/invite-user/add-user-roles-system-roles?subscribeService=Yes&serviceRole=Standard&userType=invitedAgent&name=Bob Holmness"
+  }) }}
+{% endif %}
+
+<!-- Show table if the user has subscribed to one service -->
 <!-- Show table if the user has subscribed to one service -->
 {% if data['subscribeService'] == "Yes" %}
-  <!-- Decides where there Give Service Access button goes according to the service and number of services-->
 
-  {% if (data['numServices'] == 3) and (data['service'] == "Imports") %}
-    {{ govukButton({
-      text: "Give service access",
-      href: "/manage/team-members/invite-user/imports/add-user-service?userType=invitedAgent&name=Bob Holmness"
-    }) }}
+{% if (data['numServices'] == 3) and (data['service'] == "Imports") %}
+  {{ govukButton({
+    text: "Give service access",
+    href: "/manage/team-members/invite-user/imports/add-user-service?subscribeService=Yes&serviceRole=Standard&userType=inviteAgent&name=Bob Holmness"
+  }) }}
+{% endif %}
+
+{% if (data['numServices'] == 3) and (data['service'] == "Chemicals") %}
+  {{ govukButton({
+    text: "Give service access",
+    href: "/manage/team-members/invite-user/chemicals/add-user-service?subscribeService=Yes&serviceRole=Standard&userType=invitedAgent&name=Bob Holmness"
+  }) }}
+{% endif %}
+
+{% if (data['numServices'] == 3) and (data['service'] == "VMD") %}
+  {{ govukButton({
+    text: "Give service access",
+    href: "/manage/team-members/invite-user/vmd/add-user-service?subscribeService=Yes&serviceRole=Standard&userType=invitedAgent&name=Bob Holmness"
+  }) }}
   {% endif %}
 
-  {% if (data['numServices'] == 3) and (data['service'] == "Chemicals") %}
+  {% if (data['numServices'] == 3) and (data['service'] == "Exports") %}
     {{ govukButton({
       text: "Give service access",
-      href: "/manage/team-members/invite-user/chemicals/add-user-service?userType=invitedAgent&name=Bob Holmness"
+      href: "/manage/team-members/invite-user/exports/add-user-service?subscribeService=Yes&serviceRole=Standard&userType=invitedAgent&name=Bob Holmness"
     }) }}
   {% endif %}
-
-  {% if (data['numServices'] == 3) and (data['service'] == "VMD") %}
-    {{ govukButton({
-      text: "Give service access",
-      href: "/manage/team-members/invite-user/vmd/add-user-service?userType=invitedAgent&name=Bob Holmness"
-    }) }}
-  {% endif %}
-
 
   {% set setServiceNameHtml %}
       <span class="govuk-visually-hidden--desktop td-header">Service:</span> {{ data['serviceLine'] }}

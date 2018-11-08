@@ -13,10 +13,14 @@
 
 {% block content %}
 
+
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
     <h1 class="govuk-heading-xl">
       {{ data['name'] }}
+      {{data['numServices']}}
+      {{data['subscribeService']}}
     </h1>
 
     {% if data['subscribeService'] == "Yes" %}
@@ -51,7 +55,7 @@
       edit-user-one-admin-confirm
     {% endset %}
 
-    {% else %}
+  {% else %}
     {% set setchangeAccessHtml %}
       edit-user-system-roles
     {% endset %}
@@ -69,22 +73,49 @@
 <br>
 
   <!-- Decides where there Give Service Access button goes according to the service and number of services-->
+
+{% if data['subscribeService'] == "Yes" %}
+
+
+
+{% else %}
+  {{ govukButton({
+    text: "Give service access",
+    href: "/manage/team-members/invite-user/add-user-roles-system-roles?subscribeService=Yes&serviceRole=Standard&userType=invite&name=Sarah Chippers"
+  }) }}
+{% endif %}
+
+
+  <!-- Show table if the user has subscribed to one service -->
+  {% if data['subscribeService'] == "Yes" %}
+
   {% if (data['numServices'] == 3) and (data['service'] == "Imports") %}
     {{ govukButton({
       text: "Give service access",
-      href: "/manage/team-members/invite-user/imports/add-user-service?userType=invite"
+      href: "/manage/team-members/invite-user/imports/add-user-service?subscribeService=Yes&serviceRole=Standard&userType=invite&name=Sarah Chippers"
     }) }}
   {% endif %}
 
   {% if (data['numServices'] == 3) and (data['service'] == "Chemicals") %}
     {{ govukButton({
       text: "Give service access",
-      href: "/manage/team-members/invite-user/chemicals/add-user-service?userType=invite"
+      href: "/manage/team-members/invite-user/chemicals/add-user-service?subscribeService=Yes&serviceRole=Standard&userType=invite&name=Sarah Chippers"
     }) }}
   {% endif %}
 
-  <!-- Show table if the user has subscribed to one service -->
-  {% if data['subscribeService'] == "Yes" %}
+  {% if (data['numServices'] == 3) and (data['service'] == "VMD") %}
+    {{ govukButton({
+      text: "Give service access",
+      href: "/manage/team-members/invite-user/vmd/add-user-service?subscribeService=Yes&serviceRole=Standard&userType=invite&name=Sarah Chippers"
+    }) }}
+    {% endif %}
+
+    {% if (data['numServices'] == 3) and (data['service'] == "Exports") %}
+      {{ govukButton({
+        text: "Give service access",
+        href: "/manage/team-members/invite-user/exports/add-user-service?subscribeService=Yes&serviceRole=Standard&userType=invite&name=Sarah Chippers"
+      }) }}
+    {% endif %}
 
   {% set setServiceNameHtml %}
       <span class="govuk-visually-hidden--desktop td-header">Service:</span> {{ data['serviceLine'] }}
