@@ -1,0 +1,90 @@
+{% extends "layout.html" %}
+
+{% set title = "UK S01" %}
+
+{% block header %}
+    {{ govukHeader({ serviceName: "Exports" }) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/breadcrumb-two-level.html" %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+      {{ title }}      </h1>
+      <p>Use this service to process and manage substance data and dossiers.</p>
+      <p>You will also need to use this service to register a substance if you're a:</p>
+      <div class="govuk-inset-text">
+             <ul class="govuk-list govuk-list--bullet">
+               <li>do something</li>
+               <li>do something</li>
+               <li>do something</li>
+               <li>do something</li>
+            </ul>
+         </div>
+      <p class="govuk-heading-m">You need to use a Government Gateway account to register for this service</p>
+      <p class="govuk-body">We ask you to use or create a Government Gateway account to register with this service, as well as other services provided by Defra and related agencies and public bodies.</p>
+      <p class="govuk-body">Having one set of sign in details (a user ID and password) will save you time. We will store basic information about you (and your business, if relevant) so that you do not have to re-enter the information each time you want to use a new online service.</p>
+      <p class="govuk-body">If you have administrator access, you will also be able to give other people (for example colleagues or agents you work with) access to one or more of the online services you use.</p>
+      <p class="govuk-heading-m">To register for our online services you will be guided to:</p>
+            <div class="govuk-inset-text">
+            <ol class="govuk-list govuk-list--number">
+               <li>Enter your Government Gateway user ID and password if you already have an account. If not, you will be guided through the process of creating one.</li>
+               <li>Tell us some information about you and how you want to use our online services.</li>
+               <li>Visit the [service name] service to [service-specific content, if relevant, then] complete your registration.
+               </li>
+            </ol>
+          </div>
+          <h2 class="govuk-heading-m">Before you start</h2>
+      <p class="govuk-body">You will need:</p>
+          <ul class="govuk-list govuk-list--bullet">
+      <li>your email address, phone number and postal address</li>
+      <li>your Government Gateway user ID and password (if you already have an account, if not you will be guided to create one)</li>
+          </ul>
+      <p class="govuk-body">If you are registering on behalf of a business or organisation, you will also need:</p>
+          <ul class="govuk-list govuk-list--bullet">
+      <li>the main contact details for your business or organisation (for example, head office contact details)</li>
+      <li>the Companies House number if you are registering on behalf of a limited company</li>
+          </ul>
+
+      {% if data['userType'] == "new" %}
+            {% set startURL = "/scp/login-new" %}
+      {% endif %}
+
+     {{ govukButton({
+       text: "Start now",
+       href: startURL,
+       classes: "govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-8"
+     }) }}
+
+      <hr class="govuk-section-break--m">
+      <p class="govuk-body">This prototype is being updated regularly.</p>
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+      <aside class="app-related-items" role="complementary">
+        <h2 class="govuk-heading-m" id="subsection-title">Subsection</h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list govuk-body-s">
+            <li><a href="guidance#inquiry">Prepare a substance inquiry</a></li>
+            <li><a href="guidance#registration">Prepare a substance registration</a></li>
+            <li><a href="guidance#notification">Prepare a PPORD notification</a></li>
+            <li>
+              <a href="#" class="govuk-!-font-weight-bold">
+                More <span class="govuk-visually-hidden">in Subsection</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+    </div>
+  </div>
+{% endblock %}
