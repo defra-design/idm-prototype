@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Cookie Policy for the Use Defra online service" %}
+{% set title = "Cookies" %}
 
 {% block header %}
     {{ govukHeader({ serviceName: "" }) }}
@@ -31,19 +31,158 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <div class="govuk-inset-text">
-      Some words go here
-      </div>
-      <p class="govuk-body">Some more words go here</p>
+      <p class="govuk-body">The Use Defra online service will put small files known as ‘cookies’ on to your computer.</p>
+      <p class="govuk-body">These cookies are used to:</p>
+      <ul class="govuk-list govuk-list--bullet">
+          <li>TBC</li>
+          <li>TBC</li>
+          <li>TBC</li>
+      </ul>
 
+      <p class="govuk-body">Find out how to manage cookies on the <a href="https://ico.org.uk/your-data-matters/online/cookies/">Information Commissioners' website.</a></p>
 
+    <h2 class="govuk-heading-l">Google Analytics cookies</h2>
+      <p class="govuk-body">We use Google Analytics to collect information about how you use the service. This information helps us to make improvements.</p>
 
+     <p class="govuk-body">The Google analytics cookies collect and store information about:</p>
+      <ul class="govuk-list govuk-list--bullet">
+          <li>the pages you visit - how long you spend on each page</li>
+          <li>how you got to the service</li>
+          <li>what you click on while you are using the service</li>
+      </ul>
+
+      {{ govukTable({
+        firstCellIsHeader: false,
+        head: [
+          {
+            html: 'Name',
+            format: 'column-third column-full'
+          },
+          {
+            html: 'Purpose',
+            format: 'column-quarter column-full'
+          },
+          {
+            html: 'Expires',
+            format: 'column-quarter column-full'
+          }
+        ],
+        rows: [
+          [
+            {
+              html: '<span class="govuk-visually-hidden--desktop td-header">Name:</span> TBC'
+            },
+            {
+              html: '<span class="govuk-visually-hidden--desktop td-header">Purpose:</span> TBC'
+            },
+            {
+              html: '<span class="govuk-visually-hidden--desktop td-header">Expires:</span> TBC'
+            }
+          ],
+                    [
+            {
+              html: '<span class="govuk-visually-hidden--desktop td-header">Name:</span>
+               TBC'
+            },
+            {
+              html: '<span class="govuk-visually-hidden--desktop td-header">Purpose:</span> TBC'
+            },
+            {
+              html: '<span class="govuk-visually-hidden--desktop td-header">Expires:</span> TBC'
+            }
+          ]
+          ]
+      }) }}
+
+      <h2 class="govuk-heading-l">Session cookies</h2>
+      <p class="govuk-body">We store session cookies on your computer to help keep your information secure while you use the service.</p>
+
+      {{ govukTable({
+        firstCellIsHeader: false,
+        head: [
+          {
+            html: 'Name',
+            format: 'column-third column-full'
+          },
+          {
+            html: 'Purpose',
+            format: 'column-quarter column-full'
+          },
+          {
+            html: 'Expires',
+            format: 'column-quarter column-full'
+          }
+        ],
+        rows: [
+          [
+            {
+              html: '<span class="govuk-visually-hidden--desktop td-header">Name:</span>
+              TBC'
+            },
+            {
+              html: '<span class="govuk-visually-hidden--desktop td-header">Purpose:</span> TBC'
+            },
+            {
+              html: '<span class="govuk-visually-hidden--desktop td-header">Expires:</span> TBC'
+            }
+          ],
+                    [
+            {
+              html: '<span class="govuk-visually-hidden--desktop td-header">Name:</span>
+              TBC'
+            },
+            {
+              html: '<span class="govuk-visually-hidden--desktop td-header">Purpose:</span> TBC'
+            },
+            {
+              html: '<span class="govuk-visually-hidden--desktop td-header">Expires:</span> TBC'
+            }
+          ]
+          ]
+      }) }}
+
+      <h2 class="govuk-heading-l">Introductory message cookie</h2>
+      <p class="govuk-body">When you first use the service, you may see a cookie message appear at the top of the screen. Once you have seen the message, we store a cookie on your computer so it knows not to show it again.</p>
+
+      {{ govukTable({
+        firstCellIsHeader: false,
+        head: [
+          {
+            html: 'Name',
+            format: 'column-third column-full'
+          },
+          {
+            html: 'Purpose',
+            format: 'column-quarter column-full'
+          },
+          {
+            html: 'Expires',
+            format: 'column-quarter column-full'
+          }
+        ],
+        rows: [
+          [
+            {
+              html: '<span class="govuk-visually-hidden--desktop td-header">Name:</span>
+                seen_cookie_message'
+            },
+            {
+              html: '<span class="govuk-visually-hidden--desktop td-header">Purpose:</span> Stores information to let us know that you have seen our cookie message.'
+            },
+            {
+              html: '<span class="govuk-visually-hidden--desktop td-header">Expires:</span> 1 month'
+            }
+          ]
+          ]
+      }) }}
 
 {{ govukBackLink({
     text: "Back",
     href: "javascript:history.back()"
   }) }}
 
+  </div>
+</div>
 
 </div>
 
