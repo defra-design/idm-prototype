@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% set title = "Cookie Policy for the Use Defra online service" %}
+
+{% block header %}
+    {{ govukHeader({ serviceName: "" }) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        {{title}}
+
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-inset-text">
+      Some words go here
+      </div>
+      <p class="govuk-body">Some more words go here</p>
+
+
+
+
+{{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+
+</div>
+
+
+{% endblock %}
