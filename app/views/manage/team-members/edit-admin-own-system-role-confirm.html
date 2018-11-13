@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Are you sure you want to remove your own admin responsibilities?" %}
+{% set title = "Are you sure you want to remove your own admin access?" %}
 
 {% block pageTitle %}
     {{title}} - GOV.UK
@@ -33,12 +33,12 @@
             items: [
               {
                 value: "Yes",
-                html: 'Yes - I confirm this will remove my administration responsibilities and ability to manage this organisations users and services',
+                html: 'Yes - I do not need to view or edit the information Defra holds about my organisation, or manage access for other people',
                 checked:  checked('systemRoleConfirm','Yes')
               },
               {
                 value: "No",
-                html: 'No - I want to retain my administrator responsibilities',
+                html: 'No - I want to keep my admin access',
                 checked:  checked('systemRoleConfirm','No')
               }
             ]
