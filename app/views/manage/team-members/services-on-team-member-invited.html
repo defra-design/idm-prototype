@@ -86,45 +86,45 @@
   <!-- Show table if the user has subscribed to one service -->
   {% if data['subscribeService'] == "Yes" %}
 
-  {% if (data['numServices'] == 3) and (data['service'] == "Imports") %}
+    {% if (data['numServices'] == 3) and (data['service'] == "Imports") %}
     {{ govukButton({
       text: "Give service access",
       href: "/manage/team-members/invite-user/imports/add-user-service?subscribeService=Yes&serviceRole=Standard&userType=invite&name=Sarah Chippers"
     }) }}
-  {% endif %}
+    {% endif %}
 
-  {% if (data['numServices'] == 3) and (data['service'] == "Chemicals") %}
+    {% if (data['numServices'] == 3) and (data['service'] == "Chemicals") %}
     {{ govukButton({
       text: "Give service access",
       href: "/manage/team-members/invite-user/chemicals/add-user-service?subscribeService=Yes&serviceRole=Standard&userType=invite&name=Sarah Chippers"
     }) }}
-  {% endif %}
+    {% endif %}
 
-  {% if (data['numServices'] == 3) and (data['service'] == "VMD") %}
+    {% if (data['numServices'] == 3) and (data['service'] == "VMD") %}
     {{ govukButton({
       text: "Give service access",
       href: "/manage/team-members/invite-user/vmd/add-user-service?subscribeService=Yes&serviceRole=Standard&userType=invite&name=Sarah Chippers"
-    }) }}
-    {% endif %}
-
-    {% if (data['numServices'] == 3) and (data['service'] == "Exports") %}
-      {{ govukButton({
-        text: "Give service access",
-        href: "/manage/team-members/invite-user/exports/add-user-service?subscribeService=Yes&serviceRole=Standard&userType=invite&name=Sarah Chippers"
       }) }}
     {% endif %}
 
-  {% set setServiceNameHtml %}
-      <span class="govuk-visually-hidden--desktop td-header">Service:</span> {{ data['serviceLine'] }}
-  {% endset %}
+    {% if (data['numServices'] == 3) and (data['service'] == "Exports") %}
+    {{ govukButton({
+      text: "Give service access",
+      href: "/manage/team-members/invite-user/exports/add-user-service?subscribeService=Yes&serviceRole=Standard&userType=invite&name=Sarah Chippers"
+    }) }}
+    {% endif %}
 
-  {% set setOrgHtml %}
-      <span class="govuk-visually-hidden--desktop td-header">Organisation:</span> Acme Org Ltd
-  {% endset %}
+    {% set setServiceNameHtml %}
+        <span class="govuk-visually-hidden--desktop td-header">Service:</span> {{ data['serviceLine'] }}
+    {% endset %}
 
-  {% set setServiceRoleHtml %}
-      <span class="govuk-visually-hidden--desktop td-header">Access level: </span> {{ data['serviceRole'] }}
-  {% endset %}
+    {% set setOrgHtml %}
+        <span class="govuk-visually-hidden--desktop td-header">Organisation:</span> Acme Org Ltd
+    {% endset %}
+
+    {% set setServiceRoleHtml %}
+        <span class="govuk-visually-hidden--desktop td-header">Access level: </span> {{ data['serviceRole'] }}
+    {% endset %}
 
 
     {{ govukTable({

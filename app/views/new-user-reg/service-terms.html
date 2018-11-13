@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "3. Information required by the service" %}
+{% set title = "3. Specific information needed by the service" %}
 
 {% block pageTitle %}
     {{title}} - GOV.UK
@@ -34,35 +34,41 @@
     <form action="service-questions" method="post">
 
       <div class="govuk-form-group">
-        <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
-          <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
-            <h1 class="govuk-fieldset__heading">
-              {{title}}
-            </h1>
-          </legend>
-          <p class="govuk-body">We need to ask for some information before you can use our online services.</p>
-          <p>Some other words here</p>
-          <ul class="govuk-list govuk-list--bullet">
-             <li><a href="#">Terms and conditions</a></li>
-             <li><a href="#">Privacy notice</a></li>
-           </ul>
-          <div class="govuk-checkboxes">
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="terms" name="terms" type="checkbox" value="terms">
-              <label class="govuk-label govuk-checkboxes__label" for="terms">
-                I have read and accept the terms and conditions and privacy notice.
-              </label>
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+              <h1 class="govuk-fieldset__heading">
+                3. Specific information needed by the {{ data['service'] }} service
+              </h1>
+            </legend>
+            {% from "inset-text/macro.njk" import govukInsetText %}
+
+              {{ govukInsetText({
+                 text: "We have saved the information you told us about you and your organisation. This means you will not be asked to enter it again when you register to use other Defra online services."
+               }) }}
+            <p class="govuk-body">You will now be asked to provide some specific information needed to complete your register with the {{ data['service'] }} service.</p>
+            <p class="govuk-body">You will then be able to use the {{ data['service'] }} service straight away.</p>
+
+            <ul class="govuk-list govuk-list--bullet">
+               <li><a href="#">Terms and conditions</a></li>
+               <li><a href="#">Privacy notice</a></li>
+             </ul>
+
+            <div class="govuk-checkboxes">
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="terms" name="terms" type="checkbox" value="terms">
+                <label class="govuk-label govuk-checkboxes__label" for="terms">
+                  I have read and accept the terms and conditions and privacy notice.
+                </label>
+              </div>
             </div>
-          </div>
-        </fieldset>
+          </fieldset>
+        </div>
       </div>
-
-
       {{ govukButton({
         text: "Continue"
       }) }}
     </form>
-
   </div>
 </div>
 
