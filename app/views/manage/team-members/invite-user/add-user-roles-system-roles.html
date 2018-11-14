@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Do you want to give this person any admin responsibilities?" %}
+{% set title = "Do you want to give this person any admin responsibilities for your organisation?" %}
 
 {% block pageTitle %}
     {{title}} - GOV.UK
@@ -72,12 +72,12 @@
             items: [
               {
                 value: "Admin",
-                html: 'Admin - this person can view and edit the information the service holds about your organisation. They can also manage other people\'s access to the service.',
+                html: 'Admin - this person can view and edit the information the service holds about your organisation. They can also manage other people\'s access to services.',
                 checked:  checked('systemRole','Admin')
               },
               {
                 value: "None",
-                html: 'None - this person has no extra responsibilities, they can only perform the tasks you choose within a service.',
+                html: 'None - this person has no extra responsibilities, they can only perform the tasks you choose within a specific service.',
                 checked:  checked('systemRole','None')
               }
             ]
@@ -100,7 +100,7 @@
             items: [
               {
                 value: "Admin",
-                html: 'Admin - this person can view and edit the information the service holds about your organisation. They can also manage other people\'s access to the service.',
+                html: 'Admin - this person can view and edit the information the service holds about your organisation. They can also manage other people\'s access to services.',
                 checked:  checked('systemRole','Admin')
               },
               {
@@ -110,7 +110,7 @@
               },
               {
                 value: "None",
-                html: 'None - this person has no extra responsibilities, they can only perform the tasks you choose within a service.',
+                html: 'None - this person has no extra responsibilities, they can only perform the tasks you choose within a specific service.',
                 checked:  checked('systemRole','None')
               }
             ]
