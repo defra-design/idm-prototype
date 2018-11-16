@@ -1,6 +1,5 @@
 {% extends "layout.html" %}
 
-{% set title %} {{ title }} {% endset%}
 
 {% block pageTitle %}
     {{title}} - GOV.UK
@@ -8,65 +7,38 @@
 
 {% block beforeContent %}
   {% include "includes/account-nav-admin-corp.html" %}
+
 {% endblock %}
 
 {% block content %}
 
+{% set orgName = data['orgName'] %}
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-    <span class="govuk-caption-xl">Account for</span>
+    <span>
+      <form action="" method="get" class="govuk-!-display-inline-block">
+        <label class="govuk-caption-l govuk-!-display-inline-block" for="account">
+          Account for &nbsp;
+        </label>
+        <select class="govuk-select {{ orgSwitch }}" id="orgName" name="orgName">
+          <option value="None">Select an account&nbsp;&nbsp;&nbsp;&nbsp;</option>
+          <option value="Acme Org Ltd">Acme Org Ltd</option>
+          <option value="FarmerRUS">FarmerRUS</option>
+          <option value="Importers RUS">Importers RUS</option>
+          <option value="Client2.com">Client2.com</option>
+        </select>
+          &nbsp;
+        <button type="submit" class="govuk-button govuk-!-display-inline-block {{ orgSwitch }}">
+          Continue
+        </button>
+      </form>
+    </span>
     <h1 class="govuk-heading-xl">
       {{ orgName }}
-
     </h1>
   </div>
-
 </div>
-
-  <div class="govuk-grid-row {{ orgSwitch }}">
-    <form  action="{{ dashboardURL }}" method="get">
-      <div class="govuk-grid-column-one-third">
-        {{ govukSelect({
-          id: "orgName",
-          name: "orgName",
-          classes: "govuk-input--width-30",
-          label: {
-          },
-          items: [
-            {
-              value: "Choose organisation",
-              text: "Choose organisation"
-            },
-            {
-              value: "Acme Org Ltd",
-              text: "Acme Org Ltd",
-              checked: yes
-            },
-            {
-              value: "FarmerRUS",
-              text: "FarmerRUS"
-            },
-            {
-              value: "Importers RUS",
-              text: "Importers RUS"
-            },
-            {
-              value: "Client2.com",
-              text: "Client2.com"
-            }
-
-          ]
-        }) }}
-
-      </div>
-
-      <div class="govuk-grid-column-one-third">
-        {{ govukButton({
-          text: "Continue"
-        }) }}
-      </div>
-    </form>
-  </div>
 
  {% set addUserURL = "/manage/team-members/invite-user/add-user-details" %}
 

@@ -37,13 +37,12 @@
             <table role="presentation" width="100%" style="border-collapse: collapse;max-width: 580px;" cellpadding="0" cellspacing="0" border="0" align="center">
               <tbody>
                 <tr>
-                  <td width="70" bgcolor="#0B0C0C" valign="middle">
-                    <a href="https://www.gov.uk" title="Go to the GOV.UK homepage" style="text-decoration: none;">
+                  <td width="70" bgcolor="#0B0C0C" valign="middle"><a href="https://www.gov.uk" title="Go to the GOV.UK homepage" style="text-decoration: none;">
                       <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse;">
                         <tbody>
                           <tr>
                             <td style="padding-left: 10px"><img src="https://static.notifications.service.gov.uk/images/gov.uk_logotype_crown.png" alt=" " height="32" border="0" style="Margin-top: 4px;"></td>
-                            <td style="font-size: 28px; line-height: 1.315789474; Margin-top: 4px; padding-left: 10px;"><span style="font-family: Helvetica, Arial, sans-serif; font-weight: 700; color: #ffffff; text-decoration: none; vertical-align:top; display: inline-block;">GOV.UK </span></td>
+                            <td style="font-size: 28px; line-height: 1.315789474; Margin-top: 4px; padding-left: 10px;"><span style="font-family: Helvetica, Arial, sans-serif; font-weight: 700; color: #ffffff; text-decoration: none; vertical-align:top; display: inline-block;">GOV.UK</span></td>
                           </tr>
                         </tbody>
                       </table>
@@ -61,8 +60,7 @@
         </tr>
       </tbody>
     </table>
-    <table
-        role="presentation" class="content" align="center" cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse;max-width: 580px; width: 100% !important;" width="100%">
+    <table role="presentation" class="content" align="center" cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse;max-width: 580px; width: 100% !important;" width="100%">
       <tr>
         <td width="10" height="10" valign="middle"></td>
         <td>
@@ -98,30 +96,30 @@
                 <tr>
                   <td style="font-family: Helvetica, Arial, sans-serif; font-size: 19px; line-height: 1.315789474;">
             <![endif]-->
-            <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #0B0C0C;">Hello,</p>
-            <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #0B0C0C;">{!Custom:AdminName;} has invited you to access online services from Defra and related agencies and public bodies on behalf of {!Organisation:Name;}.</p>
-            <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #0B0C0C;">To access these services, you need to:</p>
+            <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #0B0C0C;">Hello {!Custom:UserFirstName;},</p>
+            <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #0B0C0C;">
+              {!Custom:AdminName;} from {!Organisation:Name;}. has changed your access level for the {!Custom:ServiceName;} service. Your access level is now:</p>
+
             <table role="presentation" style="padding: 0;">
-              <tr>
-                <td style="font-family: Helvetica, Arial, sans-serif;">
-                  <ol style="Margin: 0 0 20px 20px; padding: 0; list-style-type: decimal;">
-                    <li style="Margin: 5px 0 5px; padding: 0 0 0 5px; font-size: 19px;line-height: 25px; color: #0B0C0C;">
-                      Sign in using a Government Gateway account you have already created for the email address {!Custom:UserEmailAddress;} or create a new Government Gateway account using this email address.</li>
-                    <li style="Margin: 5px 0 5px; padding: 0 0 0 5px; font-size: 19px;line-height: 25px; color: #0B0C0C;">
-                      Read and accept our terms and conditions.</li>
-                    <li style="Margin: 5px 0 5px; padding: 0 0 0 5px; font-size: 19px;line-height: 25px; color: #0B0C0C;">
-                      Complete a short registration process to tell us your name and contact number.</li>
-                  </ol>
-                </td>
-              </tr>
-            </table>
-            <blockquote style="Margin: 0 0 20px 0; border-left: 10px solid #BFC1C3;padding: 15px 0 0.1px 15px; font-size: 19px; line-height: 25px;">
-              <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #0B0C0C;"><strong><a style="word-wrap: break-word; color: #005ea5;" href="{!Custom:IDMLink;}">Start your secure registration process on GOV.UK</a></strong></p>
-            </blockquote>
-            <h2 style="Margin: 0 0 20px 0; padding: 0; font-size: 24px; line-height: 35px; font-weight: bold; color: #0B0C0C;">What happens next?</h2>
-            <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #0B0C0C;">{!Custom:AdminName;} will choose which information you can see and which tasks you can perform on behalf of {!Organisation:Name;}.</p>
-            <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #0B0C0C;">We will email you to let you know when you can sign in and access services.</p>
-            <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #0B0C0C;"><strong>To withdraw your consent for Defra to store and use your email address, please follow the guidance in our <a style="word-wrap: break-word; color: #005ea5;" href="{!Custom:PrivacyLink;}">privacy policy</a>.</strong></p>
+							<tr>
+								<td style="font-family: Helvetica, Arial, sans-serif;">
+                  <ul style="Margin: 0 0 20px 20px; padding: 0; ">
+                    <li style="Margin: 5px 0 5px; padding: 0 0 0 5px; font-size: 19px;line-height: 25px; color: red;"><strong>[REACH Manager]</strong></li>
+                  </ul>
+								</td>
+							</tr>
+						</table>
+
+            <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: red;">If you have any questions about this change please contact [Ann.Cooper@email.com].</p>
+
+            <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #0B0C0C;">To remove your consent for Defra to store and use your email address, please follow the guidance in our <a style="word-wrap: break-word; color: #005ea5;" href="{!Custom:PrivacyLink;}">privacy policy</a>.</p>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <a href="/manage/team-members/change-access/E6-change-service-access-email-dynamics" style="color: #005ea5;">Dynamics version</a>
           <!--[if (gte mso 9)|(IE)]>
                 </td>
               </tr>

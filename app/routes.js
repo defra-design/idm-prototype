@@ -35,7 +35,7 @@ router.get('/manage/dashboard-all-1', function (req, res) {
       "locationURL": 'organisations/organisation-details?orgName=Acme Org Ltd',
       "serviceCSS": 'govuk-visually-hidden',
       "orgSwitch": 'govuk-visually-hidden',
-      "orgName": "Acme Org"
+      "orgName": "Acme Org Ltd"
     })
 })
 
@@ -61,7 +61,7 @@ router.get('/manage/dashboard-all', function (req, res) {
       "agentURL": 'agent/agent-all',
       "addLocationURL": '#',
       "locationURL": 'organisations/organisation-details?orgName=Acme Org Ltd',
-      "orgSwitch": 'govuk-visually-hidden',
+      "orgSwitch": '',
       "orgName": "Acme Org Ltd"
     })
 })
