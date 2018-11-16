@@ -61,7 +61,7 @@ router.get('/manage/dashboard-all', function (req, res) {
       "agentURL": 'agent/agent-all',
       "addLocationURL": '#',
       "locationURL": 'organisations/organisation-details?orgName=Acme Org Ltd',
-      "orgSwitch": '',
+      "orgSwitch": 'govuk-visually-hidden',
       "orgName": "Acme Org Ltd"
     })
 })
