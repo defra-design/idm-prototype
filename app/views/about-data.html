@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Read and accept our terms and conditions" %}
+{% set title = "2. Information about you and your organisation" %}
 
 {% block pageTitle %}
     {{title}} - GOV.UK
@@ -23,7 +23,7 @@
   <div class="govuk-grid-column-two-thirds">
 
     <!-- For invited users-->
-    {% if (data['userType'] == "invited") or (data['userType'] == "invitedAgent") %}
+    {% if (data['userType'] == "invite") or  (data['userType'] == "invitedAgent") %}
       {% set tcButton  = "/new-user-reg/business-individual/task-list-page-account" %}
     {% endif %}
 
@@ -32,29 +32,36 @@
       {% set tcButton  = "/new-user-reg/organisation-type" %}
     {% endif %}
 
-
+    <!-- For new account registration-->
+    {% if data['userType'] == "existing" %}
+      {% set tcButton  = "/new-user-reg/organisation-type" %}
+    {% endif %}
     <form action="{{ tcButton }}" method="post">
-      {{ govukCheckboxes({
-        idPrefix: "terms",
-        name: "terms",
-        fieldset: {
-          legend: {
-            text: "Read and accept our terms and conditions",
-            isPageHeading: true,
-            classes: "govuk-fieldset__legend--xl"
-          }
-        },
-        hint: {
-          text: "To continue registering to use our online services, please read and accept our terms and conditions and privacy notice."
-        },
-        items: [
-          {
-            value: "terms",
-            html: 'I have read and accept the <a href="terms-and-conditions" class="govuk-link">terms and conditions</a> and <a href="privacy-notice" class="govuk-link">privacy notice<a>.'
 
-          }
-        ]
-      }) }}
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+            <h1 class="govuk-fieldset__heading">
+              {{title}}
+            </h1>
+          </legend>
+          <p class="govuk-body">Your Government Gateway account has given us some basic information about you.</p>
+          <p> Next, we need to ask for some more information before you can use our online services.</p>
+          <p>The two pages listed below explain how we will store and use the information you give us. You need to read and accept them to continue.</p>
+          <ul class="govuk-list govuk-list--bullet">
+             <li><a href="terms-and-conditions">Terms and conditions</a></li>
+             <li><a href="privacy-notice">Privacy notice</a></li>
+           </ul>
+          <div class="govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="terms" name="terms" type="checkbox" value="terms">
+              <label class="govuk-label govuk-checkboxes__label" for="terms">
+                I have read and accept the terms and conditions.
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
 
 
       {{ govukButton({
@@ -64,9 +71,7 @@
       <br>
       <br>
       <br>
-      <p class="govuk-body-s">User type: {{ data['userType']}} {{ data['service']}} {{ data['serviceLine']}}</p>
-
-
+      <p class="govuk-body-s">User type: {{ data['userType']}}</p>
     </form>
 
   </div>
