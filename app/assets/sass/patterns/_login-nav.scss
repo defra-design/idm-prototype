@@ -11,61 +11,45 @@
   @include govuk-clearfix;
   margin: 0;
   padding: 0;
+  margin-bottom: govuk-spacing(2);
   list-style-type: none;
   float: right;
 }
 
 .login-nav__list-item {
-    display: inline-block;
     position: relative;
     margin-bottom: govuk-spacing(1);
-    margin-bottom: 10px;
-    margin-left: 10px;
-    padding-left: 10px;
+    padding-right: govuk-spacing(1);
+    padding-left: 0;
+    float: left;
+  }
+
+  #profile .profile, #account .account {
+    text-decoration: none;
+    font-weight: 600;
   }
 
   .login-nav__link {
-    @include govuk-link-common;
-    @include govuk-link-style-text;
+    margin-right: govuk-spacing(1);
   }
 
-
-/*.login-nav {
-    padding: 10px 0 0 0;
-    border-bottom: 1px solid #bfc1c3;
+  .login-nav__details {
+    @include govuk-clearfix;
+    @include govuk-font($size: 16);
+    @include govuk-text-colour;
+    margin: 0;
+    padding-bottom: govuk-spacing(2);
     float: left;
-    width: 100%;
   }
-  */
 
+/*** Small viewports ***/
+@media all and (max-width: 40.0625em) {
+  .login-nav__details {
+    float: none;
+  }
 
-
-/*
-.login-nav p {
-    display: table;
-    font-size: 14px;
-    float: right;
-    overflow: hidden;
-}
-
-
-.login {
-  float: left;
-  width: 100%;
-  border-bottom: 1px solid #bfc1c3;
-  padding: 10px 0 10px 0;
-  margin-bottom: 20px
-}
-
-.login ul{
-  float: right;
-  margin: 0;
+  .login-nav__list {
+    float: none;
+  }
 
 }
-
-.login li {
-
-  float: right;
-  padding: 0 0 0 10px;
-}
-*/
