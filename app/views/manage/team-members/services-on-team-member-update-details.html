@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% set title = "Update details" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">{{ title }}</h1>
+    <p class="govuk-body">If you wish to update your personal details please see below for overly complicated instructions for how to do that</p>
+    <h2 class="govuk-heading-l">Name and telephone number</h2>
+    <p class="govuk-body">You need to ring the [service name] on this lovely number [telephone number]</p>
+
+    <h2 class="govuk-heading-l">Address</h2>
+    [if limited company]
+    <p class="govuk-body">You need to do some things</p>
+
+    [if non-limited company]
+    <p class="govuk-body">You need to ring the [service name] on this lovely number [telephone number]</p>
+
+    <h2 class="govuk-heading-l">Email address</h2>
+    <p class="govuk-body">The email address that we use for all corespondance is based on your Goverment Gateway account registered email. To update this email please go to Gov Gateway and do it there and it will automatically update here</p>
+    <div class="govuk-inset-text">
+      <a href="#">Change my email address on Government Gateway</a>
+    </div>
+
+
+    {{ govukButton({
+      text: "Back",
+      href: "javascript:history.back()"
+    }) }}
+  </div>
+</div>
+
+
+
+
+{% endblock %}
