@@ -26,7 +26,7 @@ router.get('/tests/ac2', function (req, res) {
 
 // Dashboard config: //
 // 1 user and no agents
-router.get('/manage/dashboard-all-1', function (req, res) {
+router.get('/manage/dashboard-1', function (req, res) {
     res.render('manage/dashboard',{
       "teamMemberURL": 'team-members/team-members-all-1',
       "addAgentURL": 'agent/invite-user/add-user-details',
@@ -35,21 +35,8 @@ router.get('/manage/dashboard-all-1', function (req, res) {
       "locationURL": 'organisations/organisation-details?orgName=Acme Org Ltd',
       "serviceCSS": 'govuk-visually-hidden',
       "orgSwitch": 'govuk-visually-hidden',
-      "orgName": "Acme Org Ltd"
-    })
-})
-
-// 2 users and 1 agent
-router.get('/manage/dashboard-all-2', function (req, res) {
-    res.render('manage/dashboard',{
-      "teamMemberURL": 'team-members/team-members-all-2',
-      "addAgentURL": 'agent/invite-user/add-user-details',
-      "agentURL": 'agent/agent-0',
-      "addLocationURL": '#',
-      "locationURL": 'organisations/organisation-details?orgName=Acme Org Ltd',
-      "serviceCSS": 'govuk-visually-hidden',
-      "orgSwitch": 'govuk-visually-hidden',
-      "orgName": "Acme Org Ltd"
+      "orgName": "Acme Org Ltd",
+      "multiOrgCSS": ""
     })
 })
 
@@ -62,7 +49,22 @@ router.get('/manage/dashboard-all', function (req, res) {
       "addLocationURL": '#',
       "locationURL": 'organisations/organisation-details?orgName=Acme Org Ltd',
       "orgSwitch": 'govuk-visually-hidden',
-      "orgName": "Acme Org Ltd"
+      "orgName": "Acme Org Ltd",
+      "multiOrgCSS": "govuk-heading-xl--no-margin"
+    })
+})
+
+// Multi orgs
+router.get('/manage/dashboard-all-orgs', function (req, res) {
+    res.render('manage/dashboard',{
+      "teamMemberURL": 'team-members/team-members-all',
+      "addAgentURL": 'agent/chemicals/invite-user/add-user-details',
+      "agentURL": 'agent/agent-all',
+      "addLocationURL": '#',
+      "locationURL": 'organisations/organisation-details?orgName=Acme Org Ltd',
+      "orgSwitch": '',
+      "orgName": "Acme Org Ltd",
+      "multiOrgCSS": "govuk-heading-xl--no-margin"
     })
 })
 
@@ -74,7 +76,9 @@ router.get('/manage/dashboard-all-agent', function (req, res) {
       "agentURL": 'agent/agent-all',
       "addLocationURL": '#',
       "locationURL": 'organisations/organisation-details?orgName=Acme Org Ltd',
-      "orgName": "Acme Org Ltd"
+      "orgSwitch": '',
+      "orgName": "Acme Org Ltd",
+      "multiOrgCSS": "govuk-heading-xl--no-margin"
 
     })
 })

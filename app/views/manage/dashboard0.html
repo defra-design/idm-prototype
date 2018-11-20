@@ -1,14 +1,15 @@
 {% extends "layout.html" %}
 
+{% set title = "Manage account" %}
 
 {% block pageTitle %}
     {{title}} - GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
-  <div id="account">
-    {% include "includes/account-nav-admin-corp.html" %}
-  </div>
+<div id="account">
+  {% include "includes/account-nav-admin-corp.html" %}
+</div>
 {% endblock %}
 
 {% block content %}
@@ -23,25 +24,24 @@
     <h1 class="govuk-heading-xl {{ multiOrgCSS }}">
       {{ orgName }}
     </h1>
-
-    <details class="govuk-details {{ orgSwitch }}">
+    <details class="govuk-details">
       <summary class="govuk-details__summary">
         <span class="govuk-details__summary-text">
-          Change organisation
+          <strong>Change organisation</strong>
         </span>
       </summary>
       <div class="govuk-details__text">
         <ul class="govuk-list ">
-          <li><a class="govuk-link govuk-link--no-visited-state" href="/manage/dashboard-all-org?orgName=Acme Org Ltd&numUsers=12&numAgents=1&numServices=3&numLocations=1&service=Chemicals&serviceLine=UK-REACH-IT&serviceRole=REACH Manager">Acme Org Ltd</a></li>
+          <li><a class="govuk-link govuk-link--no-visited-state" href="dashboard0?orgName=Acme Org Ltd&numUsers=12&numAgents=1&numServices=3&numLocations=1&service=Chemicals&serviceLine=UK-REACH-IT&serviceRole=REACH Manager">Acme Org Ltd</a></li>
             <ul class="govuk-list govuk-list--indent">
-              <li><a class="govuk-link govuk-link--no-visited-state" href="/manage/dashboard-all-org?orgName=Acme Org India&numUsers=12&numAgents=1&numServices=3&numLocations=1&service=Chemicals&serviceLine=UK-REACH-IT&serviceRole=REACH Manager">Acme Org India</a></li>
-              <li><a class="govuk-link govuk-link--no-visited-state" href="/manage/dashboard-all-org?orgName=Acme Org Thailand&numUsers=2&numAgents=14&numServices=3&numLocations=1&service=Chemicals&serviceLine=UK-REACH-IT&serviceRole=REACH Manager">Acme Org Thailand</a></li>
-              <li><a class="govuk-link govuk-link--no-visited-state" href="/manage/dashboard-all-org?orgName=Acme Org Costa Rica&numUsers=6&numAgents=0&numServices=3&numLocations=1&service=Chemicals&serviceLine=UK-REACH-IT&serviceRole=REACH Manager">Acme Org Costa Rica</a></li>
-              <li><a class="govuk-link govuk-link--no-visited-state" href="/manage/dashboard-all-org?orgName=Acme Org Bali&numUsers=5&numAgents=3&numServices=3&numLocations=1&service=Chemicals&serviceLine=UK-REACH-IT&serviceRole=REACH Manager">Acme Org Bali</a></li>
+              <li><a class="govuk-link govuk-link--no-visited-state" href="dashboard0?orgName=Acme Org India&numUsers=12&numAgents=1&numServices=3&numLocations=1&service=Chemicals&serviceLine=UK-REACH-IT&serviceRole=REACH Manager">Acme Org India</a></li>
+              <li><a class="govuk-link govuk-link--no-visited-state" href="dashboard0?orgName=Acme Org Thailand&numUsers=2&numAgents=14&numServices=3&numLocations=1&service=Chemicals&serviceLine=UK-REACH-IT&serviceRole=REACH Manager">Acme Org Thailand</a></li>
+              <li><a class="govuk-link govuk-link--no-visited-state" href="dashboard0?orgName=Acme Org Costa Rica&numUsers=6&numAgents=0&numServices=3&numLocations=1&service=Chemicals&serviceLine=UK-REACH-IT&serviceRole=REACH Manager">Acme Org Costa Rica</a></li>
+              <li><a class="govuk-link govuk-link--no-visited-state" href="dashboard0?orgName=Acme Org Bali&numUsers=5&numAgents=3&numServices=3&numLocations=1&service=Chemicals&serviceLine=UK-REACH-IT&serviceRole=REACH Manager">Acme Org Bali</a></li>
             </ul>
-          <li><a class="govuk-link govuk-link--no-visited-state" href="/manage/dashboard-all-org?orgName=FarmerRUS&numUsers=2&numAgents=14&numServices=3&numLocations=1&service=Chemicals&serviceLine=UK-REACH-IT&serviceRole=REACH Manager">FarmerRUS</a></li>
-          <li><a class="govuk-link govuk-link--no-visited-state" href="/manage/dashboard-all-org?orgName=Importers RUS&numUsers=6&numAgents=0&numServices=3&numLocations=1&service=Chemicals&serviceLine=UK-REACH-IT&serviceRole=REACH Manager">Importers RUS</a></li>
-          <li><a class="govuk-link govuk-link--no-visited-state" href="/manage/dashboard-all-org?orgName=Client2.com&numUsers=5&numAgents=3&numServices=3&numLocations=1&service=Chemicals&serviceLine=UK-REACH-IT&serviceRole=REACH Manager">Client2.com</a></li>
+          <li><a class="govuk-link govuk-link--no-visited-state" href="/dashboard0?orgName=FarmerRUS&numUsers=2&numAgents=14&numServices=3&numLocations=1&service=Chemicals&serviceLine=UK-REACH-IT&serviceRole=REACH Manager">FarmerRUS</a></li>
+          <li><a class="govuk-link govuk-link--no-visited-state" href="dashboard0?orgName=Importers RUS&numUsers=6&numAgents=0&numServices=3&numLocations=1&service=Chemicals&serviceLine=UK-REACH-IT&serviceRole=REACH Manager">Importers RUS</a></li>
+          <li><a class="govuk-link govuk-link--no-visited-state" href="dashboard0?orgName=Client2.com&numUsers=5&numAgents=3&numServices=3&numLocations=1&service=Chemicals&serviceLine=UK-REACH-IT&serviceRole=REACH Manager">Client2.com</a></li>
         </ul>
       </div>
     </details>
@@ -150,7 +150,8 @@
 
         </div>
 
-      <!--  <div class="govuk-grid-row">
+        <!--
+        <div class="govuk-grid-row">
           <div class="govuk-grid-column-two-thirds">
             {{ govukButton({
               text: "Register for another service",
