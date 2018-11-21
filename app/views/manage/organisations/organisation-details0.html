@@ -105,15 +105,13 @@
 {% set relOrganisationsHtml %}
   <h2 class="govuk-heading-l">Related organisations</h2>
 
-  ff
-
   {% if data['relOrg'] == "No" %}
     <p class="govuk-body">Organisations that are directly related to the registered orgmnaisation can be added here. This allows you to create organisation specific teams with their own teams. Are you an Only Rep? Do you do Imports and Exports? Then this is the place for you!</p>
 
   {% endif %}
 
   {{ govukButton({
-    text: "Add related address",
+    text: "Add related organisation",
     href: "#"
   }) }}
 
