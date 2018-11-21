@@ -13,19 +13,6 @@
 
 {% block content %}
 
-
-{% if (data['removeAddress'] == "No") and  (data['address'] == "CSS2") %}
-{% set addressCSS2 = "Show" %}
-{% endif %}
-
-
-{{data['removeAddress']}}
-
-{{data['addressCSS1']}}  {{data['addressCSS2']}}  {{data['addressCSS3']}}
-
-{{data['address']}}
-
-
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
     <h1 class="govuk-heading-xl">
@@ -34,88 +21,165 @@
   </div>
 </div>
 
-<div class="govuk-grid-row">
+{% from "tabs/macro.njk" import govukTabs %}
+{% from "table/macro.njk" import govukTable %}
 
-  <div class="govuk-grid-column-one-half">
-    <div class="govuk-card govuk-card--contained">
-      <div class="govuk-card__content">
-        <h3 class="govuk-heading-m">Registered office</h3>
-        <p class="govuk-body"><span class="govuk-!-font-weight-bold">Address:</span> set Ltd, No.1 Forbury Place 43 Forbury Road, Reading, United Kingdom, RG1 3JH<br>
-          <span class="govuk-!-font-weight-bold">Company House number:</span> 11111111
-        </p>
-        <p class="govuk-body"><span class="govuk-!-font-weight-bold">Telephone:</span> 0171 444555666<br>
-          <span class="govuk-!-font-weight-bold">Mobile:</span> 07833344455<br>
-          <span class="govuk-!-font-weight-bold">Email:</span> simone@org.com<br>
-        </p>
-      </div>
-      <div class="govuk-card__actions">
-        <ul class="govuk-list govuk-!-mb-r0">
-          <li><a href="#" class="govuk-link govuk-link--no-visited-state">Edit contact details</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
+{% set regAddressHtml %}
+  <h2 class="govuk-heading-l">Registered addresses</h2>
+  <div class="govuk-grid-row">
 
-
-  <div class="govuk-grid-column-one-half {{ addressCSS1 }}">
-    <div class="govuk-card govuk-card--contained">
-      <div class="govuk-card__content">
-        <h3 class="govuk-heading-m">Business address</h3>
-          <p class="govuk-body"><span class="govuk-!-font-weight-bold">Address:</span> set, 11 The Precinct, Romiley, Stockport, Cheshire, SK6 4EA
+    <div class="govuk-grid-column-one-half">
+      <div class="govuk-card govuk-card--contained">
+        <div class="govuk-card__content">
+          <h3 class="govuk-heading-m">Registered office</h3>
+          <p class="govuk-body"><span class="govuk-!-font-weight-bold">Address:</span> Acme Org Ltd, No.1 Forbury Place 43 Forbury Road, Reading, United Kingdom, RG1 3JH<br>
+            <span class="govuk-!-font-weight-bold">Company House number:</span> 11111111
           </p>
+          <p class="govuk-body"><span class="govuk-!-font-weight-bold">Telephone:</span> 0171 444555666<br>
+            <span class="govuk-!-font-weight-bold">Email:</span> simone@org.com<br>
+          </p>
+        </div>
+        <div class="govuk-card__actions">
+          <ul class="govuk-list govuk-!-mb-r0">
+            <li><a href="/manage/team-members/services-on-team-member-update-details" class="govuk-link govuk-link--no-visited-state">Update details</a></li>
+          </ul>
+        </div>
       </div>
-      <div class="govuk-card__actions">
-        <ul class="govuk-list govuk-!-mb-r0">
-          <li><a href="#" class="govuk-link govuk-link--no-visited-state">Edit Address</a></li>
-          <li><a href="#" class="govuk-link govuk-link--no-visited-state">Delete Address</a></li>
-        </ul>
+    </div>
+
+
+    <div class="govuk-grid-column-one-half {{ addressCSS1 }}">
+      <div class="govuk-card govuk-card--contained">
+        <div class="govuk-card__content">
+          <h3 class="govuk-heading-m">Business address</h3>
+            <p class="govuk-body"><span class="govuk-!-font-weight-bold">Address:</span> Acme Org Ltd, No.1 Forbury Place 43 Forbury Road, Reading, United Kingdom, RG1 3JH
+            </p>
+        </div>
+        <div class="govuk-card__actions">
+          <ul class="govuk-list govuk-!-mb-r0">
+            <li><a href="#" class="govuk-link govuk-link--no-visited-state">Update details</a></li>
+            <li><a href="#" class="govuk-link govuk-link--no-visited-state">Delete Address</a></li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<div class="govuk-grid-row">
+  <div class="govuk-grid-row">
 
-  <div class="govuk-grid-column-one-half">
-    <div class="govuk-card govuk-card--contained">
-      <div class="govuk-card__content">
-        <h3 class="govuk-heading-m">Correspondence address</h3>
+    <div class="govuk-grid-column-one-half">
+      <div class="govuk-card govuk-card--contained">
+        <div class="govuk-card__content">
+          <h3 class="govuk-heading-m">Correspondence address</h3>
+          {% if data['addressCSS2'] == "Show" %}
+            <p class="govuk-body"><span class="govuk-!-font-weight-bold">Address:</span> Acme Retail, 11 The Precinct, Romiley, Stockport, Cheshire, SK6 4EA
+            </p>
+          {% else %}
+            <p class="govuk-body"><a class="govuk-link govuk-link--no-visited-state" href="company-postcode?addressCSS2=Show">Add a Correspondence address</a></p>
+          {% endif %}
+        </div>
         {% if data['addressCSS2'] == "Show" %}
-          <p class="govuk-body"><span class="govuk-!-font-weight-bold">Address:</span> set, 11 The Precinct, Romiley, Stockport, Cheshire, SK6 4EA
-          </p>
+        <div class="govuk-card__actions">
+          <ul class="govuk-list govuk-!-mb-r0">
+            <li><a href="company-postcode" class="govuk-link govuk-link--no-visited-state">Update details</a></li>
+            <li><a href="delete-address-confirm?address=CSS2" class="govuk-link govuk-link--no-visited-state">Delete Address</a></li>
+          </ul>
+        </div>
         {% else %}
-          <p class="govuk-body"><a class="govuk-link govuk-link--no-visited-state" href="company-postcode?address=CSS2">Add a Correspondence address</a></p>
         {% endif %}
       </div>
-      {% if data['addressCSS2'] == "Show" %}
-      <div class="govuk-card__actions">
-        <ul class="govuk-list govuk-!-mb-r0">
-          <li><a href="#" class="govuk-link govuk-link--no-visited-state">Edit Address</a></li>
-          <li><a href="delete-address-confirm?address=CSS2" class="govuk-link govuk-link--no-visited-state">Delete Address</a></li>
-        </ul>
+    </div>
+
+    <div class="govuk-grid-column-one-half">
+      <div class="govuk-card govuk-card--contained">
+        <div class="govuk-card__content">
+          <h3 class="govuk-heading-m">Invoice/ billing address</h3>
+            <p class="govuk-body"><a class="govuk-link govuk-link--no-visited-state" href="company-postcode?addressCSS2=Show">Add a Invoice/ billing address</a></p>
+        </div>
       </div>
-      {% else %}
-      {% endif %}
     </div>
   </div>
+{% endset -%}
 
-  <div class="govuk-grid-column-one-half">
-    <div class="govuk-card govuk-card--contained">
-      <div class="govuk-card__content">
-        <h3 class="govuk-heading-m">Invoice/ billing address</h3>
-          <p class="govuk-body"><span class="govuk-!-font-weight-bold">Address:</span> set, 11 The Precinct, Romiley, Stockport, Cheshire, SK6 4EA
+{% set relOrganisationsHtml %}
+  <h2 class="govuk-heading-l">Related organisations</h2>
+
+  {% if data['relOrg'] == "No" %}
+    <p class="govuk-body">Organisations that are directly related to the registered orgmnaisation can be added here. This allows you to create organisation specific teams with their own teams. Are you an Only Rep? Do you do Imports and Exports? Then this is the place for you!</p>
+
+  {% endif %}
+
+  {{ govukButton({
+    text: "Add related organisation",
+    href: "#"
+  }) }}
+
+  {% if data['relOrg'] == "Yes" %}
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-one-half">
+      <div class="govuk-card govuk-card--contained">
+        <div class="govuk-card__content">
+          <h3 class="govuk-heading-m">Achme Org India</h3>
+          <p class="govuk-body"><span class="govuk-!-font-weight-bold">Address:</span> Acme Org Ltd, No.1 Forbury Place 43 Forbury Road, Reading, United Kingdom, RG1 3JH
           </p>
-      </div>
-      <div class="govuk-card__actions">
-        <ul class="govuk-list govuk-!-mb-r0">
-          <li><a href="#" class="govuk-link govuk-link--no-visited-state">Edit Address</a></li>
-          <li><a href="#" class="govuk-link govuk-link--no-visited-state">Delete Address</a></li>
-        </ul>
+          <p class="govuk-body"><span class="govuk-!-font-weight-bold">Telephone:</span> 0171 444555666<br>
+            <span class="govuk-!-font-weight-bold">Email:</span> simone@org.com<br>
+          </p>
+        </div>
+        <div class="govuk-card__actions">
+          <ul class="govuk-list govuk-!-mb-r0">
+            <li><a href="/manage/team-members/services-on-team-member-update-details" class="govuk-link govuk-link--no-visited-state">Update details</a></li>
+          </ul>
+        </div>
       </div>
     </div>
+
+
+    <div class="govuk-grid-column-one-half">
+      <div class="govuk-card govuk-card--contained">
+        <div class="govuk-card__content">
+          <h3 class="govuk-heading-m">Achme Org Bali</h3>
+          <p class="govuk-body"><span class="govuk-!-font-weight-bold">Address:</span> Acme Org Ltd, No.1 Forbury Place 43 Forbury Road, Reading, United Kingdom, RG1 3JH
+          </p>
+          <p class="govuk-body"><span class="govuk-!-font-weight-bold">Telephone:</span> 0171 444555666<br>
+            <span class="govuk-!-font-weight-bold">Email:</span> simone@org.com<br>
+          </p>
+        </div>
+        <div class="govuk-card__actions">
+          <ul class="govuk-list govuk-!-mb-r0">
+            <li><a href="/manage/team-members/services-on-team-member-update-details" class="govuk-link govuk-link--no-visited-state">Update details</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
   </div>
 
-</div>
+  {% endif %}
+
+{% endset -%}
+
+{{ govukTabs({
+  items: [
+    {
+      label: "Registered address",
+      id: "reg-address",
+      panel: {
+        html: regAddressHtml
+      }
+    },
+    {
+      label: "Related organisations",
+      id: "rel-org",
+      panel: {
+        html: relOrganisationsHtml
+      }
+    }
+  ]
+}) }}
+
 
 
 {% endblock %}
