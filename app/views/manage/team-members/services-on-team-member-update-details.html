@@ -15,16 +15,26 @@
 
 {% block content %}
 
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-xl">{{ title }}</h1>
-    
-    <h3 class="govuk-heading-m">Change your name or telephone number</h3>
-    <p class="govuk-body">Please call the [service name] service on [phone number].</p>
-      <br>
-    
-    <h3 class="govuk-heading-m">Change your address</h3>
-<table class="govuk-table">
+
+    <details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">Change your name or telephone number
+    </span>
+  </summary>
+  <div class="govuk-details__text">Please call the [service name] service on [phone number].
+  </div>
+</details>
+    <details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">Change your address
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    <table class="govuk-table">
 
       <th class="govuk-table__header" scope="col">Account type</th>
       <th class="govuk-table__header" scope="col">What to do</th>
@@ -42,13 +52,19 @@
     </tr>
   </tbody>
 </table>
+  </div>
+</details>
+      <details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">Change your email address
+    </span>
+  </summary>
+  <div class="govuk-details__text">Your email address comes from your Goverment Gateway account. If you <a href="#">update your Government Gateway account</a> (opens in a new tab) your details will automatically be updated in this account too.
+  </div>
+</details>
 
-
-    <h3 class="govuk-heading-m">Change your email address</h3>
-    <p class="govuk-body">Your email address comes from your Goverment Gateway account. If you <a href="#">update your Government Gateway account</a> (opens in a new tab) your details will automatically be updated in this account too.</p>
-    <div class="govuk-inset-text">
       <p class=govuk-body>Information about call charges is available <a href=”https://www.gov.uk/call-charges”>on the GOV.UK website</a> (opens in a new tab).</p>
-    </div>
+
 
 
     {{ govukButton({
