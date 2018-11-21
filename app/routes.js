@@ -55,7 +55,7 @@ router.get('/manage/dashboard-all', function (req, res) {
 })
 
 // Multi orgs
-router.get('/manage/dashboard-all-orgs', function (req, res) {
+router.get('/manage/dashboard-all-org', function (req, res) {
     res.render('manage/dashboard',{
       "teamMemberURL": 'team-members/team-members-all',
       "addAgentURL": 'agent/chemicals/invite-user/add-user-details',
