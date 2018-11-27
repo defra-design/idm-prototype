@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Does this address use a different organisation or business name?" %}
+{% set title = "Is {{data['orgName']}} the correct business name to use with this address?"%}
 
 {% block pageTitle %}
     {{title}} - GOV.UK
@@ -22,9 +22,6 @@
   <div class="govuk-grid-column-two-thirds">
       <form action="organisation-details" method="post">
 
-        {% set orgNameHint %}
-          It may differ to the name registered with Company House: {{data['orgName']}}
-        {% endset %}
 
           {% set companyNameHTML %}
           {{ govukInput({
@@ -34,7 +31,7 @@
             type: "text",
             classes: "govuk-!-width-full",
             label: {
-              text: "What is the organisation or business name"
+              text: "What name should we use instead?"
             }
           }) }}
           {% endset %}
@@ -44,7 +41,7 @@
             name: "companyNameSame",
             fieldset: {
               legend: {
-                text: "Does this address use a different organisation or business name?",
+                text: "Is {{data['orgName']}} the correct business name to use with this address?",
                 isPageHeading: true,
                 classes: "govuk-fieldset__legend--xl"
               }
@@ -53,16 +50,18 @@
               html: orgNameHint
             },
             items: [
+              
               {
                 value: "yes",
-                text: "Yes",
+                text: "Yes"
+              },
+
+              {
+                value: "no",
+                text: "No",
                 conditional: {
                   html: companyNameHTML
                 }
-              },
-              {
-                value: "no",
-                text: "No"
               }
             ]
           }) }}
