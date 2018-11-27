@@ -7,7 +7,7 @@
 
 {% block beforeContent %}
   <div id="account">
-    {% include "includes/account-nav-admin-corp.html" %}
+    {% include "includes/account-nav-admin-individual.html" %}
   </div>
 {% endblock %}
 
@@ -20,8 +20,8 @@
     <span class="govuk-caption-xl">
       Account for
     </span>
-    <h1 class="govuk-heading-xl {{ multiOrgCSS }}">
-      {{ orgName }}{{ individualName }}
+    <h1 class="govuk-heading-xl govuk-heading-xl--no-margin">
+      Ann Cooper
     </h1>
 
     <details class="govuk-details {{ orgSwitch }}">
@@ -55,19 +55,13 @@
             <div class="govuk-card govuk-card--contained govuk-card--selectable">
         <a href="{{ teamMemberURL }}"></a>
         <div class="govuk-card__content">
-          <h3 class="govuk-heading-m"><a href="{{ teamMemberURL }}" class="govuk-link--no-visited-state">Manage team access</a></h3>
-          <p class="govuk-!-font-weight-bold govuk-!-font-size-48 govuk-!-font-weight-bold">{{ data['numUsers'] }}</p>
-        </div>
-        <div class="govuk-card__actions">
-          <ul class="govuk-list govuk-!-mb-r0">
-            <li><a href="{{ addUserURL }}" class="govuk-link--no-visited-state">Add a team member</a></li>
-          </ul>
+          <h3 class="govuk-heading-m"><a href="{{ teamMemberURL }}" class="govuk-link--no-visited-state">Share access</a></h3>
         </div>
       </div>
 
     </div>
 
-    <div class="govuk-grid-column-one-third">
+  <!--  <div class="govuk-grid-column-one-third">
 
       <div class="govuk-card govuk-card--contained govuk-card--selectable">
         <a href="{{ agentURL }}"></a>
@@ -84,13 +78,14 @@
       </div>
 
     </div>
+  -->
 
     <div class="govuk-grid-column-one-third">
 
       <div class="govuk-card govuk-card--contained govuk-card--selectable">
         <a href="{{locationURL}}"></a>
         <div class="govuk-card__content">
-          <h3 class="govuk-heading-m"><a href="{{ locationURL }}" class="govuk-link--no-visited-state">Manage your organisation or business</a></h3>
+          <h3 class="govuk-heading-m"><a href="{{ locationURL }}" class="govuk-link--no-visited-state">Update your address</a></h3>
           <!--
           <p class="govuk-!-font-weight-bold govuk-!-font-size-48 govuk-!-font-weight-bold">{{ data['numLocations'] }}</p>
         -->
@@ -110,7 +105,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
       <div class="govuk-card__content">
-        <h2 class="govuk-heading-l">Services your organisation has registered to use</h2>
+        <h2 class="govuk-heading-l">Services your have registered with</h2>
 
         <div class="govuk-grid-row">
 
@@ -127,26 +122,8 @@
                 </div>
               </div>
           </div>
-          <div class="govuk-grid-column-one-third {{serviceCSS}}">
-            <div class="govuk-card govuk-card--contained govuk-card--selectable">
-                <a href="/service-start-complete"></a>
-                <div class="govuk-card__content">
-                  <h3 class="govuk-heading-m">{{ data['service'] }} - UK SO2</h3>
-                  <p class="govuk-body">A short summary of the tasks you can complete with this service.
-                  </p>
-                </div>
-              </div>
-          </div>
-          <div class="govuk-grid-column-one-third {{serviceCSS}}">
-            <div class="govuk-card govuk-card--contained govuk-card--selectable">
-                <a href="/service-start-complete"></a>
-                <div class="govuk-card__content">
-                  <h3 class="govuk-heading-m">{{ data['service'] }} - UK SO3</h3>
-                  <p class="govuk-body">A short summary of the tasks you can complete with this service.
-                  </p>
-                </div>
-              </div>
-          </div>
+
+
 
         </div>
 
