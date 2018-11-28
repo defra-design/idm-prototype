@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Choose which organisation you want to registered this service for" %}
+{% set title = "Which organisation do you want to register with this service?" %}
 
 {% block pageTitle %}
     {{title}} - GOV.UK
@@ -72,12 +72,6 @@
 
           },
           {
-            value: "Ann Cooper",
-            text: "Ann Cooper - Individual",
-            checked:  checked('userOrg', 'Ann Cooper')
-
-          },
-          {
             value: "Another company - charity",
             text: "Public limited company",
             checked:  checked('userOrg','Public limited company')
@@ -87,6 +81,12 @@
             value: "Ageny.com - PLC",
             text: "Limited liability partnership",
             checked:  checked('userOrg','Limited liability partnership')
+
+          },
+          {
+            value: "Ann Cooper",
+            text: "I want to register for myself as an individual",
+            checked:  checked('userOrg', 'Ann Cooper')
 
           }
         ]
