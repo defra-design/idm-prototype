@@ -32,11 +32,16 @@ router.get('/manage/dashboard-1', function (req, res) {
       "addAgentURL": 'agent/invite-user/add-user-details',
       "agentURL": 'agent/agent-0',
       "addLocationURL": '#',
-      "locationURL": 'organisations/organisation-details?orgName=Acme Org Ltd',
+      "locationURL": 'organisations/organisation-details',
+      "locationAddressCSS": "",
       "serviceCSS": 'govuk-visually-hidden',
       "orgSwitch": 'govuk-visually-hidden',
       "orgName": "Acme Org Ltd",
-      "multiOrgCSS": ""
+      "multiOrgCSS": "",
+      "showAgentCSS": "",
+      "showClientCSS": "govuk-visually-hidden",
+      "clientAddressCSS": "",
+      "clientAddressCSS": "govuk-visually-hidden"
     })
 })
 
@@ -47,10 +52,14 @@ router.get('/manage/dashboard-all', function (req, res) {
       "addAgentURL": 'agent/chemicals/invite-user/add-user-details',
       "agentURL": 'agent/agent-all',
       "addLocationURL": '#',
-      "locationURL": 'organisations/organisation-details?orgName=Acme Org Ltd',
+      "locationURL": 'organisations/organisation-details',
+      "locationAddressCSS": "",
       "orgSwitch": 'govuk-visually-hidden',
       "orgName": "Acme Org Ltd",
-      "multiOrgCSS": "govuk-heading-xl--no-margin"
+      "multiOrgCSS": "govuk-heading-xl--no-margin",
+      "showAgentCSS": "",
+      "showClientCSS": "govuk-visually-hidden",
+      "clientAddressCSS": "govuk-visually-hidden"
     })
 })
 
@@ -58,27 +67,54 @@ router.get('/manage/dashboard-all', function (req, res) {
 router.get('/manage/dashboard-all-org', function (req, res) {
     res.render('manage/dashboard',{
       "teamMemberURL": 'team-members/team-members-all',
-      "addAgentURL": 'agent/chemicals/invite-user/add-user-details',
+      "addAgentURL": 'agent/invite-user/add-user-details',
       "agentURL": 'agent/agent-all',
       "addLocationURL": '#',
-      "locationURL": 'organisations/organisation-details?orgName=Acme Org Ltd',
+      "locationURL": 'organisations/organisation-details',
+      "locationAddressCSS": "",
       "orgSwitch": '',
       "orgName": "Acme Org Ltd",
-      "multiOrgCSS": "govuk-heading-xl--no-margin"
+      "multiOrgCSS": "govuk-heading-xl--no-margin",
+      "showAgentCSS": "",
+      "showClientCSS": "govuk-visually-hidden",
+      "clientAddressCSS": "govuk-visually-hidden"
     })
 })
 
-// Multi orgs eg agent
-router.get('/manage/dashboard-all-agent', function (req, res) {
+// Agent's own company
+router.get('/manage/dashboard-agent-self', function (req, res) {
+    res.render('manage/dashboard',{
+      "teamMemberURL": 'team-members/team-members-all',
+      "addClientURL": '',
+      "clientURL": '',
+      "addLocationURL": '#',
+      "locationURL": '',
+      "locationAddressCSS": "",
+      "orgSwitch": '',
+      "orgName": "Acme Org Ltd",
+      "multiOrgCSS": "govuk-heading-xl--no-margin",
+      "showAgentCSS": "govuk-visually-hidden",
+      "showClientCSS": "",
+      "clientAddressCSS": "govuk-visually-hidden"
+
+    })
+})
+
+// Agent's - clients
+router.get('/manage/dashboard-agent-client', function (req, res) {
     res.render('manage/dashboard',{
       "teamMemberURL": 'team-members/team-members-all',
       "addAgentURL": 'agent/chemicals/invite-user/add-user-details',
       "agentURL": 'agent/agent-all',
       "addLocationURL": '#',
-      "locationURL": 'organisations/organisation-details?orgName=Acme Org Ltd',
+      "locationURL": 'organisations/organisation-details',
+      "locationAddressCSS": "govuk-visually-hidden",
       "orgSwitch": '',
       "orgName": "Acme Org Ltd",
-      "multiOrgCSS": "govuk-heading-xl--no-margin"
+      "multiOrgCSS": "govuk-heading-xl--no-margin",
+      "showAgentCSS": "govuk-visually-hidden",
+      "showClientCSS": "govuk-visually-hidden",
+      "clientAddressCSS": ""
 
     })
 })

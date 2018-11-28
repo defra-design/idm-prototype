@@ -13,10 +13,16 @@
 
 {% block content %}
 
+{% set orgName = data['orgName'] %}
+
+{% set orgName.data = orgName %}
+
+{{ data['orgName'] }}
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
     <h1 class="govuk-heading-xl">
-      {{ data['orgName'] }}
+      {{ orgName }}
     </h1>
   </div>
 </div>

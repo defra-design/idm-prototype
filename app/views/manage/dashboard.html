@@ -15,6 +15,10 @@
 
 {% set orgName = data['orgName'] %}
 
+{% set name="orgName" data="Acme Org Ltd" %}
+
+{{ data['orgName'] }}
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
     <span class="govuk-caption-xl">
@@ -67,7 +71,7 @@
 
     </div>
 
-    <div class="govuk-grid-column-one-third">
+    <div class="govuk-grid-column-one-third {{ showAgentCSS }}">
 
       <div class="govuk-card govuk-card--contained govuk-card--selectable">
         <a href="{{ agentURL }}"></a>
@@ -78,17 +82,43 @@
         </div>
         <div class="govuk-card__actions">
           <ul class="govuk-list govuk-!-mb-r0">
-            <li><a href="/manage/agent/invite-user/add-user-details" class="govuk-link--no-visited-state">Add an intermediary</a></li>
+            <li><a href="{{ addAgentURL }}" class="govuk-link--no-visited-state">Add an intermediary</a></li>
           </ul>
         </div>
       </div>
 
     </div>
 
-    <div class="govuk-grid-column-one-third">
+    <div class="govuk-grid-column-one-third {{ showClientCSS }}">
 
       <div class="govuk-card govuk-card--contained govuk-card--selectable">
+        <a href="{{ agentURL }}"></a>
+        <div class="govuk-card__content">
+          <h3 class="govuk-heading-m"><a href="{{ clientURL }}" class="govuk-link--no-visited-state">Manage your clients
+        </a></h3>
+        <p class="govuk-!-font-weight-bold govuk-!-font-size-48 govuk-!-font-weight-bold">12{{ data['numAgents'] }}</p>
+        </div>
+        <div class="govuk-card__actions">
+          <ul class="govuk-list govuk-!-mb-r0">
+            <li><a href="{{ addClientURL }}" class="govuk-link--no-visited-state">Add a client</a></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="govuk-grid-column-one-third {{ clientAddressCSS }}">
+      <div class="govuk-card govuk-card--contained govuk-card--selectable">
         <a href="{{locationURL}}"></a>
+        <div class="govuk-card__content">
+          <h3 class="govuk-heading-m"><a href="{{ locationURL }}" class="govuk-link--no-visited-state">Manage client details</a></h3>
+        </div>
+      </div>
+    </div>
+
+    <div class="govuk-grid-column-one-third {{ locationAddressCSS }}">
+      <div class="govuk-card govuk-card--contained govuk-card--selectable">
+        <a href="{{ locationURL }}"></a>
         <div class="govuk-card__content">
           <h3 class="govuk-heading-m"><a href="{{ locationURL }}" class="govuk-link--no-visited-state">Manage your organisation or business</a></h3>
           <!--
@@ -102,7 +132,6 @@
         </div>
       -->
       </div>
-
     </div>
 
   </div>
