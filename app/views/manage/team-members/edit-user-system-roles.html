@@ -17,39 +17,12 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
+      <form method="post" class="admin-role" action="services-on-team-member-invited?name=Sara Chippers&numUsers=1&numServices=1&numAgents=1&numLocations=1&service=Chemicals&serviceLine=UK-REACH-IT&subscribeService=Yes&serviceRole=REACH Manager">
 
-  {% if data['changeAdmin-role'] == "Yes" %}
-      <form method="post" class="admin-role" onsubmit="return myFunction()">
-
-          <script>
-            const form = document.querySelector('.admin-role')
-
-            function myFunction() {
-              const checked = document.querySelector('[name="systemRole"]:checked')
-              const checkedValue = checked.value
-
-              switch(checkedValue){
-                case 'None':
-                form.action = 'edit-admin-own-system-role-confirm'
-
-                case 'Reader':
-                form.action = 'edit-admin-own-system-role-confirm'
-
-                break;
-                default:
-                form.action = 'services-on-team-member-invited?systemRole=Admin&name=Ann Cooper&numUsers=1&numServices=1&numAgents=1&numLocations=1&service=Chemicals&serviceLine=UK-REACH-IT&subscribeService=Yes&serviceRole=REACH Manager'
-              }
-              return true
-            }
-          </script>
-
-  {% else %}
-      <form method="post" action="services-on-team-member-invited">
-  {% endif %}
 
         <input type="hidden" name="subscribeService" value="Yes">
 
-        {% if (data['service'] == "Imports") or (data['service'] == "VMD") %}
+        {% if (data['service'] == "Imports") or (data['service'] == "VMD") or (data['service'] == "Chemicals")%}
 
           {{ govukRadios ({
             idPrefix: "systemRole",
@@ -77,39 +50,7 @@
 
         {% endif %}
 
-        {% if data['service'] == "Chemicals"%}
 
-          {{ govukRadios ({
-            idPrefix: "systemRole",
-            name: "systemRole",
-            fieldset: {
-              legend: {
-                text: title,
-                isPageHeading: true,
-                classes: "govuk-fieldset__legend--xl"
-              }
-            },
-            items: [
-              {
-                value: "Administrator",
-                html: 'Administrator - this person can view and edit the information the service holds about your organisation. They can also manage other people\'s access to the service.',
-                checked:  checked('systemRole','Administrator')
-              },
-              {
-                value: "Reader",
-                html: 'Reader - this person can view a list of the services your organisation is registered to use, and the people who can access the services. A reader cannot view, edit or submit any information on behalf of your organisation.',
-                checked:  checked('systemRole','Reader')
-              },
-              {
-                value: "None",
-                html: 'None - this person has no extra responsibilities, they can only perform the tasks you choose within a service.',
-                checked:  checked('systemRole','None')
-              }
-            ]
-          }) }}
-
-
-        {% endif %}
 
         {{ govukButton({
           text: "Continue"

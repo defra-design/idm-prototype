@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% set title = "What is the organisation or business name?" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+{% set numOrgs = data['numOrgs'] | int %}
+{% set numOrgs = numOrgs+1 %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+      <form action="company-postcode" method="post">
+
+          {{ govukInput({
+            label: {
+              text: title,
+              isPageHeading: true,
+              classes: "govuk-label--xl"
+            },
+            classes: "govuk-input--width-20",
+            id: "relOrgName",
+            name: "relOrgName",
+            value: data['relOrgName']
+          }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+  </div>
+</div>
+
+{% endblock %}
