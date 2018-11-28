@@ -7,6 +7,7 @@
 {% endblock %}
 
 {% block beforeContent %}
+  {% include "includes/account-nav-admin-reg-service.html" %}
 
   {{ govukBackLink({
     text: "Back",
@@ -14,7 +15,6 @@
   }) }}
 
 {% endblock %}
-
 
 {% block content %}
 
@@ -26,36 +26,24 @@
         const form = document.querySelector('.org-type')
 
         function myFunction() {
-          const checked = document.querySelector('[name="userOrg"]:checked')
+          const checked = document.querySelector('[name="whichOrg"]:checked')
           const checkedValue = checked.value
 
           switch(checkedValue){
-            case 'Sole trader':
-            form.action = '/new-user-reg/sole-trader/task-list-page-account?flowType=task'
-
-            break;
-            case 'Limited company':
-            form.action = '/new-user-reg/limited-company/task-list-page-account?flowType=task'
-
-            break;
-            case 'Public limited company':
-            form.action = '/new-user-reg/limited-company/task-list-page-account?flowType=task'
-            break;
-
-            case 'Non-UK organisation':
-            form.action = '/new-user-reg/non-uk-org/task-list-page-account?flowType=task'
+            case 'new':
+            form.action = '/new-user-reg/organisation-type?flowType=task'
 
             break;
             default:
-            form.action = '/new-user-reg/organisation-business-coming-soon?flowType=task'
+            form.action = '/new-user-reg/service-terms?flowType=task'
           }
           return true
         }
       </script>
 
       {{ govukRadios({
-        idPrefix: "userOrg",
-        name: "userOrg",
+        idPrefix: "whichOrg",
+        name: "whichOrg",
         fieldset: {
           legend: {
             text: title,
@@ -63,31 +51,34 @@
             classes: "govuk-fieldset__legend--xl"
           }
         },
-
         items: [
           {
-            value: "My company",
-            text: "My company - Limited company",
-            checked:  checked('userOrg','My company')
-
+            value: "Acme Org Ltd",
+            text: "Acme Org Ltd",
+            checked:  checked('whichOrg', 'Acme Org Ltd')
           },
           {
-            value: "Another company - charity",
-            text: "Public limited company",
-            checked:  checked('userOrg','Public limited company')
-
+            value: "FarmerRUS",
+            text: "FarmerRUS",
+            checked:  checked('whichOrg', 'FarmerRUS')
           },
           {
-            value: "Ageny.com - PLC",
-            text: "Limited liability partnership",
-            checked:  checked('userOrg','Limited liability partnership')
-
+            value: "Importers RUS",
+            text: "Importers RUS",
+            checked:  checked('whichOrg', 'Importers RUS')
           },
           {
-            value: "Ann Cooper",
-            text: "I want to register for myself as an individual",
-            checked:  checked('userOrg', 'Ann Cooper')
-
+            value: "Client2.com",
+            text: "Client2.com",
+            checked:  checked('whichOrg', 'Client2.com')
+          },
+          {
+            divider: "or"
+          },
+          {
+            value: "new",
+            text: "I want to register for myself or a new organisation or business",
+            checked:  checked('whichOrg', 'new')
           }
         ]
       }) }}
