@@ -24,28 +24,8 @@ router.get('/tests/ac2', function (req, res) {
     })
 })
 
-// Dashboard config: //
-// 1 user and no agents
-router.get('/manage/dashboard-1', function (req, res) {
-    res.render('manage/dashboard',{
-      "teamMemberURL": 'team-members/team-members-all-1',
-      "addAgentURL": 'agent/invite-user/add-user-details',
-      "agentURL": 'agent/agent-0',
-      "addLocationURL": '#',
-      "locationURL": 'organisations/organisation-details',
-      "locationAddressCSS": "",
-      "serviceCSS": 'govuk-visually-hidden',
-      "orgSwitch": 'govuk-visually-hidden',
-      "orgName": "Acme Org Ltd",
-      "multiOrgCSS": "",
-      "showAgentCSS": "",
-      "showClientCSS": "govuk-visually-hidden",
-      "clientAddressCSS": "",
-      "clientAddressCSS": "govuk-visually-hidden"
-    })
-})
 
-// 5 users and 3 agents
+// dashboard for a org admin (not agent or individual)
 router.get('/manage/dashboard-all', function (req, res) {
     res.render('manage/dashboard',{
       "teamMemberURL": 'team-members/team-members-all',
@@ -55,7 +35,6 @@ router.get('/manage/dashboard-all', function (req, res) {
       "locationURL": 'organisations/organisation-details',
       "locationAddressCSS": "",
       "orgSwitch": 'govuk-visually-hidden',
-      "orgName": "Acme Org Ltd",
       "multiOrgCSS": "govuk-heading-xl--no-margin",
       "showAgentCSS": "",
       "showClientCSS": "govuk-visually-hidden",
@@ -73,7 +52,6 @@ router.get('/manage/dashboard-all-org', function (req, res) {
       "locationURL": 'organisations/organisation-details',
       "locationAddressCSS": "",
       "orgSwitch": '',
-      "orgName": "Acme Org Ltd",
       "multiOrgCSS": "govuk-heading-xl--no-margin",
       "showAgentCSS": "",
       "showClientCSS": "govuk-visually-hidden",
@@ -91,7 +69,6 @@ router.get('/manage/dashboard-agent-self', function (req, res) {
       "locationURL": '',
       "locationAddressCSS": "",
       "orgSwitch": '',
-      "orgName": "Acme Org Ltd",
       "multiOrgCSS": "govuk-heading-xl--no-margin",
       "showAgentCSS": "govuk-visually-hidden",
       "showClientCSS": "",
@@ -110,7 +87,6 @@ router.get('/manage/dashboard-agent-client', function (req, res) {
       "locationURL": 'organisations/organisation-details',
       "locationAddressCSS": "govuk-visually-hidden",
       "orgSwitch": '',
-      "orgName": "Acme Org Ltd",
       "multiOrgCSS": "govuk-heading-xl--no-margin",
       "showAgentCSS": "govuk-visually-hidden",
       "showClientCSS": "govuk-visually-hidden",

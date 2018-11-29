@@ -1,12 +1,18 @@
-{% set setDashURL %}
-  {% if (data['numUsers'] == "1") or (data['numAgents'] == "0") or (data['numAgents'] == "1") %}
-    /manage/dashboard-1
-  {% endif %}
+{% if (data['numUsers'] == "1") %}
+  {% set dashboardURL = "/manage/dashboard-all?numUsers=1" %}
+{% endif %}
 
-  {% if (data['numUsers'] >= "5") or (data['numAgents'] >= "3") %}
-    /manage/dashboard-all
-  {% endif %}
-{% endset %}
+{% if (data['numUsers'] == "2") %}
+  {% set dashboardURL = "/manage/dashboard-all?numUsers=2" %}
+{% endif %}
+
+{% if (data['numUsers'] == "5") %}
+  {% set dashboardURL = "/manage/dashboard-all?numUsers=5" %}
+{% endif %}
+
+{% if (data['numUsers'] >= "6") %}
+  {% set dashboardURL = "/manage/dashboard-all?numUsers=6" %}
+{% endif %}
 
 <div class="govuk-breadcrumbs">
   <ol class="govuk-breadcrumbs__list">
@@ -14,7 +20,7 @@
       <a class="govuk-breadcrumbs__link" href="/">Home</a>
     </li>
     <li class="govuk-breadcrumbs__list-item">
-      <a class="govuk-breadcrumbs__link" href="{{ setDashURL }}">Dashboard</a>
+      <a class="govuk-breadcrumbs__link" href="{{ dashboardURL }}">Dashboard</a>
     </li>
     <li class="govuk-breadcrumbs__list-item">
       {{title}}

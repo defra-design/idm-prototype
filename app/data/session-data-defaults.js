@@ -19,6 +19,19 @@ Example usage:
 
 module.exports = {
 
+
+"orgName": "Acme Org Ltd",
+"numUsers": "5",
+"numServices": "3",
+"numAgents": "3",
+"service": "Chemicals",
+"serviceLine": "UK-REACH-IT",
+"serviceRole": "REACH Manager",
+"userType": "new",
+"subscribeService": "No",
+"flowType": "task"
+
+
   // Insert values here
 
 }

@@ -13,16 +13,18 @@
 
 {% block content %}
 
+{% set orgName = data['orgName'] %}
+
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
     <h1 class="govuk-heading-xl">
-      {{ data['orgName'] }}
+      {{ orgName }}
     </h1>
   </div>
 </div>
 
 {% from "tabs/macro.njk" import govukTabs %}
-{% from "table/macro.njk" import govukTable %}
 
 {% set regAddressHtml %}
   <h2 class="govuk-heading-l">Registered addresses</h2>
@@ -32,7 +34,7 @@
       <div class="govuk-card govuk-card--contained">
         <div class="govuk-card__content">
           <h3 class="govuk-heading-m">Registered office</h3>
-          <p class="govuk-body"><span class="govuk-!-font-weight-bold">Address:</span> Acme Org Ltd, No.1 Forbury Place 43 Forbury Road, Reading, United Kingdom, RG1 3JH<br>
+          <p class="govuk-body"><span class="govuk-!-font-weight-bold">Address:</span> {{ orgName }}, No.1 Forbury Place 43 Forbury Road, Reading, United Kingdom, RG1 3JH<br>
             <span class="govuk-!-font-weight-bold">Company House number:</span> 11111111
           </p>
           <p class="govuk-body"><span class="govuk-!-font-weight-bold">Telephone:</span> 0171 444555666<br>
