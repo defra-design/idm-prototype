@@ -7,10 +7,9 @@
 {% endblock %}
 
 {% block beforeContent %}
-  <div id="profile">
     {% include "includes/account-nav-admin-corp.html" %}
     {% include "includes/breadcrumb-four-level-team.html" %}
-  </div>
+
 {% endblock %}
 
 {% block content %}
@@ -30,7 +29,7 @@
   <div class="govuk-grid-column-full">
 
     <h1 class="govuk-heading-xl">
-      Ann Cooper
+      Ann Cooper (You)
     </h1>
   </div>
 </div>
@@ -39,9 +38,13 @@
   <div class="govuk-grid-column-two-thirds">
     <p class="govuk-body">
       <span class="govuk-!-font-weight-bold">Full name:</span> Ann Cooper<br>
-      <span class="govuk-!-font-weight-bold">Account access level:</span> Administrator<br>
       <span class="govuk-!-font-weight-bold">Email address:</span> Ann.Cooper@email.com<br>
-      <span class="govuk-!-font-weight-bold">Telephone number:</span> 01179267473
+      <span class="govuk-!-font-weight-bold">Telephone number:</span> 01179267473<br>
+    </p>
+
+    <p class="govuk-body">
+      <span class="govuk-!-font-weight-bold">Account:</span> Acme Org Ltd<br>
+      <span class="govuk-!-font-weight-bold">Account access level:</span> Administrator<br>
     </p>
     <!--<p class="govuk-body">
       <span class="govuk-!-font-weight-bold">Added on:</span> 10 January 2010<br>
