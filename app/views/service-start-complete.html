@@ -12,6 +12,9 @@
   {% if data['service'] == "VMD" %}
     {{ govukHeader({ serviceName: "VMD" }) }}
   {% endif %}
+  {% if data['service'] == "Exports" %}
+    {{ govukHeader({ serviceName: "Exports" }) }}
+  {% endif %}
 {% endblock %}
 
 {% block pageTitle %}

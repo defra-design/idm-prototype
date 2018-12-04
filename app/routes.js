@@ -29,7 +29,7 @@ router.get('/tests/ac2', function (req, res) {
 router.get('/manage/dashboard-all', function (req, res) {
     res.render('manage/dashboard',{
       "teamMemberURL": 'team-members/team-members-all',
-      "addAgentURL": 'agent/chemicals/invite-user/add-user-details',
+      "addAgentURL": 'agent/invite-user/add-user-details',
       "agentURL": 'agent/agent-all',
       "addLocationURL": '#',
       "locationURL": 'organisations/organisation-details',

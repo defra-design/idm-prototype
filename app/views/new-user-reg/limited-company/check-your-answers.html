@@ -134,21 +134,10 @@
 
     </dl>
 
-    {% if data['service'] == "Imports"%}
-
-    {{ govukButton({
-      text: "Continue",
-      href: "../confirmation-reg-sent-success"
-    }) }}
-
-    {% else %}
-
     {{ govukButton({
       text: "Continue",
       href: "../service-terms"
     }) }}
-
-    {% endif %}
 
   </div>
 </div>
