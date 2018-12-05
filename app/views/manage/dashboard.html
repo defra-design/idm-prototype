@@ -32,16 +32,12 @@
       </summary>
       <div class="govuk-details__text">
         <ul class="govuk-list ">
-          <li><a class="govuk-link govuk-link--no-visited-state" href="/manage/dashboard-all-org?orgName=Acme Org Ltd&numUsers=12&numAgents=1&numServices=3&numLocations=1&service=Chemicals&serviceLine=UK-REACH-IT&serviceRole=REACH Manager">Acme Org Ltd</a></li>
+          <li><a class="govuk-link govuk-link--no-visited-state" href="/manage/dashboard-all-org?orgName=Acme Org Ltd&numUsers=5&numAgents=3&numServices=3&numLocations=1&service=Chemicals&serviceLine=UK-REACH-IT&serviceRole=REACH Manager">Acme Org Ltd</a></li>
             <ul class="govuk-list govuk-list--indent">
               <li><a class="govuk-link govuk-link--no-visited-state" href="/manage/dashboard-all-org?orgName=Acme Org India&numUsers=12&numAgents=1&numServices=3&numLocations=1&service=Chemicals&serviceLine=UK-REACH-IT&serviceRole=REACH Manager">Acme Org India</a></li>
               <li><a class="govuk-link govuk-link--no-visited-state" href="/manage/dashboard-all-org?orgName=Acme Org Thailand&numUsers=2&numAgents=14&numServices=3&numLocations=1&service=Chemicals&serviceLine=UK-REACH-IT&serviceRole=REACH Manager">Acme Org Thailand</a></li>
-              <li><a class="govuk-link govuk-link--no-visited-state" href="/manage/dashboard-all-org?orgName=Acme Org Costa Rica&numUsers=6&numAgents=0&numServices=3&numLocations=1&service=Chemicals&serviceLine=UK-REACH-IT&serviceRole=REACH Manager">Acme Org Costa Rica</a></li>
-              <li><a class="govuk-link govuk-link--no-visited-state" href="/manage/dashboard-all-org?orgName=Acme Org Bali&numUsers=5&numAgents=3&numServices=3&numLocations=1&service=Chemicals&serviceLine=UK-REACH-IT&serviceRole=REACH Manager">Acme Org Bali</a></li>
             </ul>
-          <li><a class="govuk-link govuk-link--no-visited-state" href="/manage/dashboard-all-org?orgName=FarmerRUS&numUsers=2&numAgents=14&numServices=3&numLocations=1&service=Chemicals&serviceLine=UK-REACH-IT&serviceRole=REACH Manager">FarmerRUS</a></li>
           <li><a class="govuk-link govuk-link--no-visited-state" href="/manage/dashboard-all-org?orgName=Importers RUS&numUsers=6&numAgents=0&numServices=3&numLocations=1&service=Chemicals&serviceLine=UK-REACH-IT&serviceRole=REACH Manager">Importers RUS</a></li>
-          <li><a class="govuk-link govuk-link--no-visited-state" href="/manage/dashboard-all-org?orgName=Client2.com&numUsers=5&numAgents=3&numServices=3&numLocations=1&service=Chemicals&serviceLine=UK-REACH-IT&serviceRole=REACH Manager">Client2.com</a></li>
         </ul>
       </div>
     </details>
@@ -141,36 +137,27 @@
 
           <div class="govuk-grid-column-one-third">
             <div class="govuk-card govuk-card--contained govuk-card--selectable">
-                <a href="https://chemicals-prototypes.herokuapp.com/prototype/rc4/iu/dashboard"></a>
-                <div class="govuk-card__content">
-                  <h3 class="govuk-heading-m">{{ data['serviceLine'] }}</h3>
-                  <p class="govuk-body">{{ data['service'] }}
-                  <!--
-                  <p class="govuk-body">Report unfavourable or unintended events that occur after use of veterinary medicine.
-                  -->
-                  </p>
-                </div>
+            <a href="/service-start-complete?service=Chemicals&userType=new-complete-admin&serviceLine=UK-REACH-IT"></a>
+              <div class="govuk-card__content">
+                <h3 class="govuk-heading-m">UK-REACH-IT</h3>
+                <!--
+                <p class="govuk-body">{{ data['service'] }}
+                -->
+                </p>
               </div>
+            </div>
           </div>
           <div class="govuk-grid-column-one-third {{serviceCSS}}">
             <div class="govuk-card govuk-card--contained govuk-card--selectable">
-                <a href="/service-start-complete"></a>
-                <div class="govuk-card__content">
-                  <h3 class="govuk-heading-m">{{ data['service'] }} - UK SO2</h3>
-                  <p class="govuk-body">A short summary of the tasks you can complete with this service.
-                  </p>
-                </div>
+              <a href="/service-start-complete?service=Imports&userType=new-complete-admin&serviceLine=Notification Service (Part 1)"></a>
+              <div class="govuk-card__content">
+                <h3 class="govuk-heading-m">Notification Service (Part 1)</h3>
+                <!--
+                <p class="govuk-body">A short summary of the tasks you can complete with this service.
+                </p>
+              -->
               </div>
-          </div>
-          <div class="govuk-grid-column-one-third {{serviceCSS}}">
-            <div class="govuk-card govuk-card--contained govuk-card--selectable">
-                <a href="/service-start-complete"></a>
-                <div class="govuk-card__content">
-                  <h3 class="govuk-heading-m">{{ data['service'] }} - UK SO3</h3>
-                  <p class="govuk-body">A short summary of the tasks you can complete with this service.
-                  </p>
-                </div>
-              </div>
+            </div>
           </div>
 
         </div>

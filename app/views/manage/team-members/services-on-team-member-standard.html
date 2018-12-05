@@ -28,9 +28,13 @@
   <div class="govuk-grid-column-two-thirds">
     <p class="govuk-body">
       <span class="govuk-!-font-weight-bold">Full name:</span> Adam Mastly<br>
-      <span class="govuk-!-font-weight-bold">Account access level:</span> None<br>
       <span class="govuk-!-font-weight-bold">Email address:</span> Adam.Mastly@email.com<br>
       <span class="govuk-!-font-weight-bold">Telephone number:</span> 01179267473
+    </p>
+
+    <p class="govuk-body">
+      <span class="govuk-!-font-weight-bold">Account:</span> Acme Org Ltd<br>
+      <span class="govuk-!-font-weight-bold">Account access level:</span> No access<br>
     </p>
     <!--<p class="govuk-body"><span class="govuk-!-font-weight-bold">Added on:</span> 15 March 2017<br>
     <span class="govuk-!-font-weight-bold">Last signed in:</span> 3 July 2018</p>-->
@@ -60,24 +64,20 @@
       href: "#"
     }) }}
 
+
     {{ govukTable({
-      caption: "Access to services",
+      caption: "Service access for Acme Org Ltd",
       captionClasses: "govuk-heading-l",
       firstCellIsHeader: false,
       head: [
         {
           html: 'Service',
-          format: 'column-quarter column-full'
-
-        },
-        {
-          html: 'Organisation',
-          format: 'column-quarter column-full'
+          format: 'column-third column-full'
 
         },
         {
           html: 'Role',
-          format: 'column-fifth column-full'
+          format: 'column-third column-full'
 
         },
         {
@@ -95,17 +95,28 @@
         html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> UK-REACH-IT'
       },
       {
-        html: '<span class="govuk-visually-hidden--desktop td-header">Organisation:</span> Acme Org Ltd'
+        html: '<span class="govuk-visually-hidden--desktop td-header">Role: </span>Reach Reader'
       },
-      {
-        html: '<span class="govuk-visually-hidden--desktop td-header">Role: </span>REACH Manager'
-      },
-      {
-        html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="#" class="govuk-link--no-visited-state">Change role <span class="govuk-visually-hidden">to [Service name]</span></a>'
-      },
-      {
-        html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="#" class="govuk-link--no-visited-state">Remove access <span class="govuk-visually-hidden">to [Service name]</span></a>'
-      }
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="#" class="govuk-link--no-visited-state">Change role <span class="govuk-visually-hidden">to [Service name]</span></a>'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="#" class="govuk-link--no-visited-state">Remove access <span class="govuk-visually-hidden">to [Service name]</span></a>'
+        }
+      ],
+      [
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> Notification Service (Part 1)'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Role: </span>Importer'
+        },
+        {
+          html: ''
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="#" class="govuk-link--no-visited-state">Remove access <span class="govuk-visually-hidden">to [Service name]</span></a>'
+        }
       ]
 
       ]
@@ -121,13 +132,27 @@
 
     <div class="govuk-grid-column-one-third">
       <div class="govuk-card govuk-card--contained govuk-card--selectable">
-          <a href="https://chemicals-prototypes.herokuapp.com/prototype/rc4/iu/dashboard"></a>
-          <div class="govuk-card__content">
-            <h3 class="govuk-heading-m">{{ data['service'] }} - {{ data['serviceLine'] }}</h3>
-            <p class="govuk-body">A short summary of the tasks you can complete with this service.
-            </p>
-          </div>
+      <a href="/service-start-complete?service=Chemicals&userType=new-complete-admin&serviceLine=UK-REACH-IT"></a>
+        <div class="govuk-card__content">
+          <h3 class="govuk-heading-m">UK-REACH-IT</h3>
+          <!--
+          <p class="govuk-body">{{ data['service'] }}
+          -->
+          </p>
         </div>
+      </div>
+    </div>
+    <div class="govuk-grid-column-one-third {{serviceCSS}}">
+      <div class="govuk-card govuk-card--contained govuk-card--selectable">
+        <a href="/service-start-complete?service=Imports&userType=new-complete-admin&serviceLine=Notification Service (Part 1)"></a>
+        <div class="govuk-card__content">
+          <h3 class="govuk-heading-m">Notification Service (Part 1)</h3>
+          <!--
+          <p class="govuk-body">A short summary of the tasks you can complete with this service.
+          </p>
+        -->
+        </div>
+      </div>
     </div>
 
   </div>
