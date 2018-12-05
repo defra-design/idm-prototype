@@ -7,75 +7,83 @@
 {% endblock %}
 
 {% block beforeContent %}
-<div id="profile">
-  {% include "includes/account-nav-admin-corp.html" %}
-  {% include "includes/breadcrumb-four-level-team.html" %}
-</div>
+    {% include "includes/account-nav-admin-corp.html" %}
+    {% include "includes/breadcrumb-four-level-team.html" %}
+
 {% endblock %}
 
 {% block content %}
+
+{% if data['numUsers'] == "1" %}
+  {% set setchangeAccessHtml %}
+    edit-user-one-admin-confirm
+  {% endset %}
+
+  {% else %}
+  {% set setchangeAccessHtml %}
+    edit-user-system-roles
+  {% endset %}
+{% endif %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
 
     <h1 class="govuk-heading-xl">
-      Ann Cooper
+      Ann Cooper (You)
     </h1>
   </div>
 </div>
 
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
+  <div class="govuk-grid-column-one-half">
     <p class="govuk-body">
-      <span class="govuk-!-font-weight-bold">Full name:</span> Ann Cooper (you)<br>
-      <span class="govuk-!-font-weight-bold">Account access level:</span> Administrator<br>
       <span class="govuk-!-font-weight-bold">Email address:</span> Ann.Cooper@email.com<br>
       <span class="govuk-!-font-weight-bold">Telephone number:</span> 01179267473
     </p>
-    <!--
-    <p class="govuk-body">
-      <span class="govuk-!-font-weight-bold">Added on:</span> 10 January 2010<br>
-      <span class="govuk-!-font-weight-bold">Last signed in:</span> 27 June 2018
-    </p>
-    -->
   </div>
-  <div class="govuk-grid-column-one-third">
-    <!--<p class="govuk-body"><a href="user-account" class="govuk-link--no-visited-state">Edit team member details</a></p>-->
+  <div class="govuk-grid-column-one-half">
+    <p class="govuk-body"><a href="" class="govuk-link--no-visited-state">Reset password</a></p>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-half">
+    <p class="govuk-body">
+      <span class="govuk-!-font-weight-bold">Account:</span> Acme Org Ltd<br>
+      <span class="govuk-!-font-weight-bold">Account access level:</span> Administrator
+    </p>
+  </div>
+  <div class="govuk-grid-column-one-half">
     <p class="govuk-body"><a href="edit-user-own-admin-role-warning" class="govuk-link--no-visited-state">Change access level</a></p>
-    <p class="govuk-body"><a href="" class="govuk-link--no-visited-state">Reset password</a><br></p>
   </div>
 </div>
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
+    <br>
 
     {% set serviceLineName %}
-      <span class="govuk-visually-hidden--desktop td-header">Service:</span> {{ data['serviceLine'] }}
+      <span class="govuk-visually-hidden--desktop td-header">Service:</span> UK-REACH-IT
     {% endset %}
 
     {% set serviceRoleName %}
-      <span class="govuk-visually-hidden--desktop td-header">Role: </span>{{ data['serviceRole']}}
+      <span class="govuk-visually-hidden--desktop td-header">Role:</span>REACH Manager
     {% endset %}
 
 
     {{ govukTable({
-      caption: "Access to services",
+      caption: "Service access for Acme Org Ltd",
       captionClasses: "govuk-heading-l",
       firstCellIsHeader: false,
       head: [
         {
           html: 'Service',
-          format: 'column-quarter column-full'
-
-        },
-        {
-          html: 'Organisation',
-          format: 'column-quarter column-full'
+          format: 'column-third column-full'
 
         },
         {
           html: 'Role',
-          format: 'column-fifth column-full'
+          format: 'column-third column-full'
 
         },
         {
@@ -93,9 +101,6 @@
           html: serviceLineName
         },
         {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Organisation:</span> Acme Org Ltd'
-        },
-        {
           html: serviceRoleName
         },
         {
@@ -105,7 +110,6 @@
           html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="#" class="govuk-link--no-visited-state">Remove access <span class="govuk-visually-hidden">to [Service name]</span></a>'
         }
       ]
-
       ]
     }) }}
 
@@ -119,16 +123,16 @@
 
     <div class="govuk-grid-column-one-third">
       <div class="govuk-card govuk-card--contained govuk-card--selectable">
-          <a href="https://chemicals-prototypes.herokuapp.com/prototype/rc4/iu/dashboard"></a>
+          <a href="/service-start-complete?service=Chemicals&userType=new-complete-admin&serviceLine=UK-REACH-IT"></a>
           <div class="govuk-card__content">
-            <h3 class="govuk-heading-m">{{ data['service'] }} - {{ data['serviceLine'] }}</h3>
+            <h3 class="govuk-heading-m">UK-REACH-IT</h3>
+            <!--
             <p class="govuk-body">A short summary of the tasks you can complete with this service.
             </p>
+          -->
           </div>
         </div>
     </div>
-
-
   </div>
 </div>
 

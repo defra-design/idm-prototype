@@ -7,19 +7,29 @@
 {% endblock %}
 
 {% block beforeContent %}
-<div id="profile">
     {% include "includes/account-nav-admin-corp.html" %}
     {% include "includes/breadcrumb-four-level-team.html" %}
-</div>
+
 {% endblock %}
 
 {% block content %}
+
+{% if data['numUsers'] == "1" %}
+  {% set setchangeAccessHtml %}
+    edit-user-one-admin-confirm
+  {% endset %}
+
+  {% else %}
+  {% set setchangeAccessHtml %}
+    edit-user-system-roles
+  {% endset %}
+{% endif %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
 
     <h1 class="govuk-heading-xl">
-      Barry Anders
+      Ann Cooper (You)
     </h1>
   </div>
 </div>
@@ -27,24 +37,26 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <p class="govuk-body">
-      <span class="govuk-!-font-weight-bold">Full name:</span> Barry Anders<br>
+      <span class="govuk-!-font-weight-bold">Full name:</span> Ann Cooper<br>
+      <span class="govuk-!-font-weight-bold">Email address:</span> Ann.Cooper@email.com<br>
+      <span class="govuk-!-font-weight-bold">Telephone number:</span> 01179267473<br>
+    </p>
+
+    <p class="govuk-body">
+      <span class="govuk-!-font-weight-bold">Account:</span> Acme Org Ltd<br>
       <span class="govuk-!-font-weight-bold">Account access level:</span> Administrator<br>
-      <span class="govuk-!-font-weight-bold">Email address:</span> Barry.Anders@email.com<br>
-      <span class="govuk-!-font-weight-bold">Telephone number:</span> 01179267473
     </p>
     <!--<p class="govuk-body">
-      <span class="govuk-!-font-weight-bold">Added on:</span> 10 March 2011<br>
+      <span class="govuk-!-font-weight-bold">Added on:</span> 10 January 2010<br>
       <span class="govuk-!-font-weight-bold">Last signed in:</span> 27 June 2018
     </p>-->
   </div>
   <div class="govuk-grid-column-one-third">
     <!--<p class="govuk-body"><a href="user-account" class="govuk-link--no-visited-state">Edit team member details</a></p>-->
-    <p class="govuk-body"><a href="" class="govuk-link--no-visited-state">Change access level</a></p>
+    <p class="govuk-body"><a href="edit-user-own-admin-role-warning" class="govuk-link--no-visited-state">Change access level</a></p>
     <p class="govuk-body"><a href="" class="govuk-link--no-visited-state">Reset password</a><br></p>
-    <!--<p class="govuk-body"><a href="" class="govuk-link--no-visited-state">Delete team member</a></p>-->
   </div>
 </div>
-
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
@@ -55,11 +67,12 @@
     {% endset %}
 
     {% set serviceRoleName %}
-      <span class="govuk-visually-hidden--desktop td-header">Role: </span>{{ data['serviceRole']}}
+      <span class="govuk-visually-hidden--desktop td-header">Role:</span>{{ data['serviceRole']}}
     {% endset %}
 
+
     {{ govukTable({
-      caption: "Access to services",
+      caption: "Service access",
       captionClasses: "govuk-heading-l",
       firstCellIsHeader: false,
       head: [
@@ -90,7 +103,24 @@
       rows: [
       [
         {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> Reporting adverse effects'
+          html: serviceLineName
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Organisation:</span> Acme Org Ltd'
+        },
+        {
+          html: serviceRoleName
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="#" class="govuk-link--no-visited-state">Change role <span class="govuk-visually-hidden">to [Service name]</span></a>'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="#" class="govuk-link--no-visited-state">Remove access <span class="govuk-visually-hidden">to [Service name]</span></a>'
+        }
+      ],
+      [
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> UK SO2'
         },
         {
           html: '<span class="govuk-visually-hidden--desktop td-header">Organisation:</span> Acme Org Ltd'
@@ -107,24 +137,7 @@
       ],
       [
         {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> Apply for a license'
-        },
-        {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Organisation:</span> Acme Org Ltd'
-        },
-        {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Role: </span>Standard'
-        },
-        {
-          html: ''
-        },
-        {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="#" class="govuk-link--no-visited-state">Remove access <span class="govuk-visually-hidden">to [Service name]</span></a>'
-        }
-      ],
-      [
-        {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> Secure messaging'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> UK SO3'
         },
         {
           html: '<span class="govuk-visually-hidden--desktop td-header">Organisation:</span> Acme Org Ltd'
@@ -143,12 +156,11 @@
       ]
     }) }}
 
-
   </div>
 </div>
 
 <div class="govuk-card__content">
-  <h3 class="govuk-heading-m">Link to your services</h3>
+  <h3 class="govuk-heading-m">Link to services</h3>
 
   <div class="govuk-grid-row">
 
@@ -182,7 +194,6 @@
           </div>
         </div>
     </div>
-
   </div>
 </div>
 
