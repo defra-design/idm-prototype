@@ -33,11 +33,11 @@
     <p class="govuk-body">Once this person has registered to use online services, you can choose which information and tasks they can see and do on behalf of your organisation.</p>
 
     {% if data['numAgents'] <= "2" %}
-          {% set continueURL = "/manage/agent/agent-0" %}
+          {% set continueURL = "/manage/agent/agent" %}
     {% endif %}
 
     {% if data['numUsers'] >= "3" %}
-          {% set continueURL = "/manage/agent/agent-all" %}
+          {% set continueURL = "/manage/agent/agent" %}
     {% endif %}
 
     {{ govukButton({

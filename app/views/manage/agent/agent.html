@@ -20,6 +20,22 @@
       {% set introCSS = "govuk-visually-hidden" %}
     {% endif %}
 
+    {% if data['numAgents'] == "0" %}
+      {% set otherUserCSS = "govuk-visually-hidden" %}
+      {% set tableCSS = " govuk-visually-hidden" %}
+    {% endif %}
+
+    {% if data['numAgents'] == "1" %}
+      {% set otherUserCSS = "govuk-visually-hidden" %}
+      {% set tableCSS = "" %}
+      {% set introCSS = "govuk-visually-hidden" %}
+    {% endif %}
+
+
+    {% if data['numAgents'] == "3" %}
+      {% set introCSS = "govuk-visually-hidden" %}
+      {% set newUserCSS = " govuk-visually-hidden" %}
+    {% endif %}
 
 
 <div class="govuk-grid-row">

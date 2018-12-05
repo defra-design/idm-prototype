@@ -17,11 +17,11 @@
 
 {% set setAgentURL %}
   {% if data['numAgents'] <= "2" %}
-    /manage/agent/agent-0
+    /manage/agent/agent
   {% endif %}
 
   {% if data['numAgents'] >= "3" %}
-    /manage/agent/agent-all
+    /manage/agent/agent
   {% endif %}
 {% endset %}
 

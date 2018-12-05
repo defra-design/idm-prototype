@@ -30,7 +30,7 @@ router.get('/manage/dashboard-all', function (req, res) {
     res.render('manage/dashboard',{
       "teamMemberURL": 'team-members/team-members',
       "addAgentURL": 'agent/invite-user/add-user-details',
-      "agentURL": 'agent/agent-all',
+      "agentURL": 'agent/agent',
       "addLocationURL": '#',
       "locationURL": 'organisations/organisation-details',
       "locationAddressCSS": "",
@@ -47,7 +47,7 @@ router.get('/manage/dashboard-all-org', function (req, res) {
     res.render('manage/dashboard',{
       "teamMemberURL": 'team-members/team-members',
       "addAgentURL": 'agent/invite-user/add-user-details',
-      "agentURL": 'agent/agent-all',
+      "agentURL": 'agent/agent',
       "addLocationURL": '#',
       "locationURL": 'organisations/organisation-details',
       "locationAddressCSS": "",
@@ -82,7 +82,7 @@ router.get('/manage/dashboard-agent-client', function (req, res) {
     res.render('manage/dashboard',{
       "teamMemberURL": 'team-members/team-members',
       "addAgentURL": 'agent/chemicals/invite-user/add-user-details',
-      "agentURL": 'agent/agent-all',
+      "agentURL": 'agent/agent',
       "addLocationURL": '#',
       "locationURL": 'organisations/organisation-details',
       "locationAddressCSS": "govuk-visually-hidden",
@@ -95,22 +95,6 @@ router.get('/manage/dashboard-agent-client', function (req, res) {
     })
 })
 
-// Agent config //
-// No agent / plus 1
-router.get('/manage/agent/agent-0', function (req, res) {
-    res.render('manage/agent/agent',{
-      "otherUserCSS": 'govuk-visually-hidden',
-      "tableCSS": 'govuk-visually-hidden'
-    })
-})
-
-// All agents / plus 1
-router.get('/manage/agent/agent-all', function (req, res) {
-    res.render('manage/agent/agent',{
-      "introCSS": 'govuk-visually-hidden',
-      "newUserCSS": 'govuk-visually-hidden'
-    })
-})
 
 ////// SCP Login config /////
 // Existing user but new to IDM user
