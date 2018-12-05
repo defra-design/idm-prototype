@@ -59,121 +59,117 @@
 
 <br>
 
-{% if data['subscribeService'] == "Yes" %}
-{% else %}
-  {{ govukButton({
-    text: "Give service access",
-    href: "/manage/team-members/invite-user/add-user-roles-system-roles?subscribeService=Yes&serviceRole=Standard&userType=invitedAgent&name=Bob Holmness"
-  }) }}
-{% endif %}
+
 
 <!-- Show table if the user has subscribed to one service -->
 <!-- Show table if the user has subscribed to one service -->
-{% if data['subscribeService'] == "Yes" %}
 
-{% if (data['numServices'] == 3) and (data['service'] == "Imports") %}
-  {{ govukButton({
-    text: "Give service access",
-    href: "/manage/team-members/invite-user/imports/add-user-service?subscribeService=Yes&serviceRole=Standard&userType=inviteAgent&name=Bob Holmness"
-  }) }}
-{% endif %}
 
-{% if (data['numServices'] == 3) and (data['service'] == "Chemicals") %}
-  {{ govukButton({
-    text: "Give service access",
-    href: "/manage/team-members/invite-user/chemicals/add-user-service?subscribeService=Yes&serviceRole=Standard&userType=invitedAgent&name=Bob Holmness"
-  }) }}
-{% endif %}
-
-{% if (data['numServices'] == 3) and (data['service'] == "VMD") %}
-  {{ govukButton({
-    text: "Give service access",
-    href: "/manage/team-members/invite-user/vmd/add-user-service?subscribeService=Yes&serviceRole=Standard&userType=invitedAgent&name=Bob Holmness"
-  }) }}
-  {% endif %}
-
-  {% if (data['numServices'] == 3) and (data['service'] == "Exports") %}
+  {% if (data['service'] == "Imports") %}
     {{ govukButton({
       text: "Give service access",
-      href: "/manage/team-members/invite-user/exports/add-user-service?subscribeService=Yes&serviceRole=Standard&userType=invitedAgent&name=Bob Holmness"
+      href: "/manage/team-members/invite-user/imports/add-user-service?subscribeService=Yes&serviceRole=Standard&userType=inviteAgent&name=Bob Holmness"
     }) }}
   {% endif %}
 
-  {% set setServiceNameHtml %}
-      <span class="govuk-visually-hidden--desktop td-header">Service:</span> {{ data['serviceLine'] }}
-  {% endset %}
+  {% if (data['service'] == "Chemicals") %}
+    {{ govukButton({
+      text: "Give service access",
+      href: "/manage/team-members/invite-user/chemicals/add-user-service?subscribeService=Yes&serviceRole=Standard&userType=invitedAgent&name=Bob Holmness"
+    }) }}
+  {% endif %}
 
-  {% set setOrgHtml %}
-      <span class="govuk-visually-hidden--desktop td-header">Organisation:</span> Acme Org Ltd
-  {% endset %}
+  {% if (data['service'] == "VMD") %}
+    {{ govukButton({
+      text: "Give service access",
+      href: "/manage/team-members/invite-user/vmd/add-user-service?subscribeService=Yes&serviceRole=Standard&userType=invitedAgent&name=Bob Holmness"
+    }) }}
+    {% endif %}
 
-  {% set setServiceRoleHtml %}
-      <span class="govuk-visually-hidden--desktop td-header">Access level: </span> {{ data['serviceRole'] }}
-  {% endset %}
+    {% if (data['service'] == "Exports") %}
+      {{ govukButton({
+        text: "Give service access",
+        href: "/manage/team-members/invite-user/exports/add-user-service?subscribeService=Yes&serviceRole=Standard&userType=invitedAgent&name=Bob Holmness"
+      }) }}
+    {% endif %}
 
-  {{ govukTable({
-    caption: "Service access for Acme Org Ltd",
-    captionClasses: "govuk-heading-l",
-    firstCellIsHeader: false,
-    head: [
-      {
-        html: 'Service',
-        format: 'column-third column-full'
+{% if data['subscribeService'] == "Yes" %}
 
-      },
-      {
-        html: 'Role',
-        format: 'column-third column-full'
+    {% set setServiceNameHtml %}
+        <span class="govuk-visually-hidden--desktop td-header">Service:</span> {{ data['serviceLine'] }}
+    {% endset %}
 
-      },
-      {
-        html: '<span class="govuk-visually-hidden column-full">Action</span>',
-        format: ''
-      },
-      {
-        html: '<span class="govuk-visually-hidden column-full">Action</span>',
-        format: ''
-      }
-    ],
-    rows: [
-    [
-      {
-        html: setServiceNameHtml
-      },
-      {
-        html: setServiceRoleHtml
-      },
-      {
-        html: ''
-      },
-      {
-        html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="edit-user-remove-access-confirm" class="govuk-link--no-visited-state">Remove access <span class="govuk-visually-hidden">to [Service name]</span></a>'
-      }
-    ]
-    ]
-  }) }}
+    {% set setOrgHtml %}
+        <span class="govuk-visually-hidden--desktop td-header">Organisation:</span> Acme Org Ltd
+    {% endset %}
+
+    {% set setServiceRoleHtml %}
+        <span class="govuk-visually-hidden--desktop td-header">Access level: </span> {{ data['serviceRole'] }}
+    {% endset %}
+
+    {{ govukTable({
+      caption: "Service access for Acme Org Ltd",
+      captionClasses: "govuk-heading-l",
+      firstCellIsHeader: false,
+      head: [
+        {
+          html: 'Service',
+          format: 'column-third column-full'
+
+        },
+        {
+          html: 'Role',
+          format: 'column-third column-full'
+
+        },
+        {
+          html: '<span class="govuk-visually-hidden column-full">Action</span>',
+          format: ''
+        },
+        {
+          html: '<span class="govuk-visually-hidden column-full">Action</span>',
+          format: ''
+        }
+      ],
+      rows: [
+      [
+        {
+          html: setServiceNameHtml
+        },
+        {
+          html: setServiceRoleHtml
+        },
+        {
+          html: ''
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="edit-user-remove-access-confirm" class="govuk-link--no-visited-state">Remove access <span class="govuk-visually-hidden">to [Service name]</span></a>'
+        }
+      ]
+      ]
+    }) }}
 
 
-<div class="govuk-card__content">
-  <h2 class="govuk-heading-m">Link to services</h2>
+  <div class="govuk-card__content">
+    <h2 class="govuk-heading-m">Link to services</h2>
 
-  <div class="govuk-grid-row">
+    <div class="govuk-grid-row">
 
-    <div class="govuk-grid-column-one-third">
-      <div class="govuk-card govuk-card--contained govuk-card--selectable">
-        <a href="/service-start-complete?service=Chemicals&userType=new-complete-admin&serviceLine=UK-REACH-IT"></a>
-          <div class="govuk-card__content">
-            <h3 class="govuk-heading-m">{{ data['serviceLine'] }}</h3>
-            <!--
-            <p class="govuk-body">A short summary of the tasks you can complete with this service.
-            </p>
-          -->
+      <div class="govuk-grid-column-one-third">
+        <div class="govuk-card govuk-card--contained govuk-card--selectable">
+          <a href="/service-start-complete?service=Chemicals&userType=new-complete-admin&serviceLine=UK-REACH-IT"></a>
+            <div class="govuk-card__content">
+              <h3 class="govuk-heading-m">{{ data['serviceLine'] }}</h3>
+              <!--
+              <p class="govuk-body">A short summary of the tasks you can complete with this service.
+              </p>
+            -->
+            </div>
           </div>
-        </div>
-    </div>
+      </div>
 
+    </div>
   </div>
-</div>
 
 {% endif %}
 
