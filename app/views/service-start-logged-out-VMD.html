@@ -16,66 +16,64 @@
 
 
 {% block content %}
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-xl">
-        {{ title }}
-      </h1>
+    <h1 class="govuk-heading-xl">
+      {{ title }}
+    </h1>
 
-      <p>You can use this service to:</p>
-             <ul class="govuk-list govuk-list--bullet">
-               <li>apply for, renew or vary a licence to market to sell a veterinary medicine in the UK</li>
-               <li>submit or update an animal or human adverse event report in relation to a veterinary medicine you have a licence for</li>
-               <li>communicate and transfer files securely with the VMD in regard to veterinary medicines for which you are a market authority</li>
-            </ul>
-          </br>
+    <p>You can use this service to:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>apply for, renew or vary a licence to market to sell a veterinary medicine in the UK</li>
+      <li>submit or update an animal or human adverse event report in relation to a veterinary medicine you have a licence for</li>
+      <li>communicate and transfer files securely with the VMD in regard to veterinary medicines for which you are a market authority</li>
+    </ul>
+    </br>
+    <p class="govuk-heading-m">You need to use a Government Gateway account to register for this service</p>
 
-      <p class="govuk-heading-m">You need to use a Government Gateway account to register for this service</p>
-      <p class="govuk-body">We ask you to use or create a Government Gateway account to register with this service, as well as other services provided by Defra and related agencies and public bodies.</p>
+    <p class="govuk-body">We ask you to use or create your own Government Gateway account to register with this service, as well as other services provided by Defra and related agencies and public bodies.</p>
 
-      <p class="govuk-body">Having one set of sign in details (a Government Gateway user ID and password) will save you time. We will store basic information about you and your organisation so that you do not have to re-enter the information each time you want to use a new online service.</p>
+    <p class="govuk-body">Having your own set of sign in details (a Government Gateway user ID and password) will save you time. We will store basic information about you so that you do not have to re-enter the information each time you want to use a new online service.</p>
 
 
-      <p class="govuk-heading-m">To register for VMD you will be guided to:</p>
-            <div class="govuk-inset-text">
-            <ol class="govuk-list govuk-list--number">
-               <li>Enter your Government Gateway user ID and password if you already have an account. If not, you will be guided through the process of creating one.</li>
-               <li>Tell us some basic information about you and your organisation.</li>
-               <li>Enter the VMD service to answer some specific questions to complete your registration. You will then be able to use the VMD service straight away.
-               </li>
-            </ol>
-          </div>
+    <p class="govuk-heading-m">To register for VMD you will be guided to:</p>
+    <div class="govuk-inset-text">
+      <ol class="govuk-list govuk-list--number">
+         <li>Enter your Government Gateway user ID and password if you already have an account. If not, you will be guided through the process of creating one.</li>
+         <li>Tell us some basic information about you and your organisation.</li>
+         <li>Enter the VMD service to answer some specific questions to complete your registration. You will then be able to use the VMD service straight away.
+         </li>
+      </ol>
+    </div>
 
-      <h2 class="govuk-heading-m">Before you start</h2>
+    <h2 class="govuk-heading-m">Before you start</h2>
 
-      <p class="govuk-body">You will need:</p>
+    <p class="govuk-body">You will need:</p>
 
-          <ul class="govuk-list govuk-list--bullet">
+    <ul class="govuk-list govuk-list--bullet">
       <li>your email address, phone number and postal address</li>
       <li>your Government Gateway user ID and password (if you already have an account, if not you will be guided to create one)</li>
       <li>the main contact details for your organisation (for example, head office contact details)</li>
       <li>the Companies House number for the limited company you want to enrol</li>
       <li>your market authority holder number (if known)</li>
       <li>the name and contact details of another person in your organisation who we can contact to authorise your application to enrol</li>
-          </ul>
+    </ul>
 
-      {{ govukButton({
-        text: "Start now",
-        href: "/scp/login-new",
-        classes: "govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-8"
-      }) }}
+    {{ govukButton({
+      text: "Start now",
+      href: "/scp/login-new",
+      classes: "govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-8"
+    }) }}
 
+    <br>
 
-          <br>
+    <hr class="govuk-section-break--m">
 
-
-      <hr class="govuk-section-break--m">
-
-      <p class="govuk-body">This prototype is being updated regularly.</p>
+    <p class="govuk-body">This prototype is being updated regularly.</p>
 
 
-    </div>
   </div>
+</div>
 
 {% endblock %}
