@@ -166,3 +166,10 @@ router.get('/scp/login-pending', function (req, res) {
       "signinButton": '/service-start-pending'
     })
 })
+
+// Existing user - logging back into IDM
+router.get('/scp/login-profile', function (req, res) {
+    res.render('scp/login',{
+      "signinButton": '/manage/team-members/services-on-team-member-admin-account'
+    })
+})
