@@ -18,8 +18,14 @@
       {% set newUserCSS = "" %}
     {% endif %}
 
-    {% if data['numUsers']== "2" %}
+    {% if data['numUsers'] == "2" %}
       {% set otherUserCSS = "govuk-visually-hidden" %}
+      {% set newUserCSS = "" %}
+    {% endif %}
+
+    {% if data['numUsers'] == "1" %}
+      {% set otherUserCSS = "govuk-visually-hidden" %}
+      {% set newUserCSS = " govuk-visually-hidden" %}
     {% endif %}
 
 <div class="govuk-grid-row">

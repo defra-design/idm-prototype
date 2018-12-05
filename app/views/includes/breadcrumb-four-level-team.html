@@ -15,12 +15,12 @@
 {% endif %}
 
 {% set setTeamURL %}
-  {% if data['numUsers'] == "1" %}
-    /manage/team-members/team-members-all-1
+  {% if data['numUsers'] <= "2" %}
+    /manage/team-members/team-members
   {% endif %}
 
-  {% if data['numUsers'] == "5" %}
-    /manage/team-members/team-members-all
+  {% if data['numUsers'] >= "5" %}
+    /manage/team-members/team-members
   {% endif %}
 {% endset %}
 

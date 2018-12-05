@@ -28,7 +28,7 @@ router.get('/tests/ac2', function (req, res) {
 // dashboard for a org admin (not agent or individual)
 router.get('/manage/dashboard-all', function (req, res) {
     res.render('manage/dashboard',{
-      "teamMemberURL": 'team-members/team-members-all',
+      "teamMemberURL": 'team-members/team-members',
       "addAgentURL": 'agent/invite-user/add-user-details',
       "agentURL": 'agent/agent-all',
       "addLocationURL": '#',
@@ -45,7 +45,7 @@ router.get('/manage/dashboard-all', function (req, res) {
 // Multi orgs
 router.get('/manage/dashboard-all-org', function (req, res) {
     res.render('manage/dashboard',{
-      "teamMemberURL": 'team-members/team-members-all',
+      "teamMemberURL": 'team-members/team-members',
       "addAgentURL": 'agent/invite-user/add-user-details',
       "agentURL": 'agent/agent-all',
       "addLocationURL": '#',
@@ -62,7 +62,7 @@ router.get('/manage/dashboard-all-org', function (req, res) {
 // Agent's own company
 router.get('/manage/dashboard-agent-self', function (req, res) {
     res.render('manage/dashboard',{
-      "teamMemberURL": 'team-members/team-members-all',
+      "teamMemberURL": 'team-members/team-members',
       "addClientURL": '',
       "clientURL": '',
       "addLocationURL": '#',
@@ -80,7 +80,7 @@ router.get('/manage/dashboard-agent-self', function (req, res) {
 // Agent's - clients
 router.get('/manage/dashboard-agent-client', function (req, res) {
     res.render('manage/dashboard',{
-      "teamMemberURL": 'team-members/team-members-all',
+      "teamMemberURL": 'team-members/team-members',
       "addAgentURL": 'agent/chemicals/invite-user/add-user-details',
       "agentURL": 'agent/agent-all',
       "addLocationURL": '#',
@@ -92,22 +92,6 @@ router.get('/manage/dashboard-agent-client', function (req, res) {
       "showClientCSS": "govuk-visually-hidden",
       "clientAddressCSS": ""
 
-    })
-})
-
-// Team members config //
-// Single user / plus 1
-router.get('/manage/team-members/team-members-all-1', function (req, res) {
-    res.render('manage/team-members/team-members',{
-      "otherUserCSS": 'govuk-visually-hidden',
-      "newUserCSS": ' govuk-visually-hidden'
-    })
-})
-
-// All users / plus 1
-router.get('/manage/team-members/team-members-all', function (req, res) {
-    res.render('manage/team-members/team-members',{
-      "newUserCSS": ' govuk-visually-hidden'
     })
 })
 

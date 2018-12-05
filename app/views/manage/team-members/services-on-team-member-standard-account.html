@@ -27,14 +27,9 @@
   <div class="govuk-grid-column-two-thirds">
     <p class="govuk-body">
       <span class="govuk-!-font-weight-bold">Full name:</span> Adam Mastly<br>
-      <span class="govuk-!-font-weight-bold">Account access level:</span> None<br>
       <span class="govuk-!-font-weight-bold">Email address:</span> Adam.Mastly@email.com<br>
       <span class="govuk-!-font-weight-bold">Telephone number:</span> 01179267473
     </p>
-    <!--<p class="govuk-body">
-      <span class="govuk-!-font-weight-bold">Added on:</span> 15 March 2017<br>
-      <span class="govuk-!-font-weight-bold">Last signed in:</span> 3 July 2018
-    </p>-->
   </div>
   <div class="govuk-grid-column-one-third">
     <p class="govuk-body"><a href="services-on-team-member-update-details" class="govuk-link govuk-link--no-visited-state">Update details</a></p>
@@ -51,49 +46,61 @@
   </div>
 </div>
 
-
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
     <br>
-<!--
-    {{ govukButton({
-      text: "Request service access",
-      href: ""
-    }) }}
-  -->
+
+    {% set serviceLineName %}
+      <span class="govuk-visually-hidden--desktop td-header">Service:</span> {{ data['serviceLine'] }}
+    {% endset %}
+
+    {% set serviceRoleName %}
+      <span class="govuk-visually-hidden--desktop td-header">Role: </span>{{ data['serviceRole']}}
+    {% endset %}
+
+    {% set systemRoleName %}
+      <span class="govuk-visually-hidden--desktop td-header">Role: </span>{{ data['systemRole']}}
+    {% endset %}
+
 
     {{ govukTable({
-      caption: "Access to services",
+      caption: "My organisations",
       captionClasses: "govuk-heading-l",
       firstCellIsHeader: false,
       head: [
-        {
-          html: 'Service',
-          format: 'column-quarter column-full'
-
-        },
         {
           html: 'Organisation',
           format: 'column-quarter column-full'
 
         },
         {
-          html: 'Role',
-          format: 'column-fifth column-full'
+          html: 'Access level',
+          format: 'column-quarter column-full'
+        },
+        {
+          html: 'Service',
+          format: 'column-third column-full'
 
+        },
+        {
+          html: 'Service role',
+          format: 'column-sixth column-full'
         }
       ],
       rows: [
       [
-      {
-        html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> UK-REACH-IT'
-      },
-      {
-        html: '<span class="govuk-visually-hidden--desktop td-header">Organisation:</span> Acme Org Ltd'
-      },
-      {
-        html: '<span class="govuk-visually-hidden--desktop td-header">Role: </span>REACH Manager'
-      }
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Organisation:</span> Acme Org Ltd'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Access level:</span> No access'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> Chemicals UK-REACH-IT'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Role:</span> REACH Manager'
+        }
       ]
 
       ]
@@ -101,24 +108,25 @@
 
   </div>
 </div>
+
 <div class="govuk-card__content">
-  <h2 class="govuk-heading-m">Link to services</h2>
+  <h3 class="govuk-heading-m">Link to services</h3>
 
   <div class="govuk-grid-row">
 
     <div class="govuk-grid-column-one-third">
       <div class="govuk-card govuk-card--contained govuk-card--selectable">
-          <a href="https://chemicals-prototypes.herokuapp.com/prototype/rc4/iu/dashboard"></a>
+          <a href="/service-start-complete?service=Chemicals&userType=new-complete-admin&serviceLine=UK-REACH-IT"></a>
           <div class="govuk-card__content">
-            <h3 class="govuk-heading-m">{{ data['service'] }} - {{ data['serviceLine'] }}</h3>
+            <h3 class="govuk-heading-m">UK-REACH-IT</h3>
+            <!--
             <p class="govuk-body">A short summary of the tasks you can complete with this service.
             </p>
+          -->
           </div>
         </div>
     </div>
 
   </div>
-</div>
-
 
 {% endblock %}
