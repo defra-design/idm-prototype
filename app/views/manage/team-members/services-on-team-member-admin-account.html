@@ -14,17 +14,6 @@
 
 {% block content %}
 
-{% if data['numUsers'] == "1" %}
-  {% set setchangeAccessHtml %}
-    edit-user-one-admin-confirm
-  {% endset %}
-
-  {% else %}
-  {% set setchangeAccessHtml %}
-    edit-user-system-roles
-  {% endset %}
-{% endif %}
-
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
 
@@ -35,20 +24,16 @@
 </div>
 
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
+  <div class="govuk-grid-column-one-half">
     <p class="govuk-body">
       <span class="govuk-!-font-weight-bold">Full name:</span> Ann Cooper<br>
       <span class="govuk-!-font-weight-bold">Email address:</span> Ann.Cooper@email.com<br>
       <span class="govuk-!-font-weight-bold">Telephone number:</span> 01179267473
     </p>
-    <!--<p class="govuk-body">
-      <span class="govuk-!-font-weight-bold">Added on:</span> 10 January 2010<br>
-      <span class="govuk-!-font-weight-bold">Last signed in:</span> 27 June 2018
-    </p>-->
   </div>
-  <div class="govuk-grid-column-one-third">
+  <div class="govuk-grid-column-one-half">
     <p class="govuk-body"><a href="services-on-team-member-update-details" class="govuk-link--no-visited-state">Update details</a></p>
-    <p class="govuk-body"><a href="" class="govuk-link--no-visited-state">Reset password</a><br></p>
+    <p class="govuk-body"><a href="" class="govuk-link--no-visited-state">Reset password</a></p>
   </div>
 </div>
 
@@ -169,7 +154,7 @@
       ],
       [
         {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Organisation:</span><a href="/manage/dashboard-all-org?orgName=Importers RUS&numUsers=6&numAgents=0&numServices=3" class="govuk-link--no-visited-state"> Importers RUS'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Organisation:</span> Importers RUS'
         },
         {
           html: '<span class="govuk-visually-hidden--desktop td-header">Access level:</span> No Access'

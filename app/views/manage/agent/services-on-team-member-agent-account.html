@@ -9,7 +9,6 @@
 {% block beforeContent %}
 <div id="profile">
   {% include "includes/account-nav-admin-agent-account.html" %}
-  {% include "includes/breadcrumb-two-level.html" %}
 </div>
 {% endblock %}
 
@@ -25,135 +24,193 @@
 </div>
 
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
+  <div class="govuk-grid-column-one-half">
     <p class="govuk-body">
       <span class="govuk-!-font-weight-bold">Full name:</span> Marcy Ponds<br>
-      <span class="govuk-!-font-weight-bold">Account access level:</span> Administrator<br>
-      <span class="govuk-!-font-weight-bold">Email address:</span> Marcy.Ponds@cjhenderson.co.uk<br>
+      <span class="govuk-!-font-weight-bold">Email address:</span> Marcy.Ponds@email.com<br>
       <span class="govuk-!-font-weight-bold">Telephone number:</span> 01179267473
     </p>
-    <!--<p class="govuk-body">
-      <span class="govuk-!-font-weight-bold">Added on:</span> 10 March 2011<br>
-      <span class="govuk-!-font-weight-bold">Last signed in:</span> 27 June 2018
-    </p>
-  -->
   </div>
-  <div class="govuk-grid-column-one-third">
-    <!--
-    <p class="govuk-body"><a href="user-account" class="govuk-link--no-visited-state">Edit details</a></p>
-  -->
-    <p class="govuk-body"><a href="" class="govuk-link--no-visited-state">Reset password</a><br>
+  <div class="govuk-grid-column-one-half">
+    <p class="govuk-body"><a href="services-on-team-member-update-details" class="govuk-link--no-visited-state">Update details</a></p>
+    <p class="govuk-body"><a href="" class="govuk-link--no-visited-state">Reset password</a></p>
   </div>
 </div>
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
     <br>
+
+    {% set serviceLineName %}
+      <span class="govuk-visually-hidden--desktop td-header">Service:</span> {{ data['serviceLine'] }}
+    {% endset %}
+
+    {% set serviceRoleName %}
+      <span class="govuk-visually-hidden--desktop td-header">Role: </span>{{ data['serviceRole']}}
+    {% endset %}
+
+    {% set systemRoleName %}
+      <span class="govuk-visually-hidden--desktop td-header">Role: </span>{{ data['systemRole']}}
+    {% endset %}
+
+
     {{ govukTable({
-      caption: "Access to services",
+      caption: "My organisations",
       captionClasses: "govuk-heading-l",
       firstCellIsHeader: false,
       head: [
         {
-          html: 'Service',
+          html: 'Organisation',
           format: 'column-quarter column-full'
 
         },
         {
-          html: 'Organisation',
+          html: 'Access level',
+          format: 'column-quarter column-full'
+        },
+        {
+          html: 'Service',
           format: 'column-third column-full'
 
         },
         {
-          html: 'Access level',
-          format: 'column-fifth column-full'
-
+          html: 'Service role',
+          format: 'column-sixth column-full'
         }
       ],
       rows: [
       [
         {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> Imports SO2'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Organisation:</span>Acme Org Ltd'
         },
         {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Organisation:</span> Importers RUS'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Access level:</span> No access'
         },
         {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Access level: </span>Standard user'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> Chemicals UK-REACH-IT'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Role:</span> REACH Manager'
         }
       ],
       [
-        {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> Imports SO3'
-        },
-        {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Organisation:</span> Importers RUS'
-        },
-        {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Access level: </span>Standard user'
-        }
-      ],
-      [
-        {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> UK SO2'
-        },
         {
           html: '<span class="govuk-visually-hidden--desktop td-header">Organisation:</span> Acme Org Ltd'
         },
         {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Access level: </span>Standard user'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Access level:</span> No access'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> Notification Service (Part 1)'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Role: </span>Importer'
         }
       ],
+      [
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Organisation:</span> Acme Org India'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Access level:</span> No access'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> Notification Service (Part 1)'
+        },
 
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Role: </span>Importer'
+        }
+      ],
       [
         {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> UK-REACH-IT'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Organisation:</span> Acme Org Thailand'
         },
         {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Organisation:</span> Acme Org Ltd'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Access level:</span> No access'
         },
         {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Access level: </span>REACH Manager'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> Notification Service (Part 1)'
+        },
+
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Role: </span>Importer'
+        }
+      ],
+      [
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Organisation:</span> Acme Org Spain'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Access level:</span> No access'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> Apply for Export Catch Certificate'
+        },
+
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Role: </span>General user'
+        }
+      ],
+      [
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Organisation:</span> Importers RUS'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Access level:</span> No Access'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> VMD Secure Messaging'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Role:</span> Administrator'
         }
       ]
 
       ]
     }) }}
+
   </div>
 </div>
 
 <div class="govuk-card__content">
-  <h3 class="govuk-heading-m">Link to your services</h3>
+  <h3 class="govuk-heading-m">Link to services</h3>
 
   <div class="govuk-grid-row">
 
     <div class="govuk-grid-column-one-third">
       <div class="govuk-card govuk-card--contained govuk-card--selectable">
-          <a href="https://chemicals-prototypes.herokuapp.com/prototype/rc4/iu/dashboard"></a>
+          <a href="/service-start-complete?service=Chemicals&userType=new-complete-admin&serviceLine=UK-REACH-IT"></a>
           <div class="govuk-card__content">
-            <h3 class="govuk-heading-m">Chemicals - UK-REACH-IT</h3>
+            <h3 class="govuk-heading-m">UK-REACH-IT</h3>
+            <!--
             <p class="govuk-body">A short summary of the tasks you can complete with this service.
             </p>
+          -->
           </div>
         </div>
     </div>
     <div class="govuk-grid-column-one-third {{serviceCSS}}">
       <div class="govuk-card govuk-card--contained govuk-card--selectable">
-          <a href="/service-start-complete"></a>
+          <a href="/service-start-complete?service=Imports&userType=new-complete-admin&serviceLine=Notification Service (Part 1)"></a>
           <div class="govuk-card__content">
-            <h3 class="govuk-heading-m">Chemicals - UK SO2</h3>
+            <h3 class="govuk-heading-m">Notification Service (Part 1)</h3>
+            <!--
             <p class="govuk-body">A short summary of the tasks you can complete with this service.
             </p>
+          -->
           </div>
         </div>
     </div>
     <div class="govuk-grid-column-one-third {{serviceCSS}}">
       <div class="govuk-card govuk-card--contained govuk-card--selectable">
-          <a href="/service-start-complete"></a>
+          <a href="/service-start-complete?service=Exports&userType=new-complete-admin&serviceLine=Apply for Export Catch Certificate"></a>
           <div class="govuk-card__content">
-            <h3 class="govuk-heading-m">Imports - UK SO2</h3>
+            <h3 class="govuk-heading-m">Apply for Export Catch Certificate</h3>
+            <!--
             <p class="govuk-body">A short summary of the tasks you can complete with this service.
             </p>
+          -->
           </div>
         </div>
     </div>
@@ -162,17 +219,17 @@
 
     <div class="govuk-grid-column-one-third {{serviceCSS}}">
       <div class="govuk-card govuk-card--contained govuk-card--selectable">
-          <a href="/service-start-complete"></a>
+          <a href="/service-start-complete?service=VMD&userType=new-complete-admin&serviceLine=VMD Secure Messaging"></a>
           <div class="govuk-card__content">
-            <h3 class="govuk-heading-m">Imports - UK SO3</h3>
+            <h3 class="govuk-heading-m">VMD Secure Messaging</h3>
+            <!--
             <p class="govuk-body">A short summary of the tasks you can complete with this service.
             </p>
+          -->
           </div>
         </div>
     </div>
-
   </div>
 </div>
-
 
 {% endblock %}
