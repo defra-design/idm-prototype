@@ -35,27 +35,30 @@
 </div>
 
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
+  <div class="govuk-grid-column-one-half">
     <p class="govuk-body">
-      <span class="govuk-!-font-weight-bold">Full name:</span> Bob Holmness<br>
-      <span class="govuk-!-font-weight-bold">Account access level:</span> None<br>
-      <span class="govuk-!-font-weight-bold">Email address:</span> Bob.Holmness@email.com<br>
+      <span class="govuk-!-font-weight-bold">Email address:</span> bob-holmness@email.com<br>
       <span class="govuk-!-font-weight-bold">Telephone number:</span> 07846959366
-
     </p>
-    <!--<p class="govuk-body">
-      <span class="govuk-!-font-weight-bold">Added on:</span> 10 July 2018<br>
-      <span class="govuk-!-font-weight-bold">Last signed in:</span> Never
-    </p>-->
   </div>
-  <div class="govuk-grid-column-one-third">
-    <!--<p class="govuk-body"><a href="user-account" class="govuk-link--no-visited-state">Edit team member details</a></p>-->
-    <!--<p class="govuk-body"><a href="#" class="govuk-link--no-visited-state">Change access level</a></p>-->
-    <p class="govuk-body"><a href="#" class="govuk-link--no-visited-state">Reset password</a><br></p>
-    <!--<p class="govuk-body"><a href="" class="govuk-link--no-visited-state">Delete team member</a></p>-->
+  <div class="govuk-grid-column-one-half">
+    <p class="govuk-body"><a href="" class="govuk-link--no-visited-state">Reset password</a></p>
   </div>
 </div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-half">
+    <p class="govuk-body">
+      <span class="govuk-!-font-weight-bold">Account:</span> Acme Org Ltd<br>
+      <span class="govuk-!-font-weight-bold">Account access level:</span> No access
+    </p>
+  </div>
+  <div class="govuk-grid-column-one-half">
+  </div>
+</div>
+
 <br>
+
 {% if data['subscribeService'] == "Yes" %}
 {% else %}
   {{ govukButton({
@@ -108,25 +111,19 @@
       <span class="govuk-visually-hidden--desktop td-header">Access level: </span> {{ data['serviceRole'] }}
   {% endset %}
 
-
-    {{ govukTable({
-    caption: "Access to services",
+  {{ govukTable({
+    caption: "Service access for Acme Org Ltd",
     captionClasses: "govuk-heading-l",
     firstCellIsHeader: false,
     head: [
       {
         html: 'Service',
-        format: 'column-quarter column-full'
+        format: 'column-third column-full'
 
       },
       {
-        html: 'Organisation',
-        format: 'column-quarter column-full'
-
-      },
-      {
-        html: 'Access level',
-        format: 'column-fifth column-full'
+        html: 'Role',
+        format: 'column-third column-full'
 
       },
       {
@@ -144,40 +141,39 @@
         html: setServiceNameHtml
       },
       {
-        html: setOrgHtml
-      },
-      {
         html: setServiceRoleHtml
       },
       {
-        html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="#" class="govuk-link--no-visited-state">Change access <span class="govuk-visually-hidden">to [Service name]</span></a>'
+        html: ''
       },
       {
-        html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="#" class="govuk-link--no-visited-state">Remove access <span class="govuk-visually-hidden">to [Service name]</span></a>'
+        html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="edit-user-remove-access-confirm" class="govuk-link--no-visited-state">Remove access <span class="govuk-visually-hidden">to [Service name]</span></a>'
       }
     ]
-
     ]
   }) }}
 
-  <div class="govuk-card__content">
-    <h2 class="govuk-heading-m">Link to your services</h2>
 
-    <div class="govuk-grid-row">
+<div class="govuk-card__content">
+  <h2 class="govuk-heading-m">Link to services</h2>
 
-      <div class="govuk-grid-column-one-third">
-        <div class="govuk-card govuk-card--contained govuk-card--selectable">
-            <a href="https://chemicals-prototypes.herokuapp.com/prototype/rc4/iu/dashboard"></a>
-            <div class="govuk-card__content">
-              <h3 class="govuk-heading-m">{{ data['service'] }} - {{ data['serviceLine'] }}</h3>
-              <p class="govuk-body">A short summary of the tasks you can complete with this service.
-              </p>
-            </div>
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-one-third">
+      <div class="govuk-card govuk-card--contained govuk-card--selectable">
+        <a href="/service-start-complete?service=Chemicals&userType=new-complete-admin&serviceLine=UK-REACH-IT"></a>
+          <div class="govuk-card__content">
+            <h3 class="govuk-heading-m">{{ data['serviceLine'] }}</h3>
+            <!--
+            <p class="govuk-body">A short summary of the tasks you can complete with this service.
+            </p>
+          -->
           </div>
-      </div>
-
+        </div>
     </div>
+
   </div>
+</div>
 
 {% endif %}
 
