@@ -27,11 +27,20 @@
 
 {% block content %}
 
+{% if data['service'] == "Imports" %}
+
+  {% set nextLinkURL = "confirmation-reg-sent-success" %}
+
+  {% else %}
+
+  {% set nextLinkURL = "service-questions" %}
+
+{% endif %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form action="service-questions" method="post">
+    <form action="{{ nextLinkURL }}" method="post">
 
       <div class="govuk-form-group">
         <div class="govuk-form-group">

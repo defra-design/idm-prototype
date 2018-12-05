@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% set title = "You’ve successfully signed out of your Defra account" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+  {% include "includes/account-nav-admin-login.html" %}
+
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">
+      {{title}}
+    </h1>
+
+    <p class="govuk-body">Click below if you want to sign in to your Defra account.</p>
+
+
+
+      {{ govukButton({
+        text: "Sign in",
+        href: "/scp/login"
+      }) }}
+
+
+  </div>
+</div>
+
+{% endblock %}
