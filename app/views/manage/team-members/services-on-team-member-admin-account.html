@@ -54,6 +54,51 @@
     {% endset %}
 
 
+  {% if data['numServices'] == "1" %}
+
+    {{ govukTable({
+      caption: "My organisations",
+      captionClasses: "govuk-heading-l",
+      firstCellIsHeader: false,
+      head: [
+        {
+          html: 'Organisation',
+          format: 'column-quarter column-full'
+        },
+        {
+          html: 'Access level',
+          format: 'column-quarter column-full'
+        },
+        {
+          html: 'Service',
+          format: 'column-third column-full'
+
+        },
+        {
+          html: 'Service role',
+          format: 'column-sixth column-full'
+        }
+      ],
+      rows: [
+      [
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Organisation:</span><a href="/manage/dashboard-all" class="govuk-link--no-visited-state"> Acme Org Ltd</a>'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Access level:</span> Administrator'
+        },
+        {
+          html: serviceLineName
+        },
+        {
+          html: serviceRoleName
+        }
+      ]
+    ]
+    }) }}
+
+{% else %}
+
     {{ govukTable({
       caption: "My organisations",
       captionClasses: "govuk-heading-l",
@@ -170,66 +215,81 @@
       ]
     }) }}
 
+{% endif %}
+
   </div>
 </div>
+
 
 <div class="govuk-card__content">
   <h3 class="govuk-heading-m">Link to services</h3>
 
-  <div class="govuk-grid-row">
+{% if data['numServices'] == "1" %}
 
+  <div class="govuk-grid-row">
     <div class="govuk-grid-column-one-third">
       <div class="govuk-card govuk-card--contained govuk-card--selectable">
-          <a href="/service-start-complete?service=Chemicals&userType=new-complete-admin&serviceLine=UK-REACH-IT"></a>
-          <div class="govuk-card__content">
-            <h3 class="govuk-heading-m">UK-REACH-IT</h3>
-            <!--
-            <p class="govuk-body">A short summary of the tasks you can complete with this service.
-            </p>
-          -->
-          </div>
+        <a href="/service-start-complete?service=Chemicals&userType=new-complete-admin&serviceLine=UK-REACH-IT"></a>
+        <div class="govuk-card__content">
+          <h3 class="govuk-heading-m">{{ data['serviceLine'] }}</h3>
         </div>
-    </div>
-    <div class="govuk-grid-column-one-third {{serviceCSS}}">
-      <div class="govuk-card govuk-card--contained govuk-card--selectable">
-          <a href="/service-start-complete?service=Imports&userType=new-complete-admin&serviceLine=Notification Service"></a>
-          <div class="govuk-card__content">
-            <h3 class="govuk-heading-m">Notification Service</h3>
-            <!--
-            <p class="govuk-body">A short summary of the tasks you can complete with this service.
-            </p>
-          -->
-          </div>
-        </div>
-    </div>
-    <div class="govuk-grid-column-one-third {{serviceCSS}}">
-      <div class="govuk-card govuk-card--contained govuk-card--selectable">
-          <a href="/service-start-complete?service=Exports&userType=new-complete-admin&serviceLine=Apply for Export Catch Certificate"></a>
-          <div class="govuk-card__content">
-            <h3 class="govuk-heading-m">Apply for Export Catch Certificate</h3>
-            <!--
-            <p class="govuk-body">A short summary of the tasks you can complete with this service.
-            </p>
-          -->
-          </div>
-        </div>
+      </div>
     </div>
   </div>
-  <div class="govuk-grid-row">
 
+{% else %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">
+      <div class="govuk-card govuk-card--contained govuk-card--selectable">
+        <a href="/service-start-complete?service=Chemicals&userType=new-complete-admin&serviceLine=UK-REACH-IT"></a>
+        <div class="govuk-card__content">
+          <h3 class="govuk-heading-m">UK-REACH-IT</h3>
+          <!--
+          <p class="govuk-body">A short summary of the tasks you can complete with this service.
+          </p>
+        -->
+        </div>
+      </div>
+    </div>
     <div class="govuk-grid-column-one-third {{serviceCSS}}">
       <div class="govuk-card govuk-card--contained govuk-card--selectable">
-          <a href="/service-start-complete?service=VMD&userType=new-complete-admin&serviceLine=VMD Secure Messaging"></a>
-          <div class="govuk-card__content">
-            <h3 class="govuk-heading-m">VMD Secure Messaging</h3>
-            <!--
-            <p class="govuk-body">A short summary of the tasks you can complete with this service.
-            </p>
-          -->
-          </div>
+        <a href="/service-start-complete?service=Imports&userType=new-complete-admin&serviceLine=Notification Service"></a>
+        <div class="govuk-card__content">
+          <h3 class="govuk-heading-m">Notification Service</h3>
+          <!--
+          <p class="govuk-body">A short summary of the tasks you can complete with this service.
+          </p>
+        -->
         </div>
+      </div>
+    </div>
+    <div class="govuk-grid-column-one-third {{serviceCSS}}">
+      <div class="govuk-card govuk-card--contained govuk-card--selectable">
+        <a href="/service-start-complete?service=Exports&userType=new-complete-admin&serviceLine=Apply for Export Catch Certificate"></a>
+        <div class="govuk-card__content">
+          <h3 class="govuk-heading-m">Apply for Export Catch Certificate</h3>
+        </div>
+      </div>
     </div>
   </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third {{serviceCSS}}">
+      <div class="govuk-card govuk-card--contained govuk-card--selectable">
+        <a href="/service-start-complete?service=VMD&userType=new-complete-admin&serviceLine=VMD Secure Messaging"></a>
+        <div class="govuk-card__content">
+          <h3 class="govuk-heading-m">VMD Secure Messaging</h3>
+          <!--
+          <p class="govuk-body">A short summary of the tasks you can complete with this service.
+          </p>
+        -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endif %}
 </div>
 
 
