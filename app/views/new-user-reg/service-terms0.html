@@ -27,7 +27,7 @@
 
 {% block content %}
 
-{% if (data['service'] == "Imports") or (data['service'] == "Chemicals") %}
+{% if data['service'] == "Imports" %}
 
   {% set nextLinkURL = "confirmation-reg-sent-success" %}
 
@@ -55,8 +55,8 @@
               {{ govukInsetText({
                  text: "We have saved the information you gave us. This means you will not be asked to enter it again when you register to use other Defra online services."
                }) }}
-
-               <p class="govuk-body">Please read the following information for {{ data['service'] }}. You will then be able to use the service straight away.</p>
+            <p class="govuk-body">You will now be asked to provide some specific information needed to complete your registration with the {{ data['service'] }} service.</p>
+            <p class="govuk-body">You will then be able to use the {{ data['service'] }} service straight away.</p>
 
             <ul class="govuk-list govuk-list--bullet">
                <li><a href="#">Terms and conditions</a></li>
