@@ -18,89 +18,111 @@
     <h1 class="govuk-heading-xl">
       {{ title }}
     </h1>
+    <p>Find out about Your Defra account, including registering for a service, contacting a service, the use of cookies, the privacy policy and terms and conditions of use.</p>
 
-    <div class="govuk-accordion" data-module="accordion" id="accordion-default">
+    <h2 class="govuk-heading-m">Registering for Defra services</h2>
+    <p class="govuk-body">Your Defra account will allow you to access the services provided by Defra and related agencies and public bodies.</p>
 
-  <div class="govuk-accordion__section ">
-    <h2 class="govuk-accordion__section-header">
+    <p class="govuk-body">You need to use or create your own Government Gateway sign in details (a Government Gateway user ID and password). Do not use shared company details. </p>
 
-      <div class="govuk-accordion__section-header-button govuk-heading-m" id="accordion-default-heading-1">Section A</div>
-    </h2>
-    <div id="accordion-default-panel-1" class="govuk-accordion__section-panel" aria-labelledby="accordion-default-heading-1">
-      <p class='govuk-body'>This is the content for section A.</p>
-    </div>
-  </div>
-  <div class="govuk-accordion__section ">
-    <h2 class="govuk-accordion__section-header">
+    <p class="govuk-body">Having your own set of sign in details will save you time.  We will store basic information about you in Your Defra account so that you do not have to re-enter the information each time you want to use a new online service.</p>
 
-      <div class="govuk-accordion__section-header-button govuk-heading-m" id="accordion-default-heading-2">Section B</div>
-    </h2>
-    <div id="accordion-default-panel-2" class="govuk-accordion__section-panel" aria-labelledby="accordion-default-heading-2">
-      <p class='govuk-body'>This is the content for section B.</p>
-    </div>
-  </div>
-  <div class="govuk-accordion__section ">
-    <h2 class="govuk-accordion__section-header">
-
-      <div class="govuk-accordion__section-header-button govuk-heading-m" id="accordion-default-heading-3">Section C</div>
-    </h2>
-    <div id="accordion-default-panel-3" class="govuk-accordion__section-panel" aria-labelledby="accordion-default-heading-3">
-      <p class='govuk-body'>This is the content for section C.</p>
-    </div>
-  </div>
-  <div class="govuk-accordion__section ">
-    <h2 class="govuk-accordion__section-header">
-
-      <div class="govuk-accordion__section-header-button govuk-heading-m" id="accordion-default-heading-4">Section D</div>
-    </h2>
-    <div id="accordion-default-panel-4" class="govuk-accordion__section-panel" aria-labelledby="accordion-default-heading-4">
-      <p class='govuk-body'>This is the content for section D.</p>
-    </div>
-  </div>
-
-</div>
-
-    <p class="govuk-heading-m">You need to use a Government Gateway account to register for this service</p>
-
-    <p class="govuk-body">We ask you to use or create your own Government Gateway account to register with this service, as well as other services provided by Defra and related agencies and public bodies.</p>
-
-    <p class="govuk-body">Having your own set of sign in details (a Government Gateway user ID and password) will save you time. We will store basic information about you so that you do not have to re-enter the information each time you want to use a new online service.</p>
-
-
-    <p class="govuk-heading-m">To register for VMD you will be guided to:</p>
-    <div class="govuk-inset-text">
-      <ol class="govuk-list govuk-list--number">
-         <li>Enter your Government Gateway user ID and password if you already have an account. If not, you will be guided through the process of creating one.</li>
-         <li>Tell us some basic information about you and your organisation.</li>
-         <li>Enter the VMD service to answer some specific questions to complete your registration. You will then be able to use the VMD service straight away.
-         </li>
-      </ol>
-    </div>
-
-    <h2 class="govuk-heading-m">Before you start</h2>
+    <h3 class="govuk-heading-s">Before you start</h3>
 
     <p class="govuk-body">You will need:</p>
-
     <ul class="govuk-list govuk-list--bullet">
       <li>your email address, phone number and postal address</li>
       <li>your Government Gateway user ID and password (if you already have an account, if not you will be guided to create one)</li>
-      <li>the main contact details for your organisation (for example, head office contact details)</li>
-      <li>the Companies House number for the limited company you want to enrol</li>
-      <li>your market authority holder number (if known)</li>
-      <li>the name and contact details of another person in your organisation who we can contact to authorise your application to enrol</li>
+    </ul>
+    <p class="govuk-body">If you are registering on behalf of a business or organisation, you will also need:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>the main contact details for your business or organisation (for example, head office contact details)</li>
+      <li>the Companies House number if you are registering on behalf of a limited company</li>
     </ul>
 
-    {{ govukButton({
-      text: "Start now",
-      href: "/scp/login-new",
-      classes: "govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-8"
-    }) }}
+    <h2 class="govuk-heading-m" id="help-signing-in">Problems signing in</h2>
+    <p class="govuk-body">You will need your Government Gateway sign in details to access Your Defra account and related services.</p>
+    <details class="govuk-details" id="help-password">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">I have forgotten my password</span>
+      </summary>
+      <div class="govuk-details__text">
+        <a href="https://www.ete.access.tax.service.gov.uk/account-recovery/forgot-password">Reset your Government Gateway password</a>.
+      </div>
+      <div class="govuk-details__text">
+        If you are still unable to re-set your Government Gateway password please contact the relevant service below.
+      </div>
+    </details>
+    <details class="govuk-details" id="help-user-id">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">I have forgotten my user ID</span>
+      </summary>
+      <div class="govuk-details__text">
+        If you have forgotton your Government Gateway user ID please contact the relevant service below.
+      </div>
+    </details>
+    <details class="govuk-details">
+      <summary class="govuk-details__summary" id="help-password-user-id">
+        <span class="govuk-details__summary-text">I have forgotten my user ID and password</span>
+      </summary>
+      <div class="govuk-details__text">
+        If you have forgotton your Government Gateway user ID and password please contact the relevant service below.
+      </div>
+    </details>
 
-    <br>
+    <h2 class="govuk-heading-m">Contacting Defra services</h2>
+    <p class="govuk-body">If you have any issues accessing Your Defra account or a specific service contact the relevant service directly.</p>
+    <details class="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">[Consuming service name]</span>
+      </summary>
+      <div class="govuk-inset-text">
+        Please call the service on [consuming service phone number].
+      </div>
+    </details>
+    <details class="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">[Consuming service name]</span>
+      </summary>
+      <div class="govuk-inset-text">
+        Please call the service on [consuming service phone number].
+      </div>
+    </details>
+    <details class="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">[Consuming service name]</span>
+      </summary>
+      <div class="govuk-inset-text">
+        Please call the service on [consuming service phone number].
+      </div>
+    </details>
+    <details class="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">[Consuming service name]</span>
+      </summary>
+      <div class="govuk-inset-text">
+        Please call the service on [consuming service phone number].
+      </div>
+    </details>
 
-    <hr class="govuk-section-break--m">
+    <h2 class="govuk-heading-m">Updating your Govenment Gateways details</h2>
+    <p class="govuk-body">Government Gateway stores certain profile information separately to information stored in Your Defra account.</p>
+    <details class="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">Change your email address</span>
+      </summary>
+      <div class="govuk-details__text">
+        Your email address comes from your Goverment Gateway account. If you <a href="#">update your Government Gateway account</a> (opens in a new tab) your details will automatically be updated in this account too.
+      </div>
+    </details>
 
-    <p class="govuk-body">This prototype is being updated regularly.</p>
+    <h2 class="govuk-heading-m">Privacy notice</h2>
+    <p class="govuk-body">Read our latest <a href="/privacy-notice">Privacy notice</a></p>
+    <h2 class="govuk-heading-m">Terms and conditions</h2>
+    <p class="govuk-body">Read our latest <a href="/terms-and-conditions">Terms and conditions</a></p>
+    <h2 class="govuk-heading-m">Cookies</h2>
+    <p class="govuk-body">Read our latest <a href="/cookie-policy">Cookies notice</a></p>
+
 
 
   </div>
