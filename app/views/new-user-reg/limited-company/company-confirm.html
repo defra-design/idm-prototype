@@ -7,7 +7,6 @@
 {% endblock %}
 
 {% block beforeContent %}
-  {% include "includes/account-nav-admin-reg.html" %}
   {{ govukBackLink({
     text: "Back",
     href: "javascript:history.back()"
@@ -30,7 +29,7 @@
 {% else %}
 
         <h1 class="govuk-heading-xl">{{title}}</h1>
-        
+
         <form action="company-contact" method="post">
 
           <h2 class="govuk-heading-m">Acme Org Ltd</h2>
