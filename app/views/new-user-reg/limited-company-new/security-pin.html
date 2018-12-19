@@ -20,7 +20,13 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-      <form action="task-list-page-account-pin" method="post">
+
+    {% if data['flowType'] == "check" %}
+      <form method="post" action="check-your-answers">
+    {% else %}
+      <form method="post" action="task-list-page-account-pin">
+    {% endif %}
+
         <h1 class="govuk-heading-xl">{{title}}</h1>
         <p class="govuk-body">Your  security PIN is a unique 6 digit number that we use to identify you when you contact Defra services regarding your account.</p>
 
