@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Is {{data['orgName']}} the correct business name to use with this address?"%}
+{% set title = "Is {{data['orgName']}} the correct business name to use with this address?" %}
 
 {% block pageTitle %}
     {{title}} - GOV.UK
@@ -22,26 +22,29 @@
   <div class="govuk-grid-column-two-thirds">
       <form action="organisation-details" method="post">
 
+        {% set orgNameHTML %}
+          Is {{data['orgName']}} the correct business name to use with this address?
+        {% endset %}
 
-          {% set companyNameHTML %}
+
+        {% set companyNameHTML %}
           {{ govukInput({
-            id: "companyName",
-            name: "companyName",
-            value: data['companyName'],
+            id: "neworgName",
+            name: "neworgName",
             type: "text",
             classes: "govuk-!-width-full",
             label: {
               text: "What name should we use instead?"
             }
           }) }}
-          {% endset %}
+        {% endset %}
 
           {{ govukRadios({
             idPrefix: "companyNameSame",
             name: "companyNameSame",
             fieldset: {
               legend: {
-                text: "Is {{data['orgName']}} the correct business name to use with this address?",
+                text: orgNameHTML,
                 isPageHeading: true,
                 classes: "govuk-fieldset__legend--xl"
               }
@@ -50,7 +53,7 @@
               html: orgNameHint
             },
             items: [
-              
+
               {
                 value: "yes",
                 text: "Yes"

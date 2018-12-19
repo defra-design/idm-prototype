@@ -76,8 +76,8 @@
         <div class="govuk-card govuk-card--contained">
           <div class="govuk-card__content">
             <h3 class="govuk-heading-m">Correspondence address</h3>
-            {% if data['addressCSS2'] == "Show" %}
-              <p class="govuk-body"><span class="govuk-!-font-weight-bold">Address:</span> Acme Retail, 11 The Precinct, Romiley, Stockport, Cheshire, SK6 4EA
+            {% if (data['addressCSS2'] == "Show") %}
+              <p class="govuk-body"><span class="govuk-!-font-weight-bold">Address:</span> Acme Holdings, 11 The Precinct, Romiley, Stockport, Cheshire, SK6 4EA
               </p>
             {% else %}
               <p class="govuk-body"><a class="govuk-link govuk-link--no-visited-state" href="company-postcode?addressCSS2=Show">Add a correspondence address</a></p>
