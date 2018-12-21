@@ -48,6 +48,18 @@
             </ul>
           {% endif %}
 
+          {% if (data['policyChange'] == "Terms") or (data['policyChange'] == "Both") %}
+            <div class="govuk-checkboxes">
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="terms" name="terms" type="checkbox" value="terms">
+                <label class="govuk-label govuk-checkboxes__label" for="terms">
+                  I have read and accept the updated service information.
+                </label>
+              </div>
+            </div>
+            {% endif %}
+
+
         </fieldset>
       </div>
       {{ govukButton({
