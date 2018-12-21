@@ -57,18 +57,18 @@
     {% endset %}
 
     {% set serviceRoleName %}
-      <span class="govuk-visually-hidden--desktop td-header">Role: </span>{{ data['serviceRole']}}
+      <span class="govuk-visually-hidden--desktop td-header">Service role: </span>{{ data['serviceRole']}}
     {% endset %}
 
     {% set systemRoleName %}
-      <span class="govuk-visually-hidden--desktop td-header">Role: </span>{{ data['systemRole']}}
+      <span class="govuk-visually-hidden--desktop td-header">Account role: </span>{{ data['systemRole']}}
     {% endset %}
 
 
   {% if data['numServices'] == "1" %}
 
     {{ govukTable({
-      caption: "My organisations",
+      caption: "My accounts",
       captionClasses: "govuk-heading-l",
       firstCellIsHeader: false,
       head: [
@@ -77,7 +77,7 @@
           format: 'column-quarter column-full'
         },
         {
-          html: 'Access level',
+          html: 'Account role',
           format: 'column-quarter column-full'
         },
         {
@@ -93,10 +93,10 @@
       rows: [
       [
         {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Accounts:</span><a href="/manage/dashboard-all" class="govuk-link--no-visited-state"> Acme Org Ltd</a>'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Accounts:</span><a href="/manage/dashboard-all" class="govuk-link--no-visited-state"> Acme Org</a>'
         },
         {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Access level:</span> Administrator'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Account role:</span> Administrator'
         },
         {
           html: serviceLineName
@@ -121,7 +121,7 @@
 
         },
         {
-          html: 'Access level',
+          html: 'Account role',
           format: 'column-quarter column-full'
         },
         {
@@ -140,41 +140,41 @@
           html: '<span class="govuk-visually-hidden--desktop td-header">Account:</span> Ann Cooper'
         },
         {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Access level:</span> Administrator'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Account role:</span> Administrator'
         },
         {
           html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> Chemicals UK-REACH-IT'
         },
         {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Role:</span> REACH Manager'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Service role:</span> REACH Manager'
         }
       ],
       [
         {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Account:</span><a href="/manage/dashboard-all-org?orgName=Acme Org Limited&numUsers=5&numAgents=3&numServices=3" class="govuk-link--no-visited-state"> Acme Org Ltd</a>'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Account:</span><a href="/manage/dashboard-all-org?orgName=Acme Org Limited&numUsers=5&numAgents=3&numServices=3" class="govuk-link--no-visited-state"> Acme Org</a>'
         },
         {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Access level:</span> Administrator'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Account role:</span> Administrator'
         },
         {
           html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> Chemicals UK-REACH-IT'
         },
         {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Role:</span> REACH Manager'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Service role:</span> REACH Manager'
         }
       ],
       [
         {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Account:</span><a href="/manage/dashboard-all-org?orgName=Acme Org Ltd&numUsers=5&numAgents=3&numServices=3" class="govuk-link--no-visited-state"> Acme Org Ltd</a>'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Account:</span><a href="/manage/dashboard-all-org?orgName=Acme Org&numUsers=5&numAgents=3&numServices=3" class="govuk-link--no-visited-state"> Acme Org</a>'
         },
         {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Access level:</span> Administrator'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Account role:</span> Administrator'
         },
         {
           html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> Notification Service'
         },
         {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Role: </span>Importer'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Service role: </span>Importer'
         }
       ],
       [
@@ -182,14 +182,14 @@
           html: '<span class="govuk-visually-hidden--desktop td-header">Account:</span><a href="/manage/dashboard-all-org?orgName=Acme Org India&numUsers=12&numAgents=3&numServices=3" class="govuk-link--no-visited-state"> Acme Org India</a>'
         },
         {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Access level:</span> Administrator'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Account role:</span> Administrator'
         },
         {
           html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span><span class="govuk-body govuk-body--grey"> No registered service</span>'
         },
 
         {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Role: </span>'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Service role: </span>'
         }
       ],
       [
@@ -197,14 +197,14 @@
           html: '<span class="govuk-visually-hidden--desktop td-header">Account:</span><a href="/manage/dashboard-all-org?orgName=Acme%20Org%20Thailand&numUsers=2&numAgents=14&numServices=3" class="govuk-link--no-visited-state"> Acme Org Thailand</a>'
         },
         {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Access level:</span> Administrator'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Account role:</span> Administrator'
         },
         {
           html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span><span class="govuk-body govuk-body--grey"> Notification Service</span>'
         },
 
         {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Role: </span><span class="govuk-body govuk-body--grey"> Pending</span>'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Service role: </span><span class="govuk-body govuk-body--grey"> Pending</span>'
         }
       ],
       [
@@ -212,14 +212,14 @@
           html: '<span class="govuk-visually-hidden--desktop td-header">Account:</span> Acme Org Spain'
         },
         {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Access level:</span> No access'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Account role:</span> No access'
         },
         {
           html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> Apply for Export Catch Certificate'
         },
 
         {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Role: </span>General'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Service role: </span>General'
         }
       ],
       [
@@ -227,13 +227,13 @@
           html: '<span class="govuk-visually-hidden--desktop td-header">Account:</span> Importers RUS'
         },
         {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Access level:</span> No Access'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Account role:</span> No Access'
         },
         {
           html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> VMD Secure Messaging'
         },
         {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Role:</span> Administrator'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Service role:</span> Administrator'
         }
       ]
 

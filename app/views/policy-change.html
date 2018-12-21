@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Please read and accept our updated service information" %}
+{% set title = "Your Defra account" %}
 
 {% block pageTitle %}
     {{title}} - GOV.UK
@@ -27,6 +27,7 @@
               {{title}}
             </h1>
           </legend>
+          <p class="govuk-body">Please read the updated service information for Your Defra account.
 
           {% if data['policyChange'] == "Both" %}
             <ul class="govuk-list govuk-list--bullet">
@@ -47,16 +48,6 @@
             </ul>
           {% endif %}
 
-          {% if (data['policyChange'] == "Terms") or (data['policyChange'] == "Both") %}
-          <div class="govuk-checkboxes">
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="terms" name="terms" type="checkbox" value="terms">
-              <label class="govuk-label govuk-checkboxes__label" for="terms">
-                I have read and accept the updated service information.
-              </label>
-            </div>
-          </div>
-          {% endif %}
         </fieldset>
       </div>
       {{ govukButton({

@@ -50,12 +50,12 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-one-half">
     <p class="govuk-body">
-      <span class="govuk-!-font-weight-bold">Account:</span> Acme Org Ltd<br>
-      <span class="govuk-!-font-weight-bold">Account access level:</span> Administrator
+      <span class="govuk-!-font-weight-bold">Account:</span> Acme Org<br>
+      <span class="govuk-!-font-weight-bold">Account role:</span> Administrator
     </p>
   </div>
   <div class="govuk-grid-column-one-half">
-    <p class="govuk-body"><a href="edit-user-own-admin-role-warning" class="govuk-link--no-visited-state">Change access level</a></p>
+    <p class="govuk-body"><a href="edit-user-own-admin-role-warning" class="govuk-link--no-visited-state">Change account role</a></p>
   </div>
 </div>
 
@@ -68,12 +68,12 @@
     {% endset %}
 
     {% set serviceRoleName %}
-      <span class="govuk-visually-hidden--desktop td-header">Role:</span>REACH Manager
+      <span class="govuk-visually-hidden--desktop td-header">Service role:</span>REACH Manager
     {% endset %}
 
 
     {{ govukTable({
-      caption: "Service access for Acme Org Ltd",
+      caption: "Service access for Acme Org",
       captionClasses: "govuk-heading-l",
       firstCellIsHeader: false,
       head: [
@@ -83,7 +83,7 @@
 
         },
         {
-          html: 'Role',
+          html: 'Service role',
           format: 'column-third column-full'
 
         },
@@ -105,7 +105,7 @@
           html: serviceRoleName
         },
         {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="#" class="govuk-link--no-visited-state">Change role <span class="govuk-visually-hidden">to [Service name]</span></a>'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="#" class="govuk-link--no-visited-state">Change role <span class="govuk-visually-hidden">for [Service name]</span></a>'
         },
         {
           html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="#" class="govuk-link--no-visited-state">Remove access <span class="govuk-visually-hidden">to [Service name]</span></a>'

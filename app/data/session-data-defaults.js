@@ -20,7 +20,7 @@ Example usage:
 module.exports = {
 
 
-"orgName": "Acme Org Ltd",
+"orgName": "Acme Org",
 "numUsers": "5",
 "numServices": "3",
 "numAgents": "3",
