@@ -67,9 +67,6 @@
       </div>
     </div>
 
-
-
-
     <div class="govuk-grid-row">
 
       <div class="govuk-grid-column-one-half">
@@ -80,13 +77,13 @@
               <p class="govuk-body"><span class="govuk-!-font-weight-bold">Address:</span> Acme Holdings, 11 The Precinct, Romiley, Stockport, Cheshire, SK6 4EA
               </p>
             {% else %}
-              <p class="govuk-body"><a class="govuk-link govuk-link--no-visited-state" href="company-postcode?addressCSS2=Show">Add a correspondence address</a></p>
+              <p class="govuk-body"><a class="govuk-link govuk-link--no-visited-state" href="company-name?addressCSS2=Show&addAddress=reg-address">Add a correspondence address</a></p>
             {% endif %}
           </div>
           {% if data['addressCSS2'] == "Show" %}
           <div class="govuk-card__actions">
             <ul class="govuk-list govuk-!-mb-r0">
-              <li><a href="company-postcode" class="govuk-link govuk-link--no-visited-state">Update details</a></li>
+              <li><a href="company-name" class="govuk-link govuk-link--no-visited-state">Update details</a></li>
               <li><a href="delete-address-confirm?address=CSS2" class="govuk-link govuk-link--no-visited-state">Delete address</a></li>
             </ul>
           </div>
@@ -99,7 +96,7 @@
         <div class="govuk-card govuk-card--contained">
           <div class="govuk-card__content">
             <h3 class="govuk-heading-m">Billing address</h3>
-              <p class="govuk-body"><a class="govuk-link govuk-link--no-visited-state" href="company-postcode?addressCSS2=Show">Add a billing address</a></p>
+              <p class="govuk-body"><a class="govuk-link govuk-link--no-visited-state" href="">Add a billing address</a></p>
           </div>
         </div>
       </div>
@@ -108,19 +105,25 @@
 
   {% set relOrganisationsHtml %}
     <h2 class="govuk-heading-l">Related organisations</h2>
+    <p class="govuk-body">You can add related organisations or businesses to this account and separately manage the team members or intermediaries for each one.</p>
 
-    {% if data['service'] == "Chemicals" %}
-      <p class="govuk-body">If you are an Only Representative, you can add information about the non-EU manufacturers and importers you represent here.</p>
-
-    {% else %}
-
-      <p class="govuk-body">If your organisation is linked to another branch or division, you can add it to this account. This allows you to manage each part of your organisation individually, but using the same account.</p>
-
-    {% endif %}
+    <details class="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          What are related organisations?
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        If your organisation is linked to another branch or division, you can add it to this account. This allows you to manage each part of your organisation individually, but using the same account.
+      </div>
+      <div class="govuk-details__text">
+        If you are an Only Representative, you can add information about the non-EU manufacturers and importers you represent here.
+      </div>
+    </details>
 
     {{ govukButton({
       text: "Add a related organisation",
-      href: "#"
+      href: "company-name?addAddress=rel-org"
     }) }}
 
     {% if data['relOrg'] == "Yes" %}
@@ -130,8 +133,8 @@
       <div class="govuk-grid-column-one-half">
         <div class="govuk-card govuk-card--contained">
           <div class="govuk-card__content">
-            <h3 class="govuk-heading-m">Achme Org India</h3>
-            <p class="govuk-body"><span class="govuk-!-font-weight-bold">Address:</span> Acme Org, No.1 Forbury Place 43 Forbury Road, Reading, United Kingdom, RG1 3JH
+            <h3 class="govuk-heading-m">Acme Org India</h3>
+            <p class="govuk-body"><span class="govuk-!-font-weight-bold">Address:</span> Acme Org India, No.1 Forbury Place 43 Forbury Road, Reading, United Kingdom, RG1 3JH
             </p>
             <p class="govuk-body"><span class="govuk-!-font-weight-bold">Telephone:</span> 0171 444555666<br>
               <span class="govuk-!-font-weight-bold">Email:</span> simone@org.com<br>
@@ -147,10 +150,11 @@
 
 
       <div class="govuk-grid-column-one-half">
+        {% if (data['addressCSS4'] == "show") %}
         <div class="govuk-card govuk-card--contained">
           <div class="govuk-card__content">
-            <h3 class="govuk-heading-m">Achme Org Thailand</h3>
-            <p class="govuk-body"><span class="govuk-!-font-weight-bold">Address:</span> Acme Org, No.1 Forbury Place 43 Forbury Road, Reading, United Kingdom, RG1 3JH
+            <h3 class="govuk-heading-m">Acme Org Thailand</h3>
+            <p class="govuk-body"><span class="govuk-!-font-weight-bold">Address:</span> Acme Org Thailand, No.1 Forbury Place 43 Forbury Road, Reading, United Kingdom, RG1 3JH
             </p>
             <p class="govuk-body"><span class="govuk-!-font-weight-bold">Telephone:</span> 0171 444555666<br>
               <span class="govuk-!-font-weight-bold">Email:</span> simone@org.com<br>
@@ -162,6 +166,8 @@
             </ul>
           </div>
         </div>
+        {% else %}
+        {% endif %}
       </div>
 
     </div>

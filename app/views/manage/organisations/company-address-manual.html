@@ -21,7 +21,13 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-        <form method="post" action="company-name">
+    {% if data['addAddress'] == "rel-org" %}
+      <form action="organisation-details#rel-org" method="post">
+    {% endif %}
+
+    {% if data['addAddress'] == "reg-address" %}
+      <form action="organisation-details#reg-address" method="post">
+    {% endif %}
 
           {% call govukFieldset({
             legend: {
