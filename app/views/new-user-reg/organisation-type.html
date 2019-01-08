@@ -36,8 +36,12 @@
               form.action = 'organisation-business-type'
 
               break;
-              default:
+              case 'Personal':
               form.action = '/new-user-reg/individual/task-list-page-account'
+
+              break;
+              default:
+              form.action = 'organisation-business-type'
             }
             return true
           }
