@@ -20,27 +20,36 @@
     <span class="govuk-caption-xl">
       Account for
     </span>
-    <h1 class="govuk-heading-xl {{ multiOrgCSS }}">
-      {{ orgName }}
-    </h1>
 
-    <details class="govuk-details {{ orgSwitch }}">
-      <summary class="govuk-details__summary">
-        <span class="govuk-details__summary-text">
-          Change account
-        </span>
-      </summary>
-      <div class="govuk-details__text">
-        <ul class="govuk-list ">
-          <li><a class="govuk-link govuk-link--no-visited-state" href="/manage/dashboard-all-org?orgName=Acme Org&numUsers=5&numAgents=3&numServices=3&numLocations=1&service=Chemicals&serviceLine=UK-REACH-IT&serviceRole=REACH Manager">Acme Org</a></li>
-            <ul class="govuk-list govuk-list--indent">
-              <li><a class="govuk-link govuk-link--no-visited-state" href="/manage/dashboard-all-org?orgName=Acme Org India&numUsers=12&numAgents=1&numServices=3&numLocations=1&service=Chemicals&serviceLine=UK-REACH-IT&serviceRole=REACH Manager">Acme Org India</a></li>
-              <li><a class="govuk-link govuk-link--no-visited-state" href="/manage/dashboard-all-org?orgName=Acme Org Thailand&numUsers=2&numAgents=14&numServices=3&numLocations=1&service=Chemicals&serviceLine=UK-REACH-IT&serviceRole=REACH Manager">Acme Org Thailand</a></li>
-            </ul>
-          <li><a class="govuk-link govuk-link--no-visited-state" href="/manage/dashboard-all-org?orgName=Importers RUS&numUsers=6&numAgents=0&numServices=3&numLocations=1&service=Chemicals&serviceLine=UK-REACH-IT&serviceRole=REACH Manager">Importers RUS</a></li>
-        </ul>
-      </div>
-    </details>
+    {% if data['multiOrg'] == "No" %}
+      <h1 class="govuk-heading-xl">
+        {{ orgName }}
+      </h1>
+    {% endif %}
+
+    {% if data['multiOrg'] == "Yes" %}
+      <h1 class="govuk-heading-xl govuk-heading-xl--no-margin">
+        {{ orgName }}
+      </h1>
+
+      <details class="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Change account
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <ul class="govuk-list ">
+            <li><a class="govuk-link govuk-link--no-visited-state" href="/manage/dashboard-all?orgName=Acme Org&numUsers=5&numAgents=3&numServices=3&numLocations=1&service=Chemicals&serviceLine=UK-REACH-IT&serviceRole=REACH Manager">Acme Org</a></li>
+              <ul class="govuk-list govuk-list--indent">
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/manage/dashboard-all?orgName=Acme Org India&numUsers=12&numAgents=1&numServices=3&numLocations=1&service=Chemicals&serviceLine=UK-REACH-IT&serviceRole=REACH Manager">Acme Org India</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/manage/dashboard-all?orgName=Acme Org Thailand&numUsers=2&numAgents=14&numServices=3&numLocations=1&service=Chemicals&serviceLine=UK-REACH-IT&serviceRole=REACH Manager">Acme Org Thailand</a></li>
+              </ul>
+            <li><a class="govuk-link govuk-link--no-visited-state" href="/manage/dashboard-all?orgName=Importers RUS&numUsers=6&numAgents=0&numServices=3&numLocations=1&service=Chemicals&serviceLine=UK-REACH-IT&serviceRole=REACH Manager">Importers RUS</a></li>
+          </ul>
+        </div>
+      </details>
+    {% endif %}
   </div>
 </div>
 

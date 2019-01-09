@@ -34,30 +34,12 @@ router.get('/manage/dashboard-all', function (req, res) {
       "addLocationURL": '#',
       "locationURL": 'organisations/organisation-details',
       "locationAddressCSS": "",
-      "orgSwitch": 'govuk-visually-hidden',
-      "multiOrgCSS": "govuk-heading-xl--no-margin",
       "showAgentCSS": "",
       "showClientCSS": "govuk-visually-hidden",
       "clientAddressCSS": "govuk-visually-hidden"
     })
 })
 
-// Multi orgs
-router.get('/manage/dashboard-all-org', function (req, res) {
-    res.render('manage/dashboard',{
-      "teamMemberURL": 'team-members/team-members',
-      "addAgentURL": 'agent/invite-user/add-user-details',
-      "agentURL": 'agent/agent',
-      "addLocationURL": '#',
-      "locationURL": 'organisations/organisation-details',
-      "locationAddressCSS": "",
-      "orgSwitch": '',
-      "multiOrgCSS": "govuk-heading-xl--no-margin",
-      "showAgentCSS": "",
-      "showClientCSS": "govuk-visually-hidden",
-      "clientAddressCSS": "govuk-visually-hidden"
-    })
-})
 
 // Agent's own company
 router.get('/manage/dashboard-agent-self', function (req, res) {
@@ -68,8 +50,6 @@ router.get('/manage/dashboard-agent-self', function (req, res) {
       "addLocationURL": '#',
       "locationURL": '',
       "locationAddressCSS": "",
-      "orgSwitch": '',
-      "multiOrgCSS": "govuk-heading-xl--no-margin",
       "showAgentCSS": "govuk-visually-hidden",
       "showClientCSS": "",
       "clientAddressCSS": "govuk-visually-hidden"
