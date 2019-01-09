@@ -50,14 +50,18 @@
       {% from "inset-text/macro.njk" import govukInsetText %}
 
         {{ govukInsetText({
-        text: "This is a Service page."
+        text: "This is a Service page and shows example content."
       }) }}
 
-      <p class="govuk-body">You can now:</p>
+      <p class="govuk-body">Please select which account you wish to work on today:</p>
+
       <ul class="govuk-list govuk-list--bullet">
-        <li>service task</li>
-        <li>service task</li>
-        <li>service task</li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="">Acme Org</a></li>
+          <ul class="govuk-list govuk-list--indent">
+            <li><a class="govuk-link govuk-link--no-visited-state" href="">Acme Org India</a></li>
+            <li><a class="govuk-link govuk-link--no-visited-state" href="">Acme Org Thailand</a></li>
+          </ul>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="">Importers RUS</a></li>
       </ul>
 
     </div>
