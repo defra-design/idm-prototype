@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "You’ve successfully signed out of your Defra account" %}
+{% set title = "Sorry, this email already exists" %}
 
 {% block pageTitle %}
     {{title}} - GOV.UK
@@ -18,10 +18,10 @@
   <main class="govuk-main-wrapper govuk-main-wrapper--l" id="main-content" role="main">
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <h1 class="govuk-heading-xl">Sorry, there is a problem with the service</h1>
-        <p class="govuk-body">Try again later.</p>
-        <p class="govuk-body">If you were completing a form we saved your answers. They will be available for 3 days.</p>
-        
+        <h1 class="govuk-heading-xl">Sorry, this email already exists</h1>
+        <p class="govuk-body">The email address that your are trying to register with already exists.</p>
+        <p class="govuk-body">Use the Govenment Gateway account associated with this email address to login rather than register. </p>
+
       </div>
     </div>
   </main>

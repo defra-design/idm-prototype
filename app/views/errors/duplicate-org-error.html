@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% set title = "Sorry, this organisation already exists" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper govuk-main-wrapper--l" id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">Sorry, this organisation already exists</h1>
+        <p class="govuk-body">The organisation that you are trying to register already exists.</p>
+        <p class="govuk-body">Contact the account administrator for this organisation or the service to resolve this issue.</p>
+
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}
