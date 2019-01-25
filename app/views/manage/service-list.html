@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% set title = "Defra and related organisations services" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-corp.html" %}
+  </div>
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">{{title}}</h1>
+      <p class="govuk-body">The following services are available for you to register with and can be managed from Your Defra account. To register click the links below.</p>
+      <ul class="govuk-list">
+        <li>
+          <a class="govuk-link" href="/service-start-logged-out">UK-Reach-IT</a>
+        </li>
+        <li>
+          <a class="govuk-link" href="/service-start-logged-out-imports">Notification Service</a>
+        </li>
+        <li>
+          <a class="govuk-link" href="/service-start-logged-out-VMD">VMD Secure Messaging</a>
+        </li>
+        <li>
+          <a class="govuk-link" href="/service-start-logged-out-exports">Apply for Export Catch Certificate</a>
+        </li>
+        <li>
+          <a class="govuk-link" href="#">An Other Service</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+
+
+
+{% endblock %}

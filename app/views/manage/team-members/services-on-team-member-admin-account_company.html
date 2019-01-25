@@ -153,24 +153,7 @@
           html: ''
         }
       ],
-      [
-        {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Account:</span> Acme Org Ltd'
-        },
-        {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Account role:</span> Admin'
-        },
-        {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span><span class="govuk-body govuk-body--grey"> No registered service</span>'
-        },
-
-        {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Service role: </span>'
-        },
-        {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span><a href="/manage/dashboard-all?orgName=Acme Org Limited&numUsers=5&numAgents=3&numServices=3&multiOrg=No" class="govuk-link--no-visited-state"> Manage account</a><span class="govuk-visually-hidden--desktop td-header"> for Acme Org Ltd</span>'
-        }
-      ],
+      
       [
         {
           html: '<span class="govuk-visually-hidden--desktop td-header">Account:</span> Acme Org Ltd'
@@ -195,6 +178,15 @@
     }) }}
 
 
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    {{ govukButton({
+      text: "Register for more services",
+      href: "../service-list"
+    }) }}
   </div>
 </div>
 
@@ -284,15 +276,5 @@
 
 {% endif %}
 </div>
-
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    {{ govukButton({
-      text: "Register for another service",
-      href: "#"
-    }) }}
-  </div>
-</div>
-
 
 {% endblock %}
