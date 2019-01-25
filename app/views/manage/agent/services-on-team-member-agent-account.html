@@ -71,21 +71,21 @@
       head: [
         {
           html: 'Account',
-          format: 'column-quarter column-full'
+          format: 'column-full'
 
         },
         {
-          html: 'Access level',
-          format: 'column-quarter column-full'
+          html: 'Account role',
+          format: 'column-full'
         },
         {
           html: 'Service',
-          format: 'column-third column-full'
+          format: 'column-full'
 
         },
         {
           html: 'Service role',
-          format: 'column-sixth column-full'
+          format: 'column-full'
         }
       ],
       rows: [
@@ -94,13 +94,13 @@
           html: '<span class="govuk-visually-hidden--desktop td-header">Account:</span>Acme Org'
         },
         {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Access level:</span> No access'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Account role:</span> No access'
         },
         {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> Chemicals UK-REACH-IT'
+          html: serviceLineName
         },
         {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Role:</span> REACH Manager'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Service Role:</span> REACH Manager'
         }
       ],
       [
@@ -108,13 +108,13 @@
           html: '<span class="govuk-visually-hidden--desktop td-header">Account:</span> Acme Org'
         },
         {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Access level:</span> No access'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Account role:</span> No access'
         },
         {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> Notification Service'
+          html: serviceLineName
         },
         {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Role: </span>Importer'
+          html: serviceRoleName
         }
       ],
       [
@@ -122,14 +122,14 @@
           html: '<span class="govuk-visually-hidden--desktop td-header">Account:</span> Acme Org India'
         },
         {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Access level:</span> No access'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Account role:</span> No access'
         },
         {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> Notification Service'
+          html: serviceLineName
         },
 
         {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Role: </span>Importer'
+          html: serviceRoleName
         }
       ],
       [
@@ -137,14 +137,14 @@
           html: '<span class="govuk-visually-hidden--desktop td-header">Account:</span> Acme Org Thailand'
         },
         {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Access level:</span> No access'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Account role:</span> No access'
         },
         {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> Notification Service'
+          html: serviceLineName
         },
 
         {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Role: </span>Importer'
+          html: serviceRoleName
         }
       ],
       [
@@ -152,14 +152,14 @@
           html: '<span class="govuk-visually-hidden--desktop td-header">Account:</span> Acme Org Spain'
         },
         {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Access level:</span> No access'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Account role:</span> No access'
         },
         {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> Apply for Export Catch Certificate'
+          html: serviceLineName
         },
 
         {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Role: </span>General user'
+          html: serviceRoleName
         }
       ],
       [
@@ -167,13 +167,13 @@
           html: '<span class="govuk-visually-hidden--desktop td-header">Account:</span> Importers RUS'
         },
         {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Access level:</span> No Access'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Account role:</span> No Access'
         },
         {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> VMD Secure Messaging'
+          html: serviceLineName
         },
         {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Role:</span> Administrator'
+          html: serviceRoleName
         }
       ]
 
@@ -190,9 +190,9 @@
 
     <div class="govuk-grid-column-one-third">
       <div class="govuk-card govuk-card--contained govuk-card--selectable">
-          <a href="/service-start-complete?service=Chemicals&userType=new-complete-admin&serviceLine=UK-REACH-IT"></a>
+          <a href=""></a>
           <div class="govuk-card__content">
-            <h3 class="govuk-heading-m">UK-REACH-IT</h3>
+            <h3 class="govuk-heading-m">{{data['serviceLine']}}</h3>
             <!--
             <p class="govuk-body">A short summary of the tasks you can complete with this service.
             </p>
@@ -200,46 +200,10 @@
           </div>
         </div>
     </div>
-    <div class="govuk-grid-column-one-third {{serviceCSS}}">
-      <div class="govuk-card govuk-card--contained govuk-card--selectable">
-          <a href="/service-start-complete?service=Imports&userType=new-complete-admin&serviceLine=Notification Service"></a>
-          <div class="govuk-card__content">
-            <h3 class="govuk-heading-m">Notification Service</h3>
-            <!--
-            <p class="govuk-body">A short summary of the tasks you can complete with this service.
-            </p>
-          -->
-          </div>
-        </div>
-    </div>
-    <div class="govuk-grid-column-one-third {{serviceCSS}}">
-      <div class="govuk-card govuk-card--contained govuk-card--selectable">
-          <a href="/service-start-complete?service=Exports&userType=new-complete-admin&serviceLine=Apply for Export Catch Certificate"></a>
-          <div class="govuk-card__content">
-            <h3 class="govuk-heading-m">Apply for Export Catch Certificate</h3>
-            <!--
-            <p class="govuk-body">A short summary of the tasks you can complete with this service.
-            </p>
-          -->
-          </div>
-        </div>
-    </div>
-  </div>
-  <div class="govuk-grid-row">
 
-    <div class="govuk-grid-column-one-third {{serviceCSS}}">
-      <div class="govuk-card govuk-card--contained govuk-card--selectable">
-          <a href="/service-start-complete?service=VMD&userType=new-complete-admin&serviceLine=VMD Secure Messaging"></a>
-          <div class="govuk-card__content">
-            <h3 class="govuk-heading-m">VMD Secure Messaging</h3>
-            <!--
-            <p class="govuk-body">A short summary of the tasks you can complete with this service.
-            </p>
-          -->
-          </div>
-        </div>
-    </div>
+
   </div>
+
 </div>
 
 {% endblock %}

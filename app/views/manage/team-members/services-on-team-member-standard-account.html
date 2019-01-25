@@ -1,34 +1,36 @@
 {% extends "layout.html" %}
 
-{% set title = "Team member" %}
+{% set title = "Your Defra account" %}
 
 {% block pageTitle %}
     {{title}} - GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
-<div id="profile">
-  {% include "includes/account-nav-standard-account.html" %}
-</div>
-
+  <div id="profile">
+    {% include "includes/account-nav-standard-account.html" %}
+  </div>
 {% endblock %}
 
 {% block content %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
+
     <h1 class="govuk-heading-xl">
-      Adam Mastly
+      {{title}}
     </h1>
   </div>
 </div>
 
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-one-half">
+
+
+  <div class="govuk-grid-column-two-thirds">
     <p class="govuk-body">
       <span class="govuk-!-font-weight-bold">Full name:</span> Adam Mastly<br>
       <span class="govuk-!-font-weight-bold">Email address:</span> Adam.Mastly@email.com<br>
-      <span class="govuk-!-font-weight-bold">Telephone number:</span> 01179267473</p>
+      <span class="govuk-!-font-weight-bold">Telephone number:</span> 01279267473</p>
       <details class="govuk-details">
         <summary class="govuk-details__summary">
           <span class="govuk-details__summary-text">
@@ -39,108 +41,108 @@
          If you need to contact us for support you will need your Contact Support ID: CID-000000002109
         </div>
       </details>
-    </p>
   </div>
-  <div class="govuk-grid-column-one-half">
-    <p class="govuk-body"><a href="services-on-team-member-update-details" class="govuk-link govuk-link--no-visited-state">Update details</a></p>
-    <p class="govuk-body"><a href="" class="govuk-link govuk-link--no-visited-state">Reset password</a><br></p>
+  <div class="govuk-grid-column-one-third">
+    <p class="govuk-body"><a href="services-on-team-member-update-details" class="govuk-link--no-visited-state">Update details</a></p>
+    <p class="govuk-body"><a href="" class="govuk-link--no-visited-state">Reset password</a></p>
   </div>
 </div>
-
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
     <br>
+      <h2 class="govuk-heading-l">
+        Your services
+      </h2>
 
     {% set serviceLineName %}
       <span class="govuk-visually-hidden--desktop td-header">Service:</span> {{ data['serviceLine'] }}
     {% endset %}
 
+    {% set serviceLinePendingName %}
+      <span class="govuk-visually-hidden--desktop td-header">Service:</span><span class="govuk-body govuk-body--grey"> {{ data['serviceLine'] }}</span>
+    {% endset %}
+
     {% set serviceRoleName %}
-      <span class="govuk-visually-hidden--desktop td-header">Role: </span>{{ data['serviceRole']}}
+      <span class="govuk-visually-hidden--desktop td-header">Service role: </span>{{ data['serviceRole']}}
     {% endset %}
 
     {% set systemRoleName %}
-      <span class="govuk-visually-hidden--desktop td-header">Role: </span>{{ data['systemRole']}}
+      <span class="govuk-visually-hidden--desktop td-header">Account role: </span>{{ data['systemRole']}}
     {% endset %}
 
 
     {{ govukTable({
-      caption: "My accounts",
-      captionClasses: "govuk-heading-l",
+      caption: "This is a list of one or more accounts and the related services that you have access to.",
+      captionClasses: "govuk-body govuk-!-font-weight-regular",
       firstCellIsHeader: false,
       head: [
+
         {
           html: 'Account',
-          format: 'column-quarter column-full'
-
+          format: 'column-full'
         },
         {
           html: 'Account role',
-          format: 'column-quarter column-full'
+          format: 'column-full'
         },
         {
           html: 'Service',
-          format: 'column-third column-full'
+          format: 'column-full'
 
         },
         {
           html: 'Service role',
-          format: 'column-sixth column-full'
+          format: 'column-full'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Action</span>',
+          format: 'column-full'
         }
       ],
       rows: [
       [
         {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Account:</span> Acme Org'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Account:</span> Adam Mastly'
         },
         {
           html: '<span class="govuk-visually-hidden--desktop td-header">Account role:</span> No access'
         },
         {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> Chemicals UK-REACH-IT'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> Notification Service'
         },
         {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Service role:</span> REACH Manager'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Service role:</span> Importer'
+        },
+        {
+          html: ''
         }
       ]
-
-      ]
+    ]
     }) }}
 
   </div>
 </div>
 
+
 <div class="govuk-card__content">
   <h2 class="govuk-heading-l">Link to services</h2>
 
-  <div class="govuk-grid-row">
 
-    <div class="govuk-grid-column-one-third">
-      <div class="govuk-card govuk-card--contained govuk-card--selectable">
-          <a href="/service-start-complete?service=Chemicals&userType=new-complete-admin&serviceLine=UK-REACH-IT"></a>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-third">
+        <div class="govuk-card govuk-card--contained govuk-card--selectable">
+          <a href="/Notifications"></a>
           <div class="govuk-card__content">
-            <h3 class="govuk-heading-m">UK-REACH-IT</h3>
-            <!--
-            <p class="govuk-body">A short summary of the tasks you can complete with this service.
-            </p>
-          -->
+            <h3 class="govuk-heading-m">Notification service</h3>
           </div>
         </div>
+      </div>
     </div>
 
-  </div>
-</div>
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-one-quarter">
-    f
-  </div>
-  <div class="govuk-grid-column-column-one-half">
-    <p class="govk-body">Please keep your <a class="govuk-link govuk-link--no-visited-state" href="/manage/team-members/services-on-team-member-update-details">contact details</a> up to date</p>
-    
-  </div>
-  <div class="govuk-grid-column-one-quarter">
-  </div>
+
+
 </div>
 
 

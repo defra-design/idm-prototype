@@ -71,29 +71,28 @@
       <span class="govuk-visually-hidden--desktop td-header">Account role: </span>{{ data['systemRole']}}
     {% endset %}
 
-
     {{ govukTable({
       caption: "This is a list of one or more accounts and the related services that you have access to.",
       captionClasses: "govuk-body govuk-!-font-weight-regular",
       firstCellIsHeader: false,
       head: [
         {
-          html: 'Account',
-          format: 'column-full'
-
-        },
-        {
-          html: 'Account role',
-          format: 'column-full'
-        },
-        {
           html: 'Service',
-          format: 'column-full'
+          format: 'column-quarter column-full'
 
         },
         {
           html: 'Service role',
-          format: 'column-full'
+          format: 'column-sixth column-full'
+        },
+        {
+          html: 'Account',
+          format: 'column-quarter column-full'
+
+        },
+        {
+          html: 'Account role',
+          format: 'column-sixth column-full'
         },
         {
           html: '<span class="govuk-visually-hidden--desktop td-header">Action</span>',
@@ -101,14 +100,44 @@
         }
       ],
       rows: [
-
       [
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span><span class="govuk-body govuk-body--grey"> UK-REACH-IT</span>'
+
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Service role: </span><span class="govuk-body govuk-body--grey"> Pending</span>'
+        },
         {
           html: '<span class="govuk-visually-hidden--desktop td-header">Account:</span> Acme Org Ltd'
         },
         {
           html: '<span class="govuk-visually-hidden--desktop td-header">Account role:</span> Administrator'
         },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span><a href="/manage/dashboard-all?orgName=Acme Org Limited&numUsers=5&numAgents=3&numServices=3&multiOrg=No" class="govuk-link--no-visited-state"> Manage account</a><span class="govuk-visually-hidden--desktop td-header"> for Acme Org Ltd</span>'
+        }
+      ],
+      [
+
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> UK-REACH-IT'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Service role:</span> REACH Manager'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Account:</span> Acme Org Ltd'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Account role:</span> Administrator'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span><a href="/manage/dashboard-all?orgName=Acme Org Limited&numUsers=5&numAgents=3&numServices=3&multiOrg=No" class="govuk-link--no-visited-state"> Manage account</a><span class="govuk-visually-hidden--desktop td-header"> for Acme Org Ltd</span>'
+        }
+      ],
+      [
+
         {
           html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> UK-REACH-IT'
         },
@@ -116,75 +145,46 @@
           html: serviceRoleName
         },
         {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span><a href="/manage/dashboard-all?orgName=Acme Org Limited&numUsers=5&numAgents=3&numServices=3&multiOrg=No" class="govuk-link--no-visited-state"> Manage account</a><span class="govuk-visually-hidden--desktop td-header"> for Acme Org Ltd</span>'
-        }
-      ],
-      [
-        {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Account:</span> Acme Org Ltd'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Account:</span> Chemicals R US'
         },
         {
           html: '<span class="govuk-visually-hidden--desktop td-header">Account role:</span> Administrator'
         },
         {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> Notification Service'
-        },
-        {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Service role:</span> Importer'
-        },
-        {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span><a href="/manage/dashboard-all?orgName=Acme Org Limited&numUsers=5&numAgents=3&numServices=3&multiOrg=No" class="govuk-link--no-visited-state"> Manage account</a><span class="govuk-visually-hidden--desktop td-header"> for Acme Org Ltd</span>'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span><a href="/manage/dashboard-all?orgName=Acme Org Limited&numUsers=5&numAgents=3&numServices=3&multiOrg=No" class="govuk-link--no-visited-state"> Manage account</a><span class="govuk-visually-hidden--desktop td-header"> for Chemicals R US</span>'
         }
       ],
       [
+
         {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Account:</span> Acme Org Ltd'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> UK-REACH-IT'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> REACH Manager'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Account:</span> Chems Ltd'
         },
         {
           html: '<span class="govuk-visually-hidden--desktop td-header">Account role:</span> No Access'
-        },
-        {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> VMD Secure Messaging'
-        },
-        {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> Administrator'
         },
         {
           html: ''
         }
       ],
       [
-        {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Account:</span> Acme Org Ltd'
-        },
-        {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Account role:</span> Administrator'
-        },
+
         {
           html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span><span class="govuk-body govuk-body--grey"> No registered service</span>'
         },
-
         {
           html: '<span class="govuk-visually-hidden--desktop td-header">Service role: </span>'
         },
         {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span><a href="/manage/dashboard-all?orgName=Acme Org Limited&numUsers=5&numAgents=3&numServices=3&multiOrg=No" class="govuk-link--no-visited-state"> Manage account</a><span class="govuk-visually-hidden--desktop td-header"> for Acme Org Ltd</span>'
-        }
-      ],
-      [
-        {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Account:</span> Acme Org Ltd'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Account:</span> Waste Services'
         },
         {
           html: '<span class="govuk-visually-hidden--desktop td-header">Account role:</span> Administrator'
-        },
-        {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span><span class="govuk-body govuk-body--grey"> Apply for Export Catch Certificate</span>'
-
-        },
-
-        {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Service role: </span><span class="govuk-body govuk-body--grey"> Pending</span>'
         },
         {
           html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span><a href="/manage/dashboard-all?orgName=Acme Org Limited&numUsers=5&numAgents=3&numServices=3&multiOrg=No" class="govuk-link--no-visited-state"> Manage account</a><span class="govuk-visually-hidden--desktop td-header"> for Acme Org Ltd</span>'
@@ -248,7 +248,7 @@
         </div>
       </div>
     </div>
-
+<!--
     <div class="govuk-grid-column-one-third {{serviceCSS}}">
       <div class="govuk-card govuk-card--contained govuk-card--selectable">
         <a href="/Notifications"></a>
@@ -280,7 +280,7 @@
       </div>
     </div>
   </div>
-
+  -->
 
 {% endif %}
 </div>
