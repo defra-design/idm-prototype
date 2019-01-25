@@ -141,7 +141,7 @@
           html: '<span class="govuk-visually-hidden--desktop td-header">Account:</span> Acme Org Ltd'
         },
         {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Account role:</span> No Access'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Account role:</span> User'
         },
         {
           html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> VMD Secure Messaging'
@@ -283,6 +283,15 @@
 
 
 {% endif %}
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    {{ govukButton({
+      text: "Register for another service",
+      href: "#"
+    }) }}
+  </div>
 </div>
 
 
