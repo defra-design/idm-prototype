@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Do you want to give this person any administrator responsibilities for your organisation?" %}
+{% set title = "Do you want to give this person any admin responsibilities for your organisation?" %}
 
 {% block pageTitle %}
     {{title}} - GOV.UK
@@ -71,14 +71,14 @@
             },
             items: [
               {
-                value: "Administrator",
-                html: 'Administrator - this person can view and edit the information the service holds about your organisation. They can also manage other people\'s access to services.',
-                checked:  checked('systemRole','Administrator')
+                value: "Admin",
+                html: 'Admin - this person can view and edit the information the service holds about your organisation. They can also manage other people\'s access to services.',
+                checked:  checked('systemRole','Admin')
               },
               {
-                value: "No access",
-                html: 'None - this person has no extra responsibilities, they can only perform the tasks you choose within a specific service.',
-                checked:  checked('systemRole','No access')
+                value: "User",
+                html: 'User - this person has no account responsibilities, they can only perform the tasks you choose within a specific service.',
+                checked:  checked('systemRole','User')
               }
             ]
           }) }}
