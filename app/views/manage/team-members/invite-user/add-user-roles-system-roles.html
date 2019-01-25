@@ -56,9 +56,6 @@
         <input type="hidden" name="subscribeService" value="Yes">
         <input type="hidden" name="serviceRole" value="Standard">
 
-
-        {% if (data['service'] == "Imports") or (data['service'] == "VMD") or (data['service'] == "Exports") %}
-
           {{ govukRadios ({
             idPrefix: "systemRole",
             name: "systemRole",
@@ -83,36 +80,6 @@
             ]
           }) }}
 
-        {% endif %}
-
-        {% if data['service'] == "Chemicals"%}
-
-          {{ govukRadios ({
-            idPrefix: "systemRole",
-            name: "systemRole",
-            fieldset: {
-              legend: {
-                text: title,
-                isPageHeading: true,
-                classes: "govuk-fieldset__legend--xl"
-              }
-            },
-            items: [
-              {
-                value: "Administrator",
-                html: 'Administrator - this person can view and edit the information the service holds about your organisation. They can also manage other people\'s access to services.',
-                checked:  checked('systemRole','Administrator')
-              },
-              {
-                value: "User",
-                html: 'None - this person has no extra responsibilities, they can only perform the tasks you choose within a specific service.',
-                checked:  checked('systemRole','User')
-              }
-            ]
-          }) }}
-
-
-        {% endif %}
 
         {{ govukButton({
           text: "Continue"
