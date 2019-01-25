@@ -77,10 +77,10 @@
       captionClasses: "govuk-body govuk-!-font-weight-regular",
       firstCellIsHeader: false,
       head: [
-
         {
           html: 'Account',
           format: 'column-full'
+
         },
         {
           html: 'Account role',
@@ -101,33 +101,82 @@
         }
       ],
       rows: [
+
       [
         {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Account:</span> Ann Cooper'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Account:</span> Acme Org Ltd'
         },
         {
           html: '<span class="govuk-visually-hidden--desktop td-header">Account role:</span> Administrator'
         },
         {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> Notification Service'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> UK-REACH-IT'
         },
         {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Service role:</span> Importer'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Service role:</span> REACH Manager'
         },
         {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span><a href="" class="govuk-link--no-visited-state"> Manage account</a><span class="govuk-visually-hidden--desktop td-header"> for Ann</span>'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span><a href="/manage/dashboard-all?orgName=Acme Org Limited&numUsers=5&numAgents=3&numServices=3&multiOrg=No" class="govuk-link--no-visited-state"> Manage account</a><span class="govuk-visually-hidden--desktop td-header"> for Acme Org Ltd</span>'
+        }
+      ],
+      [
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Account:</span> Acme Org India'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Account role:</span> Administrator'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> UK-REACH-IT'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Service role:</span> REACH Manager'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span><a href="/manage/dashboard-all?orgName=Acme Org India&numUsers=6&numAgents=1&numServices=1&multiOrg=Yes&relOrg=Yes" class="govuk-link--no-visited-state"> Manage account</a><span class="govuk-visually-hidden--desktop td-header"> for Acme Org India</span>'        }
+      ],
+      [
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Account:</span> Acme Org Thailand'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Account role:</span> Administrator'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> UK-REACH-IT'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Service role:</span> REACH Manager'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span><a href="/manage/dashboard-all?orgName=Acme Org Thailand&numUsers=2&numAgents=0&numServices=1&multiOrg=Yes&relOrg=Yes" class="govuk-link--no-visited-state"> Manage account</a><span class="govuk-visually-hidden--desktop td-header"> for Acme Org Ltd</span>'
         }
       ]
-    ]
+      ]
     }) }}
+
 
   </div>
 </div>
 
 
 <div class="govuk-card__content">
-  <h2 class="govuk-heading-l">Link to services</h2>
+  <h2 class="govuk-heading-l">Link to your services</h2>
 
+{% if (data['numServices'] == "1") and (data['service'] == "Chemicals") %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">
+      <div class="govuk-card govuk-card--contained govuk-card--selectable">
+        <a href="/UK-REACH-IT"></a>
+        <div class="govuk-card__content">
+          <h3 class="govuk-heading-m">{{ data['serviceLine'] }}</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% endif %}
 
 
     <div class="govuk-grid-row">
@@ -135,12 +184,11 @@
         <div class="govuk-card govuk-card--contained govuk-card--selectable">
           <a href="/Notifications"></a>
           <div class="govuk-card__content">
-            <h3 class="govuk-heading-m">Notification service</h3>
+            <h3 class="govuk-heading-m">UK-REACH-IT</h3>
           </div>
         </div>
       </div>
     </div>
-
 
 
 </div>
