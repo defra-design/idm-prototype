@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% set title = "Your Defra account" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-corp.html" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <h1 class="govuk-heading-xl">
+      {{title}}
+    </h1>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+
+
+  <div class="govuk-grid-column-two-thirds">
+    <p class="govuk-body">
+      <span class="govuk-!-font-weight-bold">Full name:</span> Ann Cooper<br>
+      <span class="govuk-!-font-weight-bold">Email address:</span> Ann.Cooper@email.com<br>
+      <span class="govuk-!-font-weight-bold">Telephone number:</span> 01179267473</p>
+      <details class="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Contact Support ID
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+         If you need to contact us for support you will need your Contact Support ID: CID-000000002109
+        </div>
+      </details>
+  </div>
+  <div class="govuk-grid-column-one-third">
+    <p class="govuk-body"><a href="services-on-team-member-update-details" class="govuk-link--no-visited-state">Update details</a></p>
+    <p class="govuk-body"><a href="" class="govuk-link--no-visited-state">Reset password</a></p>
+  </div>
+</div>
+
+
+
+{% endblock %}
