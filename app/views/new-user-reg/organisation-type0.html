@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "What type of business or organisation do you own or represent?" %}
+{% set title = "What type of account do you need to create?" %}
 
 {% block pageTitle %}
     {{title}} - GOV.UK
@@ -93,6 +93,13 @@
             text: "Organisation that is not registered in the UK",
             checked:  checked('businessType','Non-UK organisation')
 
+          },
+          {
+            divider: "or"
+          },
+          {
+            value: "Individual",
+            text: "An individual. I do not own or represent a relevant business or organisation."
           }
 
 
@@ -102,11 +109,11 @@
       <details class="govuk-details">
         <summary class="govuk-details__summary">
           <span class="govuk-details__summary-text">
-            Can't see your business type?
+            Can't see your business or organisation type?
           </span>
         </summary>
         <div class="govuk-details__text">
-          If you can't see your business or organisation type please contact the service for more information.
+          If you can't see your business or organisation type please contact the service for more information on how to register.
         </div>
         <div class="govuk-details__text">
           {{data ['serviceLine'] }} - [telephone number]
