@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Defra and related organisations services" %}
+{% set title = "Register for more services" %}
 
 {% block pageTitle %}
     {{title}} - GOV.UK
@@ -23,14 +23,11 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
       <h1 class="govuk-heading-xl">{{title}}</h1>
-      <p class="govuk-body">The following services are available for you to register with and can be then managed from Your Defra account. To register click the links below.</p>
+
+
+      <h2 class="govuk-heading-m">Available services</h2>
+      <p class="govuk-body">The following services are available for you to register with. To register click the links below.</p>
       <ul class="govuk-list govuk-list--bullet">
-        <li>
-          <a class="govuk-link" href="/service-start-logged-out">UK-Reach-IT</a>
-        </li>
-        <li>
-          <a class="govuk-link" href="/service-start-logged-out-imports">Notification Service</a>
-        </li>
         <li>
           <a class="govuk-link" href="/service-start-logged-out-VMD">VMD Secure Messaging</a>
         </li>
@@ -41,6 +38,31 @@
           <a class="govuk-link" href="#">An Other Service</a>
         </li>
       </ul>
+      <h2 class="govuk-heading-m">Services already registered to this account</h2>
+      <p class="govuk-body">The following services are already registered with [org name]. To request access click on the links below for the admin's contact details.</p>
+      <details class="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            UK-REACH-IT
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          To get access to this service contact:<br>
+          <a href="mailto:someone@example.com?subject=Access to [Service name]">[First name]
+          [Last name] - [email address]</a>
+        </div>
+      </details>
+      <details class="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Notification Service
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          To get access to this service contact:<br>
+          <a href="mailto:someone@example.com?subject=Access to [Service name]">[First name] [Last name] - [email address]</a>
+        </div>
+      </details>
     </div>
   </div>
 
