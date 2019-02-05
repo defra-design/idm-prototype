@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "What is the Companies House registration number for your business?" %}
+{% set title = "What is the Companies House number for the business you wish to register?" %}
 
 {% block pageTitle %}
     {{title}} - GOV.UK
@@ -25,9 +25,7 @@
           text: title,
           classes: "govuk-label--xl"
         },
-        hint: {
-        text: "We need to know your registered business address for verification purposes. It is typically your head office."
-      },
+
         classes: "govuk-input--width-10",
         isPageHeading: true,
         id: "companyRegNum",
@@ -36,9 +34,9 @@
       }) }}
 
       {{ govukDetails({
-        summaryText: "What if I do not have this?",
+        summaryText: "Where can I find the number?",
         html: ' <p class="govuk-body">You can find this on the <a href="https://www.gov.uk/get-information-about-a-company" target="_blank" rel="noopener noreferrer" class="govuk-link">Companies House register (opens in a new tab).</a></p>
-<p>If you are applying on behalf of a company that is based outside of the UK, you must <a href="https://www.gov.uk/register-as-an-overseas-company" target="_blank" rel="noopener noreferrer" class="govuk-link">register with Companies House as an overseas company (opens in a new tab)</a> before you continue.</p>'
+        <p>If you are applying on behalf of a company that is not registered in the UK, you need to change your account type to <span class="govuk-body govuk-!-font-weight-bold">Organisation that is not registered in the UK.</span></p>'
       }) }}
 
       {{ govukButton({
