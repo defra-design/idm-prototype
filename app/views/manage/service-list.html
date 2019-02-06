@@ -7,9 +7,9 @@
 {% endblock %}
 
 {% block beforeContent %}
-  <div id="profile">
+
     {% include "includes/account-nav-admin-corp.html" %}
-  </div>
+
 
   {{ govukBackLink({
     text: "Back",
@@ -25,7 +25,9 @@
       <h1 class="govuk-heading-xl">{{title}}</h1>
 
 
+      <!--
       <h2 class="govuk-heading-m">Available services</h2>
+    -->
       <p class="govuk-body">The following services are available for you to register with. To register click the links below.</p>
       <ul class="govuk-list govuk-list--bullet">
         <li>
@@ -38,8 +40,9 @@
           <a class="govuk-link" href="#">An Other Service</a>
         </li>
       </ul>
+      <!--
       <h2 class="govuk-heading-m">Services already registered to this account</h2>
-      <p class="govuk-body">The following services are already registered with [org name]. To request access click on the links below for the admin's contact details.</p>
+      <p class="govuk-body">The following services are already registered to [org name]. To request access click on the links below for the admin's contact details.</p>
       <details class="govuk-details">
         <summary class="govuk-details__summary">
           <span class="govuk-details__summary-text">
@@ -63,6 +66,7 @@
           <a href="mailto:someone@example.com?subject=Access to [Service name]">[First name] [Last name] - [email address]</a>
         </div>
       </details>
+    -->
     </div>
   </div>
 
