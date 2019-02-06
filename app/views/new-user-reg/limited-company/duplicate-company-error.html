@@ -1,0 +1,86 @@
+{% extends "layout.html" %}
+
+{% set title = "This business has already been registered" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">{{title}}</h1>
+
+      <form method="post" class="change" onsubmit="return myFunction()">
+
+      <script>
+          const form = document.querySelector('.change')
+
+          function myFunction() {
+            const checked = document.querySelector('[name="changeAccount"]:checked')
+            const checkedValue = checked.value
+
+            switch(checkedValue){
+              case 'Yes':
+              form.action = 'organisation-type'
+
+              break;
+              default:
+              form.action = 'duplicate-company-no-consent-end'
+            }
+            return true
+          }
+        </script>
+
+
+
+
+
+        {{ govukRadios({
+          idPrefix: "changeAccount",
+          name: "changeAccount",
+          fieldset: {
+            legend: {
+              text: "Can we pass your contact details to the admin of this business?",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+
+          items: [
+            {
+              value: "Yes",
+              html: ' <span class="govuk-body govuk-!-font-weight-bold">Yes</span>
+                      - let the admin know I want to work on behalf of [organisation name]
+                      '
+            },
+            {
+              value: "No",
+              html: ' <span class="govuk-body govuk-!-font-weight-bold">No</span>
+                      - I do not want to continue this registration'
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+
+      </form>
+    </div>
+  </div>
+
+
+
+
+{% endblock %}
