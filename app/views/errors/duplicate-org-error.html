@@ -15,18 +15,14 @@
 
 {% block content %}
 
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">Sorry, this organisation already exists</h1>
+    <p class="govuk-body">The organisation that you are trying to register already exists and cannot be registered again.</p>
+    <p class="govuk-body">To work on behalf of [org name] please contact the account admin of this organisation to resolve this issue.</p>
 
-<div class="govuk-width-container">
-  <main class="govuk-main-wrapper govuk-main-wrapper--l" id="main-content" role="main">
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
-        <h1 class="govuk-heading-xl">Sorry, this organisation already exists</h1>
-        <p class="govuk-body">The organisation that you are trying to register already exists and cannot be registered again.</p>
-        <p class="govuk-body">To work on behalf of [org name] please contact the account admin of this organisation to resolve this issue.</p>
-
-      </div>
-    </div>
-  </main>
+  </div>
 </div>
+
 
 {% endblock %}
