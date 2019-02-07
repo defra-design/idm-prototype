@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% set title = "You cannot continue your registration" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {{ govukPanel({
+          titleText: "Your registration is complete."
+    })
+    }}
+
+    <p class="govuk-body">We have sent a confirmation email to [SCP email address].</p>
+
+    <h3 class="govuk-heading-m">What happens next</h3>
+
+    <p class="govuk-body">If the admin confirm's your request they will choose which information you can see and which tasks you can perform. We’ll email you to let you know when you can sign in.</p>
+
+    <p class="govuk-body">If they reject your request, we’ll email you to let you know.</p>
+
+    <p class="govuk-body">If your request is not actioned within 30 days, we’ll delete your information.</p>
+
+    {{ govukButton({
+        text: "Go to Your Defra account",
+        href: "/manage/team-members/services-on-team-member-me-no-service"
+    }) }}
+
+
+
+
+
+    </div>
+  </div>
+
+
+
+
+{% endblock %}
