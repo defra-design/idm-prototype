@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% set title = "Team member request declined" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">{{title}}</h1>
+
+
+    <form action="/manage/team-members/team-members?verifiedUser=Decline" method="post">
+    <p class="govk-body">You have declined the request of Tiegan Mole to work on behalf of Acme Org Ltd.</p>
+    <p class="govk-body">Something else will happen</p>
+
+
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+
+      </form>
+    </div>
+  </div>
+
+
+{% endblock %}

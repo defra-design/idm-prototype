@@ -37,7 +37,7 @@
 
     {{ govukButton({
       text: "Add a team member",
-      href: "/manage/team-members/invite-user/add-user-details"
+      href: "/manage/team-members/invite-user/add-user-details?addUser=Yes"
     }) }}
 
 <!-- Setting Ann's urls -->
@@ -77,7 +77,7 @@
           <span class="govuk-visually-hidden--desktop td-header">Account status:</span> Live
         </td>
       </tr>
-
+      {% if data['addUser'] == "Yes" %}
       <tr class="govuk-table__row{{ newUserCSS }}">
         <td class="govuk-table__cell">
           <span class="govuk-visually-hidden--desktop td-header">Team member:</span>
@@ -90,6 +90,7 @@
           <span class="govuk-visually-hidden--desktop td-header">Account status:</span> Invite email sent
         </td>
       </tr>
+      {% endif %}
 
       <tr class="govuk-table__row {{ otherUserCSS }}">
         <td class="govuk-table__cell">
@@ -126,20 +127,37 @@
           <span class="govuk-visually-hidden--desktop td-header">Email address:</span> Sara.Chippers@email.com
         </td>
         <td class="govuk-table__cell">
+          {% if data['subscribeService'] == "Yes" %}
+          <span class="govuk-visually-hidden--desktop td-header">Account status:</span> {{ data['systemRole'] }}
+          {% else %}
           <span class="govuk-visually-hidden--desktop td-header">Account status:</span> Needs access
+          {% endif %}
         </td>
       </tr>
 
       <tr class="govuk-table__row {{ otherUserCSS }}">
         <td class="govuk-table__cell">
           <span class="govuk-visually-hidden--desktop td-header">Team member:</span>
-          <a class="govuk-link--no-visited-state" href="#">Tiegan Mole</a>
+          <a class="govuk-link--no-visited-state" href="services-on-team-member-standard-verify?name=Tiegan Mole">Tiegan Mole</a>
         </td>
         <td class="govuk-table__cell">
           <span class="govuk-visually-hidden--desktop td-header">Email address:</span> Tiegan.Mole@email.com
         </td>
         <td class="govuk-table__cell">
-          <span class="govuk-visually-hidden--desktop td-header">Account status:</span> Live
+          {{data['verifiedUser']}}
+          {% if data['verifiedUser'] == "Decline" %}
+          <span class="govuk-visually-hidden--desktop td-header">Account status:</span>  Request declined
+          {% endif %}
+
+          {% if data['verifiedUser'] == "Yes" %}
+          <span class="govuk-visually-hidden--desktop td-header">Account status:</span> {{ data['systemRole'] }}
+          {% endif %}
+
+          {% if (data['verifiedUser'] != "Yes") or (data['verifiedUser'] == "Decline") %} 
+          <span class="govuk-visually-hidden--desktop td-header">Account status:</span>  Request received
+          {% endif %}
+
+
         </td>
       </tr>
 

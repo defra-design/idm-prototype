@@ -38,6 +38,10 @@
           {% set backURL = "/manage/agent/services-on-team-member-agent-invited" %}
     {% endif %}
 
+    {% if data['verifiedUser'] == "Yes" %}
+        {% set backURL = "/manage/team-members/services-on-team-member-standard-verify" %}
+    {% endif %}
+
     {{ govukButton({
       text: "Done",
       href: backURL
