@@ -151,7 +151,8 @@
     <h3 class="govuk-heading-s">n+1 user unblocking</h3>
     <ul class="govuk-list govuk-list--bullet">
       <li><a href="new-user-reg/limited-company/duplicate/company-lookup" class="govuk-link--no-visited-state">Start of flow for duplicate company</a></li>
-      <li><a class="govuk-link--no-visited-state" href="/manage/team-members/services-on-team-member-standard-verify?verifiedUser=No&numUsers=5&numAgents=3&service=Chemicals&serviceLine=UK-REACH-IT&serviceRole=REACH Manager&multiOrg=No&relOrg=No">Unverified  Team Member profile</a></li>
+      <li><a class="govuk-link--no-visited-state" href="/manage/team-members/services-on-team-member-standard-verify?verifiedUser=No&numUsers=5&numAgents=3&service=Chemicals&serviceLine=UK-REACH-IT&serviceRole=REACH Manager&multiOrg=No&relOrg=No">Unverified Team Member profile</a></li>
+      <li><a href="service-start-logged-out?userType=existing-multi-org&service=Chemicals&serviceLine=UK-REACH-IT&serviceRole=REACH Manager" class="govuk-link--no-visited-state">Existing user, registering for new service with multi-orgs</a></li>
       </ul>
 
       <ul class="govuk-list govuk-list--bullet">
@@ -240,7 +241,7 @@
     businessType= Limited company / Sole trader / Public limited company / Competent authority / Limited liability partnership /  Non-commercial organisation / Government
     orgType= Business / Individual
     orgName= Acme Org
-    userType= invite / invitedAgent / new / new-pending / new-complete-admin / new-complete-standard / new-complete-agent / new-incomplete-service |  new-incomplete-tasklist
+    userType= invite / invitedAgent / new / new-pending / new-complete-admin / new-complete-standard / new-complete-agent / new-incomplete-service |  new-incomplete-tasklist | existing-multi-org
     regSuccess= pending |  success
     serviceRole=  REACH Manager / REACH Reader / Manager / No service access / Standard
     subscribeService= Yes / No

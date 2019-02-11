@@ -72,6 +72,14 @@
     {% if data['userType'] == "new-incomplete-service" %}
           {% set startURL = "/scp/login-incomplete-service" %}
     {% endif %}
+    {% if data['userType'] == "existing-multi-org" %}
+          {% set startURL = "/scp/login-interswitch" %}
+    {% endif %}
+
+
+
+
+
 
     {{ govukButton({
      text: "Start now",
