@@ -128,7 +128,7 @@
         </td>
         <td class="govuk-table__cell">
           {% if data['subscribeService'] == "Yes" %}
-          <span class="govuk-visually-hidden--desktop td-header">Account status:</span> {{ data['systemRole'] }}
+          <span class="govuk-visually-hidden--desktop td-header">Account status:</span> Live
           {% else %}
           <span class="govuk-visually-hidden--desktop td-header">Account status:</span> Needs access
           {% endif %}
@@ -144,18 +144,20 @@
           <span class="govuk-visually-hidden--desktop td-header">Email address:</span> Tiegan.Mole@email.com
         </td>
         <td class="govuk-table__cell">
-          {{data['verifiedUser']}}
+          {% if not (data['verifiedUser'] == "Decline") and not (data['verifiedUser'] == "Yes") %}
+          <span class="govuk-visually-hidden--desktop td-header">Account status:</span>  Request received
+          {% endif %}
+
+
+
           {% if data['verifiedUser'] == "Decline" %}
           <span class="govuk-visually-hidden--desktop td-header">Account status:</span>  Request declined
           {% endif %}
 
           {% if data['verifiedUser'] == "Yes" %}
-          <span class="govuk-visually-hidden--desktop td-header">Account status:</span> {{ data['systemRole'] }}
+          <span class="govuk-visually-hidden--desktop td-header">Account status:</span> Live
           {% endif %}
 
-          {% if (data['verifiedUser'] != "Yes") or (data['verifiedUser'] == "Decline") %} 
-          <span class="govuk-visually-hidden--desktop td-header">Account status:</span>  Request received
-          {% endif %}
 
 
         </td>
