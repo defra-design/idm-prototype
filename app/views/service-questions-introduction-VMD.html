@@ -36,6 +36,11 @@
     {% if data['userType'] == "existing" %}
       {% set tcButton  = "/new-user-reg/organisation-type" %}
     {% endif %}
+
+    {% if data['userType'] == "existing-new-service" %}
+        {% set tcButton = "/new-user-reg/service-questions" %}
+    {% endif %}
+
     <form action="{{ tcButton }}" method="post">
 
 <div class="govuk-form-group">

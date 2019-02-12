@@ -61,6 +61,10 @@
           {% set startURL = "/scp/login-new" %}
     {% endif %}
 
+    {% if data['userType'] == "existing-new-service" %}
+          {% set startURL = "service-start-complete" %}
+    {% endif %}
+
     {{ govukButton({
      text: "Start now",
      href: startURL,

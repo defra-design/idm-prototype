@@ -2,6 +2,21 @@
 
 {% set title = "Service name" %}
 
+{% block header %}
+  {% if data['service'] == "Imports" %}
+    {{ govukHeader({ serviceName: "Imports" }) }}
+  {% endif %}
+  {% if data['service'] == "Chemicals" %}
+    {{ govukHeader({ serviceName: "Chemicals" }) }}
+  {% endif %}
+  {% if data['service'] == "VMD" %}
+    {{ govukHeader({ serviceName: "VMD" }) }}
+  {% endif %}
+  {% if data['service'] == "Exports" %}
+    {{ govukHeader({ serviceName: "Exports" }) }}
+  {% endif %}
+{% endblock %}
+
 {% block pageTitle %}
     {{title}} - GOV.UK
 {% endblock %}
@@ -26,7 +41,7 @@
 
       {{ govukButton({
         text: "Sign out",
-        href: "service-start-logged-out"
+        href: ""
       }) }}
 
     </div>
