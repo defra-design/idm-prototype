@@ -25,13 +25,15 @@
   </div>
 </div>
 
-{% if data['verifiedUser'] == "Yes" %}
+{% if (data['verifiedUser'] == "Yes") or (data['verifiedUser'] == "Decline") %}
 {% else %}
+
+<!-- Show this section if the user has not yet been accepted or declined -->
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
     <p class="govuk-body">Tiegan Mole would like to do work on behalf of Acme Org Ltd.</p>
-    <p class="govuk-body">You should choose whether you wish to allow this user to become a Team Member of Acme Org Ltd and access UK-REACH-IT.</p>
+    <p class="govuk-body">You should choose whether you wish to allow this user to become a Team Member of Acme Org Ltd.</p>
   </div>
 </div>
 
@@ -60,6 +62,41 @@
 
 {% endif %}
 
+<!-- Show this section if the user has had their request declined -->
+
+{% if data['verifiedUser'] == "Decline" %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <p class="govuk-body">Tiegan Mole's request was declined by:</p>
+      <p class="govuk-body">
+        [admin name]
+        <br>
+        [email address]</p>
+    <p class="govuk-body">If you feel that this has been done in error, you have 30 days from the initial request to accept the request.</p>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-quarter">
+
+    {{ govukButton({
+      text: "Accept the request",
+      href: "verify/verify-confirm"
+    }) }}
+  </div>
+
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <hr class="govuk-section-break--s">
+    <br>
+  </div>
+</div>
+{% else %}
+{% endif %}
+
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-one-half">
@@ -80,7 +117,11 @@
       <span class="govuk-!-font-weight-bold">Account:</span> Acme Org Ltd<br>
       {% if data['verifiedUser'] == "Yes" %}
       <span class="govuk-!-font-weight-bold">Account role:</span> {{ data['systemRole'] }}
-      {% else %}
+      {% endif %}
+      {% if data['verifiedUser'] == "Decline" %}
+      <span class="govuk-!-font-weight-bold">Account role:</span> Request declined
+      {% endif %}
+      {% if not (data['verifiedUser'] == "Decline") and not (data['verifiedUser'] == "Yes") %}
       <span class="govuk-!-font-weight-bold">Account role:</span> Request received
       {% endif %}
     </p>

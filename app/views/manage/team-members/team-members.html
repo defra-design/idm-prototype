@@ -135,7 +135,9 @@
         </td>
       </tr>
 
-      <tr class="govuk-table__row {{ otherUserCSS }}">
+      {% if data['hideCSS'] == "Yes" %}
+      {% else %}
+      <tr class="govuk-table__row {{ hideCSS }}">
         <td class="govuk-table__cell">
           <span class="govuk-visually-hidden--desktop td-header">Team member:</span>
           <a class="govuk-link--no-visited-state" href="services-on-team-member-standard-verify?name=Tiegan Mole">Tiegan Mole</a>
@@ -148,8 +150,6 @@
           <span class="govuk-visually-hidden--desktop td-header">Account status:</span>  Request received
           {% endif %}
 
-
-
           {% if data['verifiedUser'] == "Decline" %}
           <span class="govuk-visually-hidden--desktop td-header">Account status:</span>  Request declined
           {% endif %}
@@ -157,6 +157,8 @@
           {% if data['verifiedUser'] == "Yes" %}
           <span class="govuk-visually-hidden--desktop td-header">Account status:</span> Live
           {% endif %}
+
+      {% endif %}
 
 
 
