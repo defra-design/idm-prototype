@@ -27,16 +27,24 @@
           const checkedValue = checked.value
 
           switch(checkedValue){
-            case 'UK-REACH-IT':
-            form.action = 'add-user-roles-service-roles'
+            case 'Comply with UK REACH':
+            form.action = '../invite-user/chemicals/add-user-roles-service-roles'
 
             break;
-            case 'UK-ePIC':
-            form.action = 'add-user-roles-service-roles-normal'
+            case 'Apply for Export Catch Certificate':
+            form.action = '../invite-user/exports/add-user-roles-service-roles'
 
             break;
-            case 'UK-CLP':
-            form.action = 'add-user-roles-service-roles-normal'
+            case 'Apply to licence a Veterinary Medicine':
+            form.action = '../invite-user/enrollment-confirmation?serviceRole=Standard user'
+
+            break;
+            case 'IPAFFS':
+            form.action = '../invite-user/enrollment-confirmation?serviceRole=Standard user'
+
+            break;
+            case 'None':
+            form.action = ''
           }
           return true
         }
@@ -55,19 +63,24 @@
           items: [
 
             {
-              value: "UK-REACH-IT",
-              html: 'UK-REACH-IT',
-              checked:  checked('serviceLine','UK-REACH-IT')
+              value: "Comply with UK REACH",
+              html: 'Comply with UK REACH',
+              checked:  checked('serviceLine','Comply with UK REACH')
             },
             {
-              value: "UK-ePIC",
-              html: 'UK-ePIC',
-              checked:  checked('serviceLine','UK-ePIC')
+              value: "Apply for Export Catch Certificate",
+              html: 'Apply for Export Catch Certificate',
+              checked:  checked('serviceLine','Apply for Export Catch Certificate')
             },
             {
-              value: "UK-CLP",
-              html: 'UK-CLP',
-              checked:  checked('serviceLine','UK-CLP')
+              value: "Apply to licence a Veterinary Medicine",
+              html: 'Apply to licence a Veterinary Medicine',
+              checked:  checked('serviceLine','Apply to licence a Veterinary Medicine')
+            },
+            {
+              value: "IPAFFS",
+              html: 'IPAFFS',
+              checked:  checked('serviceLine','IPAFFS')
             }
           ]
         }) }}

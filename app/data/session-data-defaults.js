@@ -25,7 +25,7 @@ module.exports = {
 "numServices": "3",
 "numAgents": "3",
 "service": "Chemicals",
-"serviceLine": "UK-REACH-IT",
+"serviceLine": "Comply with REACH IT",
 "serviceRole": "REACH Manager",
 "userType": "new",
 "subscribeService": "No",

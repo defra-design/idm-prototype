@@ -82,31 +82,10 @@
   <!-- Show table if the user has subscribed to one service -->
   {% if data['subscribeService'] == "Yes" %}
 
-    {% if (data['numServices'] == 3) and (data['service'] == "Imports") %}
+    {% if (data['numServices'] == 3) %}
     {{ govukButton({
       text: "Give service access",
-      href: "/manage/team-members/invite-user/imports/add-user-service?subscribeService=Yes&serviceRole=Standard&userType=invite&name=Sarah Chippers"
-    }) }}
-    {% endif %}
-
-    {% if (data['numServices'] == 3) and (data['service'] == "Chemicals") %}
-    {{ govukButton({
-      text: "Give service access",
-      href: "/manage/team-members/invite-user/chemicals/add-user-service?subscribeService=Yes&serviceRole=Standard&userType=invite&name=Sarah Chippers"
-    }) }}
-    {% endif %}
-
-    {% if (data['numServices'] == 3) and (data['service'] == "VMD") %}
-    {{ govukButton({
-      text: "Give service access",
-      href: "/manage/team-members/invite-user/vmd/add-user-service?subscribeService=Yes&serviceRole=Standard&userType=invite&name=Sarah Chippers"
-      }) }}
-    {% endif %}
-
-    {% if (data['numServices'] == 3) and (data['service'] == "Exports") %}
-    {{ govukButton({
-      text: "Give service access",
-      href: "/manage/team-members/invite-user/exports/add-user-service?subscribeService=Yes&serviceRole=Standard&userType=invite&name=Sarah Chippers"
+      href: "/manage/team-members/invite-user/add-user-service?subscribeService=Yes&serviceRole=Standard&userType=invite&name=Sarah Chippers"
     }) }}
     {% endif %}
 
@@ -173,7 +152,7 @@
 
       <div class="govuk-grid-column-one-third">
         <div class="govuk-card govuk-card--contained govuk-card--selectable">
-          <a href="/service-start-complete?service=Chemicals&userType=new-complete-admin&serviceLine=UK-REACH-IT"></a>
+          <a href="/service-start-complete?service=Chemicals&userType=new-complete-admin&serviceLine=Comply with REACH IT"></a>
             <div class="govuk-card__content">
               <h3 class="govuk-heading-m">{{ data['serviceLine'] }}</h3>
               <!--
