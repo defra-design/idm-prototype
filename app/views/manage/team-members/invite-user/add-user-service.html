@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Add service access" %}
+{% set title = "Which service do you want this person to use?" %}
 
 {% block pageTitle %}
     {{title}} - GOV.UK
@@ -55,7 +55,7 @@
           name: "serviceLine",
           fieldset: {
             legend: {
-              text: "Which service do you want this person to use?",
+              text: title,
               isPageHeading: true,
               classes: "govuk-fieldset__legend--xl"
             }

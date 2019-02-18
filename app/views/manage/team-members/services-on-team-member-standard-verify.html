@@ -19,7 +19,7 @@
   <div class="govuk-grid-column-full">
 
     <h1 class="govuk-heading-xl">
-      Tiegan Mole
+      {{ data['name'] }}
     </h1>
 
   </div>
@@ -32,7 +32,7 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-    <p class="govuk-body">Tiegan Mole would like to do work on behalf of Acme Org Ltd.</p>
+    <p class="govuk-body">{{ data['name'] }} would like to do work on behalf of Acme Org Ltd.</p>
     <p class="govuk-body">You should choose whether you wish to allow this user to become a Team Member of Acme Org Ltd.</p>
   </div>
 </div>
@@ -65,8 +65,8 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-one-half">
     <p class="govuk-body">
-      <span class="govuk-!-font-weight-bold">Full name:</span> Tiegan Mole<br>
-      <span class="govuk-!-font-weight-bold">Email address:</span> Tiegan.Mole@email.com<br>
+      <span class="govuk-!-font-weight-bold">Full name:</span> {{ data['name'] }}<br>
+      <span class="govuk-!-font-weight-bold">Email address:</span> email@email.com<br>
       <span class="govuk-!-font-weight-bold">Telephone number:</span> 01179267473
     </p>
   </div>
@@ -102,7 +102,7 @@
 
   {{ govukButton({
     text: "Give service access",
-    href: "/manage/team-members/invite-user/add-user-service?subscribeService=Yes&serviceRole=Standard&userType=invite&name=Sarah Chippers"
+    href: "/manage/team-members/invite-user/add-user-service?subscribeService=Yes&serviceRole=Standard&userType=invite&name=Tiegan Mole"
   }) }}
 
 

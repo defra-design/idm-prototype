@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Add service access" %}
+{% set title = "Which service does this person want to use?" %}
 
 {% block pageTitle %}
     {{title}} - GOV.UK
@@ -44,7 +44,7 @@
 
             break;
             case 'None':
-            form.action = ''
+            form.action = 'enrollment-no-service-confirmation'
           }
           return true
         }
@@ -55,7 +55,7 @@
           name: "serviceLine",
           fieldset: {
             legend: {
-              text: "Which service does this person want to use?",
+              text: title,
               isPageHeading: true,
               classes: "govuk-fieldset__legend--xl"
             }
@@ -89,9 +89,9 @@
               divider: "or"
             },
             {
-              value: "I cannot see the required service",
+              value: "None",
               html: 'I do not have access to the service this person wants',
-              checked:  checked('serviceLine','I cannot see the required service')
+              checked:  checked('serviceLine','None')
             }
           ]
         }) }}
