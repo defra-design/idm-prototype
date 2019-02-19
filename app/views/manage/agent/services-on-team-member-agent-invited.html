@@ -1,9 +1,9 @@
 {% extends "layout.html" %}
 
-{% set title = "Intermediary" %}
+{% set title = "Intermediary profile" %}
 
 {% block pageTitle %}
-    Intermediary - [First name] [Surname] - GOV.UK
+    Team member - [First name] [Surname] - GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -15,18 +15,19 @@
 
 {% block content %}
 
+
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
     <h1 class="govuk-heading-xl">
-      Bob Holmness
+      {{ data['name'] }}
     </h1>
-
 
     {% if data['subscribeService'] == "Yes" %}
     {% else %}
 
-        <p class="govuk-body">Bob has completed the registration process ready to use our online services.</p>
-        <p class="govuk-body">You should now choose what information and tasks you would like this person to see and do.</p>
+        <p class="govuk-body">{{ data['name'] }} is ready to use our online services.</p>
+        <p class="govuk-body">You should choose what information and tasks you would like this person to see and do.</p>
         <hr class="govuk-section-break--s">
         <br>
     {% endif %}
@@ -37,7 +38,8 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-one-half">
     <p class="govuk-body">
-      <span class="govuk-!-font-weight-bold">Email address:</span> bob-holmness@email.com<br>
+      <span class="govuk-!-font-weight-bold">Full name:</span> {{ data['name'] }}<br>
+      <span class="govuk-!-font-weight-bold">Email address:</span> name@email.com<br>
       <span class="govuk-!-font-weight-bold">Telephone number:</span> 07846959366
     </p>
   </div>
@@ -49,66 +51,59 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-one-half">
     <p class="govuk-body">
-      <span class="govuk-!-font-weight-bold">Account:</span> Acme Org<br>
-      <span class="govuk-!-font-weight-bold">Account access level:</span> Standard user
+      <span class="govuk-!-font-weight-bold">Account:</span> Acme Org Ltd<br>
+      {% if data['subscribeService'] == "Yes" %}
+      <span class="govuk-!-font-weight-bold">Account role:</span> {{ data['systemRole'] }}
+      {% else %}
+      {% endif %}
     </p>
   </div>
   <div class="govuk-grid-column-one-half">
+    {% if data['subscribeService'] == "Yes" %}
+    <p class="govuk-body"><a href="edit-user-system-roles" class="govuk-link--no-visited-state">Change account role</a></p>
+    {% else %}
+    {% endif %}
   </div>
 </div>
 
 <br>
 
-
-
-<!-- Show table if the user has subscribed to one service -->
-<!-- Show table if the user has subscribed to one service -->
-
-
-  {% if (data['service'] == "Imports") %}
-    {{ govukButton({
-      text: "Give service access",
-      href: "/manage/team-members/invite-user/imports/add-user-service?subscribeService=Yes&serviceRole=Standard&userType=inviteAgent&name=Bob Holmness"
-    }) }}
-  {% endif %}
-
-  {% if (data['service'] == "Chemicals") %}
-    {{ govukButton({
-      text: "Give service access",
-      href: "/manage/team-members/invite-user/chemicals/add-user-service?subscribeService=Yes&serviceRole=Standard&userType=invitedAgent&name=Bob Holmness"
-    }) }}
-  {% endif %}
-
-  {% if (data['service'] == "VMD") %}
-    {{ govukButton({
-      text: "Give service access",
-      href: "/manage/team-members/invite-user/vmd/add-user-service?subscribeService=Yes&serviceRole=Standard&userType=invitedAgent&name=Bob Holmness"
-    }) }}
-    {% endif %}
-
-    {% if (data['service'] == "Exports") %}
-      {{ govukButton({
-        text: "Give service access",
-        href: "/manage/team-members/invite-user/exports/add-user-service?subscribeService=Yes&serviceRole=Standard&userType=invitedAgent&name=Bob Holmness"
-      }) }}
-    {% endif %}
+  <!-- Decides where there Give Service Access button goes according to the service and number of services-->
 
 {% if data['subscribeService'] == "Yes" %}
+{% else %}
+  {{ govukButton({
+    text: "Give account access",
+    href: "/manage/team-members/invite-user/add-user-roles-system-roles?subscribeService=Yes&serviceRole=Standard&userType=invitedAgent&name=Bob Holmness"
+  }) }}
+{% endif %}
+
+
+  <!-- Show table if the user has subscribed to one service -->
+  {% if data['subscribeService'] == "Yes" %}
+
+    {% if (data['numServices'] == 3) %}
+    {{ govukButton({
+      text: "Give service access",
+      href: "/manage/team-members/invite-user/add-user-service?subscribeService=Yes&serviceRole=Standard&userType=invitedAgent&name=Bob Holmness"
+    }) }}
+    {% endif %}
 
     {% set setServiceNameHtml %}
         <span class="govuk-visually-hidden--desktop td-header">Service:</span> {{ data['serviceLine'] }}
     {% endset %}
 
     {% set setOrgHtml %}
-        <span class="govuk-visually-hidden--desktop td-header">Organisation:</span> Acme Org
+        <span class="govuk-visually-hidden--desktop td-header">Organisation:</span> Acme Org Ltd
     {% endset %}
 
     {% set setServiceRoleHtml %}
         <span class="govuk-visually-hidden--desktop td-header">Access level: </span> {{ data['serviceRole'] }}
     {% endset %}
 
+
     {{ govukTable({
-      caption: "Service access for Acme Org",
+      caption: "Service access for Acme Org Ltd",
       captionClasses: "govuk-heading-l",
       firstCellIsHeader: false,
       head: [
@@ -140,7 +135,7 @@
           html: setServiceRoleHtml
         },
         {
-          html: ''
+          html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="edit-user-service-roles-chems" class="govuk-link--no-visited-state">Change role <span class="govuk-visually-hidden">to [Service name]</span></a>'
         },
         {
           html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="edit-user-remove-access-confirm" class="govuk-link--no-visited-state">Remove access <span class="govuk-visually-hidden">to [Service name]</span></a>'
@@ -151,7 +146,7 @@
 
 
   <div class="govuk-card__content">
-    <h2 class="govuk-heading-m">Link to services</h2>
+    <h2 class="govuk-heading-l">Link to services</h2>
 
     <div class="govuk-grid-row">
 
