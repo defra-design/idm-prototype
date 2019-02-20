@@ -19,8 +19,8 @@
   <div class="govuk-grid-column-two-thirds">
 
     <!-- Decides where Continue button goes according to the service and number of services-->
-    {% if (data['numServices'] == 1) %}
-      {% set continueURL = "/manage/team-members/verify/add-user-service" %}
+    {% if (data['numServices'] == 0) %}
+      {% set continueURL = "/manage/team-members/verify/enrollment-no-service-confirmation" %}
     {% endif %}
 
     {% if (data['numServices'] == 3) %}

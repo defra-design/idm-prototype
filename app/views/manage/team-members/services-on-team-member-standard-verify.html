@@ -7,10 +7,10 @@
 {% endblock %}
 
 {% block beforeContent %}
-<div id="profile">
+
   {% include "includes/account-nav-admin-corp.html" %}
   {% include "includes/breadcrumb-four-level-team.html" %}
-</div>
+
 {% endblock %}
 
 {% block content %}
@@ -85,7 +85,7 @@
       {% if data['verifiedUser'] == "Decline" %}
       <span class="govuk-!-font-weight-bold">Account role:</span> Request declined
       {% endif %}
-      
+
     </p>
   </div>
   <!--

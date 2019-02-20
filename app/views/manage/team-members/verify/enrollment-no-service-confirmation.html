@@ -23,15 +23,15 @@
     </div>
 
 
-    <p class="govuk-body">{{ data['name'] }} is now a member {{ data['orgName'] }} but you did not have  access to the service they requested.</p>
+    <p class="govuk-body">You have given {{ data['name'] }} permission to work on behalf of {{ data['orgName'] }}. However, you did not have access to the service they requested.</p>
     <h3 class="govuk-heading-m">What happens next</h3>
 
     {% if data['systemRole'] == "Admin" %}
-      <p class="govuk-body">{{ data['name'] }} has Admin access for this account so they can register for the service they requested themselves.</p>
+      <p class="govuk-body">As {{ data['name'] }} has Admin access for this account they can register for the service they requested themselves.</p>
     {% endif %}
 
     {% if data['systemRole'] == "Standard user" %}
-      <p class="govuk-body">{{ data['name'] }} has Standard user access for this account. You will need to do one of the following: </p>
+      <p class="govuk-body">As {{ data['name'] }} has Standard user access for this account you will need to do one of the following: </p>
       <ul class="govuk-list govuk-list--bullet">
         <li>If you are not registered with the service they requested, you can register. Once accepted you will then be able to give {{ data['name'] }} access</li>
         <li>If there is another admin within {{ data['orgName'] }} who uses the service, they will be able to give access.
@@ -44,7 +44,7 @@
     <p class="govuk-body">We will notify {{ data['name'] }} about the access you have given and next steps they can take.</p>
 
     {% if data['systemRole'] == "Admin" %}
-        {% set backURL = "/manage/team-members/services-on-team-member-invited?subscribeService=No&name=Tiegan Mole" %}
+        {% set backURL = "/manage/team-members/services-on-team-member-standard-no-service?name=Tiegan Mole" %}
     {% endif %}
 
     {% if data['systemRole'] == "Standard user" %}

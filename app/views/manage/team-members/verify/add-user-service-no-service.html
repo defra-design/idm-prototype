@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Which service does this person want to use?" %}
+{% set title = "You do not have access to the service required" %}
 
 {% block pageTitle %}
     {{title}} - GOV.UK
@@ -50,13 +50,20 @@
         }
       </script>
 
-        {{ govukRadios({
+      <h1 class="govuk-heading-xl">{{title}}</h1>
+      <p class="govuk-body">You do not have access to the service that {{ data['name'] }} has reqested.</p>
+
+      <p class="govuk-body">You can assign them as an Admin for this [organisation name] so they can register for the service themselves.</p>
+
+      <p class="govuk-body">Or you can assign them as a Standard user for this account and register for the service yourself.</p>
+
+      <!--  {{ govukRadios({
           idPrefix: "serviceLine",
           name: "serviceLine",
           fieldset: {
             legend: {
               text: title,
-              isPageHeading: true,
+              isPageHeading: false,
               classes: "govuk-fieldset__legend--xl"
             }
           },
@@ -93,8 +100,11 @@
           ]
         }) }}
 
+        -->
+
         {{ govukButton({
-          text: "Continue"
+          text: "Continue",
+          href: "enrollment-no-service-confirmation"
         }) }}
 
 

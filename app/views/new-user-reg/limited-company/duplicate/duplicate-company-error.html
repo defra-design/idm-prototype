@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "This business has already been registered" %}
+{% set title = "This company has already been registered" %}
 
 {% block pageTitle %}
     {{title}} - GOV.UK
@@ -50,7 +50,7 @@
           name: "changeAccount",
           fieldset: {
             legend: {
-              text: "Can we pass your contact details to the admin of this business?",
+              text: "Can we pass your contact details to the admin of this company?",
               isPageHeading: false,
               classes: "govuk-fieldset__legend--s"
             }
@@ -74,11 +74,11 @@
         <details class="govuk-details">
           <summary class="govuk-details__summary">
             <span class="govuk-details__summary-text">
-              Concerned that someone has fraudently claimed your business?
+              Concerned that someone has fraudently registered your company?
             </span>
           </summary>
           <div class="govuk-details__text">
-            If you feel that you are the rightful owner of the organisation then contact service to discuss the problem.
+            If you feel that you are the rightful owner of the company then contact the service to discuss the problem.
           </div>
           <div class="govuk-details__text">
             Please call the service on [consuming service phone number].

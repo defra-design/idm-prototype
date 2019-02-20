@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "You cannot continue your registration" %}
+{% set title = "You have ended your registration" %}
 
 {% block pageTitle %}
     {{title}} - GOV.UK
@@ -23,8 +23,13 @@
     <p class="govuk-body">This means that you cannot continue your registration.</p>
     <p class="govuk-body">You can <a href="https://www.gov.uk/guidance/contact-defra">contact Defra</a> for advice about other ways to complete your task.</p>
 
+    {{ govukButton({
+      text: "Continue",
+      href: "/signed-in-no-defra-account"
+    }) }}
 
-    
+
+
     </div>
   </div>
 
