@@ -23,11 +23,17 @@
       {{ data['name'] }}
     </h1>
 
+
     {% if data['subscribeService'] == "Yes" %}
     {% else %}
 
-        <p class="govuk-body">{{ data['name'] }} is ready to use our online services.</p>
+      <p class="govuk-body">{{ data['name'] }} is ready to use our online services.</p>
+
+      {% if data['userType'] == "new-pending" %}
+        <p class="govuk-body">Once your service registration has been agreed you will be able to choose what information and tasks you would like this person to see and do.</p>
+      {% else %}
         <p class="govuk-body">You should choose what information and tasks you would like this person to see and do.</p>
+      {% endif %}
         <hr class="govuk-section-break--s">
         <br>
     {% endif %}
@@ -72,7 +78,7 @@
 
   <!-- Decides where there Give Service Access button goes according to the service and number of services-->
 
-{% if data['subscribeService'] == "Yes" %}
+{% if (data['subscribeService'] == "Yes") or (data['userType'] == "new-pending") %}
 {% else %}
   {{ govukButton({
     text: "Give account access",
