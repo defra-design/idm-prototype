@@ -71,7 +71,9 @@
     </p>
   </div>
   <div class="govuk-grid-column-one-half">
+  <!--
     <p class="govuk-body"><a href="" class="govuk-link--no-visited-state">Reset password</a></p>
+  -->
   </div>
 </div>
 
@@ -88,11 +90,12 @@
 
     </p>
   </div>
-  <!--
+  {% if data['verifiedUser'] == "Yes" %}
   <div class="govuk-grid-column-one-half">
     <p class="govuk-body"><a href="" class="govuk-link--no-visited-state">Change account role</a></p>
   </div>
--->
+  {% endif %}
+
 </div>
 
 <!-- Show table if the user has subscribed to one service -->
