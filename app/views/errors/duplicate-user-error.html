@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "This user has already been added to this account" %}
+{% set title = "Already registered for this account" %}
 
 {% block pageTitle %}
     {{title}} - GOV.UK
@@ -17,16 +17,14 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-xl">{{title}}</h1>
-    <p class="govuk-body">Another Admin for {{data['orgName']}} declined this user’s request. The user’s details have been removed.
-</p>
-      <p class="govuk-body">You may wish to contact the Admin who declined this user:</p>
-      <p class="govuk-body">
-        [admin name]<br>
-        [email address]<br>
-        [telephone number]
-      </p>
+    <p class="govuk-body">You are already registered to work on behalf of {{ data['orgName']}}</p>
+    <p class="govuk-body">You cannot be both a Team Member and an Intermediary for this account</p>
 
-      <p class="govuk-body">If this has been done in error you can <a class="govuk-link" href="/manage/team-members/invite-user/add-user-details">invite the user again</a> to work on behalf of {{data['orgName']}}.</p>
+    {{ govukButton({
+      text: "Continue",
+      href: "/services-on-team-member-standard"
+    }) }}
+
 
   </div>
 </div>
