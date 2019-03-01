@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Already registered for this account" %}
+{% set title = "You are already registered for this account" %}
 
 {% block pageTitle %}
     {{title}} - GOV.UK
@@ -20,12 +20,9 @@
     <p class="govuk-body">You are already registered to work on behalf of {{ data['orgName']}}.</p>
     <p class="govuk-body">You can only be added to this account once either as a Team Member or an Intermediary.</p>
 
-    <p class="govuk-body">You are already registered to work on behalf of {{ data['orgName']}}</p>
-    <p class="govuk-body">You cannot be both a Team Member and an Intermediary for this account</p>
-
     {{ govukButton({
       text: "Continue",
-      href: "/services-on-team-member-standard"
+      href: "/services-on-team-member-standard?nameBreadcrumb=Adam Mastly"
     }) }}
 
 
