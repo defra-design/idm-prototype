@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "You have ended your registration" %}
+{% set title = "You cannot continue your registration" %}
 
 {% block pageTitle %}
     {{title}} - GOV.UK
@@ -19,8 +19,8 @@
   <div class="govuk-grid-column-two-thirds">
 
     <h1 class="govuk-heading-xl">{{title}}</h1>
-    <p class="govuk-body">You have chosen not to allow your details to be sent to the admin for [organisation name].</p>
-    <p class="govuk-body">This means that you cannot continue your registration.</p>
+    <p class="govuk-body">You have chosen not to allow your details to be sent to the Admin for [organisation name].</p>
+    <p class="govuk-body">This means that your registration cannot continue.</p>
     <p class="govuk-body">You can <a href="https://www.gov.uk/guidance/contact-defra">contact Defra</a> for advice about other ways to complete your task.</p>
 
     {{ govukButton({

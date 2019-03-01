@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "You have agreed to have your details sent to the admin" %}
+{% set title = "You have agreed to have your details sent to the Admin" %}
 
 {% block pageTitle %}
     {{title}} - GOV.UK
@@ -19,7 +19,7 @@
   <div class="govuk-grid-column-two-thirds">
 
     <h1 class="govuk-heading-xl">{{title}}</h1>
-    <p class="govuk-body">The Admin of this account will be informed of your request to work on behalf of [organisation name].</p>
+    <p class="govuk-body">The Admin of this account will be notified of your request to work on behalf of {{data['orgName']}}.</p>
     <p class="govuk-body">Please select continue to complete your registration.</p>
   </div>
 </div>
