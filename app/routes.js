@@ -31,12 +31,30 @@ router.get('/manage/dashboard-all', function (req, res) {
       "teamMemberURL": 'team-members/team-members',
       "addAgentURL": 'agent/invite-user/add-user-details',
       "agentURL": 'agent/agent',
-      "addLocationURL": '#',
+      "addLocationURL": '/manage/organisations/company-name?addAddress=rel-org&addressCSS4=show',
       "locationURL": 'organisations/organisation-details',
       "locationAddressCSS": "",
       "showAgentCSS": "",
       "showClientCSS": "govuk-visually-hidden",
       "clientAddressCSS": "govuk-visually-hidden"
+    })
+})
+
+// Child dash
+router.get('/manage/dashboard-child', function (req, res) {
+    res.render('manage/dashboard',{
+      "teamMemberURL": 'team-members/team-members',
+      "addAgentURL": 'agent/chemicals/invite-user/add-user-details',
+      "agentURL": 'agent/agent',
+      "addLocationURL": '#',
+      "locationURL": 'organisations/organisation-details',
+      "locationAddressCSS": "",
+      "orgSwitch": '',
+      "multiOrgCSS": "govuk-heading-xl--no-margin",
+      "showAgentCSS": "govuk-visually-hidden",
+      "showClientCSS": "govuk-visually-hidden",
+      "clientAddressCSS": "govuk-visually-hidden"
+
     })
 })
 

@@ -1,3 +1,7 @@
+{% set setUserName %}
+  {{ data['orgName'] }}
+{% endset %}
+
 {% if (data['numUsers'] == "1") %}
   {% set dashboardURL = "/manage/dashboard-all?numUsers=1" %}
 {% endif %}
@@ -20,7 +24,7 @@
       <a class="govuk-breadcrumbs__link" href="/">Home</a>
     </li>
     <li class="govuk-breadcrumbs__list-item">
-      <a class="govuk-breadcrumbs__link" href="{{ dashboardURL }}">Dashboard</a>
+      <a class="govuk-breadcrumbs__link" href="{{ dashboardURL }}"> {{ setUserName }}</a>
     </li>
     <li class="govuk-breadcrumbs__list-item">
       {{title}}

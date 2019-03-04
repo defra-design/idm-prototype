@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "What is the correct business name to use with this address?" %}
+{% set title = "What is the name of the organisation?" %}
 
 {% block pageTitle %}
     {{title}} - GOV.UK
@@ -21,56 +21,24 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-      <form action="company-postcode" method="post">
+    {% set numLocations = data['numLocations'] | int %}
+    {% set numLocations = numLocations+1 %}
 
-        {% set orgNameHTML %}
-          Is {{data['orgName']}} the correct business name to use with this address?
-        {% endset %}
+      <form action="company-address-question" method="post">
+        <input type="hidden" name="numLocations" value="{{ numLocations }}">
 
+        {{ govukInput({
+          label: {
+            text: title,
+            isPageHeading: true,
+            classes: "govuk-label--xl"
+          },
 
-        {% set companyNameHTML %}
-          {{ govukInput({
-            id: "neworgName",
-            name: "neworgName",
-            type: "text",
-            classes: "govuk-!-width-full",
-            label: {
-              text: "What name should we use instead?"
-            }
-          }) }}
-        {% endset %}
-
-          {{ govukRadios({
-            idPrefix: "companyNameSame",
-            name: "companyNameSame",
-            fieldset: {
-              legend: {
-                text: orgNameHTML,
-                isPageHeading: true,
-                classes: "govuk-fieldset__legend--xl"
-              }
-            },
-            hint: {
-              html: orgNameHint
-            },
-            items: [
-
-              {
-                value: "yes",
-                text: "Yes"
-              },
-
-              {
-                value: "no",
-                text: "No",
-                conditional: {
-                  html: companyNameHTML
-                }
-              }
-            ]
-          }) }}
-
-
+          classes: "govuk-input--width-20",
+          id: "companyName",
+          name: "companyName",
+          value: data['companyName']
+        }) }}
 
         {{ govukButton({
           text: "Continue"
