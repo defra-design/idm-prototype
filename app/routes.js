@@ -51,7 +51,7 @@ router.get('/manage/dashboard-child', function (req, res) {
       "locationAddressCSS": "",
       "orgSwitch": '',
       "multiOrgCSS": "govuk-heading-xl--no-margin",
-      "showAgentCSS": "govuk-visually-hidden",
+      "showAgentCSS": "",
       "showClientCSS": "govuk-visually-hidden",
       "clientAddressCSS": "govuk-visually-hidden"
 
