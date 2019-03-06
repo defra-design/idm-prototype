@@ -53,14 +53,8 @@
   {% set relOrganisationsHtml %}
     <h2 class="govuk-heading-l">Related organisations</h2>
 
+      <p class="govuk-body">You can add related organisations to this account. This allows you to  separately manage the team members for each one from the account dashboard.</p>
 
-    <p class="govuk-body">If you are an <strong>Only Representative</strong> using the<strong> Comply for REACH IT</strong> service, you can add information about the non-EU manufacturers and importers you represent here.</p>
-
-    <!--
-      <p class="govuk-body">You can add related organisations or businesses to this account. This allows you to  separately manage the team members for each one from the account dashboard.</p>
-      -->
-
-    <!--
     <details class="govuk-details">
       <summary class="govuk-details__summary">
         <span class="govuk-details__summary-text">
@@ -68,13 +62,13 @@
         </span>
       </summary>
       <div class="govuk-details__text">
-        If your organisation is linked to another branch or division, you can add it to this account. This allows you to manage each part of your organisation individually, but using the same account.
+        If your organisation is linked to another branch or division, you can add it to this account as a child organisation. This allows you to manage each part of your organisation individually, but under the same account.
       </div>
       <div class="govuk-details__text">
-        If you are an Only Representative, you can add information about the non-EU manufacturers and importers you represent here.
+        If you are an <strong>Only Representative</strong>, you can add information about the non-EU manufacturers and importers you represent here.
       </div>
     </details>
-    -->
+
 
     {{ govukButton({
       text: "Add a related organisation",
@@ -117,7 +111,7 @@
             <p class="govuk-body"><span class="govuk-!-font-weight-bold">Telephone:</span> 0171 444555666<br>
               <span class="govuk-!-font-weight-bold">Email:</span> simone@org.com<br>
             </p>
-          
+
           </div>
           <div class="govuk-card__actions">
             <ul class="govuk-list govuk-!-mb-r0">
