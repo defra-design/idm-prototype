@@ -91,7 +91,8 @@
         </td>
       </tr>
       {% endif %}
-
+      {% if data['removeUser'] == "Yes" %}
+      {% else %}
       <tr class="govuk-table__row {{ otherUserCSS }}">
         <td class="govuk-table__cell">
           <span class="govuk-visually-hidden--desktop td-header">Team member:</span>
@@ -104,6 +105,7 @@
           <span class="govuk-visually-hidden--desktop td-header">Account status:</span> Live
         </td>
       </tr>
+      {% endif %}
 
       <tr class="govuk-table__row {{ otherUserCSS }}">
         <td class="govuk-table__cell">

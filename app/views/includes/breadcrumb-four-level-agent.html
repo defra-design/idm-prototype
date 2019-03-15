@@ -1,7 +1,3 @@
-{% set setUserName %}
-  {{ data['nameBreadcrumb'] }}
-{% endset %}
-
 {% if (data['numUsers'] == "1") %}
   {% set dashboardURL = "/manage/dashboard-all?numUsers=1" %}
 {% endif %}
@@ -10,24 +6,30 @@
   {% set dashboardURL = "/manage/dashboard-all?numUsers=2" %}
 {% endif %}
 
+{% if (data['numUsers'] == "3") %}
+  {% set dashboardURL = "/manage/dashboard-all?numUsers=3" %}
+{% endif %}
+
+{% if (data['numUsers'] == "4") %}
+  {% set dashboardURL = "/manage/dashboard-all?numUsers=4" %}
+{% endif %}
+
 {% if (data['numUsers'] == "5") %}
   {% set dashboardURL = "/manage/dashboard-all?numUsers=5" %}
 {% endif %}
 
-{% if (data['numUsers'] >= "6") %}
+{% if (data['numUsers'] == "6") %}
   {% set dashboardURL = "/manage/dashboard-all?numUsers=6" %}
 {% endif %}
 
-
-{% set setAgentURL %}
-  {% if data['numAgents'] <= "2" %}
-    /manage/agent/agent
-  {% endif %}
-
-  {% if data['numAgents'] >= "3" %}
-    /manage/agent/agent
-  {% endif %}
+{% set setUserName %}
+  {{ data['nameBreadcrumb'] }}
 {% endset %}
+
+{% set setOrgName %}
+  {{ data['orgName'] }}
+{% endset %}
+
 
 
 <div class="govuk-breadcrumbs">
@@ -36,10 +38,10 @@
       <a class="govuk-breadcrumbs__link" href="/">Home</a>
     </li>
     <li class="govuk-breadcrumbs__list-item">
-      <a class="govuk-breadcrumbs__link" href="{{ dashboardURL }}">Dashboard</a>
+      <a class="govuk-breadcrumbs__link" href="/manage/dashboard-all">{{ setOrgName }}</a>
     </li>
     <li class="govuk-breadcrumbs__list-item">
-      <a class="govuk-breadcrumbs__link" href="{{ setAgentURL }}">Intermediaries</a>
+      <a class="govuk-breadcrumbs__link" href="/manage/agent/agent">Intermediaries</a>
     </li>
     <li class="govuk-breadcrumbs__list-item">&nbsp{{ setUserName }}
     </li>

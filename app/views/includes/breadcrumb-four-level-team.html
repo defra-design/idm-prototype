@@ -6,26 +6,29 @@
   {% set dashboardURL = "/manage/dashboard-all?numUsers=2" %}
 {% endif %}
 
+{% if (data['numUsers'] == "3") %}
+  {% set dashboardURL = "/manage/dashboard-all?numUsers=3" %}
+{% endif %}
+
+{% if (data['numUsers'] == "4") %}
+  {% set dashboardURL = "/manage/dashboard-all?numUsers=4" %}
+{% endif %}
+
 {% if (data['numUsers'] == "5") %}
   {% set dashboardURL = "/manage/dashboard-all?numUsers=5" %}
 {% endif %}
 
-{% if (data['numUsers'] >= "6") %}
+{% if (data['numUsers'] == "6") %}
   {% set dashboardURL = "/manage/dashboard-all?numUsers=6" %}
 {% endif %}
 
-{% set setTeamURL %}
-  {% if data['numUsers'] <= "2" %}
-    /manage/team-members/team-members
-  {% endif %}
-
-  {% if data['numUsers'] >= "5" %}
-    /manage/team-members/team-members
-  {% endif %}
-{% endset %}
 
 {% set setUserName %}
   {{ data['nameBreadcrumb'] }}
+{% endset %}
+
+{% set setOrgName %}
+  {{ data['orgName'] }}
 {% endset %}
 
 
@@ -35,10 +38,10 @@
       <a class="govuk-breadcrumbs__link" href="/">Home</a>
     </li>
     <li class="govuk-breadcrumbs__list-item">
-      <a class="govuk-breadcrumbs__link" href="{{ dashboardURL }}">Dashboard</a>
+      <a class="govuk-breadcrumbs__link" href="/manage/dashboard-all">{{ setOrgName }}</a>
     </li>
     <li class="govuk-breadcrumbs__list-item">
-      <a class="govuk-breadcrumbs__link" href="{{ setTeamURL }}">Team Members</a>
+      <a class="govuk-breadcrumbs__link" href="/manage/team-members/team-members">Team Members</a>
     </li>
     <li class="govuk-breadcrumbs__list-item">&nbsp{{ setUserName }}
     </li>
