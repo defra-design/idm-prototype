@@ -24,11 +24,20 @@
     <h1 class="govuk-heading-xl">{{title}}
     </h1>
 
+
+{% if data['userType'] == "existing-multi-org" %}
+    <form action="check-your-answers-new-account" method="post">
+{% else %}
+
     {% if data['flowType'] == "check" %}
       <form method="post" action="check-your-answers">
-    {% else %}
+    {% endif %}
+    {% if data['flowType'] == "task" %}
       <form method="post" action="task-list-page-sole-trader-details">
     {% endif %}
+
+{% endif %}
+
 
 
 

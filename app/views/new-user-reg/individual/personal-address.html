@@ -28,8 +28,19 @@
       </a>
     </p>
 
+{% if data['userType'] == "existing-multi-org" %}
+    <form action="check-your-answers-new-account" method="post">
+{% else %}
 
-    <form action="task-list-page-address" method="post">
+    {% if data['flowType'] == "check" %}
+      <form method="post" action="check-your-answers">
+    {% endif %}
+    {% if data['flowType'] == "task" %}
+      <form action="task-list-page-address" method="post">
+    {% endif %}
+
+{% endif %}
+
 
       {{ govukSelect({
         id: "addressList",

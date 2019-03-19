@@ -22,6 +22,45 @@
   <div class="govuk-grid-column-two-thirds">
 
     <form class="org-type" onsubmit="return myFunction()" method="post">
+
+{% if data['userType'] == "existing-multi-org" %}
+<script>
+  const form = document.querySelector('.org-type')
+
+  function myFunction() {
+    const checked = document.querySelector('[name="businessType"]:checked')
+    const checkedValue = checked.value
+
+    switch(checkedValue){
+      case 'Sole trader':
+      form.action = '/new-user-reg/sole-trader/task-list-page-account?flowType=task'
+
+      break;
+      case 'Limited company':
+      form.action = '/new-user-reg/limited-company/company-lookup'
+
+      break;
+      case 'Public limited company':
+      form.action = '/new-user-reg/limited-company/company-lookup'
+      break;
+
+      break;
+      case 'Limited liability partnership':
+      form.action = '/new-user-reg/limited-company/company-lookup'
+      break;
+
+      case 'Non-UK organisation':
+      form.action = '/new-user-reg/non-uk-org/org-name'
+
+      break;
+      default:
+      form.action = '/new-user-reg/organisation-business-coming-soon?flowType=task'
+    }
+    return true
+  }
+</script>
+
+{% else %}
       <script>
         const form = document.querySelector('.org-type')
 
@@ -57,6 +96,8 @@
           return true
         }
       </script>
+
+{% endif %}
 
       {{ govukRadios({
         idPrefix: "businessType",

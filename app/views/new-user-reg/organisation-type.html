@@ -24,6 +24,7 @@
 
       <form method="post" class="acc-type" onsubmit="return myFunction()">
 
+{% if data['userType'] == "existing-multi-org" %}
         <script>
           const form = document.querySelector('.acc-type')
 
@@ -37,7 +38,7 @@
 
               break;
               case 'Personal':
-              form.action = '/new-user-reg/individual/task-list-page-account'
+              form.action = '/new-user-reg/individual/personal-postcode'
 
               break;
               default:
@@ -46,6 +47,31 @@
             return true
           }
         </script>
+
+{% else %}
+        <script>
+          const form = document.querySelector('.acc-type')
+
+          function myFunction() {
+            const checked = document.querySelector('[name="orgType"]:checked')
+            const checkedValue = checked.value
+
+            switch(checkedValue){
+              case 'Business':
+              form.action = 'organisation-business-type'
+
+              break;
+              case 'Personal':
+              form.action = '/new-user-reg/individual/task-list-page-account?flowType=task'
+
+              break;
+              default:
+              form.action = 'organisation-business-type'
+            }
+            return true
+          }
+        </script>
+  {% endif %}
 
         {{ govukRadios({
           idPrefix: "orgType",
