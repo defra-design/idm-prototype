@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% set title = "Account added" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/account-nav-admin-corp.html" %}
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {{ govukPanel({
+          titleText: "The account has been added"
+    })
+    }}
+
+    <p class="govuk-body">We have sent a confirmation email to Ann.Cooper@email.com.</p>
+
+    <h3 class="govuk-heading-m">What happens next</h3>
+
+    <p class="govuk-body">You can now view your account and enroll into one or more Defra services.</p>
+
+
+    {{ govukButton({
+        text: "Continue",
+        href: "/manage/team-members/services-on-team-member-admin-account_company"
+    }) }}
+
+
+
+
+  </div>
+</div>
+
+
+{% endblock %}
