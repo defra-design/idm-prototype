@@ -1,7 +1,12 @@
 <div class="govuk-breadcrumbs">
   <ol class="govuk-breadcrumbs__list">
     <li class="govuk-breadcrumbs__list-item">
-      <a class="govuk-breadcrumbs__link" href="/manage/team-member/services-on-team-member-admin-account_company">Home</a>
+
+  {% if (data['orgType'] == "onlyRep") %}
+      <a class="govuk-breadcrumbs__link" href="/manage/team-members/services-on-team-member-admin-account_onlyrep">Home</a>
+  {% else %}
+      <a class="govuk-breadcrumbs__link" href="/manage/team-members/services-on-team-member-admin-account_company">Home</a>
+  {% endif %}
     </li>
     <li class="govuk-breadcrumbs__list-item">
       {{title}}

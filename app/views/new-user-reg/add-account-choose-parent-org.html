@@ -32,11 +32,11 @@
 
     switch(checkedValue){
       case 'Acme Org Ltd':
-      form.action = '/manage/organisations/company-name?addAddress=rel-org&addressCSS4=show&multiOrg=Yes&relOrg=Yes'
+      form.action = '/manage/organisations/company-name?addAddress=rel-org&addressCSS4=show&multiOrg=yes&relOrg=yes'
 
       break;
       default:
-      form.action = '/manage/organisations/company-name?addAddress=rel-org&addressCSS4=show&multiOrg=Yes&relOrg=Yes'
+      form.action = '/manage/organisations/company-name?addAddress=rel-org&addressCSS4=show&multiOrg=yes&relOrg=yes'
     }
     return true
   }
@@ -58,31 +58,11 @@
             value: "Acme Org Ltd",
             text: "Acme Org Ltd",
             checked:  checked('orgName','Sole trader')
-
           },
           {
             value: "Chemicals R US",
             text: "Chemicals R US",
             checked:  checked('orgName', 'Chemicals R US')
-
-          },
-          {
-            value: "Chems Ltd",
-            text: "Chems Ltd",
-            checked:  checked('orgName','Chems Ltd')
-
-          },
-          {
-            value: "Waste Services",
-            text: "Waste Services",
-            checked:  checked('orgName','Waste Services')
-
-          },
-          {
-            value: "Bleach Times",
-            text: "Bleach TimesK",
-            checked:  checked('orgName','Bleach Times')
-
           }
 
 

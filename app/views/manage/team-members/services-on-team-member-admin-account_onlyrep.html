@@ -55,113 +55,116 @@
         Your services
       </h2>
 
-    {% set serviceLineName %}
-      <span class="govuk-visually-hidden--desktop td-header">Service:</span> {{ data['serviceLine'] }}
-    {% endset %}
+      <table class="govuk-table {{ tableCSS }}">
+        <caption class="govuk-table__caption govuk-body govuk-!-font-weight-regular">This is a list of one or more accounts and the related services that you have access to.</caption>
+        <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th class="govuk-table__header column-full" scope="col">
+            Account
+          </th>
+          <th class="govuk-table__header column-full" scope="col">
+            Account role
+          </th>
+          <th class="govuk-table__header column-full" scope="col">
+            Service
+          </th>
+          <th class="govuk-table__header column-full" scope="col">
+            Service role
+          </th>
+          <th class="govuk-table__header govuk-table__header--column-sixth column-full" scope="col">
+            <span class="govuk-visually-hidden--desktop td-header">Action</span>
+          </th>
+        </tr>
+        </thead>
 
-    {% set serviceLinePendingName %}
-      <span class="govuk-visually-hidden--desktop td-header">Service:</span><span class="govuk-body govuk-body--grey"> {{ data['serviceLine'] }}</span>
-    {% endset %}
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">
+            <span class="govuk-visually-hidden--desktop td-header">Account:</span>
+            {{data['orgName']}}
+          </td>
+          <td class="govuk-table__cell">
+            <span class="govuk-visually-hidden--desktop td-header">Account role:</span> Admin
+          </td>
+          <td class="govuk-table__cell">
+            <span class="govuk-visually-hidden--desktop td-header">Service:</span> Comply with REACH IT
+          </td>
+          <td class="govuk-table__cell">
+            <span class="govuk-visually-hidden--desktop td-header">Service role:</span> REACH Manager
+          </td>
+          <td class="govuk-table__cell">
+            <span role="text"><span class="govuk-visually-hidden--desktop td-header">Action:</span><a href="/manage/dashboard-all?numUsers=5&numAgents=3&numServices=1&numLocations=2&orgName=Acme Org Ltd&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=yes&relOrg=yes&parentChild=parent" class="govuk-link--no-visited-state"> Manage account<span class="govuk-visually-hidden td-header"> for Acme Org Ltd</span></a></span>
+          </td>
+        </tr>
 
-    {% set serviceRoleName %}
-      <span class="govuk-visually-hidden--desktop td-header">Service role: </span>{{ data['serviceRole']}}
-    {% endset %}
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">
+            <span class="govuk-visually-hidden--desktop td-header">Account:</span>
+            &nbsp;&nbsp;&nbsp;Acme Org India
+          </td>
+          <td class="govuk-table__cell">
+            <span class="govuk-visually-hidden--desktop td-header">Account role:</span> Admin
+          </td>
+          <td class="govuk-table__cell">
+            <span class="govuk-visually-hidden--desktop td-header">Service:</span> Comply with REACH IT
+          </td>
+          <td class="govuk-table__cell">
+            <span class="govuk-visually-hidden--desktop td-header">Service role:</span> REACH Manager
+          </td>
+          <td class="govuk-table__cell">
+            <span role="text"><span class="govuk-visually-hidden--desktop td-header">Action:</span><a href="/manage/dashboard-all?numUsers=1&numAgents=3&numServices=1&numLocations=0&orgName=Acme Org Ltd&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=yes&relOrg=yes&parentChild=child" class="govuk-link--no-visited-state"> Manage account<span class="govuk-visually-hidden td-header"> for Acme Org Ltd</span></a></span>
+          </td>
+        </tr>
+  {% if data['addAccount'] == "related" %}
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">
+            <span class="govuk-visually-hidden--desktop td-header">Account:</span>
+            &nbsp;&nbsp;&nbsp;Acme Org Thailand
+          </td>
+          <td class="govuk-table__cell">
+            <span class="govuk-visually-hidden--desktop td-header">Account role:</span> Admin
+          </td>
+          <td class="govuk-table__cell">
+            <span class="govuk-visually-hidden--desktop td-header">Service:</span> Comply with REACH IT
+          </td>
+          <td class="govuk-table__cell">
+            <span class="govuk-visually-hidden--desktop td-header">Service role:</span> REACH Manager
+          </td>
+          <td class="govuk-table__cell">
+            <span role="text"><span class="govuk-visually-hidden--desktop td-header">Action:</span><a href="/manage/dashboard-all?numUsers=1&numAgents=0&numServices=0&numLocations=0&orgName=Acme Org Thailand&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=yes&relOrg=yes&parentChild=child" class="govuk-link--no-visited-state"> Manage account<span class="govuk-visually-hidden td-header"> for Acme Org Ltd</span></a></span>
+          </td>
+        </tr>
+  {% endif %}
 
-    {% set systemRoleName %}
-      <span class="govuk-visually-hidden--desktop td-header">Account role: </span>{{ data['systemRole']}}
-    {% endset %}
+  {% if data['addAccount'] == "account" %}
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">
+            <span class="govuk-visually-hidden--desktop td-header">Account:</span>
+            Chemicals R Us
+          </td>
+          <td class="govuk-table__cell">
+            <span class="govuk-visually-hidden--desktop td-header">Account role:</span> Admin
+          </td>
+          <td class="govuk-table__cell">
+            <span class="govuk-visually-hidden--desktop td-header">Service:</span> Comply with REACH IT
+          </td>
+          <td class="govuk-table__cell">
+            <span class="govuk-visually-hidden--desktop td-header">Service role:</span> REACH Manager
+          </td>
+          <td class="govuk-table__cell">
+            <span role="text"><span class="govuk-visually-hidden--desktop td-header">Action:</span><a href="/manage/dashboard-all?numUsers=1&numAgents=0&numServices=1&numLocations=0&orgName=Chemicals R Us&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=no&relOrg=no&parentChild=parent" class="govuk-link--no-visited-state"> Manage account<span class="govuk-visually-hidden td-header"> for Chemicals R Us</span></a></span>
+          </td>
+        </tr>
+    {% endif %}
 
+      </table>
 
-    {{ govukTable({
-      caption: "This is a list of one or more accounts and the related services that you have access to.",
-      captionClasses: "govuk-body govuk-!-font-weight-regular",
-      firstCellIsHeader: false,
-      head: [
-        {
-          html: 'Account',
-          format: 'column-full'
-
-        },
-        {
-          html: 'Account role',
-          format: 'column-full'
-        },
-        {
-          html: 'Service',
-          format: 'column-full'
-
-        },
-        {
-          html: 'Service role',
-          format: 'column-full'
-        },
-        {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Action</span>',
-          format: 'column-sixth column-full'
-        }
-      ],
-      rows: [
-
-      [
-        {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Account:</span> Acme Org Ltd'
-        },
-        {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Account role:</span> Admin'
-        },
-        {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> Comply with REACH IT'
-        },
-        {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Service role:</span> REACH Manager'
-        },
-        {
-          html: '<span role="text"><span class="govuk-visually-hidden--desktop td-header">Action:</span><a href="/manage/dashboard-all?numUsers=5&numAgents=3&numServices=1&numLocations=2&orgName=Acme Org Ltd&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=Yes&relOrg=Yes&parentChild=parent" class="govuk-link--no-visited-state"> Manage account<span class="govuk-visually-hidden td-header"> for Acme Org Ltd</span></a></span>'
-        }
-      ],
-      [
-        {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Account:</span> Acme Org India'
-        },
-        {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Account role:</span> Admin'
-        },
-        {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> Comply with REACH IT'
-        },
-        {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Service role:</span> REACH Manager'
-        },
-        {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span><a href="/manage/dashboard-child?numUsers=1&numServices=1&service=Chemicals&numLocations=0&orgName=Acme Org India&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=Yes&relOrg=No&parentChild=child" class="govuk-link--no-visited-state"> Manage account<span class="govuk-visually-hidden td-header"> for Acme Org India</span></a>'
-        }
-      ],
-      [
-        {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Account:</span> Acme Org Thailand'
-        },
-        {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Account role:</span> Admin'
-        },
-        {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> Comply with REACH IT'
-        },
-        {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Service role:</span> REACH Manager'
-        },
-        {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span><a href="/manage/dashboard-child?numUsers=1&numServices=1&service=Chemicals&numLocations=0&orgName=Acme Org Thailand&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=Yes&relOrg=No&parentChild=child" class="govuk-link--no-visited-state"> Manage account<span class="govuk-visually-hidden td-header"> for Acme Org Ltd</span></a>'
-        }
-      ]
-      ]
+    {{ govukButton({
+      text: "Add account",
+      href: "/new-user-reg/add-account-option?userType=existing-multi-org"
     }) }}
-
 
   </div>
 </div>
-
-
-
 
 <div class="govuk-card__content">
   <h2 class="govuk-heading-l">Link to your services</h2>

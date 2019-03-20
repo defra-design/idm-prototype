@@ -29,11 +29,11 @@
 
             switch(checkedValue){
               case 'Add a new account':
-              form.action = 'organisation-type'
+              form.action = 'organisation-type?addAccount=account'
 
               break;
               default:
-              form.action = 'add-account-choose-parent-org'
+              form.action = 'add-account-choose-parent-org?addAccount=related&addressCSS4=show'
             }
             return true
           }
@@ -50,7 +50,7 @@
               classes: "govuk-fieldset__legend--xl"
             }
           },
-          
+
           items: [
             {
               value: "Add a new account",
