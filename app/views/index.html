@@ -62,17 +62,9 @@
       <h2 class="govuk-heading-m">RC 1.1 Group management
       </h2>
       <ul class="govuk-list govuk-list--bullet">
-        <li><a href="/manage/dashboard-all?numUsers=1&numServices=1&numAgents=0&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=no" class="govuk-link--no-visited-state">Admin: New User Dashboard (Chemicals)</a></li>
-        <li><a href="/manage/dashboard-all?numUsers=5&numAgents=3&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=no&relOrg=no" class="govuk-link--no-visited-state">Admin: Full dashboard (Chemicals)</a></li>
-        <li><a href="/manage/dashboard-all?numUsers=5&numAgents=3&service=Imports&serviceLine=Notification Service&serviceRole=Standard&multiOrg=no&relOrg=yes" class="govuk-link--no-visited-state">Admin: Full dashboard (Imports)</a></li>
-        <!--
-        <li><a href="/manage/dashboard-all?numUsers=5&numAgents=3&service=VMD&serviceLine=Adverse Event Reporting&serviceRole=Standard" class="govuk-link--no-visited-state">Admin: Full dashboard (VMD)</a></li>
-        <li><a href="/manage/dashboard-all?numUsers=5&numAgents=3&service=Exports&serviceLine=UK S01&serviceRole=Standard" class="govuk-link--no-visited-state">Admin: Full dashboard (Exports)</a></li>
-      -->
-
-        <!--
-        <li><a href="/manage/dashboard-all-agent?numUsers=5&numAgents=3&numServices=3&numLocations=1&service=Chemicals&serviceLine=Comply with REACH IT&orgName=My Company" class="govuk-link--no-visited-state">Admin: Agent Dashboard</a></li>
-      -->
+        <li><a href="/manage/dashboard-all?numUsers=1&numServices=1&numAgents=0&numLocations=0&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=no" class="govuk-link--no-visited-state">Admin: New User Dashboard (Chemicals)</a></li>
+        <li><a href="/manage/dashboard-all?numUsers=5&numAgents=3&numLocations=0&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=no" class="govuk-link--no-visited-state">Admin: Full dashboard (Chemicals)</a></li>
+        <li><a href="/manage/dashboard-all?numUsers=5&numAgents=3&numLocations=0&service=Imports&serviceLine=Notification Service&serviceRole=Standard&multiOrg=no" class="govuk-link--no-visited-state">Admin: Full dashboard (Imports)</a></li>
       </ul>
 
       <h3 class="govuk-heading-s">Add User
@@ -193,8 +185,8 @@
     <h3 class="govuk-heading-s">n+1 user unblocking</h3>
     <ul class="govuk-list govuk-list--bullet">
       <li><a href="new-user-reg/limited-company/duplicate/company-lookup" class="govuk-link--no-visited-state">Start of flow for duplicate company</a></li>
-      <li><a class="govuk-link--no-visited-state" href="/manage/team-members/services-on-team-member-standard-verify?verifiedUser=No&numUsers=5&numAgents=3&multiOrg=no&relOrg=no&name=Tiegan Mole&numServices=3">Unverified Team Member profile - admin has mutiple service available</a></li>
-      <li><a class="govuk-link--no-visited-state" href="/manage/team-members/services-on-team-member-standard-verify?verifiedUser=No&numUsers=5&numAgents=3&multiOrg=no&relOrg=no&name=Tiegan Mole&numServices=0">Unverified Team Member profile - admin has no services available</a></li>
+      <li><a class="govuk-link--no-visited-state" href="/manage/team-members/services-on-team-member-standard-verify?verifiedUser=No&numUsers=5&numAgents=3&multiOrg=no&name=Tiegan Mole&numServices=3">Unverified Team Member profile - admin has mutiple service available</a></li>
+      <li><a class="govuk-link--no-visited-state" href="/manage/team-members/services-on-team-member-standard-verify?verifiedUser=No&numUsers=5&numAgents=3&multiOrg=no&name=Tiegan Mole&numServices=0">Unverified Team Member profile - admin has no services available</a></li>
       <li><a class="govuk-link--no-visited-state" href="/errors/user-declined-already-error">Declined Team Member error</a></li>
       <li><a href="service-start-logged-out?userType=existing-multi-org&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager" class="govuk-link--no-visited-state">Existing user, registering for new service with multi-orgs</a></li>
     </ul>
@@ -212,8 +204,8 @@
     <h3 class="govuk-heading-s">Multi-org</h3>
     <ul class="govuk-list govuk-list--bullet">
       <li><a href="new-user-reg/limited-company-new/task-list-page-account?service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&userType=new&regSuccess=success&userType=new&flowType=task&scpEmail=yourname@email.com" class="govuk-link--no-visited-state">Limited Company task-list for parent-child </a></li>
-      <li><a href="/manage/dashboard-all?numUsers=5&numAgents=3&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=yes&relOrg=yes" class="govuk-link--no-visited-state">Admin: Full dashboard (Chemicals)</a></li>
-      <li><a href="/manage/organisations/organisation-details?numUsers=5&numAgents=3&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=yes&relOrg=yes" class="govuk-link--no-visited-state">Admin: Manage organisation details</a></li>
+      <li><a href="/manage/dashboard-all?numUsers=5&numAgents=3&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=yes" class="govuk-link--no-visited-state">Admin: Full dashboard (Chemicals)</a></li>
+      <li><a href="/manage/organisations/organisation-details?numUsers=5&numAgents=3&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=yes" class="govuk-link--no-visited-state">Admin: Manage organisation details</a></li>
     </ul>
 
     <h3 class="govuk-heading-s">Term, Privacy, Cookies updates</h3>
@@ -236,9 +228,9 @@
     <ul class="govuk-list govuk-list--bullet">
       <li><a href="service-start-logged-out-imports?service=Imports&serviceLine=Notification Service&serviceRole=Admin&userType=new&regSuccess=success&numUsers=1&numAgents=0&numServices=1" class="govuk-link--no-visited-state">New user registration - Imports (no service q's + success)</a></li>
       <li><a href="/Notifications" class="govuk-link--no-visited-state">Imports - Notification Service </a></li>
-      <li><a href="manage/team-members/invite-user/E3-admin-notify?userType=invite&service=Imports&serviceLine=Notification Service&serviceRole=Admin&numUsers=5&numAgents=3&numServices=3&multiOrg=yes&relOrg=yes" class="govuk-link--no-visited-state">E3: Admin - notify admin email</a></li>
-      <li><a href="manage/team-members/services-on-team-member-admin-account_company?service=Imports&serviceLine=Notification Service&serviceRole=Admin&numUsers=1&numAgents=0&numServices=1&multiOrg=no&relOrg=no" class="govuk-link--no-visited-state">Me profile page (1 user, 1 org, 1 service)</a></li>
-      <li><a href="manage/team-members/services-on-team-member-admin-account_company?service=Imports&serviceLine=Notification Service&serviceRole=Admin&numUsers=5&numAgents=3&numServices=3&multiOrg=yes&relOrg=yes" class="govuk-link--no-visited-state">Me profile page (5 user, multi org, and service)</a></li>
+      <li><a href="manage/team-members/invite-user/E3-admin-notify?userType=invite&service=Imports&serviceLine=Notification Service&serviceRole=Admin&numUsers=5&numAgents=3&numServices=3&multiOrg=yes" class="govuk-link--no-visited-state">E3: Admin - notify admin email</a></li>
+      <li><a href="manage/team-members/services-on-team-member-admin-account_company?service=Imports&serviceLine=Notification Service&serviceRole=Admin&numUsers=1&numAgents=0&numServices=1&multiOrg=no" class="govuk-link--no-visited-state">Me profile page (1 user, 1 org, 1 service)</a></li>
+      <li><a href="manage/team-members/services-on-team-member-admin-account_company?service=Imports&serviceLine=Notification Service&serviceRole=Admin&numUsers=5&numAgents=3&numServices=3&multiOrg=yes" class="govuk-link--no-visited-state">Me profile page (5 user, multi org, and service)</a></li>
     </ul>
 
     <h3 class="govuk-heading-s">Chemicals User Testing
@@ -246,9 +238,9 @@
     <ul class="govuk-list govuk-list--bullet">
       <li><a href="service-start-logged-out?service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&userType=new&regSuccess=pending&numUsers=1&numAgents=0&numServices=1" class="govuk-link--no-visited-state">New user registration - Chemicals (no service q's + success) </a></li>
       <li><a href="/Comply-with-REACH-IT" class="govuk-link--no-visited-state">Chemicals - Comply with REACH IT </a></li>
-      <li><a href="manage/team-members/invite-user/E3-admin-notify?userType=invite&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=Admin&numUsers=5&numAgents=3&numServices=3&multiOrg=yes&relOrg=yes" class="govuk-link--no-visited-state">E3: Admin - notify admin email</a></li>
-      <li><a href="manage/team-members/services-on-team-member-admin-account_company?service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=Admin&numUsers=1&numAgents=0&numServices=1&multiOrg=no&relOrg=no" class="govuk-link--no-visited-state">Me profile page (1 user, 1 org, 1 service)</a></li>
-      <li><a href="manage/team-members/services-on-team-member-admin-account_company?service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=Admin&numUsers=5&numAgents=3&numServices=3&multiOrg=yes&relOrg=yes" class="govuk-link--no-visited-state">Me profile page (5 user, multi org, and service, Only Rep)</a></li>
+      <li><a href="manage/team-members/invite-user/E3-admin-notify?userType=invite&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=Admin&numUsers=5&numAgents=3&numServices=3&multiOrg=yes" class="govuk-link--no-visited-state">E3: Admin - notify admin email</a></li>
+      <li><a href="manage/team-members/services-on-team-member-admin-account_company?service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=Admin&numUsers=1&numAgents=0&numServices=1&multiOrg=no" class="govuk-link--no-visited-state">Me profile page (1 user, 1 org, 1 service)</a></li>
+      <li><a href="manage/team-members/services-on-team-member-admin-account_company?service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=Admin&numUsers=5&numAgents=3&numServices=3&multiOrg=yes" class="govuk-link--no-visited-state">Me profile page (5 user, multi org, and service, Only Rep)</a></li>
 
     </ul>
   </div>
@@ -288,10 +280,10 @@
         <ul class="govuk-list govuk-body-s">
           <li><a href="service-start-logged-out?service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&userType=new&regSuccess=success" class="govuk-link--no-visited-state">New user registration (Chemicals - no service q's + success) </a></li>
           <li><a class="govuk-link--no-visited-state" href="/manage/team-members/services-on-team-member-admin-account_company?numServices=3&serviceName=Comply with REACH IT&serviceRole=REACH%20Manager">Me page (Company account user: 1 org, multiple services)</a></li>
-          <li><a href="/manage/dashboard-all?numUsers=5&numAgents=3&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=no&relOrg=no&parentChild=parent" class="govuk-link--no-visited-state">Account dashboard (single org)</a></li>
+          <li><a href="/manage/dashboard-all?numUsers=5&numAgents=3&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=no&parentChild=parent" class="govuk-link--no-visited-state">Account dashboard (single org)</a></li>
           <li><a class="govuk-link--no-visited-state" href="/manage/team-members/services-on-team-member-admin-account_onlyrep?numServices=3&numLocations=2&serviceName=Comply with REACH IT&serviceRole=REACH%20Manager&multiOrg=yes&orgType=onlyRep">Me page - Only Rep (multi orgs, 1 service)</a></li>
-          <li><a href="/manage/dashboard-all?numUsers=5&numAgents=3&numServices=3&numLocations=2&orgName=Acme Org Ltd&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=yes&relOrg=yes&parentChild=parent" class="govuk-link--no-visited-state">Account dashboard - for Parent (multi-org)</a></li>
-          <li><a href="/manage/dashboard-child?numUsers=1&numServices=0&service=Chemicals&numLocations=0&orgName=Acme Org India&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=no&relOrg=no&parentChild=child" class="govuk-link--no-visited-state">Account dashboard - for Child (multi-org)</a></li>
+          <li><a href="/manage/dashboard-all?numUsers=5&numAgents=3&numServices=3&numLocations=2&orgName=Acme Org Ltd&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=yes&parentChild=parent" class="govuk-link--no-visited-state">Account dashboard - for Parent (multi-org)</a></li>
+          <li><a href="/manage/dashboard-child?numUsers=1&numServices=0&service=Chemicals&numLocations=0&orgName=Acme Org India&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=no&parentChild=child" class="govuk-link--no-visited-state">Account dashboard - for Child (multi-org)</a></li>
         </ul>
       </nav>
     </aside>

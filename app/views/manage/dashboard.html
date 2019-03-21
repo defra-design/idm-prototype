@@ -51,12 +51,12 @@
         </summary>
         <div class="govuk-details__text">
           <ul class="govuk-list ">
-            <li><a href="/manage/dashboard-all?numUsers=5&numAgents=3&numServices=3&orgName=Acme Org Ltd&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=yes&relOrg=yes&parentChild=parent" class="govuk-link--no-visited-state">{{data['orgName']}}</a></li>
+            <li><a href="/manage/dashboard-all?numUsers=5&numAgents=3&numServices=3&orgName=Acme Org Ltd&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=yes&parentChild=parent" class="govuk-link--no-visited-state">{{data['orgName']}}</a></li>
               <ul class="govuk-list govuk-list--indent">
-                <li><a href="/manage/dashboard-child?numUsers=1&numServices=1&numLocations=0&service=Chemicals&orgName=Acme Org India&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=yes&relOrg=no&parentChild=child" class="govuk-link--no-visited-state">Acme Org India</a></li>
+                <li><a href="/manage/dashboard-child?numUsers=1&numServices=1&numLocations=0&service=Chemicals&orgName=Acme Org India&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=yes&parentChild=child" class="govuk-link--no-visited-state">Acme Org India</a></li>
 
             {% if data['addAccount'] == related %}
-                <li><a href="/manage/dashboard-child?numUsers=1&numServices=0&numLocations=0&service=Chemicals&orgName=Acme Org Thailand&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=yes&relOrg=no&parentChild=child" class="govuk-link--no-visited-state">Acme Org Thailand</a></li>
+                <li><a href="/manage/dashboard-child?numUsers=1&numServices=0&numLocations=0&service=Chemicals&orgName=Acme Org Thailand&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=yes&parentChild=child" class="govuk-link--no-visited-state">Acme Org Thailand</a></li>
             {% endif %}
               </ul>
           </ul>

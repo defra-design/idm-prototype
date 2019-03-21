@@ -92,10 +92,10 @@
             <span class="govuk-visually-hidden--desktop td-header">Service role:</span> REACH Manager
           </td>
           <td class="govuk-table__cell">
-            <span role="text"><span class="govuk-visually-hidden--desktop td-header">Action:</span><a href="/manage/dashboard-all?numUsers=5&numAgents=3&numServices=1&numLocations=2&orgName=Acme Org Ltd&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=yes&relOrg=yes&parentChild=parent" class="govuk-link--no-visited-state"> Manage account<span class="govuk-visually-hidden td-header"> for Acme Org Ltd</span></a></span>
+            <span role="text"><span class="govuk-visually-hidden--desktop td-header">Action:</span><a href="/manage/dashboard-all?numUsers=5&numAgents=3&numServices=1&numLocations=2&orgName=Acme Org Ltd&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=yes&parentChild=parent" class="govuk-link--no-visited-state"> Manage account<span class="govuk-visually-hidden td-header"> for Acme Org Ltd</span></a></span>
           </td>
         </tr>
-
+      {% if (data['numLocations'] == "2") or (data['numLocations'] == "3") %}
         <tr class="govuk-table__row">
           <td class="govuk-table__cell">
             <span class="govuk-visually-hidden--desktop td-header">Account:</span>
@@ -111,10 +111,13 @@
             <span class="govuk-visually-hidden--desktop td-header">Service role:</span> REACH Manager
           </td>
           <td class="govuk-table__cell">
-            <span role="text"><span class="govuk-visually-hidden--desktop td-header">Action:</span><a href="/manage/dashboard-all?numUsers=1&numAgents=3&numServices=1&numLocations=0&orgName=Acme Org India&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=yes&relOrg=yes&parentChild=child" class="govuk-link--no-visited-state"> Manage account<span class="govuk-visually-hidden td-header"> for Acme Org India</span></a></span>
+            <span role="text"><span class="govuk-visually-hidden--desktop td-header">Action:</span><a href="/manage/dashboard-all?numUsers=1&numAgents=3&numServices=1&numLocations=0&orgName=Acme Org India&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=yes&parentChild=child" class="govuk-link--no-visited-state"> Manage account<span class="govuk-visually-hidden td-header"> for Acme Org India</span></a></span>
           </td>
         </tr>
-  {% if data['addAccount'] == "related" %}
+      {% endif %}
+
+      {% if (data['numLocations'] == "3") %}
+
         <tr class="govuk-table__row">
           <td class="govuk-table__cell">
             <span class="govuk-visually-hidden--desktop td-header">Account:</span>
@@ -130,7 +133,7 @@
             <span class="govuk-visually-hidden--desktop td-header">Service role:</span> REACH Manager
           </td>
           <td class="govuk-table__cell">
-            <span role="text"><span class="govuk-visually-hidden--desktop td-header">Action:</span><a href="/manage/dashboard-all?numUsers=1&numAgents=0&numServices=0&numLocations=0&orgName=Acme Org Thailand&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=yes&relOrg=yes&parentChild=child" class="govuk-link--no-visited-state"> Manage account<span class="govuk-visually-hidden td-header"> for Acme Org Thailand</span></a></span>
+            <span role="text"><span class="govuk-visually-hidden--desktop td-header">Action:</span><a href="/manage/dashboard-all?numUsers=1&numAgents=0&numServices=0&numLocations=0&orgName=Acme Org Thailand&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=yes&parentChild=child" class="govuk-link--no-visited-state"> Manage account<span class="govuk-visually-hidden td-header"> for Acme Org Thailand</span></a></span>
           </td>
         </tr>
   {% endif %}
@@ -151,7 +154,7 @@
             <span class="govuk-visually-hidden--desktop td-header">Service role:</span> REACH Manager
           </td>
           <td class="govuk-table__cell">
-            <span role="text"><span class="govuk-visually-hidden--desktop td-header">Action:</span><a href="/manage/dashboard-all?numUsers=1&numAgents=0&numServices=1&numLocations=0&orgName=Chemicals R Us&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=no&relOrg=no&parentChild=parent" class="govuk-link--no-visited-state"> Manage account<span class="govuk-visually-hidden td-header"> for Chemicals R Us</span></a></span>
+            <span role="text"><span class="govuk-visually-hidden--desktop td-header">Action:</span><a href="/manage/dashboard-all?numUsers=1&numAgents=0&numServices=1&numLocations=0&orgName=Chemicals R Us&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=no&parentChild=parent" class="govuk-link--no-visited-state"> Manage account<span class="govuk-visually-hidden td-header"> for Chemicals R Us</span></a></span>
           </td>
         </tr>
     {% endif %}
