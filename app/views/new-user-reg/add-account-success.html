@@ -22,17 +22,38 @@
     })
     }}
 
-    <p class="govuk-body">We have sent a confirmation email to Ann.Cooper@email.com.</p>
+    <p class="govuk-body">The account has been added and will now be shown on Your Defra account page.</p>
 
     <h3 class="govuk-heading-m">What happens next</h3>
 
-    <p class="govuk-body">You can now view your account and enroll into one or more Defra services.</p>
+    <p class="govuk-body">The following services are available for you to register this account with. To register click the links below.</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>
+        <a class="govuk-link" href="/service-start-logged-out-VMD?userType=existing-new-service&service=VMD&serviceLine=VMD Secure Messaging">VMD Secure Messaging</a>
+      </li>
+      <li>
+        <a class="govuk-link" href="/service-start-logged-out-imports?userType=existing-new-service&service=Imports&serviceLine=Notification service">Notification service</a>
+      </li>
+      <li>
+        <a class="govuk-link" href="/service-start-logged-out?userType=existing-new-service&service=Chemicals&serviceLine=Comply with REACH IT">Comply with REACH IT</a>
+      </li>
+      <li>
+        <a class="govuk-link" href="#">An Other Service</a>
+      </li>
+    </ul>
 
-
+{% if data['addAccount'] == account %}
     {{ govukButton({
-        text: "Continue",
+        text: "Done",
         href: "/manage/team-members/services-on-team-member-admin-account_onlyrep"
     }) }}
+{% endif %}
+{% if data['addAccount'] == "related" %}
+    {{ govukButton({
+        text: "Done",
+        href: "/manage/organisations/organisation-details?orgName=Acme Org Ltd&parentChild=parent&addAccount=related&multiOrg=yes#rel-org"
+    }) }}
+{% endif %}
 
 
 
