@@ -1,0 +1,41 @@
+{% set setUserName %}
+  {{ data['orgName'] }}
+{% endset %}
+
+{% if (data['numUsers'] == "1") %}
+  {% set dashboardURL = "/manage/dashboard-all?numUsers=1&numAgents=0&numServices=1&orgName=Acme Org Ltd&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=yes&parentChild=parent" %}
+{% endif %}
+
+{% if (data['numUsers'] == "2") %}
+  {% set dashboardURL = "/manage/dashboard-all?numUsers=2&numAgents=0&numServices=1&orgName=Acme Org Ltd&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=yes&parentChild=parent" %}
+{% endif %}
+
+{% if (data['numUsers'] == "3") %}
+  {% set dashboardURL = "/manage/dashboard-all?numUsers=3&numAgents=0&numServices=1&orgName=Acme Org Ltd&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=yes&parentChild=parent" %}
+{% endif %}
+
+{% if (data['numUsers'] == "4") %}
+  {% set dashboardURL = "/manage/dashboard-all?numUsers=4&numAgents=0&numServices=1&orgName=Acme Org Ltd&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=yes&parentChild=parent" %}
+{% endif %}
+
+{% if (data['numUsers'] == "5") %}
+  {% set dashboardURL = "/manage/dashboard-all?numUsers=5&numAgents=0&numServices=3&orgName=Acme Org Ltd&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=yes&parentChild=parent" %}
+{% endif %}
+
+{% if (data['numUsers'] == "6") %}
+  {% set dashboardURL = "/manage/dashboard-all?numUsers=6&numAgents=0&numServices=1&orgName=Acme Org Ltd&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=yes&parentChild=parent" %}
+{% endif %}
+
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/">Home</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="{{ dashboardURL }}"> Acme Org Ltd</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      {{title}}
+    </li>
+  </ol>
+</div>

@@ -10,11 +10,17 @@
 {% endblock %}
 
 {% block beforeContent %}
+
   <div id="account">
     {% include "includes/account-nav-admin-corp.html" %}
   </div>
 
-  {% include "includes/breadcrumb-two-level.html" %}
+  {% if data['parentChild'] == "child" %}
+    {% include "includes/breadcrumb-three-level-child.html" %}
+  {% else %}
+    {% include "includes/breadcrumb-two-level.html" %}
+  {% endif %}
+
 
 {% endblock %}
 
@@ -38,7 +44,7 @@
       </h1>
     {% endif %}
 
-    {% if data['multiOrg'] == "yes" %}
+    {% if (data['multiOrg'] == "yes") %}
       <h1 class="govuk-heading-xl govuk-heading-xl--no-margin">
         {{ orgName }}
       </h1>
@@ -51,7 +57,7 @@
         </summary>
         <div class="govuk-details__text">
           <ul class="govuk-list ">
-            <li><a href="/manage/dashboard-all?numUsers=5&numAgents=3&numServices=3&orgName=Acme Org Ltd&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=yes&parentChild=parent" class="govuk-link--no-visited-state">Achme Org Ltd</a></li>
+            <li><a href="/manage/dashboard-all?numUsers=5&numAgents=0&numServices=3&orgName=Acme Org Ltd&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=yes&parentChild=parent" class="govuk-link--no-visited-state">Acme Org Ltd</a></li>
               <ul class="govuk-list govuk-list--indent">
                 <li><a href="/manage/dashboard-child?numUsers=1&numServices=0&numAgents=0&service=Chemicals&orgName=Acme Org India&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=yes&parentChild=child" class="govuk-link--no-visited-state">Acme Org India</a></li>
 
