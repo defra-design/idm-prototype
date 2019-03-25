@@ -31,7 +31,7 @@ router.get('/manage/dashboard-all', function (req, res) {
       "teamMemberURL": 'team-members/team-members',
       "addAgentURL": 'agent/invite-user/add-user-details',
       "agentURL": 'agent/agent',
-      "addLocationURL": '/manage/organisations/company-name?addAddress=rel-org&addressCSS4=show',
+      "addLocationURL": '/manage/organisations/company-name?addAddress=rel-org&addAccount=related',
       "locationURL": 'organisations/organisation-details',
       "locationAddressCSS": "",
       "showAgentCSS": "",
