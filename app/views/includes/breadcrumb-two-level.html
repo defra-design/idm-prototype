@@ -1,7 +1,16 @@
+{% set setOrgName %}
+  {{ data['orgName'] }}
+{% endset %}
+
+{% set setchildName %}
+  {{ data['childName'] }}
+{% endset %}
+
+
+{% if data['parentChild'] == "parent" %}
 <div class="govuk-breadcrumbs">
   <ol class="govuk-breadcrumbs__list">
     <li class="govuk-breadcrumbs__list-item">
-
   {% if (data['orgType'] == "onlyRep") %}
       <a class="govuk-breadcrumbs__link" href="/manage/team-members/services-on-team-member-admin-account_onlyrep">Home</a>
   {% else %}
@@ -13,3 +22,24 @@
     </li>
   </ol>
 </div>
+
+{% else %}
+
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+    <li class="govuk-breadcrumbs__list-item">
+      {% if (data['orgType'] == "onlyRep") %}
+          <a class="govuk-breadcrumbs__link" href="/manage/team-members/services-on-team-member-admin-account_onlyrep">Home</a>
+      {% else %}
+          <a class="govuk-breadcrumbs__link" href="/manage/team-members/services-on-team-member-admin-account_company">Home</a>
+      {% endif %}
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/manage/dashboard-all"> {{ setOrgName }}</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      {{ childName }}
+    </li>
+  </ol>
+</div>
+{% endif %}

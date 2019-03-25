@@ -30,6 +30,7 @@ router.get('/manage/dashboard-all', function (req, res) {
     res.render('manage/dashboard',{
       "teamMemberURL": 'team-members/team-members',
       "addAgentURL": 'agent/invite-user/add-user-details',
+      "addUserURL": 'manage/team-members/invite-user/add-user-details',
       "agentURL": 'agent/agent',
       "addLocationURL": '/manage/organisations/company-name?addAddress=rel-org&addAccount=related',
       "locationURL": 'organisations/organisation-details',
@@ -45,6 +46,7 @@ router.get('/manage/dashboard-child', function (req, res) {
     res.render('manage/dashboard',{
       "teamMemberURL": 'team-members/team-members',
       "addAgentURL": 'agent/chemicals/invite-user/add-user-details',
+      "addUserURL": 'manage/team-members/invite-user/add-user-details',
       "agentURL": 'agent/agent',
       "addLocationURL": '#',
       "locationURL": 'organisations/organisation-details',
@@ -63,6 +65,7 @@ router.get('/manage/dashboard-child', function (req, res) {
 router.get('/manage/dashboard-agent-self', function (req, res) {
     res.render('manage/dashboard',{
       "teamMemberURL": 'team-members/team-members',
+      "addUserURL": 'manage/team-members/invite-user/add-user-details',
       "addClientURL": '',
       "clientURL": '',
       "addLocationURL": '#',
@@ -80,6 +83,7 @@ router.get('/manage/dashboard-agent-client', function (req, res) {
     res.render('manage/dashboard',{
       "teamMemberURL": 'team-members/team-members',
       "addAgentURL": 'agent/chemicals/invite-user/add-user-details',
+      "addUserURL": 'manage/team-members/invite-user/add-user-details',
       "agentURL": 'agent/agent',
       "addLocationURL": '#',
       "locationURL": 'organisations/organisation-details',

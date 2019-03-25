@@ -1,54 +1,67 @@
 {% extends "layout.html" %}
 
-{% set title %}
-  {{ data['orgName']}}
-{% endset %}
-
+<!--Setting the title to vary according to parent or child-->
+{% if data['parentChild'] == "child" %}
+    {% set title %}
+      {{ data['childName']}}
+    {% endset %}
+{% else %}
+    {% set title %}
+      {{ data['orgName']}}
+    {% endset %}
+{% endif %}
 
 {% block pageTitle %}
     Account - {{title}} - GOV.UK
 {% endblock %}
 
-{% block beforeContent %}
+<!-- setting some variables -->
 
+{% set orgName = data['orgName'] %}
+{% set childName = data['childName'] %}
+
+<!-- setting nav and breadcrumb according to parent or child -->
+{% block beforeContent %}
   <div id="account">
     {% include "includes/account-nav-admin-corp.html" %}
   </div>
 
-  {% if data['parentChild'] == "child" %}
-    {% include "includes/breadcrumb-three-level-child.html" %}
-  {% else %}
-    {% include "includes/breadcrumb-two-level.html" %}
-  {% endif %}
-
+  {% include "includes/breadcrumb-two-level.html" %}
 
 {% endblock %}
 
 {% block content %}
 
-{% set orgName = data['orgName'] %}
+
+
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
 
-    {% if data['multiOrg'] == "yes" %}
-    {% else %}
-    <span class="govuk-caption-xl">
-      Account for
-    </span>
-    {% endif %}
+<!--setting the header configuration according to parent or child -->
 
     {% if data['multiOrg'] == "no" %}
+      <span class="govuk-caption-xl">
+        Account for
+      </span>
       <h1 class="govuk-heading-xl">
         {{ orgName }}
       </h1>
     {% endif %}
 
-    {% if (data['multiOrg'] == "yes") %}
+    {% if (data['multiOrg'] == "yes") and (data['parentChild'] == "child") %}
+      <h1 class="govuk-heading-xl govuk-heading-xl--no-margin">
+        {{ childName }}
+      </h1>
+      {% endif %}
+      {% if (data['multiOrg'] == "yes") and (data['parentChild'] == "parent") %}
       <h1 class="govuk-heading-xl govuk-heading-xl--no-margin">
         {{ orgName }}
       </h1>
+    {% endif %}
 
+<!-- Multi-org navigation -->
+    {% if (data['multiOrg'] == "yes") and (data['numLocations'] >="2") %}
       <details class="govuk-details">
         <summary class="govuk-details__summary">
           <span class="govuk-details__summary-text">
@@ -59,10 +72,10 @@
           <ul class="govuk-list ">
             <li><a href="/manage/dashboard-all?numUsers=5&numAgents=0&numServices=3&orgName=Acme Org Ltd&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=yes&parentChild=parent" class="govuk-link--no-visited-state">Acme Org Ltd</a></li>
               <ul class="govuk-list govuk-list--indent">
-                <li><a href="/manage/dashboard-child?numUsers=1&numServices=0&numAgents=0&service=Chemicals&orgName=Acme Org India&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=yes&parentChild=child" class="govuk-link--no-visited-state">Acme Org India</a></li>
+                <li><a href="/manage/dashboard-child?numUsers=1&numServices=0&numAgents=0&service=Chemicals&childName=Acme Org India&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=yes&parentChild=child" class="govuk-link--no-visited-state">Acme Org India</a></li>
 
             {% if (data['numLocations'] == "3") %}
-                <li><a href="/manage/dashboard-child?numUsers=1&numServices=1&numAgents=0&service=Chemicals&orgName=Acme Org Thailand&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=yes&parentChild=child" class="govuk-link--no-visited-state">Acme Org Thailand</a></li>
+                <li><a href="/manage/dashboard-child?numUsers=1&numServices=1&numAgents=0&service=Chemicals&childName=Acme Org Thailand&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=yes&parentChild=child" class="govuk-link--no-visited-state">Acme Org Thailand</a></li>
             {% endif %}
               </ul>
           </ul>
@@ -72,7 +85,6 @@
   </div>
 </div>
 
- {% set addUserURL = "/manage/team-members/invite-user/add-user-details" %}
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-one-third">
@@ -142,13 +154,13 @@
         <div class="govuk-card__content">
           <h3 class="govuk-heading-m"><a href="{{ locationURL }}" class="govuk-link--no-visited-state">Manage your organisation</a></h3>
 
-      {% if (data['parentChild'] == "child") %}
+      {% if (data['parentChild'] == "child") or (data['numLocations'] == "0") %}
       {% else %}
           <p class="govuk-!-font-weight-bold govuk-!-font-size-48 govuk-!-font-weight-bold">{{ data['numLocations'] }}</p>
       {% endif %}
         </div>
 
-        {% if (data['parentChild'] == "child") %}
+        {% if (data['parentChild'] == "child") or (data['numLocations'] == "0") %}
         {% else %}
         <div class="govuk-card__actions">
           <ul class="govuk-list govuk-!-mb-r0">
