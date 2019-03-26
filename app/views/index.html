@@ -70,16 +70,7 @@
       <h3 class="govuk-heading-s">Add User
       </h3>
       <ul class="govuk-list govuk-list--bullet">
-        <li><a href="manage/team-members/invite-user/add-user-details?numUsers=5&numServices=3&numAgents=0&numLocations=1&service=Chemicals&subscribeService=No&multiOrg=no" class="govuk-link--no-visited-state">Invite user</a></li>
-
-        <li><a href="manage/team-members/team-members?numUsers=5&numServices=1&numAgents=0&numLocations=1&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&subscribeService=No&multiOrg=no" class="govuk-link--no-visited-state">Give access - Chemicals only</a></li>
-        <li><a href="manage/team-members/team-members?numUsers=5&numServices=1&numAgents=0&numLocations=3&service=Imports&serviceLine=IPAFFS&serviceRole=Standard&subscribeService=No&multiOrg=no" class="govuk-link--no-visited-state">Give access - Imports only</a></li>
-        <li><a href="manage/team-members/team-members?numUsers=5&numServices=1&numAgents=0&numLocations=3&service=VMD&serviceLine=VMD Secure Messaging&serviceRole=Standard&subscribeService=No&multiOrg=no" class="govuk-link--no-visited-state">Give access - VMD only</a></li>
-        <li><a href="manage/team-members/team-members?numUsers=5&numServices=1&numAgents=0&numLocations=3&service=Exports&serviceLine=Apply for Export Catch Certificate&serviceRole=Standard&subscribeService=No&multiOrg=no" class="govuk-link--no-visited-state">Give access - Exports only</a></li>
-        <li><a href="manage/team-members/team-members?numUsers=5&numServices=3&numAgents=3&numLocations=3&subscribeService=No&multiOrg=no" class="govuk-link--no-visited-state">Give access - multiple services</a></li>
-
-
-
+        <li><a href="manage/team-members/team-members?numUsers=5&numServices=3&numAgents=3&numLocations=3&subscribeService=No&multiOrg=no" class="govuk-link--no-visited-state">Give access - multiple services (use Sara Chippers)</a></li>
       </ul>
 
       <ul class="govuk-list govuk-list--bullet">
@@ -116,16 +107,7 @@
     <h3 class="govuk-heading-s">Add Intermediary/ agent
     </h3>
     <ul class="govuk-list govuk-list--bullet">
-      <li><a href="manage/agent/invite-user/add-user-details?numUsers=5&numServices=3&numAgents=3&numLocations=1&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&subscribeService=No" class="govuk-link--no-visited-state">Invite user</a></li>
-      <li><a href="manage/agent/agent?numUsers=5&numServices=1&numAgents=3&numLocations=1&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&subscribeService=No" class="govuk-link--no-visited-state">Give access - Chemicals only</a></li>
-      <li><a href="manage/agent/agent?numUsers=5&numServices=1&numAgents=3&numLocations=3&service=Imports&serviceLine=Notification Service&serviceRole=Standard&subscribeService=No" class="govuk-link--no-visited-state">Give access - Imports only</a></li>
-      <li><a href="manage/agent/agent?numUsers=5&numServices=1&numAgents=3&numLocations=3&service=VMD&serviceLine=Adverse Event Reporting&serviceRole=Standard&subscribeService=No" class="govuk-link--no-visited-state">Give access - VMD only</a></li>
-      <li><a href="manage/agent/agent?numUsers=5&numServices=1&numAgents=3&numLocations=3&service=Exports&serviceLine=UK SO1&serviceRole=Standard&subscribeService=No" class="govuk-link--no-visited-state">Give access - Export onlys</a></li>
-
       <li><a href="manage/agent/agent?numUsers=5&numServices=3&numAgents=3&numLocations=3&subscribeService=No" class="govuk-link--no-visited-state">Give access - multiple services</a></li>
-
-
-
     </ul>
 
     <h2 class="govuk-heading-m">RC 1.6
@@ -142,8 +124,8 @@
     <ul class="govuk-list govuk-list--bullet">
       <li><a href="/errors/500-error" class="govuk-link--no-visited-state">500 error</a></li>
       <li><a href="/errors/503-error" class="govuk-link--no-visited-state">503 error</a></li>
-      <li><a href="/errors/duplicate-org-error" class="govuk-link--no-visited-state">Duplicate organisation error</a></li>
       <li><a href="/errors/duplicate-email-error" class="govuk-link--no-visited-state">Duplicate email address error</a></li>
+
     </ul>
 
     <h3 class="govuk-heading-s">Me page</h3>
@@ -155,18 +137,28 @@
       <li><a class="govuk-link--no-visited-state" href="/manage/agent/services-on-team-member-admin-account_agent?numServices=3&serviceName=Comply with REACH IT&serviceRole=REACH%20Manager&multiOrg=yes">Agent: multiple orgs, 1 service</a></li>
     </ul>
 
-    <h2 class="govuk-heading-m">Sprint 21
+    <h2 class="govuk-heading-m">RC 4.0.1
     </h2>
 
-      <h3 class="govuk-heading-s">Register another service</h3>
+      <h3 class="govuk-heading-s">Signed out</h3>
       <ul class="govuk-list govuk-list--bullet">
-        <li><a href="/manage/dashboard-all?numUsers=1&numServices=1&numAgents=0&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=no" class="govuk-link--no-visited-state">Register a new service from the Account dashboard</a></li>
+        <li><a href="/signed-in-no-defra-account" class="govuk-link--no-visited-state">Signed in - no Defra account</a></li>
+        <li><a href="/signed-out" class="govuk-link--no-visited-state">Signed out</a></li>
       </ul>
 
       <h3 class="govuk-heading-s">Errors</h3>
       <ul class="govuk-list govuk-list--bullet">
         <li><a href="/errors/invite-user-existing-in-org-error" class="govuk-link--no-visited-state">Invited user uses creds of user of same account/ org</a></li>
         <li><a href="/errors/duplicate-user-error" class="govuk-link--no-visited-state">Invited user - already added</a></li>
+        <li><a href="/errors/duplicate-org-error" class="govuk-link--no-visited-state">Duplicate organisation error</a></li>
+      </ul>
+
+      <h2 class="govuk-heading-m">RC 4.1
+      </h2>
+
+        <h3 class="govuk-heading-s">Register another service</h3>
+        <ul class="govuk-list govuk-list--bullet">
+          <li><a href="/manage/dashboard-all?numUsers=1&numServices=1&numAgents=0&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=no" class="govuk-link--no-visited-state">Register a new service from the Account dashboard</a></li>
         </ul>
 
 
@@ -174,6 +166,14 @@
     <hr class="govuk-section-break--l">
 
     <h2 class="govuk-heading-m">In progress</h2>
+
+    <h3 class="govuk-heading-s">Multi-org</h3>
+    <ul class="govuk-list govuk-list--bullet">
+      <li><a class="govuk-link--no-visited-state" href="/manage/team-members/services-on-team-member-admin-account_onlyrep?numServices=3&numLocations=3&serviceName=Comply with REACH IT&serviceRole=REACH%20Manager&multiOrg=yes&orgType=onlyRep&childService=yes&accountService=no">Me page - Only Rep (multi orgs, 1 service)</a></li>
+      <li><a href="/manage/dashboard-all?numUsers=5&numAgents=3&numServices=3&numLocations=2&orgName=Acme Org Ltd&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=yes&parentChild=parent" class="govuk-link--no-visited-state">Account dashboard - for Parent (multi-org)</a></li>
+      <li><a href="/manage/organisations/organisation-details?numUsers=5&numAgents=3&numServices=3&numLocations=1&orgName=Acme Org Ltd&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=yes&parentChild=parent#rel-org" class="govuk-link--no-visited-state">Add related org</a></li>
+      <li><a class="govuk-link--no-visited-state" href="/manage/team-members/services-on-team-member-admin-account_onlyrep?numServices=3&numLocations=1&serviceName=Comply with REACH IT&serviceRole=REACH%20Manager&multiOrg=yes&orgType=onlyRep&childService=yes&accountService=no">Add new account</a></li>
+    </ul>
 
     <h3 class="govuk-heading-s">Remove user</h3>
     <ul class="govuk-list govuk-list--bullet">
@@ -197,14 +197,6 @@
       <li><a href="emails/E12-n+1-no-service-role-email" class="govuk-link--no-visited-state">E12 - n+1 accepted but no service role email</a></li>
       <li><a href="emails/E13-n+1-enrollment-email" class="govuk-link--no-visited-state">E13 - n+1 accepted and service role give</a></li>
       </ul>
-
-
-    <h3 class="govuk-heading-s">Multi-org</h3>
-    <ul class="govuk-list govuk-list--bullet">
-      <li><a href="new-user-reg/limited-company-new/task-list-page-account?service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&userType=new&regSuccess=success&userType=new&flowType=task&scpEmail=yourname@email.com" class="govuk-link--no-visited-state">Limited Company task-list for parent-child </a></li>
-      <li><a href="/manage/dashboard-all?numUsers=5&numAgents=3&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=yes" class="govuk-link--no-visited-state">Admin: Full dashboard (Chemicals)</a></li>
-      <li><a href="/manage/organisations/organisation-details?numUsers=5&numAgents=3&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=yes" class="govuk-link--no-visited-state">Admin: Manage organisation details</a></li>
-    </ul>
 
     <h3 class="govuk-heading-s">Term, Privacy, Cookies updates</h3>
     <ul class="govuk-list govuk-list--bullet">
