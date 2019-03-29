@@ -28,6 +28,11 @@
       {% set newUserCSS = " govuk-visually-hidden" %}
     {% endif %}
 
+    {% if (data['numUsers'] == "5") or (data['numChildUsers'] == "5") %}
+      {% set otherUserCSS = "" %}
+      {% set newUserCSS = "" %}
+    {% endif %}
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
 
