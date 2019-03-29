@@ -14,16 +14,19 @@
 {% block content %}
 
 {% set orgName = data['orgName'] %}
+{% set childName = data['childName'] %}
 
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-full">
-    <h1 class="govuk-heading-xl">
-      {{ orgName }}
-    </h1>
-  </div>
-</div>
+<!-- Parent details with tabs -->
 
 {% if data['parentChild'] == "parent" %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <h1 class="govuk-heading-xl">
+        {{ title }}
+      </h1>
+    </div>
+  </div>
 
 
   {% from "tabs/macro.njk" import govukTabs %}
@@ -83,19 +86,13 @@
       <div class="govuk-grid-column-one-half">
         <div class="govuk-card govuk-card--contained">
           <div class="govuk-card__content">
-            <h3 class="govuk-heading-m"><a href="/manage/dashboard-child?numUsers=1&numServices=0&numLocations=0&service=Chemicals&childName=Acme Org India&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=yes&parentChild=child" class="govuk-link--no-visited-state" class="govuk-link--no-visited-state">Acme Org India</a></h3>
+            <h3 class="govuk-heading-m">Acme Org India</h3>
             <p class="govuk-body"><span class="govuk-!-font-weight-bold">Address:</span> No.1 Forbury Place 43 Forbury Road, Reading, United Kingdom, RG1 3JH
             </p>
-
             <p class="govuk-body"><span class="govuk-!-font-weight-bold">Telephone:</span> 0171 444555666<br>
               <span class="govuk-!-font-weight-bold">Email:</span> simone@org.com<br>
             </p>
 
-          </div>
-          <div class="govuk-card__actions">
-            <ul class="govuk-list govuk-!-mb-r0">
-              <li><a href="/manage/team-members/services-on-team-member-update-details" class="govuk-link govuk-link--no-visited-state">Update details</a></li>
-            </ul>
           </div>
         </div>
       </div>
@@ -106,7 +103,7 @@
       <div class="govuk-grid-column-one-half">
         <div class="govuk-card govuk-card--contained">
           <div class="govuk-card__content">
-            <h3 class="govuk-heading-m"><a href="/manage/dashboard-child?numUsers=1&numServices=0&numLocations=0&service=Chemicals&childName=Acme Org Thailand&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=yes&parentChild=child" class="govuk-link--no-visited-state">Acme Org Thailand</a></h3>
+            <h3 class="govuk-heading-m">Acme Org Thailand</h3>
             <p class="govuk-body"><span class="govuk-!-font-weight-bold">Address:</span> No.1 Forbury Place 43 Forbury Road, Reading, United Kingdom, RG1 3JH
             </p>
 
@@ -114,11 +111,6 @@
               <span class="govuk-!-font-weight-bold">Email:</span> simone@org.com<br>
             </p>
 
-          </div>
-          <div class="govuk-card__actions">
-            <ul class="govuk-list govuk-!-mb-r0">
-              <li><a href="/manage/team-members/services-on-team-member-update-details" class="govuk-link govuk-link--no-visited-state">Update details</a></li>
-            </ul>
           </div>
         </div>
       </div>
@@ -146,14 +138,27 @@
       }
     ]
   }) }}
+{% endif %}
 
-{% else %}
+<!-- Child showing own adress and parent address -->
+
+{% if data['parentChild'] == "child" %}
+
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
+      <h1 class="govuk-heading-xl">
+        {{ title }}
+      </h1>
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-one-half {{ addressCSS1 }}">
       <div class="govuk-card govuk-card--contained">
         <div class="govuk-card__content">
           <h3 class="govuk-heading-m">Business address</h3>
-          <p class="govuk-body"><span class="govuk-!-font-weight-bold">Address:</span> {{ orgName }}, No.1 Forbury Place 43 Forbury Road, Reading, United Kingdom, RG1 3JH<br>
+          <p class="govuk-body"><span class="govuk-!-font-weight-bold">Address:</span> {{ childName }}, No.1 Forbury Place 43 Forbury Road, Reading, United Kingdom, RG1 3JH
           </p>
           <p class="govuk-body"><span class="govuk-!-font-weight-bold">Telephone:</span> 0171 444555666<br>
             <span class="govuk-!-font-weight-bold">Email:</span> simone@org.com<br>
@@ -161,17 +166,25 @@
         </div>
         <div class="govuk-card__actions">
           <ul class="govuk-list govuk-!-mb-r0">
-            <li><a href="/manage/team-members/services-on-team-member-update-details" class="govuk-link govuk-link--no-visited-state">Update details</a></li>
+            <li><a href="#" class="govuk-link govuk-link--no-visited-state">Update details</a></li>
           </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="govuk-grid-column-one-half">
+      <div class="govuk-card govuk-card--contained">
+        <div class="govuk-card__content">
+          <h3 class="govuk-heading-m">Parent organisation</h3>
+          <p class="govuk-body"><span class="govuk-!-font-weight-bold">Address:</span> {{ orgName }}, 1 Francis Crick Avenue, Cambridge Biomedical Campus, Cambridge, United Kingdom, CB2 0AA</p>
+          <p class="govuk-body"><span class="govuk-!-font-weight-bold">Company House number:</span> 11111111</p>
+
         </div>
       </div>
     </div>
   </div>
 
 {% endif %}
-
-
-
 
 
 {% endblock %}

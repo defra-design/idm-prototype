@@ -18,12 +18,12 @@
       {% set newUserCSS = "" %}
     {% endif %}
 
-    {% if data['numUsers'] == "2" %}
+    {% if (data['numUsers'] == "2") or (data['numChildUsers'] == "2") %}
       {% set otherUserCSS = "govuk-visually-hidden" %}
       {% set newUserCSS = "" %}
     {% endif %}
 
-    {% if data['numUsers'] == "1" %}
+    {% if (data['numUsers'] == "1") or (data['numChildUsers'] == "1") %}
       {% set otherUserCSS = "govuk-visually-hidden" %}
       {% set newUserCSS = " govuk-visually-hidden" %}
     {% endif %}
@@ -139,7 +139,7 @@
 
       {% if data['hideCSS'] == "Yes" %}
       {% else %}
-      <tr class="govuk-table__row {{ hideCSS }}">
+      <tr class="govuk-table__row {{ otherUserCSS }}">
         <td class="govuk-table__cell">
           <span class="govuk-visually-hidden--desktop td-header">Team member:</span>
           <a class="govuk-link--no-visited-state" href="services-on-team-member-standard-verify?name=Tiegan Mole&nameBreadcrumb=Tiegan Mole">Tiegan Mole</a>

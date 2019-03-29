@@ -2,6 +2,10 @@
   {{ data['orgName'] }}
 {% endset %}
 
+{% set setChildName %}
+  {{ data['childName'] }}
+{% endset %}
+
 
 {% if data['parentChild'] == "parent" %}
 <div class="govuk-breadcrumbs">
@@ -39,7 +43,7 @@
       <a class="govuk-breadcrumbs__link" href="/manage/dashboard-all"> {{ setOrgName }}</a>
     </li>
     <li class="govuk-breadcrumbs__list-item">
-      {{ childName }}
+      <a class="govuk-breadcrumbs__link" href="/manage/dashboard-child"> {{ setChildName }}</a>
     </li>
     <li class="govuk-breadcrumbs__list-item">
       {{ title }}

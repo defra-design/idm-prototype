@@ -46,8 +46,47 @@
  {% set addUserURL = "/manage/team-members/invite-user/add-user-details" %}
 
   <div class="govuk-grid-row">
+    <div class="govuk-card govuk-card--contained govuk-card--selectable">
+      <a href="{{ teamMemberURL }}"></a>
+      <div class="govuk-card__content">
+        <h3 class="govuk-heading-m"><a href="{{ teamMemberURL }}" class="govuk-link--no-visited-state">Manage team lots ofthing to slkjdsflknsflk nsv</a></h3>
+        <p class="govuk-!-font-weight-bold govuk-!-font-size-48 govuk-!-font-weight-bold">{{ data['numUsers'] }}</p>
+      </div>
+      <div class="govuk-card__actions">
+        <ul class="govuk-list govuk-!-mb-r0">
+          <li><a href="{{ addUserURL }}" class="govuk-link--no-visited-state">Add a team member</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="govuk-card govuk-card--contained govuk-card--selectable">
+      <a href="{{ teamMemberURL }}"></a>
+      <div class="govuk-card__content">
+        <h3 class="govuk-heading-m"><a href="{{ teamMemberURL }}" class="govuk-link--no-visited-state">Manage team access</a></h3>
+        <p class="govuk-!-font-weight-bold govuk-!-font-size-48 govuk-!-font-weight-bold">{{ data['numUsers'] }}</p>
+      </div>
+      <div class="govuk-card__actions">
+        <ul class="govuk-list govuk-!-mb-r0">
+          <li><a href="{{ addUserURL }}" class="govuk-link--no-visited-state">Add a team member</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="govuk-card govuk-card--contained govuk-card--selectable">
+      <a href="{{ teamMemberURL }}"></a>
+      <div class="govuk-card__content">
+        <h3 class="govuk-heading-m"><a href="{{ teamMemberURL }}" class="govuk-link--no-visited-state">Manage team access</a></h3>
+        <p class="govuk-!-font-weight-bold govuk-!-font-size-48 govuk-!-font-weight-bold">{{ data['numUsers'] }}</p>
+      </div>
+      <div class="govuk-card__actions">
+        <ul class="govuk-list govuk-!-mb-r0">
+          <li><a href="{{ addUserURL }}" class="govuk-link--no-visited-state">Add a team member</a></li>
+        </ul>
+      </div>
+    </div>
+    </div>
+
+  <div class="govuk-grid-row">
     <div class="govuk-grid-column-one-third">
-            <div class="govuk-card govuk-card--contained govuk-card--selectable">
+      <div class="govuk-card govuk-card--contained govuk-card--selectable">
         <a href="{{ teamMemberURL }}"></a>
         <div class="govuk-card__content">
           <h3 class="govuk-heading-m"><a href="{{ teamMemberURL }}" class="govuk-link--no-visited-state">Manage team access</a></h3>

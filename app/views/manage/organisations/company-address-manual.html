@@ -94,13 +94,40 @@
         name: "address-postcode"
       }) }}
 
-      {{ govukInput({
+      {{ govukSelect({
+
+        id: "address-country",
+        name: "address-country",
         label: {
           text: "Country"
         },
-        classes: "govuk-input--width-20",
-        id: "address-country",
-        name: "address-country"
+        items: [
+          {
+            value: "Default",
+            text: "Select a country"
+          },
+          {
+            value: "UK",
+            text: "United Kingdom"
+          },
+          {
+            value: "France",
+            text: "France"
+          },
+          {
+            value: "Spain",
+            text: "Spain"
+          },
+          {
+            value: "Other",
+            text: "AnOther Country"
+          },
+          {
+            value: "Other",
+            text: "AnOther Country"
+          }
+        ]
+
       }) }}
 
       {% endcall %}

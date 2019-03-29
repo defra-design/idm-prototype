@@ -43,7 +43,7 @@ router.get('/manage/dashboard-all', function (req, res) {
 
 // Child dash
 router.get('/manage/dashboard-child', function (req, res) {
-    res.render('manage/dashboard',{
+    res.render('manage/dashboard-child',{
       "teamMemberURL": 'team-members/team-members',
       "addAgentURL": 'agent/chemicals/invite-user/add-user-details',
       "addUserURL": 'manage/team-members/invite-user/add-user-details',

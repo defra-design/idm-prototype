@@ -22,8 +22,10 @@ module.exports = {
 
 "orgName": "Acme Org Ltd",
 "numUsers": "5",
+"numChildUsers": "1",
 "numServices": "3",
-"numAgents": "3",
+"numAgents": "0",
+"numLocations": "1",
 "service": "Chemicals",
 "serviceLine": "Comply with REACH IT",
 "serviceRole": "REACH Manager",
