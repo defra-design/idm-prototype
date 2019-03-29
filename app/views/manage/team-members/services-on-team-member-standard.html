@@ -33,14 +33,19 @@
     </p>
   </div>
   <div class="govuk-grid-column-one-half">
+
+  {% if data['onlyAdmin'] == "yes" %}
+    <p class="govuk-body"><a href="remove-user/delete-user-only-admin-warning" class="govuk-link--no-visited-state">Remove user</a></p>
+  {% else %}
     <p class="govuk-body"><a href="remove-user/remove-user-confirm" class="govuk-link--no-visited-state">Remove user</a></p>
+  {% endif %}
   </div>
 </div>
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-one-half">
     <p class="govuk-body">
-      <span class="govuk-!-font-weight-bold">Account:</span> Acme Org<br>
+      <span class="govuk-!-font-weight-bold">Account:</span> Acme Org Ltd<br>
       <span class="govuk-!-font-weight-bold">Account role:</span> Standard user
     </p>
   </div>
