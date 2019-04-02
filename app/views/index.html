@@ -170,8 +170,8 @@
     <h3 class="govuk-heading-s">Multi-org</h3>
     <ul class="govuk-list govuk-list--bullet">
       <li><a class="govuk-link--no-visited-state" href="/manage/team-members/services-on-team-member-admin-account_onlyrep?numServices=3&numLocations=3&serviceName=Comply with REACH IT&serviceRole=REACH%20Manager&multiOrg=yes&orgType=onlyRep&childService=yes&accountService=no">Me page - Only Rep (multi orgs, 1 service)</a></li>
-      <li><a href="/manage/dashboard-all?numUsers=5&numAgents=3&numServices=3&numLocations=2&orgName=Acme Org Ltd&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=yes&parentChild=parent" class="govuk-link--no-visited-state">Account dashboard - for Parent (multi-org)</a></li>
-      <li><a href="/manage/organisations/organisation-details?numUsers=5&numAgents=3&numServices=3&numLocations=1&orgName=Acme Org Ltd&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=yes&parentChild=parent#rel-org" class="govuk-link--no-visited-state">Add related org</a></li>
+      <li><a href="/manage/dashboard-all?numUsers=5&numAgents=3&numServices=3&numLocations=2&orgName=Acme Org Ltd&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=yes&parentChild=parent&orgType=onlyRep" class="govuk-link--no-visited-state">Account dashboard - for Parent (multi-org)</a></li>
+      <li><a href="/manage/organisations/organisation-details?numUsers=5&numAgents=3&numServices=3&numLocations=1&orgName=Acme Org Ltd&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=yes&parentChild=parent#rel-org&orgType=onlyRep" class="govuk-link--no-visited-state">Add related org</a></li>
       <li><a class="govuk-link--no-visited-state" href="/manage/team-members/services-on-team-member-admin-account_onlyrep?numServices=3&numLocations=1&serviceName=Comply with REACH IT&serviceRole=REACH%20Manager&multiOrg=yes&orgType=onlyRep&childService=yes&accountService=no">Add new account</a></li>
       <li><a class="govuk-link--no-visited-state" href="/errors/user-access-child-error">No child access to parent</a></li>
 
@@ -274,8 +274,9 @@
           <li><a href="/manage/dashboard-all?numUsers=5&numAgents=3&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=no&parentChild=parent" class="govuk-link--no-visited-state">Account dashboard (single org)</a></li>
           <li><a class="govuk-link--no-visited-state" href="/manage/team-members/services-on-team-member-admin-account_onlyrep?numServices=3&numLocations=1&serviceName=Comply with REACH IT&serviceRole=REACH%20Manager&multiOrg=yes&orgType=onlyRep&childService=no&accountService=no">Me page - Only Rep (1 org, 1 service)</a></li>
           <li><a class="govuk-link--no-visited-state" href="/manage/team-members/services-on-team-member-admin-account_onlyrep?numServices=3&numLocations=3&serviceName=Comply with REACH IT&serviceRole=REACH%20Manager&multiOrg=yes&orgType=onlyRep&childService=yes&accountService=no">Me page - Only Rep (multi orgs, 1 service)</a></li>
-          <li><a href="/manage/dashboard-all?numUsers=5&numAgents=0&numServices=3&numLocations=2&orgName=Acme Org Ltd&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=yes&parentChild=parent" class="govuk-link--no-visited-state">Account dashboard - for Parent (multi-org)</a></li>
-          <li><a href="/manage/dashboard-child?childName=Acme Org India&multiOrg=yes&parentChild=child&numLocations=2" class="govuk-link--no-visited-state">Account dashboard - for Child (multi-org)</a></li>
+          <li><a href="/manage/dashboard-all?numUsers=5&numAgents=0&numServices=3&numLocations=2&orgName=Acme Org Ltd&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=yes&parentChild=parent&orgType=onlyRep" class="govuk-link--no-visited-state">Account dashboard - for Parent with 1 child (multi-org)</a></li>
+          <li><a href="/manage/dashboard-all?numUsers=5&numAgents=0&numServices=3&numLocations=1&orgName=Acme Org Ltd&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=yes&parentChild=parent&orgType=onlyRep" class="govuk-link--no-visited-state">Account dashboard - for Parent no children</a></li>
+          <li><a href="/manage/dashboard-child?childName=Acme Org India&multiOrg=yes&parentChild=child&numLocations=2&orgType=onlyRep" class="govuk-link--no-visited-state">Account dashboard - for Child (multi-org)</a></li>
         </ul>
       </nav>
     </aside>
