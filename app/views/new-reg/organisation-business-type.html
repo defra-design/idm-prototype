@@ -51,12 +51,8 @@
 
       case 'Non-UK organisation':
       form.action = '/new-user-reg/non-uk-org/org-name'
-      break;
 
-      case 'Charity':
-      form.action = '/new-user-reg/non-uk-org/charity/charity-address-manual'
       break;
-
       default:
       form.action = '/new-user-reg/organisation-business-coming-soon?flowType=task'
     }
@@ -92,12 +88,13 @@
 
             case 'Non-UK organisation':
             form.action = '/new-user-reg/non-uk-org/task-list-page-account?flowType=task'
-            break;
 
+            break;
             case 'Charity':
-            form.action = '/new-user-reg/charity/task-list-page-account?flowType=task'
+            form.action = '/new-reg/charity/charity-details'
             break;
 
+            break;
             default:
             form.action = '/new-user-reg/organisation-business-coming-soon?flowType=task'
           }
@@ -129,26 +126,32 @@
             value: "Limited company",
             text: "Limited company",
             checked:  checked('businessType', 'Limited company')
+
           },
           {
             value: "Public limited company",
             text: "Public limited company",
             checked:  checked('businessType','Public limited company')
+
           },
           {
             value: "Limited liability partnership",
             text: "Limited liability partnership",
             checked:  checked('businessType','Limited liability partnership')
+
           },
           {
             value: "Non-UK organisation",
             text: "Organisation that is not registered in the UK",
             checked:  checked('businessType','Non-UK organisation')
-          },
+
+          }
+          ,
           {
             value: "Charity",
             text: "Charity",
             checked:  checked('businessType','Charity')
+
           }
 
 

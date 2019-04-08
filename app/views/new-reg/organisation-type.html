@@ -2,6 +2,7 @@
 
 {% set title = "Who wants to use this service?" %}
 
+
 {% block pageTitle %}
     {{title}} - GOV.UK
 {% endblock %}
@@ -73,6 +74,7 @@
         </script>
   {% endif %}
 
+
         {{ govukRadios({
           idPrefix: "orgType",
           name: "orgType",
@@ -94,7 +96,7 @@
             {
               value: "An individual",
               html: ' <span class="govuk-body govuk-!-font-weight-bold">An individual</span><br>
-                      You want to use this service for your own personal use.',
+                      You want to use this service for your own personal non-business use.',
               checked:  checked('orgType','Personal')
             }
           ]
