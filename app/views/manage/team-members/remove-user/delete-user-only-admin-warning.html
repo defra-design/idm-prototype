@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "You cannot remove the only admin for an account" %}
+{% set title = "You cannot remove this user" %}
 
 {% block pageTitle %}
     {{title}} - GOV.UK
@@ -20,16 +20,15 @@
 
       <form method="post" action="javascript:history.back()">
         <h1 class="govuk-heading-xl">{{ title }}</h1>
-    <div class="govuk-warning-text">
-           <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-           <strong class="govuk-warning-text__text">
-           <span class="govuk-warning-text__assistive">Warning</span>{{ data['userName'] }} cannot be removed as they are the only admin for a child account linked to this one.
-        </strong>
-    </div>
-        <p class="govuk-body">To remove this user another admin must be added to {{ data['childName'] }}. </p>
 
-        <p class="govuk-body">You can ask {{ data['userName'] }} to make you an admin of {{ data['childName'] }}.</p>
-        <p class="govuk-body">Or if this is not possible please call the [consuming service name] service on [consuming service phone number].</p>
+
+        <p class="govuk-body">You cannot remove {{ data['userName'] }} as there needs to be at least one admin from Acme Org Ltd who is also an admin for</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>Acme Org India</li>
+          <li>Acme Org Thailand</li>
+        </ul>
+        <p class="govuk-body">To remove this user call the [consuming service name] service on [consuming service phone number]. </p>
+
 
 
 
