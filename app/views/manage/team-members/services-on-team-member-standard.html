@@ -36,7 +36,8 @@
 
   {% if data['onlyAdmin'] == "yes" %}
     <p class="govuk-body"><a href="remove-user/delete-user-only-admin-warning" class="govuk-link--no-visited-state">Remove user</a></p>
-  {% else %}
+  {% endif %}
+  {% if data['onlyAdmin'] == "no" %}
     <p class="govuk-body"><a href="remove-user/remove-user-confirm" class="govuk-link--no-visited-state">Remove user</a></p>
   {% endif %}
   </div>
