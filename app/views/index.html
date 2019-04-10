@@ -153,13 +153,16 @@
         <li><a href="/errors/duplicate-org-error" class="govuk-link--no-visited-state">Duplicate organisation error</a></li>
       </ul>
 
-      <h2 class="govuk-heading-m">RC 4.1
+      <h2 class="govuk-heading-m">RC 4.02
       </h2>
 
-        <h3 class="govuk-heading-s">Register another service</h3>
-        <ul class="govuk-list govuk-list--bullet">
-          <li><a href="/manage/dashboard-all?numUsers=1&numServices=1&numAgents=0&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=no" class="govuk-link--no-visited-state">Register a new service from the Account dashboard</a></li>
-        </ul>
+      <h3 class="govuk-heading-s">Multi-org</h3>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a class="govuk-link--no-visited-state" href="/manage/team-members/services-on-team-member-admin-account_onlyrep?numServices=3&numLocations=3&serviceName=Comply with REACH IT&serviceRole=REACH%20Manager&multiOrg=yes&orgType=onlyRep&childService=yes&accountService=no">Me page - Only Rep (multi orgs, 1 service)</a></li>
+        <li><a href="/manage/dashboard-all?numUsers=5&numAgents=3&numServices=3&numLocations=2&orgName=Acme Org Ltd&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=yes&parentChild=parent&orgType=onlyRep" class="govuk-link--no-visited-state">Account dashboard - for Parent (multi-org)</a></li>
+      </ul>
+
+
 
 
 
@@ -167,20 +170,22 @@
 
     <h2 class="govuk-heading-m">In progress</h2>
 
-    <h3 class="govuk-heading-s">Multi-org</h3>
+    <h3 class="govuk-heading-s">Parent / Child</h3>
     <ul class="govuk-list govuk-list--bullet">
-      <li><a class="govuk-link--no-visited-state" href="/manage/team-members/services-on-team-member-admin-account_onlyrep?numServices=3&numLocations=3&serviceName=Comply with REACH IT&serviceRole=REACH%20Manager&multiOrg=yes&orgType=onlyRep&childService=yes&accountService=no">Me page - Only Rep (multi orgs, 1 service)</a></li>
-      <li><a href="/manage/dashboard-all?numUsers=5&numAgents=3&numServices=3&numLocations=2&orgName=Acme Org Ltd&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=yes&parentChild=parent&orgType=onlyRep" class="govuk-link--no-visited-state">Account dashboard - for Parent (multi-org)</a></li>
       <li><a href="/manage/organisations/organisation-details?numUsers=5&numAgents=3&numServices=3&numLocations=1&orgName=Acme Org Ltd&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=yes&parentChild=parent#rel-org&orgType=onlyRep" class="govuk-link--no-visited-state">Add related org</a></li>
       <li><a class="govuk-link--no-visited-state" href="/manage/team-members/services-on-team-member-admin-account_onlyrep?numServices=3&numLocations=1&serviceName=Comply with REACH IT&serviceRole=REACH%20Manager&multiOrg=yes&orgType=onlyRep&childService=yes&accountService=no">Add new account</a></li>
       <li><a class="govuk-link--no-visited-state" href="/errors/user-access-child-error">No child access to parent</a></li>
-
     </ul>
 
     <h3 class="govuk-heading-s">Remove user</h3>
     <ul class="govuk-list govuk-list--bullet">
       <li><a href="/manage/team-members/services-on-team-member-standard?removeUser=No&numServices=5&serviceName=Comply with REACH IT&serviceRole=REACH%20Manager&multiOrg=yes" class="govuk-link--no-visited-state">Remove a team member from account</a></li>
       <li><a href="/manage/team-members/services-on-team-member-standard?numServices=5&serviceName=Comply with REACH IT&serviceRole=REACH%20Manager&multiOrg=yes&onlyAdmin=yes&userName=Adam Mastly&childName=Acme Org India&parentChild=parent" class="govuk-link--no-visited-state">Error: Remove only admin for parent and child</a></li>
+    </ul>
+
+    <h3 class="govuk-heading-s">Register another service</h3>
+    <ul class="govuk-list govuk-list--bullet">
+      <li><a href="/manage/dashboard-all?numUsers=1&numServices=1&numAgents=0&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=no" class="govuk-link--no-visited-state">Register a new service from the Account dashboard</a></li>
     </ul>
 
     <h3 class="govuk-heading-s">n+1 user unblocking</h3>
