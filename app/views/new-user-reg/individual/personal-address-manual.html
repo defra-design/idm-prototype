@@ -32,87 +32,114 @@
       <form action="task-list-page-address" method="post">
     {% endif %}
 
-{% endif %}    
+{% endif %}
 
-          {% call govukFieldset({
-            legend: {
-              text: title,
-              classes: "govuk-fieldset__legend--xl",
-              isPageHeading: true
-            }
-          }) %}
+{% call govukFieldset({
+  legend: {
+    text: title,
+    classes: "govuk-fieldset__legend--xl",
+    isPageHeading: true
+  }
+}) %}
 
-            {{ govukInput({
-              label: {
-                html: 'Sub-building name'
-              },
-              hint: {
-                text: "For example the flat or apartment number"
-              },
-              classes: "govuk-input--width-10",
-              id: "sub-building-name",
-              name: "sub-building-name"
-            }) }}
+  {{ govukInput({
+    label: {
+      html: 'Sub-building name'
+    },
+    hint: {
+      text: "For example the unit, room or apartment number"
+    },
+    classes: "govuk-input--width-10",
+    id: "sub-building-name",
+    name: "sub-building-name"
+  }) }}
 
-            {{ govukInput({
-              label: {
-                html: 'Building number'
-              },
-              classes: "govuk-input--width-10",
-              id: "building-number",
-              name: "building-number"
-            }) }}
+  {{ govukInput({
+    label: {
+      html: 'Building number'
+    },
+    classes: "govuk-input--width-10",
+    id: "building-number",
+    name: "building-number"
+  }) }}
 
-            {{ govukInput({
-              label: {
-                html: 'Building name'
-              },
-              classes: "govuk-input--width-10",
-              id: "building-name",
-              name: "building-name"
-            }) }}
+  {{ govukInput({
+    label: {
+      html: 'Building name'
+    },
+    classes: "govuk-input--width-10",
+    id: "building-name",
+    name: "building-name"
+  }) }}
 
-            {{ govukInput({
-              label: {
-                html: 'Street name'
-              },
-              classes: "govuk-!-width-two-thirds",
-              name: "street-name",
-              id: "street-name"
-            }) }}
+  {{ govukInput({
+    label: {
+      html: 'Street name'
+    },
+    classes: "govuk-!-width-two-thirds",
+    name: "street-name",
+    id: "street-name"
+  }) }}
 
-            {{ govukInput({
-              label: {
-                text: "Town or city"
-              },
-              classes: "govuk-!-width-two-thirds",
-              id: "address-town",
-              name: "address-town"
-            }) }}
+  {{ govukInput({
+    label: {
+      text: "Town or city"
+    },
+    classes: "govuk-!-width-two-thirds",
+    id: "address-town",
+    name: "address-town"
+  }) }}
 
-            {{ govukInput({
-              label: {
-                text: "County"
-              },
-              classes: "govuk-!-width-two-thirds",
-              id: "address-county",
-              name: "address-county"
-            }) }}
+  {{ govukInput({
+    label: {
+      text: "Zip or postal code"
+    },
+    classes: "govuk-input--width-10",
+    id: "address-postcode",
+    name: "address-postcode"
+  }) }}
 
-            {{ govukInput({
-              label: {
-                text: "Postcode"
-              },
-              classes: "govuk-input--width-10",
-              id: "address-postcode",
-              name: "address-postcode"
-            }) }}
+  {{ govukSelect({
 
-            {% endcall %}
+    id: "address-country",
+    name: "address-country",
+    label: {
+      text: "Country"
+    },
+    items: [
+      {
+        value: "Default",
+        text: "Select a country"
+      },
+      {
+        value: "UK",
+        text: "United Kingdom"
+      },
+      {
+        value: "France",
+        text: "France"
+      },
+      {
+        value: "Spain",
+        text: "Spain"
+      },
+      {
+        value: "Other",
+        text: "AnOther Country"
+      },
+      {
+        value: "Other",
+        text: "AnOther Country"
+      }
+    ]
 
-            {{ govukButton({
-              text: "Continue"
-            }) }}
+  }) }}
+
+  {% endcall %}
+
+  {{ govukButton({
+    text: "Continue"
+  }) }}
 
 
 
