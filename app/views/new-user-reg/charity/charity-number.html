@@ -28,8 +28,8 @@
 
   {% set britishNumber %}
     {{ govukInput({
-      id: "british-number",
-      name: "british-number",
+      id: "britishCharityNum",
+      name: "britishCharityNum",
       type: "text",
       classes: "govuk-!-width-one-third",
       hint: {
@@ -43,8 +43,8 @@
 
   {% set niNumber %}
     {{ govukInput({
-      id: "ni-number",
-      name: "ni-number",
+      id: "niCharityNum",
+      name: "niCharityNum",
       type: "text",
       classes: "govuk-!-width-one-third",
       hint: {
@@ -58,8 +58,8 @@
 
   {% set scotlandNumber %}
     {{ govukInput({
-      id: "scotland-number",
-      name: "scotland-number",
+      id: "scotlandCharityNum",
+      name: "scotlandCharityNum",
       type: "text",
       classes: "govuk-!-width-one-third",
       hint: {
@@ -86,21 +86,21 @@
         value: "british",
         text: "England and Wales",
         conditional: {
-          html: britishNumber
+          html: britishCharityNum
         }
       },
       {
         value: "scotland",
         text: "Scotland",
         conditional: {
-          html: scotlandNumber
+          html: scotlandCharityNum
         }
       },
       {
         value: "NI",
         text: "Northern Island",
         conditional: {
-          html: niNumber
+          html: niCharityNum
         }
       }
     ]
