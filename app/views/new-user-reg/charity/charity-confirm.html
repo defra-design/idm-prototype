@@ -21,7 +21,7 @@
     <h1 class="govuk-heading-xl">{{title}}</h1>
 
     <form action="charity-contact" method="post">
-      <p class="govuk-body">We need to know the registered charity details for verification purposes. It is typically the head office.</p>
+      <p class="govuk-body">We need to know the registered charity details for verification purposes. It is typically the public head office.</p>
 
       <h2 class="govuk-heading-m">Acme Charity</h2>
 
@@ -31,9 +31,9 @@
       <p class="govuk-body">Charity number {{ data['britishCharityNum'] }}.  <a href="charity-lookup" class="govuk-link">Enter a different number</a>.</p>
 
       {{ govukDetails({
-        summaryText: "That is not our registered office address",
-        html: '<p class="govuk-body">We must use the address that is registered with Companies House. If your address has changed then you must <a href="https://www.gov.uk/file-changes-to-a-company-with-companies-house" target="_blank">tell Companies House (opens in a new tab)</a>.</p>
-        <p class="govuk-body">Once your details have been updated by Companies House you can return and continue your service registration providing it is within 3 days of your last login.</p>'
+        summaryText: "That is not our registered public address",
+        html: '<p class="govuk-body">We must use the address that is registered with the Charity Commission. If your address has changed then you must <a href="https://www.gov.uk/change-your-charitys-details" target="_blank">tell the Charity Commission (opens in a new tab)</a>.</p>
+        <p class="govuk-body">Once your details have been updated by the Charity Commission you can return and continue your service registration providing it is within 3 days of your last login.</p>'
       }) }}
 
       {{ govukButton({
