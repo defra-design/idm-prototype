@@ -162,8 +162,10 @@
         <li><a href="/manage/dashboard-all?numUsers=5&numAgents=3&numServices=3&numLocations=2&orgName=Acme Org Ltd&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=yes&parentChild=parent&orgType=onlyRep" class="govuk-link--no-visited-state">Account dashboard - for Parent (multi-org)</a></li>
       </ul>
 
-
-
+      <h2 class="govuk-heading-m">RC 4.1
+      </h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="new-user-reg/organisation-type?userType=new&flowType=task&scpEmail=yourname@email.com" class="govuk-link--no-visited-state">Register an LLP</a></li>
 
 
     <hr class="govuk-section-break--l">
@@ -174,7 +176,7 @@
     <ul class="govuk-list govuk-list--bullet">
       <li><a href="/manage/organisations/organisation-details?numUsers=5&numAgents=3&numServices=3&numLocations=1&orgName=Acme Org Ltd&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=yes&parentChild=parent#rel-org&orgType=onlyRep" class="govuk-link--no-visited-state">Add related org</a></li>
       <li><a class="govuk-link--no-visited-state" href="/manage/team-members/services-on-team-member-admin-account_onlyrep?numServices=3&numLocations=1&serviceName=Comply with REACH IT&serviceRole=REACH%20Manager&multiOrg=yes&orgType=onlyRep&childService=yes&accountService=no">Add new account</a></li>
-      <li><a class="govuk-link--no-visited-state" href="/errors/user-access-child-error">No child access to parent</a></li>
+      <li><a class="govuk-link--no-visited-state" href="/errors/user-access-child-error">No child access to parent error</a></li>
     </ul>
 
     <h3 class="govuk-heading-s">Charity registration
@@ -182,6 +184,13 @@
     <ul class="govuk-list govuk-list--bullet">
       <li><a href="new-user-reg/organisation-type?userType=new&flowType=task&scpEmail=yourname@email.com" class="govuk-link--no-visited-state">Charity registration (starting from business type)</a></li>
       <li><a href="new-user-reg/charity/charity-removed" class="govuk-link--no-visited-state">Charity status: removed</a></li>
+    </ul>
+
+    <h3 class="govuk-heading-s">Add a new account
+    </h3>
+    <ul class="govuk-list govuk-list--bullet">
+      <li><a href="/manage/team-members/services-on-team-member-admin-account_onlyrep?numServices=3&numLocations=3&serviceName=Comply with REACH IT&serviceRole=REACH%20Manager&multiOrg=yes&orgType=onlyRep&childService=yes&accountService=no" class="govuk-link--no-visited-state">Add a new account</a></li>
+      <li><a href="errors/duplicate-individual-error" class="govuk-link--no-visited-state">Existing personal account error</a></li>
     </ul>
 
     <h3 class="govuk-heading-s">Ltd/ PLC/ LLP registration
@@ -256,7 +265,23 @@
     </ul>
   </div>
 
-
+  <div class="govuk-grid-column-one-third">
+    <aside class="app-related-items" role="complementary">
+      <h2 class="govuk-heading-m" id="subsection-title">Quick links</h2>
+      <nav role="navigation" aria-labelledby="subsection-title">
+        <ul class="govuk-list govuk-body-s">
+          <li><a href="service-start-logged-out?service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&userType=new&regSuccess=success" class="govuk-link--no-visited-state">New user registration (Chemicals - no service q's + success) </a></li>
+          <li><a class="govuk-link--no-visited-state" href="/manage/team-members/services-on-team-member-admin-account_company?numServices=3&serviceName=Comply with REACH IT&serviceRole=REACH%20Manager">Me page - Company account user (1 org, multiple services)</a></li>
+          <li><a class="govuk-link--no-visited-state" href="/manage/team-members/services-on-team-member-admin-account_onlyrep?numServices=3&numLocations=1&serviceName=Comply with REACH IT&serviceRole=REACH%20Manager&multiOrg=yes&orgType=onlyRep&childService=no&accountService=no">Me page - Only Rep (1 org, 1 service)</a></li>
+          <li><a class="govuk-link--no-visited-state" href="/manage/team-members/services-on-team-member-admin-account_onlyrep?numServices=3&numLocations=3&serviceName=Comply with REACH IT&serviceRole=REACH%20Manager&multiOrg=yes&orgType=onlyRep&childService=yes&accountService=no">Me page - Only Rep (multi orgs, 1 service)</a></li>
+          <li><a href="/manage/dashboard-all?numUsers=5&numAgents=3&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=no&parentChild=parent" class="govuk-link--no-visited-state">Account dashboard (single org)</a></li>
+          <li><a href="/manage/dashboard-all?numUsers=5&numAgents=0&numServices=3&numLocations=2&orgName=Acme Org Ltd&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=yes&parentChild=parent&orgType=onlyRep" class="govuk-link--no-visited-state">Account dashboard - for Parent with 1 child (multi-org)</a></li>
+          <li><a href="/manage/dashboard-all?numUsers=5&numAgents=0&numServices=3&numLocations=1&orgName=Acme Org Ltd&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=no&parentChild=parent&orgType=onlyRep" class="govuk-link--no-visited-state">Account dashboard - for Parent no children</a></li>
+          <li><a href="/manage/dashboard-child?childName=Acme Org India&multiOrg=yes&parentChild=child&numLocations=2&orgType=onlyRep" class="govuk-link--no-visited-state">Account dashboard - for Child (multi-org)</a></li>
+        </ul>
+      </nav>
+    </aside>
+  </div>
 
   <div class="govuk-visually-hidden">
     numUsers= 1 / 2 / 5
@@ -280,24 +305,6 @@
     accountService= no / yes
 
 
-  </div>
-
-  <div class="govuk-grid-column-one-third">
-    <aside class="app-related-items" role="complementary">
-      <h2 class="govuk-heading-m" id="subsection-title">Quick links</h2>
-      <nav role="navigation" aria-labelledby="subsection-title">
-        <ul class="govuk-list govuk-body-s">
-          <li><a href="service-start-logged-out?service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&userType=new&regSuccess=success" class="govuk-link--no-visited-state">New user registration (Chemicals - no service q's + success) </a></li>
-          <li><a class="govuk-link--no-visited-state" href="/manage/team-members/services-on-team-member-admin-account_company?numServices=3&serviceName=Comply with REACH IT&serviceRole=REACH%20Manager">Me page - Company account user (1 org, multiple services)</a></li>
-          <li><a class="govuk-link--no-visited-state" href="/manage/team-members/services-on-team-member-admin-account_onlyrep?numServices=3&numLocations=1&serviceName=Comply with REACH IT&serviceRole=REACH%20Manager&multiOrg=yes&orgType=onlyRep&childService=no&accountService=no">Me page - Only Rep (1 org, 1 service)</a></li>
-          <li><a class="govuk-link--no-visited-state" href="/manage/team-members/services-on-team-member-admin-account_onlyrep?numServices=3&numLocations=3&serviceName=Comply with REACH IT&serviceRole=REACH%20Manager&multiOrg=yes&orgType=onlyRep&childService=yes&accountService=no">Me page - Only Rep (multi orgs, 1 service)</a></li>
-          <li><a href="/manage/dashboard-all?numUsers=5&numAgents=3&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=no&parentChild=parent" class="govuk-link--no-visited-state">Account dashboard (single org)</a></li>
-          <li><a href="/manage/dashboard-all?numUsers=5&numAgents=0&numServices=3&numLocations=2&orgName=Acme Org Ltd&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=yes&parentChild=parent&orgType=onlyRep" class="govuk-link--no-visited-state">Account dashboard - for Parent with 1 child (multi-org)</a></li>
-          <li><a href="/manage/dashboard-all?numUsers=5&numAgents=0&numServices=3&numLocations=1&orgName=Acme Org Ltd&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=no&parentChild=parent&orgType=onlyRep" class="govuk-link--no-visited-state">Account dashboard - for Parent no children</a></li>
-          <li><a href="/manage/dashboard-child?childName=Acme Org India&multiOrg=yes&parentChild=child&numLocations=2&orgType=onlyRep" class="govuk-link--no-visited-state">Account dashboard - for Child (multi-org)</a></li>
-        </ul>
-      </nav>
-    </aside>
   </div>
 </div>
 
