@@ -30,6 +30,10 @@ $govuk-card-selected-foreground-colour : govuk-colour("white");
   box-sizing: border-box;
 }
 
+#orgCards.govuk-card {
+  min-height: 210px;
+}
+
 .govuk-card--contained {
   background-color: govuk-colour("grey-4");
 }
