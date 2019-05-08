@@ -42,18 +42,21 @@
       </li>
     </ul>
 
-{% if data['addAccount'] == "account" %}
+<!-- {% if data['addAccount'] == "account" %}
     {{ govukButton({
         text: "Done",
         href: "/manage/team-members/services-on-team-member-admin-account_onlyrep"
     }) }}
 {% endif %}
 {% if data['addAccount'] == "related" %}
+
+{% endif %} -->
+
     {{ govukButton({
         text: "Continue to account",
         href: "/manage/dashboard-child?childName=Acme Org India&multiOrg=yes&parentChild=child#rel-org"
     }) }}
-{% endif %}
+
 
 
 
