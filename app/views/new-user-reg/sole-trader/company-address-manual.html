@@ -21,8 +21,12 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-        <form method="post" action="company-contact-radio">
-
+    {% if data['userType'] == "existing-multi-org" %}
+    <form action="company-contact-no" method="post">
+    {% else %}
+    <form action="company-contact-radio" method="post">
+    {% endif %}
+    
           {% call govukFieldset({
             legend: {
               text: title,
