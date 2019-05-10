@@ -42,20 +42,20 @@
       </li>
     </ul>
 
-<!-- {% if data['addAccount'] == "account" %}
+
+{% if data['addAccount'] == "account" %}
     {{ govukButton({
-        text: "Done",
-        href: "/manage/team-members/services-on-team-member-admin-account_onlyrep"
+        text: "Continue to account",
+        href: "/manage/dashboard-all?orgName=Chemicals R Us&parentChild=parent"
     }) }}
-{% endif %}
-{% if data['addAccount'] == "related" %}
-
-{% endif %} -->
-
+{% else %}
     {{ govukButton({
         text: "Continue to account",
         href: "/manage/dashboard-child?childName=Acme Org India&multiOrg=yes&parentChild=child#rel-org"
     }) }}
+
+{% endif %}
+
 
 
 

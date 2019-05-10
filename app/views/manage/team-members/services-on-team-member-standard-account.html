@@ -71,73 +71,66 @@
       <span class="govuk-visually-hidden--desktop td-header">Account role: </span>{{ data['systemRole']}}
     {% endset %}
 
+    <table class="govuk-table {{ tableCSS }}">
+      <caption class="govuk-table__caption govuk-body govuk-!-font-weight-regular">This is a list of one or more accounts and the related services that you have access to.</caption>
+      <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th class="govuk-table__header column-full" scope="col">
+          Account
+        </th>
+        <th class="govuk-table__header column-full" scope="col">
+          Account role
+        </th>
+        <th class="govuk-table__header column-full" scope="col">
+          Service
+        </th>
+        <th class="govuk-table__header column-full" scope="col">
+          Service role
+        </th>
+        <th class="govuk-table__header govuk-table__header--column-sixth column-full" scope="col">
+          <span class="govuk-visually-hidden--desktop td-header">Action</span>
+        </th>
+      </tr>
+      </thead>
 
-    {{ govukTable({
-      caption: "This is a list of one or more accounts and the related services that you have access to.",
-      captionClasses: "govuk-body govuk-!-font-weight-regular",
-      firstCellIsHeader: false,
-      head: [
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell">
+          <span class="govuk-visually-hidden--desktop td-header">Account:</span>
+          Acme Org Ltd
+        </td>
+        <td class="govuk-table__cell">
+          <span class="govuk-visually-hidden--desktop td-header">Account role:</span> Standard user
+        </td>
+        <td class="govuk-table__cell">
+          <span class="govuk-visually-hidden--desktop td-header">Service:</span> Notification Service
+        </td>
+        <td class="govuk-table__cell">
+          <span class="govuk-visually-hidden--desktop td-header">Service role:</span> Importer
+        </td>
+        <td class="govuk-table__cell">
 
-        {
-          html: 'Account',
-          format: 'column-full'
-        },
-        {
-          html: 'Account role',
-          format: 'column-full'
-        },
-        {
-          html: 'Service',
-          format: 'column-full'
+        </td>
+      </tr>
 
-        },
-        {
-          html: 'Service role',
-          format: 'column-full'
-        },
-        {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Action</span>',
-          format: 'column-full'
-        }
-      ],
-      rows: [
-      [
-        {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Account:</span> Acme Org Ltd'
-        },
-        {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Account role:</span> Standard user'
-        },
-        {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> Notification Service'
-        },
-        {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Service role:</span> Importer'
-        },
-        {
-          html: ''
-        }
-      ],
-      [
-        {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Account:</span> Acme Org Ltd'
-        },
-        {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Account role:</span> Standard user'
-        },
-        {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> UK-Reach-IT'
-        },
-        {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Service role:</span> Reach Reacher'
-        },
-        {
-          html: ''
-        }
-      ]
-    ]
-    }) }}
-
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell">
+          <span class="govuk-visually-hidden--desktop td-header">Account:</span>
+          Chemcials R Us
+        </td>
+        <td class="govuk-table__cell">
+          <span class="govuk-visually-hidden--desktop td-header">Account role:</span> Admin
+        </td>
+        <td class="govuk-table__cell">
+          <span class="govuk-visually-hidden--desktop td-header">Service:</span> Notification Service
+        </td>
+        <td class="govuk-table__cell">
+          <span class="govuk-visually-hidden--desktop td-header">Service role:</span> Importer
+        </td>
+        <td class="govuk-table__cell">
+          <span class="govuk-visually-hidden--desktop td-header">Action:</span><a href="/manage/dashboard-all?orgName=Acme Org Limited&numUsers=5&numAgents=0&numServices=1&numLocations=1&multiOrg=yes&parentChild=parent" class="govuk-link--no-visited-state"> Manage account<span class="govuk-visually-hidden td-header"> for Acme Org Ltd</span></a>
+        </td>
+      </tr>
+    </table>
   </div>
 </div>
 
