@@ -115,7 +115,7 @@
       <tr class="govuk-table__row">
         <td class="govuk-table__cell">
           <span class="govuk-visually-hidden--desktop td-header">Account:</span>
-          Chemcials R Us
+          Importers Ltd
         </td>
         <td class="govuk-table__cell">
           <span class="govuk-visually-hidden--desktop td-header">Account role:</span> Admin
@@ -127,10 +127,62 @@
           <span class="govuk-visually-hidden--desktop td-header">Service role:</span> Importer
         </td>
         <td class="govuk-table__cell">
-          <span class="govuk-visually-hidden--desktop td-header">Action:</span><a href="/manage/dashboard-all?orgName=Acme Org Limited&numUsers=5&numAgents=0&numServices=1&numLocations=1&multiOrg=yes&parentChild=parent" class="govuk-link--no-visited-state"> Manage account<span class="govuk-visually-hidden td-header"> for Acme Org Ltd</span></a>
+          <span class="govuk-visually-hidden--desktop td-header">Action:</span><a href="/manage/dashboard-all?orgName=Acme Org Limited&numUsers=5&numAgents=0&numServices=1&numLocations=1&multiOrg=yes&parentChild=parent" class="govuk-link--no-visited-state"> Manage account<span class="govuk-visually-hidden td-header"> for Importers Ltd</span></a>
         </td>
       </tr>
-    </table>
+
+      {% if data['addAccount'] == "account" %}
+
+        {% if data['accountService'] == "no" %}
+
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">
+                <span class="govuk-visually-hidden--desktop td-header">Account:</span>
+                Chemicals R Us
+              </td>
+              <td class="govuk-table__cell">
+                <span class="govuk-visually-hidden--desktop td-header">Account role:</span> Admin
+              </td>
+              <td class="govuk-table__cell">
+                <span class="govuk-visually-hidden--desktop td-header">Service:</span><span class="govuk-body govuk-body--grey"> No registered service
+              </td>
+              <td class="govuk-table__cell">
+                <span class="govuk-visually-hidden--desktop td-header">Service role:</span>
+              </td>
+              <td class="govuk-table__cell">
+                <span role="text"><span class="govuk-visually-hidden--desktop td-header">Action:</span><a href="/manage/dashboard-all?numUsers=1&numAgents=0&numServices=0&numLocations=1&orgName=Chemicals R Us&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=yes&parentChild=parent" class="govuk-link--no-visited-state"> Manage account<span class="govuk-visually-hidden td-header"> for Chemicals R Us</span></a></span>
+              </td>
+            </tr>
+        {% else %}
+
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">
+                <span class="govuk-visually-hidden--desktop td-header">Account:</span>
+                Chemicals R Us
+              </td>
+              <td class="govuk-table__cell">
+                <span class="govuk-visually-hidden--desktop td-header">Account role:</span> Admin
+              </td>
+              <td class="govuk-table__cell">
+                <span class="govuk-visually-hidden--desktop td-header">Service:</span> Comply with REACH IT
+              </td>
+              <td class="govuk-table__cell">
+                <span class="govuk-visually-hidden--desktop td-header">Service role:</span> REACH Manager
+              </td>
+              <td class="govuk-table__cell">
+                <span role="text"><span class="govuk-visually-hidden--desktop td-header">Action:</span><a href="/manage/dashboard-all?numUsers=1&numAgents=0&numServices=1&numLocations=1&orgName=Chemicals R Us&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=no&parentChild=parent" class="govuk-link--no-visited-state"> Manage account<span class="govuk-visually-hidden td-header"> for Chemicals R Us</span></a></span>
+              </td>
+            </tr>
+        {% endif %}
+      {% endif %}
+
+          </table>
+
+        {{ govukButton({
+          text: "Add account",
+          href: "/new-user-reg/organisation-type?userType=existing-multi-org&addAccount=account"
+        }) }}
+
   </div>
 </div>
 
