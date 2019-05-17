@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+
+{% set title = "Create your security word" %}
+
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class=govuk-heading-xl>{{ title }}</h1>
+    <p class="govuk-body">The security word enables you to securely access your account if you need to contact us.</p>
+
+    <p class="govuk-body">The word must:</p>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>be between 6 and 12 characters</li>
+      <li>not contain spaces or special characters</li>
+
+    </ul>
+
+    {% if data['flowType'] == "check" %}
+      <form method="post" action="check-your-answers">
+    {% else %}
+      <form method="post" action="task-list-page-securitys">
+    {% endif %}
+
+
+    {{ govukInput({
+      id: "securityNum",
+      name: "securityNum",
+      type: "password",
+      classes: "govuk-!-width-one-third",
+      label: {
+        text: "Your security word"
+      }
+    }) }}
+
+    {{ govukInput({
+      id: "securityHint",
+      name: "securityHint",
+      type: "text",
+      classes: "govuk-!-width-two-thirds",
+      label: {
+        text: "Your hint question"
+        },
+      hint: {
+         text: "Provide a hint that will help you remember your Security word)"
+       }
+    }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}
