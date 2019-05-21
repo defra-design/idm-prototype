@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Choose your security word" %}
+{% set title = "Reset your security word" %}
 
 
 {% block pageTitle %}
@@ -32,11 +32,8 @@
 
     </ul>
 
-    {% if data['flowType'] == "check" %}
-      <form method="post" action="check-your-answers">
-    {% else %}
-      <form method="post" action="task-list-page-security">
-    {% endif %}
+
+      <form method="post" action="personal-security-confirmation">
 
 
     {{ govukInput({
