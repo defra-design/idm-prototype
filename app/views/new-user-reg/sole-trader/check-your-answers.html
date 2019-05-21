@@ -122,10 +122,21 @@
 
     </dl>
 
-    {{ govukButton({
-      text: "Continue",
-      href: "../service-terms"
-    }) }}
+    {% if (data['service'] == "Imports") or (data['service'] == "Chemicals") %}
+
+        {{ govukButton({
+          text: "Continue",
+          href: "../confirmation-reg-sent-success"
+        }) }}
+
+      {% else %}
+
+      {{ govukButton({
+        text: "Continue",
+        href: "../service-questions"
+      }) }}
+
+    {% endif %}
 
   </div>
 </div>

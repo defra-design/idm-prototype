@@ -79,6 +79,20 @@
           </a>
         </dd>
       </div>
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">
+          Your security word
+        </dt>
+        <dd class="app-check-your-answers__answer">
+          ************ <br>
+          {{ data['securityHint'] }}
+        </dd>
+        <dd class="app-check-your-answers__change">
+          <a href="personal-security?flowType=check" class="govuk-link" >
+            Change<span class="govuk-visually-hidden"> your security word</span>
+          </a>
+        </dd>
+      </div>
 
     </dl>
 
@@ -120,10 +134,22 @@
 
     </dl>
 
-    {{ govukButton({
-      text: "Continue",
-      href: "../service-terms"
-    }) }}
+    {% if (data['service'] == "Imports") or (data['service'] == "Chemicals") %}
+
+        {{ govukButton({
+          text: "Continue",
+          href: "../confirmation-reg-sent-success"
+        }) }}
+
+      {% else %}
+
+      {{ govukButton({
+        text: "Continue",
+        href: "../service-questions"
+      }) }}
+
+    {% endif %}
+
 
   </div>
 </div>
