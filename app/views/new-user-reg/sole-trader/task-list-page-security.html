@@ -59,14 +59,20 @@
             </strong>
           </li>
           <li class="app-task-list__item">
-            <a class="app-task-list__task-name" href="sole-trader-name">
+            <a class="app-task-list__task-name" href="sole-trader-name" aria-describedby="sole-trader-details-completed">
               Your business details
             </a>
+            <strong class="govuk-tag app-task-list__task-completed" id="sole-trader-details-completed">
+              Completed
+            </strong>
           </li>
           <li class="app-task-list__item">
-            <a class="app-task-list__task-name" href="personal-security">
+            <a class="app-task-list__task-name" href="personal-security" aria-describedby="security-completed">
               Your security word
             </a>
+            <strong class="govuk-tag app-task-list__task-completed" id="security-completed">
+              Completed
+            </strong>
           </li>
         </ul>
       </li>
@@ -76,7 +82,7 @@
           <li>
             {{ govukButton({
               text: "Check your answers",
-              href: "task-list-page-account-error"
+              href: "check-your-answers"
             }) }}
           </li>
         </ul>
