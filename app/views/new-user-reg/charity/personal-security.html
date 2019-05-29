@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Choose your security word" %}
+{% set title = "Create your security word" %}
 
 
 {% block pageTitle %}
@@ -22,14 +22,14 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <h1 class=govuk-heading-xl>{{ title }}</h1>
-    <p class="govuk-body">The security word enables you to securely access your account if you need to contact us.</p>
+    <p class="govuk-body">Your security word helps us to verify your identity if you need to contact us.</p>
 
     <p class="govuk-body">The word must:</p>
 
     <ul class="govuk-list govuk-list--bullet">
-      <li>be between 6 and 12 characters (non-case sensitive)</li>
-      <li>not contain spaces or special characters</li>
-
+      <li>be alphanumeric</li>
+      <li>contain between 6 and 12 characters (not case sensitive)</li>
+      <li>contain no spaces or special characters</li>
     </ul>
 
     {% if data['flowType'] == "check" %}
@@ -58,7 +58,7 @@
         text: "Your hint question"
         },
       hint: {
-         text: "Provide a hint that will help you remember your security word"
+        text: "Provide a hint question that will help you remember your security word"
        }
     }) }}
 
