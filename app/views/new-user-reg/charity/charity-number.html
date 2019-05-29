@@ -23,7 +23,7 @@
   <div class="govuk-grid-column-two-thirds">
 
 
-      <form action="address-postcode" method="post">
+      <form action="charity-name" method="post">
 
 
   {% set britishNumber %}
@@ -86,21 +86,21 @@
         value: "british",
         text: "England and Wales",
         conditional: {
-          html: britishCharityNum
+          html: britishNumber
         }
       },
       {
         value: "scotland",
         text: "Scotland",
         conditional: {
-          html: scotlandCharityNum
+          html: scotlandNumber
         }
       },
       {
         value: "NI",
         text: "Northern Island",
         conditional: {
-          html: niCharityNum
+          html: niNumber
         }
       }
     ]
