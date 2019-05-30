@@ -38,11 +38,11 @@
       <form method="post" action="task-list-page-security">
     {% endif %}
 
-
     {{ govukInput({
       id: "securityNum",
       name: "securityNum",
-      type: "password",
+      value: data['securityNum'],
+      type: "text",
       classes: "govuk-!-width-one-third",
       label: {
         text: "Your security word"
@@ -52,6 +52,7 @@
     {{ govukInput({
       id: "securityHint",
       name: "securityHint",
+      value: data['securityHint'],
       type: "text",
       classes: "govuk-!-width-two-thirds",
       label: {
