@@ -75,32 +75,24 @@
 
   <!-- Decides where there Give Service Access button goes according to the service and number of services-->
 
-  {% if (data['accountAccess'] == "no") and (data['verifiedUser'] == "no") %}
 
-  {% else %}
 
-    {% if (data['accountAccess'] == "no") and (data['verifiedUser'] == "yes") %}
+  {% if (data['accountAccess'] == "no") and (data['subscribeService' == "no"]) %}
+      {{ govukButton({
+        text: "Give account access",
+        href: "/manage/team-members/invite-user/add-user-roles-system-roles?subscribeService=yes&serviceRole=Standard&userType=invite&name=Tiegan Mole"
+      }) }}
+  {% endif %}
 
-        {{ govukButton({
-          text: "Give account access",
-          href: "/manage/team-members/invite-user/add-user-roles-system-roles?subscribeService=yes&serviceRole=Standard&userType=invite&name=Tiegan Mole"
-        }) }}
-    {% endif %}
+  {% if (data['accountAccess'] == "yes") %}
 
+    {{ govukButton({
+      text: "Give service access",
+      href: "/manage/team-members/invite-user/add-user-service?subscribeService=yes&serviceRole=Standard&userType=invite&name=Tiegan Mole"
+    }) }}
   {% endif %}
 
 
-  {% if (data['userType'] == "new-pending") %}
-
-  {% else %}
-    {% if (data['accountAccess'] == "yes") and (data['verifiedUser'] == "yes") %}
-        {{ govukButton({
-          text: "Give service access",
-          href: "/manage/team-members/invite-user/add-user-service?subscribeService=yes&serviceRole=Standard&userType=invite&name=Tiegan Mole"
-        }) }}
-    {% endif %}
-
-  {% endif %}
 
 
 
