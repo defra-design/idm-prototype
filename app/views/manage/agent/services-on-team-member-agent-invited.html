@@ -23,7 +23,7 @@
       {{ data['name'] }}
     </h1>
 
-    {% if data['subscribeService'] == "Yes" %}
+    {% if data['subscribeService'] == "yes" %}
     {% else %}
 
         <p class="govuk-body">{{ data['name'] }} is ready to use our online services.</p>
@@ -55,14 +55,14 @@
   <div class="govuk-grid-column-one-half">
     <p class="govuk-body">
       <span class="govuk-!-font-weight-bold">Account:</span> Acme Org Ltd<br>
-      {% if data['subscribeService'] == "Yes" %}
+      {% if data['subscribeService'] == "yes" %}
       <span class="govuk-!-font-weight-bold">Account role:</span> {{ data['systemRole'] }}
       {% else %}
       {% endif %}
     </p>
   </div>
   <div class="govuk-grid-column-one-half">
-    {% if data['subscribeService'] == "Yes" %}
+    {% if data['subscribeService'] == "yes" %}
     <p class="govuk-body"><a href="edit-user-system-roles" class="govuk-link--no-visited-state">Change account role</a></p>
     {% else %}
     {% endif %}
@@ -73,22 +73,22 @@
 
   <!-- Decides where there Give Service Access button goes according to the service and number of services-->
 
-{% if data['subscribeService'] == "Yes" %}
+{% if data['subscribeService'] == "yes" %}
 {% else %}
   {{ govukButton({
     text: "Give account access",
-    href: "/manage/team-members/invite-user/add-user-roles-system-roles?subscribeService=Yes&serviceRole=Standard&userType=invitedAgent&name=Bob Holmness"
+    href: "/manage/team-members/invite-user/add-user-roles-system-roles?subscribeService=yes&serviceRole=Standard&userType=invitedAgent&name=Bob Holmness"
   }) }}
 {% endif %}
 
 
   <!-- Show table if the user has subscribed to one service -->
-  {% if data['subscribeService'] == "Yes" %}
+  {% if data['subscribeService'] == "yes" %}
 
     {% if (data['numServices'] == 3) %}
     {{ govukButton({
       text: "Give service access",
-      href: "/manage/team-members/invite-user/add-user-service?subscribeService=Yes&serviceRole=Standard&userType=invitedAgent&name=Bob Holmness"
+      href: "/manage/team-members/invite-user/add-user-service?subscribeService=yes&serviceRole=Standard&userType=invitedAgent&name=Bob Holmness"
     }) }}
     {% endif %}
 

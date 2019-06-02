@@ -18,17 +18,10 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <!-- Decides where Continue button goes according to the service and number of services-->
-    {% if (data['numServices'] == 0) %}
-      {% set continueURL = "/manage/team-members/verify/enrollment-no-service-confirmation" %}
-    {% endif %}
 
-    {% if (data['numServices'] == 3) %}
-      {% set continueURL = "/manage/team-members/verify/add-user-service" %}
-    {% endif %}
 
-      <form action="{{ continueURL }}" method="post">
-        <input type="hidden" name="subscribeService" value="Yes">
+      <form action="verify-confirm" method="post">
+        <input type="hidden" name="subscribeService" value="yes">
         <input type="hidden" name="serviceRole" value="Standard">
 
           {{ govukRadios ({

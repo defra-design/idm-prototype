@@ -33,6 +33,11 @@
       {% set newUserCSS = "" %}
     {% endif %}
 
+    {% if (data['numUsers'] == "6") or (data['numChildUsers'] == "6") %}
+      {% set otherUserCSS = "" %}
+      {% set newUserCSS = "" %}
+    {% endif %}
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
 
@@ -134,7 +139,7 @@
           <span class="govuk-visually-hidden--desktop td-header">Email address:</span> Sara.Chippers@email.com
         </td>
         <td class="govuk-table__cell">
-          {% if data['subscribeService'] == "Yes" %}
+          {% if (data['subscribeService'] == "yes") or (data['accountAccess'] == "yes") %}
           <span class="govuk-visually-hidden--desktop td-header">Account status:</span> Live
           {% else %}
           <span class="govuk-visually-hidden--desktop td-header">Account status:</span> Needs access
@@ -142,7 +147,7 @@
         </td>
       </tr>
 
-      {% if data['hideCSS'] == "Yes" %}
+      {% if data['verifiedUser'] == "no" %}
       {% else %}
       <tr class="govuk-table__row {{ otherUserCSS }}">
         <td class="govuk-table__cell">
@@ -153,15 +158,15 @@
           <span class="govuk-visually-hidden--desktop td-header">Email address:</span> Tiegan.Mole@email.com
         </td>
         <td class="govuk-table__cell">
-          {% if not (data['verifiedUser'] == "Decline") and not (data['verifiedUser'] == "Yes") %}
+          {% if not (data['verifiedUser'] == "no") and not (data['verifiedUser'] == "yes") %}
           <span class="govuk-visually-hidden--desktop td-header">Account status:</span>  Request received
           {% endif %}
 
-          {% if data['verifiedUser'] == "Decline" %}
+          {% if data['verifiedUser'] == "no" %}
           <span class="govuk-visually-hidden--desktop td-header">Account status:</span>  Request declined
           {% endif %}
 
-          {% if data['verifiedUser'] == "Yes" %}
+          {% if data['verifiedUser'] == "yes" %}
           <span class="govuk-visually-hidden--desktop td-header">Account status:</span> Live
           {% endif %}
 

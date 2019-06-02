@@ -20,7 +20,7 @@
 
     <!-- Decides where Continue button goes according to the service and number of services-->
     {% if (data['numServices'] == 1) and (data['service'] == "Imports") %}
-      {% set continueURL = "/manage/team-members/invite-user/enrollment-confirmation" %}
+      {% set continueURL = "/manage/team-members/invite-user/enrollment-confirmation?" %}
     {% endif %}
 
     {% if (data['numServices'] == 1) and (data['service'] == "Chemicals") %}
@@ -41,7 +41,8 @@
 
 
       <form action="{{ continueURL }}" method="post">
-        <input type="hidden" name="subscribeService" value="Yes">
+        <input type="hidden" name="accountAccess" value="yes">
+        <input type="hidden" name="subscribeService" value="yes">
         <input type="hidden" name="serviceRole" value="Standard">
 
           {{ govukRadios ({

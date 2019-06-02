@@ -17,16 +17,29 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-
     <h1 class="govuk-heading-xl">
       {{ data['name'] }}
     </h1>
 
+{% if (data['verifiedUser'] == "yes") %}
+
+    {% if (data['subscribeService'] == "yes") and (data['accountAccess'] == "yes") %}
+    {% else %}
+
+      {% if data['userType'] == "new-pending" %}
+      <p class="govuk-body">{{ data['name'] }} is ready to use our online services. </p>
+        <p class="govuk-body">Once your service registration has been agreed you will be able give them service access.</p>
+      {% else %}
+        <p class="govuk-body">{{ data['name'] }} is ready to use our online services. Select below to give them service access.</p>
+      {% endif %}
+        <hr class="govuk-section-break--s">
+        <br>
+    {% endif %}
+
+{% else %}
+
   </div>
 </div>
-
-{% if (data['verifiedUser'] == "Yes") or (data['verifiedUser'] == "Decline") %}
-{% else %}
 
 <!-- Show this section if the user has not yet been accepted or declined -->
 
@@ -42,7 +55,7 @@
 
     {{ govukButton({
       text: "Accept",
-      href: "verify/verify-confirm"
+      href: "verify/add-user-roles-system-roles"
     }) }}
   </div>
   <div class="govuk-grid-column-one-quarter">
@@ -71,7 +84,10 @@
     </p>
   </div>
   <div class="govuk-grid-column-one-half">
+    {% if (data['verifiedUser'] == "yes") %}
     <p class="govuk-body"><a href="" class="govuk-link--no-visited-state">Remove user</a></p>
+    {% endif %}
+
   </div>
 </div>
 
@@ -79,16 +95,16 @@
   <div class="govuk-grid-column-one-half">
     <p class="govuk-body">
       <span class="govuk-!-font-weight-bold">Account:</span> Acme Org Ltd<br>
-      {% if data['verifiedUser'] == "Yes" %}
+      {% if (data['verifiedUser'] == "yes") %}
       <span class="govuk-!-font-weight-bold">Account role:</span> {{ data['systemRole'] }}
       {% endif %}
-      {% if data['verifiedUser'] == "Decline" %}
+      {% if (data['verifiedUser'] == "no") %}
       <span class="govuk-!-font-weight-bold">Account role:</span> Request declined
       {% endif %}
 
     </p>
   </div>
-  {% if data['verifiedUser'] == "Yes" %}
+  {% if data['verifiedUser'] == "yes" %}
   <div class="govuk-grid-column-one-half">
     <p class="govuk-body"><a href="" class="govuk-link--no-visited-state">Change account role</a></p>
   </div>
@@ -96,94 +112,111 @@
 
 </div>
 
-<!-- Show table if the user has subscribed to one service -->
-{% if data['verifiedUser'] == "Yes" %}
+<br>
 
-  {{ govukButton({
-    text: "Give service access",
-    href: "/manage/team-members/invite-user/add-user-service?subscribeService=Yes&serviceRole=Standard&userType=invite&name=Tiegan Mole"
-  }) }}
+  <!-- Decides where there Give Service Access button goes according to the service and number of services-->
 
 
+    {% if (data['accountAccess'] == "no") and (data['verifiedUser'] == "yes") %}
+      {{ govukButton({
+        text: "Give account access",
+        href: "/manage/team-members/invite-user/add-user-roles-system-roles?subscribeService=yes&serviceRole=Standard&userType=invite&name=Tiegan Mole"
+      }) }}
+    {% else %}
 
-  {% set setServiceNameHtml %}
-      <span class="govuk-visually-hidden--desktop td-header">Service:</span> {{ data['serviceLine'] }}
-  {% endset %}
+      {% if (data['numServices'] == 3) and (data['verifiedUser'] == "yes") %}
+        {{ govukButton({
+          text: "Give service access",
+          href: "/manage/team-members/invite-user/add-user-service?subscribeService=yes&serviceRole=Standard&userType=invite&name=Tiegan Mole"
+        }) }}
+      {% endif %}
 
-  {% set setOrgHtml %}
-      <span class="govuk-visually-hidden--desktop td-header">Organisation:</span> Acme Org
-  {% endset %}
-
-  {% set setServiceRoleHtml %}
-      <span class="govuk-visually-hidden--desktop td-header">Access level: </span> {{ data['serviceRole'] }}
-  {% endset %}
-
-  {{ govukTable({
-    caption: "Service access for Acme Org",
-    captionClasses: "govuk-heading-l",
-    firstCellIsHeader: false,
-    head: [
-      {
-        html: 'Service',
-        format: 'column-third column-full'
-
-      },
-      {
-        html: 'Role',
-        format: 'column-third column-full'
-
-      },
-      {
-        html: '<span class="govuk-visually-hidden column-full">Action</span>',
-        format: ''
-      },
-      {
-        html: '<span class="govuk-visually-hidden column-full">Action</span>',
-        format: ''
-      }
-    ],
-    rows: [
-    [
-      {
-        html: setServiceNameHtml
-      },
-      {
-        html: setServiceRoleHtml
-      },
-      {
-        html: ''
-      },
-      {
-        html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="edit-user-remove-access-confirm" class="govuk-link--no-visited-state">Remove access <span class="govuk-visually-hidden">to [Service name]</span></a>'
-      }
-    ]
-    ]
-  }) }}
+    {% endif %}
 
 
-<div class="govuk-card__content">
-  <h2 class="govuk-heading-l">Link to services</h2>
 
-  <div class="govuk-grid-row">
+  <!-- Show table if the user has subscribed to one service -->
+  {% if (data['subscribeService'] == "yes") and (data['verifiedUser'] == "yes") %}
 
-    <div class="govuk-grid-column-one-third">
-      <div class="govuk-card govuk-card--contained govuk-card--selectable">
-        <a href="/service-start-complete?service=Chemicals&userType=new-complete-admin&serviceLine=Comply with REACH IT"></a>
-          <div class="govuk-card__content">
-            <h3 class="govuk-heading-m">{{ data['serviceLine'] }}</h3>
-            <!--
-            <p class="govuk-body">A short summary of the tasks you can complete with this service.
-            </p>
-          -->
+
+    {% set setServiceNameHtml %}
+        <span class="govuk-visually-hidden--desktop td-header">Service:</span> {{ data['serviceLine'] }}
+    {% endset %}
+
+    {% set setOrgHtml %}
+        <span class="govuk-visually-hidden--desktop td-header">Organisation:</span> Acme Org
+    {% endset %}
+
+    {% set setServiceRoleHtml %}
+        <span class="govuk-visually-hidden--desktop td-header">Access level: </span> {{ data['serviceRole'] }}
+    {% endset %}
+
+
+    {{ govukTable({
+      caption: "Service access for Acme Org",
+      captionClasses: "govuk-heading-l",
+      firstCellIsHeader: false,
+      head: [
+        {
+          html: 'Service',
+          format: 'column-third column-full'
+
+        },
+        {
+          html: 'Role',
+          format: 'column-third column-full'
+
+        },
+        {
+          html: '<span class="govuk-visually-hidden column-full">Action</span>',
+          format: ''
+        },
+        {
+          html: '<span class="govuk-visually-hidden column-full">Action</span>',
+          format: ''
+        }
+      ],
+      rows: [
+      [
+        {
+          html: setServiceNameHtml
+        },
+        {
+          html: setServiceRoleHtml
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="edit-user-service-roles-chems" class="govuk-link--no-visited-state">Change role <span class="govuk-visually-hidden">to [Service name]</span></a>'
+        },
+        {
+          html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="edit-user-remove-access-confirm" class="govuk-link--no-visited-state">Remove access <span class="govuk-visually-hidden">to [Service name]</span></a>'
+        }
+      ]
+      ]
+    }) }}
+
+
+  <div class="govuk-card__content">
+    <h2 class="govuk-heading-l">Link to services</h2>
+
+    <div class="govuk-grid-row">
+
+      <div class="govuk-grid-column-one-third">
+        <div class="govuk-card govuk-card--contained govuk-card--selectable">
+          <a href="/service-start-complete?service=Chemicals&userType=new-complete-admin&serviceLine=Comply with REACH IT"></a>
+            <div class="govuk-card__content">
+              <h3 class="govuk-heading-m">{{ data['serviceLine'] }}</h3>
+              <!--
+              <p class="govuk-body">A short summary of the tasks you can complete with this service.
+              </p>
+            -->
+            </div>
           </div>
-        </div>
-    </div>
+      </div>
 
+    </div>
   </div>
-</div>
 
 {% endif %}
-
 
 
 {% endblock %}

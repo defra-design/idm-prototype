@@ -1,51 +1,42 @@
 {% extends "layout.html" %}
 
-{% set title = "Team member request declined" %}
+{% set title = "Account access declined" %}
 
 {% block pageTitle %}
     {{title}} - GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
-  {{ govukBackLink({
-    text: "Back",
-    href: "javascript:history.back()"
-  }) }}
+
 {% endblock %}
+
 
 {% block content %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-xl">{{title}}</h1>
 
+    <h1 class="govuk-visually-hidden">{{title}}</h1>
+    <div class="govuk-panel govuk-panel--confirmation">
+      <h1 class="govuk-panel__title">
+        Account access has been declined
+      </h1>
+    </div>
 
-    <form action="/manage/team-members/services-on-team-member-standard-verify?verifiedUser=Decline" method="post">
+    <form action="/manage/team-members/team-members?verifiedUser=No" method="post">
     <p class="govk-body">You have declined {{ data['name'] }}’s request to work on behalf of {{ data['orgName'] }}.</p>
     <p class="govk-body">{{ data['name'] }} will be immediately removed from your Team Members page.</p>
     <p class="govk-body">We will email them to let them know your decision.</p>
 
 
     {{ govukButton({
-      text: "Continue",
-      href: "/manage/team-members/team-members?verifiedUser=Decline&hideCSS=Yes"
+      text: "Continue"
     }) }}
-    <br>
-
-    <!--
-
-    <p class="govk-body">[Tiegan Mole] will be removed from your Team Members page in 30 days from the initial request.</p>
-
-        {{ govukButton({
-          text: "Continue",
-          href: "/manage/team-members/services-on-team-member-standard-verify?verifiedUser=Decline"
-        }) }}
-    -->
 
 
-      </form>
-    </div>
   </div>
+</div>
+
 
 
 {% endblock %}

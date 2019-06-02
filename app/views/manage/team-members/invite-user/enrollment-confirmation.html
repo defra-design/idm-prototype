@@ -19,7 +19,7 @@
     <h1 class="govuk-visually-hidden">{{title}}</h1>
     <div class="govuk-panel govuk-panel--confirmation">
       <h1 class="govuk-panel__title">
-        Access has been given
+        Service access has been given
       </h1>
     </div>
 
@@ -31,19 +31,19 @@
     <p class="govuk-body">You can change or remove this access at any time.</p>
 
     {% if data['userType'] == "invite" %}
-          {% set backURL = "/manage/team-members/services-on-team-member-invited" %}
+          {% set backURL = "/manage/team-members/services-on-team-member-invited?subscribeService=yes" %}
     {% endif %}
 
     {% if data['userType'] == "invitedAgent" %}
-          {% set backURL = "/manage/agent/services-on-team-member-agent-invited" %}
+          {% set backURL = "/manage/agent/services-on-team-member-agent-invited?subscribeService=yes" %}
     {% endif %}
 
-    {% if data['verifiedUser'] == "Yes" %}
-        {% set backURL = "/manage/team-members/services-on-team-member-standard-verify" %}
+    {% if data['verifiedUser'] == "yes" %}
+        {% set backURL = "/manage/team-members/services-on-team-member-standard-verify?subscribeService=yes" %}
     {% endif %}
 
     {{ govukButton({
-      text: "Done",
+      text: "Continue",
       href: backURL
     }) }}
 

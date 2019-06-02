@@ -24,15 +24,14 @@
     </h1>
 
 
-    {% if data['subscribeService'] == "Yes" %}
+    {% if (data['subscribeService'] == "yes") and (data['accountAccess'] == "yes") %}
     {% else %}
 
-      <p class="govuk-body">{{ data['name'] }} is ready to use our online services.</p>
-
       {% if data['userType'] == "new-pending" %}
-        <p class="govuk-body">Once your service registration has been agreed you will be able to choose what information and tasks you would like this person to see and do.</p>
+      <p class="govuk-body">{{ data['name'] }} is ready to use our online services. </p>
+        <p class="govuk-body">Once your service registration has been agreed you will be able give them service access.</p>
       {% else %}
-        <p class="govuk-body">You should choose what information and tasks you would like this person to see and do.</p>
+        <p class="govuk-body">{{ data['name'] }} is ready to use our online services. Select below to give them access.</p>
       {% endif %}
         <hr class="govuk-section-break--s">
         <br>
@@ -58,14 +57,14 @@
   <div class="govuk-grid-column-one-half">
     <p class="govuk-body">
       <span class="govuk-!-font-weight-bold">Account:</span> Acme Org<br>
-      {% if data['subscribeService'] == "Yes" %}
+      {% if data['accountAccess'] == "yes" %}
       <span class="govuk-!-font-weight-bold">Account role:</span> {{ data['systemRole'] }}
       {% else %}
       {% endif %}
     </p>
   </div>
   <div class="govuk-grid-column-one-half">
-    {% if data['subscribeService'] == "Yes" %}
+    {% if data['subscribeService'] == "yes" %}
     <p class="govuk-body"><a href="edit-user-system-roles" class="govuk-link--no-visited-state">Change account role</a></p>
     {% else %}
     {% endif %}
@@ -76,24 +75,28 @@
 
   <!-- Decides where there Give Service Access button goes according to the service and number of services-->
 
-{% if (data['subscribeService'] == "Yes") or (data['userType'] == "new-pending") %}
+{% if (data['accountAccess'] == "yes") or (data['userType'] == "new-pending") %}
+
 {% else %}
   {{ govukButton({
     text: "Give account access",
-    href: "/manage/team-members/invite-user/add-user-roles-system-roles?subscribeService=Yes&serviceRole=Standard&userType=invite&name=Sarah Chippers"
+    href: "/manage/team-members/invite-user/add-user-roles-system-roles?subscribeService=yes&serviceRole=Standard&userType=invite&name=Sarah Chippers"
   }) }}
 {% endif %}
 
 
   <!-- Show table if the user has subscribed to one service -->
-  {% if data['subscribeService'] == "Yes" %}
+{% if (data['accountAccess'] == "yes") %}
 
     {% if (data['numServices'] == 3) %}
     {{ govukButton({
       text: "Give service access",
-      href: "/manage/team-members/invite-user/add-user-service?subscribeService=Yes&serviceRole=Standard&userType=invite&name=Sarah Chippers"
+      href: "/manage/team-members/invite-user/add-user-service?subscribeService=yes&serviceRole=Standard&userType=invite&name=Sarah Chippers"
     }) }}
     {% endif %}
+{% endif %}
+
+{% if (data['subscribeService'] == "yes") %}
 
     {% set setServiceNameHtml %}
         <span class="govuk-visually-hidden--desktop td-header">Service:</span> {{ data['serviceLine'] }}

@@ -30,7 +30,8 @@ module.exports = {
 "serviceLine": "Comply with REACH IT",
 "serviceRole": "REACH Manager",
 "userType": "new",
-"subscribeService": "No",
+"subscribeService": "no",
+"accountAccess": "no",
 "flowType": "task"
 
 
