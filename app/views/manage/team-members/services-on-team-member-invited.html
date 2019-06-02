@@ -75,27 +75,36 @@
 
   <!-- Decides where there Give Service Access button goes according to the service and number of services-->
 
-{% if (data['accountAccess'] == "yes") or (data['userType'] == "new-pending") %}
+  {% if (data['accountAccess'] == "no") and (data['verifiedUser'] == "no") %}
 
-{% else %}
-  {{ govukButton({
-    text: "Give account access",
-    href: "/manage/team-members/invite-user/add-user-roles-system-roles?subscribeService=yes&serviceRole=Standard&userType=invite&name=Sarah Chippers"
-  }) }}
-{% endif %}
+  {% else %}
 
+    {% if (data['accountAccess'] == "no") and (data['verifiedUser'] == "yes") %}
 
-  <!-- Show table if the user has subscribed to one service -->
-{% if (data['accountAccess'] == "yes") %}
-
-    {% if (data['numServices'] == 3) %}
-    {{ govukButton({
-      text: "Give service access",
-      href: "/manage/team-members/invite-user/add-user-service?subscribeService=yes&serviceRole=Standard&userType=invite&name=Sarah Chippers"
-    }) }}
+        {{ govukButton({
+          text: "Give account access",
+          href: "/manage/team-members/invite-user/add-user-roles-system-roles?subscribeService=yes&serviceRole=Standard&userType=invite&name=Tiegan Mole"
+        }) }}
     {% endif %}
-{% endif %}
 
+  {% endif %}
+
+
+  {% if (data['userType'] == "new-pending") %}
+
+  {% else %}
+    {% if (data['accountAccess'] == "yes") and (data['verifiedUser'] == "yes") %}
+        {{ govukButton({
+          text: "Give service access",
+          href: "/manage/team-members/invite-user/add-user-service?subscribeService=yes&serviceRole=Standard&userType=invite&name=Tiegan Mole"
+        }) }}
+    {% endif %}
+
+  {% endif %}
+
+
+
+<!-- Show table if the user has subscribed to one service -->
 {% if (data['subscribeService'] == "yes") %}
 
     {% set setServiceNameHtml %}
