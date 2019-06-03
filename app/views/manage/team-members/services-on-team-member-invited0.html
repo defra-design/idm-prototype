@@ -31,11 +31,19 @@
       <p class="govuk-body">{{ data['name'] }} is ready to use our online services. </p>
         <p class="govuk-body">Once your service registration has been agreed you will be able give them service access.</p>
       {% else %}
-        <p class="govuk-body">{{ data['name'] }} is ready to use our online services.</p>
-        <p class="govuk-body"> You should choose what information and tasks you would like this person to see and do.</p>
+        <p class="govuk-body">{{ data['name'] }} is now verified. Select below to give them access to this account.</p>
       {% endif %}
-        <hr class="govuk-section-break--s">
-        <br>
+
+        <!-- Decides where there Give Service Access button goes according to the service and number of services-->
+
+      {% if (data['accountAccess'] == "no") and (data['subscribeService'] == "no") %}
+          {{ govukButton({
+            text: "Give account access",
+            href: "/manage/team-members/invite-user/add-user-roles-system-roles?subscribeService=yes&serviceRole=Standard&userType=invite&name=Sarah Chippers"
+          }) }}
+      {% endif %}
+      <hr class="govuk-section-break--s">
+      <br>
     {% endif %}
 
   </div>
@@ -74,16 +82,6 @@
 
 <br>
 
-  <!-- Decides where there Give Service Access button goes according to the service and number of services-->
-
-
-
-  {% if (data['accountAccess'] == "no") and (data['subscribeService'] == "no") %}
-      {{ govukButton({
-        text: "Give account access",
-        href: "/manage/team-members/invite-user/add-user-roles-system-roles?subscribeService=yes&serviceRole=Standard&userType=invite&name=Sarah Chippers"
-      }) }}
-  {% endif %}
 
   {% if (data['accountAccess'] == "yes") %}
 
