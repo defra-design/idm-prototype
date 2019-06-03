@@ -9,7 +9,7 @@ journeys where users are returning or logging in to an existing application.
 
 Example usage:
 
-"full-name": "Sarah Philips",
+"full-name": "Sara Chippers",
 
 "options-chosen": [ "foo", "bar" ]
 
@@ -32,6 +32,7 @@ module.exports = {
 "userType": "new",
 "subscribeService": "no",
 "accountAccess": "no",
+"verifiedUser": "none",
 "flowType": "task"
 
 

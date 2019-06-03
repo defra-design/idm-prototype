@@ -33,13 +33,7 @@
     </p>
   </div>
   <div class="govuk-grid-column-one-half">
-
-  {% if data['onlyAdmin'] == "yes" %}
-    <p class="govuk-body"><a href="remove-user/delete-user-only-admin-warning" class="govuk-link--no-visited-state">Remove user</a></p>
-  {% endif %}
-  {% if data['onlyAdmin'] == "no" %}
     <p class="govuk-body"><a href="remove-user/remove-user-confirm" class="govuk-link--no-visited-state">Remove user</a></p>
-  {% endif %}
   </div>
 </div>
 
@@ -47,11 +41,11 @@
   <div class="govuk-grid-column-one-half">
     <p class="govuk-body">
       <span class="govuk-!-font-weight-bold">Account:</span> Acme Org Ltd<br>
-      <span class="govuk-!-font-weight-bold">Account role:</span> Standard user
+      <span class="govuk-!-font-weight-bold">Account role:</span> {{ data['systemRole'] }}
     </p>
   </div>
   <div class="govuk-grid-column-one-half">
-    <p class="govuk-body"><a href="" class="govuk-link--no-visited-state">Change account role</a></p>
+    <p class="govuk-body"><a href="edit-user-system-roles" class="govuk-link--no-visited-state">Change account role</a></p>
   </div>
 </div>
 
@@ -71,6 +65,10 @@
       text: "Give service access",
       href: "#"
     }) }}
+
+    {% set setServiceRoleHtml %}
+        <span class="govuk-visually-hidden--desktop td-header">Access level: </span> {{ data['serviceRole'] }}
+    {% endset %}
 
 
     {{ govukTable({
@@ -103,14 +101,14 @@
         html: '<span class="govuk-visually-hidden--desktop td-header">Service:</span> Comply with REACH IT'
       },
       {
-        html: '<span class="govuk-visually-hidden--desktop td-header">Role: </span>Reach Reader'
+        html: setServiceRoleHtml
       },
-        {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="#" class="govuk-link--no-visited-state">Change role <span class="govuk-visually-hidden">to [Service name]</span></a>'
-        },
-        {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="#" class="govuk-link--no-visited-state">Remove access <span class="govuk-visually-hidden">to [Service name]</span></a>'
-        }
+      {
+        html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="edit-user-service-roles-chems" class="govuk-link--no-visited-state">Change role <span class="govuk-visually-hidden">to [Service name]</span></a>'
+      },
+      {
+        html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="#" class="govuk-link--no-visited-state">Remove access <span class="govuk-visually-hidden">to [Service name]</span></a>'
+      }
       ],
       [
         {

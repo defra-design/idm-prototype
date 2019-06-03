@@ -29,11 +29,11 @@
 
             switch(checkedValue){
               case 'Yes':
-              form.action = '/manage/team-members/team-members?removeUser=Yes'
+              form.action = '/manage/team-members/team-members?removeUser=yes&numUsers=4'
 
               break;
               default:
-              form.action = '/manage/team-members/services-on-team-member-standard?removeUser=No&numUsers=4'
+              form.action = '/manage/team-members/services-on-team-member-standard?removeUser=no'
             }
             return true
           }

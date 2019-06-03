@@ -24,18 +24,20 @@
     </h1>
 
 
-    {% if (data['subscribeService'] == "yes") and (data['accountAccess'] == "yes") %}
+    {% if (data['subscribeService'] == "no") and (data['accountAccess'] == "no") %}
+      <p class="govuk-body">{{ data['name'] }} is ready to use our online services.</p>
+      <p class="govuk-body"> You should choose what information and tasks you would like this person to see and do.</p>
+      <hr class="govuk-section-break--s">
+      <br>
     {% else %}
 
       {% if data['userType'] == "new-pending" %}
       <p class="govuk-body">{{ data['name'] }} is ready to use our online services. </p>
         <p class="govuk-body">Once your service registration has been agreed you will be able give them service access.</p>
-      {% else %}
-        <p class="govuk-body">{{ data['name'] }} is ready to use our online services.</p>
-        <p class="govuk-body"> You should choose what information and tasks you would like this person to see and do.</p>
-      {% endif %}
         <hr class="govuk-section-break--s">
         <br>
+      {% else %}
+      {% endif %}
     {% endif %}
 
   </div>
@@ -81,7 +83,7 @@
   {% if (data['accountAccess'] == "no") and (data['subscribeService'] == "no") %}
       {{ govukButton({
         text: "Give account access",
-        href: "/manage/team-members/invite-user/add-user-roles-system-roles?subscribeService=yes&serviceRole=Standard&userType=invite&name=Sarah Chippers"
+        href: "/manage/team-members/invite-user/add-user-roles-system-roles?subscribeService=yes&serviceRole=Standard&userType=invite&name=Sara Chippers"
       }) }}
   {% endif %}
 
@@ -89,7 +91,7 @@
 
     {{ govukButton({
       text: "Give service access",
-      href: "/manage/team-members/invite-user/add-user-service?subscribeService=yes&serviceRole=Standard&userType=invite&name=Sarah Chippers"
+      href: "/manage/team-members/invite-user/add-user-service?subscribeService=yes&serviceRole=Standard&userType=invite&name=Sara Chippers"
     }) }}
   {% endif %}
 
@@ -105,7 +107,7 @@
     {% endset %}
 
     {% set setOrgHtml %}
-        <span class="govuk-visually-hidden--desktop td-header">Organisation:</span> Acme Org
+        <span class="govuk-visually-hidden--desktop td-header">Organisation:</span> Acme Org Ltd
     {% endset %}
 
     {% set setServiceRoleHtml %}

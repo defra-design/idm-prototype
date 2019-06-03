@@ -104,7 +104,7 @@
     </p>
   </div>
   <div class="govuk-grid-column-one-half">
-    {% if (data['verifiedUser'] == "yes") %}
+    {% if (data['subscribeService'] == "yes") and (data['accountAccess'] == "yes") %}
     <p class="govuk-body"><a href="" class="govuk-link--no-visited-state">Remove user</a></p>
     {% endif %}
 
@@ -115,7 +115,7 @@
   <div class="govuk-grid-column-one-half">
     <p class="govuk-body">
       <span class="govuk-!-font-weight-bold">Account:</span> Acme Org Ltd<br>
-      {% if (data['verifiedUser'] == "yes") and (data['accountAccess'] == "yes") %}
+      {% if (data['subscribeService'] == "yes") and (data['accountAccess'] == "yes") %}
       <span class="govuk-!-font-weight-bold">Account role:</span> {{ data['systemRole'] }}
       {% endif %}
       {% if (data['verifiedUser'] == "no") %}
@@ -124,7 +124,7 @@
 
     </p>
   </div>
-  {% if (data['verifiedUser'] == "yes") and (data['accountAccess'] == "yes") %}
+  {% if (data['subscribeService'] == "yes") and (data['accountAccess'] == "yes") %}
   <div class="govuk-grid-column-one-half">
     <p class="govuk-body"><a href="" class="govuk-link--no-visited-state">Change account role</a></p>
   </div>
@@ -151,7 +151,7 @@
 
 
   <!-- Show table if the user has subscribed to one service -->
-  {% if (data['subscribeService'] == "yes") and (data['verifiedUser'] == "yes") %}
+  {% if (data['subscribeService'] == "yes") and (data['accountAccess'] == "yes") %}
 
 
     {% set setServiceNameHtml %}
