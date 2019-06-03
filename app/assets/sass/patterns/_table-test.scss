@@ -9,7 +9,7 @@ td, th { counter-increment: cellcount; }
 }
 
 .govuk-body--grey{
-  color: govuk-colour("grey-1"); 
+  color: govuk-colour("grey-1");
 }
 
 
@@ -116,4 +116,29 @@ th {
 
 .arrow-up:after {
     content: "\2191";
+}
+
+// In a parent/child list show the parent make a distinction between the last child and the next parent
+.govuk-table__row.top-row .govuk-table__cell{
+  border-top-style: solid;
+  border-top-color: #808080;
+  border-top-width: 1px;
+  border-bottom: 1px solid #fff;
+}
+// In a parent/child list don't show borders between services for the same organisation
+.govuk-table__row.no-border .govuk-table__cell{
+  // border-top:1px solid #fff;
+  border-bottom: 1px solid #fff;
+}
+// The identifier to use to indicate an organisation is a child
+.child-identifier:after{
+  content: " >  ";
+  font-size: 0.8em;
+  color: #808080;
+}
+@media all and (max-width: 40.0625em) {
+  .govuk-table__row.top-rowlast-row .govuk-table__cell,.govuk-table__row.no-borderlast-row .govuk-table__cell,.govuk-table__row.top-row .govuk-table__cell, .govuk-table__row.no-border .govuk-table__cell{
+    border-top: none;
+    border-bottom: none;
+  }
 }
