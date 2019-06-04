@@ -115,7 +115,7 @@
   <div class="govuk-grid-column-one-half">
     <p class="govuk-body">
       <span class="govuk-!-font-weight-bold">Account:</span> Acme Org Ltd<br>
-      {% if (data['subscribeService'] == "yes") and (data['accountAccess'] == "yes") %}
+      {% if (data['accountAccess'] == "yes") %}
       <span class="govuk-!-font-weight-bold">Account role:</span> {{ data['systemRole'] }}
       {% endif %}
       {% if (data['verifiedUser'] == "no") %}
@@ -124,7 +124,7 @@
 
     </p>
   </div>
-  {% if (data['subscribeService'] == "yes") and (data['accountAccess'] == "yes") %}
+  {% if (data['accountAccess'] == "yes") %}
   <div class="govuk-grid-column-one-half">
     <p class="govuk-body"><a href="" class="govuk-link--no-visited-state">Change account role</a></p>
   </div>
