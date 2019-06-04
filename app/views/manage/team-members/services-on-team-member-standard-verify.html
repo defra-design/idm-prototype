@@ -70,20 +70,17 @@
         </div>
       </div>
 
-      <div class="govuk-grid-row">
-        <div class="govuk-grid-column-one-quarter">
-          {{ govukButton({
-            text: "Accept",
-            href: "verify/add-user-roles-system-roles"
-          }) }}
-        </div>
-        <div class="govuk-grid-column-one-quarter">
-        {{ govukButton({
-          text: "Decline",
-          href: "verify/verify-decline"
-        }) }}
-        </div>
-      </div>
+      {{ govukButton({
+        text: "Accept",
+        href: "verify/add-user-roles-system-roles"
+      }) }}
+      {{ govukButton({
+        text: "Decline",
+        classes: "govuk-button--secondary",
+        href: "verify/verify-decline"
+      }) }}
+
+
     {% endif %}
 
   <div class="govuk-grid-row">

@@ -69,23 +69,19 @@
         <div class="govuk-grid-column-full">
         <p class="govuk-body">{{ data['name'] }} would like to do work on behalf of Acme Org Ltd.</p>
         <p class="govuk-body">As the Admin, you must decide whether you wish to allow this user to become a team member of {{ data['orgName'] }}.</p>
-        </div>
-      </div>
 
-      <div class="govuk-grid-row">
-        <div class="govuk-grid-column-one-quarter">
-          {{ govukButton({
-            text: "Accept",
-            href: "verify/add-user-roles-system-roles"
-          }) }}
-        </div>
-        <div class="govuk-grid-column-one-quarter">
+        {{ govukButton({
+          text: "Accept",
+          href: "verify/add-user-roles-system-roles"
+        }) }}
         {{ govukButton({
           text: "Decline",
+          classes: "govuk-button--secondary",
           href: "verify/verify-decline"
         }) }}
         </div>
       </div>
+
     {% endif %}
 
   <div class="govuk-grid-row">
