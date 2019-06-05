@@ -7,10 +7,7 @@
 {% endblock %}
 
 {% block beforeContent %}
-  {{ govukBackLink({
-    text: "Back",
-    href: "javascript:history.back()"
-  }) }}
+
 {% endblock %}
 
 {% block content %}
@@ -19,7 +16,7 @@
   <div class="govuk-grid-column-two-thirds">
 
     {{ govukPanel({
-          titleText: "Your registration is complete."
+          titleText: "Your registration is complete"
     })
     }}
 
@@ -27,11 +24,11 @@
 
     <h3 class="govuk-heading-m">What happens next</h3>
 
-    <p class="govuk-body">If the Admin accepts your request they’ll choose which information you can see and which tasks you can perform. We’ll email you to let you know when you can sign in.</p>
+    <p class="govuk-body">If the Admin accepts your request they’ll choose which information you can see and which tasks you can perform in [Organisation name]. We’ll email you to let you know when you can sign in.</p>
 
     <p class="govuk-body">If they decline your request, we’ll email you to let you know.</p>
 
-    <p class="govuk-body">If you do not confirm your registration within 30 days, we’ll delete your information.</p>
+
 
     <!--
 

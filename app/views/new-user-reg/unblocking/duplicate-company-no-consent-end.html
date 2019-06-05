@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% set title = "You have ended your registration" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    {{ govukPanel({
+          titleText: title
+    })
+    }}
+
+    <p class="govuk-body">You have chosen to not allow your details to be sent to the Admin for [organisation name] and end your registration.</p>
+    <p class="govuk-body">This means we will do something with your data...but we are not sure what yet</p>
+    <p class="govuk-body">You can <a href="https://www.gov.uk/guidance/contact-defra">contact Defra</a> for advice about other ways to complete your task.</p>
+    <p class="govuk-body">Or?? You can contact [Service name] on [Consuming service phone number] for advice about other ways to complete your task.</p>
+
+
+    {{ govukButton({
+      text: "Sign out",
+      href: "/signed-out"
+    }) }}
+
+
+
+    </div>
+  </div>
+
+
+
+
+{% endblock %}

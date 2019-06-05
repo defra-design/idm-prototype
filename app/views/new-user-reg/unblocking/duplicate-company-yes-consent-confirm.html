@@ -24,10 +24,20 @@
   </div>
 </div>
 
+{% if data['businessType'] == "Charity" %}
 {{ govukButton({
   text: "Continue",
-  href: "task-list-page-company-details"
+  href: "/new-user-reg/charity/unblocking/task-list-page-company-details"
 }) }}
+{% endif %}
+
+{% if data['businessType'] == "Limited company" %}
+{{ govukButton({
+  text: "Continue",
+  href: "/new-user-reg/limited-company/unblocking/task-list-page-company-details"
+}) }}
+{% endif %}
+
 
 
 

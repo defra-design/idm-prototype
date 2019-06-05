@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Are your sure you wish to cancel your registration?" %}
+{% set title = "Are your sure you wish to end your registration?" %}
 
 {% block pageTitle %}
     {{title}} - GOV.UK
@@ -20,7 +20,7 @@
 
       <form method="post" class="change" onsubmit="return myFunction()">
 
-<!--        <script>
+      <script>
           const form = document.querySelector('.change')
 
           function myFunction() {
@@ -29,21 +29,22 @@
 
             switch(checkedValue){
               case 'Yes':
-              form.action = 'organisation-type'
+              form.action = 'duplicate-company-no-consent-end'
 
               break;
               default:
-              form.action = 'services-on-team-member-invited'
+              form.action = 'duplicate-company-error'
             }
             return true
           }
         </script>
 
-      -->
+
 
         {{ govukRadios({
-          idPrefix: "cancelAccount",
-          name: "cancelAccount",
+          classes: "govuk-radios--inline",
+          idPrefix: "changeAccount",
+          name: "changeAccount",
           fieldset: {
             legend: {
               text: title,
@@ -55,13 +56,11 @@
           items: [
             {
               value: "Yes",
-              html: ' <span class="govuk-body govuk-!-font-weight-bold">Yes</span>
-                      - change my account type and delete any information I have entered'
+              html: 'Yes'
             },
             {
               value: "No",
-              html: ' <span class="govuk-body govuk-!-font-weight-bold">No</span>
-                      - do not change my account type'
+              html: 'No'
             }
           ]
         }) }}

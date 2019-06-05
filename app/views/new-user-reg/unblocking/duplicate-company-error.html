@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "This company has already been registered" %}
+{% set title = "This organisation has already been registered" %}
 
 {% block pageTitle %}
     {{title}} - GOV.UK
@@ -35,7 +35,7 @@
 
               break;
               default:
-              form.action = 'duplicate-company-no-consent-end'
+              form.action = 'duplicate-company-end-reg-confirm'
             }
             return true
           }
@@ -65,7 +65,7 @@
             {
               value: "No",
               html: ' <span class="govuk-body govuk-!-font-weight-bold">No</span>
-                      - I do not want to continue this registration'
+                      - I do not want to continue registration'
             }
           ]
         }) }}
@@ -73,11 +73,11 @@
         <details class="govuk-details">
           <summary class="govuk-details__summary">
             <span class="govuk-details__summary-text">
-              Do you think that someone has fraudulently registered your company?
+              Do you think that someone has fraudulently registered your organisation?
             </span>
           </summary>
           <div class="govuk-details__text">
-            If you are an authorised representative of the company then contact the service to discuss the problem.
+            If you are an authorised representative of the organisation then contact [Service name] to discuss the problem.
           </div>
           <div class="govuk-details__text">
             Please call the service on [consuming service phone number].
