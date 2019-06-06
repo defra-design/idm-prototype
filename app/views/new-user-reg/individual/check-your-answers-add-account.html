@@ -22,6 +22,31 @@
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-xl">{{title}}</h1>
 
+    <h2 class="govuk-heading-m">
+      Your account
+    </h2>
+    <dl class="app-check-your-answers app-check-your-answers--short">
+
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">
+          Your type of account
+        </dt>
+        <dd class="app-check-your-answers__answer">
+          {{ data['orgType']}}
+        </dd>
+        <dd class="app-check-your-answers__change">
+          <a href="../organisation-type" class="govuk-link" >
+            Change<span class="govuk-visually-hidden"> account type</span>
+          </a>
+        </dd>
+      </div>
+
+    </dl>
+
+    <h2 class="govuk-heading-m">
+      About you
+    </h2>
+
     <dl class="app-check-your-answers app-check-your-answers--short">
       <div class="app-check-your-answers__contents">
         <dt class="app-check-your-answers__question">
