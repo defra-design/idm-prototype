@@ -19,12 +19,14 @@
         <h1 class="govuk-heading-xl">{{ title }}</h1>
         <p class="govuk-body">If you have not received the email try checking your Spam folders in case it has gone there.</p>
         <p class="govuk-body">Else, select Continue below and try entering your email address again or registering with a different email.</p>
-        <p class="govuk-body-s">Error code: xxxxxxxx</p>
+
 
         {{ govukButton({
           text: "Continue",
           href: "/scp/email-address"
         }) }}
+
+        <p class="govuk-body-s">Error code: xxxxxxxx</p>
 
       </div>
     </div>
