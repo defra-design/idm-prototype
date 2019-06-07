@@ -7,8 +7,6 @@
 {% endblock %}
 
 {% block beforeContent %}
-{% include "includes/account-nav-admin-corp.html" %}
-
   {{ govukBackLink({
     text: "Back",
     href: "javascript:history.back()"
@@ -22,46 +20,63 @@
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-xl">{{ title }}</h1>
 
-    <details class="govuk-details">
-      <summary class="govuk-details__summary">
-        <span class="govuk-details__summary-text">Change your name or telephone number
-        </span>
-      </summary>
-      <div class="govuk-details__text">Please call the [consuming service name] service on [consuming service phone number].
-      </div>
-    </details>
+    <table class="govuk-table {{ tableCSS }}">
+      <caption class="govuk-table__caption govuk-body govuk-!-font-weight-regular">Make updates to Your Defra account personal information.</caption>
+
+      <tr class="govuk-table__row">
+        <th class="govuk-table__cell">
+          Full name
+        </th>
+        <td class="govuk-table__cell">
+          Ann Cooper
+        </td>
+        <td class="govuk-table__cell">
+          <a href="personal-details" class="govuk-link--no-visited-state"> Change<span class="govuk-visually-hidden td-header"> full name</span></a>
+        </td>
+      </tr>
+      <tr class="govuk-table__row">
+        <th class="govuk-table__cell">
+          Telephone number
+        </th>
+        <td class="govuk-table__cell">
+          01179267473
+        </td>
+        <td class="govuk-table__cell">
+          <a href="personal-contact" class="govuk-link--no-visited-state"> Change<span class="govuk-visually-hidden td-header"> telephone number</span></a>
+        </td>
+      </tr>
+      <tr class="govuk-table__row">
+        <th class="govuk-table__cell">
+          Personal address
+        </th>
+        <td class="govuk-table__cell">
+          25 Broad Street, Bristol, BS1 2PH. UK
+        </td>
+        <td class="govuk-table__cell">
+          <a href="personal-address-manual" class="govuk-link--no-visited-state"> Change<span class="govuk-visually-hidden td-header"> personal address</span></a>
+        </td>
+      </tr>
+    </table>
 
     <details class="govuk-details">
       <summary class="govuk-details__summary">
-        <span class="govuk-details__summary-text">Change your address</span>
-      </summary>
-      <div class="govuk-details__text">
-        Please <a href="https://www.gov.uk/file-changes-to-a-company-with-companies-house"target="_blank">contact Companies House</a> (opens in a new tab). The process should take around 5 working days and your details will automatically be updated in this account.
-      </div>
-      <div class="govuk-details__text">
-        Please call the [consuming service name] service on [consuming service phone number].
-      </div>
-    </details>
-
-    <!--
-      <details class="govuk-details">
-      <summary class="govuk-details__summary">
-        <span class="govuk-details__summary-text">Change your email address</span>
-      </summary>
-      <div class="govuk-details__text">
-        Your email address comes from your Government Gateway account. If you <a href="#">update your Government Gateway account</a> (opens in a new tab) your details will automatically be updated in this account too.
-      </div>
-    </details>
-    -->
-
-    <details class="govuk-details">
-      <summary class="govuk-details__summary">
-        <span class="govuk-details__summary-text">Update your Government Gateway details</span>
+        <span class="govuk-details__summary-text">Update your Government Gateway details (email and password)</span>
       </summary>
       <div class="govuk-details__text">
         To access Your Defra account and related services you use Government Gateway credentials to login. You can change your password or update your email address through your <a href="#">Government Gateway profile</a> (opens in a new tab).
       </div>
     </details>
+
+    <details class="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">Change the business address</span>
+      </summary>
+      <div class="govuk-details__text">
+        Please call the [consuming service name] service on [consuming service phone number].
+      </div>
+    </details>
+
+
 
     <p class=govuk-body>Information about call charges is available <a href="https://www.gov.uk/call-charges"target="_blank">on the GOV.UK website</a> (opens in a new tab).</p>
 
