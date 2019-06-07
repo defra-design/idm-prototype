@@ -80,7 +80,7 @@
         <tr class="govuk-table__row">
           <td class="govuk-table__cell">
             <span class="govuk-visually-hidden--desktop td-header">Account:</span>
-            {{data['orgName']}}
+            Acme Org Ltd
           </td>
           <td class="govuk-table__cell">
             <span class="govuk-visually-hidden--desktop td-header">Account role:</span> Admin
@@ -215,7 +215,7 @@
 
     {{ govukButton({
       text: "Add account",
-      href: "/new-user-reg/organisation-type?userType=existing"
+      href: "/new-user-reg/organisation-type?userType=existing&addAccount=account&accountService=no"
     }) }}
 
   </div>
