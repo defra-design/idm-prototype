@@ -173,7 +173,7 @@
         <tr class="govuk-table__row">
           <td class="govuk-table__cell">
             <span class="govuk-visually-hidden--desktop td-header">Account:</span>
-            Chemicals R Us
+            {{data['orgName']}}
           </td>
           <td class="govuk-table__cell">
             <span class="govuk-visually-hidden--desktop td-header">Account role:</span> Admin
@@ -185,7 +185,10 @@
             <span class="govuk-visually-hidden--desktop td-header">Service role:</span>
           </td>
           <td class="govuk-table__cell">
-            <span role="text"><span class="govuk-visually-hidden--desktop td-header">Action:</span><a href="/manage/dashboard-all?numUsers=1&numAgents=0&numServices=0&numLocations=1&orgName=Chemicals R Us&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=yes&parentChild=parent" class="govuk-link--no-visited-state"> Manage account<span class="govuk-visually-hidden td-header"> for Chemicals R Us</span></a></span>
+            {% if data['orgType'] == "Individual" %}
+            {% else %}
+            <span role="text"><span class="govuk-visually-hidden--desktop td-header">Action:</span><a href="/manage/dashboard-all?numUsers=1&numAgents=0&numServices=0&numLocations=1&orgName=Chemicals R Us&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=yes&parentChild=parent" class="govuk-link--no-visited-state"> Manage account<span class="govuk-visually-hidden td-header"> for [Service name]</span></a></span>
+            {% endif %}
           </td>
         </tr>
     {% else %}
