@@ -29,30 +29,36 @@
     <p class="govuk-body">The following services are available for you to register this account with. To register click the links below.</p>
     <ul class="govuk-list govuk-list--bullet">
       <li>
-        <a class="govuk-link" href="/service-start-logged-out-VMD?userType=existing-new-service&service=VMD&serviceLine=VMD Secure Messaging">VMD Secure Messaging</a>
+        <a class="govuk-link" href="/service-start-logged-out-VMD?userType=existing&service=VMD&serviceLine=VMD Secure Messaging">VMD Secure Messaging</a>
       </li>
       <li>
-        <a class="govuk-link" href="/service-start-logged-out-imports?userType=existing-new-service&service=Imports&serviceLine=Notification service">Notification service</a>
+        <a class="govuk-link" href="/service-start-logged-out-imports?userType=existing&service=Imports&serviceLine=Notification service">Notification service</a>
       </li>
       <li>
-        <a class="govuk-link" href="/service-start-logged-out?userType=existing-new-service&service=Chemicals&serviceLine=Comply with REACH IT">Comply with REACH IT</a>
+        <a class="govuk-link" href="/service-start-logged-out?userType=existing&service=Chemicals&serviceLine=Comply with REACH IT">Comply with REACH IT</a>
       </li>
       <li>
         <a class="govuk-link" href="#">An Other Service</a>
       </li>
     </ul>
 
+{% if data['orgType'] == "Individual" %}
 
-{% if data['addAccount'] == "account" %}
-    {{ govukButton({
-        text: "Continue to account",
-        href: "/manage/dashboard-all?orgName=Chemicals R Us&parentChild=parent"
-    }) }}
 {% else %}
-    {{ govukButton({
-        text: "Continue to account",
-        href: "/manage/dashboard-child?childName=Acme Org India&multiOrg=yes&parentChild=child#rel-org"
-    }) }}
+
+    {% if data['addAccount'] == "account" %}
+        {{ govukButton({
+            text: "Continue to account",
+            href: "/manage/dashboard-all?orgName=Chemicals R Us&numUsers=1&numAgents=0&numServices=1&numLocations=1parentChild=parent"
+        }) }}
+    {% endif %}
+    {% if data['addAccount'] == "related" %}
+        {{ govukButton({
+            text: "Continue to account",
+            href: "/manage/dashboard-child?childName=Chemical R US &multiOrg=yes&parentChild=child#rel-org"
+        }) }}
+
+    {% endif %}
 
 {% endif %}
 
