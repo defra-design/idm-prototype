@@ -21,6 +21,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
+
     <form action="services-on-team-member-update-details" method="post">
 
 
@@ -41,7 +42,9 @@
     },
     classes: "govuk-input--width-10",
     id: "sub-building-name",
-    name: "sub-building-name"
+    name: "sub-building-name",
+    value: data['sub-building-name']
+
   }) }}
 
   {{ govukInput({
@@ -50,7 +53,8 @@
     },
     classes: "govuk-input--width-10",
     id: "building-number",
-    name: "building-number"
+    name: "building-number",
+    value: data['building-number']
   }) }}
 
   {{ govukInput({
@@ -59,7 +63,8 @@
     },
     classes: "govuk-input--width-10",
     id: "building-name",
-    name: "building-name"
+    name: "building-name",
+    value: data['building-name']
   }) }}
 
   {{ govukInput({
@@ -68,7 +73,8 @@
     },
     classes: "govuk-!-width-two-thirds",
     name: "street-name",
-    id: "street-name"
+    id: "street-name",
+    value: data['street-name']
   }) }}
 
   {{ govukInput({
@@ -77,7 +83,8 @@
     },
     classes: "govuk-!-width-two-thirds",
     id: "address-town",
-    name: "address-town"
+    name: "address-town",
+    value: data['address-town']
   }) }}
 
   {{ govukInput({
@@ -86,7 +93,8 @@
     },
     classes: "govuk-input--width-10",
     id: "address-postcode",
-    name: "address-postcode"
+    name: "address-postcode",
+    value: data['address-postcode']
   }) }}
 
   {{ govukSelect({
@@ -124,6 +132,12 @@
     ]
 
   }) }}
+
+  <p class="govuk-body">
+    <a href="personal-postcode">
+      Search for my address by UK Postcode
+    </a>
+  </p>
 
   {% endcall %}
 

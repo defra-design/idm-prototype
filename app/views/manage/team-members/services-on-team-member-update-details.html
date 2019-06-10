@@ -14,11 +14,12 @@
 {% endblock %}
 
 {% block content %}
-
-
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-xl">{{ title }}</h1>
+    {{ numUsers }}
+    {{ flowType }}
+
 
     <table class="govuk-table {{ tableCSS }}">
       <caption class="govuk-table__caption govuk-body govuk-!-font-weight-regular">Make updates to Your Defra account personal information.</caption>
@@ -49,8 +50,9 @@
         <th class="govuk-table__cell">
           Personal address
         </th>
-        <td class="govuk-table__cell">
-          25 Broad Street, Bristol, BS1 2PH. UK
+        <td class="govuk-table__cell">{{ data['sub-building-name'] }}
+
+          {{ data['building-number'] }}, {{data['street-name']}}, {{data['address-town']}}, {{data['address-postcode']}}, {{data['address-country']}}
         </td>
         <td class="govuk-table__cell">
           <a href="personal-address-manual" class="govuk-link--no-visited-state"> Change<span class="govuk-visually-hidden td-header"> personal address</span></a>
