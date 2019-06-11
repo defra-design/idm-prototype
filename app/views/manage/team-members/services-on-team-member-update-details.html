@@ -7,6 +7,8 @@
 {% endblock %}
 
 {% block beforeContent %}
+  {% include "includes/account-nav-admin-corp.html" %}
+
   {{ govukBackLink({
     text: "Back",
     href: "services-on-team-member-admin-account_onlyrep"
