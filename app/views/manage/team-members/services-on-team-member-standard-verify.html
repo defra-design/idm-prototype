@@ -33,8 +33,8 @@
     {% if (data['userType'] == "new-pending") %}
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-full">
-          <p class="govuk-body">{{ data['name'] }} is ready to use our online services. </p>
-          <p class="govuk-body">Once your service registration has been agreed you will be able give them service access.</p>
+          <p class="govuk-body">{{ data['name'] }} is ready to use Defra online services. </p>
+          <p class="govuk-body">When your service registration has been approved, you'll be able give them service access.</p>
         </div>
       </div>
     {% endif %}
@@ -43,7 +43,7 @@
     {% if (data['verifiedUser'] == "yes") and (data['accountAccess'] == "no") and (data['subscribeService'] == "no")  %}
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-full">
-          <p class="govuk-body">{{ data['name'] }} is now verified. Select below to give them access to this account.</p>
+          <p class="govuk-body">{{ data['name'] }} has been verified. You can now give them access to this account.</p>
           {{ govukButton({
             text: "Give account access",
             href: "/manage/team-members/verify/add-user-roles-system-roles?subscribeService=no"
@@ -56,7 +56,7 @@
     {% if (data['verifiedUser'] == "yes") and (data['accountAccess'] == "yes") and (data['subscribeService'] == "no") %}
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-full">
-        <p class="govuk-body">{{ data['name'] }} has access to this account. Select below to give them access to a service.</p>
+        <p class="govuk-body">{{ data['name'] }} is ready to use Defra online services. You can now give them service access.</p>
         </div>
       </div>
     {% endif %}
@@ -65,8 +65,8 @@
     {% if (data['verifiedUser'] == "none") %}
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-full">
-        <p class="govuk-body">{{ data['name'] }} would like to do work on behalf of Acme Org Ltd.</p>
-        <p class="govuk-body">As the Admin, you must decide whether you wish to allow this user to become a team member of {{ data['orgName'] }}.</p>
+        <p class="govuk-body">{{ data['name'] }} would like to use Defra online services on behalf of Acme Org Ltd.</p>
+        <p class="govuk-body">As an account administrator, you must accept or decline this user's request to become a team member of {{ data['orgName'] }}.</p>
         </div>
       </div>
 

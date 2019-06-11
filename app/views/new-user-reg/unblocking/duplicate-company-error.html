@@ -50,7 +50,7 @@
           name: "changeAccount",
           fieldset: {
             legend: {
-              text: "Can we pass your contact details to the Admin of this organisation?",
+              text: "Can we pass your contact details to the account administrator for this organisation?",
               isPageHeading: false,
               classes: "govuk-fieldset__legend--s"
             }
@@ -59,13 +59,11 @@
           items: [
             {
               value: "Yes",
-              html: ' <span class="govuk-body govuk-!-font-weight-bold">Yes</span>
-                      - let the admin know I want to work on behalf of [organisation name]'
+              html: ' <span class="govuk-body govuk-!-font-weight-bold">Yes</span>, tell the administrator that I want to use Defra online services on behalf of [organisation name]'
             },
             {
               value: "No",
-              html: ' <span class="govuk-body govuk-!-font-weight-bold">No</span>
-                      - I do not want to continue registration'
+              html: ' <span class="govuk-body govuk-!-font-weight-bold">No</span>, I do not want to continue registration'
             }
           ]
         }) }}
@@ -73,14 +71,11 @@
         <details class="govuk-details">
           <summary class="govuk-details__summary">
             <span class="govuk-details__summary-text">
-              Do you think that someone has fraudulently registered your organisation?
+              Has your organisation been registered without consent?
             </span>
           </summary>
           <div class="govuk-details__text">
-            If you are an authorised representative of the organisation then contact [Service name] to discuss the problem.
-          </div>
-          <div class="govuk-details__text">
-            Please call the service on [consuming service phone number].
+            If you're an authorised representative of the organisation and suspect that it's been registered fraudulently, call [Service name] on [consuming service phone number].
           </div>
         </details>
 
