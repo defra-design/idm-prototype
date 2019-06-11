@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "You cannot continue your registration" %}
+{% set title = "You have ended your registration" %}
 
 {% block pageTitle %}
     {{title}} - GOV.UK
@@ -18,9 +18,8 @@
     })
     }}
 
-    <p class="govuk-body">You have chosen not to allow your details to be sent to the account administrator for [organisation name].</p>
-    <p class="govuk-body">This means that your registration cannot continue.</p>
-    <p class="govuk-body">You can contact [Service name] on [Consuming service phone number] for advice about other ways to complete your task.</p>
+
+    <p class="govuk-body">You can contact [Service name] on [Consuming service phone number] for advice on other ways to complete your task.</p>
 
 
     {{ govukButton({
