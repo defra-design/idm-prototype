@@ -9,7 +9,7 @@
 {% block beforeContent %}
   {{ govukBackLink({
     text: "Back",
-    href: "javascript:history.back()"
+    href: "services-on-team-member-admin-account_onlyrep"
   }) }}
 {% endblock %}
 
@@ -29,7 +29,7 @@
           Full name
         </th>
         <td class="govuk-table__cell">
-          Ann Cooper
+          {{ data['personalFirstName'] }} {{ data['personalSurname'] }}
         </td>
         <td class="govuk-table__cell">
           <a href="personal-details" class="govuk-link--no-visited-state"> Change<span class="govuk-visually-hidden td-header"> full name</span></a>
@@ -40,7 +40,7 @@
           Telephone number
         </th>
         <td class="govuk-table__cell">
-          01179267473
+          {{ data['personalTelephone'] }}
         </td>
         <td class="govuk-table__cell">
           <a href="personal-contact" class="govuk-link--no-visited-state"> Change<span class="govuk-visually-hidden td-header"> telephone number</span></a>
