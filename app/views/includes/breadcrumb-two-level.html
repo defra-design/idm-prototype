@@ -25,7 +25,7 @@
 {% endif %}
 
 
-{% if (data['numLocations'] == "0") %}
+{% if (data['numAgents'] == "3") %}
   {% set parentURL = "/errors/user-access-child-error" %}
 {% else %}
   {% set parentURL = "/manage/dashboard-all?multiOrg=yes&parentChild=parent" %}
@@ -43,7 +43,7 @@
           {% endif %}
         </li>
         <li class="govuk-breadcrumbs__list-item">
-          <a class="govuk-breadcrumbs__link" href="/errors/user-access-child-error"> {{ setOrgName }}</a>
+          <a class="govuk-breadcrumbs__link" href="{{ parentURL }}"> {{ setOrgName }}</a>
         </li>
         <li class="govuk-breadcrumbs__list-item">
           {{ childName }}
