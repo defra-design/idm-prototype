@@ -25,11 +25,13 @@
 {% endif %}
 
 
-
+{% if (data['numLocations'] == "0") %}
+  {% set parentURL = "/errors/user-access-child-error" %}
+{% else %}
+  {% set parentURL = "/manage/dashboard-all?multiOrg=yes&parentChild=parent" %}
+{% endif %}
 
 {% if (data['parentChild'] == "child") %}
-
-  {% if (data['numLocations'] == "0") %}
 
     <div class="govuk-breadcrumbs">
       <ol class="govuk-breadcrumbs__list">
@@ -49,25 +51,4 @@
       </ol>
     </div>
 
-  {% else %}
-
-  <div class="govuk-breadcrumbs">
-    <ol class="govuk-breadcrumbs__list">
-      <li class="govuk-breadcrumbs__list-item">
-        {% if (data['orgType'] == "onlyRep") %}
-            <a class="govuk-breadcrumbs__link" href="/manage/team-members/services-on-team-member-admin-account_onlyrep">Home</a>
-        {% else %}
-            <a class="govuk-breadcrumbs__link" href="/manage/team-members/services-on-team-member-admin-account_company">Home</a>
-        {% endif %}
-      </li>
-      <li class="govuk-breadcrumbs__list-item">
-        <a class="govuk-breadcrumbs__link" href="/manage/dashboard-all?multiOrg=yes&parentChild=parent"> {{ setOrgName }}</a>
-      </li>
-      <li class="govuk-breadcrumbs__list-item">
-        {{ childName }}
-      </li>
-    </ol>
-  </div>
-
-  {% endif %}
 {% endif %}
