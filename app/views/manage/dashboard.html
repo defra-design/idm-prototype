@@ -45,18 +45,21 @@
         Account for
       </span>
       <h1 class="govuk-heading-xl">
-        {{ orgName }}
+        {% if data['parentChild'] == "parent" %}
+          {{ orgName }}
+        {% else %}
+          {{ childName }}
+        {% endif %}
       </h1>
     {% endif %}
 
-    {% if (data['multiOrg'] == "yes") and (data['parentChild'] == "child") %}
+    {% if data['multiOrg'] == "yes" %}
       <h1 class="govuk-heading-xl govuk-heading-xl--no-margin">
-        {{ childName }}
-      </h1>
-      {% endif %}
-      {% if (data['multiOrg'] == "yes") and (data['parentChild'] == "parent") %}
-      <h1 class="govuk-heading-xl govuk-heading-xl--no-margin">
-        {{ orgName }}
+        {% if data['parentChild'] == "parent" %}
+          {{ orgName }}
+        {% else %}
+          {{ childName }}
+        {% endif %}
       </h1>
     {% endif %}
 
