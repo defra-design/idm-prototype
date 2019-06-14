@@ -45,7 +45,6 @@
       <ul class="govuk-list govuk-list--bullet">
         <li><a href="service-start-logged-out?userType=new-incomplete-tasklist&regSuccess=pending&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager" class="govuk-link--no-visited-state">Return user: Incomplete registration - task list not finished</a></li>
         <li><a href="service-start-logged-out?userType=new-incomplete-service&regSuccess=pending&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager" class="govuk-link--no-visited-state">Return user: Incomplete registration - service not finished</a></li>
-        <li><a href="service-start-logged-out?userType=new-pending&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager" class="govuk-link--no-visited-state">Return user: Registration is pending</a></li>
         <li><a href="service-start-logged-out?userType=new-complete-admin&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager" class="govuk-link--no-visited-state">Return user: service enrolment success</a></li>
       </ul>
       <h3 class="govuk-heading-s">Quick links
@@ -62,11 +61,9 @@
       <h2 class="govuk-heading-m">RC 1.1 Group management
       </h2>
       <ul class="govuk-list govuk-list--bullet">
-        <li><a href="/manage/dashboard-all?numUsers=1&numServices=1&numAgents=0&numLocations=1&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=no" class="govuk-link--no-visited-state">Admin: New User Dashboard (Chemicals)</a></li>
-        <li><a href="/manage/dashboard-all?numUsers=5&numAgents=3&numLocations=1&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=no" class="govuk-link--no-visited-state">Admin: Full dashboard (Chemicals)</a></li>
-        <li><a href="/manage/dashboard-all?numUsers=5&numAgents=3&numLocations=1&service=Imports&serviceLine=Notification Service&serviceRole=Standard&multiOrg=no" class="govuk-link--no-visited-state">Admin: Full dashboard (Imports)</a></li>
+        <li><a href="/manage/dashboard-all?orgName=Acme Org Ltd&numUsers=1&numAgents=0&numServices=1&numLocations=1&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=no&parentChild=parent" class="govuk-link--no-visited-state" class="govuk-link--no-visited-state">Admin: New User Dashboard</a></li>
+        <li><a href="/manage/dashboard-all?orgName=Acme Org Ltd&numUsers=5&numAgents=3&numServices=3&numLocations=1&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=no&parentChild=parent" class="govuk-link--no-visited-state">Admin: Dashboard with multi team members</a></li>
       </ul>
-
       <h3 class="govuk-heading-s">Add User
       </h3>
       <ul class="govuk-list govuk-list--bullet">
@@ -227,7 +224,7 @@
     <h3 class="govuk-heading-s">Remove user</h3>
     <ul class="govuk-list govuk-list--bullet">
       <li><a href="/manage/team-members/services-on-team-member-standard?removeUser=no&onlyAdmin=no&numServices=5&serviceLine=Comply with REACH IT&serviceRole=REACH%20Manager&multiOrg=yes" class="govuk-link--no-visited-state">Remove a team member from account</a></li>
-      <li><a href="https://identity-management-app.herokuapp.com/manage/team-members/remove-user/delete-user-only-admin-warning?userName=Barry%20Anders" class="govuk-link--no-visited-state">Error: Remove only admin for parent and child</a></li>
+      <li><a href="/manage/team-members/remove-user/delete-user-only-admin-warning?userName=Barry%20Anders" class="govuk-link--no-visited-state">Error: Remove only admin for parent and child</a></li>
     </ul>
 
     <h3 class="govuk-heading-s">n+1 user unblocking</h3>
