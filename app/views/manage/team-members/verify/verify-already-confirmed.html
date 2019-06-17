@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% set title = "This person was accepted by another Admin" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">{{title}}</h1>
+
+
+    <form action="../services-on-team-member-standard-verify?userType=invite&name=Tiegan Mole&verifiedUser=yes&subscribeService=no&accountAccess=yes" method="post">
+    <p class="govk-body">Another Admin for {{data['orgName']}} accepted this user’s request.</p>
+    <p class="govuk-body">You can change or remove this users access at any time.</p>
+
+    <p class="govuk-body">You may wish to contact the Admin who accecpted this user:</p>
+    <p class="govuk-body">
+      [admin name]<br>
+      [email address]<br>
+      [telephone number]
+    </p>
+
+    {{ govukButton({
+      text: "Continue"
+    }) }}
+
+
+  </div>
+</div>
+
+
+
+{% endblock %}
