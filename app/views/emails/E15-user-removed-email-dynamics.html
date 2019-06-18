@@ -1,12 +1,11 @@
-Your Defra account: Your details have been updated
-
+Your Defra account: You have been removed from the [organisation name] account
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>Updated details</title>
+    <title>User removed</title>
     <style type="text/css">
       @media only screen and (min-device-width: 581px) {
         .content {
@@ -106,22 +105,14 @@ Your Defra account: Your details have been updated
             <![endif]-->
 
 <!-- Content starts -->
-            <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #0B0C0C;">Hello [first name],</p>
-            <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #0B0C0C;">We noticed that your account details for [organisation name] have been updated.</p>
-            <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #0B0C0C;">If you did not make these changes, please call the service:</p>
-            <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #0B0C0C;">Comply with REACH IT - 0174 45633458</p>
-            <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #0B0C0C;">[consuming service name] - [consuming service phone number]</p>
+            <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #0B0C0C;">Hello {!Custom:UserFirstName;},</p>
+            <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #0B0C0C;">We're contacting you to confirm that you have been removed from the {!Organisation:Name;} team account.</p>
 
-
+            <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #0B0C0C;">If you think this has been done in error, please call the service:</p>
+            <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #0B0C0C;">{!Custom:ServiceName;} - {!Custom:ServicePhoneNumber;}</p>
 
 <!--Content ends -->
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <a href="/emails/E14-updated-details-email-dynamics" style="color: #005ea5;">Dynamics version</a>
+
           </td>
           <td width="10" valign="middle"><br></td>
         </tr>

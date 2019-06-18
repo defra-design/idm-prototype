@@ -106,22 +106,10 @@ Your Defra account: Your details have been updated
             <![endif]-->
 
 <!-- Content starts -->
-            <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #0B0C0C;">Hello [first name],</p>
-            <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #0B0C0C;">We noticed that your account details for [organisation name] have been updated.</p>
+            <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #0B0C0C;">Hello {!Custom:UserFirstName;},</p>
+            <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #0B0C0C;">We noticed that your account details for {!Organisation:Name;} have been updated.</p>
             <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #0B0C0C;">If you did not make these changes, please call the service:</p>
-            <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #0B0C0C;">Comply with REACH IT - 0174 45633458</p>
-            <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #0B0C0C;">[consuming service name] - [consuming service phone number]</p>
-
-
-
-<!--Content ends -->
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <a href="/emails/E14-updated-details-email-dynamics" style="color: #005ea5;">Dynamics version</a>
+            <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #0B0C0C;">{!Custom:ServiceName;} - {!Custom:ServicePhoneNumber;}</p>
           </td>
           <td width="10" valign="middle"><br></td>
         </tr>
