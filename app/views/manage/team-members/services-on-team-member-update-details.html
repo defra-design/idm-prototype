@@ -19,35 +19,23 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-xl">{{ title }}</h1>
-    {{ numUsers }}
-    {{ flowType }}
-
 
     <table class="govuk-table {{ tableCSS }}">
       <caption class="govuk-table__caption govuk-body govuk-!-font-weight-regular">Make updates to Your Defra account personal information.</caption>
 
       <tr class="govuk-table__row">
         <th class="govuk-table__cell">
-          Full name
+          Personal information
         </th>
         <td class="govuk-table__cell">
-          {{ data['personalFirstName'] }} {{ data['personalSurname'] }}
-        </td>
-        <td class="govuk-table__cell">
-          <a href="personal-details" class="govuk-link--no-visited-state"> Change<span class="govuk-visually-hidden td-header"> full name</span></a>
-        </td>
-      </tr>
-      <tr class="govuk-table__row">
-        <th class="govuk-table__cell">
-          Telephone number
-        </th>
-        <td class="govuk-table__cell">
+          {{ data['personalFirstName'] }} {{ data['personalSurname'] }}<br>
           {{ data['personalTelephone'] }}
         </td>
         <td class="govuk-table__cell">
-          <a href="personal-contact" class="govuk-link--no-visited-state"> Change<span class="govuk-visually-hidden td-header"> telephone number</span></a>
+          <a href="personal-information" class="govuk-link--no-visited-state"> Change<span class="govuk-visually-hidden td-header"> personal details</span></a>
         </td>
       </tr>
+
       <tr class="govuk-table__row">
         <th class="govuk-table__cell">
           Personal address
