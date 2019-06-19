@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "You cannot change this user role" %}
+{% set title = "You cannot change this user's account role" %}
 
 {% block pageTitle %}
     {{title}} - GOV.UK
@@ -21,13 +21,13 @@
       <form method="post" action="../services-on-team-member-admin">
         <h1 class="govuk-heading-xl">{{ title }}</h1>
 
-        <p class="govuk-body">You cannot change the current role of <strong>Barry Anders</strong>. There must be at least one administrator from Acme Org India who is also an administrator for:</p>
+        <p class="govuk-body">You cannot change the account role of <strong>Barry Anders</strong>. There must be at least one administrator from <strong>Acme Org India</strong> who is also an administrator for:</p>
         <ul class="govuk-list govuk-list--bullet">
           <li>Acme Org Ltd</li>
         </ul>
         <p class="govuk-body">If you cannot create an alternative administrator for these accounts, call the service:</p>
 
-        <p class="govuk-body">Comply with Reach IT - 0174 45633458</p>
+        <p class="govuk-body">[consuming service name] - [consuming service phone number]</p>
         <p class="govuk-body">[consuming service name] - [consuming service phone number]</p>
 
 
