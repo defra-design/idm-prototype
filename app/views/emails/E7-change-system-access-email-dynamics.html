@@ -1,4 +1,4 @@
-Your access to the account for {!Organisation:Name;} has changed
+Your account role for {!Organisation:Name;} has changed
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -101,20 +101,22 @@ Your access to the account for {!Organisation:Name;} has changed
             <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #0B0C0C;">
               Hello {!Custom:UserFirstName;},</p>
             <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #0B0C0C;">
-              {!Custom:AdminName;} from {!Organisation:Name;} has changed your access to the organisation’s online Defra account.</p>
-            <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #0B0C0C;">This has changed which information you can see and which tasks you can perform on behalf of {!Organisation:Name;}.</p>
-            <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #0B0C0C;">Your account role is now:</p>
+              {!Custom:AdminName;} has changed your account role for {!Organisation:Name;} to:</p>
             <table role="presentation" style="padding: 0;">
               <tr>
                 <td style="font-family: Helvetica, Arial, sans-serif;">
                   <ul style="Margin: 0 0 20px 20px; padding: 0 0 0 20px; ">
-                    <li style="Margin: 5px 0 5px; padding: 0 0 0 5px; font-size: 19px;line-height: 25px; color: #0B0C0C;"><strong>{!Custom:IdmServiceRoleNew;}</strong></li>
+                    <li style="Margin: 5px 0 5px; padding: 0 0 0 5px; font-size: 19px;line-height: 25px; color: #0B0C0C;">{!Custom:IdmServiceRoleNew;}</li>
                   </ul>
                 </td>
               </tr>
             </table>
 
-            <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #0B0C0C;">If you have any questions about this change please contact {!Custom:AdminEmail;}</p>
+
+            <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #0B0C0C;">This affects which information you can see and which tasks you can perform on behalf of {!Organisation:Name;}.</p>
+
+
+            <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #0B0C0C;">If you have any questions about this change, please contact {!Custom:AdminEmail;}</p>
           <!--[if (gte mso 9)|(IE)]>
                 </td>
               </tr>
