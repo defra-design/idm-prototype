@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "You cannot remove this users service access" %}
+{% set title = "You cannot remove this user's service access" %}
 
 {% block pageTitle %}
     {{title}} - GOV.UK
@@ -20,16 +20,10 @@
 
       <form method="post" action="javascript:history.back()">
         <h1 class="govuk-heading-xl">{{ title }}</h1>
-    <div class="govuk-warning-text">
-           <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-           <strong class="govuk-warning-text__text">
-           <span class="govuk-warning-text__assistive">Warning</span>
-           Your registration status for [service name] is [pending/ rejected/ blocked]
-        </strong>
-    </div>
-        <p class="govuk-body">You cannot remove service access of [users name] because your [service name] registration is [pending/ rejected/ blocked]</p>
 
-        <p class="govuk-body">Contact the service if you have a problem with this:</p>
+        <p class="govuk-body">You do not have permission to remove service access to [service name].</p>
+
+        <p class="govuk-body">Contact the service for other ways to complete your task:</p>
 
         <p class="govuk-body">[consuming service name] - [consuming service phone number]</p>
 
