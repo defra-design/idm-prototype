@@ -38,7 +38,7 @@
           </span>
         </summary>
         <div class="govuk-details__text">
-         If you need to contact us for support you will need your Contact Support ID: CID-000000002109
+         If you contact us for support, you'll need your Contact Support ID: CID-000000002109
         </div>
       </details>
   </div>
@@ -52,7 +52,7 @@
   <div class="govuk-grid-column-full">
     <br>
       <h2 class="govuk-heading-l">
-        Your services
+        Your accounts
       </h2>
 
     {% set serviceLineName %}
@@ -72,7 +72,7 @@
     {% endset %}
 
     <table class="govuk-table {{ tableCSS }}">
-      <caption class="govuk-table__caption govuk-body govuk-!-font-weight-regular">This is a list of one or more accounts and the related services that you have access to.</caption>
+      <caption class="govuk-table__caption govuk-body govuk-!-font-weight-regular">You have access to the following accounts and related services.</caption>
       <thead class="govuk-table__head">
       <tr class="govuk-table__row">
         <th class="govuk-table__header column-full" scope="col">
@@ -181,7 +181,7 @@
           </table>
 
         {{ govukButton({
-          text: "Add account",
+          text: "Add an account",
           href: "/new-user-reg/organisation-type?userType=existing&addAccount=account&userType=existing&accountService=no"
         }) }}
 
@@ -192,7 +192,7 @@
 
 
 <div class="govuk-card__content">
-  <h2 class="govuk-heading-l">Link to services</h2>
+  <h2 class="govuk-heading-l">Your services</h2>
 
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-one-third">
