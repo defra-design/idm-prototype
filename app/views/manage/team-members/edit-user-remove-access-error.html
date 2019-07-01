@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% set title = "You cannot remove this users service access" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+      <form method="post" action="javascript:history.back()">
+        <h1 class="govuk-heading-xl">{{ title }}</h1>
+    <div class="govuk-warning-text">
+           <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+           <strong class="govuk-warning-text__text">
+           <span class="govuk-warning-text__assistive">Warning</span>
+           Your registration status for [service name] is [pending/ rejected/ blocked]
+        </strong>
+    </div>
+        <p class="govuk-body">You cannot remove service access of [users name] because your [service name] registration is [pending/ rejected/ blocked]</p>
+
+        <p class="govuk-body">Contact the service if you have a problem with this:</p>
+
+        <p class="govuk-body">[consuming service name] - [consuming service phone number]</p>
+
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+
+      </form>
+    </div>
+  </div>
+
+
+
+
+{% endblock %}
