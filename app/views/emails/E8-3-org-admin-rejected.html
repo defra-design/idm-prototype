@@ -106,24 +106,10 @@ Your request on behalf of {!Organisation:Name;} has been declined
 
 <!-- Content starts -->
 
-            <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #0B0C0C;">Hello,</p>
-            <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #0B0C0C;">Your request to use the following Defra online service on behalf of {!Organisation:Name;} has been declined:</p>
-            <table role="presentation" style="padding: 0;">
-              <tr>
-                <td style="font-family: Helvetica, Arial, sans-serif;">
-                  <ul style="Margin: 0 0 20px 20px; padding: 0 0 0 20px; ">
-                    <li style="Margin: 5px 0 5px; padding: 0 0 0 5px; font-size: 19px;line-height: 25px; color: #0B0C0C;"><strong>{!Custom:ServiceName;}</strong></li>
-                  </ul>
-                </td>
-              </tr>
-            </table>
-            <blockquote style="Margin: 0 0 20px 0; border-left: 10px solid #BFC1C3;padding: 15px 0 0.1px 15px; font-size: 19px; line-height: 25px;">
-              <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #005ea5;">
-                <strong>You can contact [Service name] on [Consuming service phone number] for advice on other ways to complete your task.</strong></p>
+            <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #0B0C0C;">Hello {!Custom:UserFirstName;},</p>
+            <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #0B0C0C;">Your request to use {!Custom:ServiceName;} on behalf of {!Organisation:Name;} has been declined.</p>
+            <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #0B0C0C;">For advice on other ways to complete your task, <a href="{!Custom:ServicesHelpLink;}">please contact the relevant service</a>.</p>
 
-            </blockquote>
-            <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #0B0C0C;">Your Contact Support ID is {!Custom:UserUniqueReference;}.</p>
-            <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #0B0C0C;">You’ll need your Contact Support ID to contact Defra or related organisations about your account.</p>
 <!-- Content ends -->
 
           </td>
