@@ -21,9 +21,16 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <h1 class="govuk-heading-xl">{{title}}</h1>
-
       <form action="/manage/team-members/services-on-team-member-update-details" method="post">
+
+
+        {% call govukFieldset({
+          legend: {
+            text: title,
+            classes: "govuk-fieldset__legend--xl",
+            isPageHeading: true
+          }
+        }) %}
 
         {{ govukInput({
           label: {
@@ -57,6 +64,8 @@
           type: "tel",
           value: data['personalTelephone']
         }) }}
+
+        {% endcall %}
 
         {{ govukButton({
           text: "Continue"

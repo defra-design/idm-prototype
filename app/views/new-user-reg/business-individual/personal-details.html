@@ -21,9 +21,17 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <h1 class="govuk-heading-xl">{{title}}</h1>
 
       <form action="task-list-page-personal-details" method="post">
+
+
+        {% call govukFieldset({
+          legend: {
+            text: title,
+            classes: "govuk-fieldset__legend--xl",
+            isPageHeading: true
+          }
+        }) %}
 
         {{ govukInput({
           label: {
@@ -44,6 +52,8 @@
           name: "personalSurname",
           value: data['personalSurname']
         }) }}
+
+        {% endcall %}
 
         {{ govukButton({
           text: "Continue"
