@@ -2,7 +2,7 @@
 {% set title = "Comply with REACH IT" %}
 
 {% block header %}
-    {{ govukHeader({ serviceName: "UK-Reach-IT" }) }}
+    {{ govukHeader({ serviceName: "Comply with REACH IT" }) }}
 {% endblock %}
 
 {% block pageTitle %}
@@ -72,8 +72,11 @@
     {% if data['userType'] == "new-incomplete-service" %}
           {% set startURL = "/scp/login-incomplete-service" %}
     {% endif %}
-    {% if data['userType'] == "existing" %}
+    {% if (data['userType'] == "existing") and (data['multiOrg'] == "yes") %}
           {% set startURL = "/scp/login-interswitch" %}
+    {% endif %}
+    {% if (data['userType'] == "existing") and (data['multiOrg'] == "no") %}
+          {% set startURL = "/scp/login-complete" %}
     {% endif %}
 
 

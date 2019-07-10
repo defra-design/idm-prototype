@@ -140,6 +140,6 @@ router.get('/scp/login-pending', function (req, res) {
 // Existing user - new service, multiple accounts
 router.get('/scp/login-interswitch', function (req, res) {
     res.render('scp/login',{
-      "signinButton": '/interswitch'
+      "signinButton": '/login-interswitch'
     })
 })
