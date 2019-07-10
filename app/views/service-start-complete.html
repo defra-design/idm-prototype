@@ -58,10 +58,15 @@
       <ul class="govuk-list govuk-list--bullet">
         <li><a class="govuk-link govuk-link--no-visited-state" href="">Acme Org</a></li>
           <ul class="govuk-list govuk-list--indent">
+          {% if (data['addAccount'] == "related") %}
+            <li><a href="/manage/dashboard-child?childName=Acme Org China&multiOrg=yes&parentChild=child&numServices=0" class="govuk-link--no-visited-state">Acme Org China</a></li>
+          {% endif %}
             <li><a class="govuk-link govuk-link--no-visited-state" href="">Acme Org India</a></li>
             <li><a class="govuk-link govuk-link--no-visited-state" href="">Acme Org Thailand</a></li>
           </ul>
-        <li><a class="govuk-link govuk-link--no-visited-state" href="">Importers RUS</a></li>
+        {% if data['addAccount'] == "account" %}
+          <li><a class="govuk-link govuk-link--no-visited-state" href="">Chemcial R US</a></li>
+        {% endif %}
       </ul>
 
     </div>

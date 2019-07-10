@@ -95,6 +95,31 @@
             <span role="text"><span class="govuk-visually-hidden--desktop td-header">Action:</span><a href="/manage/dashboard-all?numUsers=5&numAgents=0&numServices=1&orgName=Acme Org Ltd&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=yes&parentChild=parent" class="govuk-link--no-visited-state"> Manage account<span class="govuk-visually-hidden td-header"> for Acme Org Ltd</span></a></span>
           </td>
         </tr>
+
+    {% if data['addAccount'] == "related" %}
+
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">
+            <span class="govuk-visually-hidden--desktop td-header">Account:</span>
+            &gt; Acme Org China
+          </td>
+          <td class="govuk-table__cell">
+            <span class="govuk-visually-hidden--desktop td-header">Account role:</span> Admin
+          </td>
+          <td class="govuk-table__cell">
+            <span class="govuk-visually-hidden--desktop td-header">Service:</span><span class="govuk-body govuk-body--grey"> No registered service
+          </td>
+
+          <td class="govuk-table__cell">
+            <span class="govuk-visually-hidden--desktop td-header">Service role:</span>
+          </td>
+          <td class="govuk-table__cell">
+            <span role="text"><span class="govuk-visually-hidden--desktop td-header">Action:</span><a href="/manage/dashboard-child?childName=Acme Org India&multiOrg=yes&parentChild=child" class="govuk-link--no-visited-state" class="govuk-link--no-visited-state"> Manage account<span class="govuk-visually-hidden td-header"> for Acme Org China</span></a></span>
+          </td>
+        </tr>
+    {% endif %}
+
+
     {% if (data['numLocations'] == "2") or (data['numLocations'] == "3") %}
 
       {% if data['childService'] == "no" %}
