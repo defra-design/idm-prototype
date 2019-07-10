@@ -178,10 +178,53 @@
         <li><a href="/manage/dashboard-all?numUsers=1&numServices=1&numAgents=0&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=no" class="govuk-link--no-visited-state">Register a new service from the Account dashboard</a></li>
       </ul>
 
+      <h3 class="govuk-heading-s">LLP registration
+      </h3>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="new-user-reg/organisation-type?userType=new&flowType=task&scpEmail=yourname@email.com" class="govuk-link--no-visited-state">Register an LLP</a></li>
+      </ul>
+
+      <h2 class="govuk-heading-m">RC 4.1.1
+      </h2>
+
+      <h3 class="govuk-heading-s">Parent / Child</h3>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="/manage/organisations/organisation-details?numUsers=5&numAgents=3&numServices=3&numLocations=1&orgName=Acme Org Ltd&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=yes&parentChild=parent#rel-org&orgType=onlyRep" class="govuk-link--no-visited-state">Add related org</a></li>
+        <li><a class="govuk-link--no-visited-state" href="/manage/team-members/services-on-team-member-admin-account_onlyrep?numServices=3&numLocations=1&serviceLine=Comply with REACH IT&serviceRole=REACH%20Manager&multiOrg=yes&orgType=onlyRep&childService=yes&accountService=no">Add new account</a></li>
+        <li><a class="govuk-link--no-visited-state" href="/errors/user-access-child-error">No child access to parent error</a></li>
+      </ul>
+
+      <h3 class="govuk-heading-s">Charity registration
+      </h3>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="new-user-reg/organisation-type?userType=new&flowType=task&scpEmail=yourname@email.com" class="govuk-link--no-visited-state">Charity registration (starting from business type)</a></li>
+        <li><a href="new-user-reg/charity/charity-removed" class="govuk-link--no-visited-state">Charity status: removed</a></li>
+      </ul>
+
+      <h3 class="govuk-heading-s">Remove user</h3>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="/manage/team-members/services-on-team-member-standard?name=Adam Mastly&systemRole=Admin&removeUser=no&onlyAdmin=no&numServices=5&serviceLine=Comply with REACH IT&serviceRole=REACH%20Manager&multiOrg=yes" class="govuk-link--no-visited-state">Remove a team member from account</a></li>
+        <li><a href="/manage/team-members/remove-user/delete-user-only-admin-warning?userName=Barry%20Anders" class="govuk-link--no-visited-state">Error: Remove only admin for parent and child</a></li>
+        <li><a href="/manage/team-members/remove-user/change-user-role-only-admin-warning?userName=Barry%20Anders" class="govuk-link--no-visited-state">Error: Change role of only admin for parent and child</a></li>
+      </ul>
+
+      <h3 class="govuk-heading-s">Cookies</h3>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="errors/blocked-cookies-error" class="govuk-link--no-visited-state">Cookies are not turned on - error</a></li>
+      </ul>
+
+      <h2 class="govuk-heading-m">RC 4.2
+      </h2>
+
 
     <hr class="govuk-section-break--l">
 
     <h2 class="govuk-heading-m">In progress</h2>
+
+    <h3 class="govuk-heading-s">Remove user</h3>
+    <ul class="govuk-list govuk-list--bullet">
+      <li><a href="/emails/E15-user-removed-email" class="govuk-link--no-visited-state">E15 - removed user email</a></li>
+    </ul>
 
     <h3 class="govuk-heading-s">Security word</h3>
 
@@ -189,20 +232,6 @@
       <li><a href="new-user-reg/charity/task-list-page-account?userType=new&flowType=task&scpEmail=yourname@email.com" class="govuk-link--no-visited-state">Security word - during registration</a></li>
       <li><a href="manage/team-members/services-on-team-member-admin-account_onlyrep" class="govuk-link--no-visited-state">Security word - Reset security word</a></li>
       <li><a href="security-word-reg-change" class="govuk-link--no-visited-state">Security word - during login</a></li>
-    </ul>
-
-    <h3 class="govuk-heading-s">Parent / Child</h3>
-    <ul class="govuk-list govuk-list--bullet">
-      <li><a href="/manage/organisations/organisation-details?numUsers=5&numAgents=3&numServices=3&numLocations=1&orgName=Acme Org Ltd&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=yes&parentChild=parent#rel-org&orgType=onlyRep" class="govuk-link--no-visited-state">Add related org</a></li>
-      <li><a class="govuk-link--no-visited-state" href="/manage/team-members/services-on-team-member-admin-account_onlyrep?numServices=3&numLocations=1&serviceLine=Comply with REACH IT&serviceRole=REACH%20Manager&multiOrg=yes&orgType=onlyRep&childService=yes&accountService=no">Add new account</a></li>
-      <li><a class="govuk-link--no-visited-state" href="/errors/user-access-child-error">No child access to parent error</a></li>
-    </ul>
-
-    <h3 class="govuk-heading-s">Charity registration
-    </h3>
-    <ul class="govuk-list govuk-list--bullet">
-      <li><a href="new-user-reg/organisation-type?userType=new&flowType=task&scpEmail=yourname@email.com" class="govuk-link--no-visited-state">Charity registration (starting from business type)</a></li>
-      <li><a href="new-user-reg/charity/charity-removed" class="govuk-link--no-visited-state">Charity status: removed</a></li>
     </ul>
 
     <h3 class="govuk-heading-s">Add a new account
@@ -215,19 +244,9 @@
     <h3 class="govuk-heading-s">Ltd/ PLC/ LLP registration
     </h3>
     <ul class="govuk-list govuk-list--bullet">
-      <li><a href="new-user-reg/organisation-type?userType=new&flowType=task&scpEmail=yourname@email.com" class="govuk-link--no-visited-state">Register an LLP</a></li>
-    </ul>
-    <ul class="govuk-list govuk-list--bullet">
       <li><a href="new-user-reg/limited-company/company-not-active" class="govuk-link--no-visited-state">Company status: no longer active</a></li>
     </ul>
 
-    <h3 class="govuk-heading-s">Remove user</h3>
-    <ul class="govuk-list govuk-list--bullet">
-      <li><a href="/manage/team-members/services-on-team-member-standard?name=Adam Mastly&systemRole=Admin&removeUser=no&onlyAdmin=no&numServices=5&serviceLine=Comply with REACH IT&serviceRole=REACH%20Manager&multiOrg=yes" class="govuk-link--no-visited-state">Remove a team member from account</a></li>
-      <li><a href="/manage/team-members/remove-user/delete-user-only-admin-warning?userName=Barry%20Anders" class="govuk-link--no-visited-state">Error: Remove only admin for parent and child</a></li>
-      <li><a href="/manage/team-members/remove-user/change-user-role-only-admin-warning?userName=Barry%20Anders" class="govuk-link--no-visited-state">Error: Change role of only admin for parent and child</a></li>
-      <li><a href="/emails/E15-user-removed-email" class="govuk-link--no-visited-state">E15 - removed user email</a></li>
-    </ul>
 
     <h3 class="govuk-heading-s">n+1 user unblocking</h3>
     <ul class="govuk-list govuk-list--bullet">
@@ -249,27 +268,19 @@
       <li><a href="emails/E10-admin-notify-n+1-email" class="govuk-link--no-visited-state">E10 - admin notify n+1</a></li>
       <li><a href="emails/E11-n+1-rejection-email" class="govuk-link--no-visited-state">E11 - n+1 rejection</a></li>
       <li><a href="emails/E12-n+1-no-service-role-email" class="govuk-link--no-visited-state">E12 - account role given, but no service role</a></li>
-      <!-- <li><a href="emails/E13-n+1-enrollment-email" class="govuk-link--no-visited-state">E13 - n+1 accepted and service role give</a></li>-->
-      </ul>
+    </ul>
 
-      <h3 class="govuk-heading-s">Update personal details</h3>
-      <ul class="govuk-list govuk-list--bullet">
-        <li><a href="/manage/team-members/services-on-team-member-admin-account_onlyrep?numServices=3&numLocations=3&serviceLine=Comply%20with%20REACH%20IT&serviceRole=REACH%20Manager&multiOrg=yes&orgType=onlyRep&childService=yes&accountService=no" class="govuk-link--no-visited-state">Update personal details</a></li>
-        <li><a href="/emails/E14-updated-details-email" class="govuk-link--no-visited-state">E14 - Updated personal details</a></li>
-        <li><a href="/errors/duplicate-GGemail-error" class="govuk-link--no-visited-state">Update GG details - duplicate email error</a></li>
+    <h3 class="govuk-heading-s">Update personal details</h3>
+    <ul class="govuk-list govuk-list--bullet">
+      <li><a href="/manage/team-members/services-on-team-member-admin-account_onlyrep?numServices=3&numLocations=3&serviceLine=Comply%20with%20REACH%20IT&serviceRole=REACH%20Manager&multiOrg=yes&orgType=onlyRep&childService=yes&accountService=no" class="govuk-link--no-visited-state">Update personal details</a></li>
+      <li><a href="/emails/E14-updated-details-email" class="govuk-link--no-visited-state">E14 - Updated personal details</a></li>
+      <li><a href="/errors/duplicate-GGemail-error" class="govuk-link--no-visited-state">Update GG details - duplicate email error</a></li>
+    </ul>
 
-
-      </ul>
-
-      <h3 class="govuk-heading-s">Cookies</h3>
-      <ul class="govuk-list govuk-list--bullet">
-        <li><a href="errors/blocked-cookies-error" class="govuk-link--no-visited-state">Cookies are not turned on - error</a></li>
-      </ul>
-
-      <h3 class="govuk-heading-s">Interswitch</h3>
+    <h3 class="govuk-heading-s">Interswitch</h3>
       <ul class="govuk-list govuk-list--bullet">
         <li><a href="service-start-logged-out?service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&userType=existing&multiOrg=yes" class="govuk-link--no-visited-state">New user registration - Chemicals (no service q's + success) </a></li>
-      </ul>
+    </ul>
 
 <br><br>
 
