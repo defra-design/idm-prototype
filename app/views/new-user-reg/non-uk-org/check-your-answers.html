@@ -136,18 +136,18 @@
 
     </dl>
 
-    {% if (data['service'] == "Imports") or (data['service'] == "Chemicals") %}
+    {% if (data['serviceLine'] == "VMD Secure Messaging") %}
 
         {{ govukButton({
           text: "Continue",
-          href: "../confirmation-reg-sent-success"
+          href: "../service-questions"
         }) }}
 
       {% else %}
 
       {{ govukButton({
         text: "Continue",
-        href: "../service-questions"
+        href: "/service-start-complete"
       }) }}
 
     {% endif %}

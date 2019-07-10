@@ -63,10 +63,30 @@
     {% if data['userType'] == "new" %}
           {% set startURL = "/scp/login-new" %}
     {% endif %}
-
-    {% if data['userType'] == "existing" %}
-          {% set startURL = "service-questions-introduction-VMD" %}
+    {% if data['serviceRole'] == "Pending" %}
+          {% set startURL = "/scp/login-pending" %}
     {% endif %}
+    {% if data['serviceRole'] == "No service access" %}
+          {% set startURL = "/scp/login-incomplete-tasklist" %}
+    {% endif %}
+    {% if data['serviceRole'] == "Incomplete" %}
+          {% set startURL = "/scp/login-incomplete-service" %}
+    {% endif %}
+
+    <!-- Existing users login - single account -->
+    {% if (data['userType'] == "existing-agent")  %}
+          {% set startURL = "/scp/login-complete" %}
+    {% endif %}
+
+    {% if (data['userType'] == "existing") and (data['multiOrg'] == "no") %}
+          {% set startURL = "/scp/login-complete" %}
+    {% endif %}
+
+    <!-- Existing users login - multiple accounts -->
+    {% if (data['userType'] == "existing") and (data['multiOrg'] == "yes") %}
+          {% set startURL = "/scp/login-interswitch" %}
+    {% endif %}
+
 
     {{ govukButton({
       text: "Start now",
