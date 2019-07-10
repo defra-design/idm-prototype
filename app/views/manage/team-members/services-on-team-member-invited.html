@@ -31,7 +31,7 @@
       <br>
     {% else %}
 
-      {% if data['userType'] == "invited-pending" %}
+      {% if (data['accountService'] == "no") and (data['userType'] == "invited") %}
       <p class="govuk-body">{{ data['name'] }} is ready to use our online services. </p>
         <p class="govuk-body">Once your service registration has been agreed you will be able give them service access.</p>
         <hr class="govuk-section-break--s">

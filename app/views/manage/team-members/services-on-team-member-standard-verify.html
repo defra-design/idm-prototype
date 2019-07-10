@@ -30,7 +30,7 @@
 {% else %}
 
 <!-- Show this section if the admin has no services because they are in a state of pending -->
-    {% if (data['userType'] == "invited-pending") %}
+    {% if (data['accountService'] == "no") %}
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-full">
           <p class="govuk-body">{{ data['name'] }} is ready to use Defra online services. </p>
@@ -131,7 +131,7 @@
 
 <br>
 
-{% if (data['userType'] == "invited-pending") %}
+{% if (data['accountService'] == "no") %}
 
 {% else %}
   {% if (data['accountAccess'] == "yes") and (data['verifiedUser'] == "yes") %}
