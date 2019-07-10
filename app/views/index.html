@@ -36,10 +36,10 @@
       <h2 class="govuk-heading-m">RC1.0 Registration
       </h2>
       <ul class="govuk-list govuk-list--bullet">
-        <li><a href="service-start-logged-out?service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&userType=new&regSuccess=success" class="govuk-link--no-visited-state">New user registration - Chemicals (no service q's + success) </a></li>
-        <li><a href="service-start-logged-out-imports?service=Imports&serviceLine=Notification Service&serviceRole=Standard&userType=new&regSuccess=success&numUsers=1" class="govuk-link--no-visited-state">New user registration - Imports (no service q's + success)</a></li>
+        <li><a href="service-start-logged-out?service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&userType=new&regSuccess=success" class="govuk-link--no-visited-state">New user registration - Chemicals (no service q's + approved) </a></li>
+        <li><a href="service-start-logged-out-imports?service=Imports&serviceLine=Notification Service&serviceRole=Standard&userType=new&regSuccess=success&numUsers=1" class="govuk-link--no-visited-state">New user registration - Imports (no service q's + approved)</a></li>
         <li><a href="service-start-logged-out-VMD?service=VMD&serviceLine=Adverse event reporting&serviceRole=Standard&userType=new&regSuccess=pending&numUsers=1" class="govuk-link--no-visited-state">New user registration - VMD (service q's + pending)</a></li>
-        <li><a href="service-start-logged-out-exports?service=Exports&serviceLine=UK S01&serviceRole=Standard&userType=new&regSuccess=pending&numUsers=1" class="govuk-link--no-visited-state">New user registration - Exports (service q's + pending)</a></li>
+        <li><a href="service-start-logged-out-exports?service=Exports&serviceLine=Apply for Export Catch Certificate&serviceRole=Standard&userType=new&regSuccess=pending&numUsers=1" class="govuk-link--no-visited-state">New user registration - Exports (service q's + approved)</a></li>
       </ul>
 
       <ul class="govuk-list govuk-list--bullet">
@@ -62,13 +62,14 @@
       <h2 class="govuk-heading-m">RC 1.1 Group management
       </h2>
       <ul class="govuk-list govuk-list--bullet">
-        <li><a href="/manage/dashboard-all?orgName=Acme Org Ltd&numUsers=1&numAgents=0&numServices=1&numLocations=1&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=no&parentChild=parent" class="govuk-link--no-visited-state" class="govuk-link--no-visited-state">Admin: New User Dashboard</a></li>
+        <li><a href="/manage/dashboard-all?orgName=Acme Org Ltd&numUsers=1&numAgents=0&numServices=1&numLocations=1&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=no&parentChild=parent&addUser=no&userType=new" class="govuk-link--no-visited-state" class="govuk-link--no-visited-state">Admin: New User Dashboard</a></li>
         <li><a href="/manage/dashboard-all?orgName=Acme Org Ltd&numUsers=5&numAgents=3&numServices=3&numLocations=1&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=no&parentChild=parent" class="govuk-link--no-visited-state">Admin: Dashboard with multi team members</a></li>
       </ul>
       <h3 class="govuk-heading-s">Add User
       </h3>
       <ul class="govuk-list govuk-list--bullet">
-        <li><a href="manage/team-members/team-members?numUsers=5&numServices=3&numAgents=0&numLocations=3&multiOrg=no&subscribeService=no&accountAccess=no" class="govuk-link--no-visited-state">Invite user - from Team members page</a></li>
+        <li><a href="manage/team-members/team-members?numUsers=1&numServices=1&numAgents=0&numLocations=1&multiOrg=no&subscribeService=no&accountAccess=no&addUser=no&userType=new" class="govuk-link--no-visited-state">Invite user - from Team members page</a></li>
+        <li><a href="manage/team-members/team-members?numUsers=2&numServices=1&numAgents=0&numLocations=1&multiOrg=no&subscribeService=no&accountAccess=no&addUser=yes&userType=invited" class="govuk-link--no-visited-state">Invited user accepted - Team members page</a></li>
         <li><a href="manage/team-members/team-members?numUsers=5&numServices=3&numAgents=0&numLocations=3&multiOrg=no&parentChild=parent&subscribeService=no&accountAccess=no" class="govuk-link--no-visited-state">Give access - multiple services (use Sara Chippers)</a></li>
         <li><a href="/manage/team-members/services-on-team-member-invited?numUsers=5&numServices=3&numAgents=0&numLocations=3&subscribeService=no&multiOrg=no&parentChild=parent&accountService=no&verifiedUser=yes&accountAccess=no&subscribeService=no&name=Sara Chippers" class="govuk-link--no-visited-state">Give access - admin in pending, no services available</a></li>
       </ul>
@@ -316,7 +317,7 @@
       <h2 class="govuk-heading-m" id="subsection-title">Quick links</h2>
       <nav role="navigation" aria-labelledby="subsection-title">
         <ul class="govuk-list govuk-body-s">
-          <li><a href="service-start-logged-out?service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&userType=new&regSuccess=success" class="govuk-link--no-visited-state">New user registration (Chemicals - no service q's + success) </a></li>
+          <li><a href="service-start-logged-out?service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&userType=new&regSuccess=success" class="govuk-link--no-visited-state">New user registration (Chemicals - no service q's + approved) </a></li>
           <li><a class="govuk-link--no-visited-state" href="/manage/team-members/services-on-team-member-standard-account?numServices=1&serviceLine=Comply with REACH IT&serviceRole=Admin">Me page - standard user</a></li>
           <li><a class="govuk-link--no-visited-state" href="/manage/team-members/services-on-team-member-admin-account_individual?numServices=1&serviceLine=Comply with REACH IT&serviceRole=Admin">Me page - individual user</a></li>
           <li><a class="govuk-link--no-visited-state" href="/manage/team-members/services-on-team-member-admin-account_company?numServices=3&serviceLine=Comply with REACH IT&serviceRole=REACH%20Manager">Me page - Company account user (1 org, multiple services)</a></li>

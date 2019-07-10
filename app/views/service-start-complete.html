@@ -3,8 +3,8 @@
 {% set title = "Service name" %}
 
 {% block header %}
-  {% if data['serviceLine'] == "Notifications" %}
-    {{ govukHeader({ serviceName: "Notifications" }) }}
+  {% if data['serviceLine'] == "Notification Service" %}
+    {{ govukHeader({ serviceName: "Notification Service" }) }}
   {% endif %}
   {% if data['serviceLine'] == "Comply with REACH IT" %}
     {{ govukHeader({ serviceName: "Comply with REACH IT" }) }}
@@ -12,8 +12,8 @@
   {% if data['serviceLine'] == "VMD Secure Messaging" %}
     {{ govukHeader({ serviceName: "VMD Secure Messaging" }) }}
   {% endif %}
-  {% if data['service'] == "Fish Exports" %}
-    {{ govukHeader({ serviceName: "Fish Exports" }) }}
+  {% if data['serviceLine'] == "Apply for Export Catch Certificate" %}
+    {{ govukHeader({ serviceName: "Apply for Export Catch Certificate" }) }}
   {% endif %}
 {% endblock %}
 

@@ -14,28 +14,54 @@
 {% block content %}
 
 <!-- Hiding/ showing the New User row according to the userType invite/new -->
-    {% if data['userType'] == "invited" %}
-      {% set newUserCSS = "" %}
+
+    {% if (data['numUsers'] == "1") or (data['numChildUsers'] == "1") %}
+      {% set AdamUserCSS = "govuk-visually-hidden" %}
+      {% set BarryUserCSS = "govuk-visually-hidden" %}
+      {% set invitedUserCSS = "govuk-visually-hidden" %}
+      {% set newUserCSS = "govuk-visually-hidden" %}
+      {% set n1UserCSS = "govuk-visually-hidden" %}
     {% endif %}
 
     {% if (data['numUsers'] == "2") or (data['numChildUsers'] == "2") %}
-      {% set otherUserCSS = "govuk-visually-hidden" %}
-      {% set newUserCSS = "" %}
+    {% set AdamUserCSS = "govuk-visually-hidden" %}
+    {% set BarryUserCSS = "govuk-visually-hidden" %}
+    {% set invitedUserCSS = "" %}
+    {% set newUserCSS = "" %}
+    {% set n1UserCSS = "govuk-visually-hidden" %}
     {% endif %}
 
-    {% if (data['numUsers'] == "1") or (data['numChildUsers'] == "1") %}
-      {% set otherUserCSS = "govuk-visually-hidden" %}
-      {% set newUserCSS = " govuk-visually-hidden" %}
+    {% if (data['numUsers'] == "3") or (data['numChildUsers'] == "3") %}
+    {% set AdamUserCSS = "govuk-visually-hidden" %}
+    {% set BarryUserCSS = "" %}
+    {% set invitedUserCSS = "" %}
+    {% set newUserCSS = "" %}
+    {% set n1UserCSS = "govuk-visually-hidden" %}
     {% endif %}
+
+    {% if (data['numUsers'] == "4") or (data['numChildUsers'] == "4") %}
+    {% set AdamUserCSS = "" %}
+    {% set BarryUserCSS = "" %}
+    {% set invitedUserCSS = "" %}
+    {% set newUserCSS = "" %}
+    {% set n1UserCSS = "govuk-visually-hidden" %}
+    {% endif %}
+
 
     {% if (data['numUsers'] == "5") or (data['numChildUsers'] == "5") %}
-      {% set otherUserCSS = "" %}
-      {% set newUserCSS = "" %}
+    {% set AdamUserCSS = "" %}
+    {% set BarryUserCSS = "" %}
+    {% set invitedUserCSS = "" %}
+    {% set newUserCSS = "" %}
+    {% set n1UserCSS = "" %}
     {% endif %}
 
     {% if (data['numUsers'] == "6") or (data['numChildUsers'] == "6") %}
-      {% set otherUserCSS = "" %}
+      {% set AdamUserCSS = "" %}
+      {% set BarryUserCSS = "" %}
+      {% set invitedUserCSS = "" %}
       {% set newUserCSS = "" %}
+      {% set n1UserCSS = "" %}
     {% endif %}
 
 <div class="govuk-grid-row">
@@ -47,7 +73,7 @@
 
     {{ govukButton({
       text: "Add a team member",
-      href: "/manage/team-members/invite-user/add-user-details?addUser=Yes"
+      href: "/manage/team-members/invite-user/add-user-details"
     }) }}
 
 <!-- Setting Ann's urls -->
@@ -87,23 +113,10 @@
           <span class="govuk-visually-hidden--desktop td-header">Account status:</span> Live
         </td>
       </tr>
-      {% if data['addUser'] == "Yes" %}
-      <tr class="govuk-table__row{{ newUserCSS }}">
-        <td class="govuk-table__cell">
-          <span class="govuk-visually-hidden--desktop td-header">Team member:</span>
-          <span class="govuk-body govuk-body--grey"> Name to be confirmed</span>
-        </td>
-        <td class="govuk-table__cell">
-          <span class="govuk-visually-hidden--desktop td-header">Email address:</span> {{ data['inviteEmail'] }}
-        </td>
-        <td class="govuk-table__cell">
-          <span class="govuk-visually-hidden--desktop td-header">Account status:</span> Invite email sent
-        </td>
-      </tr>
-      {% endif %}
-      {% if data['removeUser'] == "yes" %}
+
+        {% if data['removeUser'] == "yes" %}
       {% else %}
-      <tr class="govuk-table__row {{ otherUserCSS }}">
+      <tr class="govuk-table__row {{ AdamUserCSS }}">
         <td class="govuk-table__cell">
           <span class="govuk-visually-hidden--desktop td-header">Team member:</span>
           <a class="govuk-link--no-visited-state" href="services-on-team-member-standard?name=Adam Mastly">Adam Mastly</a>
@@ -117,7 +130,7 @@
       </tr>
       {% endif %}
 
-      <tr class="govuk-table__row {{ otherUserCSS }}">
+      <tr class="govuk-table__row {{ BarryUserCSS }}">
         <td class="govuk-table__cell">
           <span class="govuk-visually-hidden--desktop td-header">Team member:</span>
           <a class="govuk-link--no-visited-state" href="services-on-team-member-admin?name=Barry Anders">Barry Anders</a>
@@ -130,26 +143,45 @@
         </td>
       </tr>
 
-      <tr class="govuk-table__row {{ otherUserCSS }}">
-        <td class="govuk-table__cell">
-          <span class="govuk-visually-hidden--desktop td-header">Team member:</span>
-          <a class="govuk-link--no-visited-state" href="services-on-team-member-invited?name=Sara Chippers">Sara Chippers</a>
-        </td>
-        <td class="govuk-table__cell">
-          <span class="govuk-visually-hidden--desktop td-header">Email address:</span> Sara.Chippers@email.com
-        </td>
-        <td class="govuk-table__cell">
-          {% if (data['subscribeService'] == "yes") or (data['accountAccess'] == "yes") %}
-          <span class="govuk-visually-hidden--desktop td-header">Account status:</span> Live
-          {% else %}
-          <span class="govuk-visually-hidden--desktop td-header">Account status:</span> Needs access
-          {% endif %}
-        </td>
-      </tr>
+    {% if (data['addUser'] == "yes") and (data['userType'] == "new") %}
 
-      {% if data['verifiedUser'] == "no" %}
-      {% else %}
-      <tr class="govuk-table__row {{ otherUserCSS }}">
+        <tr class="govuk-table__row {{ newUserCSS }}">
+          <td class="govuk-table__cell">
+            <span class="govuk-visually-hidden--desktop td-header">Team member:</span>
+            <span class="govuk-body govuk-body--grey">Name to be confirmed</span>
+          </td>
+          <td class="govuk-table__cell">
+            <span class="govuk-visually-hidden--desktop td-header">Email address:</span> {{ data['inviteEmail'] }}
+          </td>
+          <td class="govuk-table__cell">
+            <span class="govuk-visually-hidden--desktop td-header">Account status:</span> Invite email sent
+          </td>
+        </tr>
+
+        {% else %}
+
+
+        <tr class="govuk-table__row {{ invitedUserCSS }}">
+          <td class="govuk-table__cell">
+            <span class="govuk-visually-hidden--desktop td-header">Team member:</span>
+            <a class="govuk-link--no-visited-state" href="services-on-team-member-invited?name=Sara Chippers">Sara Chippers</a>
+          </td>
+          <td class="govuk-table__cell">
+            <span class="govuk-visually-hidden--desktop td-header">Email address:</span> Sara.Chippers@email.com
+          </td>
+          <td class="govuk-table__cell">
+            {% if (data['subscribeService'] == "yes") or (data['accountAccess'] == "yes") %}
+            <span class="govuk-visually-hidden--desktop td-header">Account status:</span> Live
+            {% else %}
+            <span class="govuk-visually-hidden--desktop td-header">Account status:</span> Needs access
+            {% endif %}
+          </td>
+        </tr>
+        {% endif %}
+
+
+
+      <tr class="govuk-table__row {{ n1UserCSS }}">
         <td class="govuk-table__cell">
           <span class="govuk-visually-hidden--desktop td-header">Team member:</span>
           <a class="govuk-link--no-visited-state" href="services-on-team-member-standard-verify?name=Tiegan Mole">Tiegan Mole</a>
@@ -170,7 +202,6 @@
           <span class="govuk-visually-hidden--desktop td-header">Account status:</span> Live
           {% endif %}
 
-      {% endif %}
 
 
 

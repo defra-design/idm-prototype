@@ -24,8 +24,9 @@
 
     <form action="add-user-confirmation-reg-sent" method="post">
       <input type="hidden" name="subscribeService" value="no">
-      <input type="hidden" name="userType" value="invited">
       <input type="hidden" name="numUsers" value="{{ numUsers }}">
+      <input type="hidden" name="userType" value="new">
+      <input type="hidden" name="addUser" value="yes">
 
 
         {{ govukInput({
