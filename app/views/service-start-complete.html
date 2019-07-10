@@ -3,17 +3,17 @@
 {% set title = "Service name" %}
 
 {% block header %}
-  {% if data['service'] == "Imports" %}
-    {{ govukHeader({ serviceName: "Imports" }) }}
+  {% if data['serviceLine'] == "Notifications" %}
+    {{ govukHeader({ serviceName: "Notifications" }) }}
   {% endif %}
-  {% if data['service'] == "Chemicals" %}
-    {{ govukHeader({ serviceName: "Chemicals" }) }}
+  {% if data['serviceLine'] == "Comply with REACH IT" %}
+    {{ govukHeader({ serviceName: "Comply with REACH IT" }) }}
   {% endif %}
-  {% if data['service'] == "VMD" %}
-    {{ govukHeader({ serviceName: "VMD" }) }}
+  {% if data['serviceLine'] == "VMD Secure Messaging" %}
+    {{ govukHeader({ serviceName: "VMD Secure Messaging" }) }}
   {% endif %}
-  {% if data['service'] == "Exports" %}
-    {{ govukHeader({ serviceName: "Exports" }) }}
+  {% if data['service'] == "Fish Exports" %}
+    {{ govukHeader({ serviceName: "Fish Exports" }) }}
   {% endif %}
 {% endblock %}
 
@@ -23,15 +23,15 @@
 
 {% block beforeContent %}
 
-  {% if (data['userType'] == "new-complete-admin") or (data['userType'] == "new") %}
+  {% if (data['userType'] == "existing") or (data['systemRole'] == "Admin") %}
         {% include "includes/account-nav-admin-corp.html" %}
   {% endif %}
 
-  {% if data['userType'] == "new-complete-standard" %}
+  {% if (data['userType'] == "existing") and (data['systemRole'] == "Standard user") %}
         {% include "includes/account-nav-standard-account.html" %}
   {% endif %}
 
-  {% if data['userType'] == "new-complete-agent" %}
+  {% if data['userType'] == "existing-agent" %}
         {% include "includes/account-nav-admin-agent-account.html" %}
   {% endif %}
 
@@ -50,7 +50,7 @@
       {% from "inset-text/macro.njk" import govukInsetText %}
 
         {{ govukInsetText({
-        text: "This is a Service page and shows example content."
+        text: "Demo Service page. This is a Service page and shows example content."
       }) }}
 
       <p class="govuk-body">Please select which account you wish to work on today:</p>

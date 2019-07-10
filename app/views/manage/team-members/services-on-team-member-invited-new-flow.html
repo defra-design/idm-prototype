@@ -32,7 +32,7 @@
 {% else %}
 
 <!-- Show this section if the admin has no services because they are in a state of pending -->
-    {% if (data['userType'] == "new-pending") %}
+    {% if (data['userType'] == "invited-pending") %}
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-full">
           <p class="govuk-body">{{ data['name'] }} is ready to use our online services. </p>
@@ -126,13 +126,13 @@
 
 <br>
 
-{% if (data['userType'] == "new-pending") %}
+{% if (data['userType'] == "invited-pending") %}
 {% else %}
   {% if (data['accountAccess'] == "yes") %}
 
     {{ govukButton({
       text: "Give service access",
-      href: "/manage/team-members/invite-user/add-user-service?subscribeService=yes&serviceRole=Standard&userType=invite&name=Sara Chippers"
+      href: "/manage/team-members/invite-user/add-user-service?subscribeService=yes&serviceRole=Standard&userType=invited&name=Sara Chippers"
     }) }}
   {% endif %}
 {% endif %}
@@ -203,7 +203,7 @@
 
       <div class="govuk-grid-column-one-third">
         <div class="govuk-card govuk-card--contained govuk-card--selectable">
-          <a href="/service-start-complete?service=Chemicals&userType=new-complete-admin&serviceLine=Comply with REACH IT"></a>
+          <a href="/service-start-complete?serviceLine=Comply with REACH IT"></a>
             <div class="govuk-card__content">
               <h3 class="govuk-heading-m">{{ data['serviceLine'] }}</h3>
               <!--

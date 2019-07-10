@@ -14,7 +14,7 @@
 {% block content %}
 
 <!-- Hiding/ showing the New User row according to the userType invite/new -->
-    {% if data['userType'] == "invite" %}
+    {% if data['userType'] == "invited" %}
       {% set newUserCSS = "" %}
     {% endif %}
 

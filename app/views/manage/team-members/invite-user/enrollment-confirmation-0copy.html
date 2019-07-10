@@ -30,7 +30,7 @@
     <p class="govuk-body">We'll tell them that they now have access to the service.</p>
     <p class="govuk-body">You can change or remove this access at any time.</p>
 
-    {% if data['userType'] == "invite" %}
+    {% if data['userType'] == "invited" %}
           {% set backURL = "/manage/team-members/services-on-team-member-invited?subscribeService=yes" %}
     {% endif %}
 

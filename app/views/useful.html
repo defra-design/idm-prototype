@@ -73,7 +73,7 @@
     {% endset %}
 
   router.get('/scp/login-invite', function (req, res) {
-   req.session.data[userType]="invite"
+   req.session.data[userType]="invited"
    res.render('scp/login',{
      "signinButton": '/about-data'
    })})

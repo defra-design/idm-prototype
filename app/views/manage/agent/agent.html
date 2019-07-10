@@ -13,8 +13,8 @@
 
 {% block content %}
 
-<!-- Hiding/ showing the New User row according to the userType invite/new -->
-    {% if data['userType'] == "inviteAgent" %}
+<!-- Hiding/ showing the New User row according to the userType invited/new -->
+    {% if data['userType'] == "invitedAgent" %}
       {% set newUserCSS = "" %}
       {% set tableCSS = "" %}
       {% set introCSS = "govuk-visually-hidden" %}
