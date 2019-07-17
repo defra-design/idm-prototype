@@ -23,7 +23,6 @@
       </h1>
     </div>
 
-
     <p class="govuk-body">{{ data['name'] }} can now access the {{data['serviceLine']}} service</p>
     <h3 class="govuk-heading-m">What happens next</h3>
 
@@ -34,13 +33,14 @@
           {% set backURL = "/manage/team-members/services-on-team-member-invited?subscribeService=yes" %}
     {% endif %}
 
+    {% if data['userType'] == "verified" %}
+          {% set backURL = "/manage/team-members/services-on-team-member-verify?subscribeService=yes" %}
+    {% endif %}
+
     {% if data['userType'] == "invitedAgent" %}
           {% set backURL = "/manage/agent/services-on-team-member-agent-invited?subscribeService=yes" %}
     {% endif %}
 
-    {% if data['verifiedUser'] == "yes" %}
-        {% set backURL = "/manage/team-members/services-on-team-member-standard-verify?subscribeService=yes" %}
-    {% endif %}
 
     {{ govukButton({
       text: "Continue",

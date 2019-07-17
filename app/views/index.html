@@ -27,7 +27,7 @@
       <p class="govuk-body">This service will help our users to create a single set of sign-in credentials that they can use to access one or more Defra services.</p>
       <p class="govuk-body">We store information about the user (and their business, if relevant) so that they do not have to re-enter it each time they want to use a new online service.</p>
       <p class="govuk-body">It will also allow them to give other people (for example colleagues or agents) access to one or more of the online services they use.</p>
-      <p class="govuk-body"><a href="https://defra.sharepoint.com/sites/def-ddts-ioc/defra-platforms/_layouts/15/Lightbox.aspx?url=https%3A%2F%2Fdefra.sharepoint.com%2Fsites%2Fdef-ddts-ioc%2Fdefra-platforms%2FShared%20Documents%2FIdentity%20Documents%2FVideo%2FDefra%20Identity%20-%20Ltd%20company%20new%20user%20reg.mp4" class="govuk-link">Watch our registration video</a></p>
+      <!--<p class="govuk-body"><a href="https://defra.sharepoint.com/sites/def-ddts-ioc/defra-platforms/_layouts/15/Lightbox.aspx?url=https%3A%2F%2Fdefra.sharepoint.com%2Fsites%2Fdef-ddts-ioc%2Fdefra-platforms%2FShared%20Documents%2FIdentity%20Documents%2FVideo%2FDefra%20Identity%20-%20Ltd%20company%20new%20user%20reg.mp4" class="govuk-link">Watch our registration video</a></p>-->
       <br>
 
       <h2 class="govuk-heading-m">Instructions for prototype use</h2>
@@ -254,10 +254,10 @@
     <ul class="govuk-list govuk-list--bullet">
       <li><a href="new-user-reg/limited-company/unblocking/company-lookup?businessType=Limited company" class="govuk-link--no-visited-state">Start of flow for duplicate Ltd/ Plc/ LLP company</a></li>
       <li><a href="new-user-reg/charity/unblocking/charity-number?businessType=Charity" class="govuk-link--no-visited-state">Start of flow for duplicate charity</a></li>
-      <li><a class="govuk-link--no-visited-state" href="/manage/team-members/team-members?numUsers=5&numServices=3&numAgents=0&multiOrg=no&parentChild=parent&accountAccess=no&subscribeService=no&userType=new&verifiedUser=none&name=Tiegan Mole">Unverified Team Member (use Tiegan Mole)</a></li>
-      <li><a href="/manage/team-members/services-on-team-member-standard-verify?numUsers=5&numServices=3&numAgents=0&numLocations=3&multiOrg=no&parentChild=parent&userType=new&verifiedUser=yes&accountAccess=no&subscribeService=no&name=Tiegan Mole" class="govuk-link--no-visited-state">User verified but has no account access</a></li>
-      <li><a href="/manage/team-members/services-on-team-member-standard-verify?numUsers=5&numServices=3&numAgents=0&numLocations=3&systemRole=Admin&multiOrg=no&parentChild=parent&accountService=no&verifiedUser=yes&accountAccess=no&subscribeService=no&name=Tiegan Mole" class="govuk-link--no-visited-state">User verified but admin in pending, no services available</a></li>
-      <li><a href="/manage/team-members/services-on-team-member-standard-verify?numUsers=5&numServices=3&numAgents=0&numLocations=3&multiOrg=no&parentChild=parent&userType=new&verifiedUser=yes&accountAccess=yes&subscribeService=no&name=Tiegan Mole" class="govuk-link--no-visited-state">User verified but has no service access</a></li>
+      <li><a class="govuk-link--no-visited-state" href="/manage/team-members/team-members?numUsers=5&numServices=3&numAgents=0&multiOrg=no&parentChild=parent&accountAccess=no&subscribeService=no&userType=verified&verifiedUser=pending&name=Tiegan Mole">Unverified Team Member (use Tiegan Mole)</a></li>
+      <li><a href="/manage/team-members/services-on-team-member-verify?numUsers=5&numServices=3&numAgents=0&numLocations=3&multiOrg=no&parentChild=parent&userType=new&verifiedUser=yes&accountAccess=no&subscribeService=no&name=Tiegan Mole" class="govuk-link--no-visited-state">User verified but has no account access</a></li>
+      <li><a href="/manage/team-members/services-on-team-member-verify?numUsers=5&numServices=3&numAgents=0&numLocations=3&systemRole=Admin&multiOrg=no&parentChild=parent&accountService=no&verifiedUser=yes&accountAccess=no&subscribeService=no&name=Tiegan Mole" class="govuk-link--no-visited-state">User verified but admin in pending, no services available</a></li>
+      <li><a href="/manage/team-members/services-on-team-member-verify?numUsers=5&numServices=3&numAgents=0&numLocations=3&multiOrg=no&parentChild=parent&userType=new&verifiedUser=yes&accountAccess=yes&subscribeService=no&name=Tiegan Mole" class="govuk-link--no-visited-state">User verified but has no service access</a></li>
       <li><a class="govuk-link--no-visited-state" href="manage/team-members/verify/verify-already-declined">Already declined Team Member (2nd admin accepting user)</a></li>
       <li><a class="govuk-link--no-visited-state" href="manage/team-members/verify/verify-already-confirmed">Already accepted Team Member (2nd admin accepting user)</a></li>
       <li><a href="service-start-logged-out?userType=existing&service=Chemicals&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&name=Tiegan Mole" class="govuk-link--no-visited-state">Existing user, registering for new service with multi-orgs</a></li>
@@ -293,7 +293,11 @@
     <h3 class="govuk-heading-s">Updating email address through GG</h3>
     <ul class="govuk-list govuk-list--bullet">
       <li><a href="/errors/duplicate-GGemail-error" class="govuk-link--no-visited-state">Duplicate email address GG error</a></li>
+    </ul>
 
+    <h3 class="govuk-heading-s">Add user</h3>
+    <ul class="govuk-list govuk-list--bullet">
+      <li><a href="manage/team-members/services-on-team-member-invited-new-flow?name=Sara Chippers&userType=invited&accountAccess=no&subscribeService=no" class="govuk-link--no-visited-state">Splitting out giving account and service access</a></li>
     </ul>
 
 
@@ -390,24 +394,24 @@
     systemRole= Admin / Standard user
 
   Registration
-    regSuccess= pending |  success
+    regSuccess= pending / success / incomplete
     orgType= Business / Individual / onlyRep
     businessType= Limited company / Sole trader / Public limited company / Competent authority / Limited liability partnership /  Non-commercial organisation / Government / Charity
     flowType= task / check   (task list page or check answers)
 
 
   Invite / n+1
-    subscribeService= yes / no
-    verifiedUser= yes / no / none
-    accountAccess= yes / no
-    accountService= no / yes
+    verifiedUser= yes / no / pending     (is the user verified?)
+    subscribeService= yes / no     (does the user have a service role?)
+    accountAccess= yes / no     (does the user have an account role?)
+    accountService= yes / no    (is the account enrolled in to a service?)
 
   Multi-org/ parent & child / add account
     multiOrg= yes / no
     parentChild= parent / child
     addAccount= account / related
     childService= no / yes
-    accountService= no / yes
+    accountService= no / yes    (is the account enrolled in to a service?)
 
 
 
