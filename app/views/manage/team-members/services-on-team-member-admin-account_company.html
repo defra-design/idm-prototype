@@ -162,7 +162,7 @@
 
 {% if data['addAccount'] == "account" %}
 
-  {% if data['accountService'] == "no" %}
+  {% if data['parentService'] == "no" %}
 
       <tr class="govuk-table__row">
         <td class="govuk-table__cell">
@@ -209,7 +209,7 @@
 
   {{ govukButton({
     text: "Add an account",
-    href: "/new-user-reg/organisation-type?userType=existing&addAccount=account&accountService=no"
+    href: "/new-user-reg/organisation-type?userType=existing&addAccount=account&parentService=no"
   }) }}
 
 

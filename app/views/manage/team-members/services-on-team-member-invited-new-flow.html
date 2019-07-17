@@ -37,7 +37,7 @@
     {% else %}
 
     <!-- Show this section if the admin has no services because the admin is in a state of pending -->
-      {% if (data['accountService'] == "no") %}
+      {% if (data['parentService'] == "no") %}
         <div class="govuk-grid-row">
           <div class="govuk-grid-column-full">
             <p class="govuk-body">{{ data['name'] }} is ready to use our online services. </p>
@@ -118,7 +118,7 @@
 
 <br>
 
-{% if (data['userType'] == "invited") and (data['accountService'] == "no") %}
+{% if (data['userType'] == "invited") and (data['parentService'] == "no") %}
 {% else %}
   {% if (data['userType'] == "invited") and (data['accountAccess'] == "yes") %}
 
