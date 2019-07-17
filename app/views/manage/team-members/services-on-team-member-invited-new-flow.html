@@ -52,8 +52,7 @@
           {% if (data['accountAccess'] == "no") and (data['subscribeService'] == "no")  %}
             <div class="govuk-grid-row">
               <div class="govuk-grid-column-full">
-                <p class="govuk-body">{{ data['name'] }} is ready to use our online services.</p>
-                <p class="govuk-body"> You should choose what information and tasks you would like this person to see and do.</p>
+                <p class="govuk-body">{{ data['name'] }} has accepted your invite. You can now give them account access to {{ data['orgName'] }}.</p>
                 {{ govukButton({
                   text: "Give account access",
                   href: "/manage/team-members/invite-user/add-user-roles-system-roles?subscribeService=no"
@@ -85,42 +84,6 @@
   {% endif %}
 
 
-  <!-- Show this section if the user has not yet been verified: accepted or declined -->
-  {% if (data['verifiedUser'] == "pending") and (data['accountAccess'] == "no") and (data['subscribeService'] == "no")  %}
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-full">
-      <p class="govuk-body">{{ data['name'] }} would like to do work on behalf of Acme Org Ltd.</p>
-      <p class="govuk-body">As the Admin, you must decide whether you wish to allow this user to become a team member of {{ data['orgName'] }}.</p>
-
-      {{ govukButton({
-        text: "Accept",
-        href: "verify/add-user-roles-system-roles"
-      }) }}
-      {{ govukButton({
-        text: "Decline",
-        classes: "govuk-button--secondary",
-        href: "verify/verify-decline"
-      }) }}
-      </div>
-    </div>
-
-  {% endif %}
-
-
-    <!-- Show this section if the user is verified but does not have an account or service role -->
-    {% if (data['verifiedUser'] == "yes") and (data['accountAccess'] == "no") and (data['subscribeService'] == "no")  %}
-      <div class="govuk-grid-row">
-        <div class="govuk-grid-column-full">
-          <p class="govuk-body">{{ data['name'] }} has been verified. You can now give them access to this account.</p>
-          {{ govukButton({
-            text: "Give account access",
-            href: "/manage/team-members/verify/add-user-roles-system-roles?subscribeService=no"
-          }) }}
-        </div>
-      </div>
-    {% endif %}
-
-
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-one-half">
@@ -138,7 +101,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-one-half">
     <p class="govuk-body">
-      <span class="govuk-!-font-weight-bold">Account:</span> Acme Org<br>
+      <span class="govuk-!-font-weight-bold">Account:</span> {{data['orgName']}}<br>
       {% if (data['userType'] == "invited") and (data['accountAccess'] == "yes") %}
       <span class="govuk-!-font-weight-bold">Account role:</span> {{ data['systemRole'] }}
       {% else %}
