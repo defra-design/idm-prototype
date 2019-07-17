@@ -19,16 +19,14 @@
     <h1 class="govuk-visually-hidden">{{title}}</h1>
     <div class="govuk-panel govuk-panel--confirmation">
       <h1 class="govuk-panel__title">
-        Invitation sent
+        An invitation email has been sent
       </h1>
-      <div class="govuk-panel__body">
-    An invitation email has been sent to<br><strong>[email address]</strong>
-  </div>
+
     </div>
 
     <h3 class="govuk-heading-m">What happens next</h3>
 
-    <p class="govuk-body">When<span class="govuk-!-font-weight-bold">{{data['inviteEmail']}}</span> has registered to use Defra online services, you can choose which information they can see and which tasks they can do on behalf of [organisation name].</p>
+    <p class="govuk-body">When <span class="govuk-!-font-weight-bold">{{data['inviteEmail']}}</span> has registered to use Defra online services, you can choose which information they can see and which tasks they can do on behalf of [organisation name].</p>
     <p class="govuk-body">If they do not respond to the invitation email within 30 days, you'll need to send another invitation.</p>
 
     {% if data['numUsers'] <= "4" %}
