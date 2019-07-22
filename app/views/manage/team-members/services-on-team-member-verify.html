@@ -72,7 +72,7 @@
           {% if (data['verifiedUser'] == "yes") and (data['accountAccess'] == "no") and (data['subscribeService'] == "no")  %}
             <div class="govuk-grid-row">
               <div class="govuk-grid-column-full">
-                <p class="govuk-body">{{ data['name'] }} has been verified. You can now give them access to this account.</p>
+                <p class="govuk-body">You can now give {{ data['name'] }} account access to {{ data['orgName'] }}.</p>
                 {{ govukButton({
                   text: "Give account access",
                   href: "/manage/team-members/verify/add-user-roles-system-roles?subscribeService=no"

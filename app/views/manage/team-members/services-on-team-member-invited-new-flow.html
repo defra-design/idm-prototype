@@ -52,7 +52,7 @@
           {% if (data['accountAccess'] == "no") and (data['subscribeService'] == "no")  %}
             <div class="govuk-grid-row">
               <div class="govuk-grid-column-full">
-                <p class="govuk-body">{{ data['name'] }} has accepted your invite. You can now give them account access to {{ data['orgName'] }}.</p>
+                <p class="govuk-body">You can now give {{ data['name'] }} account access to {{ data['orgName'] }}.</p>
                 {{ govukButton({
                   text: "Give account access",
                   href: "/manage/team-members/invite-user/add-user-roles-system-roles?subscribeService=no"
