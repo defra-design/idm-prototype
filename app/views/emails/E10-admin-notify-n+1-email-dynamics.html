@@ -110,8 +110,8 @@ Someone is trying to use a Defra online service on behalf of {!Organisation:Name
 
 <!--Content start -->
             <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #0B0C0C;">Hello {!Custom:AdminFirstName;},</p>
-            <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #0B0C0C;">We're contacting you because {!Custom:UserFullName;} has tried to register <strong>{!Organisation:Name;}</strong> with <strong>{!Custom:ServiceName;}</strong>.</p>
-            <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #0B0C0C;">All account administrators for {!Organisation:Name;} will receive this email. If you accept this request, you’ll need to give {!Custom:UserFullName;} access to {!Custom:ServiceName;}.</p>
+            <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #0B0C0C;">We're contacting you because <strong>{!Custom:UserFullName;}</strong> has tried to register <strong>{!Organisation:Name;}</strong> in order to use Defra online services.</p>
+            <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #0B0C0C;">All account administrators for {!Organisation:Name;} will receive this email. If you accept this request, you’ll need to give {!Custom:UserFullName;} account access.</p>
             <blockquote style="Margin: 0 0 20px 0; border-left: 10px solid #BFC1C3;padding: 15px 0 0.1px 15px; font-size: 19px; line-height: 25px;">
               <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #0B0C0C;"><strong><a href="{!Custom:AcceptOrDeclineUser;}" style="color: #005ea5;">Accept or decline this request</a></strong></p>
             </blockquote>
@@ -119,6 +119,7 @@ Someone is trying to use a Defra online service on behalf of {!Organisation:Name
             <table role="presentation" style="padding: 0;">
               <tr>
                 <td style="font-family: Helvetica, Arial, sans-serif;">
+                  <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #0B0C0C;">Contact [blah] to find out the service they need access to and then do things: </p>
                   <ul style="Margin: 0 0 20px 20px; padding: 0 0 0 20px; list-style-type: disc;">
                     <li style="Margin: 5px 0 5px; padding: 0 0 0 5px; font-size: 19px;line-height: 25px; color: #0B0C0C;">If you're already registered with the service, you'll be able to <a href="{!Custom:AcceptOrDeclineUser;}" style="color: #005ea5;">give  access to {!Custom:UserFullName;}</a></li>
                     <li style="Margin: 5px 0 5px; padding: 0 0 0 5px; font-size: 19px;line-height: 25px; color: #0B0C0C;">If you're not registered with the service, <a href="{!Custom:ServiceStartPage;}" style="color: #005ea5;">you can register here</a>. When your service registration is approved, you’ll be able to give {!Custom:UserFullName;} access to the service</li>

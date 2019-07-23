@@ -371,12 +371,20 @@
           <li><a href="emails/E13-4-service-admin-reg-approved" class="govuk-link--no-visited-state">E13-4 - service admin approval given</a></li>
           <li><a href="emails/E13-5-org-admin-rejected" class="govuk-link--no-visited-state">E13-5: Org Admin rejected registration email</a></li>
           <li><a href="emails/E13-6-service-admin-reg-rejected" class="govuk-link--no-visited-state">E13-6 - service admin approval rejected</a></li>
-
-
           <li><a href="/emails/E14-updated-details-email" class="govuk-link--no-visited-state">E14 - Updated personal details</a></li>
           <li><a href="/emails/E15-user-removed-email" class="govuk-link--no-visited-state">E15 - removed user email</a></li>
           <li><a href="/emails/E16-contact-support-id-reminder-email" class="govuk-link--no-visited-state">E16 - Contact Support ID reminder email</a></li>
-
+        </ul>
+      </nav>
+    </aside>
+    <aside class="app-related-items" role="complementary">
+      <h2 class="govuk-heading-m" id="subsection-title">Errors</h2>
+      <nav role="navigation" aria-labelledby="subsection-title">
+        <ul class="govuk-list govuk-body-s">
+          <li><a href="/errors/401-error" class="govuk-link--no-visited-state">401/403-error</a></li>
+          <li><a href="/errors/404-error" class="govuk-link--no-visited-state">404-error</a></li>
+          <li><a href="/errors/500-error" class="govuk-link--no-visited-state">500-error</a></li>
+          <li><a href="/errors/503-error" class="govuk-link--no-visited-state">503-error</a></li>          <li><a href="/errors/blocked-cookies-error" class="govuk-link--no-visited-state">Blocked cookies error</a></li>
         </ul>
       </nav>
     </aside>
@@ -397,14 +405,17 @@
   Registration
     regSuccess= pending / success / incomplete      (what is the status of the registration?)
     orgType= Business / Individual / onlyRep      (what is the type of organisation?)
-    businessType= Limited company / Sole trader / Public limited company / Competent authority / Limited liability partnership /  Non-commercial organisation / Government / Charity    (what is the business type)
+    businessType= Limited company / Sole trader / Public limited company / Limited liability partnership / Charity    (what is the business type?)
     flowType= task / check   (what stage of the reg flow are they in: tasklist or check answers?)
 
 
   Invite / n+1
     verifiedUser= yes / no / pending     (is the user verified?)
-    subscribeService= yes / no     (does the user have a service role?)
-    accountAccess= yes / no     (does the user have an account role?)
+    accountAccess-invite= yes / no     (does the invited user have an account role?)
+    subscribeService-invite= yes / no     (does the invited user have a service role?)
+    accountAccess-verify= yes / no      (does the n+1 user have an account role?)
+    subscribeService-verify= yes / no     (does the n+1 user have a service role?)
+
 
   Multi-org/ parent & child / add account
     multiOrg= yes / no      (is the parent account a 'multi-org' e.g. does it have children?)
