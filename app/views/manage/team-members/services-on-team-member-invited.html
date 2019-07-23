@@ -23,25 +23,67 @@
       {{ data['name'] }}
     </h1>
 
-
-    {% if (data['subscribeService'] == "no") and (data['accountAccess'] == "no") %}
-      <p class="govuk-body">{{ data['name'] }} is ready to use our online services.</p>
-      <p class="govuk-body"> You should choose what information and tasks you would like this person to see and do.</p>
-      <hr class="govuk-section-break--s">
-      <br>
-    {% else %}
-
-      {% if (data['parentService'] == "no") and (data['userType'] == "invited") %}
-      <p class="govuk-body">{{ data['name'] }} is ready to use our online services. </p>
-        <p class="govuk-body">Once your service registration has been agreed you will be able give them service access.</p>
-        <hr class="govuk-section-break--s">
-        <br>
-      {% else %}
-      {% endif %}
-    {% endif %}
-
   </div>
 </div>
+
+<!-- Determines what messages are shown at the top of page according to user state -->
+
+
+  <!-- Show this section if the user is invited but does not have an account or service role -->
+  {% if (data['userType'] == "invited") %}
+
+    {% if (data['subscribeService'] == "yes") and (data['accountAccess'] == "yes") %}
+    <!-- Show nothing -->
+    {% else %}
+
+    <!-- Show this section if the admin has no services because the admin is in a state of pending -->
+      {% if (data['parentService'] == "no") %}
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-full">
+            <p class="govuk-body">{{ data['name'] }} is ready to use our online services. </p>
+            <p class="govuk-body">Once your service registration has been agreed you will be able give them service access.</p>
+          </div>
+        </div>
+
+      {% else %}
+
+      <!-- Show this section if the user has no account -->
+
+          {% if (data['accountAccess'] == "no") and (data['subscribeService'] == "no")  %}
+            <div class="govuk-grid-row">
+              <div class="govuk-grid-column-full">
+                <p class="govuk-body">You can now give {{ data['name'] }} account access for {{ data['orgName'] }}.</p>
+                {{ govukButton({
+                  text: "Give account access",
+                  href: "/manage/team-members/invite-user/add-user-roles-system-roles?subscribeService=no"
+                }) }}
+              </div>
+            </div>
+          {% endif %}
+
+        <!-- Show this section if the user is verified, has an account role but does not have a service role -->
+          {% if (data['accountAccess'] == "yes") and (data['subscribeService'] == "no") %}
+            <div class="govuk-grid-row">
+              <div class="govuk-grid-column-full">
+              <p class="govuk-body">{{ data['name'] }} is ready to use Defra online services. You can now give them service access.</p>
+              </div>
+            </div>
+          {% endif %}
+
+      {% endif %}
+
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-full">
+            <hr class="govuk-section-break--s">
+            <br>
+          </div>
+        </div>
+
+    {% endif %}
+
+  {% endif %}
+
+
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-one-half">
@@ -59,15 +101,15 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-one-half">
     <p class="govuk-body">
-      <span class="govuk-!-font-weight-bold">Account:</span> Acme Org<br>
-      {% if data['accountAccess'] == "yes" %}
+      <span class="govuk-!-font-weight-bold">Account:</span> {{data['orgName']}}<br>
+      {% if (data['userType'] == "invited") and (data['accountAccess'] == "yes") %}
       <span class="govuk-!-font-weight-bold">Account role:</span> {{ data['systemRole'] }}
       {% else %}
       {% endif %}
     </p>
   </div>
   <div class="govuk-grid-column-one-half">
-    {% if data['subscribeService'] == "yes" %}
+    {% if (data['userType'] == "invited") and (data['subscribeService'] == "yes") %}
     <p class="govuk-body"><a href="edit-user-system-roles" class="govuk-link--no-visited-state">Change account role</a></p>
     {% else %}
     {% endif %}
@@ -76,38 +118,30 @@
 
 <br>
 
-  <!-- Decides where there Give Service Access button goes according to the service and number of services-->
-
-
-
-  {% if (data['accountAccess'] == "no") and (data['subscribeService'] == "no") %}
-      {{ govukButton({
-        text: "Give account access",
-        href: "/manage/team-members/invite-user/add-user-roles-system-roles?subscribeService=yes&serviceRole=Standard&userType=invited&name=Sara Chippers"
-      }) }}
-  {% endif %}
-
-  {% if (data['accountAccess'] == "yes") %}
+{% if (data['userType'] == "invited") and (data['parentService'] == "no") %}
+{% else %}
+  {% if (data['userType'] == "invited") and (data['accountAccess'] == "yes") %}
 
     {{ govukButton({
       text: "Give service access",
-      href: "/manage/team-members/invite-user/add-user-service?subscribeService=yes&serviceRole=Standard&userType=invited&name=Sara Chippers"
+      href: "/manage/team-members/invite-user/add-user-service"
     }) }}
   {% endif %}
-
-
-
-
+{% endif %}
 
 <!-- Show table if the user has subscribed to one service -->
-{% if (data['subscribeService'] == "yes") %}
+{% if (data['userType'] == "invited") and (data['subscribeService'] == "no") %}
+{% else %}
+
+ {% if (data['userType'] == "invited") and (data['subscribeService'] == "yes") %}
+
 
     {% set setServiceNameHtml %}
         <span class="govuk-visually-hidden--desktop td-header">Service:</span> {{ data['serviceLine'] }}
     {% endset %}
 
     {% set setOrgHtml %}
-        <span class="govuk-visually-hidden--desktop td-header">Organisation:</span> Acme Org Ltd
+        <span class="govuk-visually-hidden--desktop td-header">Organisation:</span> Acme Org
     {% endset %}
 
     {% set setServiceRoleHtml %}
@@ -179,6 +213,7 @@
     </div>
   </div>
 
+  {% endif %}
 {% endif %}
 
 
