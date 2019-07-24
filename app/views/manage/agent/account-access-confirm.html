@@ -24,8 +24,8 @@
     </div>
 
 
-    <form action="../services-on-team-member-invited?userType=invited&subscribeService=no&accountAccess=yes" method="post">
-    <p class="govk-body">You have given {{ data['name'] }} account access on behalf of {{ data['orgName'] }} with the account role of Standard user.</p>
+    <form action="services-on-team-member-agent-invited?userType=invitedAgent&subscribeService=no&accountAccess=yes" method="post">
+    <p class="govk-body">You have given {{ data['name'] }} account access on behalf of {{ data['orgName'] }} with the account role of {{ data['systemRole'] }}.</p>
     <p class="govuk-body">You can change or remove this access at any time.</p>
 
 

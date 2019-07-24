@@ -13,8 +13,7 @@
 
 {% block content %}
 
-<!-- Hiding/ showing the New User row according to the userType invited/new -->
-
+<!-- Hiding/ showing the New User row according to the userType invitedAgent/new -->
 
 {% if (data['numAgents'] === "0") %}
   {% set introCSS = "" %}
@@ -33,7 +32,7 @@
   {% set ErinUserCSS = "govuk-visually-hidden" %}
   {% set BobUserCSS = "govuk-visually-hidden" %}
   {% set newAgentCSS = "" %}
-  {% set invitedAgentCSS = "govuk-visually-hidden" %}
+  {% set invitedAgentCSS = "" %}
 {% endif %}
 
 {% if (data['numAgents'] == "2") %}
@@ -86,18 +85,40 @@
       </tr>
       </thead>
 
-      <tr class="govuk-table__row {{ newAgentCSS }}">
-        <td class="govuk-table__cell">
-          <span class="govuk-visually-hidden--desktop td-header">Intermediary:</span>
-          <span class="govuk-body govuk-body--grey"> Name to be confirmed</span>
-        </td>
-        <td class="govuk-table__cell">
-          <span class="govuk-visually-hidden--desktop td-header">Email address:</span> {{ data['agentEmail'] }}
-        </td>
-        <td class="govuk-table__cell">
-          <span class="govuk-visually-hidden--desktop td-header">Account status:</span> Invite email sent
-        </td>
-      </tr>
+      {% if (data['addAgent'] == "yes") and (data['userType'] == "new") %}
+
+          <tr class="govuk-table__row {{ newAgentCSS }}">
+            <td class="govuk-table__cell">
+              <span class="govuk-visually-hidden--desktop td-header">Team member:</span>
+              <span class="govuk-body govuk-body--grey">Name to be confirmed</span>
+            </td>
+            <td class="govuk-table__cell">
+              <span class="govuk-visually-hidden--desktop td-header">Email address:</span> {{ data['inviteEmail'] }}
+            </td>
+            <td class="govuk-table__cell">
+              <span class="govuk-visually-hidden--desktop td-header">Account status:</span> Invite email sent
+            </td>
+          </tr>
+
+          {% else %}
+
+          <tr class="govuk-table__row {{ invitedAgentCSS }}">
+            <td class="govuk-table__cell">
+              <span class="govuk-visually-hidden--desktop td-header">Team member:</span>
+              <a class="govuk-link--no-visited-state" href="services-on-team-member-agent-invited?name=Robin Swale&userType=invitedAgent">Robin Swale</a>
+            </td>
+            <td class="govuk-table__cell">
+              <span class="govuk-visually-hidden--desktop td-header">Email address:</span> Robin.Swale@email.com
+            </td>
+            <td class="govuk-table__cell">
+              {% if (data['userType'] == "invitedAgent") and (data['accountAccess'] == "yes") %}
+              <span class="govuk-visually-hidden--desktop td-header">Account status:</span> Live
+              {% else %}
+              <span class="govuk-visually-hidden--desktop td-header">Account status:</span> Needs access
+              {% endif %}
+            </td>
+          </tr>
+          {% endif %}
 
       <tr class="govuk-table__row {{ MarcyUserCSS }}">
         <td class="govuk-table__cell">
