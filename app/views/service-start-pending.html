@@ -3,17 +3,20 @@
 {% set title = "Service name" %}
 
 {% block header %}
-  {% if data['service'] == "Imports" %}
-    {{ govukHeader({ serviceName: "Imports" }) }}
+  {% if data['serviceLine'] == "Notification Service" %}
+    {{ govukHeader({ serviceName: "Notification Service" }) }}
   {% endif %}
-  {% if data['service'] == "Chemicals" %}
-    {{ govukHeader({ serviceName: "Chemicals" }) }}
+  {% if data['serviceLine'] == "Comply with REACH IT" %}
+    {{ govukHeader({ serviceName: "Comply with REACH IT" }) }}
   {% endif %}
-  {% if data['service'] == "VMD" %}
-    {{ govukHeader({ serviceName: "VMD" }) }}
+  {% if data['serviceLine'] == "VMD Secure Messaging" %}
+    {{ govukHeader({ serviceName: "VMD Secure Messaging" }) }}
   {% endif %}
-  {% if data['service'] == "Exports" %}
-    {{ govukHeader({ serviceName: "Exports" }) }}
+  {% if data['serviceLine'] == "Apply for Export Catch Certificate" %}
+    {{ govukHeader({ serviceName: "Apply for Export Catch Certificate" }) }}
+  {% endif %}
+  {% if data['serviceLine'] == "Exporter Service" %}
+    {{ govukHeader({ serviceName: "Exporter Service" }) }}
   {% endif %}
 {% endblock %}
 

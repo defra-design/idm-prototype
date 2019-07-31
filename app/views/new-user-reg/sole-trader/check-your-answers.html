@@ -137,7 +137,7 @@
 
     </dl>
 
-    {% if (data['serviceLine'] == "VMD Secure Messaging") %}
+    {% if (data['serviceLine'] == "VMD Secure Messaging") or (data['serviceLine'] == "Exporter Service") %}
 
         {{ govukButton({
           text: "Continue",
@@ -152,7 +152,7 @@
       }) }}
 
     {% endif %}
-    
+
   </div>
 </div>
 

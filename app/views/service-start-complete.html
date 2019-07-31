@@ -15,6 +15,9 @@
   {% if data['serviceLine'] == "Apply for Export Catch Certificate" %}
     {{ govukHeader({ serviceName: "Apply for Export Catch Certificate" }) }}
   {% endif %}
+  {% if data['serviceLine'] == "Exporter Service" %}
+    {{ govukHeader({ serviceName: "Exporter Service" }) }}
+  {% endif %}
 {% endblock %}
 
 {% block pageTitle %}

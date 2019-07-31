@@ -7,14 +7,20 @@
 {% endblock %}
 
 {% block header %}
-  {% if data['service'] == "Imports" %}
-    {{ govukHeader({ serviceName: "Imports" }) }}
+  {% if data['serviceLine'] == "Notification Service" %}
+    {{ govukHeader({ serviceName: "Notification Service" }) }}
   {% endif %}
-  {% if data['service'] == "Chemicals" %}
-    {{ govukHeader({ serviceName: "Chemicals" }) }}
+  {% if data['serviceLine'] == "Comply with REACH IT" %}
+    {{ govukHeader({ serviceName: "Comply with REACH IT" }) }}
   {% endif %}
-  {% if data['service'] == "VMD" %}
-    {{ govukHeader({ serviceName: "VMD" }) }}
+  {% if data['serviceLine'] == "VMD Secure Messaging" %}
+    {{ govukHeader({ serviceName: "VMD Secure Messaging" }) }}
+  {% endif %}
+  {% if data['serviceLine'] == "Apply for Export Catch Certificate" %}
+    {{ govukHeader({ serviceName: "Apply for Export Catch Certificate" }) }}
+  {% endif %}
+  {% if data['serviceLine'] == "Exporter Service" %}
+    {{ govukHeader({ serviceName: "Exporter Service" }) }}
   {% endif %}
 {% endblock %}
 
@@ -37,11 +43,11 @@
 
     <h1 class="govuk-heading-xl">{{title}}</h1>
 
-    {% if (data['service'] == "Imports") or (data['service'] == "Exports") or (data['service'] == "Chemicals") %}
+    {% if (data['serviceLine'] == "Notification Service") or (data['serviceLine'] == "Apply for Export Catch Certificate") or (data['serviceLine'] == "Comply with REACH IT") %}
       <form action="/service-start-complete" method="post">
     {% endif %}
 
-    {% if data['service'] == "VMD" %}
+    {% if (data['serviceLine'] == "VMD Secure Messaging") or (data['serviceLine'] == "Exporter Service") %}
       <form action="/service-start-pending" method="post">
     {% endif %}
 
