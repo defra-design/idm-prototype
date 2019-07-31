@@ -7,14 +7,20 @@
 {% endblock %}
 
 {% block header %}
-  {% if data['service'] == "Imports" %}
-    {{ govukHeader({ serviceName: "Imports" }) }}
+  {% if data['serviceLine'] == "Notification Service" %}
+    {{ govukHeader({ serviceName: "Notification Service", serviceUrl: "/" }) }}
   {% endif %}
-  {% if data['service'] == "Chemicals" %}
-    {{ govukHeader({ serviceName: "Chemicals" }) }}
+  {% if data['serviceLine'] == "Comply with REACH IT" %}
+    {{ govukHeader({ serviceName: "Comply with REACH IT", serviceUrl: "/" }) }}
   {% endif %}
-  {% if data['service'] == "VMD" %}
-    {{ govukHeader({ serviceName: "VMD" }) }}
+  {% if data['serviceLine'] == "VMD Secure Messaging" %}
+    {{ govukHeader({ serviceName: "VMD Secure Messaging", serviceUrl: "/" }) }}
+  {% endif %}
+  {% if data['serviceLine'] == "Apply for Export Catch Certificate" %}
+    {{ govukHeader({ serviceName: "Apply for Export Catch Certificate", serviceUrl: "/" }) }}
+  {% endif %}
+  {% if data['serviceLine'] == "Exporter Service" %}
+    {{ govukHeader({ serviceName: "Exporter Service", serviceUrl: "/" }) }}
   {% endif %}
 {% endblock %}
 
