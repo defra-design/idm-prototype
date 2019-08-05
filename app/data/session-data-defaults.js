@@ -26,6 +26,7 @@ module.exports = {
 "numServices": "1",
 "numAgents": "0",
 "numLocations": "1",
+"systemRole":"Admin",
 "service": "Imports",
 "serviceLine": "Comply with REACH IT",
 "serviceRole": "REACH Manager",

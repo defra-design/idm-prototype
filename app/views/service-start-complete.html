@@ -26,7 +26,7 @@
 
 {% block beforeContent %}
 
-  {% if (data['userType'] == "existing") or (data['systemRole'] == "Admin") %}
+  {% if (data['userType'] == "existing") or (data['systemRole'] == "Admin") or (data['userType'] == "new") %}
         {% include "includes/account-nav-admin-corp.html" %}
   {% endif %}
 
@@ -47,7 +47,7 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-xl">
-        {{ data['serviceLine'] }}
+        {{ data['serviceLine'] }} (Demo)
       </h1>
 
       {% from "inset-text/macro.njk" import govukInsetText %}
