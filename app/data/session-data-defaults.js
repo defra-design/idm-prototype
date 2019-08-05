@@ -32,6 +32,7 @@ module.exports = {
 "userType": "new",
 "subscribeService": "no",
 "accountAccess": "no",
+"serviceAccess":"no",
 "verifiedUser": "pending",
 "flowType": "task",
 "sub-building-number": "1b",
