@@ -134,14 +134,16 @@
 
     </dl>
 
-    {% if (data['serviceLine'] == "VMD Secure Messaging") or (data['serviceLine'] == "Exporter Service") %}
+    {% if (data['serviceQuestions'] == "yes") %}
 
         {{ govukButton({
           text: "Continue",
           href: "../service-questions"
         }) }}
 
-      {% else %}
+      {% endif %}
+
+    {% if (data['serviceQuestions'] == "no") %}
 
       {{ govukButton({
         text: "Continue",
@@ -150,9 +152,6 @@
 
     {% endif %}
 
-<br>
-<p><a href="https://certifier:crewe32@exports-certifiers-prototype.herokuapp.com?cheese=brie">test login button</a></p>
-  
 
   </div>
 </div>

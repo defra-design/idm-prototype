@@ -36,11 +36,12 @@
       <h2 class="govuk-heading-m">RC1.0 Registration
       </h2>
       <ul class="govuk-list govuk-list--bullet">
-        <li><a href="service-start-logged-out?serviceLine=Comply with REACH IT&serviceRole=REACH Manager&userType=new&regSuccess=success" class="govuk-link--no-visited-state">New user registration - Chemicals (no service q's + approved) </a></li>
-        <li><a href="service-start-logged-out-imports?serviceLine=Notification Service&serviceRole=Standard&userType=new&regSuccess=success&numUsers=1" class="govuk-link--no-visited-state">New user registration - Imports (no service q's + approved)</a></li>
-        <li><a href="service-start-logged-out-VMD?serviceLine=VMD Secure Messaging&serviceRole=Standard&userType=new&regSuccess=pending&numUsers=1" class="govuk-link--no-visited-state">New user registration - VMD (service q's + pending)</a></li>
-        <li><a href="service-start-logged-out-mmo?serviceLine=Apply for Export Catch Certificate&serviceRole=Standard&userType=new&regSuccess=success&numUsers=1" class="govuk-link--no-visited-state">New user registration - MMO (service q's + approved)</a></li>
-        <li><a href="service-start-logged-out-exports?serviceLine=Exporter Service&serviceRole=Standard&userType=new&regSuccess=pending&numUsers=1" class="govuk-link--no-visited-state">New user registration - Exporter Service (service q's + pending)</a></li>
+        <li><a href="service-start-logged-out?serviceLine=Comply with REACH IT&serviceRole=REACH Manager&userType=new&regSuccess=success&serviceQuestions=no&numUsers=1" class="govuk-link--no-visited-state">New user registration - Chemicals (no service q's + approved) </a></li>
+        <li><a href="service-start-logged-out-imports?serviceLine=Notification Service&serviceRole=Standard&userType=new&regSuccess=success&serviceQuestions=no&numUsers=1" class="govuk-link--no-visited-state">New user registration - Imports (no service q's + approved)</a></li>
+        <li><a href="service-start-logged-out-VMD?serviceLine=VMD Secure Messaging&serviceRole=Standard&userType=new&regSuccess=pendingserviceQuestions=yes&numUsers=1" class="govuk-link--no-visited-state">New user registration - VMD (service q's + pending)</a></li>
+        <li><a href="service-start-logged-out-mmo?serviceLine=Apply for Export Catch Certificate&serviceRole=Standard&userType=new&regSuccess=success&serviceQuestions=no&numUsers=1" class="govuk-link--no-visited-state">New user registration - MMO (service q's + approved)</a></li>
+        <li><a href="service-start-logged-out-exports?serviceLine=Exporter Service&serviceRole=Standard&userType=new&regSuccess=success&serviceQuestions=no&numUsers=1" class="govuk-link--no-visited-state">New user registration - Exporter Service (no service q's + success)</a></li>
+        <li><a href="service-start-logged-out-exports?serviceLine=Exporter Service&serviceRole=Standard&userType=new&regSuccess=pending&serviceQuestions=yes&numUsers=1" class="govuk-link--no-visited-state">New user registration - Export Health Certificates (service q's + pending)</a></li>
       </ul>
 
       <ul class="govuk-list govuk-list--bullet">
@@ -311,10 +312,20 @@
 
     <h2 class="govuk-heading-m">User Testing
     </h2>
+    <h3 class="govuk-heading-s">Export Health Certificates
+    </h3>
+    <ul class="govuk-list govuk-list--bullet">
+      <li><a href="service-start-logged-out?serviceLine=Export Health Certificates&serviceRole=Certifier&userType=new&regSuccess=pending&numUsers=1&numAgents=0&numServices=1" class="govuk-link--no-visited-state">New user registration - Chemicals (no service q's + success) </a></li>
+      <li><a href="/Comply-with-REACH-IT" class="govuk-link--no-visited-state">Chemicals - Comply with REACH IT </a></li>
+      <li><a href="manage/team-members/invited-user/E3-admin-notify?userType=invited&serviceLine=Comply with REACH IT&serviceRole=Admin&numUsers=5&numAgents=3&numServices=3&multiOrg=yes" class="govuk-link--no-visited-state">E3: Admin - notify admin email</a></li>
+      <li><a href="manage/team-members/services-on-team-member-admin-account_company?serviceLine=Comply with REACH IT&serviceRole=Admin&numUsers=1&numAgents=0&numServices=1&multiOrg=no" class="govuk-link--no-visited-state">Me profile page (1 user, 1 org, 1 service)</a></li>
+      <li><a href="manage/team-members/services-on-team-member-admin-account_company?serviceLine=Comply with REACH IT&serviceRole=Admin&numUsers=5&numAgents=3&numServices=3&multiOrg=yes" class="govuk-link--no-visited-state">Me profile page (5 user, multi org, and service, Only Rep)</a></li>
+
+    </ul>
     <h3 class="govuk-heading-s">Imports User Testing
     </h3>
     <ul class="govuk-list govuk-list--bullet">
-      <li><a href="service-start-logged-out-imports?serviceLine=Notification Service&serviceRole=Admin&userType=new&regSuccess=success&numUsers=1&numAgents=0&numServices=1" class="govuk-link--no-visited-state">New user registration - Imports (no service q's + success)</a></li>
+      <li><a href="service-start-logged-out-imports?serviceLine=Notification Service&serviceRole=Admin&userType=new&regSuccess=success&serviceQuestions=no&numUsers=1&numAgents=0&numServices=1" class="govuk-link--no-visited-state">New user registration - Imports (no service q's + success)</a></li>
       <li><a href="/Notifications" class="govuk-link--no-visited-state">Imports - Notification Service </a></li>
       <li><a href="manage/team-members/invite-user/E3-admin-notify?userType=invited&serviceLine=Notification Service&serviceRole=Admin&numUsers=5&numAgents=3&numServices=3&multiOrg=yes" class="govuk-link--no-visited-state">E3: Admin - notify admin email</a></li>
       <li><a href="manage/team-members/services-on-team-member-admin-account_company?serviceLine=Notification Service&serviceRole=Admin&numUsers=1&numAgents=0&numServices=1&multiOrg=no" class="govuk-link--no-visited-state">Me profile page (1 user, 1 org, 1 service)</a></li>
@@ -324,7 +335,7 @@
     <h3 class="govuk-heading-s">Chemicals User Testing
     </h3>
     <ul class="govuk-list govuk-list--bullet">
-      <li><a href="service-start-logged-out?serviceLine=Comply with REACH IT&serviceRole=REACH Manager&userType=new&regSuccess=pending&numUsers=1&numAgents=0&numServices=1" class="govuk-link--no-visited-state">New user registration - Chemicals (no service q's + success) </a></li>
+      <li><a href="service-start-logged-out?serviceLine=Comply with REACH IT&serviceRole=REACH Manager&userType=new&regSuccess=pending&serviceQuestions=no&numUsers=1&numAgents=0&numServices=1" class="govuk-link--no-visited-state">New user registration - Chemicals (no service q's + success) </a></li>
       <li><a href="/Comply-with-REACH-IT" class="govuk-link--no-visited-state">Chemicals - Comply with REACH IT </a></li>
       <li><a href="manage/team-members/invited-user/E3-admin-notify?userType=invited&serviceLine=Comply with REACH IT&serviceRole=Admin&numUsers=5&numAgents=3&numServices=3&multiOrg=yes" class="govuk-link--no-visited-state">E3: Admin - notify admin email</a></li>
       <li><a href="manage/team-members/services-on-team-member-admin-account_company?serviceLine=Comply with REACH IT&serviceRole=Admin&numUsers=1&numAgents=0&numServices=1&multiOrg=no" class="govuk-link--no-visited-state">Me profile page (1 user, 1 org, 1 service)</a></li>
@@ -338,7 +349,7 @@
       <h2 class="govuk-heading-m" id="subsection-title">Quick links</h2>
       <nav role="navigation" aria-labelledby="subsection-title">
         <ul class="govuk-list govuk-body-s">
-          <li><a href="service-start-logged-out?serviceLine=Comply with REACH IT&serviceRole=REACH Manager&userType=new&regSuccess=success" class="govuk-link--no-visited-state">New user registration (Chemicals - no service q's + approved) </a></li>
+          <li><a href="service-start-logged-out?serviceLine=Comply with REACH IT&serviceRole=REACH Manager&userType=new&regSuccess=success&serviceQuestions=no&numUsers=1" class="govuk-link--no-visited-state">New user registration (Chemicals - no service q's + approved) </a></li>
           <li><a href="service-start-logged-out?serviceLine=Comply with REACH IT&serviceRole=REACH Manager&userType=existing&multiOrg=no&regSuccess=success" class="govuk-link--no-visited-state">Existing user login (Chemicals) </a></li>
           <li><a href="service-start-logged-out?serviceLine=Comply with REACH IT&serviceRole=REACH Manager&userType=existing&multiOrg=yes&regSuccess=success" class="govuk-link--no-visited-state">Existing user, new service registration (Chemicals, multi org) </a></li>
           <li><a class="govuk-link--no-visited-state" href="/manage/team-members/services-on-team-member-standard-account?numServices=1&serviceLine=Comply with REACH IT&serviceRole=Admin">Your Defra account page - standard user</a></li>
@@ -396,6 +407,7 @@
   <div class="govuk-visually-hidden">
   General
     userType= new / existing / invited / invitedAgent     (what is the type of user?)
+    serviceQuestions= yes / no
     numUsers= 1 / 2 / 5     (the number of team members in an account )
     numServices= 1 / 3      (on Your Defar account/ account dashboard the number of services )
     numAgents= 0 / 1 / 3      (the number of intermediaries in an account)

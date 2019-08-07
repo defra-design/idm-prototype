@@ -109,14 +109,16 @@
 
     </dl>
 
-    {% if (data['serviceLine'] == "VMD Secure Messaging") or (data['serviceLine'] == "Exporter Service") %}
+    {% if (data['serviceQuestions'] == "yes") %}
 
         {{ govukButton({
           text: "Continue",
           href: "../service-questions"
         }) }}
 
-      {% else %}
+      {% endif %}
+
+    {% if (data['serviceQuestions'] == "no") %}
 
       {{ govukButton({
         text: "Continue",
