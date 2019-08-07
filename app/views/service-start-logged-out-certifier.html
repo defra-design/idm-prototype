@@ -71,6 +71,9 @@
     {% if data['serviceRole'] == "Incomplete" %}
           {% set startURL = "/scp/login-incomplete-service" %}
     {% endif %}
+    {% if data['serviceRole'] == "Success" %}
+          {% set startURL = "https://exports-certifiers-prototype.herokuapp.com/select-certifier-org" %}
+    {% endif %}
 
     <!-- Existing users login - single account -->
     {% if (data['userType'] == "existing-agent")  %}
