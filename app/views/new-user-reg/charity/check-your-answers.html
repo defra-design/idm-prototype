@@ -137,12 +137,23 @@
 
     {% if (data['serviceQuestions'] == "yes") %}
 
-        {{ govukButton({
-          text: "Continue",
-          href: "../service-questions"
-        }) }}
+      {% if (data['serviceLine'] == "Export Health Certificates") %}
 
-      {% endif %}
+          {{ govukButton({
+            text: "Continue",
+            href: "/service-questions"
+          }) }}
+
+        {% else %}
+
+          {{ govukButton({
+            text: "Continue",
+            href: "../service-questions"
+          }) }}
+
+        {% endif %}
+
+    {% endif %}
 
     {% if (data['serviceQuestions'] == "no") %}
 
