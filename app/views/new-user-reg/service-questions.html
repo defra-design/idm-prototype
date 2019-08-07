@@ -22,6 +22,9 @@
   {% if data['serviceLine'] == "Exporter Service" %}
     {{ govukHeader({ serviceName: "Exporter Service", serviceUrl: "/" }) }}
   {% endif %}
+  {% if data['serviceLine'] == "Export Health Certificates" %}
+    {{ govukHeader({ serviceName: "Export Health Certificates", serviceUrl: "/" }) }}
+  {% endif %}
 {% endblock %}
 
 {% block beforeContent %}
@@ -43,13 +46,19 @@
 
     <h1 class="govuk-heading-xl">{{title}}</h1>
 
-    {% if (data['serviceLine'] == "Notification Service") or (data['serviceLine'] == "Apply for Export Catch Certificate") or (data['serviceLine'] == "Comply with REACH IT") %}
+    {% if (data['serviceLine'] == "Notification Service") or (data['serviceLine'] == "Apply for Export Catch Certificate") or (data['serviceLine'] == "Comply with REACH IT") or (data['serviceLine'] == "Exporter Service") %}
       <form action="/service-start-complete" method="post">
     {% endif %}
 
-    {% if (data['serviceLine'] == "VMD Secure Messaging") or (data['serviceLine'] == "Exporter Service") %}
+    {% if (data['serviceLine'] == "VMD Secure Messaging") %}
       <form action="/service-start-pending" method="post">
     {% endif %}
+
+    {% if (data['serviceLine'] == "Export Health Certificates") %}
+      <form action="https://exports-certifiers-prototype.herokuapp.com/certifier-org_post-idm" method="post">
+    {% endif %}
+
+
 
 
       <p class="govuk-body">[Insert service question content here]</p>

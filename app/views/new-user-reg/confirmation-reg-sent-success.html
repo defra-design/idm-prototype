@@ -22,6 +22,9 @@
   {% if data['serviceLine'] == "Exporter Service" %}
     {{ govukHeader({ serviceName: "Exporter Service", serviceUrl: "/" }) }}
   {% endif %}
+  {% if data['serviceLine'] == "Export Health Certificates" %}
+    {{ govukHeader({ serviceName: "Export Health Certificates", serviceUrl: "/" }) }}
+  {% endif %}
 {% endblock %}
 
 {% block beforeContent %}

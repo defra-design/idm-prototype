@@ -138,12 +138,23 @@
 
     {% if (data['serviceQuestions'] == "yes") %}
 
-        {{ govukButton({
-          text: "Continue",
-          href: "../service-questions"
-        }) }}
+      {% if (data['serviceLine'] == "Export Health Certificates") %}
 
-      {% endif %}
+          {{ govukButton({
+            text: "Continue",
+            href: "https://exports-certifiers-prototype.herokuapp.com/certifier-org_confirm-org-details"
+          }) }}
+
+        {% else %}
+
+          {{ govukButton({
+            text: "Continue",
+            href: "../service-questions"
+          }) }}
+
+        {% endif %}
+
+    {% endif %}
 
     {% if (data['serviceQuestions'] == "no") %}
 

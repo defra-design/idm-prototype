@@ -22,10 +22,13 @@
   {% if data['serviceLine'] == "Exporter Service" %}
     {{ govukHeader({ serviceName: "Exporter Service", serviceUrl: "/" }) }}
   {% endif %}
+  {% if data['serviceLine'] == "Export Health Certificates" %}
+    {{ govukHeader({ serviceName: "Export Health Certificates", serviceUrl: "/" }) }}
+  {% endif %}
 {% endblock %}
 
 {% block beforeContent %}
-  {% include "includes/account-nav-admin-reg.html" %}
+  {% include "includes/account-nav-admin-corp.html" %}
 
 {% endblock %}
 
@@ -37,7 +40,7 @@
 
     {{ govukPanel({
           titleText: "Your registration request is complete and will now be reviewed.",
-          html: "Your reference number<br><strong>HDJ2123F</strong>"
+          html: ""
         })
     }}
 
@@ -46,8 +49,6 @@
     <h3 class="govuk-heading-m">What happens next</h3>
 
     <p class="govuk-body">We will contact you by [email/telephone/letter] within [SLA timeframe] about your request to use this service.</p>
-
-    <p class="govuk-body"><a href="#" class="govuk-link">What did you think of this service?</a> (takes 30 seconds)</p>
 
     {{ govukButton({
         text: "Sign out",
