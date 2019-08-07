@@ -63,7 +63,7 @@
           {% set startURL = "/scp/login-new" %}
     {% endif %}
     {% if data['serviceRole'] == "Pending" %}
-          {% set startURL = "/scp/login-pending" %}
+          {% set startURL = "/scp/login-pending-certifier" %}
     {% endif %}
     {% if data['serviceRole'] == "No service access" %}
           {% set startURL = "/scp/login-incomplete-tasklist" %}

@@ -137,6 +137,16 @@ router.get('/scp/login-pending', function (req, res) {
     })
 })
 
+// Existing user - pending app
+router.get('/scp/login-pending-certifier', function (req, res) {
+    res.render('scp/login',{
+      "signinButton": 'https://exports-certifiers-prototype.herokuapp.com/certifier-org_post-idm'
+    })
+})
+
+
+
+
 // Existing user - new service, multiple accounts
 router.get('/scp/login-interswitch', function (req, res) {
     res.render('scp/login',{
