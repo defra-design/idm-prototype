@@ -319,27 +319,37 @@
     <h3 class="govuk-heading-s">Export Health Certificates
     </h3>
     <ul class="govuk-list govuk-list--bullet">
-      <li><a href="service-start-logged-out-certifier?serviceLine=Export Health Certificates&serviceRole=Certifier&userType=new&regSuccess=pending&serviceQuestions=yes&parentChild=parent" class="govuk-link--no-visited-state">New user registration (service q's + pending) </a></li>
+      <li><a href="https://exports-certifiers-prototype.herokuapp.com/start" class="govuk-link--no-visited-state">New user reg: Export Health Certificate Start page (service q's + pending) </a></li>
       <li><a href="service-start-logged-out-certifier?userType=existing&systemRole=Admin&serviceLine=Export Health Certificates&serviceRole=Pending&parentChild=parent" class="govuk-link--no-visited-state">Returning user: Successful registration - pending enrolment</a></li>
-      <li><a href="service-start-logged-out-certifier?userType=existing&systemRole=Admin&serviceLine=Export Health Certificates&serviceRole=Success&parentChild=parent" class="govuk-link--no-visited-state">Returning user: Successful registration - approved</a></li>
+      <li><a href="service-start-logged-out-certifier?userType=existing&systemRole=Admin&serviceLine=Export Health Certificates&serviceRole=Certifier&parentChild=parent" class="govuk-link--no-visited-state">Returning user: Successful registration - approved</a></li>
       <li><a href="https://exports-certifiers-prototype.herokuapp.com/select-certifier-org" class="govuk-link--no-visited-state">Export Health Certificates dashboard</a></li>
-      <li><a href="manage/team-members/services-on-team-member-admin-account_company-exports?serviceLine=Export Health Certificates&serviceRole=Admin&numUsers=1&numAgents=0&numServices=1&multiOrg=no&parentChild=parent" class="govuk-link--no-visited-state">Your Defra account page (1 user, 1 org, 1 service)</a></li>
-      <li><a href="manage/team-members/services-on-team-member-admin-account_company-exports?serviceLine=Export Health Certificates&serviceRole=Admin&numUsers=4&numAgents=3&numServices=1&multiOrg=no&parentChild=parent&numLocations=1&addAccount=account" class="govuk-link--no-visited-state">Your Defra account page (4 users, 2 orgs, 1 service)</a></li>
-
-
+      <li><a href="manage/team-members/services-on-team-member-admin-account_company-exports?serviceLine=Export Health Certificates&serviceRole=Certifier&multiOrg=no&parentChild=parent" class="govuk-link--no-visited-state">Your Defra account page (1 user, 1 org, 1 service)</a></li>
+      <li><a href="manage/team-members/services-on-team-member-admin-account_company-exports?serviceLine=Export Health Certificates&serviceRole=Certifier&numUsers=4&numAgents=3&numServices=1&multiOrg=no&parentChild=parent&numLocations=1&addAccount=account" class="govuk-link--no-visited-state">Your Defra account page (4 users, 2 orgs, 1 service)</a></li>
+      <li><a href="/emails/E1-invite-email?serviceLine=Export Health Certificates&serviceRole=Certifier&numUsers=4&numAgents=3&numServices=1&multiOrg=no&parentChild=parent&numLocations=1" class="govuk-link--no-visited-state">E1: Invite User - accept invite email</a></li>
+      <li><a href="/emails/E2-reg-confirmation-email?serviceLine=Export Health Certificates&serviceRole=Certifier&numUsers=4&numAgents=0&numServices=1&multiOrg=no&parentChild=parent&numLocations=1" class="govuk-link--no-visited-state">E2: Invite User - registration complete email</a></li>
+      <li><a href="/emails/E3-admin-notify?userType=invited&serviceLine=Export Health Certificates&serviceRole=Certifier&numUsers=4&numAgents=3&numServices=1&multiOrg=no&parentChild=parent&numLocations=1" class="govuk-link--no-visited-state">E3: Invite ser - notify admin of invited user's registration</a></li>
+    </ul>
+    <h3 class="govuk-heading-s">Exporter Service
+    </h3>
+    <ul class="govuk-list govuk-list--bullet">
+      <li><a href="https://exports-defra.herokuapp.com/e2e/service-start-logged-out-exports" class="govuk-link--no-visited-state">New user reg: Apply for Pig Exports Start page (no service q's + approved)</a></li>
+      <li><a href="service-start-logged-out-exports?serviceLine=Exporter Service&serviceRole=Exporter&userType=new&regSuccess=success&serviceQuestions=no&parentChild=parent" class="govuk-link--no-visited-state">New user registration (no service q's + approved) </a></li>
+      <li><a href="service-start-logged-out-exports?userType=existing&systemRole=Admin&serviceLine=Exporter Service&serviceRole=Exporter&parentChild=parent" class="govuk-link--no-visited-state">Returning user: Successful registration - approved</a></li>
+      <li><a href="manage/team-members/services-on-team-member-admin-account_company-exports?serviceLine=Exporter Service&serviceRole=Exporter&multiOrg=no&parentChild=parent" class="govuk-link--no-visited-state">Your Defra account page (1 user, 1 org, 1 service)</a></li>
+      <li><a href="manage/team-members/services-on-team-member-admin-account_company-exports?serviceLine=Exporter Service&serviceRole=Exporter&numUsers=4&numAgents=0&numServices=1&multiOrg=no&parentChild=parent&numLocations=1&addAccount=account" class="govuk-link--no-visited-state">Your Defra account page (4 users, 2 orgs, 1 service)</a></li>
       <li><a href="/emails/E1-invite-email" class="govuk-link--no-visited-state">E1: Invite User - accept invite email</a></li>
       <li><a href="/emails/E2-reg-confirmation-email" class="govuk-link--no-visited-state">E2: Invite User - registration complete email</a></li>
       <li><a href="/emails/E3-admin-notify?userType=invited" class="govuk-link--no-visited-state">E3: Invite ser - notify admin of invited user's registration</a></li>
-
     </ul>
+
     <h3 class="govuk-heading-s">Imports User Testing
     </h3>
     <ul class="govuk-list govuk-list--bullet">
-      <li><a href="service-start-logged-out-imports?serviceLine=Notification Service&serviceRole=Admin&userType=new&regSuccess=success&serviceQuestions=no&numUsers=1&numAgents=0&numServices=1" class="govuk-link--no-visited-state">New user registration - Imports (no service q's + success)</a></li>
+      <li><a href="service-start-logged-out-imports?serviceLine=Notification Service&systemRole=Admin&userType=new&regSuccess=success&serviceQuestions=no&numUsers=1&numAgents=0&numServices=1" class="govuk-link--no-visited-state">New user registration - Imports (no service q's + success)</a></li>
       <li><a href="/Notifications" class="govuk-link--no-visited-state">Imports - Notification Service </a></li>
-      <li><a href="manage/team-members/invite-user/E3-admin-notify?userType=invited&serviceLine=Notification Service&serviceRole=Admin&numUsers=5&numAgents=3&numServices=3&multiOrg=yes" class="govuk-link--no-visited-state">E3: Admin - notify admin email</a></li>
-      <li><a href="manage/team-members/services-on-team-member-admin-account_company?serviceLine=Notification Service&serviceRole=Admin&numUsers=1&numAgents=0&numServices=1&multiOrg=no" class="govuk-link--no-visited-state">Me profile page (1 user, 1 org, 1 service)</a></li>
-      <li><a href="manage/team-members/services-on-team-member-admin-account_company?serviceLine=Notification Service&serviceRole=Admin&numUsers=5&numAgents=3&numServices=3&multiOrg=yes" class="govuk-link--no-visited-state">Me profile page (5 user, multi org, and service)</a></li>
+      <li><a href="manage/team-members/invite-user/E3-admin-notify?userType=invited&serviceLine=Notification Service&numUsers=5&numAgents=3&numServices=3&multiOrg=yes" class="govuk-link--no-visited-state">E3: Admin - notify admin email</a></li>
+      <li><a href="manage/team-members/services-on-team-member-admin-account_company?serviceLine=Notification Service&systemRole=Admin&numUsers=1&numAgents=0&numServices=1&multiOrg=no" class="govuk-link--no-visited-state">Me profile page (1 user, 1 org, 1 service)</a></li>
+      <li><a href="manage/team-members/services-on-team-member-admin-account_company?serviceLine=Notification Service&systemRole=Admin&numUsers=5&numAgents=3&numServices=3&multiOrg=yes" class="govuk-link--no-visited-state">Me profile page (5 user, multi org, and service)</a></li>
     </ul>
 
     <h3 class="govuk-heading-s">Chemicals User Testing

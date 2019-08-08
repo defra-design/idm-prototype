@@ -137,34 +137,32 @@
     </dl>
 
     {% if (data['serviceQuestions'] == "yes") %}
-
       {% if (data['serviceLine'] == "Export Health Certificates") %}
-
           {{ govukButton({
             text: "Continue",
             href: "https://exports-certifiers-prototype.herokuapp.com/certifier-org_confirm-org-details"
           }) }}
-
-        {% else %}
-
+      {% else %}
           {{ govukButton({
             text: "Continue",
             href: "../service-questions"
           }) }}
-
-        {% endif %}
-
+      {% endif %}
     {% endif %}
 
     {% if (data['serviceQuestions'] == "no") %}
-
-      {{ govukButton({
-        text: "Continue",
-        href: "/service-start-complete"
-      }) }}
-
+        {% if (data['serviceLine'] == "Exporter Service") %}
+            {{ govukButton({
+              text: "Continue",
+              href: "https://exports-defra.herokuapp.com/e2e/confirmation"
+            }) }}
+        {% else %}
+            {{ govukButton({
+              text: "Continue",
+              href: "/service-start-complete"
+            }) }}
+        {% endif %}
     {% endif %}
-
 
 
   </div>
