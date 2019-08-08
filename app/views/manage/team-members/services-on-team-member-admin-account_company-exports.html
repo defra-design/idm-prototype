@@ -93,7 +93,7 @@
       </tr>
       </thead>
 
-      <tr class="govuk-table__row no-border">
+      <tr class="govuk-table__row">
         <td class="govuk-table__cell">
           <span class="govuk-visually-hidden--desktop td-header">Account:</span>
           Acme Org Ltd
@@ -104,61 +104,18 @@
         </td>
         <td class="govuk-table__cell">
           <span class="govuk-visually-hidden--desktop td-header">Service:</span>
-          <span class="idm-table__cell--service-name-content"> Comply with REACH IT</span>
+          <span class="idm-table__cell--service-name-content"> Export Health Certificates</span>
         </td>
         <td class="govuk-table__cell">
           <span class="govuk-visually-hidden--desktop td-header">Service role:</span>
-          <span class="idm-table__cell--service-role-name-content"> REACH Manager</span>
+          <span class="idm-table__cell--service-role-name-content"> Cerfifier</span>
         </td>
         <td class="govuk-table__cell">
-          <span class="govuk-visually-hidden--desktop td-header">Action:</span><a href="/manage/dashboard-all?orgName=Acme Org Ltd&numUsers=5&numAgents=0&numServices=3&numLocations=1&multiOrg=no&parentChild=parent" class="govuk-link--no-visited-state"> Manage account<span class="govuk-visually-hidden td-header"> for Acme Org Ltd</span></a>
+          <span class="govuk-visually-hidden--desktop td-header">Action:</span><a href="/manage/dashboard-all?orgName=Acme Org Ltd" class="govuk-link--no-visited-state"> Manage account<span class="govuk-visually-hidden td-header"> for Acme Org Ltd</span></a>
         </td>
       </tr>
-      <tr class="govuk-table__row no-border">
-        <td class="govuk-table__cell">
-          <span class="govuk-visually-hidden--desktop td-header">Account:</span>
-          <span class="govuk-visually-hidden--desktop"> Acme Org Ltd</span>
-        </td>
-        <td class="govuk-table__cell">
-          <span class="govuk-visually-hidden--desktop td-header">Account role:</span>
-          <span class="idm-table__cell--access-level-content govuk-visually-hidden--desktop"> Admin</span>
-        </td>
-        <td class="govuk-table__cell">
-          <span class="govuk-visually-hidden--desktop td-header">Service:</span>
-          <span class="idm-table__cell--service-name-content"> Notification Service</span>
-        </td>
-        <td class="govuk-table__cell">
-          <span class="govuk-visually-hidden--desktop td-header">Service role:</span> Standard User
-        </td>
-        <td class="govuk-table__cell action-cell">
-          <span class="govuk-visually-hidden--desktop td-header">Action:</span>
-          <a href="/manage/dashboard-all?orgName=Acme Org Ltd&numUsers=5&numAgents=0&numServices=3&numLocations=1&multiOrg=no&parentChild=parent" class="govuk-link--no-visited-state govuk-visually-hidden--desktop">
-          <span role="text">Manage account<span class="govuk-visually-hidden td-header"> for Acme Org Ltd</span></span>
-          </a>
-        </td>
-      </tr>
-      <tr class="govuk-table__row">
-        <td class="govuk-table__cell">
-          <span class="govuk-visually-hidden--desktop td-header">Account:</span>
-          <span class="govuk-visually-hidden--desktop"> Acme Org Ltd</span>
-        </td>
-        <td class="govuk-table__cell">
-          <span class="govuk-visually-hidden--desktop td-header">Account role:</span>
-          <span class="idm-table__cell--access-level-content govuk-visually-hidden--desktop"> Admin</span>
-        </td>
-        <td class="govuk-table__cell">
-          <span class="govuk-visually-hidden--desktop td-header">Service:</span>
-          <span class="idm-table__cell--service-name-content"> VMD Secure Messaging</span>
-        </td>
-        <td class="govuk-table__cell">
-          <span class="govuk-visually-hidden--desktop td-header">Service role: </span><span class="govuk-body govuk-body--grey"> Pending</span>
-        </td>
-        <td class="govuk-table__cell action-cell">
-          <span class="govuk-visually-hidden--desktop td-header">Action:</span>
-          <a href="/manage/dashboard-all?orgName=Acme Org Ltd&numUsers=5&numAgents=0&numServices=3&numLocations=1&multiOrg=no&parentChild=parent" class="govuk-link--no-visited-state govuk-visually-hidden--desktop">
-          <span role="text">Manage account<span class="govuk-visually-hidden td-header"> for Acme Org Ltd</span></span>
-          </a>
-        </td>
+
+
 
 {% if data['addAccount'] == "account" %}
 
@@ -167,7 +124,7 @@
       <tr class="govuk-table__row">
         <td class="govuk-table__cell">
           <span class="govuk-visually-hidden--desktop td-header">Account:</span>
-          Chemicals R Us
+          ABC Building (Essex) Ltd
         </td>
         <td class="govuk-table__cell">
           <span class="govuk-visually-hidden--desktop td-header">Account role:</span> Admin
@@ -187,7 +144,7 @@
       <tr class="govuk-table__row">
         <td class="govuk-table__cell">
           <span class="govuk-visually-hidden--desktop td-header">Account:</span>
-          Chemicals R Us
+          ABC Building (Essex) Ltd
         </td>
         <td class="govuk-table__cell">
           <span class="govuk-visually-hidden--desktop td-header">Account role:</span> Admin
@@ -241,7 +198,6 @@
         <a href="/service-start-complete?serviceLine=VMD Secure Messaging"></a>
         {% endif %}
 
-
         <div class="govuk-card__content">
           <h3 class="govuk-heading-m">{{ data['serviceLine'] }}</h3>
         </div>
@@ -249,14 +205,16 @@
     </div>
   </div>
 {% endif %}
+
+
 {% if (data['numServices'] == "3") %}
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-one-third">
       <div class="govuk-card govuk-card--contained govuk-card--selectable">
-        <a href="/Comply-with-REACH-IT"></a>
+        <a href="https://exports-certifiers-prototype.herokuapp.com/select-certifier-org"></a>
         <div class="govuk-card__content">
-          <h3 class="govuk-heading-m">Comply with REACH IT</h3>
+          <h3 class="govuk-heading-m">{{ data['serviceLine'] }}</h3>
         </div>
       </div>
     </div>
@@ -266,21 +224,21 @@
         <a href="/Notifications"></a>
         <div class="govuk-card__content">
           <h3 class="govuk-heading-m">Notification Service</h3>
-
         </div>
       </div>
     </div>
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-one-third {{serviceCSS}}">
-      <div class="govuk-card govuk-card--contained govuk-card--selectable">
-        <a href="/service-start-complete?serviceLine=VMD Secure Messaging"></a>
-        <div class="govuk-card__content">
-          <h3 class="govuk-heading-m">VMD Secure Messaging</h3>
-
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-third {{serviceCSS}}">
+        <div class="govuk-card govuk-card--contained govuk-card--selectable">
+          <a href="/service-start-complete?serviceLine=VMD Secure Messaging"></a>
+          <div class="govuk-card__content">
+            <h3 class="govuk-heading-m">VMD Secure Messaging</h3>
+          </div>
         </div>
       </div>
     </div>
+
   </div>
 
 

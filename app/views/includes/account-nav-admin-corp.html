@@ -22,15 +22,28 @@
   {% set dashboardURL = "/manage/dashboard-all?numUsers=6" %}
 {% endif %}
 
+{% if (data['serviceLine'] == "Export Health Certificates") %}
 
-<div class="login-nav">
-    <ul class="login-nav__list">
-      <li class="login-nav__list-item">Ann Cooper |</li>
-    {% if (data['orgType'] == "onlyRep") %}
-      <li class="login-nav__list-item"><a href="/manage/team-members/services-on-team-member-admin-account_onlyrep" class="govuk-link login-nav__link govuk-link--no-visited-state profile">Manage account</a>|</li>
-    {% else %}
-      <li class="login-nav__list-item"><a href="/manage/team-members/services-on-team-member-admin-account_company" class="govuk-link login-nav__link govuk-link--no-visited-state profile">Manage account</a>|</li>
-    {% endif %}
-      <li class="login-nav__list-item"><a href="/signed-out" class="govuk-link login-nav__link govuk-link--no-visited-state">Sign out</a></li>
-    </ul>
-  </div>
+    <div class="login-nav">
+        <ul class="login-nav__list">
+          <li class="login-nav__list-item">Ann Cooper |</li>
+          <li class="login-nav__list-item"><a href="/manage/team-members/services-on-team-member-admin-account_company-exports" class="govuk-link login-nav__link govuk-link--no-visited-state profile">Manage account</a>|</li>
+          <li class="login-nav__list-item"><a href="/signed-out" class="govuk-link login-nav__link govuk-link--no-visited-state">Sign out</a></li>
+        </ul>
+      </div>
+
+{% else %}
+
+    <div class="login-nav">
+      <ul class="login-nav__list">
+        <li class="login-nav__list-item">Ann Cooper |</li>
+      {% if (data['orgType'] == "onlyRep") %}
+        <li class="login-nav__list-item"><a href="/manage/team-members/services-on-team-member-admin-account_onlyrep" class="govuk-link login-nav__link govuk-link--no-visited-state profile">Manage account</a>|</li>
+      {% else %}
+        <li class="login-nav__list-item"><a href="/manage/team-members/services-on-team-member-admin-account_company" class="govuk-link login-nav__link govuk-link--no-visited-state profile">Manage account</a>|</li>
+      {% endif %}
+        <li class="login-nav__list-item"><a href="/signed-out" class="govuk-link login-nav__link govuk-link--no-visited-state">Sign out</a></li>
+      </ul>
+    </div>
+
+{% endif %}

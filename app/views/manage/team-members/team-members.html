@@ -42,9 +42,9 @@
     {% if (data['numUsers'] == "4") or (data['numChildUsers'] == "4") %}
     {% set AdamUserCSS = "" %}
     {% set BarryUserCSS = "" %}
-    {% set invitedUserCSS = "" %}
+    {% set invitedUserCSS = "govuk-visually-hidden" %}
     {% set newUserCSS = "" %}
-    {% set n1UserCSS = "govuk-visually-hidden" %}
+    {% set n1UserCSS = "" %}
     {% endif %}
 
 
@@ -84,7 +84,7 @@
         services-on-team-member-admin-self?name=Ann Cooper
       {% endif %}
     {% endset %}
-    
+
 
     <table class="govuk-table {{ tableCSS }}">
       <caption class="govuk-table__caption govuk-visually-hidden">All team members</caption>

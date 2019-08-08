@@ -319,13 +319,17 @@
     <h3 class="govuk-heading-s">Export Health Certificates
     </h3>
     <ul class="govuk-list govuk-list--bullet">
-      <li><a href="service-start-logged-out-certifier?serviceLine=Export Health Certificates&serviceRole=Certifier&userType=new&regSuccess=pending&serviceQuestions=yes&numUsers=1&numAgents=0&numServices=1" class="govuk-link--no-visited-state">New user registration (service q's + pending) </a></li>
-      <li><a href="service-start-logged-out-certifier?userType=existing&systemRole=Admin&serviceLine=Export Health Certificates&serviceRole=Pending" class="govuk-link--no-visited-state">Returning user: Successful registration - pending enrolment</a></li>
-      <li><a href="service-start-logged-out-certifier?userType=existing&systemRole=Admin&serviceLine=Export Health Certificates&serviceRole=Success" class="govuk-link--no-visited-state">Returning user: Successful registration - approved</a></li>
+      <li><a href="service-start-logged-out-certifier?serviceLine=Export Health Certificates&serviceRole=Certifier&userType=new&regSuccess=pending&serviceQuestions=yes&parentChild=parent" class="govuk-link--no-visited-state">New user registration (service q's + pending) </a></li>
+      <li><a href="service-start-logged-out-certifier?userType=existing&systemRole=Admin&serviceLine=Export Health Certificates&serviceRole=Pending&parentChild=parent" class="govuk-link--no-visited-state">Returning user: Successful registration - pending enrolment</a></li>
+      <li><a href="service-start-logged-out-certifier?userType=existing&systemRole=Admin&serviceLine=Export Health Certificates&serviceRole=Success&parentChild=parent" class="govuk-link--no-visited-state">Returning user: Successful registration - approved</a></li>
       <li><a href="https://exports-certifiers-prototype.herokuapp.com/select-certifier-org" class="govuk-link--no-visited-state">Export Health Certificates dashboard</a></li>
-      <li><a href="manage/team-members/services-on-team-member-admin-account_company?serviceLine=Export Health Certificates&serviceRole=Admin&numUsers=1&numAgents=0&numServices=1&multiOrg=no" class="govuk-link--no-visited-state">Your Defra account page (1 user, 1 org, 1 service)</a></li>
-      <li><a href="manage/team-members/services-on-team-member-admin-account_company?serviceLine=Export Health Certificates&serviceRole=Admin&numUsers=5&numAgents=3&numServices=3&multiOrg=yes&numLocations=2" class="govuk-link--no-visited-state">Your Defra account page (4 users, 2 orgs, 1 service)</a></li>
-      <li><a href="manage/team-members/invited-user/E3-admin-notify?userType=invited&serviceLine=Comply with REACH IT&serviceRole=Admin&numUsers=5&numAgents=3&numServices=3&multiOrg=yes" class="govuk-link--no-visited-state">E3: Admin - notify admin email</a></li>
+      <li><a href="manage/team-members/services-on-team-member-admin-account_company-exports?serviceLine=Export Health Certificates&serviceRole=Admin&numUsers=1&numAgents=0&numServices=1&multiOrg=no&parentChild=parent" class="govuk-link--no-visited-state">Your Defra account page (1 user, 1 org, 1 service)</a></li>
+      <li><a href="manage/team-members/services-on-team-member-admin-account_company-exports?serviceLine=Export Health Certificates&serviceRole=Admin&numUsers=4&numAgents=3&numServices=1&multiOrg=no&parentChild=parent&numLocations=1&addAccount=account" class="govuk-link--no-visited-state">Your Defra account page (4 users, 2 orgs, 1 service)</a></li>
+
+
+      <li><a href="/emails/E1-invite-email" class="govuk-link--no-visited-state">E1: Invite User - accept invite email</a></li>
+      <li><a href="/emails/E2-reg-confirmation-email" class="govuk-link--no-visited-state">E2: Invite User - registration complete email</a></li>
+      <li><a href="/emails/E3-admin-notify?userType=invited" class="govuk-link--no-visited-state">E3: Invite ser - notify admin of invited user's registration</a></li>
 
     </ul>
     <h3 class="govuk-heading-s">Imports User Testing
@@ -376,7 +380,7 @@
         <ul class="govuk-list govuk-body-s">
           <li><a href="/emails/E1-invite-email" class="govuk-link--no-visited-state">E1: New User - accept invite email</a></li>
           <li><a href="/emails/E2-reg-confirmation-email" class="govuk-link--no-visited-state">E2: New User - registration complete email</a></li>
-          <li><a href="/emails/E3-admin-notify?userType=invited" class="govuk-link--no-visited-state">E3: Admin - notify admin email</a></li>
+          <li><a href="/emails/E3-admin-notify?userType=invited" class="govuk-link--no-visited-state">E3: Admin - notify admin of new user email</a></li>
           <li><a href="/emails/E4-enrollment-email?userType=Standard user&numUsers=5&numServices=3&numAgents=3&numLocations=1&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=no" class="govuk-link--no-visited-state">E4: New user - Enrollment email</a></li>
           <li><a href="/emails/E5-remove-service-access-email" class="govuk-link--no-visited-state">E5: Existing user - service access removed email</a></li>
           <li><a href="/emails/E6-change-service-access-email" class="govuk-link--no-visited-state">E6: Existing user - service access changed email</a></li>
