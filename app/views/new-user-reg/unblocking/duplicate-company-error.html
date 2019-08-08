@@ -22,7 +22,31 @@
 
       <form method="post" class="change" onsubmit="return myFunction()">
 
-      <script>
+  {% if data['userType'] == "existing" %}
+
+        <script>
+          const form = document.querySelector('.change')
+
+          function myFunction() {
+            const checked = document.querySelector('[name="changeAccount"]:checked')
+            const checkedValue = checked.value
+
+            switch(checkedValue){
+              case 'Yes':
+              form.action = 'duplicate-company-add-account-confirm'
+
+              break;
+              default:
+              form.action = 'duplicate-company-end-reg-confirm'
+            }
+            return true
+          }
+        </script>
+
+  {% endif %}
+  {% if data['userType'] == "new" %}
+
+        <script>
           const form = document.querySelector('.change')
 
           function myFunction() {
@@ -41,6 +65,7 @@
           }
         </script>
 
+  {% endif %}
 
 
 
