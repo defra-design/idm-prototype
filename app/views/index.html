@@ -257,8 +257,8 @@
 
     <h3 class="govuk-heading-s">n+1 user unblocking</h3>
     <ul class="govuk-list govuk-list--bullet">
-      <li><a href="new-user-reg/limited-company/unblocking/company-lookup?businessType=Limited company" class="govuk-link--no-visited-state">Start of flow for duplicate Ltd/ Plc/ LLP company</a></li>
-      <li><a href="new-user-reg/charity/unblocking/charity-number?businessType=Charity" class="govuk-link--no-visited-state">Start of flow for duplicate charity</a></li>
+      <li><a href="new-user-reg/limited-company/unblocking/company-lookup?businessType=Limited company&userType=new" class="govuk-link--no-visited-state">Start of flow for duplicate Ltd/ Plc/ LLP company</a></li>
+      <li><a href="new-user-reg/charity/unblocking/charity-number?businessType=Charity&userType=new" class="govuk-link--no-visited-state">Start of flow for duplicate charity</a></li>
       <li><a class="govuk-link--no-visited-state" href="/manage/team-members/team-members?numUsers=5&numServices=3&numAgents=0&multiOrg=no&parentChild=parent&accountAccess=no&subscribeService=no&userType=verified&verifiedUser=pending&name=Tiegan Mole">Unverified Team Member (use Tiegan Mole)</a></li>
       <li><a href="/manage/team-members/services-on-team-member-verify?numUsers=5&numServices=3&numAgents=0&numLocations=3&multiOrg=no&parentChild=parent&userType=new&verifiedUser=yes&accountAccess=no&subscribeService=no&name=Tiegan Mole" class="govuk-link--no-visited-state">User verified but has no account access</a></li>
       <li><a href="/manage/team-members/services-on-team-member-verify?numUsers=5&numServices=3&numAgents=0&numLocations=3&systemRole=Admin&multiOrg=no&parentChild=parent&parentService=no&verifiedUser=yes&accountAccess=no&subscribeService=no&name=Tiegan Mole" class="govuk-link--no-visited-state">User verified but admin in pending, no services available</a></li>
@@ -266,6 +266,10 @@
       <li><a class="govuk-link--no-visited-state" href="manage/team-members/verify/verify-already-declined">Already declined Team Member (2nd admin accepting user)</a></li>
       <li><a class="govuk-link--no-visited-state" href="manage/team-members/verify/verify-already-confirmed">Already accepted Team Member (2nd admin accepting user)</a></li>
       <li><a href="service-start-logged-out?userType=existing&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&name=Tiegan Mole" class="govuk-link--no-visited-state">Existing user, registering for new service with multi-orgs</a></li>
+    </ul>
+    <ul class="govuk-list govuk-list--bullet">
+      <li><a href="new-user-reg/limited-company/unblocking/company-lookup?businessType=Limited company&userType=existing" class="govuk-link--no-visited-state">Add Account  - duplicate Ltd/ Plc/ LLP company</a></li>
+      <li><a href="new-user-reg/charity/unblocking/charity-number?businessType=Charity&userType=existing" class="govuk-link--no-visited-state">Add account - duplicate charity</a></li>
     </ul>
 
 
@@ -315,13 +319,13 @@
     <h3 class="govuk-heading-s">Export Health Certificates
     </h3>
     <ul class="govuk-list govuk-list--bullet">
-      <li><a href="service-start-logged-out-certifier?serviceLine=Export Health Certificates&serviceRole=Certifier&userType=new&regSuccess=pending&serviceQuestions=yes&numUsers=1&numAgents=0&numServices=1" class="govuk-link--no-visited-state">New user registration - Export Health Certificates (service q's + pending) </a></li>
+      <li><a href="service-start-logged-out-certifier?serviceLine=Export Health Certificates&serviceRole=Certifier&userType=new&regSuccess=pending&serviceQuestions=yes&numUsers=1&numAgents=0&numServices=1" class="govuk-link--no-visited-state">New user registration (service q's + pending) </a></li>
       <li><a href="service-start-logged-out-certifier?userType=existing&systemRole=Admin&serviceLine=Export Health Certificates&serviceRole=Pending" class="govuk-link--no-visited-state">Returning user: Successful registration - pending enrolment</a></li>
       <li><a href="service-start-logged-out-certifier?userType=existing&systemRole=Admin&serviceLine=Export Health Certificates&serviceRole=Success" class="govuk-link--no-visited-state">Returning user: Successful registration - approved</a></li>
-      <li><a href="https://exports-certifiers-prototype.herokuapp.com/select-certifier-org" class="govuk-link--no-visited-state">Export Health Certificates</a></li>
-      <li><a href="manage/team-members/invited-user/E3-admin-notify?userType=invited&serviceLine=Comply with REACH IT&serviceRole=Admin&numUsers=5&numAgents=3&numServices=3&multiOrg=yes" class="govuk-link--no-visited-state">E3: Admin - notify admin email</a></li>
+      <li><a href="https://exports-certifiers-prototype.herokuapp.com/select-certifier-org" class="govuk-link--no-visited-state">Export Health Certificates dashboard</a></li>
       <li><a href="manage/team-members/services-on-team-member-admin-account_company?serviceLine=Export Health Certificates&serviceRole=Admin&numUsers=1&numAgents=0&numServices=1&multiOrg=no" class="govuk-link--no-visited-state">Your Defra account page (1 user, 1 org, 1 service)</a></li>
-      <li><a href="manage/team-members/services-on-team-member-admin-account_company?serviceLine=Export Health Certificates&serviceRole=Admin&numUsers=5&numAgents=3&numServices=3&multiOrg=no" class="govuk-link--no-visited-state">Your Defra account page (4 users, 1 service)</a></li>
+      <li><a href="manage/team-members/services-on-team-member-admin-account_company?serviceLine=Export Health Certificates&serviceRole=Admin&numUsers=5&numAgents=3&numServices=3&multiOrg=yes&numLocations=2" class="govuk-link--no-visited-state">Your Defra account page (4 users, 2 orgs, 1 service)</a></li>
+      <li><a href="manage/team-members/invited-user/E3-admin-notify?userType=invited&serviceLine=Comply with REACH IT&serviceRole=Admin&numUsers=5&numAgents=3&numServices=3&multiOrg=yes" class="govuk-link--no-visited-state">E3: Admin - notify admin email</a></li>
 
     </ul>
     <h3 class="govuk-heading-s">Imports User Testing
