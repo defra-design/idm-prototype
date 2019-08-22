@@ -26,17 +26,16 @@
       <form method="post" action="task-list-page-personal-contact">
     {% endif %}
 
-
+    <h1 class="govuk-heading-xl">{{title}}</h1>
       {{ govukInput({
         label: {
-          text: title,
-          classes: "govuk-label--xl",
-          isPageHeading: true
+          text: "Telephone number including the country calling code",
+          classes: "govuk-label--s",
+          isPageHeading: false
         },
         hint: {
-        text: "We ask for this in case we need to call you directly with any queries about your registration."
+        text: "For example, \'+44 20 7946 0290\'"
         },
-
         classes: "govuk-input--width-10",
         id: "personalTelephone",
         name: "personalTelephone",

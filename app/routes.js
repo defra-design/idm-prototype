@@ -130,6 +130,13 @@ router.get('/scp/login-complete', function (req, res) {
     })
 })
 
+// Existing admin, standard or agent - complete app
+router.get('/scp/login-account', function (req, res) {
+    res.render('scp/login',{
+      "signinButton": '/manage/team-members/services-on-team-member-admin-account_company'
+    })
+})
+
 // Existing user - pending app
 router.get('/scp/login-pending', function (req, res) {
     res.render('scp/login',{
