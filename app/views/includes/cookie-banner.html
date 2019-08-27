@@ -1,7 +1,26 @@
-{% if shouldShowCookieMessage %}
-  <div class="app-cookie-banner">
-    <p class="app-cookie-banner__message">
-      {{cookieText | safe }}
-    </p>
+{% if data['shouldShowCookieMessage'] == "yes" %}
+
+<div class="cookie_overlay">
+  <div class="cookie_dialog">
+
+    <div class="govuk-grid-row">
+
+      <div class="govuk-grid-column-three-quarters">
+        <h1 class="govuk-heading-m">We use cookies</h1>
+        </div>
+        <div class="govuk-grid-column-three-quarters">
+
+          <p class="govuk-body">We use cookies and other tracking technologies to improve your browsing experience on our website, to show you personalized content and targeted ads, to analyze our website traffic, and to understand where our visitors are coming from. <a href="cookie-policy?shouldShowCookieMessage=no">Change my preferences</a></p>
+      </div>
+      <div class="govuk-grid-column-one-quarter center">
+        {{ govukButton({
+          text: "Agree",
+          href: "?shouldShowCookieMessage=no"
+        }) }}
+      </div>
+    </div>
+
   </div>
+</div>
+
 {% endif %}
