@@ -1,0 +1,61 @@
+// Cookie policy pop over
+.cookie_overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 9999999999;
+}
+
+.cookie_dialog {
+    right: 15vw;
+    bottom: 4vh;
+    left: 15vw;
+    max-width: 100%;
+    position: fixed;
+    background-color: white;
+    margin: auto;
+    padding: 3rem 3rem 1rem 3rem !important;
+
+}
+
+.center {
+  margin: auto;
+  text-align: center;
+}
+
+//
+
+.govuk-table__header--column-half {
+  width: 50%;
+}
+
+.govuk-table__header--column-third {
+  width: 33.333%;
+}
+
+.govuk-table__header--column-quarter {
+  width: 25%;
+}
+
+.govuk-table__header--column-fifth {
+  width: 20%;
+}
+
+.govuk-table__header--column-sixth {
+  width: 16.666%;
+}
+
+.govuk-table__header--column-eighth {
+  width: 12.5%;
+}
+
+.govuk-list--indent {
+  padding-left: 20px;
+}
+
+.govuk-heading-xl--no-margin {
+  margin-bottom: 20px;
+}
