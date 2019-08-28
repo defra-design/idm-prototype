@@ -58,17 +58,18 @@
               }
             }) }}
 
-            {% from "govuk/components/character-count/macro.njk" import govukCharacterCount %}
-
             {{ govukCharacterCount({
-              name: "with-hint",
-              id: "with-hint",
-              maxlength: 200,
+              id: "securityHint",
+              name: "securityHint",
+              value: data['securityHint'],
+              classes: "govuk-!-width-two-thirds",
+              maxlength: 100,
+              rows: 2,
               label: {
-                text: "Can you provide more detail?"
+                text: "Your hint question"
               },
               hint: {
-                text: "Do not include personal or financial information like your National Insurance number or credit card details."
+                text: "Provide a hint question that will help you remember your security word."
               }
             }) }}
 

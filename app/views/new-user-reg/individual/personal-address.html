@@ -20,13 +20,6 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-xl">{{title}}</h1>
-    <p class="govuk-body">
-      Postcode:
-      <span class="govuk-!-font-weight-bold">{{ data['postcode'] }}</span>&nbsp;&nbsp;
-      <a href="personal-postcode" class="govuk-link">Change<span class="govuk-visually-hidden"> postcode</span>
-      </a>
-    </p>
 
 {% if data['userType'] == "existing" %}
     <form action="check-your-answers-add-account" method="post">
@@ -41,11 +34,27 @@
 
 {% endif %}
 
+    {% set hintText %}
+        <p class="govuk-body">
+          Postcode:
+          <span class="govuk-!-font-weight-bold">{{ data['postcode'] }}</span>&nbsp;&nbsp;
+          <a href="personal-postcode" class="govuk-link">Change<span class="govuk-visually-hidden"> postcode</span>
+          </a>
+        </p>
+    {% endset %}
+
+
 
       {{ govukSelect({
         id: "addressList",
         name: "addressList",
         label: {
+          text: title,
+          classes: "govuk-label--xl",
+          isPageHeading: true
+        },
+        hint: {
+          html: hintText
         },
         items: [
           {
@@ -96,6 +105,7 @@
 
         ]
       }) }}
+
 
       <p class="govuk-body">
         <a href="personal-address-manual">
