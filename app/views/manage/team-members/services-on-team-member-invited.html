@@ -16,6 +16,15 @@
 {% block content %}
 
 
+{{data['userType']}}
+
+{{data['parentService']}}
+
+{{data['accountAccess']}}
+
+{{ data['subscribeService'] }}
+
+
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
@@ -38,21 +47,11 @@
 
     <!-- Show this section if the admin has no services because the admin is in a state of pending -->
       {% if (data['parentService'] == "no") %}
-        <div class="govuk-grid-row">
-          <div class="govuk-grid-column-full">
-            <p class="govuk-body">{{ data['name'] }} is ready to use our online services. </p>
-            <p class="govuk-body">Once your service registration has been agreed you will be able give them service access.</p>
-          </div>
-        </div>
 
-      {% else %}
-
-      <!-- Show this section if the user has no account -->
-
-          {% if (data['accountAccess'] == "no") and (data['subscribeService'] == "no")  %}
+          {% if (data['accountAccess'] == "no") %}
             <div class="govuk-grid-row">
               <div class="govuk-grid-column-full">
-                <p class="govuk-body">You can now give {{ data['name'] }} account access for {{ data['orgName'] }}.</p>
+                <p class="govuk-body">{{ data['name'] }} is ready to use Defra online services. You can now give them account access. Once your service registration has been agreed you will be able give them service access.</p>
                 {{ govukButton({
                   text: "Give account access",
                   href: "/manage/team-members/invite-user/add-user-roles-system-roles?subscribeService=no"
@@ -61,7 +60,30 @@
             </div>
           {% endif %}
 
-        <!-- Show this section if the user is verified, has an account role but does not have a service role -->
+          {% if (data['accountAccess'] == "yes") %}
+            <div class="govuk-grid-row">
+              <div class="govuk-grid-column-full">
+                <p class="govuk-body">{{ data['name'] }} is ready to use Defra online services. Once your service registration has been agreed you will be able give them service access.</p>
+              </div>
+            </div>
+          {% endif %}
+
+      {% else %}
+
+          <!-- Show this section if the user has no account -->
+          {% if (data['accountAccess'] == "no") and (data['subscribeService'] == "no")  %}
+            <div class="govuk-grid-row">
+              <div class="govuk-grid-column-full">
+                <p class="govuk-body">{{ data['name'] }} is ready to use Defra online services. You can now give them account access.</p>
+                {{ govukButton({
+                  text: "Give account access",
+                  href: "/manage/team-members/invite-user/add-user-roles-system-roles?subscribeService=no"
+                }) }}
+              </div>
+            </div>
+          {% endif %}
+
+            <!-- Show this section if the user has an account role but does not have a service role -->
           {% if (data['accountAccess'] == "yes") and (data['subscribeService'] == "no") %}
             <div class="govuk-grid-row">
               <div class="govuk-grid-column-full">
@@ -109,7 +131,7 @@
     </p>
   </div>
   <div class="govuk-grid-column-one-half">
-    {% if (data['userType'] == "invited") and (data['subscribeService'] == "yes") %}
+    {% if (data['userType'] == "invited") and (data['accountAccess'] == "yes") %}
     <p class="govuk-body"><a href="edit-user-system-roles" class="govuk-link--no-visited-state">Change account role</a></p>
     {% else %}
     {% endif %}

@@ -72,9 +72,16 @@
       </h3>
       <ul class="govuk-list govuk-list--bullet">
         <li><a href="manage/team-members/team-members?numUsers=1&numServices=1&numAgents=0&numLocations=1&multiOrg=no&subscribeService=no&accountAccess=no&addUser=no&userType=new" class="govuk-link--no-visited-state">Invite user - from Team members page</a></li>
-        <li><a href="manage/team-members/team-members?numUsers=2&numServices=1&numAgents=0&numLocations=1&multiOrg=no&subscribeService=no&accountAccess=no&addUser=yes&userType=invited" class="govuk-link--no-visited-state">Invited user accepted - Team members page</a></li>
-        <li><a href="manage/team-members/team-members?numUsers=5&numServices=3&numAgents=0&numLocations=3&multiOrg=no&parentChild=parent&subscribeService=no&accountAccess=no&userType=invited" class="govuk-link--no-visited-state">Give access - multiple services (use Sara Chippers)</a></li>
-        <li><a href="/manage/team-members/services-on-team-member-invited?numUsers=5&numServices=3&numAgents=0&numLocations=3&subscribeService=no&multiOrg=no&parentChild=parent&parentService=no&verifiedUser=yes&accountAccess=no&subscribeService=no&name=Sara Chippers" class="govuk-link--no-visited-state">Give access - admin in pending, no services available</a></li>
+        <li><a href="manage/team-members/team-members?numUsers=5&numServices=3&numAgents=0&numLocations=3&multiOrg=no&parentChild=parent&subscribeService=no&accountAccess=no&userType=invited" class="govuk-link--no-visited-state">Team members page - user needs access - (use Sara Chippers)</a></li>
+
+        <li><a href="/manage/team-members/services-on-team-member-invited?numUsers=5&numServices=3&numAgents=0&numLocations=3&multiOrg=no&parentChild=parent&parentService=no&subscribeService=no&accountAccess=no&userType=invited&name=Sara Chippers">Give account access - no services available</a></li>
+
+        <li><a href="/manage/team-members/services-on-team-member-invited?numUsers=5&numServices=3&numAgents=0&numLocations=3&multiOrg=no&parentChild=parent&parentService=yes&subscribeService=no&accountAccess=no&userType=invited&name=Sara Chippers">Give account access - services available</a></li>
+
+        <li><a href="/manage/team-members/services-on-team-member-invited?numUsers=5&numServices=3&numAgents=0&numLocations=3&multiOrg=no&parentChild=parent&parentService=no&subscribeService=no&accountAccess=yes&userType=invited&name=Sara Chippers">Give service access - no services available</a></li>
+
+        <li><a href="/manage/team-members/services-on-team-member-invited?numUsers=5&numServices=3&numAgents=0&numLocations=3&multiOrg=no&parentChild=parent&parentService=yes&subscribeService=no&accountAccess=yes&userType=invited&name=Sara Chippers">Give service access - services available</a></li>
+
       </ul>
 
       <ul class="govuk-list govuk-list--bullet">
@@ -223,93 +230,87 @@
 
       <h2 class="govuk-heading-m">RC 4.2
       </h2>
+      <h3 class="govuk-heading-s">n+1 user unblocking</h3>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="new-user-reg/limited-company/unblocking/company-lookup?businessType=Limited company&userType=new" class="govuk-link--no-visited-state">Start of flow for duplicate Ltd/ Plc/ LLP company</a></li>
+        <li><a href="new-user-reg/charity/unblocking/charity-number?businessType=Charity&userType=new" class="govuk-link--no-visited-state">Start of flow for duplicate charity</a></li>
+        <li><a class="govuk-link--no-visited-state" href="/manage/team-members/team-members?numUsers=5&numServices=3&numAgents=0&multiOrg=no&parentChild=parent&accountAccess=no&subscribeService=no&userType=verified&verifiedUser=pending&name=Tiegan Mole">Unverified Team Member (use Tiegan Mole)</a></li>
+        <li><a href="/manage/team-members/services-on-team-member-verify?numUsers=5&numServices=3&numAgents=0&numLocations=3&multiOrg=no&parentChild=parent&userType=new&verifiedUser=yes&accountAccess=no&subscribeService=no&name=Tiegan Mole" class="govuk-link--no-visited-state">User verified but has no account access</a></li>
+        <li><a href="/manage/team-members/services-on-team-member-verify?numUsers=5&numServices=3&numAgents=0&numLocations=3&systemRole=Admin&multiOrg=no&parentChild=parent&parentService=no&verifiedUser=yes&accountAccess=no&subscribeService=no&name=Tiegan Mole" class="govuk-link--no-visited-state">User verified but admin in pending, no services available</a></li>
+        <li><a href="/manage/team-members/services-on-team-member-verify?numUsers=5&numServices=3&numAgents=0&numLocations=3&multiOrg=no&parentChild=parent&userType=new&verifiedUser=yes&accountAccess=yes&subscribeService=no&name=Tiegan Mole" class="govuk-link--no-visited-state">User verified but has no service access</a></li>
+        <li><a class="govuk-link--no-visited-state" href="manage/team-members/verify/verify-already-declined">Already declined Team Member (2nd admin accepting user)</a></li>
+        <li><a class="govuk-link--no-visited-state" href="manage/team-members/verify/verify-already-confirmed">Already accepted Team Member (2nd admin accepting user)</a></li>
+        <li><a href="service-start-logged-out?userType=existing&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&name=Tiegan Mole" class="govuk-link--no-visited-state">Existing user, registering for new service with multi-orgs</a></li>
+      </ul>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="new-user-reg/limited-company/unblocking/company-lookup?businessType=Limited company&userType=existing" class="govuk-link--no-visited-state">Add Account  - duplicate Ltd/ Plc/ LLP company</a></li>
+        <li><a href="new-user-reg/charity/unblocking/charity-number?businessType=Charity&userType=existing" class="govuk-link--no-visited-state">Add account - duplicate charity</a></li>
+      </ul>
+
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="emails/E8-org-admin-reg-email" class="govuk-link--no-visited-state">E8 - Org Admin registration email</a></li>
+        <li><a href="emails/E9-n+1-registration-pending-email" class="govuk-link--no-visited-state">E9 - n+1 registration pending</a></li>
+        <li><a href="emails/E10-admin-notify-n+1-email" class="govuk-link--no-visited-state">E10 - admin notify n+1</a></li>
+        <li><a href="emails/E11-n+1-rejection-email" class="govuk-link--no-visited-state">E11 - n+1 rejection</a></li>
+        <li><a href="emails/E12-n+1-no-service-role-email" class="govuk-link--no-visited-state">E12 - account role given, but no service role</a></li>
+      </ul>
+
+      <h3 class="govuk-heading-s">Update personal details</h3>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="/manage/team-members/services-on-team-member-admin-account_onlyrep?numServices=3&numLocations=3&serviceLine=Comply%20with%20REACH%20IT&serviceRole=REACH%20Manager&multiOrg=yes&orgType=onlyRep&childService=yes&parentService=no" class="govuk-link--no-visited-state">Update personal details</a></li>
+        <li><a href="/emails/E14-updated-details-email" class="govuk-link--no-visited-state">E14 - Updated personal details</a></li>
+        <li><a href="/errors/duplicate-GGemail-error" class="govuk-link--no-visited-state">Update GG details - duplicate email error</a></li>
+      </ul>
+
+      <h3 class="govuk-heading-s">Interswitch</h3>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="service-start-logged-out?serviceLine=Comply with REACH IT&serviceRole=REACH Manager&userType=existing&multiOrg=yes" class="govuk-link--no-visited-state">New user registration - Chemicals (no service q's + success) </a></li>
+      </ul>
+
+      <h3 class="govuk-heading-s">Remove user</h3>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="/emails/E15-user-removed-email" class="govuk-link--no-visited-state">E15 - removed user email</a></li>
+      </ul>
+
+      <h3 class="govuk-heading-s">Add a new account</h3>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="/manage/team-members/services-on-team-member-admin-account_onlyrep?numServices=3&numLocations=3&serviceLine=Comply with REACH IT&serviceRole=REACH%20Manager&multiOrg=yes&orgType=onlyRep&childService=yes&parentService=no" class="govuk-link--no-visited-state">Add a new account</a></li>
+        <li><a href="errors/duplicate-individual-error" class="govuk-link--no-visited-state">Existing personal account error</a></li>
+      </ul>
+
+      <h3 class="govuk-heading-s">Errors changing a users service/ service role</h3>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="/manage/team-members/edit-user-remove-access-error" class="govuk-link--no-visited-state">Remove users access to service error</a></li>
+        <li><a href="/manage/team-members/edit-user-service-role-error" class="govuk-link--no-visited-state">Change users service role error </a></li>
+      </ul>
+
+      <h3 class="govuk-heading-s">Updating email address through GG</h3>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="/errors/duplicate-GGemail-error" class="govuk-link--no-visited-state">Duplicate email address GG error</a></li>
+      </ul>
 
 
     <hr class="govuk-section-break--l">
 
     <h2 class="govuk-heading-m">In progress</h2>
 
-    <h3 class="govuk-heading-s">Remove user</h3>
-    <ul class="govuk-list govuk-list--bullet">
-      <li><a href="/emails/E15-user-removed-email" class="govuk-link--no-visited-state">E15 - removed user email</a></li>
-    </ul>
-
     <h3 class="govuk-heading-s">Security word</h3>
-
     <ul class="govuk-list govuk-list--bullet">
       <li><a href="new-user-reg/charity/task-list-page-account?userType=new&flowType=task&scpEmail=yourname@email.com" class="govuk-link--no-visited-state">Security word - during registration</a></li>
       <li><a href="manage/team-members/services-on-team-member-admin-account_onlyrep" class="govuk-link--no-visited-state">Security word - Reset security word</a></li>
       <li><a href="security-word-reg-change" class="govuk-link--no-visited-state">Security word - during login</a></li>
     </ul>
 
-    <h3 class="govuk-heading-s">Add a new account
-    </h3>
-    <ul class="govuk-list govuk-list--bullet">
-      <li><a href="/manage/team-members/services-on-team-member-admin-account_onlyrep?numServices=3&numLocations=3&serviceLine=Comply with REACH IT&serviceRole=REACH%20Manager&multiOrg=yes&orgType=onlyRep&childService=yes&parentService=no" class="govuk-link--no-visited-state">Add a new account</a></li>
-      <li><a href="errors/duplicate-individual-error" class="govuk-link--no-visited-state">Existing personal account error</a></li>
-    </ul>
-
-    <h3 class="govuk-heading-s">Ltd/ PLC/ LLP registration
-    </h3>
+    <h3 class="govuk-heading-s">Ltd/ PLC/ LLP registration</h3>
     <ul class="govuk-list govuk-list--bullet">
       <li><a href="new-user-reg/limited-company/company-not-active" class="govuk-link--no-visited-state">Company status: no longer active</a></li>
     </ul>
 
-
-    <h3 class="govuk-heading-s">n+1 user unblocking</h3>
+    <h3 class="govuk-heading-s">Cookies - ICO guidelines</h3>
     <ul class="govuk-list govuk-list--bullet">
-      <li><a href="new-user-reg/limited-company/unblocking/company-lookup?businessType=Limited company&userType=new" class="govuk-link--no-visited-state">Start of flow for duplicate Ltd/ Plc/ LLP company</a></li>
-      <li><a href="new-user-reg/charity/unblocking/charity-number?businessType=Charity&userType=new" class="govuk-link--no-visited-state">Start of flow for duplicate charity</a></li>
-      <li><a class="govuk-link--no-visited-state" href="/manage/team-members/team-members?numUsers=5&numServices=3&numAgents=0&multiOrg=no&parentChild=parent&accountAccess=no&subscribeService=no&userType=verified&verifiedUser=pending&name=Tiegan Mole">Unverified Team Member (use Tiegan Mole)</a></li>
-      <li><a href="/manage/team-members/services-on-team-member-verify?numUsers=5&numServices=3&numAgents=0&numLocations=3&multiOrg=no&parentChild=parent&userType=new&verifiedUser=yes&accountAccess=no&subscribeService=no&name=Tiegan Mole" class="govuk-link--no-visited-state">User verified but has no account access</a></li>
-      <li><a href="/manage/team-members/services-on-team-member-verify?numUsers=5&numServices=3&numAgents=0&numLocations=3&systemRole=Admin&multiOrg=no&parentChild=parent&parentService=no&verifiedUser=yes&accountAccess=no&subscribeService=no&name=Tiegan Mole" class="govuk-link--no-visited-state">User verified but admin in pending, no services available</a></li>
-      <li><a href="/manage/team-members/services-on-team-member-verify?numUsers=5&numServices=3&numAgents=0&numLocations=3&multiOrg=no&parentChild=parent&userType=new&verifiedUser=yes&accountAccess=yes&subscribeService=no&name=Tiegan Mole" class="govuk-link--no-visited-state">User verified but has no service access</a></li>
-      <li><a class="govuk-link--no-visited-state" href="manage/team-members/verify/verify-already-declined">Already declined Team Member (2nd admin accepting user)</a></li>
-      <li><a class="govuk-link--no-visited-state" href="manage/team-members/verify/verify-already-confirmed">Already accepted Team Member (2nd admin accepting user)</a></li>
-      <li><a href="service-start-logged-out?userType=existing&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&name=Tiegan Mole" class="govuk-link--no-visited-state">Existing user, registering for new service with multi-orgs</a></li>
+      <li><a href="new-user-reg/limited-company/company-not-active" class="govuk-link--no-visited-state">Company status: no longer active</a></li>
     </ul>
-    <ul class="govuk-list govuk-list--bullet">
-      <li><a href="new-user-reg/limited-company/unblocking/company-lookup?businessType=Limited company&userType=existing" class="govuk-link--no-visited-state">Add Account  - duplicate Ltd/ Plc/ LLP company</a></li>
-      <li><a href="new-user-reg/charity/unblocking/charity-number?businessType=Charity&userType=existing" class="govuk-link--no-visited-state">Add account - duplicate charity</a></li>
-    </ul>
-
-
-    <ul class="govuk-list govuk-list--bullet">
-      <li><a href="emails/E8-org-admin-reg-email" class="govuk-link--no-visited-state">E8 - Org Admin registration email</a></li>
-      <li><a href="emails/E9-n+1-registration-pending-email" class="govuk-link--no-visited-state">E9 - n+1 registration pending</a></li>
-      <li><a href="emails/E10-admin-notify-n+1-email" class="govuk-link--no-visited-state">E10 - admin notify n+1</a></li>
-      <li><a href="emails/E11-n+1-rejection-email" class="govuk-link--no-visited-state">E11 - n+1 rejection</a></li>
-      <li><a href="emails/E12-n+1-no-service-role-email" class="govuk-link--no-visited-state">E12 - account role given, but no service role</a></li>
-    </ul>
-
-    <h3 class="govuk-heading-s">Update personal details</h3>
-    <ul class="govuk-list govuk-list--bullet">
-      <li><a href="/manage/team-members/services-on-team-member-admin-account_onlyrep?numServices=3&numLocations=3&serviceLine=Comply%20with%20REACH%20IT&serviceRole=REACH%20Manager&multiOrg=yes&orgType=onlyRep&childService=yes&parentService=no" class="govuk-link--no-visited-state">Update personal details</a></li>
-      <li><a href="/emails/E14-updated-details-email" class="govuk-link--no-visited-state">E14 - Updated personal details</a></li>
-      <li><a href="/errors/duplicate-GGemail-error" class="govuk-link--no-visited-state">Update GG details - duplicate email error</a></li>
-    </ul>
-
-    <h3 class="govuk-heading-s">Interswitch</h3>
-    <ul class="govuk-list govuk-list--bullet">
-      <li><a href="service-start-logged-out?serviceLine=Comply with REACH IT&serviceRole=REACH Manager&userType=existing&multiOrg=yes" class="govuk-link--no-visited-state">New user registration - Chemicals (no service q's + success) </a></li>
-    </ul>
-
-    <h3 class="govuk-heading-s">Errors changing a users service/ service role</h3>
-    <ul class="govuk-list govuk-list--bullet">
-      <li><a href="/manage/team-members/edit-user-remove-access-error" class="govuk-link--no-visited-state">Remove users access to service error</a></li>
-      <li><a href="/manage/team-members/edit-user-service-role-error" class="govuk-link--no-visited-state">Change users service role error </a></li>
-    </ul>
-
-    <h3 class="govuk-heading-s">Updating email address through GG</h3>
-    <ul class="govuk-list govuk-list--bullet">
-      <li><a href="/errors/duplicate-GGemail-error" class="govuk-link--no-visited-state">Duplicate email address GG error</a></li>
-    </ul>
-
-    <h3 class="govuk-heading-s">Add user</h3>
-    <ul class="govuk-list govuk-list--bullet">
-      <li><a href="manage/team-members/services-on-team-member-invited-new-flow?name=Sara Chippers&userType=invited&accountAccess=no&subscribeService=no" class="govuk-link--no-visited-state">Splitting out giving account and service access</a></li>
-    </ul>
-
 
 <br><br>
 
@@ -375,7 +376,7 @@
           <li><a class="govuk-link--no-visited-state" href="/manage/team-members/services-on-team-member-standard-account?numServices=1&serviceLine=Comply with REACH IT&serviceRole=Admin">Your Defra account page - standard user</a></li>
           <li><a class="govuk-link--no-visited-state" href="/manage/team-members/services-on-team-member-admin-account_individual?numServices=1&serviceLine=Comply with REACH IT&serviceRole=Admin">Your Defra account - individual user</a></li>
           <li><a class="govuk-link--no-visited-state" href="/manage/team-members/services-on-team-member-admin-account_company?numServices=3&serviceLine=Comply with REACH IT&serviceRole=REACH%20Manager">Your Defra account page - Company account user (1 org, multiple services)</a></li>
-          <li><a class="govuk-link--no-visited-state" href="/manage/team-members/services-on-team-member-admin-account_onlyrep?numServices=1&numLocations=3&serviceLine=Comply with REACH IT&serviceRole=REACH%20Manager&multiOrg=yes&orgType=onlyRep&childService=yes&parentService=no">Your Defra account page - Only Rep (multi orgs, 1 service)</a></li>
+          <li><a class="govuk-link--no-visited-state" href="/manage/team-members/services-on-team-member-admin-account_onlyrep?numServices=1&numLocations=3&serviceLine=Comply with REACH IT&serviceRole=REACH%20Manager&multiOrg=yes&orgType=onlyRep">Your Defra account page - Only Rep (multi orgs, 1 service)</a></li>
           <li><a href="/manage/dashboard-all?numUsers=5&numAgents=0&numServices=3&numLocations=2&orgName=Acme Org Ltd&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=yes&parentChild=parent&orgType=onlyRep" class="govuk-link--no-visited-state">Account dashboard - for Parent with 1 child (multi-org)</a></li>
           <li><a href="/manage/dashboard-all?numUsers=5&numAgents=0&numServices=3&numLocations=1&orgName=Acme Org Ltd&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=no&parentChild=parent&orgType=onlyRep" class="govuk-link--no-visited-state">Account dashboard - for Parent no children</a></li>
           <li><a href="/manage/dashboard-child?childName=Acme Org India&multiOrg=yes&parentChild=child&numLocations=3&orgType=onlyRep" class="govuk-link--no-visited-state">Account dashboard - for Child (multi-org)</a></li>
