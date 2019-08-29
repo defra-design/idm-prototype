@@ -8,11 +8,6 @@
 
 {% block beforeContent %}
 
-  {{ govukBackLink({
-    text: "Back",
-    href: "javascript:history.back()"
-  }) }}
-
 {% endblock %}
 
 
@@ -45,36 +40,39 @@
               {{title}}
             </h1>
           </legend>
-          <p class="govuk-body">Your Government Gateway credentials are used to sign in to Your Defra account.</p>
-
-          <p class="govuk-body">Your Defra account allows you to access and manage Defra services on behalf of the organsiations you represent or for yourself.</p>
-
-          <p class="govuk-body">To complete registration for this service we need to ask for some personal details and for information about who wants to use this service.</p>
-
-          <p>The two pages listed below explain your responsibilities and how we will store and use the information you give us.</p>
 
 
+          <p class="govuk-body">Your Defra account lets you access and manage Defra services for yourself or on behalf of the organisations that you represent. Once you have an account, you'll use your Government Gateway details to sign in each time you visit.</p>
 
-          <!--
 
-          <p class="govuk-body">Your Government Gateway account has given us some basic information about you.</p>
-          <p> Next, we need to ask for some more information before you can use our online services.</p>
-          <p>The two pages listed below explain your responsibilities and how we will store and use the information you give us.</p>
-          -->
+          <h2 class="govuk-heading-l">What we need from you</h2>
 
-          <ul class="govuk-list govuk-list--bullet">
-             <li><a href="privacy-notice">Privacy notice</a></li>
-             <li><a href="terms">Terms and conditions</a></li>
-           </ul>
+          <p class="govuk-body">To complete your registration, we'll ask for some personal details and for information about who wants to use this service.</p>
 
-           <div class="govuk-checkboxes">
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="terms" name="terms" type="checkbox" value="terms">
-              <label class="govuk-label govuk-checkboxes__label" for="terms">
-                I have read and accept the terms and conditions.
-              </label>
-            </div>
-          </div>
+
+          <p class="govuk-body">To find out how we use, process and store your data, read our <a href="/privacy-notice">Privacy notice</a>.</p>
+
+
+          <div class="govuk-checkboxes">
+           <div class="govuk-checkboxes__item">
+             <input class="govuk-checkboxes__input" id="terms" name="terms" type="checkbox" value="terms">
+             <label class="govuk-label govuk-checkboxes__label" for="terms">
+               I have read and agree to the <a href="/terms">Terms and conditions</a>.
+             </label>
+           </div>
+         </div>
+         <br>
+
+
+
+          <div class="govuk-checkboxes">
+           <div class="govuk-checkboxes__item">
+             <input class="govuk-checkboxes__input" id="terms" name="terms" type="checkbox" value="terms">
+             <label class="govuk-label govuk-checkboxes__label" for="terms">
+               I accept the <a href="/cookie-policy">cookie settings</a>.
+             </label>
+           </div>
+         </div>
 
         </fieldset>
       </div>
@@ -83,11 +81,7 @@
       {{ govukButton({
         text: "Continue"
       }) }}
-      <br>
-      <br>
-      <br>
-      <br>
-      <p class="govuk-body-s">User type: {{ data['userType']}}</p>
+
     </form>
 
   </div>

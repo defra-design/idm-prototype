@@ -39,6 +39,11 @@
         <p>If you are applying on behalf of a company that is not registered in the UK, you need to change your account type to: <span class="govuk-body govuk-!-font-weight-bold">Organisation that is not registered in the UK.</span></p>'
       }) }}
 
+      {{ govukDetails({
+        summaryText: "My company isn't found",
+        html: ' <p class="govuk-body">If you have only just registered your organisation it may take a few days for the information to be available to us through Companies House. You can go to Companies House and check to see when your organisation is available. <a href="https://www.gov.uk/get-information-about-a-company" target="_blank" rel="noopener noreferrer" class="govuk-link">Companies House register (opens in a new tab).</a></p>'
+      }) }}
+
       {{ govukButton({
         text: "Continue"
       }) }}
