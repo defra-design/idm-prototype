@@ -31,14 +31,7 @@
 
           {% if data['policyChange'] == "Both" %}
             <ul class="govuk-list govuk-list--bullet">
-              <li><a href="terms">Terms and conditions</a></li>
               <li><a href="privacy-notice">Privacy notice</a></li>
-            </ul>
-          {% endif %}
-
-          {% if data['policyChange'] == "Terms" %}
-            <ul class="govuk-list govuk-list--bullet">
-              <li><a href="terms">Terms and conditions</a></li>
             </ul>
           {% endif %}
 
@@ -53,11 +46,23 @@
               <div class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="terms" name="terms" type="checkbox" value="terms">
                 <label class="govuk-label govuk-checkboxes__label" for="terms">
-                  I have read and accept the updated service information.
+                  I have read and agree to the <a href="/terms">Terms and conditions</a>
                 </label>
               </div>
             </div>
-            {% endif %}
+          {% endif %}
+
+          {% if (data['policyChange'] == "Cookies") or (data['policyChange'] == "Both") %}
+            <br>
+            <div class="govuk-checkboxes">
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="terms" name="terms" type="checkbox" value="terms">
+                <label class="govuk-label govuk-checkboxes__label" for="terms">
+                  I accept the <a href="/cookie-policy">cookie settings</a>
+                </label>
+              </div>
+            </div>
+          {% endif %}
 
 
         </fieldset>
