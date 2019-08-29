@@ -50,18 +50,19 @@
               }
             }) }}
 
-            {{ govukInput({
+            {{ govukCharacterCount({
               id: "securityHint",
               name: "securityHint",
               value: data['securityHint'],
-              type: "text",
               classes: "govuk-!-width-two-thirds",
+              maxlength: 100,
+              rows: 2,
               label: {
                 text: "Your hint question"
-                },
+              },
               hint: {
                 text: "Provide a hint question that will help you remember your security word."
-               }
+              }
             }) }}
 
 
