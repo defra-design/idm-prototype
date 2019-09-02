@@ -30,12 +30,12 @@
 
       {{ govukInput({
         label: {
-          text: "User ID"
+          text: "Government Gateway user ID"
         },
         hint: {
-          text: "This could be up to 12 characters. It is sometimes known as a Government Gateway ID."
+          text: "This could be up to 12 characters."
         },
-        classes: "govuk-input--width-20",
+        classes: "govuk-input--width-10",
         id: "userId",
         name: "userId",
         value: userId
@@ -45,7 +45,7 @@
         label: {
           text: "Password"
         },
-        classes: "govuk-input--width-20",
+        classes: "govuk-input--width-10",
         id: "password",
         name: "password",
         value: password
@@ -55,19 +55,21 @@
         text: "Sign in"
       }) }}
 
-      <h2 class="govuk-heading-m">Create sign in details for Government Gateway</h2>
-      <p class="govuk-body">This gives access to government services online, including taxes</p>
+      <p class="govuk-body"><a href="email-address" class="govuk-link">Create sign in details</a></p>
+      <br>
+      <br>
+      <h2 class="govuk-heading-m">Problems signing in</h2>
 
-        <p class="govuk-body"><a href="email-address" class="govuk-link">Create sign in details</a></p>
+
+      <ul class="govuk-list">
+        <li><a href="#" class="govuk-link">I have forgotten my password</a></li>
+        <li><a href="#" class="govuk-link">I have forgotten my Government Gateway user ID</a></li>
+        <li><a href="#" class="govuk-link">I have forgotten my Government Gateway user ID and password</a></li>
         <br>
-        <br>
-        <ul class="govuk-list">
-            <li><a id="forgotten-password" href="/request-help/help-signing-in">Help with signing in</a></li>
-            <br>
-            <li><a id="forgotten-password" href="/new-reset-password/enter-user-id-and-email-address" class="govuk-link">I have forgotten my password</a></li>
-            <li><a id="forgotten-user-id" href="https://www.prototypes.tax.service.gov.uk/security-integration-prototype/cred-recovery/?forgottenOption=userid" class="govuk-link">I have forgotten my user ID</a></li>
-            <li><a id="forgotten-user-id-password" href="https://www.prototypes.tax.service.gov.uk/security-integration-prototype/cred-recovery/?forgottenOption=both" class="govuk-link">I have forgotten my user ID and password</a></li>
-        </ul>
+      </ul>
+
+      <p class="govuk-body"><a href="#">Get help with this page</a></p>
+
 
 
 

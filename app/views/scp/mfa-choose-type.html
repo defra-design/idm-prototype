@@ -1,0 +1,94 @@
+{% extends "layout.html" %}
+
+{% set title = "How do you want to get 2-Step Verification access codes?" %}
+
+{% block header %}
+    {{ govukHeader({ serviceName: "" }) }}
+{% endblock %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+      <form method="post" class="acc-type" onsubmit="return myFunction()">
+
+        <script>
+          const form = document.querySelector('.acc-type')
+
+          function myFunction() {
+            const checked = document.querySelector('[name="orgType"]:checked')
+            const checkedValue = checked.value
+
+            switch(checkedValue){
+              case 'Business':
+              form.action = 'organisation-business-type'
+
+              break;
+              case 'Individual':
+              form.action = '/new-user-reg/individual/personal-postcode'
+
+              break;
+              default:
+              form.action = 'organisation-business-type'
+            }
+            return true
+          }
+        </script>
+
+
+        {{ govukRadios({
+          idPrefix: "mfaType",
+          name: "mfaType",
+          fieldset: {
+            legend: {
+              text: title,
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+
+          items: [
+            {
+              value: "Text message",
+              html: ' <span class="govuk-body govuk-!-font-weight-bold">Text message</span><br>Get codes sent to a mobile phone.',
+              checked:  checked('mfaType','mfaText')
+            },
+            {
+              value: "Voice call",
+              html: ' <span class="govuk-body govuk-!-font-weight-bold">Voice call</span><br>Get codes by automated message to a mobile or landline phone.',
+              checked:  checked('mfaType','mfaVoice')
+            },
+            {
+              value: " Authentication app for smartphone or tablet",
+              html: ' <span class="govuk-body govuk-!-font-weight-bold"> Authentication app</span><br>Get codes even with no mobile reception.',
+              checked:  checked('mfaType','mfaApp')
+            }
+          ]
+
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

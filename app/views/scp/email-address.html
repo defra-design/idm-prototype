@@ -41,18 +41,18 @@
         }) }}
 
         {{ govukCheckboxes({
-          idPrefix: "terms",
-          name: "terms",
+          idPrefix: "emailConfirm",
+          name: "emailConfirm",
           fieldset: {
             legend: {
-              text: "Terms of Service",
+              text: "Confirm the email is correct",
               isPageHeading: true,
               classes: "govuk-visually-hidden"
             }
           },
           items: [
             {
-              value: "terms",
+              value: "emailConfirm",
               text: "This email address is correct"
 
             }
@@ -64,6 +64,9 @@
         }) }}
 
       </form>
+
+      <p class="govuk-body"><a href="#">Get help with this page</a></p>
+
 
   </div>
 </div>

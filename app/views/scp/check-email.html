@@ -35,7 +35,7 @@
             text: "Code"
           },
           hint: {
-            text: "For example, CF-DNCLRK."
+            html: "For example, CF-DNCLRK"
           },
           classes: "govuk-input--width-10",
           id: "email-code",
@@ -43,11 +43,9 @@
         }) }}
 
         {{ govukDetails({
-          summaryText: "I did not get the email",
-          html: ' <p class="govuk-body">It might take a few minutes for the email to arrive.</p>
-                  <p class="govuk-body">Check your spam folder.</p>
-                  <p class="govuk-body">Check what you have entered - if it is wrong, <a href="email" onclick="setFormSubmitting()">correct your email address</a>.</p>
-                  <p class="govuk-body">If you are still having problems, we can <a href="./confirmation-code-resent" onclick="setFormSubmitting()">send you a new code</a>.</p>'
+          summaryText: "I have not got the email",
+          html: '<p class="govuk-body">It might take a few minutes for the email to arrive. The subject of the email is ‘Confirm your email address - Government Gateway’.</p>
+          <p class="govuk-body">If you still have not got the email, check your spam or junk folder. If it is not there you can <a href="#">request a new code</a> or <a href="#">change your email address</a>.'
         }) }}
 
         {{ govukButton({
@@ -55,6 +53,9 @@
         }) }}
 
     </form>
+
+    <p class="govuk-body"><a href="#">Get help with this page</a></p>
+
 
   </div>
 </div>
