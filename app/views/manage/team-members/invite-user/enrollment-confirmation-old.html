@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Service access granted" %}
+{% set title = "This person can now access this service" %}
 
 {% block pageTitle %}
     {{title}} - GOV.UK
@@ -19,28 +19,28 @@
     <h1 class="govuk-visually-hidden">{{title}}</h1>
     <div class="govuk-panel govuk-panel--confirmation">
       <h1 class="govuk-panel__title">
-        Service access granted
+        Service access has been given
       </h1>
     </div>
 
-
-    <p class="govuk-body">{{ data['name'] }} can now access {{data['serviceLine']}}.</p>
+    <p class="govuk-body">{{ data['name'] }} can now access the {{data['serviceLine']}} service</p>
     <h3 class="govuk-heading-m">What happens next</h3>
 
-    <p class="govuk-body">We'll tell them that they can access the service.</p>
+    <p class="govuk-body">We will notify {{ data['name'] }} about the access you have given.</p>
     <p class="govuk-body">You can change or remove this access at any time.</p>
 
     {% if data['userType'] == "invited" %}
           {% set backURL = "/manage/team-members/services-on-team-member-invited?subscribeService=yes" %}
     {% endif %}
 
+    {% if data['userType'] == "verified" %}
+          {% set backURL = "/manage/team-members/services-on-team-member-verify?subscribeService=yes" %}
+    {% endif %}
+
     {% if data['userType'] == "invitedAgent" %}
           {% set backURL = "/manage/agent/services-on-team-member-agent-invited?subscribeService=yes" %}
     {% endif %}
 
-    {% if data['verifiedUser'] == "yes" %}
-        {% set backURL = "/manage/team-members/services-on-team-member-verify?subscribeService=yes" %}
-    {% endif %}
 
     {{ govukButton({
       text: "Continue",
