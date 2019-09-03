@@ -139,10 +139,18 @@
 
     {% if (data['serviceQuestions'] == "yes") %}
       {% if (data['serviceLine'] == "Export Health Certificates") %}
-          {{ govukButton({
-            text: "Continue",
-            href: "https://exports-certifiers-prototype.herokuapp.com/certifier-org_confirm-org-details"
-          }) }}
+            {% if (data['version'] == "1") %}
+                {{ govukButton({
+                  text: "Continue",
+                  href: "https://exports-certifiers-prototype.herokuapp.com/certifier-org_confirm-org-details"
+                }) }}
+            {% endif %}
+            {% if (data['version'] == "2") %}
+                {{ govukButton({
+                  text: "Continue",
+                  href: "https://exports-certifiers-prototype.herokuapp.com/certifier-org_confirm-org-details-2"
+                }) }}
+            {% endif %}
       {% else %}
           {{ govukButton({
             text: "Continue",
