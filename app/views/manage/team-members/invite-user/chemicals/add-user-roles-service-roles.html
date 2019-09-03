@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "What tasks do you want this person to do in the service?" %}
+{% set title = "Select a service role" %}
 
 {% block pageTitle %}
     {{title}} - GOV.UK
@@ -26,7 +26,7 @@
           name: "serviceRole",
           fieldset: {
             legend: {
-              html: "What tasks do you want this person to do in the service?",
+              html: "Which role do you want to give this person?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--xl"
             }
@@ -37,17 +37,17 @@
           items: [
             {
               value: "REACH Manager",
-              html: 'REACH Manager - this person can view, add and edit information within the service.',
+              html: 'REACH Manager',
               checked:  checked('serviceRole','REACH Manager')
             },
             {
               value: "REACH Reader",
-              html: 'REACH Reader - this person can view all information held by the service.',
+              html: 'REACH Reader',
               checked:  checked('serviceRole','REACH Reader')
             },
             {
               value: "No service access",
-              html: 'None - this person cannot access the service.',
+              html: 'No Access',
               checked:  checked('serviceRole','No service access')
             }
           ]
