@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Your registration is complete" %}
+{% set title = "Your registration to use online services is complete" %}
 
 {% block pageTitle %}
     {{title}} - GOV.UK
@@ -18,19 +18,19 @@
 
     <div class="govuk-panel govuk-panel--confirmation">
       <h1 class="govuk-panel__title">
-        Your registration is complete
+        Your registration to use online services is complete
       </h1>
     </div>
 
     <h3 class="govuk-heading-m">What happens next</h3>
 
-    <p class="govuk-body">[admin email address] will choose which information you can see and which tasks you can do on behalf of [organisation name].</p>
-    <p class="govuk-body"> We'll email you when everything's ready.</p>
+    <p class="govuk-body">Ann.Cooper@email.com will choose which information you can see and which tasks you can perform on behalf of Acme Org Ltd.</p>
+    <p class="govuk-body"> We will email you to let you know when you can sign in and access services.</p>
 
 
       {{ govukButton({
-        text: "Continue",
-        href: "#"
+        text: "Sign out",
+        href: "/signed-out"
       }) }}
 
   </div>
