@@ -26,26 +26,27 @@
   <div class="govuk-grid-column-two-thirds">
 
 
-      <form method="post" class="acc-type" onsubmit="return myFunction()">
+      <form method="post" class="mfa-type" onsubmit="return myFunction()">
 
         <script>
-          const form = document.querySelector('.acc-type')
+          const form = document.querySelector('.mfa-type')
 
           function myFunction() {
-            const checked = document.querySelector('[name="orgType"]:checked')
+            const checked = document.querySelector('[name="mfaType"]:checked')
             const checkedValue = checked.value
 
             switch(checkedValue){
-              case 'Business':
-              form.action = 'organisation-business-type'
+              case 'Text':
+              form.action = 'mfa-phone-choose?mfa-type=text'
 
               break;
-              case 'Individual':
-              form.action = '/new-user-reg/individual/personal-postcode'
+              case 'Voice':
+              form.action = 'mfa-phone-choose?mfa-type=voice'
 
               break;
-              default:
-              form.action = 'organisation-business-type'
+              case 'App':
+              form.action = 'mfa-phone-choose?mfa-type=app'
+
             }
             return true
           }
@@ -65,19 +66,19 @@
 
           items: [
             {
-              value: "Text message",
+              value: "Text",
               html: ' <span class="govuk-body govuk-!-font-weight-bold">Text message</span><br>Get codes sent to a mobile phone.',
-              checked:  checked('mfaType','mfaText')
+              checked:  checked('mfaType','Text')
             },
             {
-              value: "Voice call",
+              value: "Voice",
               html: ' <span class="govuk-body govuk-!-font-weight-bold">Voice call</span><br>Get codes by automated message to a mobile or landline phone.',
-              checked:  checked('mfaType','mfaVoice')
+              checked:  checked('mfaType','Voice')
             },
             {
-              value: " Authentication app for smartphone or tablet",
+              value: " App",
               html: ' <span class="govuk-body govuk-!-font-weight-bold"> Authentication app</span><br>Get codes even with no mobile reception.',
-              checked:  checked('mfaType','mfaApp')
+              checked:  checked('mfaType','App')
             }
           ]
 
