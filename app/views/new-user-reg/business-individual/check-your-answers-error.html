@@ -10,9 +10,25 @@
 <script type="text/javascript">
   var onloadCallback = function() {
     grecaptcha.render('html_element', {
-      'sitekey' : 'your_site_key'
+      'sitekey' : '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI'
     });
   };
+
+
+    if(grecaptcha && grecaptcha.getResponse().length > 0)
+    {
+         //the recaptcha is checked
+         // Do what you want here
+         alert('Well, recaptcha is checked !');
+    }
+    else
+    {
+        //The recaptcha is not cheched
+        //You can display an error message here
+        alert('Oops, you have to check the recaptcha !');
+    }
+
+
 </script>
 
   {{ govukBackLink({
@@ -92,9 +108,11 @@
 
     </dl>
 
+    <!-- reCAPTCHA -->
+
     <div class="govuk-form-group govuk-form-group--error">
-      <label class="govuk-label govuk-visually-hidden" for="recapture">
-        Recapture
+      <label class="govuk-label govuk-visually-hidden" for="reCAPTCHA">
+        reCAPTCHA
       </label>
       <span id="error" class="govuk-error-message">
          <span class="govuk-visually-hidden">Error:</span> Tick the box to confirm you are not a robot
@@ -114,8 +132,8 @@
 
                  <div class="govuk-checkboxes">
                   <div class="govuk-checkboxes__item">
-                    <input class="govuk-checkboxes__input" id="terms" name="terms" type="checkbox" value="terms">
-                    <label class="govuk-body-s govuk-checkboxes__label" for="terms">
+                    <input class="govuk-checkboxes__input" id="robot" name="robot" type="checkbox" value="myButton" onchange="document.getElementById('myButton').disabled = !this.checked;">
+                    <label class="govuk-body-s govuk-checkboxes__label" for="robot">
                       I'm not a robot.
                     </label>
                   </div>
@@ -140,15 +158,8 @@
 
     </div>
 
-
-
-    {{ govukButton({
-      text: "Continue",
-      href: "reg-confirmation?userType=invited"
-    }) }}
-
-
-
+    <button disabled="disabled" aria-disabled="true" class="govuk-button" data-module="govuk-button" id="myButton">Continue
+    </button>
 
   </div>
 </div>

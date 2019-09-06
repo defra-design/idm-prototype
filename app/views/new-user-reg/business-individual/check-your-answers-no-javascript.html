@@ -8,6 +8,7 @@
 
 {% block beforeContent %}
 
+
   {{ govukBackLink({
     text: "Back",
     href: "javascript:history.back()"
@@ -22,6 +23,18 @@
   <div class="govuk-grid-column-two-thirds">
 
     <h1 class="govuk-heading-xl">{{title}}</h1>
+
+    <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary">
+      <h2 class="govuk-error-summary__title" id="error-summary-title">
+        There is a problem
+      </h2>
+      <div class="govuk-error-summary__body">
+
+          <p>To complete your registration, for security reasons, you need to have Javascript turned on. Check your browser settings and turn on Javascript.</p>
+          <p>Or <a href="/help#contacting-defra-services">contact the service</a> for more ways to complete your task.</p>
+
+      </div>
+    </div>
 
     <h2 class="govuk-heading-m">
       About you
@@ -74,53 +87,19 @@
 
     </dl>
 
-
     <!-- reCAPTCHA -->
 
-    <div class="govuk-form-group">
+    <div class="govuk-form-group govuk-form-group--error">
       <label class="govuk-label govuk-visually-hidden" for="reCAPTCHA">
         reCAPTCHA
       </label>
 
-       <!-- Start of Mary's beautiful Capture Hack -->
 
-       <div class="rc-anchor rc-anchor-normal rc-anchor-light">
-         <div class="rc-anchor-content">
-           <div class="rc-inline-block">
-             <div class="rc-anchor-center-container">
-               <div class="rc-anchor-center-item">
-
-                 <div class="govuk-checkboxes">
-                  <div class="govuk-checkboxes__item">
-                    <input class="govuk-checkboxes__input" id="robot" name="robot" type="checkbox" value="myButton" onchange="document.getElementById('myButton').disabled = !this.checked;">
-                    <label class="govuk-body-s govuk-checkboxes__label" for="terms">
-                      I'm not a robot.
-                    </label>
-                  </div>
-                </div>
-                 </div>
-             </div>
-           </div>
-         </div>
-         <div class="rc-anchor-normal-footer">
-           <div class="rc-anchor-logo-portrait" aria-hidden="true" role="presentation">
-             <div class="rc-anchor-logo-img rc-anchor-logo-img-portrait"></div>
-             <div class="rc-anchor-logo-text">reCAPTCHA</div>
-           </div>
-           <div class="rc-anchor-pt">
-             <a href="https://www.google.com/intl/en/policies/privacy/" target="_blank">Privacy</a><span aria-hidden="true" role="presentation"> - </span><a href="https://www.google.com/intl/en/policies/terms/" target="_blank">Terms</a>
-           </div>
-         </div>
-       </div>
-       <!-- End of Mary's beautiful capture hack -->
 
     </div>
 
     <button disabled="disabled" aria-disabled="true" class="govuk-button" data-module="govuk-button" id="myButton">Continue
     </button>
-
-
-
 
   </div>
 </div>
