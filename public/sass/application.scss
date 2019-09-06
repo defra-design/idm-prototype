@@ -13,6 +13,7 @@ $govuk-global-styles: true;
 @import "components/cookie-banner";
 
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
+@import "patterns/check-your-answers";
 @import "patterns/table-test";
 @import "patterns/card";
 @import "patterns/idm";

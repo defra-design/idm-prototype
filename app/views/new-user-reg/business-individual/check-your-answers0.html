@@ -7,6 +7,13 @@
 {% endblock %}
 
 {% block beforeContent %}
+<script type="text/javascript">
+  var onloadCallback = function() {
+    grecaptcha.render('html_element', {
+      'sitekey' : 'your_site_key'
+    });
+  };
+</script>
 
   {{ govukBackLink({
     text: "Back",
@@ -20,47 +27,78 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
+
     <h1 class="govuk-heading-xl">{{title}}</h1>
 
+
+    {{ govukErrorSummary({
+      titleText: "There is a problem",
+      errorList: [
+        {
+          text: "Tick the box to confirm you are not a robot",
+          href: "#error"
+        }
+      ]
+    }) }}
+
+    <h2 class="govuk-heading-m">
+      About you
+    </h2>
     <dl class="app-check-your-answers app-check-your-answers--short">
 
       <div class="app-check-your-answers__contents">
         <dt class="app-check-your-answers__question">
-          Your type of account
+          Your name
         </dt>
         <dd class="app-check-your-answers__answer">
-          {{ data['orgType']}}
+          {{ data['personalFirstName']}} {{ data['personalSurname']}}
         </dd>
         <dd class="app-check-your-answers__change">
-          <a href="../organisation-type?flowType=addAccount" class="govuk-link" >
-            Change<span class="govuk-visually-hidden"> account type</span>
+          <a href="personal-details" class="govuk-link" >
+            Change<span class="govuk-visually-hidden"> name</span>
+          </a>
+        </dd>
+      </div>
+
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">
+          Your contact details
+        </dt>
+        <dd class="app-check-your-answers__answer">
+          {{data['scpEmail']}} <br>
+          {{ data['personalTelephone'] }}
+        </dd>
+        <dd class="app-check-your-answers__change">
+          <a href="personal-contact" class="govuk-link" >
+            Change<span class="govuk-visually-hidden"> contact number</span>
+          </a>
+        </dd>
+      </div>
+
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">
+          Your security word
+        </dt>
+        <dd class="app-check-your-answers__answer">
+          {{ data['securityNum'] }} <br>
+          {{ data['securityHint'] }}
+        </dd>
+        <dd class="app-check-your-answers__change">
+          <a href="personal-security?flowType=check" class="govuk-link" >
+            Change<span class="govuk-visually-hidden"> your security word</span>
           </a>
         </dd>
       </div>
 
     </dl>
 
-    <dl class="app-check-your-answers app-check-your-answers--short">
-      <div class="app-check-your-answers__contents">
-        <dt class="app-check-your-answers__question">
-          Your address
-        </dt>
-        <dd class="app-check-your-answers__answer">
-          7, Grange Road, Bristol, BS1 5AH
-        </dd>
-        <dd class="app-check-your-answers__change">
-          <a href="personal-postcode?flowType=check" class="govuk-link">
-            Change<span class="govuk-visually-hidden"> address</span>
-          </a>
-        </dd>
-      </div>
-
-    </dl>
-
-    <div class="govuk-form-group">
-      <label class="govuk-label govuk-visually-hidden" for="reCAPTCHA">
-        reCAPTCHA
+    <div class="govuk-form-group govuk-form-group--error">
+      <label class="govuk-label govuk-visually-hidden" for="recapture">
+        Recapture
       </label>
+      <span id="error" class="govuk-error-message">
+         <span class="govuk-visually-hidden">Error:</span> Tick the box to confirm you are not a robot
+       </span>
 
        <!-- Start of Mary's beautiful Capture Hack -->
 
@@ -96,14 +134,21 @@
            </div>
          </div>
        </div>
+
+       <br>
        <!-- End of Mary's beautiful capture hack -->
 
     </div>
 
+
+
     {{ govukButton({
       text: "Continue",
-      href: "../add-account-success"
+      href: "reg-confirmation?userType=invited"
     }) }}
+
+
+
 
   </div>
 </div>
