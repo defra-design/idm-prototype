@@ -56,54 +56,52 @@
       </div>
 
     </dl>
+    <!-- reCAPTCHA -->
+
+    <form action="../add-account-success" method="post">
 
     <div class="govuk-form-group">
       <label class="govuk-label govuk-visually-hidden" for="reCAPTCHA">
         reCAPTCHA
       </label>
 
-       <!-- Start of Mary's beautiful Capture Hack -->
-
-       <div class="rc-anchor rc-anchor-normal rc-anchor-light">
-         <div id="recaptcha-accessible-status" class="rc-anchor-aria-status" aria-hidden="true">Invalid site key. </div>
-         <div class="rc-anchor-error-msg-container" style="display:none">
-           <span class="rc-anchor-error-msg" aria-hidden="true"></span>
-         </div>
-         <div class="rc-anchor-content">
-           <div class="rc-inline-block">
-             <div class="rc-anchor-center-container">
-               <div class="rc-anchor-center-item">
-
-                 <div class="govuk-checkboxes">
-                  <div class="govuk-checkboxes__item">
-                    <input class="govuk-checkboxes__input" id="terms" name="terms" type="checkbox" value="terms">
-                    <label class="govuk-body-s govuk-checkboxes__label" for="terms">
-                      I'm not a robot.
-                    </label>
-                  </div>
-                </div>
+      <!-- Start of Mary's beautiful Capture Hack -->
+     <div class="rc-anchor rc-anchor-normal rc-anchor-light">
+       <div class="rc-anchor-content">
+         <div class="rc-inline-block">
+           <div class="rc-anchor-center-container">
+             <div class="rc-anchor-center-item">
+               <div class="govuk-checkboxes">
+                 <div class="govuk-checkboxes__item">
+                   <input class="govuk-checkboxes__input" id="robot" name="robot" type="checkbox" value="myButton" onchange="document.getElementById('myButton').disabled = !this.checked;">
+                   <label class="govuk-body-s govuk-checkboxes__label" for="terms">
+                     I'm not a robot.
+                   </label>
                  </div>
+               </div>
              </div>
            </div>
          </div>
-         <div class="rc-anchor-normal-footer">
-           <div class="rc-anchor-logo-portrait" aria-hidden="true" role="presentation">
-             <div class="rc-anchor-logo-img rc-anchor-logo-img-portrait"></div>
-             <div class="rc-anchor-logo-text">reCAPTCHA</div>
-           </div>
-           <div class="rc-anchor-pt">
-             <a href="https://www.google.com/intl/en/policies/privacy/" target="_blank">Privacy</a><span aria-hidden="true" role="presentation"> - </span><a href="https://www.google.com/intl/en/policies/terms/" target="_blank">Terms</a>
-           </div>
-         </div>
        </div>
-       <!-- End of Mary's beautiful capture hack -->
+       <div class="rc-anchor-normal-footer">
+         <div class="rc-anchor-logo-portrait" aria-hidden="true" role="presentation">
+           <div class="rc-anchor-logo-img rc-anchor-logo-img-portrait"></div>
+           <div class="rc-anchor-logo-text">reCAPTCHA</div>
+         </div>
+         <div class="rc-anchor-pt">
+            <a href="https://www.google.com/intl/en/policies/privacy/" target="_blank">Privacy</a><span aria-hidden="true" role="presentation"> - </span><a href="https://www.google.com/intl/en/policies/terms/" target="_blank">Terms</a>
+          </div>
+       </div>
+     </div>
+     <!-- End of Mary's beautiful capture hack -->
 
     </div>
+    <button disabled="disabled" aria-disabled="true" class="govuk-button" data-module="govuk-button" id="myButton">Continue
+    </button>
+    </form>
 
-    {{ govukButton({
-      text: "Continue",
-      href: "../add-account-success"
-    }) }}
+    <!-- reCatptcha End -->
+
 
   </div>
 </div>
