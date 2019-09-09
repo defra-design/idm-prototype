@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "What account do you want to add?" %}
+{% set title = "Which type of account do you want to add?" %}
 
 {% block pageTitle %}
     {{title}} - GOV.UK
@@ -24,7 +24,6 @@
 
       <form method="post" class="acc-type" onsubmit="return myFunction()">
 
-{% if data['userType'] == "existing" %}
         <script>
           const form = document.querySelector('.acc-type')
 
@@ -48,30 +47,7 @@
           }
         </script>
 
-{% else %}
-        <script>
-          const form = document.querySelector('.acc-type')
 
-          function myFunction() {
-            const checked = document.querySelector('[name="orgType"]:checked')
-            const checkedValue = checked.value
-
-            switch(checkedValue){
-              case 'Business':
-              form.action = 'organisation-business-type'
-
-              break;
-              case 'Individual':
-              form.action = '/new-user-reg/individual/task-list-page-account?flowType=task'
-
-              break;
-              default:
-              form.action = 'organisation-business-type'
-            }
-            return true
-          }
-        </script>
-  {% endif %}
 
         {{ govukRadios({
           idPrefix: "orgType",
@@ -88,13 +64,13 @@
             {
               value: "Business",
               html: ' <span class="govuk-body govuk-!-font-weight-bold">A business or organisation</span><br>
-                      You represent a business or organisation that wants to use Defra services (including sole traders and charities)',
+                      You represent a business or organisation (including sole traders and charities) and have permission to create an account for them',
               checked:  checked('orgType','Business')
             },
             {
               value: "Individual",
               html: ' <span class="govuk-body govuk-!-font-weight-bold">An individual</span><br>
-                      You want to use Defra services for your own personal use',
+                      You want to create an account for yourself',
               checked:  checked('orgType','Individual')
             }
           ]

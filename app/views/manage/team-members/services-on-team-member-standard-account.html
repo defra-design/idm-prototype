@@ -108,7 +108,7 @@
           <span class="govuk-visually-hidden--desktop td-header">Service role:</span> Importer
         </td>
         <td class="govuk-table__cell">
-          <span class="govuk-visually-hidden--desktop td-header">Action:</span><a href="/manage/dashboard-all?orgName=Acme Org Limited&numUsers=5&numAgents=0&numServices=1&numLocations=1&multiOrg=yes&parentChild=parent" class="govuk-link--no-visited-state"> Manage account<span class="govuk-visually-hidden td-header"> for Importers Ltd</span></a>
+          <span class="govuk-visually-hidden--desktop td-header">Action:</span><a href="/manage/dashboard-all?orgName=Acme Org Limited&numUsers=5&numAgents=0&numServices=1&numLocations=1&multiOrg=yes&parentChild=parent" class="govuk-link--no-visited-state">Manage<span class="govuk-visually-hidden td-header"> for Importers Ltd</span></a>
         </td>
       </tr>
 
@@ -152,7 +152,7 @@
                 <span class="govuk-visually-hidden--desktop td-header">Service role:</span>
               </td>
               <td class="govuk-table__cell">
-                <span role="text"><span class="govuk-visually-hidden--desktop td-header">Action:</span><a href="/manage/dashboard-all?numUsers=1&numAgents=0&numServices=0&numLocations=1&orgName=Chemicals R Us&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=yes&parentChild=parent" class="govuk-link--no-visited-state"> Manage account<span class="govuk-visually-hidden td-header"> for Chemicals R Us</span></a></span>
+                <span role="text"><span class="govuk-visually-hidden--desktop td-header">Action:</span><a href="/manage/dashboard-all?numUsers=1&numAgents=0&numServices=0&numLocations=1&orgName=Chemicals R Us&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=yes&parentChild=parent" class="govuk-link--no-visited-state">Manage<span class="govuk-visually-hidden td-header"> for Chemicals R Us</span></a></span>
               </td>
             </tr>
         {% else %}
@@ -172,7 +172,7 @@
                 <span class="govuk-visually-hidden--desktop td-header">Service role:</span> REACH Manager
               </td>
               <td class="govuk-table__cell">
-                <span role="text"><span class="govuk-visually-hidden--desktop td-header">Action:</span><a href="/manage/dashboard-all?numUsers=1&numAgents=0&numServices=1&numLocations=1&orgName=Chemicals R Us&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=no&parentChild=parent" class="govuk-link--no-visited-state"> Manage account<span class="govuk-visually-hidden td-header"> for Chemicals R Us</span></a></span>
+                <span role="text"><span class="govuk-visually-hidden--desktop td-header">Action:</span><a href="/manage/dashboard-all?numUsers=1&numAgents=0&numServices=1&numLocations=1&orgName=Chemicals R Us&serviceLine=Comply with REACH IT&serviceRole=REACH Manager&multiOrg=no&parentChild=parent" class="govuk-link--no-visited-state">Manage<span class="govuk-visually-hidden td-header"> for Chemicals R Us</span></a></span>
               </td>
             </tr>
         {% endif %}
@@ -180,16 +180,11 @@
 
           </table>
 
-          {{ govukButton({
-            text: "Add an account",
-            href: "/new-user-reg/organisation-type?userType=existing&addAccount=account&parentService=no"
-          }) }}
+          <p class="govuk-body"><a class="govuk-link--no-visited-state" href="/new-user-reg/organisation-type-add-account?userType=existing&addAccount=account&parentService=no">Add new account</a></p>
+
 
   </div>
 </div>
-
-
-
 
 <div class="govuk-card__content">
   <h2 class="govuk-heading-l">Your services</h2>
