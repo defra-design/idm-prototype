@@ -43,6 +43,10 @@
             form.action = '../invite-user/enrollment-confirmation?serviceRole=Standard user'
 
             break;
+            case 'Export Certificate':
+            form.action = '../invite-user/enrollment-confirmation?serviceRole=Standard user'
+
+            break;
             case 'None':
             form.action = ''
           }
@@ -81,6 +85,11 @@
               value: "IPAFFS",
               html: 'IPAFFS',
               checked:  checked('serviceLine','IPAFFS')
+            },
+            {
+              value: "Export Certificate",
+              html: 'Export Health Certificate',
+              checked:  checked('serviceLine','Export Certificate')
             }
           ]
         }) }}

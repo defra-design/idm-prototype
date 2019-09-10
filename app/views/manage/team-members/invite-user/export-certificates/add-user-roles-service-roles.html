@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "What tasks do you want this person to do in the service?" %}
+{% set title = "Select a service role" %}
 
 {% block pageTitle %}
     {{title}} - GOV.UK
@@ -25,24 +25,17 @@
           name: "serviceRole",
           fieldset: {
             legend: {
-              html: "What tasks do you want this person to do in the service?",
+              html: "Which role do you want to give this person?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--xl"
             }
           },
-          hint: {
-            html: setServiceTypeHtml
-          },
+
           items: [
             {
-              value: "General user",
-              html: 'General user',
-              checked:  checked('serviceRole','General user')
-            },
-            {
-              value: "Admin user",
-              html: 'Admin user',
-              checked:  checked('serviceRole','Admin user')
+              value: "Certifier",
+              html: 'Certifier',
+              checked:  checked('serviceRole','Certifier')
             }
           ]
         }) }}

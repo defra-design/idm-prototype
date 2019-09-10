@@ -99,17 +99,19 @@
           Acme Org Ltd
         </td>
         <td class="govuk-table__cell">
-          <span class="govuk-visually-hidden--desktop td-header">Account role:</span> Standard user
+          <span class="govuk-visually-hidden--desktop td-header">Account role:</span><span class="govuk-body--grey"> No access given</span>
         </td>
         <td class="govuk-table__cell">
-          <span class="govuk-visually-hidden--desktop td-header">Service:</span> Export Health Certificate
+          <span class="govuk-visually-hidden--desktop td-header">Service:</span><span class="govuk-body--grey"> No registered service</span>
         </td>
         <td class="govuk-table__cell">
-          <span class="govuk-visually-hidden--desktop td-header">Service role:</span> Certifier
+          <span class="govuk-visually-hidden--desktop td-header">Service role:</span>
         </td>
         <td class="govuk-table__cell">
+
         </td>
       </tr>
+
 
 
       {% if data['addAccount'] == "account" %}
@@ -165,20 +167,6 @@
   </div>
 </div>
 
-<div class="govuk-card__content">
-  <h2 class="govuk-heading-l">Your services</h2>
 
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-one-third">
-        <div class="govuk-card govuk-card--contained govuk-card--selectable">
-          <a href="#"></a>
-          <div class="govuk-card__content">
-            <h3 class="govuk-heading-m">Export Health Certificate</h3>
-          </div>
-        </div>
-      </div>
-    </div>
-
-</div>
 
 {% endblock %}
