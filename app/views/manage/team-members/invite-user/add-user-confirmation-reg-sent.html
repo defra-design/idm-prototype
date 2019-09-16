@@ -30,9 +30,18 @@
 
 
     {{ govukButton({
-      text: "Continue",
+      text: "Done",
+      classes: "govuk-!-margin-right-1",
       href: "/manage/team-members/team-members"
     }) }}
+
+    {{ govukButton({
+      text: "Add a team member",
+      classes: "govuk-button--secondary",
+      href: "add-user-details"
+    }) }}
+
+
 
   </div>
 </div>
