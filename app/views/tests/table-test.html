@@ -22,102 +22,119 @@
     <h2 class="govuk-heading-l">Table 1</h2>
     <p>An accessible, responsive, sortable table using html and javascript</p>
 
-    <table class="govuk-table sortable" id="team1" role="grid">
-      <caption class="govuk-table__caption">Table 1 caption goes here</caption>
-    <thead class="govuk-table__head">
-    <tr class="govuk-table__row">
-      <th class="sortable-button column-full sortable-column govuk-table__header govuk-table__header--column-half" scope="col" data-sortby="text">
-        <span class="govuk-visually-hidden--desktop">Sort by: </span>Team member <i class="arrow"></i>
-      </th>
-      <th class="sortable-button column-full sortable-column govuk-table__header govuk-table__header--column-quarter" scope="col" data-sortby="text">
-        <span class="govuk-visually-hidden--desktop">Sort by: </span>Role type <i class="arrow"></i>
-      </th>
-      <th class="sortable-button column-full sortable-column govuk-table__header govuk-table__header--column-quarter" scope="col" data-sortby="text">
-        <span class="govuk-visually-hidden--desktop">Sort by: </span>Account status <i class="arrow"></i>
-      </th>
-    </tr>
-    </thead>
 
-    <tbody class="govuk-table__body">
+    <table class="govuk-table sortable" id="teamMembers" role="grid">
+      <caption class="govuk-table__caption govuk-visually-hidden">All team members</caption>
+      <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th class="govuk-table__header govuk-table__header--column-third column-full sortable-button sortable-column" scope="col" data-sortby="text">
+          <span class="govuk-visually-hidden--desktop">Sort by: </span>Team member <i class="arrow-up"></i>
+        </th>
+        <th class="govuk-table__header govuk-table__header--column-third column-full sortable-button sortable-column" scope="col" data-sortby="text">
+          <span class="govuk-visually-hidden--desktop">Sort by: </span>Email address <i class="none"></i>
+        </th>
+        <th class="govuk-table__header govuk-table__header--column-sixth column-full sortable-button sortable-column" scope="col" data-sortby="text">
+          <span class="govuk-visually-hidden--desktop">Sort by: </span>Acccount role <i class="none"></i>
+        </th>
+        <th class="govuk-table__header govuk-table__header--column-sixth column-full sortable-button sortable-column" scope="col" data-sortby="text">
+          <span class="govuk-visually-hidden--desktop">Sort by: </span>Account status <i class="none"></i>
+        </th>
+      </tr>
+      </thead>
+      <tr class="govuk-table__row {{ AdamUserCSS }}">
+        <td class="govuk-table__cell">
+          <span class="govuk-visually-hidden--desktop td-header">Team member:</span>
+          <a class="govuk-link--no-visited-state" href="services-on-team-member-standard?name=Adam Mastly">Adam Mastly</a>
+        </td>
+        <td class="govuk-table__cell">
+          <span class="govuk-visually-hidden--desktop td-header">Email address:</span> Adam.Mastly@email.com
+        </td>
+        <td class="govuk-table__cell">
+          <span class="govuk-visually-hidden--desktop td-header">Account role:</span> Standard user
+        </td>
+        <td class="govuk-table__cell">
+          <span class="govuk-visually-hidden--desktop td-header">Account status:</span> Live
+        </td>
+      </tr>
       <tr class="govuk-table__row">
         <td class="govuk-table__cell">
           <span class="govuk-visually-hidden--desktop td-header">Team member:</span>
-          <a class="govuk-link--no-visited-state" href="services-on-team-member-admin-self">Ann Cooper (you)</a>
+          <a class="govuk-link--no-visited-state" href="{{ setAnnURL }}">Ann Cooper (you)</a>
         </td>
         <td class="govuk-table__cell">
-          <span class="govuk-visually-hidden--desktop td-header">Role type:</span>
-          Admin
+          <span class="govuk-visually-hidden--desktop td-header">Email address:</span> Ann.Cooper@email.com
         </td>
         <td class="govuk-table__cell">
-          <span class="govuk-visually-hidden--desktop td-header">Account status:</span>
-          Approved
+          <span class="govuk-visually-hidden--desktop td-header">Account role:</span> Admin
+        </td>
+        <td class="govuk-table__cell">
+          <span class="govuk-visually-hidden--desktop td-header">Account status:</span> Live
         </td>
       </tr>
-
-      <tr class="govuk-table__row">
+      <tr class="govuk-table__row {{ BarryUserCSS }}">
         <td class="govuk-table__cell">
           <span class="govuk-visually-hidden--desktop td-header">Team member:</span>
-          <a class="govuk-link--no-visited-state" href="services-on-team-member-admin-self">George Ezra</a>
+          <a class="govuk-link--no-visited-state" href="services-on-team-member-admin?name=Barry Anders">Barry Anders</a>
         </td>
         <td class="govuk-table__cell">
-          <span class="govuk-visually-hidden--desktop td-header">Role type:</span>
-          Standard
+          <span class="govuk-visually-hidden--desktop td-header">Email address:</span> Barry.Anders@email.com
         </td>
         <td class="govuk-table__cell">
-          <span class="govuk-visually-hidden--desktop td-header">Account status:</span>
-          Invite sent
+          <span class="govuk-visually-hidden--desktop td-header">Account role:</span> Admin
+        </td>
+        <td class="govuk-table__cell">
+          <span class="govuk-visually-hidden--desktop td-header">Account status:</span> Live
         </td>
       </tr>
-
-      <tr class="govuk-table__row">
+      <tr class="govuk-table__row {{ newUserCSS }}">
         <td class="govuk-table__cell">
           <span class="govuk-visually-hidden--desktop td-header">Team member:</span>
-          <a class="govuk-link--no-visited-state" href="services-on-team-member-admin-self">Tina Turner</a>
+          <span class="govuk-body govuk-body--grey">Name to be confirmed</span>
         </td>
         <td class="govuk-table__cell">
-          <span class="govuk-visually-hidden--desktop td-header">Role type:</span>
-          Standard
+          <span class="govuk-visually-hidden--desktop td-header">Email address:</span> {{ data['inviteEmail'] }}
         </td>
         <td class="govuk-table__cell">
-          <span class="govuk-visually-hidden--desktop td-header">Account status:</span>
-          Pending
+          <span class="govuk-visually-hidden--desktop td-header">Account role:</span><span class="govuk-body--grey"> No access given</span>
+        </td>
+        <td class="govuk-table__cell">
+          <span class="govuk-visually-hidden--desktop td-header">Account status:</span> Invite email sent
         </td>
       </tr>
-
-      <tr class="govuk-table__row">
+      <tr class="govuk-table__row {{ invitedUserCSS }}">
         <td class="govuk-table__cell">
           <span class="govuk-visually-hidden--desktop td-header">Team member:</span>
-          <a class="govuk-link--no-visited-state" href="services-on-team-member-admin-self">Bob Holness</a>
+          <a class="govuk-link--no-visited-state" href="services-on-team-member-invited?name=Sara Chippers&userType=invited">Sara Chippers</a>
         </td>
         <td class="govuk-table__cell">
-          <span class="govuk-visually-hidden--desktop td-header">Role type:</span>
-          Admin
+          <span class="govuk-visually-hidden--desktop td-header">Email address:</span> Sara.Chippers@email.com
         </td>
         <td class="govuk-table__cell">
-          <span class="govuk-visually-hidden--desktop td-header">Account status:</span>
-          Approved
+          <span class="govuk-visually-hidden--desktop td-header">Account role:</span> {{ data['systemRole'] }}
+        </td>
+        <td class="govuk-table__cell">
+          <span class="govuk-visually-hidden--desktop td-header">Account status:</span> Live
         </td>
       </tr>
-
-      <tr class="govuk-table__row">
+      <tr class="govuk-table__row {{ n1UserCSS }}">
         <td class="govuk-table__cell">
           <span class="govuk-visually-hidden--desktop td-header">Team member:</span>
-          <a class="govuk-link--no-visited-state" href="services-on-team-member-admin-self">Simon Sprat</a>
+          <a class="govuk-link--no-visited-state" href="services-on-team-member-verify?name=Tiegan Mole&userType=verified&parentService=yes">Tiegan Mole</a>
         </td>
         <td class="govuk-table__cell">
-          <span class="govuk-visually-hidden--desktop td-header">Role type:</span>
-          Standard
+          <span class="govuk-visually-hidden--desktop td-header">Email address:</span> Tiegan.Mole@email.com
         </td>
         <td class="govuk-table__cell">
-          <span class="govuk-visually-hidden--desktop td-header">Account status:</span>
-          Approved
+          <span class="govuk-visually-hidden--desktop td-header">Account role:</span><span class="govuk-body--grey"> None</span>
+        </td>
+        <td class="govuk-table__cell">
+          <span class="govuk-visually-hidden--desktop td-header">Account status:</span>  Request received
         </td>
       </tr>
 
+    </table>
 
 
-    </tbody>
-  </table>
 
   <h2 class="govuk-heading-l">Table 2</h2>
   <p>An accessible, responsive table using html</p>
