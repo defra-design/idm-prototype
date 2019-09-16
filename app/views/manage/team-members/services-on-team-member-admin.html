@@ -27,8 +27,8 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-one-half">
     <p class="govuk-body">
-      <span class="govuk-!-font-weight-bold">Full name:</span> Barry Anders<br>
-      <span class="govuk-!-font-weight-bold">Email address:</span> Barry.Anders@email.com<br>
+      <span class="govuk-!-font-weight-bold">Full name:</span> {{ data['name'] }}<br>
+      <span class="govuk-!-font-weight-bold">Email address:</span> email@email.com<br>
       <span class="govuk-!-font-weight-bold">Telephone number:</span> 01179267473
     </p>
   </div>
@@ -41,7 +41,7 @@
   <div class="govuk-grid-column-one-half">
     <p class="govuk-body">
       <span class="govuk-!-font-weight-bold">Account:</span> Acme Org<br>
-      <span class="govuk-!-font-weight-bold">Account role:</span> Standard user
+      <span class="govuk-!-font-weight-bold">Account role:</span> Admin
     </p>
   </div>
   <div class="govuk-grid-column-one-half">
@@ -100,7 +100,7 @@
         html: '<span class="govuk-visually-hidden--desktop td-header">Role: </span>Reach Reader'
       },
         {
-          html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="#" class="govuk-link--no-visited-state">Change role <span class="govuk-visually-hidden">to [Service name]</span></a>'
+          html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="#" class="govuk-link--no-visited-state">Change service role <span class="govuk-visually-hidden">to [Service name]</span></a>'
         },
         {
           html: '<span class="govuk-visually-hidden--desktop td-header">Action:</span> <a href="#" class="govuk-link--no-visited-state">Remove access <span class="govuk-visually-hidden">to [Service name]</span></a>'
