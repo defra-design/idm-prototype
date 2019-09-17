@@ -123,16 +123,16 @@ function updateIcon(th) {
 
     // classList is supported in pretty much everything after IE8,
     // use that rather than a regex to modify the arrow classes
-    if (icon.classList.contains('arrow')) { // No sort -> Ascending
-        icon.classList.remove('arrow');
-        icon.classList.add('arrow-down');
-    } else if (icon.classList.contains('arrow-down')) { //  Ascending -> Descending
-        icon.classList.remove('arrow-down');
-        icon.classList.add('arrow-up');
+    if (icon.classList.contains('no-sort')) { // No sort -> Ascending
+        icon.classList.remove('no-sort');
+        icon.classList.add('A-to-Z');
+    } else if (icon.classList.contains('A-to-Z')) { //  Ascending -> Descending
+        icon.classList.remove('A-to-Z');
+        icon.classList.add('Z-to-A');
         state = 'descending';
     } else { //
-        icon.classList.remove('arrow-up');
-        icon.classList.add('arrow-down');
+        icon.classList.remove('Z-to-A');
+        icon.classList.add('A-to-Z');
         state = 'ascending';
     }
 
@@ -147,11 +147,11 @@ function updateIcon(th) {
         }
 
         // reset the state for an unsorted column
-        thisTh.setAttribute('aria-sort', 'arrow');
+        thisTh.setAttribute('aria-sort', 'no-sort');
         var thisIcon = thisTh.getElementsByTagName('i').item(0);
-        thisIcon.classList.remove('arrow-up');
-        thisIcon.classList.remove('arrow-down');
-        thisIcon.classList.add('arrow');
+        thisIcon.classList.remove('Z-to-A');
+        thisIcon.classList.remove('A-to-Z');
+        thisIcon.classList.add('no-sort');
     });
     return state;
 }

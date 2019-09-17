@@ -93,16 +93,16 @@ th {
     font-weight: bold;
 }
 
-.arrow:after {
+.no-sort:after {
     content: "\2195";
 }
 
-.arrow-down:after {
+.A-to-Z:after {
     content: "\2193";
     color: black;
 }
 
-.arrow-up:after {
+.Z-to-A:after {
     content: "\2191";
     color: black;
 }
