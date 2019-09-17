@@ -131,24 +131,11 @@ function updateIcon(th) {
     } else if (icon.classList.contains('arrow-down')) { // Descending -> Ascending
         icon.classList.remove('arrow-down');
         icon.classList.add('arrow-up');
-        state = 'descending';
+        state = 'ascending';
     } else { // Ascending -> Descending
         icon.classList.remove('arrow-up');
         icon.classList.add('arrow-down');
-        state = 'ascending';
-    }
-
-    if (icon.classList.contains('arrow')) { // No sort -> Ascending
-        icon.classList.remove('arrow');
-        icon.classList.add('arrow-down');
-    } else if (icon.classList.contains('arrow-down')) { //  Ascending -> Descending
-        icon.classList.remove('arrow-down');
-        icon.classList.add('arrow-up');
         state = 'descending';
-    } else { // Ascending -> Descending
-        icon.classList.remove('arrow-up');
-        icon.classList.add('arrow-down');
-        state = 'ascending';
     }
 
     th.setAttribute('aria-sort', state);
@@ -162,7 +149,7 @@ function updateIcon(th) {
         }
 
         // reset the state for an unsorted column
-        thisTh.setAttribute('aria-sort', 'none');
+        thisTh.setAttribute('aria-sort', 'arrow');
         var thisIcon = thisTh.getElementsByTagName('i').item(0);
         thisIcon.classList.remove('arrow-up');
         thisIcon.classList.remove('arrow-down');

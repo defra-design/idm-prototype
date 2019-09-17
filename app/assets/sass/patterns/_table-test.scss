@@ -1,16 +1,4 @@
-/*** CSS rowcounting ***/
-table { counter-reset: rowcount; }
-tr { counter-increment: rowcount; counter-reset: cellcount; }
-td, th { counter-increment: cellcount; }
 
-/* Show/ say row number */
-#team1 tr:before {
-  content: "Row "counter(rowcount)". ";
-}
-
-.govuk-body--grey{
-  color: govuk-colour("grey-1");
-}
 
 
 /*** Small viewports ***/
@@ -40,9 +28,9 @@ td, th { counter-increment: cellcount; }
       }
 
       //Hiding the header for mobile
-      thead {
-      display: none;
-      }
+      //thead {
+      //display: none;
+      //}
 
       tr::before {
         @extend .govuk-body;
@@ -92,20 +80,17 @@ th {
 
 .sortable-button[role="button"]:hover, .sortable-button[role="button"]:focus {
     background-color: govuk-colour("grey-4");
+    cursor: default;
 }
 
 .sortable th i {
     font-size: 1.1em;
-    font-family: system-ui;
+    font-family: Tahoma, sans-serif;
     padding-left: 5px;
     width: 10px;
     color: govuk-colour("grey-1");
     font-style: normal;
-}
-
-.arrow:after {
     font-weight: bold;
-    font-style: normal;
 }
 
 .arrow:after {
@@ -114,10 +99,12 @@ th {
 
 .arrow-down:after {
     content: "\2193";
+    color: black;
 }
 
 .arrow-up:after {
     content: "\2191";
+    color: black;
 }
 
 // In a parent/child list show the parent make a distinction between the last child and the next parent
