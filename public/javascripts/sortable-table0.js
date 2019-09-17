@@ -131,11 +131,24 @@ function updateIcon(th) {
     } else if (icon.classList.contains('arrow-down')) { // Descending -> Ascending
         icon.classList.remove('arrow-down');
         icon.classList.add('arrow-up');
-        state = 'ascending';
+        state = 'descending';
     } else { // Ascending -> Descending
         icon.classList.remove('arrow-up');
         icon.classList.add('arrow-down');
+        state = 'ascending';
+    }
+
+    if (icon.classList.contains('arrow')) { // No sort -> Ascending
+        icon.classList.remove('arrow');
+        icon.classList.add('arrow-down');
+    } else if (icon.classList.contains('arrow-down')) { //  Ascending -> Descending
+        icon.classList.remove('arrow-down');
+        icon.classList.add('arrow-up');
         state = 'descending';
+    } else { // Ascending -> Descending
+        icon.classList.remove('arrow-up');
+        icon.classList.add('arrow-down');
+        state = 'ascending';
     }
 
     th.setAttribute('aria-sort', state);
