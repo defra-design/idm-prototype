@@ -1,3 +1,17 @@
+// Things to do:
+
+// classList support - is this ok? :  classList is supported in pretty much everything after IE8,
+// use that rather than a regex to modify the arrow classes
+
+// Insert the up down arrow icons via Javascript so that they do not show when js is turned off
+
+// Insert the headers on mobile so that they do not show when js is turned off
+
+// How do you sort the Your Defra account table so that the children are kept with parent when sorting by account? But not when sorting by other headers, ensuring the table still looks ok?!
+
+
+
+
 /*** Fully working sortable table ***/
 
 
