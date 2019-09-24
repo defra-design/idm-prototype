@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Accessibility statement" %}
+{% set title = "Accessibility for Your Defra Account" %}
 
 {% block pageTitle %}
     {{title}} - GOV.UK
@@ -27,15 +27,62 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <div class="govuk-inset-text">
-      <p class="govuk-body">This notice was last updated on [date].</p>
-    </div>
-    <p class="govuk-body">Accessibility statement goes here</p>
+      <p class="govuk-body">This service is part of the wider GOV.UK website. There’s a separate <a href="https://www.gov.uk/help/accessibility">accessibility statement for the main GOV.UK website.</a></p>
+      <p class="govuk-body">This page only contains information about the Your Defra Account service, available at your-defra-account.defra.gov.uk.</p>
+      <br>
+      <h3 class="govuk-heading-m">Using this service</h3>
+      <p class="govuk-body">This service is run by Defra. We want as many people as possible to be able to use this service. We’ve made the text in the service as easy to understand as possible.</p>
+      <p class="govuk-body">If you have a disability, <a href="https://mcmw.abilitynet.org.uk/">AbilityNet</a> has advice on making your device easier to use.</p>
 
-{{ govukBackLink({
-    text: "Back",
-    href: "javascript:history.back()"
-  }) }}
+      <h3 class="govuk-heading-m">How accessible this service is</h3>
+      <p class="govuk-body">We’ve identified the following potential accessibility issues with this site:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          If you do not have JavaScript enabled in your browser, you will not be able to use the site.
+        </li>
+        <li>
+        If you use assistive technology, such as a screen reader, you may have issues with Google reCAPTCHA. Refer to <a href="https://support.google.com/recaptcha/answer/6175971?hl=en">Google reCAPTCHA Help</a> for help with specific accessibility issues.
+      </li></ul>
+
+      <h3 class="govuk-heading-m">What to do if you have difficulty using this service</h3>
+      <p class="govuk-body">If you have difficulty using this service, refer to the <a href="https://identity-management-app.herokuapp.com/help">Help page</a> for service contact details.</p>
+
+      <h3 class="govuk-heading-m">Reporting accessibility problems with this service</h3>
+      <p class="govuk-body">We’re always looking to improve the accessibility of this service. If you find any problems that aren’t listed on this page, or think we’re not meeting accessibility requirements, contact us at <a href="mailto:Customer.Identity-Support@defra.gov.uk?subject=Accessibility feedback">Customer.Identity-Support@defra.gov.uk</a></p>
+      <h3 class="govuk-heading-m">Enforcement procedure</h3>
+      <p class="govuk-body">The Equality and Human Rights Commission (EHRC) is responsible for enforcing the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018 (the ‘accessibility regulations’). If you’re not happy with how we respond to your complaint, contact the <a href="https://www.equalityadvisoryservice.com">Equality Advisory and Support Service (EASS)</a>.</p>
+
+      <h3 class="govuk-heading-m">Technical information about this service’s accessibility</h3>
+      <p class="govuk-body">Defra is committed to making this service accessible, in accordance with the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018.</p>
+      <p class="govuk-body">This service is partially compliant with the <a href="https://www.w3.org/TR/WCAG21/">Web Content Accessibility Guidelines version 2.1 AA standard</a>, due to the non-compliances listed below.</p>
+
+      <h3 class="govuk-heading-m">Non accessible content</h3>
+      <p class="govuk-body">The content listed below is non-accessible for the following reasons.</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          You will not be able to use the site if you do not have JavaScript enabled in your browser.
+        </li>
+        <li>
+        You may have issues with Google reCAPTCHA if you use assistive technology, such as a screen reader. Refer to <a href="https://support.google.com/recaptcha/answer/6175971?hl=en">Google reCAPTCHA Help</a> for help with specific accessibility issues.
+      </li></ul>
+
+      <h3 class="govuk-heading-m">Disproportionate burden</h3>
+      <p class="govuk-body">As our service is designed to meet the needs of Defra following the United Kingdom’s exit from the European Union, we’ve made some choices to ensure the security of the site at this time. Our use of JavaScript and Google reCAPTCHA may cause some accessibility issues but their use is essential to help guard against cyber attacks. The use of these elements will be reviewed and as part of our ongoing service improvement activities.</p>
+
+      <h3 class="govuk-heading-m">Content that’s not within the scope of the accessibility regulations</h3>
+      <p class="govuk-body">TBA</p>
+
+      <h3 class="govuk-heading-m">How we tested this service</h3>
+      <p class="govuk-body">TBA</p>
+
+      <h3 class="govuk-heading-m">How we tested this service</h3>
+      <p class="govuk-body">The service was last tested on [date] and was checked for compliance with WCAG 2.1 AA. The test was carried out internally using SortSite.</p>
+      <p class="govuk-body">Read the full accessibility audit report [add link to report].</p>
+
+      <h3 class="govuk-heading-m">What we’re doing to improve accessibility</h3>
+      <p class="govuk-body">We have an ongoing commitment to improve this service to make it as easy as possible for everyone to use. Any reported accessibility issues will be addressed in due course.</p>
+
+      <p class="govuk-body">This page was prepared on [date when it was first published]. It was last updated on [date when it was last updated].</p>
 
 </div>
 
