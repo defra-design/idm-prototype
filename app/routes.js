@@ -10,21 +10,6 @@ router.get('/', function (req, res) {
 
 module.exports = router
 
-router.get('/tests/ac1', function (req, res) {
-    res.render('tests/routes-test',{
-      "routeType": "AC1",
-      "numAccounts":4
-    })
-})
-
-router.get('/tests/ac2', function (req, res) {
-    res.render('tests/routes-test',{
-      "routeType":"AC2",
-      "numAccounts":87
-    })
-})
-
-
 // dashboard for a org admin (not agent or individual)
 router.get('/manage/dashboard-all', function (req, res) {
     res.render('manage/dashboard',{
@@ -151,12 +136,24 @@ router.get('/scp/login-pending-certifier', function (req, res) {
     })
 })
 
-
-
-
 // Existing user - new service, multiple accounts
 router.get('/scp/login-interswitch', function (req, res) {
     res.render('scp/login',{
       "signinButton": '/login-interswitch'
+    })
+})
+
+// Test Routes
+router.get('/tests/ac1', function (req, res) {
+    res.render('tests/routes-test',{
+      "routeType": "AC1",
+      "numAccounts":4
+    })
+})
+
+router.get('/tests/ac2', function (req, res) {
+    res.render('tests/routes-test',{
+      "routeType":"AC2",
+      "numAccounts":87
     })
 })

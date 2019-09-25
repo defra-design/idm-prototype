@@ -87,13 +87,34 @@
     <p class="govuk-body">parentService= yes / no<br>
       Is the parent account enrolled into a service?</p>
 
+    <h3 class="govuk-heading-m" id="routes">routes.js</h3>
+    <p class="govuk-body">The routes.js files determines different versions of a template according to a specific journey / ser type. Rather than have 4 versions of a page, there is one template that has different variables according to the journey. This has been applied to the following templates:</p>
+    <ul class="govuk-list">
+      <li>SCP login page</li>
+      <li>Account dashboard</li>
+    </ul>
+    <h3 class="govuk-heading-m" id="css">Non-GDS css</h3>
+    <p class="govuk-body">Certain elements of the app use non-GDS approved CSS. The can be fond in the following folder: /assets/sass/patterns</p>
+
+    <h3 class="govuk-heading-m" id="breadcrumb">Breadcrumb / navigation</h3>
+    <p class="govuk-body">These patterns can be found in the folder /views/includes</p>
+
+    <h3 class="govuk-heading-m" id="tables">Sortable tables</h3>
+    <p class="govuk-body">A proto for sortable tables can be found <a href="/tests/table-test">Sortable tables</a>. The javacript for these tables can be found in the folder: /assets/javascripts</p>
   </div>
+
+
+
   <div class="govuk-grid-column-one-third">
     <aside class="app-related-items" role="complementary">
       <h2 class="govuk-heading-m" id="subsection-title">Quick links</h2>
       <nav role="navigation" aria-labelledby="subsection-title">
         <ul class="govuk-list govuk-body-s">
           <li><a href="#variables">Proto variables</a></li>
+          <li><a href="#routes">Routes.js</a></li>
+          <li><a href="#css">Non-GDS css</a></li>
+          <li><a href="#breadcrumb">Breadcrumb / navigation</a></li>
+          <li><a href="#tables">Sortable tables</a></li>
         </ul>
       </nav>
     </aside>
