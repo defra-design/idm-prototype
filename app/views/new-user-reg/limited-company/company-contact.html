@@ -20,11 +20,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <h1 class="govuk-heading-xl">{{title}}
-    </h1>
-        <span class="govuk-hint">
-        These could be details included on the website, or contact details for the head office or management team.
-        </span>
+
 
 {% if data['userType'] == "existing" %}
     <form action="check-your-answers-add-account" method="post">
@@ -40,6 +36,19 @@
           <form method="post" action="task-list-page-company-details">
         {% endif %}
 {% endif %}
+
+{% call govukFieldset({
+    describedBy: "contactHint",
+legend: {
+  text: title,
+  classes: "govuk-fieldset__legend--xl",
+  isPageHeading: true
+}
+}) %}
+
+<span class="govuk-hint" id="contactHint">
+These could be details included on the website, or contact details for the head office or management team.
+</span>
 
 
         {{ govukInput({
@@ -67,7 +76,7 @@
         {{ govukButton({
           text: "Continue"
         }) }}
-
+{% endcall %}
       </form>
 
   </div>
