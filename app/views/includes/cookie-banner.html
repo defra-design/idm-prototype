@@ -1,20 +1,74 @@
 {% if data['shouldShowCookieMessage'] == "yes" %}
-<div class="cookie_overlay">
- <div class="cookie_dialog">
-   <div class="govuk-grid-row">
-     <div class="govuk-grid-column-three-quarters">
-       <h1 class="govuk-heading-m">Cookies on defra.gov.uk</h1>
-       </div>
-       <div class="govuk-grid-column-three-quarters">
-         <p class="govuk-body">We use cookies to help this service run effectively and to track how it is used. By using this service, you accept our use of cookies. You can change your <a href="cookie-policy?shouldShowCookieMessage=no">cookie settings</a> at any time.</p>
-     </div>
-     <div class="govuk-grid-column-one-quarter center">
-       {{ govukButton({
-         text: "Accept",
-         href: "?shouldShowCookieMessage=no"
-       }) }}
-     </div>
-   </div>
- </div>
+<form method="post" action="/cookie-policy">
+  <div class="gem-c-cookie-banner">
+    <div class="govuk-width-container">
+      <p class="govuk-body gem-c-cookie-banner__message">We uses cookies which are essential for the site to work. We also use non-essential cookies to help us improve government digital services. Any data collected is anonymised. By continuing to use this site, you agree to our use of cookies.</p>
+    </div>
+    <div class="govuk-width-container">
+      <div class="gem-c-cookie-banner__buttons">
+
+        {{ govukButton({
+          text: "Accept",
+          classes: "cookie-button",
+          href: "?shouldShowCookieMessage=no&acceptCookie=yes"
+        }) }}
+
+        {{ govukButton({
+          text: "Cookie settings",
+          classes: "cookie-button",
+          href: "/cookie-settings?shouldShowCookieMessage=no"
+        }) }}
+
+      </div>
+    </div>
+  </div>
+</form>
+
+
+
+
+<script>
+  //Reset the session storage item
+sessionStorage.removeItem('set');
+</script>
+
+{% endif %}
+
+{% if data['shouldShowCookieMessage'] == "no" and data['acceptCookie'] == "yes"%}
+
+<div class="gem-c-cookie-banner" id="cookieBanner">
+  <div class="gem-c-cookie-banner__confirmation govuk-width-container" tabindex="-1" style="display: block;">
+    <p class="gem-c-cookie-banner__confirmation-message">
+      You’ve accepted all cookies. You can <a class="govuk-link" href="/cookie-settings" data-module="track-click" data-track-category="cookieBanner" data-track-action="Cookie banner settings clicked from confirmation">change your cookie settings</a> at any time.
+    </p>
+    <a href="?shouldShowCookieMessage=no&acceptCookie=" style="display: none" id="hideCookieBannerButton" class="gem-c-cookie-banner__hide-button" data-hide-cookie-banner="true" data-module="track-click" data-track-category="cookieBanner" data-track-action="Hide cookie banner">Hide</a>
+  </div>
 </div>
+
+
+    <script>
+
+    //no script check
+    document.getElementById('hideCookieBannerButton').style.display='inline';
+
+    //hide the accepted cookie banner when the hide button is clicked
+    document.getElementById('hideCookieBannerButton').onclick = function hide() {
+        document.getElementById('cookieBanner').style.display='none';
+       }
+
+       window.onbeforeunload = function BannerSeen() {
+    document.getElementById('cookieBanner').style.display='none';
+       }
+
+//hide the accepted cookie banner when it has been viewed once
+      if (sessionStorage.getItem('set') === 'set') {
+  document.getElementById('cookieBanner').style.display = 'none';
+} else {
+  sessionStorage.setItem('set', 'set');
+};
+
+    </script>
+
+
+
 {% endif %}
