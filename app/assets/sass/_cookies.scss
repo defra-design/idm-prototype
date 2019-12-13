@@ -1,0 +1,70 @@
+.gem-c-notice {
+  border: 2px solid rgb(0, 94, 165);
+  padding: 20px;
+}
+
+.cookie-button,
+a.cookie-button,
+a.cookie-button:visited,
+a.cookie-button:link,
+a.cookie-button:active {
+  background-color: #fff;
+  color: #00823b;
+  border: 2px solid rgb(0, 130, 59);
+  margin: 0 10px 30px 0;
+  box-shadow: none;
+  padding: 8px 10px;
+}
+
+.cookie-button:hover {
+  border-color: #00692f;
+  color: #00692f;
+  background-color: #f8f8f8;
+}
+
+.gem-c-cookie-banner {
+  background-color: #ffffff;
+  padding: 20px 0 0;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.gem-c-cookie-banner__message {
+  padding-bottom: 10px;
+  color: #00823b;
+  margin: 0px;
+}
+
+.gem-c-cookie-banner__buttons {
+  margin: 0;
+  padding: 0;
+}
+
+.gem-c-cookie-banner__confirmation {
+  padding: 5px;
+  position: relative;
+}
+
+.gem-c-cookie-banner__confirmation-message {
+  line-height: 25px;
+  display: inline-block;
+}
+
+.gem-c-cookie-banner__hide-button {
+  font-family: "nta", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  font-size: 19px;
+  line-height: 1.25;
+  outline: 0;
+  border: 0;
+  background: none;
+  text-decoration: underline;
+  color: #005ea5;
+  padding: 0;
+  margin-top: 0px;
+  position: absolute;
+  right: 5px;
+  cursor: pointer;
+}

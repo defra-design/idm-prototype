@@ -1,0 +1,157 @@
+{% extends "layout.html" %}
+
+{% set title = "Cookies on Your Defra Account" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">{{title}}</h1>
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div class="cookie-settings__warning govuk-!-margin-bottom-0" data-cookie-warning="true">
+        <section class="gem-c-notice govuk-!-margin-bottom-8" aria-label="Notice" role="region">
+          <h2 class="govuk-heading-m">Your cookie settings have not yet been saved</h2>
+          <p class="gem-c-notice__description">Defra sets cookies when you visit our service. You can choose to change these settings to your own preferences. You need to save this page with your new choices.</p>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+      <p class="govuk-body">Cookies are files saved on your phone, tablet or computer when you visit a website.</p>
+      <br>
+      <form method="post" action="/cookie-settings">
+        {{ govukRadios({
+          classes: "govuk-radios--inline",
+          idPrefix: "usage",
+          name: "usage",
+          fieldset: {
+            legend: {
+              text: "Cookies that measure service usage",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          hint: {
+            text: 'These cookies track the pages you visit here, how long you spend on each one and what you select. You can turn these cookies on or off.'
+          },
+          items: [
+            {
+              value: "on",
+              text: "On"
+            },
+            {
+              value: "off",
+              text: "Off"
+            }
+          ]
+        }) }}
+
+
+
+
+        {{ govukRadios({
+          classes: "govuk-radios--inline",
+          idPrefix: "campaigns",
+          name: "campaigns",
+          fieldset: {
+            legend: {
+              text: "Cookies that help with our communications and marketing",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          hint: {
+            text: 'These cookies may be set by third party websites and do things like measure how you view YouTube videos that are on Your Defra Account.'
+          },
+          items: [
+            {
+              value: "on",
+              text: "On"
+            },
+            {
+              value: "off",
+              text: "Off"
+            }
+          ]
+        }) }}
+
+
+
+
+        {{ govukRadios({
+          classes: "govuk-radios--inline",
+          idPrefix: "settings",
+          name: "settings",
+          fieldset: {
+            legend: {
+              text: "Cookies that remember your settings",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          hint: {
+            text: 'These cookies do things like remember your preferences and the choices you make to personalise your experience when using this service.'
+          },
+          items: [
+            {
+              value: "on",
+              text: "On"
+            },
+            {
+              value: "off",
+              text: "Off"
+            }
+          ]
+        }) }}
+
+
+
+
+          <p class="govuk-body">These cookies are essential to make this service run effectively and to help us comply with data protection laws. You cannot turn these cookies off.</p>
+
+
+        <br>
+        <input type="hidden" id="redirectLink" name="redirectLink" value="{{ redirectLink | safe }}"/>
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-two-thirds">
+          <p class="govuk-body">  <a href="/cookies" class="govuk-link govuk-link--no-visited-state">Find out more about cookies</a></p>
+          </div>
+        </div>
+
+        <br>
+
+
+        {{ govukButton({
+        text: "Save changes",
+        attributes:{
+          id: "button-continue"
+        }
+        }) }}
+
+      </form>
+
+      <h3 class="govuk-heading-m">Government services</h3>
+      <p class="govuk-body">Most services we link to are run by different government departments, for example HM Revenue and Customs (HMRC) or the Home Office. These services may set additional cookies and, if so, will have their own cookies policy.</p>
+    </div>
+  </div>
+{% endblock %}
