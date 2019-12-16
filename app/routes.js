@@ -157,3 +157,33 @@ router.get('/tests/ac2', function (req, res) {
       "numAccounts":87
     })
 })
+
+
+
+
+
+
+//Cookie settings
+router.get('/cookie-settings', function (req, res) {
+  req.session.data['savedCookieChanges'] = "";
+    res.render('cookie-settings')
+})
+
+
+
+router.post('/cookie-settings', function (req, res) {
+    cookieSettings = []
+    cookieSettings.push(req.session.data['usage'], req.session.data['campaigns'], req.session.data['settings']);
+    var cookieString = cookieSettings.toString()
+    console.log(cookieString);
+    switch (cookieString) {
+       case  'on,on,on':
+         req.session.data['cookiesAccepted'] = true;
+         req.session.data['savedCookieChanges'] = true;
+       break;
+       default:
+        req.session.data['savedCookieChanges'] = true;
+       break;
+     }
+    res.redirect('cookie-settings')
+})

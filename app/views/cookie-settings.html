@@ -8,14 +8,19 @@
 
 {% block beforeContent %}
 
-  {{ govukBackLink({
-    text: "Back",
-    href: "javascript:history.back()"
-  }) }}
 
 {% endblock %}
 
 {% block content %}
+
+  {% if errors.length %}
+    {{ govukErrorSummary({
+    titleText: 'There is a problem',
+    errorList: errors
+    }) }}
+  {% endif %}
+
+
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
@@ -23,6 +28,25 @@
     </div>
   </div>
 
+  {% if data['savedCookieChanges'] %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div class="cookie-settings__warning govuk-!-margin-bottom-0" data-cookie-warning="true">
+        <section class="gem-c-notice govuk-!-margin-bottom-8" aria-label="Notice" role="region">
+          <h2 class="govuk-heading-m">Your cookie settings have been saved</h2>
+          <p class="govuk-body govuk-!-margin-0">Government services may set additional cookies and, if so, will have their own cookie policy and banner.
+          <a class="govuk_link cookie-settings__prev-page" href="/" data-module="track-click" data-track-category="cookieSettings" data-track-action="Back to previous page" style="display: block;">
+        Go back to the page you were looking at
+      </a></p>
+        </section>
+      </div>
+    </div>
+  </div>
+
+ {% elif data['savedCookieChanges'] === "" %}
+<div></div>
+
+  {% else %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <div class="cookie-settings__warning govuk-!-margin-bottom-0" data-cookie-warning="true">
@@ -33,7 +57,7 @@
       </div>
     </div>
   </div>
-
+ {% endif %}
   <div class="govuk-grid-row">
 
     <div class="govuk-grid-column-two-thirds">
@@ -57,11 +81,13 @@
           items: [
             {
               value: "on",
-              text: "On"
+              text: "On",
+              checked: checked("usage", "on")
             },
             {
               value: "off",
-              text: "Off"
+              text: "Off",
+              checked: checked("usage", "off")
             }
           ]
         }) }}
@@ -86,11 +112,13 @@
           items: [
             {
               value: "on",
-              text: "On"
+              text: "On",
+              checked: checked("campaigns", "on")
             },
             {
               value: "off",
-              text: "Off"
+              text: "Off",
+              checked: checked("campaigns", "off")
             }
           ]
         }) }}
@@ -115,11 +143,13 @@
           items: [
             {
               value: "on",
-              text: "On"
+              text: "On",
+              checked: checked("campaigns", "on")
             },
             {
               value: "off",
-              text: "Off"
+              text: "Off",
+              checked: checked("campaigns", "off")
             }
           ]
         }) }}
