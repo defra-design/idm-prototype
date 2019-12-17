@@ -1,14 +1,14 @@
 {% if data['shouldShowCookieMessage'] == "yes" %}
-<form method="post" action="/cookie-policy">
+<form method="post" action="/cookie-settings">
   <div class="gem-c-cookie-banner">
     <div class="govuk-width-container">
-      <p class="govuk-body gem-c-cookie-banner__message">We uses cookies which are essential for the site to work. We also use non-essential cookies to help us improve government digital services. Any data collected is anonymised. By continuing to use this site, you agree to our use of cookies.</p>
+      <p class="govuk-body gem-c-cookie-banner__message">We use cookies which are essential for the site to work. We also use non-essential cookies to help us improve government digital services. Any data collected is anonymised. By continuing to use this site, you agree to our use of cookies.</p>
     </div>
     <div class="govuk-width-container">
       <div class="gem-c-cookie-banner__buttons">
 
         {{ govukButton({
-          text: "Accept",
+          text: "Accept cookies",
           classes: "cookie-button",
           href: "?shouldShowCookieMessage=no&acceptCookie=yes&usage=on&campaigns=on&settings=on&savedCookieChanges="
         }) }}
