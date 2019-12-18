@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Cookies on Your Defra Account" %}
+{% set title = "Cookies on Your Defra account" %}
 
 {% block pageTitle %}
     {{title}} - GOV.UK
@@ -34,7 +34,7 @@
       <div class="cookie-settings__warning govuk-!-margin-bottom-0" data-cookie-warning="true">
         <section class="gem-c-notice govuk-!-margin-bottom-8" aria-label="Notice" role="region">
           <h2 class="govuk-heading-m">Your cookie settings have been saved</h2>
-          <p class="govuk-body govuk-!-margin-0">Government services may set additional cookies and, if so, will have their own cookie policy.
+          <p class="govuk-body govuk-!-margin-0">Government services may set other cookies and, if so, will have their own cookie policy.
           <a class="govuk_link cookie-settings__prev-page" href="/" data-module="track-click" data-track-category="cookieSettings" data-track-action="Back to previous page" style="display: block;">
         Go back to the page you were looking at
       </a></p>
@@ -52,7 +52,7 @@
       <div class="cookie-settings__warning govuk-!-margin-bottom-0" data-cookie-warning="true">
         <section class="gem-c-notice govuk-!-margin-bottom-8" aria-label="Notice" role="region">
           <h2 class="govuk-heading-m">Your cookie settings have not yet been saved</h2>
-          <p class="gem-c-notice__description">Defra sets cookies when you visit our service. You can choose to change these settings to your own preferences. You need to save this page with your new choices.</p>
+          <p class="gem-c-notice__description">Defra sets cookies when you visit our service. You can choose to change these settings to your own preferences. You'll need to save this page, below, with your new choices.</p>
         </section>
       </div>
     </div>
@@ -70,13 +70,13 @@
           name: "usage",
           fieldset: {
             legend: {
-              text: "Cookies that measure service usage",
+              text: "Cookies that measure the way you use the service",
               isPageHeading: false,
               classes: "govuk-fieldset__legend--m"
             }
           },
           hint: {
-            text: 'These cookies track the pages you visit here, how long you spend on each one and what you select. You can turn these cookies on or off.'
+            text: 'These cookies track the pages you visit here, how long you spend on each page and the options you choose. You can turn these cookies on or off.'
           },
           items: [
             {
@@ -107,7 +107,7 @@
             }
           },
           hint: {
-            text: 'These cookies may be set by third party websites and do things like measure how you view YouTube videos that are on Your Defra Account.'
+            text: 'These cookies may be set by third party websites and do things like measure how you view YouTube videos that are on Your Defra account.'
           },
           items: [
             {
@@ -153,23 +153,27 @@
             }
           ]
         }) }}
-
+</div>
+</div>
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-two-thirds">
 
 <h2 class="govuk-heading-m">Strictly necessary cookies</h2>
 
           <p class="govuk-body">These cookies are essential to make this service run effectively and to help us comply with data protection laws. You cannot turn these cookies off.</p>
 
-
+</div></div>
         <br>
-        <input type="hidden" id="redirectLink" name="redirectLink" value="{{ redirectLink | safe }}"/>
-        <div class="govuk-grid-row">
+      <div class="govuk-grid-row">
           <div class="govuk-grid-column-two-thirds">
+        <input type="hidden" id="redirectLink" name="redirectLink" value="{{ redirectLink | safe }}"/>
+
           <p class="govuk-body">  <a href="/cookies" class="govuk-link govuk-link--no-visited-state">Find out more about cookies</a></p>
-          </div>
-        </div>
+
 
         <br>
-
+      </div>
+      </div>
 
         {{ govukButton({
         text: "Save changes",
@@ -179,9 +183,10 @@
         }) }}
 
       </form>
-
+      <div class="govuk-grid-row">
+          <div class="govuk-grid-column-two-thirds">
       <h3 class="govuk-heading-m">Government services</h3>
-      <p class="govuk-body">Most services we link to are run by different government departments, for example HM Revenue and Customs (HMRC) or the Home Office. These services may set additional cookies and, if so, will have their own cookies policy.</p>
+      <p class="govuk-body">Most services we link to are run by different government departments, for example HM Revenue and Customs or the Home Office. These services may set other cookies and, if so, will have their own cookies policy.</p>
     </div>
   </div>
 {% endblock %}

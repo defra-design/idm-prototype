@@ -16,7 +16,8 @@ a.cookie-button:active {
   padding: 8px 10px;
 }
 
-.cookie-button:hover {
+.cookie-button:hover,
+a.cookie-button {
   border-color: #00692f;
   color: #00692f;
   background-color: #f8f8f8;
@@ -67,4 +68,9 @@ a.cookie-button:active {
   position: absolute;
   right: 5px;
   cursor: pointer;
+}
+
+
+.gem-c-notice__description {
+margin:0;
 }
