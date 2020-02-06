@@ -21,6 +21,7 @@ module.exports = {
 
 
 "orgName": "Acme Org Ltd",
+"companyRegNum": "12345678",
 "numUsers": "5",
 "numChildUsers": "1",
 "numServices": "1",
