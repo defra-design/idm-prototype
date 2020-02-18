@@ -44,7 +44,14 @@ module.exports = {
 "address-postcode": "MY3 4RF",
 "address-country": "UK"
 
-
+//email defaults
+"{!Organisation:Name;}" : "Meca Org Ltd",
+"{!Organisation:PreviousName;}:" : "Acme Org Ltd",
+"{!Organisation:Address;}" : "12, The Grove, Mytown, MY3 4RF"
+"{!Organisation:PreviousAddress;}" : "1 Francis Crick Avenue, Cambridge Biomedical Campus, Cambridge, United Kingdom, CB2 0AA"
+"[Dynamics Unique reference id]" :
+"{!Custom:ServiceName;}" : "Imports"
+"{!Custom:ServiceAdmin;}" : "REACH Manager"
 
   // Insert values here
 
