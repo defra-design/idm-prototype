@@ -5,7 +5,7 @@ Change to Organisation Name Record
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>Invite</title>
+    <title>Notification</title>
     <style type="text/css">
       @media only screen and (min-device-width: 581px) {
         .content {
@@ -113,10 +113,18 @@ Change to Organisation Name Record
               Hello [AdminFirstName],
             </p>
             <p class="govuk-body">
-              Companies House has advised of a change of organisation name from {!Organisation:PreviousName;} to <b>{!Organisation:Name;}</b>.
+              Companies House has advised of a <b>change of organisation name</b> for company number ({!Organisation:Number;})
             </p>
+            <p class="govuk-body">from</p>
+            <ul class="govuk-list govuk-list--bullet">
+              <li>{!Organisation:PreviousName;}</li>
+            </ul>
+            <p class="govuk-body">to</p>
+            <ul class="govuk-list govuk-list--bullet">
+              <li><b>{!Organisation:Name;}</b></li>
+            </ul>
             <p class="govuk-body">
-              DEFRA have verified the change of detail and have made the update to the organisation record.
+              DEFRA have been notified of the the change and have made the update to the organisation record.
             </p>
             <p class="govuk-body">
               Thank you.

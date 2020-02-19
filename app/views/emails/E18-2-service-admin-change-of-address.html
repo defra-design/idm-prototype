@@ -5,7 +5,7 @@ Change to Organisation Address Record
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>Invite</title>
+    <title>Notification</title>
     <style type="text/css">
       @media only screen and (min-device-width: 581px) {
         .content {
@@ -113,17 +113,22 @@ Change to Organisation Address Record
           Hello {!Custom:ServiceName;} Service Owner,
         </p>
         <p class="govuk-body">
-          Companies House has advised of a change of address for {!Organisation:Name;} to <b>{!Organisation:Address;}</b>.
+          Companies House has advised of a <b>change of address</b> for <b>{!Organisation:Name;}</b> ({!Organisation:Number;})
         </p>
+        <p class="govuk-body">from</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>{!Organisation:PerviousAddress;}</li>
+        </ul>
+        <p class="govuk-body">to</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li><b>{!Organisation:Address;}</b></li>
+        </ul>
         <p class="govuk-body">
-          DEFRA have verified the change of detail and have made the update to the customer’s organisation record – [Dynamics Unique Reference ID].
+          DEFRA have been notified of the change and have made the update to the organisation record.
         </p>
         <p class="govuk-body">
           Thank you.
         </p>
-            <blockquote style="Margin: 0 0 20px 0; border-left: 10px solid #BFC1C3;padding: 15px 0 0.1px 15px; font-size: 19px; line-height: 25px;">
-              <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #005ea5;"><strong><a style="word-wrap: break-word; color: #005ea5;" href="{!Custom:D365DefraCustomerServiceDashboard;}">Sign in to your dashboard</a></strong></p>
-            </blockquote>
 
 <!-- Content ends -->
           </td>
