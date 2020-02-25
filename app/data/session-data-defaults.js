@@ -22,6 +22,8 @@ module.exports = {
 
 "orgName": "Acme Org Ltd",
 "companyRegNum": "12345678",
+"businessTelephone": "0171 444555666",
+"businessEmail": "simone@org.com ",
 "numUsers": "5",
 "numChildUsers": "1",
 "numServices": "1",
@@ -43,15 +45,6 @@ module.exports = {
 "address-town": "Mytown",
 "address-postcode": "MY3 4RF",
 "address-country": "UK"
-
-//email defaults
-"{!Organisation:Name;}" : "Meca Org Ltd",
-"{!Organisation:PreviousName;}:" : "Acme Org Ltd",
-"{!Organisation:Address;}" : "12, The Grove, Mytown, MY3 4RF"
-"{!Organisation:PreviousAddress;}" : "1 Francis Crick Avenue, Cambridge Biomedical Campus, Cambridge, United Kingdom, CB2 0AA"
-"[Dynamics Unique reference id]" :
-"{!Custom:ServiceName;}" : "Imports"
-"{!Custom:ServiceAdmin;}" : "REACH Manager"
 
   // Insert values here
 

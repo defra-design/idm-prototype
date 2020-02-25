@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% set title = "You have already been requested to join to this account" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+        <h1 class="govuk-heading-xl">{{ title }}</h1>
+
+    <p class="govuk-body">Your request has been previously sent to the account admin for [organisation name].</p>
+
+    <p class="govuk-body">Alternatively, contact the account administrator to request an invitation:</p>
+
+    <p class="govuk-body">
+      Ann Cooper<br>
+      email@email.com<br>
+      0784839396936
+    </p>
+
+    {{ govukButton({
+      text: "Continue",
+      href: "/manage/team-members/services-on-team-member-admin-account_individual"
+    }) }}
+
+
+
+    </div>
+  </div>
+
+
+
+
+{% endblock %}
