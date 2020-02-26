@@ -40,7 +40,23 @@
 
         <li>
           <h2 class="app-task-list__section">
-            <span class="app-task-list__section-number">2. </span>About you
+            <span class="app-task-list__section-number">2. </span>About your organisation
+          </h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              <a class="app-task-list__task-name" href="company-lookup" aria-describedby="company-details-completed">
+                Your organisation's details
+              </a>
+              <strong class="govuk-tag app-task-list__task-completed" id="security-completed">
+                Completed
+              </strong>
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <h2 class="app-task-list__section">
+            <span class="app-task-list__section-number">3. </span>About you
           </h2>
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
@@ -71,24 +87,11 @@
         </li>
 
         <li>
-          <h2 class="app-task-list__section">
-            <span class="app-task-list__section-number">3. </span>About your organisation
-          </h2>
-          <ul class="app-task-list__items">
-            <li class="app-task-list__item">
-              <a class="app-task-list__task-name" href="company-lookup" aria-describedby="company-details-completed">
-                Your organisation's details
-              </a>
-            </li>
-          </ul>
-        </li>
-
-        <li>
           <ul class="app-task-list__items">
             <li>
               {{ govukButton({
                 text: "Check your answers",
-                href: "task-list-page-account-error"
+                href: "check-your-answers"
               }) }}
             </li>
           </ul>
