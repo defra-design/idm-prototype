@@ -28,6 +28,12 @@
       </a>
     </p>
 
+    <!-- modified for updates page -->
+    {% if data['userType'] != "new"  %}
+      {% if data['accountType'] == "Sole Trader"  %}
+        <form action="/manage/organisations/update-details-soletrader" method="post">
+      {% endif %}
+    {% endif %}
 
     {% if data['addAddress'] == "rel-org" %}
       <form action="company-contact-radio" method="post">

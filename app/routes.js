@@ -143,6 +143,31 @@ router.get('/scp/login-interswitch', function (req, res) {
     })
 })
 
+// Existing user - update details
+//setting overrides in direct to update details page in demo
+router.get('/manage/organisations/update-details-charity', function (req, res) {
+  req.session.data['accountType'] = 'charity'
+  req.session.data['userType'] = 'existing'
+  res.render('manage/organisations/update-details')
+})
+router.get('/manage/organisations/update-details-nonuk', function (req, res) {
+  req.session.data['accountType'] = 'nonUK'
+  req.session.data['userType'] = 'existing'
+  res.render('manage/organisations/update-details')
+})
+router.get('/manage/organisations/update-details-soletrader', function (req, res) {
+  req.session.data['accountType'] = 'Sole Trader'
+  req.session.data['userType'] = 'existing'
+  res.render('manage/organisations/update-details')
+})
+
+router.get('/manage/organisations/change-address-soletrader', function (req, res) {
+//  req.session.data['accountType'] = 'Sole Trader'
+  res.render('new-user-reg/sole-trader/company-postcode')
+})
+
+
+
 // Test Routes
 router.get('/tests/ac1', function (req, res) {
     res.render('tests/routes-test',{
@@ -157,10 +182,6 @@ router.get('/tests/ac2', function (req, res) {
       "numAccounts":87
     })
 })
-
-
-
-
 
 
 //Cookie settings
