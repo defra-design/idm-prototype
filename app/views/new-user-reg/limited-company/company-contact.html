@@ -2,6 +2,10 @@
 
 {% set title = "What are the main contact details for this registered company?" %}
 
+{% block header %}
+    {{ govukHeader({ serviceName: "" }) }}
+{% endblock %}
+
 {% block pageTitle %}
     {{title}} - GOV.UK
 {% endblock %}

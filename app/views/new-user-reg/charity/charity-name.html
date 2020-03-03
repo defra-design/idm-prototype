@@ -5,6 +5,10 @@
     {{title}} - GOV.UK
 {% endblock %}
 
+{% block header %}
+    {{ govukHeader({ serviceName: "" }) }}
+{% endblock %}
+
 {% block beforeContent %}
   {{ govukBackLink({
     text: "Back",

@@ -2,6 +2,10 @@
 
 {% set title = "What type of business or organisation do you represent?" %}
 
+{% block header %}
+    {{ govukHeader({ serviceName: "" }) }}
+{% endblock %}
+
 {% block pageTitle %}
     {{title}} - GOV.UK
 {% endblock %}

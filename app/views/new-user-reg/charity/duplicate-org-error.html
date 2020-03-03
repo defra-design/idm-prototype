@@ -2,6 +2,10 @@
 
 {% set title = "Sorry, this organisation already exists" %}
 
+{% block header %}
+    {{ govukHeader({ serviceName: "" }) }}
+{% endblock %}
+
 {% block pageTitle %}
     {{title}} - GOV.UK
 {% endblock %}

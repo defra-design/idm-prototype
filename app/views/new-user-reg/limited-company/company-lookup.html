@@ -2,6 +2,10 @@
 
 {% set title = "What is the Companies House number for the company you wish to register?" %}
 
+{% block header %}
+    {{ govukHeader({ serviceName: "" }) }}
+{% endblock %}
+
 {% block pageTitle %}
     {{title}} - GOV.UK
 {% endblock %}
