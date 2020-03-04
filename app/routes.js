@@ -145,27 +145,37 @@ router.get('/scp/login-interswitch', function (req, res) {
 
 // Existing user - update details
 //setting overrides in direct to update details page in demo
-router.get('/manage/organisations/update-details-charity', function (req, res) {
-  req.session.data['accountType'] = 'charity'
-  req.session.data['userType'] = 'existing'
+router.get('/manage/organisations/update-details', function (req, res) {
+  //req.session.data['accountType'] = 'Limited Company';
+  //req.session.data['userType'] = 'existing';
+  //res.render('manage/organisations/update-details', {'accountType' : 'Limited Company'});
   res.render('manage/organisations/update-details')
 })
-router.get('/manage/organisations/update-details-nonuk', function (req, res) {
-  req.session.data['accountType'] = 'nonUK'
-  req.session.data['userType'] = 'existing'
+/*router.get('/manage/organisations/charity/update-details', function (req, res) {
+  req.session.data['accountType'] = 'charity';
+  req.session.data['userType'] = 'existing';
   res.render('manage/organisations/update-details')
 })
-router.get('/manage/organisations/update-details-soletrader', function (req, res) {
-  req.session.data['accountType'] = 'Sole Trader'
-  req.session.data['userType'] = 'existing'
+router.get('/manage/organisations/nonUK/update-details', function (req, res) {
+  req.session.data['accountType'] = 'nonUK';
+  req.session.data['userType'] = 'existing';
+  res.render('manage/organisations/update-details')
+})
+router.get('/manage/organisations/soletrader/update-details', function (req, res) {
+  req.session.data['accountType'] = 'Sole Trader';
+  req.session.data['userType'] = 'existing';
   res.render('manage/organisations/update-details')
 })
 
-router.get('/manage/organisations/change-address-soletrader', function (req, res) {
+router.get('/manage/organisations/change-address?accountType=soletrader', function (req, res) {
 //  req.session.data['accountType'] = 'Sole Trader'
   res.render('new-user-reg/sole-trader/company-postcode')
-})
+})*/
 
+/*
+router.post('/manage/organisations/company-address', function (req, res) {
+    res.redirect('/manage/organisations/update-details?accountType=soletrader');
+});*/
 
 
 // Test Routes

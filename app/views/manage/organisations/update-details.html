@@ -16,9 +16,15 @@
 {% endblock %}
 
 {% block content %}
+
+<!--{{data|dump}}-->
+
+
+    {% if data['businessType'] == "Sole trader" %}
+    <!-- Sole Trader -->
+<h1 class="govuk-heading-xl">Update your sole trader details</h1>
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-
     <table class="govuk-table {{ tableCSS }}">
       <caption class="govuk-table__caption govuk-body govuk-!-font-weight-regular">Make updates to Your Defra registered Organisation information.</caption>
       <tr class="govuk-table__row">
@@ -43,39 +49,134 @@
           <a href="change-email" class="govuk-link--no-visited-state"> Change<span class="govuk-visually-hidden td-header"> personal address</span></a>
         </td>
       </tr>
+      <tr class="govuk-table__row">
+        <th class="govuk-table__cell">
+          Address
+        </th>
+        <td class="govuk-table__cell">
+          {{data['addressList']}}
+        </td>
+        <td class="govuk-table__cell">
+          <a href="/manage/organisations/change-postcode" class="govuk-link--no-visited-state"> Change<span class="govuk-visually-hidden td-header"> company address</span></a>
+        </td>
+      </tr>
+    </table>
 
-
-    {% if data['accountType'] == "Sole Trader" %}
-    <!-- Sole Trader -->
-<h1 class="govuk-heading-xl">Update your Sole Trader details</h1>
-<tr class="govuk-table__row">
-  <th class="govuk-table__cell">
-    Address
-  </th>
-  <td class="govuk-table__cell">
-    {{data['building-number']}} {{data['street-name']}} {{data['address-town']}} {{data['address-postcode']}} {{data['address-country']}}
-  </td>
-  <td class="govuk-table__cell">
-    <a href="/manage/organisations/change-address-soletrader" class="govuk-link--no-visited-state"> Change<span class="govuk-visually-hidden td-header"> company address</span></a>
-  </td>
-</tr>
-</table>
-
-    {% elseif data['accountType'] == "Charity" %}
+    {% elseif data['businessType'] == "Charity" %}
     <!-- Charity -->
-<h1 class="govuk-heading-xl">{{data['accountType']}}</h1>
+    <h1 class="govuk-heading-xl">Update your charity details</h1>
 
-    {% elseif data['accountType'] == "nonUK" %}
-  </table>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <table class="govuk-table {{ tableCSS }}">
+          <caption class="govuk-table__caption govuk-body govuk-!-font-weight-regular">Make updates to Your Defra registered Organisation information.</caption>
+          <tr class="govuk-table__row">
+            <th class="govuk-table__cell">
+              Telephone
+            </th>
+            <td class="govuk-table__cell">
+           {{data['businessTelephone']}}
+            </td>
+            <td class="govuk-table__cell">
+              <a href="change-telephone" class="govuk-link--no-visited-state"> Change<span class="govuk-visually-hidden td-header"> personal information</span></a>
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th class="govuk-table__cell">
+              Email
+            </th>
+            <td class="govuk-table__cell">
+              {{data['businessEmail']}}
+            </td>
+            <td class="govuk-table__cell">
+              <a href="change-email" class="govuk-link--no-visited-state"> Change<span class="govuk-visually-hidden td-header"> personal address</span></a>
+            </td>
+          </tr>
+        </table>
+        <details class="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">Change the organisation address</span>
+          </summary>
+          <div class="govuk-details__text">
+            <a href="/help#contacting-defra-services">Contact your Defra service</a> to update your address.
+            <!--Please <a href="/help#contacting-defra-services">contact the service</a> for more information.-->
+          </div>
+        </details>
+
+
+    {% elseif data['businessType'] == "Non-UK" %}
     <!-- Non-UK -->
-<h1 class="govuk-heading-xl">{{data['accountType']}}</h1>
-  </table>
+<h1 class="govuk-heading-xl">Update your company details</h1>
 
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <table class="govuk-table {{ tableCSS }}">
+      <caption class="govuk-table__caption govuk-body govuk-!-font-weight-regular">Make updates to Your Defra registered Organisation information.</caption>
+      <tr class="govuk-table__row">
+        <th class="govuk-table__cell">
+          Telephone
+        </th>
+        <td class="govuk-table__cell">
+       {{data['businessTelephone']}}
+        </td>
+        <td class="govuk-table__cell">
+          <a href="change-telephone" class="govuk-link--no-visited-state"> Change<span class="govuk-visually-hidden td-header"> personal information</span></a>
+        </td>
+      </tr>
+      <tr class="govuk-table__row">
+        <th class="govuk-table__cell">
+          Email
+        </th>
+        <td class="govuk-table__cell">
+          {{data['businessEmail']}}
+        </td>
+        <td class="govuk-table__cell">
+          <a href="change-email" class="govuk-link--no-visited-state"> Change<span class="govuk-visually-hidden td-header"> personal address</span></a>
+        </td>
+      </tr>
+      <tr class="govuk-table__row">
+        <th class="govuk-table__cell">
+          Address
+        </th>
+        <td class="govuk-table__cell">
+          {{data['addressList']}}
+        </td>
+        <td class="govuk-table__cell">
+          <a href="/manage/organisations/company-address-manual?accountType=nonuk" class="govuk-link--no-visited-state"> Change<span class="govuk-visually-hidden td-header"> company address</span></a>
+        </td>
+      </tr>
+    </table>
 
     {% else %}
     <!-- Assuming UK Org or Unset -->
-<h1 class="govuk-heading-xl">{{data['accountType']}}</h1>
-  </table>
+<h1 class="govuk-heading-xl">Update your organisation details</h1>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <table class="govuk-table {{ tableCSS }}">
+      <caption class="govuk-table__caption govuk-body govuk-!-font-weight-regular">Make updates to Your Defra registered Organisation information.</caption>
+      <tr class="govuk-table__row">
+        <th class="govuk-table__cell">
+          Telephone
+        </th>
+        <td class="govuk-table__cell">
+       {{data['businessTelephone']}}
+        </td>
+        <td class="govuk-table__cell">
+          <a href="change-telephone" class="govuk-link--no-visited-state"> Change<span class="govuk-visually-hidden td-header"> personal information</span></a>
+        </td>
+      </tr>
+      <tr class="govuk-table__row">
+        <th class="govuk-table__cell">
+          Email
+        </th>
+        <td class="govuk-table__cell">
+          {{data['businessEmail']}}
+        </td>
+        <td class="govuk-table__cell">
+          <a href="change-email" class="govuk-link--no-visited-state"> Change<span class="govuk-visually-hidden td-header"> personal address</span></a>
+        </td>
+      </tr>
+    </table>
 
   <details class="govuk-details">
     <summary class="govuk-details__summary">
