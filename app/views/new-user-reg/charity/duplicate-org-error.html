@@ -3,7 +3,7 @@
 {% set title = "Sorry, this organisation already exists" %}
 
 {% block header %}
-    {{ govukHeader({ serviceName: "" }) }}
+  {% include "includes/logged-out-header.html" %}
 {% endblock %}
 
 {% block pageTitle %}

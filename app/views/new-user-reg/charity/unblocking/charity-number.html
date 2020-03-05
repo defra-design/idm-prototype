@@ -3,7 +3,7 @@
 {% set title = "Where is the charity registered and what is the registered charity number?" %}
 
 {% block header %}
-    {{ govukHeader({ serviceName: "" }) }}
+  {% include "includes/logged-out-header.html" %}
 {% endblock %}
 
 {% block pageTitle %}

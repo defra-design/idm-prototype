@@ -3,7 +3,7 @@
 {% set title = "Which type of account do you want to add?" %}
 
 {% block header %}
-    {{ govukHeader({ serviceName: "" }) }}
+  {% include "includes/logged-out-header.html" %}
 {% endblock %}
 
 {% block pageTitle %}

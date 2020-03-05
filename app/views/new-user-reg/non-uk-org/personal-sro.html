@@ -3,7 +3,7 @@
 {% set title = "Do you have authority to act on behalf of this business or organisation?" %}
 
 {% block header %}
-    {{ govukHeader({ serviceName: "" }) }}
+  {% include "includes/logged-out-header.html" %}
 {% endblock %}
 
 {% block pageTitle %}

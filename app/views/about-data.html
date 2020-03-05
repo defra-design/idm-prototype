@@ -2,12 +2,12 @@
 
 {% set title = "Your Defra account" %}
 
-{% block header %}
-    {{ govukHeader({ serviceName: "" }) }}
-{% endblock %}
-
 {% block pageTitle %}
     {{title}} - GOV.UK
+{% endblock %}
+
+{% block header %}
+    {{ govukHeader({ serviceName: "" }) }}
 {% endblock %}
 
 {% block beforeContent %}
@@ -17,6 +17,7 @@
 
 {% block content %}
 
+{# {{data|dump}} #}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">

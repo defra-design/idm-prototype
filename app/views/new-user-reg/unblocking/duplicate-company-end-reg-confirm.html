@@ -3,7 +3,7 @@
 {% set title = "Are you sure you wish to end your registration?" %}
 
 {% block header %}
-    {{ govukHeader({ serviceName: "" }) }}
+  {% include "includes/logged-out-header.html" %}
 {% endblock %}
 
 {% block pageTitle %}

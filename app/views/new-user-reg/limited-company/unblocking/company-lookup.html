@@ -3,7 +3,7 @@
 {% set title = "What is the Companies House number for the company you wish to register?" %}
 
 {% block header %}
-    {{ govukHeader({ serviceName: "" }) }}
+  {% include "includes/logged-out-header.html" %}
 {% endblock %}
 
 {% block pageTitle %}

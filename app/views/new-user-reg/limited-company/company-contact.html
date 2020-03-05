@@ -3,7 +3,7 @@
 {% set title = "What are the main contact details for this registered company?" %}
 
 {% block header %}
-    {{ govukHeader({ serviceName: "" }) }}
+  {% include "includes/logged-out-header.html" %}
 {% endblock %}
 
 {% block pageTitle %}
