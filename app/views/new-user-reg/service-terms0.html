@@ -2,6 +2,10 @@
 
 {% set title = "Specific information needed by the service" %}
 
+{% block header %}
+  {% include "includes/logged-out-header.html" %}
+{% endblock %}
+
 {% block pageTitle %}
     {{title}} - GOV.UK
 {% endblock %}

@@ -6,6 +6,10 @@
     {{title}} - GOV.UK
 {% endblock %}
 
+{% block header %}
+    {{ govukHeader({ serviceName: "" }) }}
+{% endblock %}
+
 {% block beforeContent %}
 
 {% endblock %}
@@ -13,6 +17,7 @@
 
 {% block content %}
 
+{# {{data|dump}} #}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">

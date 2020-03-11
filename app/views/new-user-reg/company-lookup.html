@@ -6,6 +6,10 @@
     {{title}} - GOV.UK
 {% endblock %}
 
+{% block header %}
+  {% include "includes/logged-out-header.html" %}
+{% endblock %}
+
 {% block beforeContent %}
   {{ govukBackLink({
     text: "Back",

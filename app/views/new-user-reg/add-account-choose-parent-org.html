@@ -2,6 +2,10 @@
 
 {% set title = "Choose the parent account" %}
 
+{% block header %}
+  {% include "includes/logged-out-header.html" %}
+{% endblock %}
+
 {% block pageTitle %}
     {{title}} - GOV.UK
 {% endblock %}

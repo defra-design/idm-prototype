@@ -2,6 +2,10 @@
 
 {% set title = "What are the main contact details for the business?" %}
 
+{% block header %}
+  {% include "includes/logged-out-header.html" %}
+{% endblock %}
+
 {% block pageTitle %}
     {{title}} - GOV.UK
 {% endblock %}

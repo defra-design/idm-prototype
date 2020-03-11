@@ -2,6 +2,10 @@
 
 {% set title = "What is your telephone number?" %}
 
+{% block header %}
+{% include "includes/logged-out-header.html" %}
+{% endblock %}
+
 {% block pageTitle %}
     {{title}} - GOV.UK
 {% endblock %}

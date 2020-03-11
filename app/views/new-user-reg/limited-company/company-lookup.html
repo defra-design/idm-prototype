@@ -2,6 +2,10 @@
 
 {% set title = "What is the Companies House number for the company you wish to register?" %}
 
+{% block header %}
+  {% include "includes/logged-out-header.html" %}
+{% endblock %}
+
 {% block pageTitle %}
     {{title}} - GOV.UK
 {% endblock %}

@@ -2,6 +2,10 @@
 
 {% set title = "Are you sure you wish to end your registration?" %}
 
+{% block header %}
+  {% include "includes/logged-out-header.html" %}
+{% endblock %}
+
 {% block pageTitle %}
     {{title}} - GOV.UK
 {% endblock %}

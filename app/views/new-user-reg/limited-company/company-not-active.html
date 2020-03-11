@@ -2,6 +2,10 @@
 
 {% set title = "This company is no longer active so cannot be registered" %}
 
+{% block header %}
+  {% include "includes/logged-out-header.html" %}
+{% endblock %}
+
 {% block pageTitle %}
     {{title}} - GOV.UK
 {% endblock %}

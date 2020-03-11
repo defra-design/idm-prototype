@@ -3,6 +3,10 @@
 {% set title = "Check your information" %}
 {% set businessType = "Sole Trader" %}
 
+{% block header %}
+  {% include "includes/logged-out-header.html" %}
+{% endblock %}
+
 {% block pageTitle %}
     {{title}} - GOV.UK
 {% endblock %}

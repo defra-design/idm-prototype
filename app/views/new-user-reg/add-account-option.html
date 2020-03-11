@@ -2,6 +2,10 @@
 
 {% set title = "Do you want to add a new account or add an organisation that is related to an existing account?" %}
 
+{% block header %}
+  {% include "includes/logged-out-header.html" %}
+{% endblock %}
+
 {% block pageTitle %}
     {{title}} - GOV.UK
 {% endblock %}
