@@ -19,9 +19,11 @@
 
 <!--{{data|dump}}-->
 
+<h1 class="govuk-heading-xl">{{title}}</h1>
+
 {% if data['businessType'] == "Sole trader" %}
     <!-- Sole Trader -->
-<h1 class="govuk-heading-xl">Update your sole trader details</h1>
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <table class="govuk-table {{ tableCSS }}">
@@ -63,7 +65,6 @@
 
     {% elseif data['businessType'] == "Charity" %}
     <!-- Charity -->
-    <h1 class="govuk-heading-xl">Update your charity details</h1>
 
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
@@ -105,7 +106,6 @@
 
     {% elseif data['businessType'] == "Non-UK" %}
     <!-- Non-UK -->
-<h1 class="govuk-heading-xl">Update your company details</h1>
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
@@ -148,7 +148,6 @@
 
     {% else %}
     <!-- Assuming UK Org or Unset -->
-<h1 class="govuk-heading-xl">Update your organisation details</h1>
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <table class="govuk-table {{ tableCSS }}">
