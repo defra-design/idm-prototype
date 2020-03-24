@@ -1,4 +1,4 @@
-Your Defra organisation details have been updated for {!Organisation:Name;}
+Your Defra organisation address details have been updated for {!Organisation:Name;}
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -109,18 +109,18 @@ Your Defra organisation details have been updated for {!Organisation:Name;}
             <![endif]-->
 
 <!-- Content starts -->
-            <p class="govuk-body">
-              Hello {!Custom:AdminFirstName;},
-            </p>
-            <p class="govuk-body">
-              There has been a <b>change of organisation details</b> for {!Organisation:Name;}.
-            </p>
-            <p class="govuk-body">
-                Defra have been notified of the change and have made the update to the organisation record.
-            </p>
-            <p class="govuk-body">
-              <b>Please sign in to view the change.</b> If you believe that there has been a mistake, <a href="/help#contacting-defra-services">please contact the relevant service</a>.
-            </p>
+          <p class="govuk-body">
+            Hello {!Custom:AdminFirstName;},
+          </p>
+          <p class="govuk-body">
+            There has been a <b>change of organisation address</b> for {!Organisation:Name;} to
+          </p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li><b>{!Organisation:REG_Building Number;}  {!Organisation:REG_Building Name;} {!Organisation:REG_Street;}  {!Organisation:REG_Town;}  {!Organisation:REG_Postcode;}</b></li>
+          </ul>
+          <p class="govuk-body">
+            Defra have been notified of the change and have made the update to the organisation record.
+          </p>
 
             <blockquote style="Margin: 0 0 20px 0; border-left: 10px solid #BFC1C3;padding: 15px 0 0.1px 15px; font-size: 19px; line-height: 25px;">
               <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #005ea5;"><strong><a style="word-wrap: break-word; color: #005ea5;" href="{!Custom:ServicesHelpLink;}">Sign in to your account</a></strong></p>
