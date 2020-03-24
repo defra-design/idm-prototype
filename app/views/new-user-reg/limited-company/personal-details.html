@@ -20,16 +20,24 @@
 {% endblock %}
 
 
+
 {% block content %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-
     {% if data['flowType'] == "check" %}
       <form method="post" action="check-your-answers">
     {% else %}
-      <form method="post" action="task-list-page-personal-details">
+        {% if data['IV'] == "on" %}
+          {% if data['IVRes'] == "fail" %}
+            <form method="post" action="IVFail">
+          {% else %}
+            <form method="post" action="IV">
+          {% endif %}
+        {% else %}
+        <form method="post" action="task-list-page-personal-details">
+        {% endif %}
     {% endif %}
 
         {% call govukFieldset({

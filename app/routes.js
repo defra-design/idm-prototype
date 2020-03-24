@@ -194,12 +194,27 @@ router.get('/tests/ac2', function (req, res) {
 })
 
 
+//IV redirect but store the data first
+router.post('/new-user-reg/limited-company/IV', function (req, res) {
+  //req.session.data['personalFirstName'] = "Anne"; //backup way of setting dummy data
+  //req.session.data['personalSurname'] = "Bloggs";
+    res.redirect('https://si-prototype.herokuapp.com/latest/pdv?qRand=true&cl=200&redirect=http://localhost:3000//new-user-reg/limited-company/task-list-page-personal-details?IV=on')
+})
+
+//IV redirect but store the data first
+router.post('/new-user-reg/limited-company/IVFail', function (req, res) {
+  //req.session.data['personalFirstName'] = "Anne"; //backup way of setting dummy data
+  //req.session.data['personalSurname'] = "Bloggs";
+    res.redirect('https://si-prototype.herokuapp.com/latest/pdv?qRand=true&cl=200&redirect=http://localhost:3000//new-user-reg/limited-company/task-list-page-IV-fail?IV=on')
+})
+
+
+
 //Cookie settings
 router.get('/cookie-settings', function (req, res) {
   req.session.data['savedCookieChanges'] = "";
     res.render('cookie-settings')
 })
-
 
 
 router.post('/cookie-settings', function (req, res) {

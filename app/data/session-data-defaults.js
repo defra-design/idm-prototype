@@ -44,7 +44,9 @@ module.exports = {
 "street-name": "The Grove",
 "address-town": "Mytown",
 "address-postcode": "MY3 4RF",
-"address-country": "UK"
+"address-country": "UK",
+"IV": "off",
+"IVRes": "success"
 
   // Insert values here
 

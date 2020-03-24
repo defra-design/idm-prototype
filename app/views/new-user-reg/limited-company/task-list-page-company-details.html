@@ -48,9 +48,15 @@
           </h2>
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
+              {% if data['IV'] == "on" %}
+              <a class="app-task-list__task-name" href="personal-details" aria-describedby="personal-details-completed">
+                Your identity
+              </a>
+              {% else %}
               <a class="app-task-list__task-name" href="personal-details" aria-describedby="personal-details-completed">
                 Your name
               </a>
+              {% endif %}
               <strong class="govuk-tag app-task-list__task-completed" id="personal-details-completed">
                 Completed
               </strong>
