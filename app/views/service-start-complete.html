@@ -29,7 +29,7 @@
 
   {% if (data['userType'] == "existing") or (data['systemRole'] == "Admin") or (data['userType'] == "new") %}
           {% if (data['orgType'] == "Individual")%}
-              {% include "includes/account-nav-admin-Individual.html" %}
+              {% include "includes/account-nav-admin-individual.html" %}
           {% else %}
               {% include "includes/account-nav-admin-corp.html" %}
           {% endif %}
