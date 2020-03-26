@@ -2,6 +2,7 @@
 
 {% set title = "Service name" %}
 
+
 {% block header %}
   {% if data['serviceLine'] == "Notification Service" %}
     {{ govukHeader({ serviceName: "Notification Service", serviceUrl: "/" }) }}
@@ -31,7 +32,7 @@
   {% endif %}
 
   {% if (data['userType'] == "existing") and (data['systemRole'] == "Standard user") %}
-        {% include "includes/account-nav-standard-account.html" %}
+          {% include "includes/account-nav-standard-account.html" %}
   {% endif %}
 
   {% if data['userType'] == "existing-agent" %}
