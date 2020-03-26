@@ -28,7 +28,11 @@
 {% block beforeContent %}
 
   {% if (data['userType'] == "existing") or (data['systemRole'] == "Admin") or (data['userType'] == "new") %}
-        {% include "includes/account-nav-admin-corp.html" %}
+          {% if (data['orgType'] == "Individual")%}
+              {% include "includes/account-nav-admin-Individual.html" %}
+          {% else %}
+              {% include "includes/account-nav-admin-corp.html" %}
+          {% endif %}
   {% endif %}
 
   {% if (data['userType'] == "existing") and (data['systemRole'] == "Standard user") %}
