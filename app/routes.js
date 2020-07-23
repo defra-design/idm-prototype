@@ -41,7 +41,6 @@ router.get('/manage/dashboard-child', function (req, res) {
       "showAgentCSS": "",
       "showClientCSS": "govuk-visually-hidden",
       "clientAddressCSS": "govuk-visually-hidden"
-
     })
 })
 
@@ -90,6 +89,7 @@ router.get('/scp/login-new', function (req, res) {
       "signinButton": '/about-data'
     })
 })
+
 // Invited user
 router.get('/scp/login-invite', function (req, res) {
     res.render('scp/login',{
