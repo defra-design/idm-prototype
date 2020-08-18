@@ -40,7 +40,7 @@
           {{ data['orgType']}}
         </dd>
         <dd class="app-check-your-answers__change">
-          <a href="../organisation-type" class="govuk-link" >
+          <a href="../change-account-type-confirm?flowType=check" class="govuk-link" >
             Change<span class="govuk-visually-hidden"> account type</span>
           </a>
         </dd>
@@ -130,7 +130,7 @@
         {% if (data['serviceLine'] == "Exporter Service") %}
           <form action="https://exports-defra.herokuapp.com/e2e/confirmation" method="post">
         {% else %}
-          <form action="/service-start-complete" method="post">
+          <form action="/" method="post">
         {% endif %}
     {% endif %}
 
@@ -169,9 +169,9 @@
       </div>
       <!-- End of Mary's beautiful capture hack -->
     </div>
-
-    <button disabled="disabled" aria-disabled="true" class="govuk-button" data-module="govuk-button" id="myButton">Continue</button>
-
+    <a href="/">
+        <button disabled="disabled" aria-disabled="true" class="govuk-button" data-module="govuk-button" id="myButton">Continue</button>
+    </a>
     </form>
 
     <!-- reCatptcha End -->
