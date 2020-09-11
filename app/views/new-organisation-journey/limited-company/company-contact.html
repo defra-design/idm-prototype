@@ -26,36 +26,39 @@
 
 
 
-{% if data['userType'] == "existing" %}
-    <form action="check-your-answers-add-account" method="post">
+{% if data['userType'] == "task" %}
+    <form action="task-list-page-company-details" method="post">
 {% else %}
 
         {% if data['flowType'] == "check" %}
-          <form method="post" action="task-list-page-company-details">
-        {% endif %}
-        {% if data['flowType'] == "addAccount" %}
-          <form method="post" action="task-list-page-company-details">
-        {% endif %}
-        {% if data['flowType'] == "task" %}
-          <form method="post" action="task-list-page-company-details">
-        {% endif %}
-{% endif %}
+        <form method="post" action="check-your-answers">
+            <!--{% else %}
+            <form method="post" action="task-list-page-company-details">
+                {% endif %}
+                {% if data['flowType'] == "addAccount" %}
+                <form method="post" action="task-list-page-company-details">
+                    {% endif %}
+                    {% if data['flowType'] == "task" %}
+                    <form method="post" action="task-list-page-company-details">
+                        {% endif %}
+                        {% endif %}
 
-{% call govukFieldset({
-    describedBy: "contactHint",
-legend: {
-  text: title,
-  classes: "govuk-fieldset__legend--xl",
-  isPageHeading: true
-}
-}) %}
+                        {% call govukFieldset({
+                        describedBy: "contactHint",
+                        legend: {
+                        text: title,
+                        classes: "govuk-fieldset__legend--xl",
+                        isPageHeading: true
+                        }
+                        }) %}-->
 
-<span class="govuk-hint" id="contactHint">
-These could be details included on the website, or contact details for the head office or management team.
-</span>
+                        <span class="govuk-hint" id="contactHint">
+                            These could be details included on the website, or contact details for the head office or management team.
+                        </span>
 
 
-        {{ govukInput({
+                        {{
+ govukInput({
           label: {
             text: "Telephone number"
           },
@@ -64,9 +67,11 @@ These could be details included on the website, or contact details for the head 
           name: "businessTelephone",
           value: data['businessTelephone'],
           type: "tel"
-        }) }}
+        })
+                        }}
 
-        {{ govukInput({
+                        {{
+ govukInput({
           label: {
             text: "Email address"
           },
@@ -75,15 +80,18 @@ These could be details included on the website, or contact details for the head 
           name: "businessEmail",
           value: data['businessEmail'],
           type: "email"
-        }) }}
+        })
+                        }}
 
-        {{ govukButton({
+                        {{
+ govukButton({
           text: "Continue"
-        }) }}
-{% endcall %}
-      </form>
+        })
+                        }}
+                        {% endcall %}
+                    </form>
 
-  </div>
+</div>
 </div>
 
 {% endblock %}

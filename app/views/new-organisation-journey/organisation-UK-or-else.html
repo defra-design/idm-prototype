@@ -23,60 +23,60 @@
 {% block content %}
 
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-column-two-thirds">
+        <p class="govuk-body">If you work for a multi-national organisation, register the office which will be responsible for this service.</p>
+        <form class="org-type" onsubmit="return myFunction()" method="post">
 
-      <form class="org-type" onsubmit="return myFunction()" method="post">
+            {% if data['userType'] == "existing" %}
+            <script>
+                const form = document.querySelector('.org-type')
 
-          {% if data['userType'] == "existing" %}
-          <script>
-              const form = document.querySelector('.org-type')
+                function myFunction() {
+                    const checked = document.querySelector('[name="businessType"]:checked')
+                    const checkedValue = checked.value
 
-              function myFunction() {
-                  const checked = document.querySelector('[name="businessType"]:checked')
-                  const checkedValue = checked.value
+                    switch (checkedValue) {
+                        case 'UK Organisation':
+                            form.action = '/new-organisation-journey/company-registered-question'
 
-                  switch (checkedValue) {
-                      case 'UK Organisation':
-                          form.action = '/new-organisation-journey/company-registered-question'
+                            break;
+                        case 'Non-UK Organisation':
+                            form.action = '/new-organisation-journey/non-uk-org/task-list-page-account'
+                            break;
 
-                          break;
-                      case 'Non-UK Organisation':
-                          form.action = '/new-organisation-journey/non-uk-org/task-list-page-account'
-                          break;
+                        default:
+                            form.action = '/organisation-business-coming-soon'
+                    }
+                    return true
+                }
+            </script>
 
-                      default:
-                          form.action = '/organisation-business-coming-soon'
-                  }
-                  return true
-              }
-          </script>
+            {% else %}
+            <script>
+                const form = document.querySelector('.org-type')
 
-          {% else %}
-          <script>
-              const form = document.querySelector('.org-type')
+                function myFunction() {
+                    const checked = document.querySelector('[name="businessType"]:checked')
+                    const checkedValue = checked.value
 
-              function myFunction() {
-                  const checked = document.querySelector('[name="businessType"]:checked')
-                  const checkedValue = checked.value
+                    switch (checkedValue) {
+                        case 'UK Organisation':
+                            form.action = '/new-organisation-journey/company-registered-question'
 
-                  switch (checkedValue) {
-                      case 'UK Organisation':
-                          form.action = '/new-organisation-journey/company-registered-question'
+                            break;
+                        case 'Non-UK Organisation':
+                            form.action = '/new-organisation-journey/non-uk-org/org-name'
+                            break;
+                        default:
+                            form.action = '/organisation-business-coming-soon'
+                    }
+                    return true
+                }
+            </script>
 
-                          break;
-                      case 'Non-UK Organisation':
-                          form.action = '/new-organisation-journey/non-uk-org/org-name'
-                          break;
-                      default:
-                          form.action = '/organisation-business-coming-soon'
-                  }
-                  return true
-              }
-          </script>
+            {% endif %}
 
-          {% endif %}
-
-          {{
+            {{
  govukRadios({
         idPrefix: "businessType",
         name: "businessType",
@@ -95,22 +95,22 @@
           },
           {
             value: "Non-UK Organisation",
-            text: "Non-UK (Organisation is not registered in the UK)",
+            text: "Non-UK (Organisation that is not registered in the UK)",
             checked:  checked('businessType', 'Non-UK Organisation')
           }
         ]
       })
-          }}
+            }}
 
-          {{
+            {{
  govukButton({
         text: "Continue"
       })
-          }}
+            }}
 
-      </form>
+        </form>
 
-  </div>
+    </div>
 </div>
 
 {% endblock %}

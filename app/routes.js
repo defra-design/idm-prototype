@@ -26,6 +26,21 @@ router.get('/manage/dashboard-all', function (req, res) {
     })
 })
 
+router.get('/new-organisation-journey/manage/dashboard-all', function (req, res) {
+    res.render('manage/dashboard', {
+        "teamMemberURL": 'team-members/team-members',
+        "addAgentURL": '/manage/agent/invite-user/add-user-details',
+        "addUserURL": '/manage/team-members/invite-user/add-user-details',
+        "agentURL": '/manage/agent/agent',
+        "addLocationURL": '/manage/organisations/company-name?addAddress=rel-org&addAccount=related',
+        "locationURL": 'organisations/organisation-details',
+        "locationAddressCSS": "",
+        "showAgentCSS": "",
+        "showClientCSS": "govuk-visually-hidden",
+        "clientAddressCSS": "govuk-visually-hidden"
+    })
+})
+
 // Child dash
 router.get('/manage/dashboard-child', function (req, res) {
     res.render('manage/dashboard',{

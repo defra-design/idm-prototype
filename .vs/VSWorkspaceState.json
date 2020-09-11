@@ -4,8 +4,9 @@
     "\\app",
     "\\app\\views",
     "\\app\\views\\new-organisation-journey",
-    "\\app\\views\\new-organisation-journey\\sole-trader"
+    "\\app\\views\\new-organisation-journey\\limited-company",
+    "\\app\\views\\new-organisation-journey\\manage\\organisations"
   ],
-  "SelectedNode": "\\app\\views\\new-organisation-journey\\sole-trader",
+  "SelectedNode": "\\app\\views\\new-organisation-journey\\limited-company\\company-lookup.html",
   "PreviewInSolutionExplorer": false
 }
