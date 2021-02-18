@@ -1,6 +1,7 @@
 {% extends "layout.html" %}
 
-{% set title = "You do not have permission to access this service" %}
+<!-- {% set title = "You do not have permission to access the service" %} -->
+{% set title = "Sorry, there is a problem with this service" %}
 
 {% block pageTitle %}
     {{title}} - GOV.UK
@@ -22,7 +23,9 @@
       {{title}}
     </h1>
 
-    <p><a href=“mailto:emailaddress”>Email someone@account.com</a> if you think you do have permission to access this service.</p>
+    <p><a href=“mailto:defra.helpline@defra.gov.uk”>Contact defra.helpline@defra.gov.uk</a> if you want to get help with this.</p>
+
+    <p>You can also contact us by calling our Helpline: 03459 33 55 77. The Helpline is open Monday to Friday 8:30am to 5pm. <a href="https://www.gov.uk/call-charges" target="_blank">Find out about call charges (opens in a new tab).</a></p>
 
   </div>
 </div>
