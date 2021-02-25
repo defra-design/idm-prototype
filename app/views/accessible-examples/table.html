@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+
+{% set title = "Manage team access" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+  <!-- {% include "includes/account-nav-admin-login.html" %} -->
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">
+      {{title}}
+    </h1>
+
+    <button class="govuk-button" data-module="govuk-button">
+      Add a team member
+    </button>
+
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <table class="govuk-table">
+      <!-- <caption class="govuk-table__caption govuk-table__caption--m">Month you apply</caption> -->
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Team member</th>
+          <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Email address</th>
+          <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Account role</th>
+          <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Account status</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><span class="govuk-body--secondary-color" style="color:#505a5f;">To be confirmed</span></td>
+          <td class="govuk-table__cell">sam@mac.com</td>
+          <td class="govuk-table__cell"><span class="secondary-text">None</span></td>
+          <td class="govuk-table__cell">
+            <strong class="govuk-tag govuk-tag--green">
+              Invitation email sent
+            </strong>
+          </td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Phil Mendez</td>
+          <td class="govuk-table__cell">phil.mendez@gmail.com</td>
+          <td class="govuk-table__cell">Admin</td>
+          <td class="govuk-table__cell">
+            <strong class="govuk-tag govuk-tag--blue">
+              Live
+            </strong>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+
+  </div>
+</div>
+
+{% endblock %}

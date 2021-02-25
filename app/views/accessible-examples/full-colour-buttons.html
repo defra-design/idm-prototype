@@ -1,0 +1,78 @@
+{% extends "layout.html" %}
+
+{% set title = "Your information" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+  <!-- {% include "includes/account-nav-admin-login.html" %} -->
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">
+      {{title}}
+    </h1>
+
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">
+        About you
+      </caption>
+      <!-- <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Your name</th>
+          <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Contact details</th>
+          <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Security word</th>
+        </tr>
+      </thead> -->
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Your name</td>
+          <td class="govuk-table__cell">Sam Mendez</td>
+          <td class="govuk-table__cell"><a href="#">Change</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Contact details</td>
+          <td class="govuk-table__cell">07824551877<br>idm@brie-exports.org.uk</td>
+          <td class="govuk-table__cell"><a href="#">Change</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Your security word</td>
+          <td class="govuk-table__cell">jamsandwiches</td>
+          <td class="govuk-table__cell"><a href="#">Change</a></td>
+        </tr>
+
+      </tbody>
+    </table>
+
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-third">
+
+    <div class="govuk-!-margin-bottom-3">
+      <img src="/public/images/fake-captcha.png" width="309px" height="77px" alt="Fake reCAPTCHA image">
+    </div>
+
+    <button class="govuk-button" data-module="govuk-button">
+      Continue
+    </button>
+
+  </div>
+</div>
+
+{% endblock %}
