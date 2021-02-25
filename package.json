@@ -12,19 +12,19 @@
     "test": "npm run lint && gulp generate-assets && jest"
   },
   "dependencies": {
-    "acorn": "^6.0.5",
+    "acorn": "^6.4.2",
     "ansi-colors": "^3.2.3",
     "basic-auth": "^2.0.0",
     "basic-auth-connect": "^1.0.0",
     "body-parser": "^1.14.1",
-    "browser-sync": "^2.11.1",
+    "browser-sync": "^2.26.14",
     "client-sessions": "^0.8.0",
-    "cookie-parser": "^1.4.3",
+    "cookie-parser": "^1.4.5",
     "cross-spawn": "^6.0.5",
     "del": "^3.0.0",
     "dotenv": "^6.0.0",
     "express": "4.16.3",
-    "express-session": "^1.13.0",
+    "express-session": "^1.17.1",
     "express-writer": "0.0.4",
     "fancy-log": "^1.3.3",
     "govuk-elements-sass": "^3.1.3",
@@ -32,19 +32,19 @@
     "govuk_frontend_toolkit": "^7.5.0",
     "govuk_template_jinja": "^0.24.1",
     "gulp": "^4.0.2",
-    "gulp-nodemon": "^2.1.0",
-    "gulp-sass": "^4.0.1",
+    "gulp-nodemon": "^2.5.0",
+    "gulp-sass": "^4.1.0",
     "gulp-sourcemaps": "^2.6.0",
     "keypather": "^3.0.0",
     "marked": "^0.4.0",
-    "notifications-node-client": "^4.1.0",
-    "nunjucks": "^3.1.3",
+    "notifications-node-client": "^4.9.0",
+    "nunjucks": "^3.2.3",
     "portscanner": "^2.1.1",
-    "prompt": "^1.0.0",
+    "prompt": "^1.1.0",
     "require-dir": "^1.0.0",
     "sync-request": "^6.0.0",
-    "universal-analytics": "^0.4.16",
-    "uuid": "^3.2.1"
+    "universal-analytics": "^0.4.23",
+    "uuid": "^3.4.0"
   },
   "greenkeeper": {
     "ignore": [
@@ -52,9 +52,9 @@
     ]
   },
   "devDependencies": {
-    "glob": "^7.1.4",
+    "glob": "^7.1.6",
     "jest": "^24.0.1",
-    "node-sass": "^4.12.0",
+    "node-sass": "^4.14.1",
     "standard": "^12.0.1",
     "supertest": "^3.0.0"
   }
