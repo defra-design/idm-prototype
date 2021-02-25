@@ -1,3 +1,4 @@
 {
-  "collectUsageData": false
+  "collectUsageData": true,
+  "clientId": "d91e6cff-a31e-4ff6-a66a-e0beb24601b7"
 }
