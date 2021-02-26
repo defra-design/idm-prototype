@@ -1,5 +1,5 @@
 .wrapper--grey {
-  background-color: govuk-colour("grey-3");
+  // background-color: govuk-colour("grey-3");
   padding: govuk-spacing(4);
   @include govuk-responsive-margin(6, "bottom");
 }
@@ -35,7 +35,7 @@ $govuk-card-selected-foreground-colour : govuk-colour("white");
 }
 
 .govuk-card--contained {
-  background-color: govuk-colour("grey-4");
+  // background-color: govuk-colour("grey-4");
 }
 
 .govuk-card--contained--on-background {
