@@ -1,0 +1,132 @@
+{% extends "layout.html" %}
+
+{% set title = "Check your information" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">
+      {{title}}
+    </h1>
+
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="sending-your-details">
+
+      <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-table__caption--m">
+          Your account
+        </caption>
+        <!-- <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Your name</th>
+            <th scope="col" class="govuk-table__header">Contact details</th>
+            <th scope="col" class="govuk-table__header">Security word</th>
+          </tr>
+        </thead> -->
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell govuk-!-width-one-third">Account type</td>
+            <td class="govuk-table__cell">Business</td>
+            <td class="govuk-table__cell"><a href="#">Change</a></td>
+          </tr>
+
+        </tbody>
+      </table>
+
+      <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-table__caption--m">
+          About your organisation
+        </caption>
+        <!-- <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Your name</th>
+            <th scope="col" class="govuk-table__header">Contact details</th>
+            <th scope="col" class="govuk-table__header">Security word</th>
+          </tr>
+        </thead> -->
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell govuk-!-width-one-third">Company name</td>
+            <td class="govuk-table__cell">DEFRAVIN LTD</td>
+            <td class="govuk-table__cell"><a href="#">Change</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Companies House number</td>
+            <td class="govuk-table__cell">12779757</td>
+            <td class="govuk-table__cell"><a href="#">Change</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Organisation type</td>
+            <td class="govuk-table__cell">Limited company</td>
+            <td class="govuk-table__cell"><a href="#">Change</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Contact number</td>
+            <td class="govuk-table__cell">0044208 546 541</td>
+            <td class="govuk-table__cell"><a href="#">Change</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Main email address</td>
+            <td class="govuk-table__cell">info@defravin.com</td>
+            <td class="govuk-table__cell"><a href="#">Change</a></td>
+          </tr>
+
+        </tbody>
+      </table>
+
+      <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-table__caption--m">
+          About you
+        </caption>
+
+        <tbody class="govuk-table__body">
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell govuk-!-width-one-third">Your name</td>
+            <td class="govuk-table__cell">Sam Davenant</td>
+            <td class="govuk-table__cell"><a href="#">Change</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Your contact details</td>
+            <td class="govuk-table__cell">07824551877<br>idm@brie-exports.org.uk</td>
+            <td class="govuk-table__cell"><a href="#">Change</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Your security word</td>
+            <td class="govuk-table__cell">jamsandwiches</td>
+            <td class="govuk-table__cell"><a href="#">Change</a></td>
+          </tr>
+
+        </tbody>
+      </table>
+
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

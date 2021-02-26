@@ -8,17 +8,28 @@
 
 {% block beforeContent %}
 
-  {{ govukBackLink({
-    text: "Back",
-    href: "javascript:history.back()"
-  }) }}
-  
+  <!-- {% include "includes/account-nav-admin-login.html" %} -->
+
 {% endblock %}
 
 {% block content %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
+
+    <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary">
+      <h2 class="govuk-error-summary__title" id="error-summary-title">
+        There is a problem
+      </h2>
+      <div class="govuk-error-summary__body">
+        <ul class="govuk-list govuk-error-summary__list">
+          <li>
+            <!-- the id here should be into the reCAPTCHA checkbox if this is the only error -->
+            <a href="#reCAPTCHA">You must complete the reCAPTCHA verification before you continue</a>
+          </li>
+        </ul>
+      </div>
+    </div>
 
     <h1 class="govuk-heading-xl">
       {{title}}
@@ -67,9 +78,12 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-one-third">
 
-    <form action="full-colour-buttons-error">
+    <div class="govuk-form-group govuk-form-group--error govuk-!-margin-bottom-3" id="reCAPTCHA">
 
-    <div class="govuk-!-margin-bottom-3">
+      <span id="passport-issued-error" class="govuk-error-message">
+        <span class="govuk-visually-hidden">Error:</span>You must complete the reCAPTCHA verification before you continue
+      </span>
+
       <img src="/public/images/fake-captcha.png" width="309px" height="77px" alt="Fake reCAPTCHA image">
     </div>
 

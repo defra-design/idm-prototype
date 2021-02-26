@@ -7,9 +7,12 @@
 {% endblock %}
 
 {% block beforeContent %}
-  <!-- <div id="profile">
-    {% include "includes/account-nav-admin-corp.html" %}
-  </div> -->
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
 {% endblock %}
 
 {% block content %}

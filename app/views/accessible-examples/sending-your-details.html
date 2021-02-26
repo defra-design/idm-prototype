@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% set title = "Sending your details" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">
+      {{title}}
+    </h1>
+
+    <div class="test-thing govuk-!-margin-bottom-6">
+      <div id="test-thing">
+        a
+      </div>
+    </div>
+
+    <!-- loading spinner / nhs css example -->
+    <div class="app-example app-example--tag govuk-!-margin-bottom-6">
+      <div class="nhsuk-loader">
+        <span class="nhsuk-loader__spinner"></span>
+        <span class="nhsuk-loader__text">Sending your details. Please wait.</span>
+      </div>
+    </div>
+
+
+    <script language="javascript" type="text/javascript">
+        window.setTimeout('location.replace("/")',5000);
+    </script>
+
+    <p class="govuk-body-l">
+      Sending your details. Please wait. This might take up to a minute.
+    </p>
+
+  </div>
+</div>
+
+<div class="spinner"></div>
+
+{% endblock %}
