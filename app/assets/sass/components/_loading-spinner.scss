@@ -1,37 +1,52 @@
 /* ==========================================================================
-   COMPONENTS / #LOADER
+   COMPONENTS / #LOADER / NHS version
    ========================================================================== */
 
-.test-thing {
-  color: red;
-}
-
-#test-thing {
-  color: green;
-}
-
 .nhsuk-loader {
-  @include nhsuk-responsive-margin(4, bottom);
-  @include nhsuk-responsive-margin(4, top);
-
   position: relative;
   text-align: center;
 }
 
 .nhsuk-loader__spinner {
   animation: spin 2s linear infinite;
-  border: nhsuk-spacing(3) solid $color_nhsuk-grey-4;
+  border: 1rem solid $govuk-border-colour;
   border-radius: 50%;
-  border-top: nhsuk-spacing(3) solid tint($color_nhsuk-blue, 15%);
+  border-top: 1rem solid $govuk-brand-colour;
   display: inline-block;
   height: 120px;
   margin: auto;
   width: 120px;
 }
 
-.nhsuk-loader__text {
-  @include nhsuk-typography-responsive(19);
+/* ==========================================================================
+   COMPONENTS / #LOADER / Defra version
+   ========================================================================== */
 
+.defra-loader {
+  position: relative;
+  text-align: center;
+  height: 45vh;
+}
+
+
+
+.defra-loader__spinner {
+  animation: spin 2s linear infinite;
+  border: 1.4rem solid $govuk-border-colour;
+  border-radius: 50%;
+  border-top: 1.4rem solid $govuk-brand-colour;
+  display: inline-block;
+  height: 120px;
+  width: 120px;
+  margin: 2rem;
+}
+
+.nhsuk-loader__text {
+  display: block;
+  margin-bottom: 0;
+}
+
+.defra-loader__text {
   display: block;
   margin-bottom: 0;
 }

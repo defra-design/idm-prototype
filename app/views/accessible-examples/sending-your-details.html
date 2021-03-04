@@ -8,44 +8,35 @@
 
 {% block beforeContent %}
 
-  {{ govukBackLink({
+  <!-- {{ govukBackLink({
     text: "Back",
     href: "javascript:history.back()"
-  }) }}
+  }) }} -->
 
 {% endblock %}
 
 {% block content %}
 
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
+  <div class="govuk-grid-column-full">
 
-    <h1 class="govuk-heading-xl">
+    <!-- <h1 class="govuk-heading-xl">
       {{title}}
-    </h1>
-
-    <div class="test-thing govuk-!-margin-bottom-6">
-      <div id="test-thing">
-        a
-      </div>
-    </div>
+    </h1> -->
 
     <!-- loading spinner / nhs css example -->
-    <div class="app-example app-example--tag govuk-!-margin-bottom-6">
-      <div class="nhsuk-loader">
-        <span class="nhsuk-loader__spinner"></span>
-        <span class="nhsuk-loader__text">Sending your details. Please wait.</span>
-      </div>
+    <div class="defra-loader">
+      <span class="defra-loader__spinner"></span>
+      <span class="defra-loader__text govuk-body-l">Sending your details. Please wait.</span>
     </div>
 
+    <!-- dummy redirect after some time -->
+    <!-- <script language="javascript" type="text/javascript">
+      window.setTimeout('location.replace("/")',5000);
+    </script> -->
 
-    <script language="javascript" type="text/javascript">
-        window.setTimeout('location.replace("/")',5000);
-    </script>
-
-    <p class="govuk-body-l">
-      Sending your details. Please wait. This might take up to a minute.
-    </p>
+    <!-- if the wait will be long consider a message like: -->
+    <!-- “Sending your details. Please wait. This might take up to a minute.” -->
 
   </div>
 </div>

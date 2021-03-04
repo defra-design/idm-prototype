@@ -21,7 +21,10 @@ $govuk-assets-path: '/govuk/assets/';
 @import "patterns/idm";
 @import "patterns/login-nav";
 
-// @import "components/loading-spinner";
+@import "components/loading-spinner";
+
+// test
+// @import "components/cookie-banner";
 
 //Cookie banner $govuk-global-styles
 @import "_cookies"
