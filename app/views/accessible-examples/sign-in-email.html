@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+
+{% set title = "Sign in to your Defra account" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block header %}
+  {# Set serviceName in config.js. #}
+  {{ govukHeader({
+    homepageUrl: "/",
+    serviceName: "",
+    serviceUrl: "/",
+    containerClasses: "govuk-width-container"
+  }) }}
+{% endblock %}
+
+{% block beforeContent %}
+
+  <!-- {% include "includes/account-nav-admin-login.html" %} -->
+  <!-- {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }} -->
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <!-- <h1 class="govuk-heading-xl">
+      {{title}}
+    </h1> -->
+
+    <p class="govuk-body">
+      Hello Sam,
+    </p>
+
+    <p class="govuk-body">
+      Thank you for registering to use Defra online services on behalf of DEFRAVIN LTD.
+    </p>
+
+    <p class="govuk-body">
+      You can use this account to register for other services from Defra and its related organisations.
+    </p>
+
+    <p class="govuk-body">
+      <a href="#">
+        Sign into your account
+      </a>
+    </p>
+
+    <div class="govuk-inset-text">
+      Your contact support ID is BA202153-G2-2402-S1-1115.
+    </div>
+
+    <p class="govuk-body">
+      You will need your contact support ID if you contact Defra or related organisations abount your Defra account.
+    </p>
+
+    <p class="govuk-body">
+      <a href="#">
+        Privacy notice
+      </a>
+    </p>
+
+  </div>
+</div>
+
+{% endblock %}
