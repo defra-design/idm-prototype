@@ -248,3 +248,6 @@ router.post('/cookie-settings', function (req, res) {
      }
     res.redirect('cookie-settings')
 })
+
+// added for the waste management registration pages
+router.use('/defra-id', require('./views/defra-id/_routes'));
