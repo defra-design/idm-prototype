@@ -35,7 +35,8 @@ $govuk-card-selected-foreground-colour : govuk-colour("white");
 }
 
 .govuk-card--contained {
-  // background-color: govuk-colour("grey-4");
+  background-color: govuk-colour("light-grey");
+  min-height: 15.5rem;
 }
 
 .govuk-card--contained--on-background {
@@ -62,6 +63,7 @@ $govuk-card-selected-foreground-colour : govuk-colour("white");
 
 .govuk-card--selectable:hover {
   background-color: $govuk-card-selected-background-colour;
+
 }
 
 .govuk-card--selectable:hover > .govuk-card__content > h3,
@@ -88,7 +90,6 @@ $govuk-card-selected-foreground-colour : govuk-colour("white");
 .govuk-card--selectable > a:focus {
   background-color: initial !important;
 }
-
 
 .govuk-card__hero {
   line-height: 0;
