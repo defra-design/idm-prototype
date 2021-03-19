@@ -1,0 +1,102 @@
+{% extends "layout.html" %}
+{% set serviceName = "Defra account" %}
+
+{% set title = "Update your organisation details" %}
+
+{% block beforeContent %}
+
+<!-- Determines the navigation -->
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+
+  <div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="account">Home</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="dashboard">
+          Big Company Ltd
+        </a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="organisation-detail">
+          Organisation details
+        </a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <!-- <a class="govuk-breadcrumbs__link" href="update-organisation-detail"> -->
+          Update organisation details
+        <!-- </a> -->
+      </li>
+    </ol>
+  </div>
+{% endblock %}
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <h1 class="govuk-heading-xl">
+        {{title}}
+      </h1>
+    </div>
+  </div>
+
+  <p class="govuk-body">
+    Make updates to Your Defra registered Organisation information.
+  </p>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Phone number
+          </dt>
+          <dd class="govuk-summary-list__value">
+            01625 376176
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">
+              Change<span class="govuk-visually-hidden"> phone number</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Email
+          </dt>
+          <dd class="govuk-summary-list__value">
+            sam.woods@bigcompany.co.uk
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">
+              Change<span class="govuk-visually-hidden"> email address</span>
+            </a>
+          </dd>
+        </div>
+
+      </dl>
+
+      <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Change your organisation address
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          You must update the organisation address with Companies House.<br>
+          <a href="https://www.gov.uk/government/collections/companies-house-forms-file-a-change-of-address" class="govuk-link" rel="noreferrer noopener" target="_blank">File a change of address with Companies House (opens in a new tab)</a>
+        </div>
+      </details>
+
+    </div>
+  </div>
+
+
+{% endblock %}

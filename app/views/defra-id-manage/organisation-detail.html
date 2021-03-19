@@ -1,0 +1,206 @@
+{% extends "layout.html" %}
+{% set serviceName = "Defra account" %}
+
+{% set title = "Big Company Ltd" %}
+
+{% block beforeContent %}
+
+<!-- Determines the navigation -->
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+
+  <div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="account">Home</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="dashboard">
+          Big Company Ltd
+        </a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <!-- <a class="govuk-breadcrumbs__link" href="#"> -->
+          Organisation details
+        <!-- </a> -->
+      </li>
+    </ol>
+  </div>
+{% endblock %}
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <h1 class="govuk-heading-xl">
+        {{title}}
+      </h1>
+    </div>
+  </div>
+
+  <div class="govuk-tabs" data-module="govuk-tabs">
+    <h2 class="govuk-tabs__title">
+      Contents
+    </h2>
+    <ul class="govuk-tabs__list">
+      <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+        <a class="govuk-tabs__tab" href="#organisation">
+          Organisation address
+        </a>
+      </li>
+      <li class="govuk-tabs__list-item">
+        <a class="govuk-tabs__tab" href="#related-organisations">
+          Related organisations
+        </a>
+      </li>
+    </ul>
+
+    <div class="govuk-tabs__panel" id="organisation">
+      <h2 class="govuk-heading-l">
+        Organisation address
+      </h2>
+
+      <div class="govuk-card govuk-card--contained">
+        <div class="govuk-card__content">
+
+
+          <dl class="govuk-summary-list govuk-summary-list--no-border govuk-!-margin-bottom-3">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Address
+              </dt>
+              <dd class="govuk-summary-list__value">
+                17 Gospell Road<br>
+                Taunton<br>
+                Somerset<br>
+                TA1 1JT
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Companies House Number
+              </dt>
+              <dd class="govuk-summary-list__value">
+                01822786
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Telephone
+              </dt>
+              <dd class="govuk-summary-list__value">
+                01625 376176
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Email
+              </dt>
+              <dd class="govuk-summary-list__value">
+                sam.woods@bigcompany.co.uk
+              </dd>
+            </div>
+          </dl>
+        </div>
+        <div class="govuk-card__actions">
+          <ul class="govuk-list govuk-!-mb-r0">
+            <li><a href="update-organisation-detail" class="govuk-link govuk-link--no-visited-state">Update details</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <form action="address-type">
+        <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+          Add an address
+        </button>
+      </form>
+
+    </div>
+
+    <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="related-organisations">
+      <h2 class="govuk-heading-l">
+        Related organisations
+      </h2>
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+          <!-- <p class="govuk-body">
+            You can add related organisations to this account and manage all team members from the account dashboard.
+          </p> -->
+          <details class="govuk-details" role="group">
+            <summary class="govuk-details__summary" role="button" aria-controls="details-content-cb7f93ae-7e52-4034-b397-b0ad9c26fa56" aria-expanded="false">
+              <span class="govuk-details__summary-text">
+                What are related organisations?
+              </span>
+            </summary>
+            <div class="govuk-details__text" id="details-content-cb7f93ae-7e52-4034-b397-b0ad9c26fa56" aria-hidden="true">
+              <p>If your organisation is linked to another branch or division, you can add it to this account as a related organisation. This allows you to manage each part of your organisation individually, but under the same account.</p><p>If you're an <strong>Only Representative</strong>, you can add the non-EU manufacturers and importers that you represent.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+          <div class="govuk-card govuk-card--contained">
+            <div class="govuk-card__content">
+              <h3 class="govuk-heading-m">
+                Small company ltd
+              </h3>
+              <dl class="govuk-summary-list govuk-summary-list--no-border govuk-!-margin-bottom-3">
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Address
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    17 Gospell Road<br>
+                    Taunton<br>
+                    Somerset<br>
+                    TA1 1JT
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Telephone
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    01234 556677
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Email
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    sam.woods@smallcompany.co.uk
+                  </dd>
+                </div>
+              </dl>
+
+            </div>
+
+            <div class="govuk-card__actions">
+              <a href="#" class="govuk-link govuk-link--no-visited-state">
+                Manage
+              </a>
+            </div>
+
+          </div>
+
+
+          <a href="#" role="button" draggable="false" class="govuk-button">
+            Add a related organisation
+          </a>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+{% endblock %}
