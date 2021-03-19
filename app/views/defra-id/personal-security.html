@@ -1,9 +1,11 @@
 {% extends "layout.html" %}
 
-{% set serviceName = "" %}
+{% set serviceName = "Defra account" %}
+
+{% set title = "Create your security word" %}
 
 {% block pageTitle %}
-  Your Defra Account | Prototype
+  {{title}} - GOV.UK
 {% endblock %}
 
 {% block content %}
@@ -20,7 +22,7 @@
 
       {% call govukFieldset({
         legend: {
-          text: "Create your security word",
+          text: title,
           classes: "govuk-fieldset__legend--xl",
           isPageHeading: true
         }
@@ -67,7 +69,7 @@
       }) }}
 
     </form>
-    
+
   </div>
 </div>
 

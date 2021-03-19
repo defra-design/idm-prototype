@@ -1,9 +1,11 @@
 {% extends "layout.html" %}
 
-{% set serviceName = "" %}
+{% set serviceName = "Defra account" %}
+
+{% set title = "What is your telephone number?" %}
 
 {% block pageTitle %}
-  Your Defra Account | Prototype
+  {{title}} - GOV.UK
 {% endblock %}
 
 {% block content %}
@@ -20,7 +22,7 @@
 
       {{ govukInput({
         label: {
-          text: "What is your telephone number?",
+          text: title,
           classes: "govuk-label--xl",
           isPageHeading: true
         },

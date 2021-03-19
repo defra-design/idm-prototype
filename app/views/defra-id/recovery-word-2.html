@@ -1,9 +1,11 @@
 {% extends "layout.html" %}
 
-{% set serviceName = "" %}
+{% set serviceName = "Government Gateway" %}
+
+{% set title = "Set up a recovery word" %}
 
 {% block pageTitle %}
-  Government Gateway | Prototype
+  {{title}} - GOV.UK
 {% endblock %}
 
 {% block content %}
@@ -15,8 +17,8 @@
       text: "Back",
       href: "javascript:history.back()"
     }) }}
-    
-    <h1 class="govuk-heading-xl">Set up a recovery word</h1>
+
+    <h1 class="govuk-heading-xl">{{ title }}</h1>
     <p>Make a note of this word in case you need it in the future.</p>
     <p>The word must:</p>
     <ul class="govuk-list govuk-list--bullet">

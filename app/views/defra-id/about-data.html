@@ -1,9 +1,11 @@
 {% extends "layout.html" %}
 
-{% set serviceName = "" %}
+{% set serviceName = "Defra account" %}
+
+{% set title = "Your Defra account" %}
 
 {% block pageTitle %}
-  Your Defra Account | Prototype
+  {{title}} - GOV.UK
 {% endblock %}
 
 {% block content %}
@@ -14,7 +16,7 @@
         <form method="POST" action="organisation-type">
 
             <h1 class="govuk-heading-xl">
-                Your Defra Account
+              {{ title }}
             </h1>
             <p>Your Defra account lets you access and manage Defra services for yourself or on behalf of the organisations that you represent. Once you have an account, you'll use your Government Gateway details to sign in each time you visit.</p>
 

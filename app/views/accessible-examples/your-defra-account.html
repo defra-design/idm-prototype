@@ -1,9 +1,11 @@
 {% extends "layout.html" %}
 
+{% set serviceName = "Defra account" %}
+
 {% set title = "Your Defra account" %}
 
 {% block pageTitle %}
-    Your Defra account - [First name] [Surname] - GOV.UK
+  {{title}} - GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -31,9 +33,37 @@
   <div class="govuk-grid-column-two-thirds">
     <p class="govuk-body">
       <span class="govuk-!-font-weight-bold">Full name:</span> Ann Cooper<br>
-      <span class="govuk-!-font-weight-bold">Email address:</span> Ann.Cooper@email.com<br>
+      <span class="govuk-!-font-weight-bold">Email address:</span> ann.cooper@email.com<br>
       <span class="govuk-!-font-weight-bold">Telephone number:</span> 01179267473
     </p>
+
+    <dl class="govuk-summary-list govuk-summary-list--no-border govuk-!-margin-bottom-3">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Full name
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Anne Cooper
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Email address
+        </dt>
+        <dd class="govuk-summary-list__value">
+          ann.cooper@email.com
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Phone number
+        </dt>
+        <dd class="govuk-summary-list__value">
+          01179 267473
+        </dd>
+      </div>
+      
+    </dl>
 
     <ul class="govuk-list">
       <li>

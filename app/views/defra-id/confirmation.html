@@ -1,9 +1,11 @@
 {% extends "layout.html" %}
 
-{% set serviceName = "" %}
+{% set serviceName = "Government Gateway" %}
+
+{% set title = "Your Government Gateway user ID is 49 21 78 79 24 95" %}
 
 {% block pageTitle %}
-  Government Gateway | Prototype
+  {{title}} - GOV.UK
 {% endblock %}
 
 {% block content %}
@@ -17,7 +19,7 @@
         49 21 78 79 24 95
       </div>
     </div>
-    
+
     <p>We have sent it to: <strong>{{ data['govGateEmail'] or 'johnsmith@company.co.uk' }}</strong>.</p>
     <p>You will need this ID and your password each time you sign in to Government Gateway.</p>
 

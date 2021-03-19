@@ -1,9 +1,11 @@
 {% extends "layout.html" %}
 
-{% set serviceName = "" %}
+{% set serviceName = "Defra account" %}
+
+{% set title = "Are these the correct registered company details?" %}
 
 {% block pageTitle %}
-  Your Defra Account | Prototype
+  {{title}} - GOV.UK
 {% endblock %}
 
 {% block content %}
@@ -16,7 +18,7 @@
       href: "javascript:history.back()"
     }) }}
 
-    <h1 class="govuk-heading-xl">Are these the correct registered company details?</h1>
+    <h1 class="govuk-heading-xl">{{ title }}</h1>
 
     <p class="govuk-body">We need to know the registered company details for verification purposes. It is typically the head office.</p>
 

@@ -1,9 +1,11 @@
 {% extends "layout.html" %}
 
-{% set serviceName = "" %}
+{% set serviceName = "Government Gateway" %}
+
+{% set title = "Enter code to confirm your email address" %}
 
 {% block pageTitle %}
-  Government Gateway | Prototype
+  {{title}} - GOV.UK
 {% endblock %}
 
 {% block content %}
@@ -24,7 +26,7 @@
       href: "javascript:history.back()"
     }) }}
 
-    <h1 class="govuk-heading-xl">Enter code to confirm your email address</h1>
+    <h1 class="govuk-heading-xl">{{ title }}</h1>
     <p>We have sent a code to: <strong>{{ data['govGateEmail'] or 'johnsmith@company.co.uk' }}</strong></p>
 
     {{ govukWarningText({
