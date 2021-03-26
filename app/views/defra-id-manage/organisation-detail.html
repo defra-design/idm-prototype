@@ -70,6 +70,9 @@
       <div class="govuk-card govuk-card--contained">
         <div class="govuk-card__content">
 
+          <h3 class="govuk-heading-m">
+            Registered address
+          </h3>
 
           <dl class="govuk-summary-list govuk-summary-list--no-border govuk-!-margin-bottom-3">
             <div class="govuk-summary-list__row">
@@ -116,7 +119,113 @@
         </div>
       </div>
 
-      <form action="address-type">
+      <!--
+        added-address?added-address=normal
+        added-address?added-address=manual
+        added-address?added-address=non-uk
+      -->
+
+      {% if data['added-address'] == "normal"  %}
+        <div class="govuk-card govuk-card--contained">
+          <div class="govuk-card__content">
+
+            <h3 class="govuk-heading-m">
+              Correspondence address
+            </h3>
+
+            <dl class="govuk-summary-list govuk-summary-list--no-border govuk-!-margin-bottom-3">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Address
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  Somerset House<br>
+                  Somerset Road<br>
+                  London<br>
+                  SW19 5JA
+                </dd>
+              </div>
+            </dl>
+          </div>
+          <div class="govuk-card__actions">
+            <ul class="govuk-list govuk-!-mb-r0">
+              <li><a href="update-organisation-detail" class="govuk-link govuk-link--no-visited-state">Update details</a></li>
+            </ul>
+            <ul class="govuk-list govuk-!-mb-r0">
+              <li><a href="remove-address?address=normal" class="govuk-link govuk-link--no-visited-state">Remove address</a></li>
+            </ul>
+          </div>
+        </div>
+      {% elseif data['added-address'] == "manual" %}
+        <div class="govuk-card govuk-card--contained">
+
+          <div class="govuk-card__content">
+
+            <h3 class="govuk-heading-m">
+              Operational address
+            </h3>
+
+            <dl class="govuk-summary-list govuk-summary-list--no-border govuk-!-margin-bottom-3">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Address
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  Laurel Ho<br>
+                  Laurelhill Business Park<br>
+                  Stirling<br>
+                  FK7 9JQ
+                </dd>
+              </div>
+            </dl>
+          </div>
+
+          <div class="govuk-card__actions">
+            <ul class="govuk-list govuk-!-mb-r0">
+              <li><a href="update-organisation-detail" class="govuk-link govuk-link--no-visited-state">Update address</a></li>
+            </ul>
+            <ul class="govuk-list govuk-!-mb-r0">
+              <li><a href="remove-address?address=manual" class="govuk-link govuk-link--no-visited-state">Remove address</a></li>
+            </ul>
+          </div>
+
+        </div>
+      {% elseif data['added-address'] == "non-uk" %}
+        <div class="govuk-card govuk-card--contained">
+          <div class="govuk-card__content">
+
+            <h3 class="govuk-heading-m">
+              Billing address
+            </h3>
+
+            <dl class="govuk-summary-list govuk-summary-list--no-border govuk-!-margin-bottom-3">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Address
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  LG. Do Município<br>
+                  6060-163 - Idanha-A-Nova<br>
+                  Portugal
+                </dd>
+              </div>
+            </dl>
+
+          </div>
+
+          <div class="govuk-card__actions">
+            <ul class="govuk-list govuk-!-mb-r0">
+              <li><a href="update-organisation-detail" class="govuk-link govuk-link--no-visited-state">Update details</a></li>
+            </ul>
+            <ul class="govuk-list govuk-!-mb-r0">
+              <li><a href="remove-address?address=non-uk" class="govuk-link govuk-link--no-visited-state">Remove address</a></li>
+            </ul>
+          </div>
+
+        </div>
+      {% endif %}
+
+      <form action="add-address-type">
         <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
           Add an address
         </button>
