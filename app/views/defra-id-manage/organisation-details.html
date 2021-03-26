@@ -52,7 +52,7 @@
     <ul class="govuk-tabs__list">
       <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
         <a class="govuk-tabs__tab" href="#organisation">
-          Organisation address
+          Organisation details
         </a>
       </li>
       <li class="govuk-tabs__list-item">
@@ -64,17 +64,25 @@
 
     <div class="govuk-tabs__panel" id="organisation">
       <h2 class="govuk-heading-l">
-        Organisation address
+        Organisation details
       </h2>
 
       <div class="govuk-card govuk-card--contained">
         <div class="govuk-card__content">
 
           <h3 class="govuk-heading-m">
-            Registered address
+            Registered address and contact information
           </h3>
 
           <dl class="govuk-summary-list govuk-summary-list--no-border govuk-!-margin-bottom-3">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Companies House Number
+              </dt>
+              <dd class="govuk-summary-list__value">
+                01822786
+              </dd>
+            </div>
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
                 Address
@@ -84,14 +92,6 @@
                 Taunton<br>
                 Somerset<br>
                 TA1 1JT
-              </dd>
-            </div>
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-                Companies House Number
-              </dt>
-              <dd class="govuk-summary-list__value">
-                01822786
               </dd>
             </div>
             <div class="govuk-summary-list__row">
@@ -114,7 +114,9 @@
         </div>
         <div class="govuk-card__actions">
           <ul class="govuk-list govuk-!-mb-r0">
-            <li><a href="update-organisation-detail" class="govuk-link govuk-link--no-visited-state">Update details</a></li>
+            <li><a href="update-organisation-details" class="govuk-link govuk-link--no-visited-state">
+              Update these details
+            </a></li>
           </ul>
         </div>
       </div>
@@ -149,10 +151,14 @@
           </div>
           <div class="govuk-card__actions">
             <ul class="govuk-list govuk-!-mb-r0">
-              <li><a href="update-organisation-detail" class="govuk-link govuk-link--no-visited-state">Update details</a></li>
+              <li><a href="update-organisation-details" class="govuk-link govuk-link--no-visited-state">
+                Change address
+              </a></li>
             </ul>
             <ul class="govuk-list govuk-!-mb-r0">
-              <li><a href="remove-address?address=normal" class="govuk-link govuk-link--no-visited-state">Remove address</a></li>
+              <li><a href="remove-address?address=normal" class="govuk-link govuk-link--no-visited-state">
+                Remove address
+              </a></li>
             </ul>
           </div>
         </div>
@@ -182,10 +188,14 @@
 
           <div class="govuk-card__actions">
             <ul class="govuk-list govuk-!-mb-r0">
-              <li><a href="update-organisation-detail" class="govuk-link govuk-link--no-visited-state">Update address</a></li>
+              <li><a href="update-organisation-details" class="govuk-link govuk-link--no-visited-state">
+                Change address
+              </a></li>
             </ul>
             <ul class="govuk-list govuk-!-mb-r0">
-              <li><a href="remove-address?address=manual" class="govuk-link govuk-link--no-visited-state">Remove address</a></li>
+              <li><a href="remove-address?address=manual" class="govuk-link govuk-link--no-visited-state">
+                Remove address
+              </a></li>
             </ul>
           </div>
 
@@ -217,10 +227,14 @@
 
           <div class="govuk-card__actions">
             <ul class="govuk-list govuk-!-mb-r0">
-              <li><a href="update-organisation-detail" class="govuk-link govuk-link--no-visited-state">Update details</a></li>
+              <li><a href="update-organisation-details" class="govuk-link govuk-link--no-visited-state">
+                Change address
+              </a></li>
             </ul>
             <ul class="govuk-list govuk-!-mb-r0">
-              <li><a href="remove-address?address=non-uk" class="govuk-link govuk-link--no-visited-state">Remove address</a></li>
+              <li><a href="remove-address?address=non-uk" class="govuk-link govuk-link--no-visited-state">
+                Remove address
+              </a></li>
             </ul>
           </div>
 
