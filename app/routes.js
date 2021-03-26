@@ -59,6 +59,18 @@ router.get('/manage/dashboard-child', function (req, res) {
     })
 })
 
+// routing for add address / is the address in the UK?
+router.get('/defra-id-manage/is-address-uk', function (req, res) {
+  // Make a variable from session data
+  let addUkAddress = req.session.data['address-is-uk']
+  // route depending on value
+  // i am not sure why we have this…
+  if (addUkAddress === 'yes') {
+    res.redirect('add-address-postcode')
+  } else {
+    res.redirect('add-non-uk-address')
+  }
+})
 
 // Agent's own company
 router.get('/manage/dashboard-agent-self', function (req, res) {

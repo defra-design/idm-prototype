@@ -44,45 +44,63 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form action="organisation-detail">
+      <h1 class="govuk-heading-l">
+        {{ title }}
+      </h1>
 
-        <div class="govuk-form-group">
+      {% if data['added-address'] == "manual" %}
 
-          <fieldset class="govuk-fieldset">
+      <div class="govuk-inset-text">
+        <h3 class="govuk-heading-m">
+          Operational address
+        </h3>
 
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-              <h1 class="govuk-fieldset__heading">
-                {{ title }}
-              </h1>
-            </legend>
+        <p class="govuk-budy">
+          Laurel Ho<br>
+          Laurelhill Business Park<br>
+          Stirling<br>
+          FK7 9JQ
+        </p>
+      </div>
 
-            {% if data['added-address'] == "manual" %}
+      {% elseif data['added-address'] == "non-uk" %}
 
-            {% elseif data['added-address'] == "non-uk" %}
-            {% endif %}
-            <div class="govuk-inset-text">
-              <h3 class="govuk-heading-m">
-                Correspondence address
-              </h3>
+        <div class="govuk-inset-text">
+          <h3 class="govuk-heading-m">
+            Billing address
+          </h3>
 
-              <p class="govuk-budy">
-                Somerset House<br>
-                Somerset Road<br>
-                London<br>
-                SW19 5JA
-              </p>
-
-            </div>
-
-          </fieldset>
-
+          <p class="govuk-body">
+            LG. Do Município<br>
+            6060-163 - Idanha-A-Nova<br>
+            Portugal
+          </p>
         </div>
 
+      {% else %}
+
+        <div class="govuk-inset-text">
+          <h3 class="govuk-heading-m">
+            Correspondence address
+          </h3>
+
+          <p class="govuk-budy">
+            Clifton House<br>
+            Clifton Road<br>
+            London<br>
+            SW19 5JA
+          </p>
+        </div>
+
+      {% endif %}
+
+      <form action="organisation-detail?added-address=none" method="post" class="form">
         <button class="govuk-button" data-module="govuk-button">
           Continue
         </button>
-
       </form>
+
+      <!-- <a href="organisation-detail?added-address=none">test</a> -->
 
     </div>
   </div>
