@@ -30,9 +30,11 @@
         </a>
       </li>
       <li class="govuk-breadcrumbs__list-item">
-        <!-- <a class="govuk-breadcrumbs__link" href="#"> -->
+        {% if data['new-address'] == "update" %}
+          Update address
+        {% else %}
           Add an address
-        <!-- </a> -->
+        {% endif %}
       </li>
     </ol>
   </div>
