@@ -48,59 +48,131 @@
         {{ title }}
       </h1>
 
-      {% if data['added-address'] == "manual" %}
-
       <div class="govuk-inset-text">
         <h3 class="govuk-heading-m">
-          Operational address
+          {% if data['address-type'] == "correspondence" %}
+            Correspondence address
+          {% elseif data['address-type'] == "billing" %}
+            Billing address
+          {% elseif data['address-type'] == "operations" %}
+            Operation address
+          {% else %}
+            {{ data['custom-address-label'] }}
+          {% endif %}
+          <!-- Operational address -->
         </h3>
 
-        <p class="govuk-budy">
-          Laurel Ho<br>
-          Laurelhill Business Park<br>
-          Stirling<br>
-          FK7 9JQ
-        </p>
+        {% if data['address-type'] == "correspondence" %}
+
+          {% if data['correspondence-address-type'] == "normal" %}
+
+            <p class="govuk-body">
+              Clifton House<br>
+              Clifton Road<br>
+              London<br>
+              SW19 5JA
+            </p>
+
+          {% elseif data['correspondence-address-type'] == "manual" %}
+
+            <p class="govuk-body">
+              Laurel Ho<br>
+              Laurelhill Business Park<br>
+              Stirling<br>
+              FK7 9JQ
+            </p>
+
+          {% else %}
+
+            <p class="govuk-body">
+              LG. Do Município<br>
+              6060-163 - Idanha-A-Nova<br>
+              Portugal
+            </p>
+
+          {% endif %}
+
+          <form action="organisation-details?correspondence-address=false" method="post" class="form">
+            <button class="govuk-button" data-module="govuk-button">
+              Remove
+            </button>
+          </form>
+
+        {% elseif data['address-type'] == "billing" %}
+
+          {% if data['billing-address-type'] == "normal" %}
+
+            <p class="govuk-body">
+              Clifton House<br>
+              Clifton Road<br>
+              London<br>
+              SW19 5JA
+            </p>
+
+          {% elseif data['billing-address-type'] == "manual" %}
+
+            <p class="govuk-body">
+              Laurel Ho<br>
+              Laurelhill Business Park<br>
+              Stirling<br>
+              FK7 9JQ
+            </p>
+
+          {% else %}
+
+            <p class="govuk-body">
+              LG. Do Município<br>
+              6060-163 - Idanha-A-Nova<br>
+              Portugal
+            </p>
+
+          {% endif %}
+
+          <form action="organisation-details?billing-address=false" method="post" class="form">
+            <button class="govuk-button" data-module="govuk-button">
+              Remove
+            </button>
+          </form>
+
+        {% elseif data['address-type'] == "operations" %}
+
+          {% if data['operations-address-type'] == "normal" %}
+
+            <p class="govuk-body">
+              Clifton House<br>
+              Clifton Road<br>
+              London<br>
+              SW19 5JA
+            </p>
+
+          {% elseif data['operations-address-type'] == "manual" %}
+
+            <p class="govuk-body">
+              Laurel Ho<br>
+              Laurelhill Business Park<br>
+              Stirling<br>
+              FK7 9JQ
+            </p>
+
+          {% else %}
+
+            <p class="govuk-body">
+              LG. Do Município<br>
+              6060-163 - Idanha-A-Nova<br>
+              Portugal
+            </p>
+
+          {% endif %}
+
+          <form action="organisation-details?operations-address=false" method="post" class="form">
+            <button class="govuk-button" data-module="govuk-button">
+              Remove
+            </button>
+          </form>
+
+        {% endif %}
+
       </div>
-
-      {% elseif data['added-address'] == "non-uk" %}
-
-        <div class="govuk-inset-text">
-          <h3 class="govuk-heading-m">
-            Billing address
-          </h3>
-
-          <p class="govuk-body">
-            LG. Do Município<br>
-            6060-163 - Idanha-A-Nova<br>
-            Portugal
-          </p>
-        </div>
-
-      {% else %}
-
-        <div class="govuk-inset-text">
-          <h3 class="govuk-heading-m">
-            Correspondence address
-          </h3>
-
-          <p class="govuk-budy">
-            Clifton House<br>
-            Clifton Road<br>
-            London<br>
-            SW19 5JA
-          </p>
-        </div>
-
-      {% endif %}
-
-      <form action="organisation-details?added-address=none" method="post" class="form">
-        <button class="govuk-button" data-module="govuk-button">
-          Continue
-        </button>
-      </form>
-
-      <!-- <a href="organisation-details?added-address=none">test</a> -->
 
     </div>
   </div>

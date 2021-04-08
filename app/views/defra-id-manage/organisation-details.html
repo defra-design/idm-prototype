@@ -33,7 +33,6 @@
   </div>
 {% endblock %}
 
-
 {% block content %}
 
   <div class="govuk-grid-row">
@@ -121,13 +120,7 @@
         </div>
       </div>
 
-      <!--
-        added-address?added-address=normal
-        added-address?added-address=manual
-        added-address?added-address=non-uk
-      -->
-
-      {% if data['added-address'] == "normal"  %}
+      {% if data['correspondence-address'] == "true" %}
         <div class="govuk-card govuk-card--contained">
           <div class="govuk-card__content">
 
@@ -141,68 +134,42 @@
                   Address
                 </dt>
                 <dd class="govuk-summary-list__value">
-                  Clifton House<br>
-                  Clifton Road<br>
-                  London<br>
-                  SW19 5JA
+
+                  {% if data['correspondence-address-type'] == "normal" %}
+
+                    Clifton House<br>
+                    Clifton Road<br>
+                    London<br>
+                    SW19 5JA
+
+                  {% elseif data['correspondence-address-type'] == "manual" %}
+
+                    Laurel Ho<br>
+                    Laurelhill Business Park<br>
+                    Stirling<br>
+                    FK7 9JQ
+
+                  {% elseif data['correspondence-address-type'] == "non-uk" %}
+
+                    LG. Do Município<br>
+                    6060-163 - Idanha-A-Nova<br>
+                    Portugal
+
+                  {% endif %}
+
                 </dd>
               </div>
             </dl>
-          </div>
-          <div class="govuk-card__actions">
-            <ul class="govuk-list govuk-!-mb-r0">
-              <li><a href="add-address-region?new-address=update" class="govuk-link govuk-link--no-visited-state">
-                Update address
-              </a></li>
-            </ul>
-            <ul class="govuk-list govuk-!-mb-r0">
-              <li><a href="remove-address?address=normal" class="govuk-link govuk-link--no-visited-state">
-                Remove address
-              </a></li>
-            </ul>
+
+            <a href="remove-address?address-type=correspondence">
+              Remove this address
+            </a>
+
           </div>
         </div>
-      {% elseif data['added-address'] == "manual" %}
-        <div class="govuk-card govuk-card--contained">
+      {% endif %}
 
-          <div class="govuk-card__content">
-
-            <h3 class="govuk-heading-m">
-              Operational address
-            </h3>
-
-            <dl class="govuk-summary-list govuk-summary-list--no-border govuk-!-margin-bottom-3">
-              <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                  Address
-                </dt>
-                <dd class="govuk-summary-list__value">
-                  Laurel Ho<br>
-                  Laurelhill Business Park<br>
-                  Stirling<br>
-                  FK7 9JQ
-                </dd>
-              </div>
-            </dl>
-          </div>
-
-          <div class="govuk-card__actions">
-            <ul class="govuk-list govuk-!-mb-r0">
-              <li><a href="add-address-region?new-address=update" class="govuk-link govuk-link--no-visited-state">
-                Update address
-              </a></li>
-            </ul>
-            <ul class="govuk-list govuk-!-mb-r0">
-              <li><a href="remove-address?address=manual" class="govuk-link govuk-link--no-visited-state">
-                Remove address
-              </a></li>
-            </ul>
-          </div>
-
-        </div>
-
-      {% elseif data['added-address'] == "non-uk" %}
-
+      {% if data['billing-address'] == "true" %}
         <div class="govuk-card govuk-card--contained">
           <div class="govuk-card__content">
 
@@ -216,37 +183,106 @@
                   Address
                 </dt>
                 <dd class="govuk-summary-list__value">
-                  LG. Do Município<br>
-                  6060-163 - Idanha-A-Nova<br>
-                  Portugal
+
+                  {% if data['billing-address-type'] == "normal" %}
+
+                    Clifton House<br>
+                    Clifton Road<br>
+                    London<br>
+                    SW19 5JA
+
+                  {% elseif data['billing-address-type'] == "manual" %}
+
+                    Laurel Ho<br>
+                    Laurelhill Business Park<br>
+                    Stirling<br>
+                    FK7 9JQ
+
+                  {% elseif data['billing-address-type'] == "non-uk" %}
+
+                    LG. Do Município<br>
+                    6060-163 - Idanha-A-Nova<br>
+                    Portugal
+
+                  {% endif %}
+
                 </dd>
               </div>
             </dl>
 
-          </div>
+            <a href="remove-address?address-type=billing">
+              Remove this address
+            </a>
 
-          <div class="govuk-card__actions">
-            <ul class="govuk-list govuk-!-mb-r0">
-              <li><a href="add-address-region?new-address=update" class="govuk-link govuk-link--no-visited-state">
-                Update address
-              </a></li>
-            </ul>
-            <ul class="govuk-list govuk-!-mb-r0">
-              <li><a href="remove-address?address=non-uk" class="govuk-link govuk-link--no-visited-state">
-                Remove address
-              </a></li>
-            </ul>
           </div>
-
         </div>
-
       {% endif %}
 
-      <form action="add-address-type">
-        <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
-          Add an address
-        </button>
-      </form>
+
+      {% if data['operations-address'] == "true" %}
+        <div class="govuk-card govuk-card--contained">
+          <div class="govuk-card__content">
+
+            <h3 class="govuk-heading-m">
+              Operations address
+            </h3>
+
+            <dl class="govuk-summary-list govuk-summary-list--no-border govuk-!-margin-bottom-3">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Address
+                </dt>
+                <dd class="govuk-summary-list__value">
+
+                  {% if data['operations-address-type'] == "normal" %}
+
+                    Clifton House<br>
+                    Clifton Road<br>
+                    London<br>
+                    SW19 5JA
+
+                  {% elseif data['operations-address-type'] == "manual" %}
+
+                    Laurel Ho<br>
+                    Laurelhill Business Park<br>
+                    Stirling<br>
+                    FK7 9JQ
+
+                  {% elseif data['operations-address-type'] == "non-uk" %}
+
+                    LG. Do Município<br>
+                    6060-163 - Idanha-A-Nova<br>
+                    Portugal
+
+                  {% endif %}
+
+                </dd>
+              </div>
+            </dl>
+
+            <a href="remove-address?address-type=operations">
+              Remove this address
+            </a>
+
+          </div>
+        </div>
+      {% endif %}
+
+      <!-- <p class="govuk-body tracing">
+        Correspondence address is {{ data['correspondence-address'] }}<br>
+        Billing address is {{ data['billing-address'] }}<br>
+        Operations address is {{ data['operations-address'] }}
+      </p> -->
+
+      {% if data['correspondence-address'] == "true" and data['billing-address'] == "true" and data['operations-address'] == "true" %}
+
+      {% else %}
+        <form action="add-address-type">
+          <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+            Add an address
+          </button>
+        </form>
+      {% endif %}
 
     </div>
 
@@ -321,7 +357,6 @@
             </div>
 
           </div>
-
 
           <a href="#" role="button" draggable="false" class="govuk-button">
             Add a related organisation

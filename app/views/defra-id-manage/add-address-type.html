@@ -44,7 +44,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form action="add-address-region">
+      <form action="check-address-type" method="post" class="form">
 
         <div class="govuk-form-group">
 
@@ -56,55 +56,34 @@
             </legend>
 
             <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+
+              {% if data['correspondence-address'] != "true" %}
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="add-address-type" name="address-type" type="radio" value="correspondence">
+                  <label class="govuk-label govuk-radios__label" for="add-address-type">
+                    Correspondence
+                  </label>
+                </div>
+              {% endif %}
+
+              {% if data['billing-address'] != "true" %}
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="add-address-type" name="add-address-type" type="radio" value="correspondence">
-                <label class="govuk-label govuk-radios__label" for="add-address-type">
-                  Correspondence
-                </label>
-              </div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="add-address-type-2" name="add-address-type" type="radio" value="billing">
+                <input class="govuk-radios__input" id="add-address-type-2" name="address-type" type="radio" value="billing">
                 <label class="govuk-label govuk-radios__label" for="add-address-type-2">
                   Billing
                 </label>
               </div>
+              {% endif %}
+
+              {% if data['operations-address'] != "true" %}
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="add-address-type-3" name="add-address-type" type="radio" value="operation">
+                <input class="govuk-radios__input" id="add-address-type-3" name="address-type" type="radio" value="operations">
                 <label class="govuk-label govuk-radios__label" for="add-address-type-3">
                   Operations
                 </label>
               </div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="add-address-type-4" name="add-address-type" type="radio" value="exporter">
-                <label class="govuk-label govuk-radios__label" for="add-address-type-4">
-                  Exporter
-                </label>
-              </div>
+              {% endif %}
 
-              <div class="govuk-radios__divider">
-                or
-              </div>
-
-              <!-- <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="add-address-type-6" name="add-address-type" type="radio" value="custom">
-                <label class="govuk-label govuk-radios__label" for="add-address-type-6">
-                  Custom
-                </label>
-              </div> -->
-
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="add-address-type-6" name="add-address-type" type="radio" value="custom" data-aria-controls="conditional-custom">
-                <label class="govuk-label govuk-radios__label" for="add-address-type">
-                  Custom
-                </label>
-              </div>
-              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-custom">
-                <div class="govuk-form-group">
-                  <label class="govuk-label" for="add-address-type">
-                    Address type
-                  </label>
-                  <input class="govuk-input govuk-!-width-two-thirds" id="add-address-label" name="add-address-type" type="custom-address" spellcheck="false"></div>
-              </div>
             </div>
 
           </fieldset>

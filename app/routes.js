@@ -60,6 +60,21 @@ router.get('/manage/dashboard-child', function (req, res) {
 })
 
 // routing for add address / is the address in the UK?
+router.get('/defra-id-manage/check-address-type', function (req, res) {
+  // Make a variable from session data
+  let addressType = req.session.data['address-type']
+  // route depending on value
+  // i am not sure why we have this…
+  if (addressType === 'billing') {
+    res.redirect('add-address-region?new-address=billing')
+  } else if (addressType === 'correspondence') {
+    res.redirect('add-address-region?new-address=correspondence')
+  } else if (addressType === 'operations') {
+    res.redirect('add-address-region?new-address=operations')
+  }
+})
+
+// routing for add address / is the address in the UK?
 router.get('/defra-id-manage/is-address-uk', function (req, res) {
   // Make a variable from session data
   let addUkAddress = req.session.data['address-is-uk']

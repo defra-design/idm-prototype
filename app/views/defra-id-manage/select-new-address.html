@@ -46,7 +46,13 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form action="organisation-details?added-address=normal&new-address=no" method="post" class="form" id="postcode-address">
+    {% if data['new-address'] == "billing" %}
+      <form action="organisation-details?billing-address=true&billing-address-type=normal&new-address=no" method="post" class="form">
+    {% elseif data['new-address'] == "correspondence" %}
+      <form action="organisation-details?correspondence-address=true&correspondence-address-type=normal&new-address=no" method="post" class="form">
+    {% elseif data['new-address'] == "operations" %}
+      <form action="organisation-details?operations-address=true&operations-address-type=normal&new-address=no" method="post" class="form">
+    {% endif %}
 
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset">
