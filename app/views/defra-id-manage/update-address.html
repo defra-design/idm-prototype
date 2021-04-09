@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% set serviceName = "Defra account" %}
 
-{% set title = "Are you sure you want to remove this address?" %}
+{% set title = "Do you want to replace this address?" %}
 
 {% block pageTitle %}
   {{title}} - GOV.UK
@@ -92,14 +92,6 @@
 
           {% endif %}
 
-          </div>
-
-          <form action="organisation-details?correspondence-address=false" method="post" class="form">
-            <button class="govuk-button" data-module="govuk-button">
-              Remove
-            </button>
-          </form>
-
         {% elseif data['address-type'] == "billing" %}
 
           {% if data['billing-address-type'] == "normal" %}
@@ -129,14 +121,6 @@
             </p>
 
           {% endif %}
-
-          </div>
-
-          <form action="organisation-details?billing-address=false" method="post" class="form">
-            <button class="govuk-button" data-module="govuk-button">
-              Remove
-            </button>
-          </form>
 
         {% elseif data['address-type'] == "operations" %}
 
@@ -168,16 +152,30 @@
 
           {% endif %}
 
-          </div>
-
-          <form action="organisation-details?operations-address=false" method="post" class="form">
-            <button class="govuk-button" data-module="govuk-button">
-              Remove
-            </button>
-          </form>
-
         {% endif %}
 
+      </div>
+
+      {% if data['address-type'] == "correspondence" %}
+        <form action="add-address-region?new-address=correspondence" method="post" class="form">
+      {% elif data['address-type'] == "billing" %}
+        <form action="add-address-region?new-address=billing" method="post" class="form">
+      {% else %}
+        <form action="add-address-region?new-address=operations" method="post" class="form">
+      {% endif %}
+
+        <div class="govuk-button-group">
+          <button class="govuk-button" data-module="govuk-button">
+            Continue
+          </button>
+
+          <button class="govuk-button govuk-button--secondary" data-module="govuk-button" formaction="organisation-details">
+            Cancel
+          </button>
+
+        </div>
+
+      </form>
     </div>
   </div>
 
