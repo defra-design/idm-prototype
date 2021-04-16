@@ -59,7 +59,43 @@ router.get('/manage/dashboard-child', function (req, res) {
     })
 })
 
+/////////////////////////////////////
+/* ROUTES FOR REGISTRATION JOURNEY */
+/////////////////////////////////////
+
+// routing for registration add address type
+router.get('/defra-id/check-address-type', function (req, res) {
+  // Make a variable from session data
+  let addressType = req.session.data['address-type']
+  // route depending on value
+  // i am not sure why we have this…
+  if (addressType === 'billing') {
+    res.redirect('add-address-region?new-address=billing')
+  } else if (addressType === 'correspondence') {
+    res.redirect('add-address-region?new-address=correspondence')
+  } else if (addressType === 'operations') {
+    res.redirect('add-address-region?new-address=operations')
+  }
+})
+
 // routing for add address / is the address in the UK?
+router.get('/defra-id/is-address-uk', function (req, res) {
+  // Make a variable from session data
+  let addUkAddress = req.session.data['address-is-uk']
+  // route depending on value
+  // i am not sure why we have this…
+  if (addUkAddress === 'yes') {
+    res.redirect('add-address-postcode')
+  } else {
+    res.redirect('add-non-uk-address')
+  }
+})
+
+///////////////////////////////////
+/* ROUTES FOR ADDRESS MANAGEMENT */
+///////////////////////////////////
+
+// routing for manage add address type
 router.get('/defra-id-manage/check-address-type', function (req, res) {
   // Make a variable from session data
   let addressType = req.session.data['address-type']
@@ -86,6 +122,10 @@ router.get('/defra-id-manage/is-address-uk', function (req, res) {
     res.redirect('add-non-uk-address')
   }
 })
+
+///////////////////////
+/* ROUTES FOR AGENTS */
+///////////////////////
 
 // Agent's own company
 router.get('/manage/dashboard-agent-self', function (req, res) {
@@ -122,7 +162,6 @@ router.get('/manage/dashboard-agent-client', function (req, res) {
 
     })
 })
-
 
 ////// SCP Login config /////
 // Existing user but new to IDM user
@@ -218,7 +257,6 @@ router.get('/manage/organisations/change-address?accountType=soletrader', functi
 router.post('/manage/organisations/company-address', function (req, res) {
     res.redirect('/manage/organisations/update-details?accountType=soletrader');
 });*/
-
 
 // Test Routes
 router.get('/tests/ac1', function (req, res) {
