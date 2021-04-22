@@ -2,14 +2,11 @@ const express = require('express')
 const router = express.Router()
 // Add your routes here - above the module.exports line
 
-
-
-
 // Routing for organisation-type.html
 router.post('*/organisation-type-choice', function (req, res) {
     var defraIdType = req.session.data['defraIdType']
     if (defraIdType == "individual"){
-        res.redirect('individual')
+        res.redirect('individual-name')
     }
     else {
         res.redirect('organisation-UK-or-else')
