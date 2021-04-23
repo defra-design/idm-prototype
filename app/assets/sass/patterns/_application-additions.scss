@@ -4,3 +4,10 @@
   color: $govuk-secondary-text-colour;
   color: red;
 }
+
+
+// override for details with inset
+.govuk-details__text--escaped {
+  border-left: none;
+  padding: 0;
+}
