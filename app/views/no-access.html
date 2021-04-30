@@ -1,0 +1,81 @@
+{% extends "layout.html" %}
+
+{% set title = "You must be an administrator to manage Big Company Ltd" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+  
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">
+      {{title}}
+    </h1>
+
+    <p class="govuk-body-l">
+      Contact an administrator for the organisation if you need to manage this organisation.
+    </p>
+
+    {% if data['multiple-admins'] === "true" %}
+
+      <h2 class="govuk-heading-m">
+        Administrators for Big Company Limited
+      </h2>
+
+      <!-- <div class="govuk-inset-text"> -->
+        <p>
+          <strong>Sam Woods</strong><br>
+          <a href=“mailto:sam.woods@bigcompany.co.uk”>sam.woods@bigcompany.co.uk</a><br>
+          07711 223344
+        </p>
+        <p>
+          <strong>Jo Bidbod</strong><br>
+          <a href=“mailto:jo.bidbod@bigcompany.co.uk”>jo.bidbod@bigcompany.co.uk</a><br>
+          0115 377 6376
+        </p>
+      <!-- </div> -->
+
+    {% else %}
+      <h2 class="govuk-heading-m">
+        The administrator for Big Company Limited is Sam Woods.
+      </h2>
+
+      <dl class="govuk-summary-list govuk-summary-list--no-border govuk-!-margin-bottom-3">
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Email address
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <a href=“mailto:sam.woods@bigcompany.co.uk”>sam.woods@bigcompany.co.uk</a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Phone number
+          </dt>
+          <dd class="govuk-summary-list__value">
+            07711 223344
+          </dd>
+        </div>
+      </dl>
+
+    {% endif %}
+
+  </div>
+</div>
+
+{% endblock %}
