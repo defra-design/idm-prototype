@@ -9,6 +9,10 @@
 
 {% block beforeContent %}
 
+    {{ govukBackLink({
+      text: "Back",
+      href: "javascript:history.back()"
+    }) }}
   <!-- {% include "includes/account-nav-admin-login.html" %} -->
 
 {% endblock %}

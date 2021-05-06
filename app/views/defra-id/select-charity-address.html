@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% set serviceName = "Defra account" %}
 
-{% set title = "Select your address" %}
+{% set title = "Select the address" %}
 
 {% block pageTitle %}
   {{title}} - GOV.UK
@@ -18,8 +18,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form action="task-list-page-about-you-details?individual-address=completed" method="post" class="form">
-
+    <form action="charity-confirm" method="post" class="form">
 
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset">
@@ -30,6 +29,54 @@
           </legend>
 
           <p class="govuk-body">
+            Postcode: <span class="govuk-!-font-weight-bold">BS8 1LB</span> <a href="add-charity-address">Change</a>
+          </p>
+
+          {{ govukSelect({
+            id: "charityAddress",
+            name: "charityAddress",
+            items: [
+              {
+                value: "",
+                text: "8 addresses found",
+                selected: true
+              },
+              {
+                value: "address1",
+                text: "11 Clifton Road, BRISTOL BS8 1LB"
+              },
+              {
+                value: "address2",
+                text: "12 Clifton Road, BRISTOL BS8 1LB"
+              },
+              {
+                value: "address3",
+                text: "13 Clifton Road, BRISTOL BS8 1LB"
+              },
+              {
+                value: "address4",
+                text: "14 Clifton Road, BRISTOL BS8 1LB"
+              },
+              {
+                value: "address5",
+                text: "15 Clifton Road, BRISTOL BS8 1LB"
+              },
+              {
+                value: "address6",
+                text: "16 Clifton Road, BRISTOL BS8 1LB"
+              },
+              {
+                value: "address7",
+                text: "17 Clifton Road, BRISTOL BS8 1LB"
+              },
+              {
+                value: "address8",
+                text: "18 Clifton Road, BRISTOL BS8 1LB"
+              }
+            ]
+          }) }}
+
+          <!-- <p class="govuk-body">
             3 addresses found for Clifton House and SW19 5JA. <a href="" class="govuk-link">Change</a>
           </p>
 
@@ -52,13 +99,19 @@
                 2b, Clifton House, Clifton Road, LONDON SW19 5JA
               </label>
             </div>
-          </div>
+          </div> -->
 
         </fieldset>
       </div>
 
+      <p class="govuk-body">
+        <a href="#">
+          I cannot find the address in the list
+        </a>
+      </p>
+
       <button class="govuk-button" data-module="govuk-button">
-        Add this address
+        Continue
       </button>
 
     </form>

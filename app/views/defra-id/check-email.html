@@ -8,6 +8,13 @@
   {{title}} - GOV.UK
 {% endblock %}
 
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+{% endblock %}
+
 {% block content %}
 
 <!-- If the user hasn't typed an email, make one up.
@@ -20,11 +27,6 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-
-    {{ govukBackLink({
-      text: "Back",
-      href: "javascript:history.back()"
-    }) }}
 
     <h1 class="govuk-heading-xl">{{ title }}</h1>
     <p>We have sent a code to: <strong>{{ data['govGateEmail'] or 'johnsmith@company.co.uk' }}</strong></p>

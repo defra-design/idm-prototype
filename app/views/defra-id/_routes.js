@@ -44,7 +44,7 @@ router.post('*/organisation-uk-choice', function (req, res) {
 router.post('*/companieshouse-choice', function (req, res) {
     var defraIdCompaniesHouse = req.session.data['defraIdCompaniesHouse']
     if (defraIdCompaniesHouse == "no"){
-        res.redirect('')
+        res.redirect('sole-trader-or-charity')
     }
     else {
         res.redirect('company-lookup')

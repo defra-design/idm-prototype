@@ -8,16 +8,16 @@
   {{ title }} - GOV.UK
 {% endblock %}
 
-{% block content %}
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+{% endblock %}
 
+{% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-
-    {{ govukBackLink({
-      text: "Back",
-      href: "javascript:history.back()"
-    }) }}
-
     <h1 class="govuk-heading-xl">{{ title }}</h1>
     <p>This will only be used to send you security updates or if you need to recover your sign in details.</p>
     <p>To confirm it is your email address we will send you a code.</p>

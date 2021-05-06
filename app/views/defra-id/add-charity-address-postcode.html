@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% set serviceName = "Defra account" %}
 
-{% set title = "What is the address?" %}
+{% set title = "What is the registered address?" %}
 
 {% block pageTitle %}
   {{title}} - GOV.UK
@@ -14,12 +14,13 @@
   }) }}
 {% endblock %}
 
+
 {% block content %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-      <form action="select-new-address" method="post">
+      <form action="select-charity-address" method="post">
 
         <h1 class="govuk-heading-xl">{{title}}</h1>
 
@@ -35,9 +36,9 @@
 
         <div class="govuk-form-group">
           <label class="govuk-label" for="width-20">
-            Enter the postcode
+            Enter the UK postcode
             <span class="govuk-hint">
-              Enter a UK postcode, for example SW1A 1AA
+              This should be the postcode of the registered charity’s address
              </span>
           </label>
           <input class="govuk-input govuk-input--width-20" id="postcode" name="postcode" type="text">

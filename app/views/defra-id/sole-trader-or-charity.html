@@ -2,7 +2,7 @@
 
 {% set serviceName = "Defra account" %}
 
-{% set title = "Is your organisation registered with Companies House?" %}
+{% set title = "Is this organisation a sole trader or a charity?" %}
 
 {% block pageTitle %}
   {{title}} - GOV.UK
@@ -19,7 +19,7 @@
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form method="POST" action="companieshouse-choice">
+      <form method="POST" action="charity-region">
 
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset">
@@ -30,26 +30,20 @@
             </legend>
             <div class="govuk-radios">
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="field1" name="defraIdCompaniesHouse" type="radio" value="yes">
+                <input class="govuk-radios__input" id="field1" name="defraIdSoleTraderOrCharity" type="radio" value="sole-trader">
                 <label class="govuk-label govuk-radios__label" for="field1">
-                  Yes
+                  Sole trader
                 </label>
               </div>
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="field2" name="defraIdCompaniesHouse" type="radio" value="no">
+                <input class="govuk-radios__input" id="field2" name="defraIdSoleTraderOrCharity" type="radio" value="charity">
                 <label class="govuk-label govuk-radios__label" for="field2">
-                  No
+                  Charity
                 </label>
               </div>
             </div>
           </fieldset>
         </div>
-
-        {{govukDetails({
-          summaryText: "How can I find out?",
-          html: ' <p class="govuk-body">You can find company registration information on the <a href="https://www.gov.uk/get-information-about-a-company" target="_blank">Companies House register (opens in a new tab).</a></p>
-          '
-        })}}
 
         {{govukButton({
           text: "Continue"
