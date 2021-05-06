@@ -21,7 +21,11 @@
 
     <h1 class="govuk-heading-xl">{{ title }}</h1>
 
-    <form method="POST" action="task-list-page-company-details?personal-name-completed=y">
+    {% if data['route'] == "company" %}
+      <form method="POST" action="task-list-page-company-details?personal-name-completed=y">
+    {% elseif data['route'] == "charity" %}
+      <form method="POST" action="task-list-page-charity-details?personal-name-completed=y">
+    {% endif %}
 
       {{ govukInput({
         label: {

@@ -29,7 +29,12 @@
           Account Type
         </dt>
         <dd class="govuk-summary-list__value">
-          Business
+          {% if data['route'] == "company" %}
+            Business
+          {% elseif data['route'] == "charity" %}
+            Business
+            <!-- Charity -->
+          {% endif %}
         </dd>
         <dd class="govuk-summary-list__actions">
         <a class="govuk-link" href="#">
@@ -44,11 +49,19 @@
       <dl class="govuk-summary-list govuk-!-margin-bottom-9">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Your organisation's details
+            Your organisation’s details
           </dt>
           <dd class="govuk-summary-list__value">
-            Acme Org Ltd ({{ data['defraIdCompaniesHouseNumber'] or '01234567' }})<br />
-            1 Francis Crick Avenue, Cambridge Biomedical Campus, Cambridge, United Kingdom, CB2 0AA
+            {% if data['route'] == "company" %}
+              Acme Org Ltd ({{ data['defraIdCompaniesHouseNumber'] or '01234567' }})<br />
+            {% elseif data['route'] == "charity" %}
+              Good Hands (NIC100007)
+            {% endif %}<br>
+
+            1 Francis Crick Avenue<br>
+            Cambridge Biomedical Campus<br>
+            Cambridge, United Kingdom<br>
+            CB2 0AA
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="#">
@@ -61,7 +74,11 @@
             Organisation type
           </dt>
           <dd class="govuk-summary-list__value">
-            Limited company
+            {% if data['route'] == "company" %}
+              Limited company
+            {% elseif data['route'] == "charity" %}
+              Charity
+            {% endif %}
           </dd>
           <dd class="govuk-summary-list__actions">
           </dd>
@@ -80,8 +97,122 @@
             </a>
           </dd>
         </div>
-        <br>
-        (Add extra addresses)
+
+        {% if data['correspondence-address'] == "true" %}
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Correspondence address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if data['correspondence-address-type'] == "normal" %}
+
+                Clifton House<br>
+                Clifton Road<br>
+                London<br>
+                SW19 5JA
+
+              {% elseif data['correspondence-address-type'] == "manual" %}
+
+                Laurel Ho<br>
+                Laurelhill Business Park<br>
+                Stirling<br>
+                FK7 9JQ
+
+              {% elseif data['correspondence-address-type'] == "non-uk" %}
+
+                LG. Do Município<br>
+                6060-163 - Idanha-A-Nova<br>
+                Portugal
+
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="#">
+                Change<span class="govuk-visually-hidden"> correspondence address</span>
+              </a>
+            </dd>
+          </div>
+
+        {% endif %}
+
+        {% if data['billing-address'] == "true" %}
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Billing address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if data['billing-address-type'] == "normal" %}
+
+                Clifton House<br>
+                Clifton Road<br>
+                London<br>
+                SW19 5JA
+
+              {% elseif data['billing-address-type'] == "manual" %}
+
+                Laurel Ho<br>
+                Laurelhill Business Park<br>
+                Stirling<br>
+                FK7 9JQ
+
+              {% elseif data['Billing-address-type'] == "non-uk" %}
+
+                LG. Do Município<br>
+                6060-163 - Idanha-A-Nova<br>
+                Portugal
+
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="#">
+                Change<span class="govuk-visually-hidden"> billing address</span>
+              </a>
+            </dd>
+          </div>
+
+        {% endif %}
+
+        {% if data['operations-address'] == "true" %}
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Operations address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if data['operations-address-type'] == "normal" %}
+
+                Clifton House<br>
+                Clifton Road<br>
+                London<br>
+                SW19 5JA
+
+              {% elseif data['operations-address-type'] == "manual" %}
+
+                Laurel Ho<br>
+                Laurelhill Business Park<br>
+                Stirling<br>
+                FK7 9JQ
+
+              {% elseif data['operations-address-type'] == "non-uk" %}
+
+                LG. Do Município<br>
+                6060-163 - Idanha-A-Nova<br>
+                Portugal
+
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="#">
+                Change<span class="govuk-visually-hidden"> correspondence address</span>
+              </a>
+            </dd>
+          </div>
+
+        {% endif %}
+
+
       </dl>
 
 

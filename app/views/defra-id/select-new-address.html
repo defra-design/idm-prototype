@@ -34,7 +34,58 @@
             </h1>
           </legend>
 
-          <p class="govuk-body">
+          {{ govukSelect({
+            id: "address",
+            name: "address",
+            label: {
+              text: "Select an address"
+            },
+            items: [
+              {
+                value: "9 addresses found",
+                text: "9 addresses found",
+                selected: "true"
+              },
+              {
+                value: "address-check?address1=Forbes%20Lane&city=West%20Crudwell&postcode=SN16%209EW",
+                text: "Forbes Lane, West Crudwell, SN16 9EW"
+              },
+              {
+                value: "address-check?address1=1%20Doogal%20Road&city=West%20Crudwell&postcode=SN16%209EW",
+                text: "1 Doogal Road, West Crudwell, SN16 9EW"
+              },
+              {
+                value: "address-check?address1=1%20Doogal%20Road&city=West%20Crudwell&postcode=SN16%209EW",
+                text: "2 Doogal Road, West Crudwell, SN16 9EW"
+              },
+              {
+                value: "address-check?address1=1%20Doogal%20Road&city=West%20Crudwell&postcode=SN16%209EW",
+                text: "3 Doogal Road, West Crudwell, SN16 9EW"
+              },
+              {
+                value: "address-check?address1=1%20Doogal%20Road&city=West%20Crudwell&postcode=SN16%209EW",
+                text: "4 Doogal Road, West Crudwell, SN16 9EW"
+              },
+              {
+                value: "address-check?address1=1%20Doogal%20Road&city=West%20Crudwell&postcode=SN16%209EW",
+                text: "5 Doogal Road, West Crudwell, SN16 9EW"
+              },
+              {
+                value: "address-check?address1=1%20Doogal%20Road&city=West%20Crudwell&postcode=SN16%209EW",
+                text: "6 Doogal Road, West Crudwell, SN16 9EW"
+              },
+              {
+                value: "address-check?address1=1%20Doogal%20Road&city=West%20Crudwell&postcode=SN16%209EW",
+                text: "7 Doogal Road, West Crudwell, SN16 9EW"
+              },
+              {
+                value: "address-check?address1=1%20Doogal%20Road&city=West%20Crudwell&postcode=SN16%209EW",
+                text: "8 Doogal Road, West Crudwell, SN16 9EW"
+              }
+            ]
+          }) }}
+
+          <!-- <p class="govuk-body">
             3 addresses found for Clifton House and SW19 5JA. <a href="" class="govuk-link">Change</a>
           </p>
 
@@ -57,7 +108,7 @@
                 2b, Clifton House, Clifton Road, LONDON SW19 5JA
               </label>
             </div>
-          </div>
+          </div> -->
 
         </fieldset>
       </div>
@@ -67,7 +118,6 @@
       </button>
 
     </form>
-
 
   </div>
 </div>

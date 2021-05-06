@@ -29,9 +29,6 @@
               {{ title }}
             </h1>
           </legend>
-          <p class="govuk-body">
-            You can add and manage extra addresses later.
-          </p>
           <div class="govuk-radios">
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="add-address-yes" name="added-address" type="radio" value="yes">
@@ -49,6 +46,10 @@
         </fieldset>
       </div>
 
+      <p class="govuk-body">
+        You can add and manage extra addresses later.
+      </p>
+      
       {{govukButton({
         text: "Continue"
       })}}

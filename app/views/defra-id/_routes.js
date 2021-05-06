@@ -51,13 +51,23 @@ router.post('*/companieshouse-choice', function (req, res) {
     }
 })
 
-// Routing for company-registered-question.html
+// Routing for adding company addresses in registration
 router.post('*/add-addresses', function (req, res) {
   var addExtraAddress = req.session.data['added-address']
   if (addExtraAddress === 'yes') {
     res.redirect('add-address-type')
   } else {
     res.redirect('task-list-page-company-details')
+  }
+})
+
+// Routing for adding charity addresses in registration
+router.post('*/add-charity-addresses', function (req, res) {
+  var addExtraAddress = req.session.data['added-address']
+  if (addExtraAddress === 'yes') {
+    res.redirect('add-address-type')
+  } else {
+    res.redirect('task-list-page-charity-details')
   }
 })
 

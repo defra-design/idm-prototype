@@ -12,9 +12,14 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
+    <!-- if ALL of the extra addresses are already added -->
     {% if data['correspondence-address'] == "true" and data['billing-address'] == "true" and data['operations-address'] == "true" %}
 
-      <form action="task-list-page-company-details" method="post">
+      {% if data['route'] == "company" %}
+        <form action="task-list-page-company-details" method="post">
+      {% elseif data['route'] == "charity" %}
+        <form action="task-list-page-charity-details" method="post">
+      {% endif %}
 
         <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
           <h1 class="govuk-fieldset__heading">
@@ -26,12 +31,15 @@
 
     {% endif %}
 
-
-    <div class="govuk-inset-text">
+    <!-- showing the added extra addresses -->
+    <div class="govuk-inset-text govuk-!-margin-top-0">
       {% if data['correspondence-address'] == "true" and data['billing-address'] == "true" and data['operations-address'] == "true" %}
+
       {% else %}
-      <p class="govuk-body">You have added the following address types:</p>
+        <p class="govuk-body">You have added the following address types:</p>
       {% endif %}
+
+      <!-- show each added addresses -->
       <ul class="govuk-list govuk-list--bullet">
         {% if data['correspondence-address'] == "true" %}
           <li>Correspondence address</li>
@@ -49,7 +57,11 @@
 
     {% if data['correspondence-address'] == "true" and data['billing-address'] == "true" and data['operations-address'] == "true" %}
 
-      <form action="task-list-page-company-details" method="post">
+      {% if data['route'] == "company" %}
+        <form action="task-list-page-company-details" method="post">
+      {% elseif data['route'] == "charity" %}
+        <form action="task-list-page-charity-details" method="post">
+      {% endif %}
 
         {{govukButton({
           text: "Continue"
@@ -59,7 +71,12 @@
 
     {% else %}
 
-      <form action="add-addresses" method="post">
+      {% if data['route'] == "company" %}
+        <form action="add-addresses" method="post">
+      {% elseif data['route'] == "charity" %}
+        <form action="add-charity-addresses" method="post">
+      {% endif %}
+
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
@@ -67,9 +84,6 @@
                 {{ title }}
               </h1>
             </legend>
-            <p class="govuk-body">
-              You can add and manage extra addresses later.
-            </p>
             <div class="govuk-radios">
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="add-address-yes" name="added-address" type="radio" value="yes">
@@ -86,6 +100,10 @@
             </div>
           </fieldset>
         </div>
+
+        <p class="govuk-body">
+          You can add and manage extra addresses later.
+        </p>
 
         {{govukButton({
           text: "Continue"
