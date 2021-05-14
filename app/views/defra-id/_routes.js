@@ -32,7 +32,7 @@ router.post('*/organisation-type-choice', function (req, res) {
 router.post('*/organisation-uk-choice', function (req, res) {
     var defraIdUk = req.session.data['defraIdUk']
     if (defraIdUk == "non-uk"){
-        res.redirect('non-uk')
+        res.redirect('non-uk-business-name')
     }
     else {
         res.redirect('company-registered-question')
