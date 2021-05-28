@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Defra account" %}
+
+{% set title = "Which account do you want to register with this service?" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="service-start-complete" method="post">
+      <input type="hidden" name="subscribeService" value="yes">
+      <input type="hidden" name="serviceRole" value="Standard">
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+            <h1 class="govuk-fieldset__heading">
+              Which account do you want to register with this service?
+            </h1>
+          </legend>
+
+          <div class="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="accountName" name="accountName" type="radio" value="Acme Org Ltd" checked="">
+              <label class="govuk-label govuk-radios__label" for="accountName">
+                Acme Org Ltd
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="accountName-2" name="accountName" type="radio" value="Acme Org India">
+              <label class="govuk-label govuk-radios__label" for="accountName-2">
+                Acme Org India
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="accountName-3" name="accountName" type="radio" value="Acme Org Thailand">
+              <label class="govuk-label govuk-radios__label" for="accountName-3">
+                Acme Org Thailand
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="accountName-4" name="accountName" type="radio" value="Imports R Us">
+              <label class="govuk-label govuk-radios__label" for="accountName-4">
+                Imports R Us
+              </label>
+            </div>
+
+          </div>
+        </fieldset>
+      </div>
+
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

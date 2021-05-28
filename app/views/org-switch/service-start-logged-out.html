@@ -59,40 +59,10 @@
     </ul>
     <br>
 
-    {% if data['userType'] == "new" %}
-      {% set startURL = "/scp/login-new" %}
-    {% endif %}
-
-    {% if data['serviceRole'] == "Pending" %}
-      {% set startURL = "/scp/login-pending" %}
-    {% endif %}
-
-    {% if data['serviceRole'] == "No service access" %}
-      {% set startURL = "/scp/login-incomplete-tasklist" %}
-    {% endif %}
-
-    {% if data['serviceRole'] == "Incomplete" %}
-      {% set startURL = "/scp/login-incomplete-service" %}
-    {% endif %}
-
-    <!-- Existing users login - single account -->
-    {% if (data['userType'] == "existing-agent")  %}
-      {% set startURL = "/scp/login-complete" %}
-    {% endif %}
-
-    {% if (data['userType'] == "existing") and (data['multiOrg'] == "no") %}
-      {% set startURL = "/scp/login-complete" %}
-    {% endif %}
-
-    <!-- Existing users login - multiple accounts -->
-    {% if (data['userType'] == "existing") and (data['multiOrg'] == "yes") %}
-      {% set startURL = "/scp/login-interswitch" %}
-    {% endif %}
-
     {{ govukButton({
-     text: "Start now",
-     href: startURL,
-     classes: "govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-8"
+      text: "Start now",
+      href: "login",
+      classes: "govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-8"
     }) }}
 
     <!-- <hr class="govuk-section-break--m"> -->
