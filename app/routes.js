@@ -8,8 +8,6 @@ router.get('/', function (req, res) {
 
 // Add your routes here - above the module.exports line
 
-module.exports = router
-
 // dashboard for a org admin (not agent or individual)
 router.get('/manage/dashboard-all', function (req, res) {
     res.render('manage/dashboard',{
@@ -163,7 +161,27 @@ router.get('/manage/dashboard-agent-client', function (req, res) {
     })
 })
 
+
+//////////////////
+/* Org switcher */
+//////////////////
+
+// routing for registration add address type
+router.get('/org-switch/org-pick', function (req, res) {
+  var rep = req.session.data['representing']
+  if (rep == "has-representation"){
+    res.redirect('service-start-complete')
+  }
+  else {
+    res.redirect('interswitch')
+  }
+})
+
+
+/////////////////////////////
 ////// SCP Login config /////
+/////////////////////////////
+
 // Existing user but new to IDM user
 router.get('/scp/login-new', function (req, res) {
     res.render('scp/login',{
@@ -296,7 +314,6 @@ router.get('/cookie-settings', function (req, res) {
     res.render('cookie-settings')
 })
 
-
 router.post('/cookie-settings', function (req, res) {
     cookieSettings = []
     cookieSettings.push(req.session.data['usage'], req.session.data['campaigns'], req.session.data['settings']);
@@ -314,5 +331,7 @@ router.post('/cookie-settings', function (req, res) {
     res.redirect('cookie-settings')
 })
 
-// added for the waste management registration pages
+// added for the registration pages
 router.use('/defra-id', require('./views/defra-id/_routes'));
+
+module.exports = router

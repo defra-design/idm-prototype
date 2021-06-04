@@ -27,7 +27,6 @@ router.post('*/organisation-type-choice', function (req, res) {
     }
 })
 
-
 // Routing for organisation-UK-or-else.html
 router.post('*/organisation-uk-choice', function (req, res) {
     var defraIdUk = req.session.data['defraIdUk']
