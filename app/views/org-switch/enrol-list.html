@@ -1,0 +1,76 @@
+{% extends "layout.html" %}
+{% set serviceName = "Your Defra account" %}
+
+{% set title = "Register for more services" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+<!-- Determines the navigation -->
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+
+  <div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="account">Home</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="dashboard">
+          Acme Org Ltd
+        </a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <!-- <a class="govuk-breadcrumbs__link" href="#"> -->
+          Register a service
+        <!-- </a> -->
+      </li>
+    </ol>
+  </div>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-5">
+        {{title}}
+      </h1>
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <p class="govuk-body">
+        The following services are available for you to register with. To register click the links below.
+      </p>
+
+      <ul class="govuk-list">
+        <li>
+          <a class="govuk-link" href="#">IPAFFS</a>
+        </li>
+        <li>
+          <a class="govuk-link" href="#">Exporter Service</a>
+        </li>
+        <li>
+          <a class="govuk-link" href="#">Fish Exports Service</a>
+        </li>
+        <li>
+          <a class="govuk-link" href="#">Comply with UK REACH</a>
+        </li>
+        <li>
+          <a class="govuk-link" href="#">Apply for a Phytosanitary Certificate</a>
+        </li>
+        <li>
+          <a class="govuk-link" href="#">Certifier Service</a>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+
+{% endblock %}
