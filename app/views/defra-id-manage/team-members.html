@@ -1,0 +1,182 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Defra account" %}
+
+{% set title = "Team member" %}
+
+{% set fullname = "Sam Woods" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+<!-- Determines the navigation -->
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual-profile.html" %}
+  </div>
+
+  <div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="account">Home</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="dashboard">
+          Big Company Ltd
+        </a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="#">
+          Team members
+        </a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <!-- <a class="govuk-breadcrumbs__link" href="#"> -->
+          {{ fullname }}
+        <!-- </a> -->
+      </li>
+    </ol>
+  </div>
+
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-xl">
+      {{title}}
+    </h1>
+  </div>
+</div>
+
+<div class="govuk-grid-row govuk-!-margin-bottom-6">
+  <div class="govuk-grid-column-two-thirds">
+
+    <!-- <p class="govuk-body">
+      <span class="govuk-!-font-weight-bold">Full name:</span> Sam Woods<br>
+      <span class="govuk-!-font-weight-bold">Email address:</span> sam.woods@company.co.uk<br>
+      <span class="govuk-!-font-weight-bold">Telephone number:</span> 07711223344
+    </p> -->
+
+    <dl class="govuk-summary-list govuk-summary-list--no-border govuk-!-margin-bottom-3">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Full name
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ fullname }}
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Email address
+        </dt>
+        <dd class="govuk-summary-list__value">
+          sam.woods@bigcompany.co.uk
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Phone number
+        </dt>
+        <dd class="govuk-summary-list__value">
+          07711 223344
+        </dd>
+      </div>
+    </dl>
+
+    <dl class="govuk-summary-list govuk-summary-list--no-border govuk-!-margin-bottom-3">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Account
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Pondlife Org
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Role
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Admin
+        </dd>
+      </div>
+    </dl>
+
+    <p class="govuk-body">
+      <a href="update-details" class="govuk-link--no-visited-state">
+        Change account role
+      </a>
+    </p>
+
+  </div>
+</div>
+
+<div class="govuk-grid-row govuk-!-margin-bottom-6">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h2 class="govuk-heading-l">
+      Service access
+    </h2>
+
+    <table class="govuk-table {{ tableCSS }}">
+
+      <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th class="govuk-table__header column-full" scope="col">
+          Service
+        </th>
+        <th class="govuk-table__header column-full" scope="col">
+          Service role
+        </th>
+        <th class="govuk-table__header column-full" scope="col">
+          <span class="govuk-visually-hidden td-header">Action</span>
+        </th>
+      </tr>
+      </thead>
+
+      <tr class="govuk-table__row no-border">
+        <td class="govuk-table__cell">
+          IPAFFS
+        </td>
+        <td class="govuk-table__cell">
+          Notifier
+        </td>
+        <td class="govuk-table__cell">
+          <a href="dashboard" class="govuk-link--no-visited-state">
+            Manage access
+          </a>
+        </td>
+      </tr>
+
+    </table>
+
+  </div>
+</div>
+
+<!-- <div class="govuk-grid-row govuk-!-margin-bottom-6">
+
+  <div class="govuk-card__content">
+
+    <h2 class="govuk-heading-l">Link to services</h2>
+
+    <div class="govuk-grid-row idm-grid-row__services">
+
+      <div class="govuk-grid-column-one-third">
+        <div class="govuk-card govuk-card--contained govuk-card--selectable">
+          <a id="link-ipaffs" href="#" aria-label="Manage service IPAFFS"></a>
+          <div class="govuk-card__content">
+            <h3 class="govuk-heading-m">IPAFFS</h3>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div> -->
+{% endblock %}
