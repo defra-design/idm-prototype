@@ -6,9 +6,6 @@
 
 {% set fullname = "Sam Woods" %}
 {% set business = "Big Company Ltd" %}
-{% set userEmail = "sam.woods@bigcompany.co.uk" %}
-{% set phoneNumber = "07711 223344" %}
-{% set role = "Standard user" %}
 
 {% block pageTitle %}
   {{title}} - GOV.UK
@@ -51,109 +48,86 @@
   </div>
 </div>
 
-<div class="govuk-grid-row govuk-!-margin-bottom-6">
-  <div class="govuk-grid-column-two-thirds">
-
-    <!-- <p class="govuk-body">
-      <span class="govuk-!-font-weight-bold">Full name:</span> Sam Woods<br>
-      <span class="govuk-!-font-weight-bold">Email address:</span> sam.woods@company.co.uk<br>
-      <span class="govuk-!-font-weight-bold">Telephone number:</span> 07711223344
-    </p> -->
-
-    <dl class="govuk-summary-list govuk-summary-list--no-border govuk-!-margin-bottom-3">
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Full name
-        </dt>
-        <dd class="govuk-summary-list__value">
-          {{ fullname }}
-        </dd>
-      </div>
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Email address
-        </dt>
-        <dd class="govuk-summary-list__value">
-          {{ userEmail }}
-        </dd>
-      </div>
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Phone number
-        </dt>
-        <dd class="govuk-summary-list__value">
-          {{ phoneNumber }}
-        </dd>
-      </div>
-    </dl>
-
-    <dl class="govuk-summary-list govuk-summary-list--no-border govuk-!-margin-bottom-3">
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Account
-        </dt>
-        <dd class="govuk-summary-list__value">
-          {{ business }}
-        </dd>
-      </div>
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Role
-        </dt>
-        <dd class="govuk-summary-list__value">
-          {{ role }}
-        </dd>
-      </div>
-    </dl>
-
-    <p class="govuk-body">
-      <a href="update-details" class="govuk-link--no-visited-state">
-        Remove user
-      </a>
-    </p>
-    <p class="govuk-body">
-      <a href="update-details" class="govuk-link--no-visited-state">
-        Change account role
-      </a>
-    </p>
-
-  </div>
-</div>
 
 <div class="govuk-grid-row govuk-!-margin-bottom-6">
-  <div class="govuk-grid-column-two-thirds">
+  <div class="govuk-grid-column-full">
 
-    <h2 class="govuk-heading-l">
-      Service access
-    </h2>
+    {{ govukButton({
+      text: "Add a team member",
+      classes: "govuk-button--secondary"
+    }) }}
 
     <table class="govuk-table {{ tableCSS }}">
 
       <thead class="govuk-table__head">
       <tr class="govuk-table__row">
         <th class="govuk-table__header column-full" scope="col">
-          Service
+          Team member
         </th>
         <th class="govuk-table__header column-full" scope="col">
-          Service role
+          Email address
         </th>
         <th class="govuk-table__header column-full" scope="col">
-          <span class="govuk-visually-hidden td-header">Action</span>
+          Role
+        </th>
+        <th class="govuk-table__header column-full" scope="col">
+          Status
         </th>
       </tr>
       </thead>
 
       <tr class="govuk-table__row no-border">
         <td class="govuk-table__cell">
-          IPAFFS
-        </td>
-        <td class="govuk-table__cell">
-          Notifier
-        </td>
-        <td class="govuk-table__cell">
-          <a href="dashboard" class="govuk-link--no-visited-state">
-            Manage access
+          <a href="team-member?teamType=you">
+            Nicky Bidbod (you)
           </a>
+        </td>
+        <td class="govuk-table__cell">
+          nickybodbod@bigcompany.co.uk
+        </td>
+        <td class="govuk-table__cell">
+          Admin
+        </td>
+        <td class="govuk-table__cell">
+          <strong class="govuk-tag govuk-tag">
+            Active
+          </strong>
+        </td>
+      </tr>
+
+      <tr class="govuk-table__row no-border">
+        <td class="govuk-table__cell">
+          <a href="team-member?teamType=other">
+            Sam Woods
+          </a>
+        </td>
+        <td class="govuk-table__cell">
+          samwoods@bigcompany.co.uk
+        </td>
+        <td class="govuk-table__cell">
+          Standard user
+        </td>
+        <td class="govuk-table__cell">
+          <strong class="govuk-tag govuk-tag">
+            Active
+          </strong>
+        </td>
+      </tr>
+
+      <tr class="govuk-table__row no-border">
+        <td class="govuk-table__cell">
+
+        </td>
+        <td class="govuk-table__cell">
+          jendavies@bigcompany.co.uk
+        </td>
+        <td class="govuk-table__cell">
+          Standard user
+        </td>
+        <td class="govuk-table__cell">
+          <strong class="govuk-tag govuk-tag--grey">
+            Invited
+          </strong>
         </td>
       </tr>
 

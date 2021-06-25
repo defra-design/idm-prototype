@@ -4,11 +4,19 @@
 
 {% set title = "Team member" %}
 
-{% set fullname = "Sam Woods" %}
-{% set business = "Big Company Ltd" %}
-{% set userEmail = "sam.woods@bigcompany.co.uk" %}
-{% set phoneNumber = "07711 223344" %}
-{% set role = "Standard user" %}
+{% if data['teamType'] == 'other' %}
+  {% set fullname = "Sam Woods" %}
+  {% set business = "Big Company Ltd" %}
+  {% set userEmail = "sam.woods@bigcompany.co.uk" %}
+  {% set phoneNumber = "07711 223344" %}
+  {% set role = "Standard user" %}
+{% else %}
+  {% set fullname = "Nicky Bidbod" %}
+  {% set business = "Big Company Ltd" %}
+  {% set userEmail = "nickybidbod@bigcompany.co.uk" %}
+  {% set phoneNumber = "07976 217721" %}
+  {% set role = "Admin" %}
+{% endif %}
 
 {% block pageTitle %}
   {{title}} - GOV.UK
@@ -111,16 +119,18 @@
       </div>
     </dl>
 
-    <p class="govuk-body">
-      <a href="update-details" class="govuk-link--no-visited-state">
-        Remove user
-      </a>
-    </p>
-    <p class="govuk-body">
-      <a href="update-details" class="govuk-link--no-visited-state">
-        Change account role
-      </a>
-    </p>
+    {% if data['teamType'] == 'other' %}
+      <p class="govuk-body">
+        <a href="update-details" class="govuk-link--no-visited-state">
+          Remove user
+        </a>
+      </p>
+      <p class="govuk-body">
+        <a href="update-details" class="govuk-link--no-visited-state">
+          Change account role
+        </a>
+      </p>
+    {% endif %}
 
   </div>
 </div>
