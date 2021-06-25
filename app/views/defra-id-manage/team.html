@@ -2,9 +2,13 @@
 
 {% set serviceName = "Defra account" %}
 
-{% set title = "Team member" %}
+{% set title = "Manage team access" %}
 
 {% set fullname = "Sam Woods" %}
+{% set business = "Big Company Ltd" %}
+{% set userEmail = "sam.woods@bigcompany.co.uk" %}
+{% set phoneNumber = "07711 223344" %}
+{% set role = "Standard user" %}
 
 {% block pageTitle %}
   {{title}} - GOV.UK
@@ -24,17 +28,12 @@
       </li>
       <li class="govuk-breadcrumbs__list-item">
         <a class="govuk-breadcrumbs__link" href="dashboard">
-          Big Company Ltd
-        </a>
-      </li>
-      <li class="govuk-breadcrumbs__list-item">
-        <a class="govuk-breadcrumbs__link" href="#">
-          Team members
+          {{ business }}
         </a>
       </li>
       <li class="govuk-breadcrumbs__list-item">
         <!-- <a class="govuk-breadcrumbs__link" href="#"> -->
-          {{ fullname }}
+          Manage team access
         <!-- </a> -->
       </li>
     </ol>
@@ -75,7 +74,7 @@
           Email address
         </dt>
         <dd class="govuk-summary-list__value">
-          sam.woods@bigcompany.co.uk
+          {{ userEmail }}
         </dd>
       </div>
       <div class="govuk-summary-list__row">
@@ -83,7 +82,7 @@
           Phone number
         </dt>
         <dd class="govuk-summary-list__value">
-          07711 223344
+          {{ phoneNumber }}
         </dd>
       </div>
     </dl>
@@ -94,7 +93,7 @@
           Account
         </dt>
         <dd class="govuk-summary-list__value">
-          Pondlife Org
+          {{ business }}
         </dd>
       </div>
       <div class="govuk-summary-list__row">
@@ -102,7 +101,7 @@
           Role
         </dt>
         <dd class="govuk-summary-list__value">
-          Standard user
+          {{ role }}
         </dd>
       </div>
     </dl>
