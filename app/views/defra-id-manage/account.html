@@ -4,6 +4,13 @@
 
 {% set title = "Defra account profile" %}
 
+{% set fullname = "Sam Woods" %}
+{% set business = "Big Company Ltd" %}
+{% set userEmail = "sam.woods@bigcompany.co.uk" %}
+{% set phoneNumber = "07711 223344" %}
+
+{% set business2 = "Small Company Ltd" %}
+
 {% block pageTitle %}
   {{title}} - GOV.UK
 {% endblock %}
@@ -42,7 +49,7 @@
           Full name
         </dt>
         <dd class="govuk-summary-list__value">
-          Sam Woods
+          {{ fullname }}
         </dd>
       </div>
       <div class="govuk-summary-list__row">
@@ -50,7 +57,7 @@
           Email address
         </dt>
         <dd class="govuk-summary-list__value">
-          sam.woods@bigcompany.co.uk
+          {{ userEmail }}
         </dd>
       </div>
       <div class="govuk-summary-list__row">
@@ -58,7 +65,7 @@
           Phone number
         </dt>
         <dd class="govuk-summary-list__value">
-          07711 223344
+          {{ phoneNumber }}
         </dd>
       </div>
       <div class="govuk-summary-list__row">
@@ -132,10 +139,10 @@
 
         <tr class="govuk-table__row no-border">
           <td class="govuk-table__cell">
-            Big Company Ltd
+            {{ business }}
           </td>
           <td class="govuk-table__cell">
-            Admin
+            {{ role }}
           </td>
           <td class="govuk-table__cell">
             No registered service
@@ -146,14 +153,14 @@
           </td>
           <td class="govuk-table__cell">
             <a href="dashboard" class="govuk-link--no-visited-state">
-              Manage<span class="govuk-visually-hidden td-header"> Big Company Ltd</span>
+              Manage<span class="govuk-visually-hidden td-header"> {{ business }}</span>
             </a>
           </td>
         </tr>
 
         <tr class="govuk-table__row no-border">
           <td class="govuk-table__cell">
-            Small Company Ltd
+            {{ business2 }}
           </td>
           <td class="govuk-table__cell">
             -

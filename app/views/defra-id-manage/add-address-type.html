@@ -3,6 +3,8 @@
 
 {% set title = "What kind of address do you want to add?" %}
 
+{% set business = "Big Company Ltd" %}
+
 {% block pageTitle %}
   {{title}} - GOV.UK
 {% endblock %}
@@ -20,7 +22,7 @@
       </li>
       <li class="govuk-breadcrumbs__list-item">
         <a class="govuk-breadcrumbs__link" href="dashboard">
-          Big Company Ltd
+          {{ business }}
         </a>
       </li>
       <li class="govuk-breadcrumbs__list-item">

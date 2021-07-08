@@ -1,24 +1,4 @@
 /* ==========================================================================
-   COMPONENTS / #LOADER / NHS version
-   ========================================================================== */
-
-.nhsuk-loader {
-  position: relative;
-  text-align: center;
-}
-
-.nhsuk-loader__spinner {
-  animation: spin 2s linear infinite;
-  border: 1rem solid $govuk-border-colour;
-  border-radius: 50%;
-  border-top: 1rem solid $govuk-brand-colour;
-  display: inline-block;
-  height: 120px;
-  margin: auto;
-  width: 120px;
-}
-
-/* ==========================================================================
    COMPONENTS / #LOADER / Defra version
    ========================================================================== */
 
@@ -27,8 +7,6 @@
   text-align: center;
   height: 45vh;
 }
-
-
 
 .defra-loader__spinner {
   animation: spin 2s linear infinite;
@@ -49,33 +27,6 @@
 .defra-loader__text {
   display: block;
   margin-bottom: 0;
-}
-
-.nhsuk-loader--small {
-  text-align: left;
-
-  .nhsuk-loader__spinner {
-    border-width: nhsuk-spacing(1);
-    border-top-width: nhsuk-spacing(1);
-    height: nhsuk-spacing(4);
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: nhsuk-spacing(4);
-
-    @include mq($from: desktop) {
-      height: 28px;
-      width: 28px;
-    }
-  }
-
-  .nhsuk-loader__text {
-    padding-left: nhsuk-spacing(5);
-
-    @include mq($from: desktop) {
-      padding-left: nhsuk-spacing(6);
-    }
-  }
 }
 
 @keyframes spin {
