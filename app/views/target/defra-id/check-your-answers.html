@@ -17,7 +17,7 @@
 
 {% block content %}
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
+  <div class="govuk-grid-column-full">
 
     <h1 class="govuk-heading-xl">{{ title }}</h1>
 
@@ -29,11 +29,15 @@
           Account Type
         </dt>
         <dd class="govuk-summary-list__value">
-          {% if data['route'] == "company" %}
-            Business
-          {% elseif data['route'] == "charity" %}
-            Business
-            <!-- Charity -->
+          {% if data['route'] %}
+            {% if data['route'] == "company" %}
+              Business
+            {% elseif data['route'] == "charity" %}
+              Business
+              <!-- Charity -->
+            {% endif %}
+          {% else %}
+            UK company
           {% endif %}
         </dd>
         <dd class="govuk-summary-list__actions">
@@ -42,22 +46,112 @@
         </a>
         </dd>
       </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Account email
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['govGateEmail'] or 'samwoods@company.co.uk' }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+        <a class="govuk-link" href="#">
+          Change<span class="govuk-visually-hidden"> account type</span>
+        </a>
+        </dd>
+      </div>
+
     </dl>
 
     <h2 class="govuk-heading-m">About your organisation</h2>
 
       <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
         <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Your organisation’s details
+          <dt class="govuk-summary-list__key govuk-summary-list__key--wide">
+            {% if data['route'] %}
+              {% if data['route'] == "company" %}
+                Company name
+              {% elseif data['route'] == "charity" %}
+                Charity name
+              {% endif %}
+            {% else %}
+              Company name
+            {% endif %}
           </dt>
           <dd class="govuk-summary-list__value">
-            {% if data['route'] == "company" %}
-              Acme Org Ltd ({{ data['defraIdCompaniesHouseNumber'] or '01234567' }})<br />
-            {% elseif data['route'] == "charity" %}
-              Good Hands (NIC100007)
-            {% endif %}<br>
+            {% if data['route'] %}
+              {% if data['route'] == "company" %}
+                Acme Org Ltd
+              {% elseif data['route'] == "charity" %}
+                Good Hands (NIC100007)
+              {% endif %}
+            {% else %}
+              Acme Org Ltd
+            {% endif %}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <!-- <a class="govuk-link" href="#">
+              Change<span class="govuk-visually-hidden"> registered company</span>
+            </a> -->
+          </dd>
+        </div>
 
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Organisation type
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% if data['route'] %}
+              {% if data['route'] == "company" %}
+                Limited company
+              {% elseif data['route'] == "charity" %}
+                Charity
+              {% endif %}
+            {% else %}
+              Limited company
+            {% endif %}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Companies House number
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% if data['route'] %}
+              {% if data['route'] == "company" %}
+                {{ data['defraIdCompaniesHouseNumber'] }}<br />
+              {% endif %}<br>
+            {% else %}
+              01234567<br />
+            {% endif %}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <!-- <a class="govuk-link" href="#">
+              Change<span class="govuk-visually-hidden"> registered company</span>
+            </a> -->
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-summary-list__key--wide">
+            Main address
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% if data['route'] %}
+              {% if data['route'] == "company" %}
+                Acme Org Ltd
+              {% elseif data['route'] == "charity" %}
+                Good Hands (NIC100007)
+              {% endif %}
+            {% else %}
+              Acme Org Ltd
+            {% endif %}
+            <br>
             1 Francis Crick Avenue<br>
             Cambridge Biomedical Campus<br>
             Cambridge, United Kingdom<br>
@@ -65,24 +159,11 @@
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="#">
-              Change<span class="govuk-visually-hidden"> registered company</span>
+              Change<span class="govuk-visually-hidden"> organisation main address</span>
             </a>
           </dd>
         </div>
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Organisation type
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {% if data['route'] == "company" %}
-              Limited company
-            {% elseif data['route'] == "charity" %}
-              Charity
-            {% endif %}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-          </dd>
-        </div>
+
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             Main contact details
@@ -234,6 +315,19 @@
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
+            Your phone number
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['defraIdPersonalPhone'] or '07711223344' }}<br />
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">
+              Change<span class="govuk-visually-hidden"> telephone number</span>
+            </a>
+          </dd>
+        </div>
+        <!-- <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
             Your contact details
           </dt>
           <dd class="govuk-summary-list__value">
@@ -245,7 +339,7 @@
               Change<span class="govuk-visually-hidden"> your contact details</span>
             </a>
           </dd>
-        </div>
+        </div> -->
         <!-- <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             Your security word

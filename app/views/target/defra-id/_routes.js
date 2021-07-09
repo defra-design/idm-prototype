@@ -54,7 +54,7 @@ router.post('*/add-addresses', function (req, res) {
   if (addExtraAddress === 'yes') {
     res.redirect('add-address-type')
   } else {
-    res.redirect('personal-contact')
+    res.redirect('personal-name')
   }
 })
 
