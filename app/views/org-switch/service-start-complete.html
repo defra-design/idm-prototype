@@ -57,7 +57,26 @@
         text: "Demo Service page. This is a Service page and shows example content."
       }) }}
 
-      <p class="govuk-body">Please select which account you wish to work on today:</p>
+      <p class="govuk-body">
+
+        <ul class="govuk-list">
+          <li>
+            <a class="govuk-link" href="#">Regulations</a>
+          </li>
+          <li>
+            <a class="govuk-link" href="#">Manufacturing</a>
+          </li>
+          <li>
+            <a class="govuk-link" href="#">Chemicals</a>
+          </li>
+          <li>
+            <a class="govuk-link" href="#">Definitions</a>
+          </li>
+        </ul>
+
+      </p>
+
+      <!-- <p class="govuk-body">Please select which account you wish to work on today:</p>
 
       <ul class="govuk-list govuk-list--bullet">
         <li>
@@ -88,7 +107,7 @@
           </ul>
         {% if data['addAccount'] == "account" %}
           <li><a class="govuk-link govuk-link--no-visited-state" href="">Chemcial R US</a></li>
-        {% endif %}
+        {% endif %} -->
       </ul>
 
     </div>

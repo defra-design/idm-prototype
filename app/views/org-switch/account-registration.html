@@ -1,0 +1,90 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Your Defra account" %}
+
+{% set title = "Which account do you want to register with this service?" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <!-- <form action="service-start-complete" method="post"> -->
+    <form action="service-start-complete" method="post">
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+            <span class="govuk-caption-xl">{{ data['serviceLine'] }}</span>
+            <h1 class="govuk-fieldset__heading govuk-!-margin-bottom-3">{{ title }}</h1>
+          </legend>
+
+          <p class="govuk-body-l">
+            If you do not see the organisation below, contact their administrator and ask for admin access.
+          </p>
+
+          {% if not data['empty'] %}
+
+          <div class="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="accountName" name="accountName" type="radio" value="Acme Org Ltd" checked="">
+              <label class="govuk-label govuk-radios__label" for="accountName">
+                Acme Org Ltd
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="accountName-2" name="accountName" type="radio" value="Acme Org India">
+              <label class="govuk-label govuk-radios__label" for="accountName-2">
+                Acme Org India
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="accountName-3" name="accountName" type="radio" value="Acme Org Thailand">
+              <label class="govuk-label govuk-radios__label" for="accountName-3">
+                Acme Org Thailand
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="accountName-4" name="accountName" type="radio" value="Imports R Us">
+              <label class="govuk-label govuk-radios__label" for="accountName-4">
+                Imports R Us
+              </label>
+            </div>
+
+          </div>
+        </fieldset>
+      </div>
+
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+
+      {% else %}
+
+      <p class="govuk-body govuk-!-margin-bottom-6">
+        <a href="login" class="govuk-link govuk-link--no-visited-state">
+          Try a different Government Gateway account
+        </a>
+      </p>
+
+      {% endif %}
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

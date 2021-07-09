@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set serviceName = "Defra account" %}
+{% set serviceName = "Your Defra account" %}
 
 {% set title = "Which account do you want to sign into UK Reach with?" %}
 
@@ -19,47 +19,88 @@
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form action="service-start-complete" method="post">
+      <form method="POST" action="org-pick">
 
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
-              <h1 class="govuk-fieldset__heading govuk-!-margin-bottom-3">
-                {{ title }}
-              </h1>
+              <span class="govuk-caption-xl">{{ data['serviceLine'] }}</span>
+              <h1 class="govuk-heading-xl">{{ title }}</h1>
             </legend>
+
+            <p class="govuk-body govuk-!-margin-bottom-6">
+              <a href="account-registration" class="govuk-link govuk-link--no-visited-state">Register for a new account</a>
+            </p>
+
+            <div class="defra-filter govuk-!-margin-bottom-6">
+
+              <div class="defra-filter__header">
+                <div class="defra-filter__header-title">
+                  <h2 class="govuk-heading-m">Filter</h2>
+                </div>
+                <div class="defra-filter__header-action">
+                  <p class="govuk-body govuk-!-margin-bottom-6">
+                    <a href="account-registration" class="govuk-link govuk-link--no-visited-state">Clear search</a>
+                  </p>
+                </div>
+              </div>
+
+              <div class="defra-filter__content">
+                <!-- text filter -->
+                <div class="defra-filter__options">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label govuk-label--m" for="keywords">
+                      Filter using keywords
+                    </label>
+                    <input class="govuk-input govuk-!-width-three-quarters" id="keywords" name="keywords" type="text">
+
+                    <label for="my-autocomplete">Select your country</label>
+                    <div id="my-autocomplete-container"></div>
+
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- radio buttons -->
             <div class="govuk-radios">
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="representation1" name="defraIdCompaniesHouse" type="radio" value="representation1">
+                <input class="govuk-radios__input" id="representation1" name="representing" type="radio" value="has-representation">
                 <label class="govuk-label govuk-radios__label" for="representation1">
-                  Sam Woods
+                  <span class="govuk-!-font-weight-bold">Sam Woods</span><br>
+                  Reach reader
                 </label>
               </div>
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="representation3" name="defraIdCompaniesHouse" type="radio" value="representation3">
+                <input class="govuk-radios__input" id="representation2" name="representing" type="radio" value="has-representation">
+                <label class="govuk-label govuk-radios__label" for="representation2">
+                  <span class="govuk-!-font-weight-bold">Big Company Ltd employee</span><br>
+                  Reach manager
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="representation3" name="representing" type="radio" value="has-representation">
                 <label class="govuk-label govuk-radios__label" for="representation3">
-                  Big Company Ltd employee
+                  <span class="govuk-!-font-weight-bold">Middle Company Co. intermediary</span><br>
+                  Reach manager (approval pending)
                 </label>
               </div>
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="representation4" name="defraIdCompaniesHouse" type="radio" value="representation4">
+                <input class="govuk-radios__input" id="representation4" name="representing" type="radio" value="has-representation">
                 <label class="govuk-label govuk-radios__label" for="representation4">
-                  Middle Company Co. intermediary
+                  <span class="govuk-!-font-weight-bold">Small Company Ltd intermediary</span><br>
+                  Reach manager
                 </label>
               </div>
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="representation5" name="defraIdCompaniesHouse" type="radio" value="representation5">
+                <input class="govuk-radios__input" id="representation5" name="representing" type="radio" value="has-representation">
                 <label class="govuk-label govuk-radios__label" for="representation5">
-                  Small Company Ltd intermediary
+                  <span class="govuk-!-font-weight-bold">Other Company Limited intermediary</span><br>
+                  Requested access
                 </label>
               </div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="representation6" name="defraIdCompaniesHouse" type="radio" value="representation6">
-                <label class="govuk-label govuk-radios__label" for="representation6">
-                  Other Company Limited intermediary
 
-                </label>
-              </div>
             </div>
           </fieldset>
         </div>
