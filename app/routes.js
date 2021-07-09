@@ -173,7 +173,7 @@ router.get('/org-switch/org-pick', function (req, res) {
     res.redirect('service-start-complete')
   }
   else {
-    res.redirect('interswitch')
+    res.redirect('account-registration?empty=')
   }
 })
 
