@@ -23,13 +23,14 @@
 
     <p class="govuk-body">We need to know the registered company details for verification purposes. It is typically the head office.</p>
 
-    <h2 class="govuk-heading-m">Acme Org Ltd</h2>
+    <h2 class="govuk-heading-m">{{ data['orgName'] }}</h2>
 
     <p><b>Limited Company</b></p>
 
     <p>1 Francis Crick Avenue, Cambridge Biomedical Campus, Cambridge, United Kingdom, CB2 0AA</p>
 
-    <p>Company number {{ data['defraIdCompaniesHouseNumber'] or '01234567' }}.  <a href="company-lookup">Enter a different number</a>.</p>
+    <p>Company number {{ data['defraIdCompaniesHouseNumber'] or '01234567' }}.<br>
+      <a href="company-lookup">Enter a different number</a>.</p>
 
     {{ govukDetails({
       summaryText: "That is not our registered office address",

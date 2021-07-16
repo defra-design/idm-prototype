@@ -20,6 +20,7 @@ Example usage:
 module.exports = {
 
   //"businessType": "Limited company",
+  "govGateName": "Sam Woods",
   "orgName": "Acme Org Ltd",
   "companyRegNum": "12345678",
   "businessTelephone": "0171 444555666",
