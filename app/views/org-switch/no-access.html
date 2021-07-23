@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Your Defra account" %}
+
+{% set title = "There are no organisations you can use with UK Reach" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">
+      <span class="govuk-caption-xl">{{ data['serviceLine'] }}</span>
+      {{title}}
+    </h1>
+
+    <p class="govuk-body-l">
+      Contact the organisation administrator and ask for admin access.
+    </p>
+
+    <div class="govuk-inset-text">
+      If you do not know who the administrator is you can <a href="#" class="govuk-link">contact the Helpdesk to find out.
+    </div>
+
+    <p class="govuk-body govuk-!-margin-bottom-6">
+      <a href="login" class="govuk-link govuk-link--no-visited-state">
+        Sign out
+      </a>
+    </p>
+
+  </div>
+</div>
+
+{% endblock %}

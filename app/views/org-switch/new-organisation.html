@@ -2,9 +2,7 @@
 
 {% set serviceName = "Your Defra account" %}
 
-{% set title = "Which organisation do you want to use for this service?" %}
-
-{% set mainMessage = "If you do not see the organisation below, contact their administrator and ask for admin access." %}
+{% set title = "Which organisation do you want to use for UK Reach?" %}
 
 {% block pageTitle %}
   {{title}} - GOV.UK
@@ -32,16 +30,15 @@
           </legend>
 
           <p class="govuk-body-l">
-            {{ mainMessage }}
+            If you do not see the organisation below, contact their administrator and ask for admin access.
           </p>
 
           <div class="govuk-inset-text">
             If you do not know who the service administrator is you can <a href="#" class="govuk-link">contact the Helpdesk to find out.
           </div>
 
-          {% if not data['empty'] %}
-
           <div class="govuk-radios">
+
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="accountName" name="accountName" type="radio" value="Acme Org Ltd" checked="">
               <label class="govuk-label govuk-radios__label" for="accountName">
@@ -71,14 +68,13 @@
             </div>
 
           </div>
+
         </fieldset>
       </div>
 
       <button class="govuk-button" data-module="govuk-button">
         Continue
       </button>
-
-      {% endif %}
 
     </form>
 
