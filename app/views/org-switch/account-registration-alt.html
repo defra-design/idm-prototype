@@ -2,7 +2,7 @@
 
 {% set serviceName = "Your Defra account" %}
 
-{% set title = "Which account do you want to register with this service?" %}
+{% set title = "Register a new account to a service?" %}
 
 {% set mainMessage = "If you do not see the organisation below, contact their administrator and ask for admin access." %}
 
@@ -34,10 +34,6 @@
           <p class="govuk-body-l">
             {{ mainMessage }}
           </p>
-
-          <div class="govuk-inset-text">
-            If you do not know who the service administrator is you can <a href="#" class="govuk-link">contact the Helpdesk to find out.
-          </div>
 
           {% if not data['empty'] %}
 

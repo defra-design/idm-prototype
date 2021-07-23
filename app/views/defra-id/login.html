@@ -1,6 +1,6 @@
 {% extends "layout-signed-out.html" %}
-
 {% set serviceName = "Government Gateway" %}
+{% set title = "Sign in using Government Gateway" %}
 
 {% block pageTitle %}
   {{title}} - GOV.UK
@@ -21,7 +21,7 @@
     }) }}
 
     <h1 class="govuk-heading-xl">
-      Sign in using Government Gateway
+      {{ title }}
     </h1>
 
     <form method="post" action="../org-switch/org-picker-search">
