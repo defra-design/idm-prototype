@@ -55,7 +55,7 @@ router.post('*/add-addresses', function (req, res) {
     res.redirect('add-address-type')
   } else {
     // res.redirect('personal-name')
-    res.redirect('check-gateway-name')
+    res.redirect('personal-name')
   }
 })
 
@@ -69,6 +69,8 @@ router.post('*/add-charity-addresses', function (req, res) {
   }
 })
 
+
+// Redundant now
 // Routing for adding company addresses in registration
 router.post('*/check-personal-name', function (req, res) {
   var checkPersonalName = req.session.data['personal-name']

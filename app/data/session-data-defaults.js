@@ -48,6 +48,8 @@ module.exports = {
   "address-country": "UK",
   "IV": "off",
   "clientService": "UK Reach",
+  "defraIdFirstName": "Sam",
+  "defraIdSurname": "Woods",
   "IVRes": "success"
 
 }
