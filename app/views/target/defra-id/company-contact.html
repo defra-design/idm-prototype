@@ -24,16 +24,19 @@
 
     <!-- <form action="task-list-page-company-details" method="post"> -->
     <!-- <form action="task-list-page-company-details" method="post"> -->
-    {% if data['route'] == "charity" %}
-      <form action="personal-name" method="post">
-    {% elseif data['route'] == "sole-trader" %}
-    <form action="personal-security" method="post">
-    {% elseif data['version'] == "short" %}
-      <form action="personal-name" method="post">
+    {% if data['version'] == "long" %}
+      {% if data['route'] == "charity" %}
+        <form action="personal-name" method="post">
+      {% elseif data['route'] == "sole-trader" %}
+        <form action="personal-security" method="post">
+      {% elseif data['version'] == "short" %}
+        <form action="personal-name" method="post">
+      {% else %}
+        <form action="add-organisation-addresses" method="post">
+      {% endif %}
     {% else %}
-      <form action="add-organisation-addresses" method="post">
+      <form action="personal-name" method="post">
     {% endif %}
-
 
       {{ govukInput({
         label: {

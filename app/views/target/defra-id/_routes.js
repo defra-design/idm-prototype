@@ -21,7 +21,7 @@ router.post('*/organisation-type-choice', function (req, res) {
         res.redirect('individual-name?route=individual')
     }
     else {
-        res.redirect('organisation-UK-or-else')
+        res.redirect('organisation-UK-or-else?route=company')
     }
 })
 
