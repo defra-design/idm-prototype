@@ -19,33 +19,26 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
 
+    {{ data['route'] }}
+
     <h1 class="govuk-heading-xl">{{ title }}</h1>
 
     <h2 class="govuk-heading-m">Your account</h2>
 
     <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-      <div class="govuk-summary-list__row">
+      <!-- <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
           Account Type
         </dt>
         <dd class="govuk-summary-list__value">
-          {% if data['route'] %}
-            {% if data['route'] == "company" %}
-              Business
-            {% elseif data['route'] == "charity" %}
-              Business
-              <!-- Charity -->
-            {% endif %}
-          {% else %}
-            UK company
-          {% endif %}
+
         </dd>
         <dd class="govuk-summary-list__actions">
         <a class="govuk-link" href="#">
           Change<span class="govuk-visually-hidden"> account type</span>
         </a>
         </dd>
-      </div>
+      </div> -->
 
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
@@ -68,9 +61,35 @@
       <dl class="govuk-summary-list govuk-!-margin-bottom-9">
 
         <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key govuk-summary-list__key--wide">
+          <dt class="govuk-summary-list__key">
+            Organisation type
+          </dt>
+          <dd class="govuk-summary-list__value">
             {% if data['route'] %}
               {% if data['route'] == "company" %}
+                Limited company
+              {% elseif data['route'] == "sole-trader" %}
+                Sole trader
+              {% elseif data['route'] == "charity" %}
+                Charity
+              {% elseif data['route'] == "individual" %}
+                Individual
+              {% elseif data['route'] == "non-uk" %}
+                Non-UK business
+                <!-- Charity -->
+              {% endif %}
+            {% else %}
+              UK company
+            {% endif %}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-summary-list__key--wide">
+            {% if data['route'] %}
+              {% if data['route'] == "company" or data['route'] == "sole-trader" %}
                 Company name
               {% elseif data['route'] == "charity" %}
                 Charity name
@@ -85,6 +104,8 @@
                 Acme Org Ltd
               {% elseif data['route'] == "charity" %}
                 Good Hands (NIC100007)
+              {% else %}
+                Acme Org Ltd
               {% endif %}
             {% else %}
               Acme Org Ltd
@@ -97,45 +118,27 @@
           </dd>
         </div>
 
-
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Organisation type
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {% if data['route'] %}
-              {% if data['route'] == "company" %}
-                Limited company
-              {% elseif data['route'] == "charity" %}
-                Charity
+        {% if data['route'] == "company" %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Companies House number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if data['route'] %}
+                {% if data['route'] == "company" %}
+                  {{ data['defraIdCompaniesHouseNumber'] }}<br />
+                {% endif %}<br>
+              {% else %}
+                01234567<br />
               {% endif %}
-            {% else %}
-              Limited company
-            {% endif %}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-          </dd>
-        </div>
-
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Companies House number
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {% if data['route'] %}
-              {% if data['route'] == "company" %}
-                {{ data['defraIdCompaniesHouseNumber'] }}<br />
-              {% endif %}<br>
-            {% else %}
-              01234567<br />
-            {% endif %}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <!-- <a class="govuk-link" href="#">
-              Change<span class="govuk-visually-hidden"> registered company</span>
-            </a> -->
-          </dd>
-        </div>
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <!-- <a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"> registered company</span>
+              </a> -->
+            </dd>
+          </div>
+        {% endif %}
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key govuk-summary-list__key--wide">
@@ -144,14 +147,12 @@
           <dd class="govuk-summary-list__value">
             {% if data['route'] %}
               {% if data['route'] == "company" %}
-                Acme Org Ltd
-              {% elseif data['route'] == "charity" %}
-                Good Hands (NIC100007)
+                Acme Org Ltd<br>
               {% endif %}
             {% else %}
-              Acme Org Ltd
+              Acme Org Ltd<br>
             {% endif %}
-            <br>
+
             1 Francis Crick Avenue<br>
             Cambridge Biomedical Campus<br>
             Cambridge, United Kingdom<br>

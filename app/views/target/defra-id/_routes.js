@@ -5,20 +5,20 @@ const router = express.Router()
 
 // Routing for changing organisation-type.html
 router.post('*/change-organisation-type-choice', function (req, res) {
-    var defraIdType = req.session.data['defraIdType']
-    if (defraIdType == "individual"){
-        res.redirect('task-list-page-about-you-details')
-    }
-    else {
-        res.redirect('organisation-UK-or-else')
-    }
+  var defraIdType = req.session.data['defraIdType']
+  if (defraIdType == "individual"){
+    res.redirect('task-list-page-about-you-details')
+  }
+  else {
+    res.redirect('organisation-UK-or-else')
+  }
 })
 
 // Routing for organisation-type.html
 router.post('*/organisation-type-choice', function (req, res) {
     var defraIdType = req.session.data['defraIdType']
     if (defraIdType == "individual"){
-        res.redirect('individual-name')
+        res.redirect('individual-name?route=individual')
     }
     else {
         res.redirect('organisation-UK-or-else')
@@ -47,6 +47,19 @@ router.post('*/companieshouse-choice', function (req, res) {
         res.redirect('company-lookup')
     }
 })
+
+
+// Routing for sole trader or charity question
+router.post('*/org-choice', function (req, res) {
+    var orgType = req.session.data['defraIdSoleTraderOrCharity']
+    if (orgType == "sole-trader"){
+        res.redirect('personal-name?route=sole-trader')
+    }
+    else {
+        res.redirect('charity-region')
+    }
+})
+
 
 // Routing for adding company addresses in registration
 router.post('*/add-addresses', function (req, res) {

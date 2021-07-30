@@ -19,11 +19,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    {% if data['route'] == "company" %}
-      <form method="POST" action="task-list-page-company-details?personal-security-completed=y">
-    {% elseif data['route'] == "charity" %}
-      <form method="POST" action="task-list-page-charity-details?personal-security-completed=y">
-    {% endif %}
+    <form action="check-your-answers" method="post">
 
       {% call govukFieldset({
         legend: {

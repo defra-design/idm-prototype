@@ -19,7 +19,11 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form action="individual-security" method="post">
+    {% if data['route'] == "sole-trader" %}
+      <form action="sole-trader-name" method="post">
+    {% else %}
+      <form action="individual-security" method="post">
+    {% endif %}
 
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset">
@@ -47,11 +51,18 @@
         </fieldset>
       </div>
 
+      <div class="govuk-inset-text">
+       We may also contact you by email, using the address registered with your Government Gateway account:
+       <span class="govuk-!-font-weight-bold">{{ data['govGateEmail'] or "samwoods@pmail.com"}}</span>.
+      </div>
+
       {{govukButton({
         text: "Continue"
       })}}
 
     </form>
+
+
 
   </div>
 </div>

@@ -21,7 +21,7 @@
 
     <h1 class="govuk-heading-xl">{{ title }}</h1>
 
-    <form method="POST" action="task-list-page-about-you-details?personal-name-completed=y">
+    <form action="individual-contact" method="post">
 
       {{ govukInput({
         label: {
@@ -29,8 +29,7 @@
         },
         classes: "govuk-!-width-three-quarters",
         id: "defraIdFirstName",
-        name: "defraIdFirstName",
-        value: data['defraIdFirstName']
+        name: "defraIdFirstName"
       }) }}
 
       {{ govukInput({
@@ -39,8 +38,7 @@
         },
         classes: "govuk-!-width-three-quarters",
         id: "defraIdSurname",
-        name: "defraIdSurname",
-        value: data['defraIdSurname']
+        name: "defraIdSurname"
       }) }}
 
       {{ govukButton({
