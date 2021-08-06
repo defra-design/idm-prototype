@@ -2,7 +2,7 @@
 
 {% set serviceName = "Your Defra account" %}
 
-{% set title = "Which account do you want to sign into UK Reach with?" %}
+{% set title = "Which account do you want to sign into Comply with REACH IT with?" %}
 
 {% block pageTitle %}
   {{title}} - GOV.UK
@@ -19,7 +19,7 @@
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form method="POST" action="org-pick" class="govuk-!-margin-bottom-3">
+      <form method="post" action="org-pick" class="govuk-!-margin-bottom-3">
 
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset">
@@ -33,7 +33,7 @@
                 <input class="govuk-radios__input" id="representation1" name="representing" type="radio" value="has-representation">
                 <label class="govuk-label govuk-radios__label" for="representation1">
                   <span class="govuk-!-font-weight-bold">Sam Woods</span><br>
-                  Individual
+                  Team member
                 </label>
               </div>
               <div class="govuk-radios__item">
@@ -112,7 +112,7 @@
       </details>
 
       <p class="govuk-body govuk-!-margin-bottom-6">
-        <a href="new-organisation" class="govuk-link govuk-link--no-visited-state">
+        <a href="add-new-organisation" class="govuk-link govuk-link--no-visited-state">
           Add a new organisation
         </a>
       </p>
