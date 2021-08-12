@@ -24,19 +24,19 @@
     <h2 class="govuk-heading-m">Your account</h2>
 
     <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-      <!-- <div class="govuk-summary-list__row">
+      <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
           Account Type
         </dt>
         <dd class="govuk-summary-list__value">
-
+          Business
         </dd>
         <dd class="govuk-summary-list__actions">
         <a class="govuk-link" href="#">
           Change<span class="govuk-visually-hidden"> account type</span>
         </a>
         </dd>
-      </div> -->
+      </div>
 
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
@@ -46,9 +46,9 @@
           {{ data['govGateEmail'] or 'samwoods@company.co.uk' }}
         </dd>
         <dd class="govuk-summary-list__actions">
-        <a class="govuk-link" href="#">
-          Change<span class="govuk-visually-hidden"> account type</span>
-        </a>
+          <!-- <a class="govuk-link" href="#">
+            Change<span class="govuk-visually-hidden"> account type</span>
+          </a> -->
         </dd>
       </div>
 
@@ -392,7 +392,7 @@
 
         <!-- <form action="/target/defra-id-manage" method="post"> -->
         <form action="/target/defra-id-manage/account" method="post">
-          
+
           <button class="govuk-button" id="myButton">
             Continue
           </button>
