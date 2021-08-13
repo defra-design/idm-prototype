@@ -28,15 +28,16 @@
             <h1 class="govuk-heading-xl">{{ title }}</h1>
           </legend>
 
+          <!-- filter UI -->
           <div class="defra-filter govuk-!-margin-bottom-6">
 
-            <h2 class="govuk-heading-m">Filter the organisations below</h2>
+            <h2 class="govuk-heading-m">Search for your organisation</h2>
 
-            <div class="govuk-!-margin-bottom-3">
+            <!-- <div class="govuk-!-margin-bottom-3">
               <a href="#" class="govuk-link govuk-link--no-visited-state">
                 Clear filter
               </a>
-            </div>
+            </div> -->
 
             <div class="govuk-form-group">
               <span class="govuk-visually-hidden">
@@ -46,48 +47,30 @@
               </span>
               <!-- <input class="govuk-input govuk-!-width-three-quarters" id="keywords" name="keywords" type="text"> -->
               <input class="govuk-input" id="keywords" name="keywords" type="text">
-
-              <!-- <div id="tt-default" class="autocomplete-wrapper">
-                <div class="autocomplete__wrapper">
-                  <div style="border: 0px none; clip: rect(0px, 0px, 0px, 0px); height: 1px; margin-bottom: -1px; margin-right: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">
-                    <div id="autocomplete-default__status--A" role="status" aria-atomic="true" aria-live="polite">
-                    </div>
-                    <div id="autocomplete-default__status--B" role="status" aria-atomic="true" aria-live="polite">
-                    </div>
-                  </div>
-                  <input aria-expanded="false" aria-owns="autocomplete-default__listbox" aria-autocomplete="list" autocomplete="off" class="autocomplete__input autocomplete__input--default" id="autocomplete-default" name="input-autocomplete" placeholder="" type="text" role="combobox" aria-describedby="autocomplete-default__assistiveHint">
-                  <ul class="autocomplete__menu autocomplete__menu--inline autocomplete__menu--hidden" id="autocomplete-default__listbox" role="listbox">
-                  </ul>
-                  <span id="autocomplete-default__assistiveHint" style="display: none;">
-                    When autocomplete results are available use up and down arrows to review and enter to select.  Touch device users, explore by touch or with swipe gestures.
-                  </span>
-                </div>
-              </div>
--->
             </div>
           </div>
 
-          <!-- radio buttons -->
-          <div class="govuk-radios">
+          <!-- big list of radio buttons -->
+          <!-- <div class="govuk-radios">
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="representation1" name="representing" type="radio" value="has-representation">
               <label class="govuk-label govuk-radios__label" for="representation1">
                 <span class="govuk-!-font-weight-bold">Sam Woods</span><br>
-                Team member
+                Individual
               </label>
             </div>
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="representation2" name="representing" type="radio" value="has-representation">
               <label class="govuk-label govuk-radios__label" for="representation2">
                 <span class="govuk-!-font-weight-bold">Big Company Ltd</span><br>
-                Employee
+                Team member
               </label>
             </div>
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="representation3" name="representing" type="radio" value="has-representation">
               <label class="govuk-label govuk-radios__label" for="representation3">
                 <span class="govuk-!-font-weight-bold">Middle Company Co.</span><br>
-                Employee
+                Team member
               </label>
             </div>
             <div class="govuk-radios__item">
@@ -342,7 +325,52 @@
               </label>
             </div>
 
-          </div>
+          </div> -->
+
+          <!-- recent access list -->
+
+          <h2 class="govuk-heading-m">
+            Recent access
+          </h2>
+
+          <div class="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="representation1" name="representing" type="radio" value="has-representation">
+              <label class="govuk-label govuk-radios__label" for="representation1">
+                <span class="govuk-!-font-weight-bold">Sam Woods</span><br>
+                Individual
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="representation2" name="representing" type="radio" value="has-representation">
+              <label class="govuk-label govuk-radios__label" for="representation2">
+                <span class="govuk-!-font-weight-bold">Big Company Ltd</span><br>
+                Team member
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="representation3" name="representing" type="radio" value="has-representation">
+              <label class="govuk-label govuk-radios__label" for="representation3">
+                <span class="govuk-!-font-weight-bold">Middle Company Co.</span><br>
+                Team member
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="representation4" name="representing" type="radio" value="has-representation">
+              <label class="govuk-label govuk-radios__label" for="representation4">
+                <span class="govuk-!-font-weight-bold">Small Company Ltd</span><br>
+                Team member
+              </label>
+            </div>
+            <div class="govuk-radios__item govuk-!-margin-bottom-6">
+              <input class="govuk-radios__input" id="representation5" name="representing" type="radio" value="has-representation">
+              <label class="govuk-label govuk-radios__label" for="representation5">
+                <span class="govuk-!-font-weight-bold">Other Company Limited</span><br>
+                Intimediary
+              </label>
+            </div>
+
+
         </fieldset>
       </div>
 
@@ -355,37 +383,6 @@
     <h2 class="govuk-heading-m govuk-!-margin-bottom-3">
       Can’t see your organisation?
     </h2>
-    <!-- pending access -->
-    <details class="govuk-details" data-module="govuk-details">
-      <summary class="govuk-details__summary">
-        <span class="govuk-details__summary-text">
-          Pending access
-        </span>
-      </summary>
-      <div class="govuk-details__text">
-
-        <p>
-          Access with these accounts will be approved by the service.
-        </p>
-
-        <ul class="govuk-list">
-          <li>
-            <span class="govuk-!-font-weight-bold">
-              Big Company Ltd
-            </span><br>
-            Agent
-          </li>
-          <li>
-            <span class="govuk-!-font-weight-bold">
-              Best sandwich
-            </span><br>
-            Employee
-          </li>
-
-        </ul>
-
-      </div>
-    </details>
 
     <p class="govuk-body govuk-!-margin-bottom-6">
       <a href="add-new-organisation" class="govuk-link govuk-link--no-visited-state">
