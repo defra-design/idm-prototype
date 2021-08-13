@@ -410,55 +410,59 @@
               </label>
             </div>
 
-            <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+            {% if data['nothing-pending'] == false %}
 
-            <h2 class="govuk-heading-m">
-              Pending access
-            </h2>
+              <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
-            <p>
-              You may not have access to parts of the service with these until your enrolment is completed.
-            </p>
+              <h2 class="govuk-heading-m">
+                Pending access
+              </h2>
 
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="representation4" name="representing" type="radio" value="has-representation">
-              <label class="govuk-label govuk-radios__label" for="representation4">
-                <span class="govuk-!-font-weight-bold">Big Company Ltd</span><br>
-                Intermediary
-              </label>
-            </div>
+              <p>
+                You may not have access to parts of the service with these until your enrolment is completed.
+              </p>
 
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="representation5" name="representing" type="radio" value="has-representation">
-              <label class="govuk-label govuk-radios__label" for="representation5">
-                <span class="govuk-!-font-weight-bold">Stockville Transport</span><br>
-                Team member
-              </label>
-            </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="representation4" name="representing" type="radio" value="has-representation">
+                <label class="govuk-label govuk-radios__label" for="representation4">
+                  <span class="govuk-!-font-weight-bold">Big Company Ltd</span><br>
+                  Intermediary
+                </label>
+              </div>
 
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="representation5" name="representing" type="radio" value="has-representation">
-              <label class="govuk-label govuk-radios__label" for="representation5">
-                <span class="govuk-!-font-weight-bold">Lasko Inter Ltd</span><br>
-                Intermediary
-              </label>
-            </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="representation5" name="representing" type="radio" value="has-representation">
+                <label class="govuk-label govuk-radios__label" for="representation5">
+                  <span class="govuk-!-font-weight-bold">Stockville Transport</span><br>
+                  Team member
+                </label>
+              </div>
 
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="representation5" name="representing" type="radio" value="has-representation">
-              <label class="govuk-label govuk-radios__label" for="representation5">
-                <span class="govuk-!-font-weight-bold">Bingo Cars</span><br>
-                Intermediary
-              </label>
-            </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="representation5" name="representing" type="radio" value="has-representation">
+                <label class="govuk-label govuk-radios__label" for="representation5">
+                  <span class="govuk-!-font-weight-bold">Lasko Inter Ltd</span><br>
+                  Intermediary
+                </label>
+              </div>
 
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="representation5" name="representing" type="radio" value="has-representation">
-              <label class="govuk-label govuk-radios__label" for="representation5">
-                <span class="govuk-!-font-weight-bold">Sam Burridge</span><br>
-                Individual
-              </label>
-            </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="representation5" name="representing" type="radio" value="has-representation">
+                <label class="govuk-label govuk-radios__label" for="representation5">
+                  <span class="govuk-!-font-weight-bold">Bingo Cars</span><br>
+                  Intermediary
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="representation5" name="representing" type="radio" value="has-representation">
+                <label class="govuk-label govuk-radios__label" for="representation5">
+                  <span class="govuk-!-font-weight-bold">Sam Burridge</span><br>
+                  Individual
+                </label>
+              </div>
+
+            {% endif %}
 
           </div>
         </fieldset>
