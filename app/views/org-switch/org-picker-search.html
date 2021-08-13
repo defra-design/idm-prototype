@@ -19,12 +19,12 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form method="POST" action="org-pick" class="govuk-!-margin-bottom-6">
+    <form action="service-start-complete" method="post" class="govuk-!-margin-bottom-6">
 
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
-            <span class="govuk-caption-xl">{{ data['serviceLine'] }}</span>
+            <!-- <span class="govuk-caption-xl">{{ data['serviceLine'] }}</span> -->
             <h1 class="govuk-heading-xl">{{ title }}</h1>
           </legend>
 
@@ -46,12 +46,17 @@
                 </label>
               </span>
               <!-- <input class="govuk-input govuk-!-width-three-quarters" id="keywords" name="keywords" type="text"> -->
-              <input class="govuk-input" id="keywords" name="keywords" type="text">
+              <input class="govuk-input govuk-!-width-three-quarters" id="keywords" name="keywords" type="text">
+              <br>
+              <p class="govuk-body govuk-!-padding-top-1">
+                <a href="#">Clear search</a>
+              </p>
             </div>
           </div>
 
           <!-- big list of radio buttons -->
-          <!-- <div class="govuk-radios">
+          <!--
+          <div class="govuk-radios">
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="representation1" name="representing" type="radio" value="has-representation">
               <label class="govuk-label govuk-radios__label" for="representation1">
@@ -337,8 +342,8 @@
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="representation1" name="representing" type="radio" value="has-representation">
               <label class="govuk-label govuk-radios__label" for="representation1">
-                <span class="govuk-!-font-weight-bold">Sam Woods</span><br>
-                Individual
+                <span class="govuk-!-font-weight-bold">Eventual Point</span><br>
+                Intermediary
               </label>
             </div>
             <div class="govuk-radios__item">
@@ -351,7 +356,7 @@
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="representation3" name="representing" type="radio" value="has-representation">
               <label class="govuk-label govuk-radios__label" for="representation3">
-                <span class="govuk-!-font-weight-bold">Middle Company Co.</span><br>
+                <span class="govuk-!-font-weight-bold">Intervein</span><br>
                 Team member
               </label>
             </div>
@@ -362,15 +367,100 @@
                 Team member
               </label>
             </div>
-            <div class="govuk-radios__item govuk-!-margin-bottom-6">
+            <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="representation5" name="representing" type="radio" value="has-representation">
               <label class="govuk-label govuk-radios__label" for="representation5">
-                <span class="govuk-!-font-weight-bold">Other Company Limited</span><br>
+                <span class="govuk-!-font-weight-bold">The OH Company</span><br>
                 Intimediary
               </label>
             </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="representation5" name="representing" type="radio" value="has-representation">
+              <label class="govuk-label govuk-radios__label" for="representation5">
+                <span class="govuk-!-font-weight-bold">Repell Systems Ltd</span><br>
+                Intimediary
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="representation5" name="representing" type="radio" value="has-representation">
+              <label class="govuk-label govuk-radios__label" for="representation5">
+                <span class="govuk-!-font-weight-bold">Monster Exports</span><br>
+                Team member
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="representation5" name="representing" type="radio" value="has-representation">
+              <label class="govuk-label govuk-radios__label" for="representation5">
+                <span class="govuk-!-font-weight-bold">Badger, Bercow and Boop</span><br>
+                Intimediary
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="representation5" name="representing" type="radio" value="has-representation">
+              <label class="govuk-label govuk-radios__label" for="representation5">
+                <span class="govuk-!-font-weight-bold">Shamford and Co</span><br>
+                Intimediary
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="representation5" name="representing" type="radio" value="has-representation">
+              <label class="govuk-label govuk-radios__label" for="representation5">
+                <span class="govuk-!-font-weight-bold">Sam Woods</span><br>
+                Individual
+              </label>
+            </div>
 
+            <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
+            <h2 class="govuk-heading-m">
+              Pending access
+            </h2>
+
+            <p>
+              You may not have access to parts of the service with these until your enrolment is completed.
+            </p>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="representation4" name="representing" type="radio" value="has-representation">
+              <label class="govuk-label govuk-radios__label" for="representation4">
+                <span class="govuk-!-font-weight-bold">Big Company Ltd</span><br>
+                Intermediary
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="representation5" name="representing" type="radio" value="has-representation">
+              <label class="govuk-label govuk-radios__label" for="representation5">
+                <span class="govuk-!-font-weight-bold">Stockville Transport</span><br>
+                Team member
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="representation5" name="representing" type="radio" value="has-representation">
+              <label class="govuk-label govuk-radios__label" for="representation5">
+                <span class="govuk-!-font-weight-bold">Lasko Inter Ltd</span><br>
+                Intermediary
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="representation5" name="representing" type="radio" value="has-representation">
+              <label class="govuk-label govuk-radios__label" for="representation5">
+                <span class="govuk-!-font-weight-bold">Bingo Cars</span><br>
+                Intermediary
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="representation5" name="representing" type="radio" value="has-representation">
+              <label class="govuk-label govuk-radios__label" for="representation5">
+                <span class="govuk-!-font-weight-bold">Sam Burridge</span><br>
+                Individual
+              </label>
+            </div>
+
+          </div>
         </fieldset>
       </div>
 
@@ -381,7 +471,7 @@
     </form>
 
     <h2 class="govuk-heading-m govuk-!-margin-bottom-3">
-      Can’t see your organisation?
+      Can’t find your organisation?
     </h2>
 
     <p class="govuk-body govuk-!-margin-bottom-6">
