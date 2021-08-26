@@ -24,7 +24,11 @@
 
     <!-- <form action="task-list-page-company-details" method="post"> -->
     <!-- <form action="task-list-page-company-details" method="post"> -->
+
+    <!-- if this is not the short version (no task lists) -->
     {% if data['version'] == "long" %}
+
+      <!-- work out where to go -->
       {% if data['route'] == "charity" %}
         <form action="personal-name" method="post">
       {% elseif data['route'] == "sole-trader" %}
@@ -34,6 +38,10 @@
       {% else %}
         <form action="add-organisation-addresses" method="post">
       {% endif %}
+
+    <!-- this this the version with task lists and extra addresses -->
+    {% elif data['version'] == "slow" %}
+      <form action="add-organisation-addresses" method="post">
     {% else %}
       <form action="personal-name" method="post">
     {% endif %}

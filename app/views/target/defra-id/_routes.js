@@ -64,11 +64,17 @@ router.post('*/org-choice', function (req, res) {
 // Routing for adding company addresses in registration
 router.post('*/add-addresses', function (req, res) {
   var addExtraAddress = req.session.data['added-address']
+  var version = req.session.data['version']
   if (addExtraAddress === 'yes') {
     res.redirect('add-address-type')
   } else {
-    // res.redirect('personal-name')
-    res.redirect('personal-name')
+    if(version === 'slow') {
+      res.redirect('task-list-page-company-details')
+    } else {
+      // res.redirect('personal-name')
+      res.redirect('personal-name')
+    }
+
   }
 })
 
