@@ -9,7 +9,7 @@
 {% endblock %}
 
 {% block beforeContent %}
-  
+
 {% endblock %}
 
 {% block content %}
@@ -19,7 +19,7 @@
     <h1 class="govuk-heading-xl">{{ title }}</h1>
     <p class="govuk-body">You need to set up a recovery word so that you can get back into Government Gateway if you forget your password.</p>
 
-    <form method="POST" action="recovery-word-2">
+    <form action="recovery-word" method="post">
       {{ govukButton({
         text: "Continue"
       }) }}

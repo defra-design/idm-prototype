@@ -2,7 +2,9 @@
 
 {% set serviceName = "" %}
 
-{% set title = "Your Government Gateway user ID is 49 21 78 79 24 95" %}
+{% set govGateUserId = "49 21 78 79 24 96"%}
+
+{% set title = "Your Government Gateway user ID is "+data['govGateUserId'] %}
 
 {% block pageTitle %}
   {{title}} - GOV.UK
@@ -16,14 +18,14 @@
     <div class="govuk-panel govuk-panel--confirmation">
       <h1 class="govuk-panel__title">Your Government Gateway user ID is</h1>
       <div class="govuk-panel__body">
-        49 21 78 79 24 95
+        {{govGateUserId}}
       </div>
     </div>
 
     <p>We have sent it to <strong>{{ data['govGateEmail'] or 'samwoods@company.co.uk' }}</strong>.</p>
     <p>You will need this ID and your password each time you sign in to Government Gateway.</p>
 
-    <form method="POST" action="about-data">
+    <form action="../defra-id/about-data" method="post">
       {{ govukButton({
         text: "Continue",
         href: ""

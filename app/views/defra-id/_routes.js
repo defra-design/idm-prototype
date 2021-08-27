@@ -29,8 +29,8 @@ router.post('*/organisation-type-choice', function (req, res) {
 
 // Routing for organisation-UK-or-else.html
 router.post('*/organisation-uk-choice', function (req, res) {
-    var defraIdUk = req.session.data['defraIdUk']
-    if (defraIdUk == "non-uk"){
+    var defraIdCompanyRegisteredLocation = req.session.data['defraIdCompanyRegisteredLocation']
+    if (defraIdCompanyRegisteredLocation == "non-uk"){
         res.redirect('non-uk-business-name')
     }
     else {
@@ -42,7 +42,7 @@ router.post('*/organisation-uk-choice', function (req, res) {
 // Routing for company-registered-question.html
 router.post('*/companieshouse-choice', function (req, res) {
     var defraIdCompaniesHouse = req.session.data['defraIdCompaniesHouse']
-    if (defraIdCompaniesHouse == "no"){
+    if (defraIdCompaniesHouse == "companies-house-no"){
         res.redirect('sole-trader-or-charity')
     }
     else {
@@ -52,7 +52,7 @@ router.post('*/companieshouse-choice', function (req, res) {
 
 // Routing for adding company addresses in registration
 router.post('*/add-addresses', function (req, res) {
-  var addExtraAddress = req.session.data['added-address']
+  var addExtraAddress = req.session.data['defraIdAddAddresses']
   if (addExtraAddress === 'yes') {
     res.redirect('add-address-type')
   } else {
@@ -62,7 +62,7 @@ router.post('*/add-addresses', function (req, res) {
 
 // Routing for adding charity addresses in registration
 router.post('*/add-charity-addresses', function (req, res) {
-  var addExtraAddress = req.session.data['added-address']
+  var addExtraAddress = req.session.data['defraIdAddAddresses']
   if (addExtraAddress === 'yes') {
     res.redirect('add-address-type')
   } else {
