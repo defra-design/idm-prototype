@@ -18,10 +18,12 @@ router.post('*/change-organisation-type-choice', function (req, res) {
 router.post('*/organisation-type-choice', function (req, res) {
     var defraIdType = req.session.data['defraIdType']
     if (defraIdType == "individual"){
-        res.redirect('individual-name?route=individual')
+        res.redirect('personal-name?orgType=individual') /* could de-dupe here */
+        // res.redirect('personal-name?route=individual')
     }
     else {
-        res.redirect('organisation-UK-or-else?route=company')
+        res.redirect('organisation-UK-or-else')
+        // res.redirect('organisation-UK-or-else?route=company')
     }
 })
 
@@ -29,10 +31,10 @@ router.post('*/organisation-type-choice', function (req, res) {
 router.post('*/organisation-uk-choice', function (req, res) {
     var defraIdCompanyRegisteredLocation = req.session.data['defraIdCompanyRegisteredLocation']
     if (defraIdCompanyRegisteredLocation == "non-uk"){
-        res.redirect('non-uk-business-name')
+        res.redirect('non-uk-business-name?orgType=non-uk-org')
     }
     else {
-        res.redirect('company-registered-question')
+        res.redirect('company-registered-question?orgType=uk-org')
     }
 })
 
@@ -41,10 +43,10 @@ router.post('*/organisation-uk-choice', function (req, res) {
 router.post('*/companieshouse-choice', function (req, res) {
     var defraIdCompaniesHouse = req.session.data['defraIdCompaniesHouse']
     if (defraIdCompaniesHouse == "companies-house-no"){
-        res.redirect('sole-trader-or-charity')
+      res.redirect('sole-trader-or-charity')
     }
     else {
-        res.redirect('company-lookup')
+      res.redirect('company-lookup')
     }
 })
 
@@ -53,11 +55,12 @@ router.post('*/companieshouse-choice', function (req, res) {
 router.post('*/org-choice', function (req, res) {
     var orgType = req.session.data['defraIdSoleTraderOrCharity']
     if (orgType == "sole-trader"){
-        res.redirect('personal-name?route=sole-trader')
+        res.redirect('personal-name?orgType=sole-trader')
     }
     else {
-        res.redirect('charity-region')
+        res.redirect('charity-region?orgType=charity')
     }
+    /* could de-dupe here */
 })
 
 
