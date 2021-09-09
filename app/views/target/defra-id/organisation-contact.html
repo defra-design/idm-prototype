@@ -31,22 +31,33 @@
 
     <!-- <form action="task-list-page-company-details" method="post"> -->
 
+    <!-- operator logic -->
+
+    <!-- UK ORG -->
     {% if data['orgType'] == "uk-org" %}
+
       {% if data['askAboutExtraAddresses'] == "yes" %}
         <form action="add-organisation-addresses" method="post">
       {% else %}
         <form action="personal-name" method="post">
       {% endif %}
+
+    <!-- NON-UK ORG -->
     {% elseif data['orgType'] == "non-uk-org" %}
+
        <!-- non-uk companies do not ask for extra addresses -->
       <form action="personal-name" method="post">
+
+    <!-- Charity / Sole trader -->
     {% else %}
+
       <!-- charity -->
       {% if data['askAboutExtraAddresses'] == "yes" %}
         <form action="add-organisation-addresses" method="post">
       {% else %}
         <form action="personal-name" method="post">
       {% endif %}
+
     {% endif %}
 
 
