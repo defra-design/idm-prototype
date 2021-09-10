@@ -1,0 +1,141 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Your Defra account" %}
+
+{% set title = "Which organisation do you want to use for Comply with REACH IT?" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <!-- {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }} -->
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary">
+        <h2 class="govuk-error-summary__title" id="error-summary-title">
+          There is a problem
+        </h2>
+        <div class="govuk-error-summary__body">
+          <ul class="govuk-list govuk-error-summary__list">
+            <li>
+              <a href="#permissions-error">
+                Your access to {{ data['serviceLine'] }} has been updated. Select an organisation to continue
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <form action="service-start-complete" method="post" class="govuk-!-margin-bottom-6">
+
+        <div class="govuk-form-group govuk-form-group--error">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+              <h1 class="govuk-fieldset__heading govuk-!-margin-bottom-3">
+                {{ title }}
+              </h1>
+            </legend>
+
+            <span id="permissions-error" class="govuk-error-message govuk-!-margin-bottom-6">
+              <span class="govuk-visually-hidden">Error:</span> Your access to {{ data['serviceLine'] }} has been updated. Select an organisation to continue
+            </span>
+
+            <h2 class="govuk-heading-m">
+              Recent access
+            </h2>
+            <div class="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="representation1" name="representing" type="radio" value="has-representation">
+                <label class="govuk-label govuk-radios__label" for="representation1">
+                  <span class="govuk-!-font-weight-bold">Sam Woods</span><br>
+                  Individual
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="representation2" name="representing" type="radio" value="has-representation">
+                <label class="govuk-label govuk-radios__label" for="representation2">
+                  <span class="govuk-!-font-weight-bold">Big Company Ltd</span><br>
+                  Team member
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="representation3" name="representing" type="radio" value="has-representation">
+                <label class="govuk-label govuk-radios__label" for="representation3">
+                  <span class="govuk-!-font-weight-bold">Middle Company Co.</span><br>
+                  Team member
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="representation4" name="representing" type="radio" value="has-representation">
+                <label class="govuk-label govuk-radios__label" for="representation4">
+                  <span class="govuk-!-font-weight-bold">Small Company Ltd</span><br>
+                  Team member
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="representation5" name="representing" type="radio" value="has-representation">
+                <label class="govuk-label govuk-radios__label" for="representation5">
+                  <span class="govuk-!-font-weight-bold">Other Company Limited</span><br>
+                  Intimediary
+                </label>
+              </div>
+
+              {% if data['nothing-pending'] == false %}
+
+              <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+              <h2 class="govuk-heading-m">
+                Pending access
+              </h2>
+              <p>
+                You may not have access to parts of the service with these until your enrolment is completed.
+              </p>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="representation4" name="representing" type="radio" value="has-representation">
+                <label class="govuk-label govuk-radios__label" for="representation4">
+                  <span class="govuk-!-font-weight-bold">Big Company Ltd</span><br>
+                  Intermediary
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="representation5" name="representing" type="radio" value="has-representation">
+                <label class="govuk-label govuk-radios__label" for="representation5">
+                  <span class="govuk-!-font-weight-bold">Best sandwich</span><br>
+                  Team member
+                </label>
+              </div>
+
+              {% endif %}
+
+            </div>
+          </fieldset>
+        </div>
+
+        {{govukButton({
+          text: "Continue"
+        })}}
+
+      </form>
+
+      <h2 class="govuk-heading-m govuk-!-margin-bottom-3">
+        Can’t find your organisation?
+      </h2>
+
+      <p class="govuk-body govuk-!-margin-bottom-6">
+        <a href="add-new-organisation" class="govuk-link govuk-link--no-visited-state">
+          Add an organisation
+        </a>
+      </p>
+
+    </div>
+</div>
+
+{% endblock %}
