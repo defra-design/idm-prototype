@@ -2,87 +2,398 @@
 
 {% set serviceName = "Your Defra account" %}
 
-{% set title = "Which organisation do you want to use for Comply with REACH IT?" %}
+{% set title = "Which account do you want to use for Comply with REACH IT?" %}
 
 {% block pageTitle %}
   {{title}} - GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
-  {{ govukBackLink({
+  <!-- {{ govukBackLink({
     text: "Back",
     href: "javascript:history.back()"
-  }) }}
+  }) }} -->
 {% endblock %}
 
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form action="service-start-complete" method="post" class="govuk-!-margin-bottom-6">
+    <h1 class="govuk-heading-xl">{{ title }}</h1>
+
+    <!-- filter UI -->
+    <div class="defra-filter govuk-!-margin-bottom-6">
+
+      <h2 class="govuk-heading-m">Search for your account</h2>
 
       <div class="govuk-form-group">
-        <fieldset class="govuk-fieldset">
-          <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
-            <!-- <span class="govuk-caption-xl">{{ data['serviceLine'] }}</span> -->
-            <h1 class="govuk-heading-xl">{{ title }}</h1>
-          </legend>
+        <span class="govuk-visually-hidden">
+          <label class="govuk-label govuk-label--m" for="keywords">
+            Filter using keywords
+          </label>
+        </span>
+        <!-- <input class="govuk-input govuk-!-width-three-quarters" id="keywords" name="keywords" type="text"> -->
+        {% if data['matches'] == true %}
+          <input class="govuk-input govuk-!-width-three-quarters" id="keywords" name="keywords" type="text" value="jam">
+        {% else %}
+          <input class="govuk-input govuk-!-width-three-quarters" id="keywords" name="keywords" type="text" value="XP">
+        {% endif %}
 
-          <!-- filter UI -->
-          <div class="defra-filter govuk-!-margin-bottom-6">
-
-            <h2 class="govuk-heading-m">Search for your organisation</h2>
-
-            <!-- <div class="govuk-!-margin-bottom-3">
-              <a href="#" class="govuk-link govuk-link--no-visited-state">
-                Clear filter
-              </a>
-            </div> -->
-
-            <div class="govuk-form-group">
-              <span class="govuk-visually-hidden">
-                <label class="govuk-label govuk-label--m" for="keywords">
-                  Filter using keywords
-                </label>
-              </span>
-              <!-- <input class="govuk-input govuk-!-width-three-quarters" id="keywords" name="keywords" type="text"> -->
-              <input class="govuk-input govuk-!-width-three-quarters" id="keywords" name="keywords" type="text" value="sas" autofocus>
-              <br>
-              <p class="govuk-body govuk-!-padding-top-1">
-                <a href="#">Clear search</a>
-              </p>
-            </div>
-          </div>
-
-          <!-- recent access list -->
-
-          <h2 class="govuk-heading-m">
-            Recent access
-          </h2>
-
-          <p class="govuk-body">
-            There are no organisations matching the search.
-          </p>
-
-          <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
-
-          <h2 class="govuk-heading-m">
-            Pending access
-          </h2>
-
-          <p class="govuk-body">
-            There are no organisations matching the search.
-          </p>
-
-        </div>
-
+        <br>
+        <p class="govuk-body govuk-!-padding-top-1">
+          <a href="service-start-complete">Clear search</a>
+        </p>
       </div>
+    </div>
 
-      {{govukButton({
-        text: "Continue"
-      })}}
+    {% if data['matches'] == true %}
 
-    </form>
+      <!-- matched results -->
+      <table class="govuk-table govuk-!-margin-bottom-0">
+        <caption class="govuk-table__caption govuk-table__caption--m govuk-visually-hidden">
+          Matched accounts
+        </caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Account</th>
+            <th scope="col" class="govuk-table__header">Role</th>
+            <th scope="col" class="govuk-table__header govuk-table__header--numeric">Status</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header govuk-!-font-weight-regular">
+              <a href="service-start-complete">
+                A James LLC
+              </a>
+            </th>
+            <td class="govuk-table__cell">
+              Intermediary
+            </td>
+            <td class="govuk-table__cell govuk-table__cell--numeric">
+              <strong class="govuk-tag">
+                Active
+              </strong>
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header govuk-!-font-weight-regular">
+              <a href="service-start-complete">
+                Antillo Fujam Gardens
+              </a>
+            </th>
+            <td class="govuk-table__cell">
+              Intermediary
+            </td>
+            <td class="govuk-table__cell govuk-table__cell--numeric">
+              <strong class="govuk-tag">
+                Active
+              </strong>
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header govuk-!-font-weight-regular">
+              <a href="service-start-complete">
+                Crest Jamet Homes Limited
+              </a>
+            </th>
+            <td class="govuk-table__cell">
+              Intermediary
+            </td>
+            <td class="govuk-table__cell govuk-table__cell--numeric">
+              <strong class="govuk-tag">
+                Active
+              </strong>
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header govuk-!-font-weight-regular">
+              <a href="service-start-complete">
+                Dursley Jams Co.
+              </a>
+            </th>
+            <td class="govuk-table__cell">
+              Intermediary
+            </td>
+            <td class="govuk-table__cell govuk-table__cell--numeric">
+              <strong class="govuk-tag">
+                Active
+              </strong>
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header govuk-!-font-weight-regular">
+              <a href="service-start-complete">
+                Enterprise Jams Company Ltd.
+              </a>
+            </th>
+            <td class="govuk-table__cell">
+              Intermediary
+            </td>
+            <td class="govuk-table__cell govuk-table__cell--numeric">
+              <strong class="govuk-tag">
+                Active
+              </strong>
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header govuk-!-font-weight-regular">
+              <a href="service-start-complete">
+                Eddard Benjamin
+              </a>
+            </th>
+            <td class="govuk-table__cell">
+              Individual
+            </td>
+            <td class="govuk-table__cell govuk-table__cell--numeric">
+              <strong class="govuk-tag">
+                Active
+              </strong>
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header govuk-!-font-weight-regular">
+              <a href="service-start-complete">
+                Fruit Jams Co.
+              </a>
+            </th>
+            <td class="govuk-table__cell">
+              Intermediary
+            </td>
+            <td class="govuk-table__cell govuk-table__cell--numeric">
+              <strong class="govuk-tag">
+                Active
+              </strong>
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header govuk-!-font-weight-regular">
+              <a href="service-start-complete">
+                Full Jams Company
+              </a>
+            </th>
+            <td class="govuk-table__cell">
+              Intermediary
+            </td>
+            <td class="govuk-table__cell govuk-table__cell--numeric">
+              <strong class="govuk-tag">
+                Active
+              </strong>
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header govuk-!-font-weight-regular">
+              <a href="service-start-complete">
+                High-end Jams
+              </a>
+            </th>
+            <td class="govuk-table__cell">
+              Intermediary
+            </td>
+            <td class="govuk-table__cell govuk-table__cell--numeric">
+              <strong class="govuk-tag">
+                Active
+              </strong>
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header govuk-!-font-weight-regular">
+              <a href="service-start-complete">
+                Hiscox James Ltd.
+              </a>
+            </th>
+            <td class="govuk-table__cell">
+              Intermediary
+            </td>
+            <td class="govuk-table__cell govuk-table__cell--numeric">
+              <strong class="govuk-tag">
+                Active
+              </strong>
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header govuk-!-font-weight-regular">
+              <a href="service-start-complete">
+                Interstellar Jams and Preserves Ltd.
+              </a>
+            </th>
+            <td class="govuk-table__cell">
+              Intermediary
+            </td>
+            <td class="govuk-table__cell govuk-table__cell--numeric">
+              <strong class="govuk-tag">
+                Active
+              </strong>
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header govuk-!-font-weight-regular">
+              <a href="service-start-complete">
+                Jambodge Twitch LLC
+              </a>
+            </th>
+            <td class="govuk-table__cell">
+              Intermediary
+            </td>
+            <td class="govuk-table__cell govuk-table__cell--numeric">
+              <strong class="govuk-tag">
+                Active
+              </strong>
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header govuk-!-font-weight-regular">
+              <a href="service-start-complete">
+                Kilmacow Jam Company
+              </a>
+            </th>
+            <td class="govuk-table__cell">
+              Intermediary
+            </td>
+            <td class="govuk-table__cell govuk-table__cell--numeric">
+              <strong class="govuk-tag govuk-tag--grey">
+                Pending
+              </strong>
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header govuk-!-font-weight-regular">
+              <a href="service-start-complete">
+                Little Jam Co.
+              </a>
+            </th>
+            <td class="govuk-table__cell">
+              Intermediary
+            </td>
+            <td class="govuk-table__cell govuk-table__cell--numeric">
+              <strong class="govuk-tag">
+                Active
+              </strong>
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header govuk-!-font-weight-regular">
+              <a href="service-start-complete">
+                Middletwerp Farm Jams
+              </a>
+            </th>
+            <td class="govuk-table__cell">
+              Intermediary
+            </td>
+            <td class="govuk-table__cell govuk-table__cell--numeric">
+              <strong class="govuk-tag">
+                Active
+              </strong>
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header govuk-!-font-weight-regular">
+              <a href="service-start-complete">
+                Opus Preserves and Jams
+              </a>
+            </th>
+            <td class="govuk-table__cell">
+              Intermediary
+            </td>
+            <td class="govuk-table__cell govuk-table__cell--numeric">
+              <strong class="govuk-tag">
+                Active
+              </strong>
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header govuk-!-font-weight-regular">
+              <a href="service-start-complete">
+                Pinnacle Jams
+              </a>
+            </th>
+            <td class="govuk-table__cell">
+              Intermediary
+            </td>
+            <td class="govuk-table__cell govuk-table__cell--numeric">
+              <strong class="govuk-tag">
+                Active
+              </strong>
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header govuk-!-font-weight-regular">
+              <a href="service-start-complete">
+                Questor James & Bowes
+              </a>
+            </th>
+            <td class="govuk-table__cell">
+              Intermediary
+            </td>
+            <td class="govuk-table__cell govuk-table__cell--numeric">
+              <strong class="govuk-tag">
+                Active
+              </strong>
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header govuk-!-font-weight-regular">
+              <a href="service-start-complete">
+                Sjambok Steel
+              </a>
+            </th>
+            <td class="govuk-table__cell">
+              Intermediary
+            </td>
+            <td class="govuk-table__cell govuk-table__cell--numeric">
+              <strong class="govuk-tag">
+                Active
+              </strong>
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header govuk-!-font-weight-regular">
+              <a href="service-start-complete">
+                Turin James and Family Farms
+              </a>
+            </th>
+            <td class="govuk-table__cell">
+              Intermediary
+            </td>
+            <td class="govuk-table__cell govuk-table__cell--numeric">
+              <strong class="govuk-tag">
+                Active
+              </strong>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+
+      <!-- pagination -->
+      <nav id="pagination" class="govuk-!-margin-top-6 govuk-!-margin-bottom-9  govuk-!-font-size-24">
+        <ul>
+          <!-- <li>
+            <a href="#">
+              Previous
+            </a>
+          </li> -->
+          <li>
+            <a href="#">
+              More matched accounts
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+    {% else %}
+
+      <p class="govuk-body-l">
+        There are no account matches for that search
+      </p>
+
+    {% endif %}
+
+  <!-- </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds"> -->
 
     <h2 class="govuk-heading-m govuk-!-margin-bottom-3">
       Can’t find your organisation?

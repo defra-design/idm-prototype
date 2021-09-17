@@ -26,6 +26,7 @@ $govuk-assets-path: '/govuk/assets/';
 
 @import "components/loading-spinner";
 @import "components/filter";
+@import "components/pagination";
 
 // added for the waste management registration pages
 @import "patterns/login-nav";

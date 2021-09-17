@@ -1,0 +1,18 @@
+/* ==========================================================================
+   DEFRA COMPONENTS / #PAGINATION / Simple left aligned texty pagination
+   ========================================================================== */
+
+// there are also some margin and typography overrrides in the html
+
+#pagination {
+
+  ul {
+    padding-left: 0;
+    line-height: 3rem;
+  }
+
+  ul li {
+    list-style: none;
+  }
+
+}
