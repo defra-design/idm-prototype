@@ -166,7 +166,13 @@
             Main contact details
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ data['defraIdCompanyPhone'] or '01234 567899' }}<br>
+            {% if data['defraIdPersonalPhone'] %}
+              {{ data['defraIdPersonalPhone'] }}
+            {% elseif data['defraIdPersonalPhone'] %}
+              {{ data['defraIdPersonalPhone'] }}
+            {% endif %}
+
+            {{ data['defraIdCompanyPhone'] }}<br>
             {{ data['defraIdCompanyEmail'] or 'info@company.co.uk' }}
           </dd>
           <dd class="govuk-summary-list__actions">
@@ -343,8 +349,9 @@
           </dt>
           <dd class="govuk-summary-list__value">
             <!-- {{ data['defraIdSecurityWord'] or 'pancakes' }}<br /> -->
-            ••••••••<br>
-            {{ data['defraIdSecurityHint'] or 'My favourite food' }}
+            ••••••••
+            <br>
+            {{ data['defraIdSecurityHint'] }}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="#">
