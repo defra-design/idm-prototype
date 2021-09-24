@@ -1,0 +1,71 @@
+{% extends "layout-target.html" %}
+
+{% set serviceName = "Defra account" %}
+
+{% set title = "What is your telephone number?" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {% if data['route'] == "sole-trader" %}
+      <form action="sole-trader-name" method="post">
+    {% else %}
+      <!-- <form action="individual-security" method="post"> -->
+      <form action="task-list" method="post">
+    {% endif %}
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+            <h1 class="govuk-fieldset__heading">
+              {{ title }}
+            </h1>
+          </legend>
+
+          <p class="govuk-body">
+            We ask for this in case we need to call you directly with any queries about your registration.
+          </p>
+
+          <!-- <p class="govuk-body">
+            We will contact you using the address registered with your Government Gateway account, {{data['govGateEmail'] or 'samwoods@company.co.uk'}}.
+          </p> -->
+
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="telephone">
+               Telephone number
+            </label>
+            <input class="govuk-input govuk-input--width-10" id="telephone" name="defraIdPersonalPhone" type="tel">
+          </div>
+
+        </fieldset>
+      </div>
+
+      <div class="govuk-inset-text">
+       We may also contact you by email, using the address registered with your Government Gateway account:
+       <span class="govuk-!-font-weight-bold">{{ data['govGateEmail'] or "samwoods@pmail.com"}}</span>.
+      </div>
+
+      {{govukButton({
+        text: "Continue"
+      })}}
+
+    </form>
+
+
+
+  </div>
+</div>
+
+{% endblock %}

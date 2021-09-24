@@ -336,5 +336,6 @@ router.use('/defra-id', require('./views/defra-id/_routes'));
 
 // added routes for target address
 router.use('/target/defra-id', require('./views/target/defra-id/_routes'));
+router.use('/tasked/defra-id', require('./views/tasked/defra-id/_routes'));
 
 module.exports = router

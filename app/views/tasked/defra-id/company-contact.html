@@ -1,0 +1,80 @@
+{% extends "layout-target.html" %}
+
+{% set serviceName = "Defra account" %}
+
+{% set title = "What are the main contact details for this registered company?" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">{{ title }}</h1>
+    <p class="govuk-hint">These could be details included on the website, or contact details for the head office or management team.</p>
+
+    <!-- <form action="task-list-page-company-details" method="post"> -->
+    <!-- <form action="task-list-page-company-details" method="post"> -->
+
+    <!-- if this is not the short version (no task lists) -->
+    {% if data['version'] == "long" %}
+
+      <!-- work out where to go -->
+      {% if data['route'] == "charity" %}
+        <form action="personal-name" method="post">
+      {% elseif data['route'] == "sole-trader" %}
+        <form action="personal-security" method="post">
+      {% elseif data['version'] == "short" %}
+        <form action="personal-name" method="post">
+      {% else %}
+        <form action="add-organisation-addresses" method="post">
+      {% endif %}
+
+    <!-- this this the version with task lists and extra addresses -->
+    {% elif data['version'] == "slow" %}
+      <form action="add-organisation-addresses" method="post">
+    {% else %}
+      <form action="task-list" method="post">
+    {% endif %}
+
+      {{ govukInput({
+        label: {
+          text: "Telephone number"
+        },
+        classes: "govuk-!-width-one-half",
+        id: "defraIdCompanyPhone",
+        name: "defraIdCompanyPhone",
+        value: data['defraIdCompanyPhone'],
+        type: "tel"
+      }) }}
+
+      {{ govukInput({
+        label: {
+          text: "Email address"
+        },
+        classes: "govuk-!-width-three-quarters",
+        id: "defraIdCompanyEmail",
+        name: "defraIdCompanyEmail",
+        value: data['defraIdCompanyEmail'],
+        type: "email"
+      }) }}
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}
