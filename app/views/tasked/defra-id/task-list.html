@@ -39,7 +39,7 @@
         </ul>
       </li>
 
-      {% if (data['orgType'] == "uk-org") or (data['orgType'] == "charity") or (data['orgType'] == "non-uk-org") %}
+      {% if (data['orgType'] == "uk-org") or (data['orgType'] == "charity") or (data['orgType'] == "non-uk") %}
 
         <li>
           <h2 class="app-task-list__section">
@@ -56,7 +56,7 @@
             </li>
 
             <!-- charities do not see org contact details -->
-            {% if (data['orgType'] != "charity") and (data['orgType'] != "non-uk-org") %}
+            {% if (data['orgType'] != "charity") and (data['orgType'] != "non-uk") %}
               <li class="app-task-list__item">
                 <a class="app-task-list__task-name" href="change-organisation-type?defraIdType=individual">
                   Your organisation’s contact details

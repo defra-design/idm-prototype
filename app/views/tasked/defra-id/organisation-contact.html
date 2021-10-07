@@ -4,7 +4,7 @@
 
 {% if data['orgType'] == "uk-org" %}
   {% set title = "What are the main contact details for this registered company?" %}
-{% elseif data['orgType'] == "non-uk-org" %}
+{% elseif data['orgType'] == "non-uk" %}
   {% set title = "What are the main contact details for this business?" %}
 {% else %}
   <!-- charity -->
@@ -43,7 +43,7 @@
       {% endif %}
 
     <!-- NON-UK ORG -->
-    {% elseif data['orgType'] == "non-uk-org" %}
+    {% elseif data['orgType'] == "non-uk" %}
 
        <!-- non-uk companies do not ask for extra addresses -->
       <form action="task-list" method="post">

@@ -19,10 +19,10 @@ router.post('*/organisation-type-choice', function (req, res) {
     var defraIdType = req.session.data['defraIdType']
     if (defraIdType == "individual"){
         // res.redirect('personal-name?route=individual')
-        res.redirect('personal-name')
+        res.redirect('personal-name?defraIdType=individual&orgType=individual')
     }
     else {
-        res.redirect('organisation-UK-or-else')
+        res.redirect('organisation-UK-or-else?defraIdType=organisation')
         // res.redirect('organisation-UK-or-else?route=company')
     }
 })
@@ -31,10 +31,10 @@ router.post('*/organisation-type-choice', function (req, res) {
 router.post('*/organisation-uk-choice', function (req, res) {
     var defraIdCompanyRegisteredLocation = req.session.data['defraIdCompanyRegisteredLocation']
     if (defraIdCompanyRegisteredLocation == "non-uk"){
-        res.redirect('non-uk-business-name?orgType=non-uk-org')
+        res.redirect('non-uk-business-name?orgType=non-uk')
     }
     else {
-        res.redirect('company-registered-question?orgType=uk-org')
+        res.redirect('company-registered-question?orgType=uk')
     }
 })
 
