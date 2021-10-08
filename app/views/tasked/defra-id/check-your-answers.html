@@ -210,7 +210,7 @@
           </dd>
           <dd class="govuk-summary-list__actions">
             <a href="check-company-contact">
-              Change<span class="govuk-visually-hidden"> company contact details</span>
+              Change<span class="govuk-visually-hidden"> main contact details</span>
             </a>
           </dd>
         </div>
@@ -322,7 +322,7 @@
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="#">
-                Change<span class="govuk-visually-hidden"> correspondence address</span>
+                Change<span class="govuk-visually-hidden"> operations address</span>
               </a>
             </dd>
           </div>
@@ -342,7 +342,7 @@
       <dl class="govuk-summary-list govuk-!-margin-bottom-9">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Your name
+            Name
           </dt>
           <dd class="govuk-summary-list__value">
             {{ data['defraIdFirstName'] or 'Nic' }} {{ data['defraIdSurname'] or 'Woods' }}
@@ -356,14 +356,14 @@
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Your phone number
+            Phone number
           </dt>
           <dd class="govuk-summary-list__value">
             {{ data['defraIdPersonalPhone'] or '07711223344' }}<br />
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="check-individual-contact">
-              Change<span class="govuk-visually-hidden"> telephone number</span>
+              Change<span class="govuk-visually-hidden"> your phone number</span>
             </a>
           </dd>
         </div>
@@ -371,7 +371,7 @@
         {% if data['orgType'] == "sole-trader" %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Your business name
+              Business name
             </dt>
             <dd class="govuk-summary-list__value">
               {{ data['companyName'] or 'Solo Go' }}<br />
@@ -385,21 +385,21 @@
 
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Your business address
+              Business address
             </dt>
             <dd class="govuk-summary-list__value">
               {{ data['addressList'] or 'Flat 1, 3, Grange Road, Bristol, BS1 5AH' }}<br />
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="check-individual-contact">
-                Change<span class="govuk-visually-hidden"> business name</span>
+                Change<span class="govuk-visually-hidden"> business address</span>
               </a>
             </dd>
           </div>
 
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Your business contact details
+              Business contact details
             </dt>
             <dd class="govuk-summary-list__value">
               {{ data['defraIdCompanyPhone'] or '0117 982 7773' }}<br>
@@ -408,7 +408,7 @@
 
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="check-individual-contact">
-                Change<span class="govuk-visually-hidden"> business name</span>
+                Change<span class="govuk-visually-hidden"> business contact details</span>
               </a>
             </dd>
           </div>
@@ -419,14 +419,14 @@
         {% if data['orgType'] == "individual" %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Your address
+              Address
             </dt>
             <dd class="govuk-summary-list__value">
               {{ data['defraIdIndividualAddress'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="check-individual-contact">
-                Change<span class="govuk-visually-hidden"> telephone number</span>
+                Change<span class="govuk-visually-hidden"> individual address</span>
               </a>
             </dd>
           </div>
@@ -434,7 +434,7 @@
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Your security word
+            Security word
           </dt>
           <dd class="govuk-summary-list__value">
             <!-- {{ data['defraIdSecurityWord'] or 'pancakes' }}<br /> -->
