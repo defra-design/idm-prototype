@@ -60,7 +60,7 @@
 
     </dl>
 
-    {% if data['orgType'] != "individual" %}
+    {% if (data['orgType'] == "uk") or (data['orgType'] == "charity") or (data['orgType'] == "non-uk") %}
 
       <h2 class="govuk-heading-m">About your organisation</h2>
 
@@ -191,9 +191,6 @@
               CB2 0AA
             {% endif %}
 
-
-
-
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="#">
@@ -207,7 +204,6 @@
             Main contact details
           </dt>
           <dd class="govuk-summary-list__value">
-
 
             {{ data['defraIdCompanyPhone'] }}<br>
             {{ data['defraIdCompanyEmail'] or 'info@company.co.uk' }}
@@ -337,7 +333,11 @@
 
     {% endif %}
 
-      <h2 class="govuk-heading-m">About you</h2>
+      {% if data['orgType'] == "sole-trader" %}
+        <h2 class="govuk-heading-m">About you and your business</h2>
+      {% else %}
+        <h2 class="govuk-heading-m">About you</h2>
+      {% endif %}
 
       <dl class="govuk-summary-list govuk-!-margin-bottom-9">
         <div class="govuk-summary-list__row">
@@ -367,6 +367,54 @@
             </a>
           </dd>
         </div>
+
+        {% if data['orgType'] == "sole-trader" %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Your business name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['companyName'] or 'Solo Go' }}<br />
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="check-individual-contact">
+                Change<span class="govuk-visually-hidden"> business name</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Your business address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['addressList'] or 'Flat 1, 3, Grange Road, Bristol, BS1 5AH' }}<br />
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="check-individual-contact">
+                Change<span class="govuk-visually-hidden"> business name</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Your business contact details
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['defraIdCompanyPhone'] or '0117 982 7773' }}<br>
+              {{ data['defraIdCompanyEmail'] or 'sologo@solo.com' }}
+            </dd>
+
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="check-individual-contact">
+                Change<span class="govuk-visually-hidden"> business name</span>
+              </a>
+            </dd>
+          </div>
+
+
+        {% endif %}
 
         {% if data['orgType'] == "individual" %}
           <div class="govuk-summary-list__row">

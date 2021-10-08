@@ -2,7 +2,7 @@
 
 {% set serviceName = "Defra account" %}
 
-{% if data['orgType'] == "uk-org" %}
+{% if data['orgType'] == "uk" %}
   {% set title = "What are the main contact details for this registered company?" %}
 {% elseif data['orgType'] == "non-uk" %}
   {% set title = "What are the main contact details for this business?" %}
