@@ -18,8 +18,11 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form action="task-list" method="post" class="form">
-
+    {% if data['checking'] %}
+      <form action="check-your-answers?checking=" method="post" class="form">
+    {% else %}
+      <form action="task-list" method="post" class="form">
+    {% endif %}
 
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset">
@@ -35,21 +38,27 @@
 
           <div class="govuk-radios">
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="defraIdIndividualAddress" name="defraIdIndividualAddress" type="radio" value="2A BAILEY HOUSE, BAILEY ROAD, BS2 1PP">
+              <input class="govuk-radios__input" id="defraIdIndividualAddress" name="defraIdIndividualAddress" type="radio" value="1 BAILEY HOUSE, BAILEY ROAD, BS2 1PP">
               <label class="govuk-label govuk-radios__label" for="defraIdIndividualAddress">
-                Clifton House, Clifton Road, LONDON SW19 5JA
+                1 Bailey House, Bailey Road, BS2 1PP
               </label>
             </div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="defraIdIndividualAddress-2" name="defraIdIndividualAddress" type="radio" value="1A BAILEY HOUSE, BAILEY ROAD, BS2 1PP">
+              <input class="govuk-radios__input" id="defraIdIndividualAddress-2" name="defraIdIndividualAddress" type="radio" value="2 BAILEY HOUSE, BAILEY ROAD, BS2 1PP">
               <label class="govuk-label govuk-radios__label" for="defraIdIndividualAddress-2">
-                2a Clifton House, Clifton Road, LONDON SW19 5JA
+                2 Bailey House, Bailey Road, BS2 1PP
               </label>
             </div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="defraIdIndividualAddress-3" name="defraIdIndividualAddress" type="radio" value="3A BAILEY HOUSE, BAILEY ROAD, BS2 1PP">
+              <input class="govuk-radios__input" id="defraIdIndividualAddress-3" name="defraIdIndividualAddress" type="radio" value="3 BAILEY HOUSE, BAILEY ROAD, BS2 1PP">
               <label class="govuk-label govuk-radios__label" for="defraIdIndividualAddress-3">
-                2b Clifton House, Clifton Road, LONDON SW19 5JA
+                3 Bailey House, Bailey Road, BS2 1PP
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="defraIdIndividualAddress-4" name="defraIdIndividualAddress" type="radio" value="3a BAILEY HOUSE, BAILEY ROAD, BS2 1PP">
+              <label class="govuk-label govuk-radios__label" for="defraIdIndividualAddress-4">
+                3a Bailey House, Bailey Road, BS2 1PP
               </label>
             </div>
           </div>

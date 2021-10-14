@@ -3,7 +3,7 @@ const router = express.Router()
 // Add your routes here - above the module.exports line
 
 
-// Routing for changing organisation-type.html
+// Changing organisation-type.html
 router.post('*/change-organisation-type-choice', function (req, res) {
   var defraIdType = req.session.data['defraIdType']
   if (defraIdType == "individual"){
@@ -14,7 +14,7 @@ router.post('*/change-organisation-type-choice', function (req, res) {
   }
 })
 
-// Routing for organisation-type.html
+// Organisation-type.html
 router.post('*/organisation-type-choice', function (req, res) {
     var defraIdType = req.session.data['defraIdType']
     if (defraIdType == "individual"){
@@ -27,7 +27,7 @@ router.post('*/organisation-type-choice', function (req, res) {
     }
 })
 
-// Routing for organisation-UK-or-else.html
+// Organisation-UK-or-else.html
 router.post('*/organisation-uk-choice', function (req, res) {
     var defraIdCompanyRegisteredLocation = req.session.data['defraIdCompanyRegisteredLocation']
     if (defraIdCompanyRegisteredLocation == "non-uk"){
@@ -39,7 +39,7 @@ router.post('*/organisation-uk-choice', function (req, res) {
 })
 
 
-// Routing for company-registered-question.html
+// Company-registered-question.html
 router.post('*/companieshouse-choice', function (req, res) {
     var defraIdCompaniesHouse = req.session.data['defraIdCompaniesHouse']
     if (defraIdCompaniesHouse == "companies-house-no"){
@@ -51,7 +51,7 @@ router.post('*/companieshouse-choice', function (req, res) {
 })
 
 
-// Routing for sole trader or charity question
+// Sole trader or charity question
 router.post('*/org-choice', function (req, res) {
     var orgType = req.session.data['defraIdSoleTraderOrCharity']
     if (orgType == "sole-trader"){
@@ -64,7 +64,7 @@ router.post('*/org-choice', function (req, res) {
 })
 
 
-// Routing for adding company addresses in registration
+// Adding company addresses in registration
 router.post('*/add-addresses', function (req, res) {
   var addExtraAddress = req.session.data['defraIdAddAddresses']
   var version = req.session.data['version']
@@ -75,7 +75,7 @@ router.post('*/add-addresses', function (req, res) {
   }
 })
 
-// Routing for adding charity addresses in registration
+// Adding charity addresses in registration
 router.post('*/add-charity-addresses', function (req, res) {
   var addExtraAddress = req.session.data['defraIdAddAddresses']
   if (addExtraAddress === 'yes') {
@@ -84,6 +84,14 @@ router.post('*/add-charity-addresses', function (req, res) {
     res.redirect('task-list-page-charity-details')
   }
 })
+
+
+
+
+
+
+
+
 
 
 // Redundant now
@@ -97,5 +105,11 @@ router.post('*/check-personal-name', function (req, res) {
     res.redirect('your-name')
   }
 })
+
+
+
+
+
+
 
 module.exports = router

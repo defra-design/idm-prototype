@@ -32,7 +32,7 @@ module.exports = {
   "numLocations": "1",
   "systemRole":"Admin",
   "service": "Imports",
-  "serviceLine": "Comply with REACH IT",
+  "serviceLine": "Comply with UK REACH",
   "serviceRole": "REACH manager",
   "userType": "new",
   "subscribeService": "no",
