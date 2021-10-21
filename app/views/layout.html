@@ -41,17 +41,18 @@
 
 {% block header %}
 
-  {# Set serviceName in config.js. #}
   {{ govukHeader({
     homepageUrl: "/",
     serviceName: serviceName,
-    serviceUrl: "/",
-    navigation: [{
-      href: "/defra-id/",
+    navigation: [
+    {
+      href: "/signed-out",
+      text: "Sign out",
       active: false
-    }]
+    }
+    ]
   })
-}}
+  }}
 
 {% endblock %}
 
