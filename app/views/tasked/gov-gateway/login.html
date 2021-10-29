@@ -24,7 +24,7 @@
       Sign in using Government Gateway
     </h1>
 
-    <form method="post" action="../../org-switch/org-picker-search">
+    <form method="post" action="{{data['returnUrl']}}">
 
         {{ govukInput({
             label: {
@@ -55,7 +55,11 @@
 
     </form>
 
-    <p><a href="email-address">Create sign in details</a></p>
+    <p>
+      <a href="email-address" class="govuk-link">
+        Create sign in details
+      </a>
+    </p>
 
     <h2 class="govuk-heading-m">Problems signing in</h2>
 
