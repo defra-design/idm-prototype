@@ -1,0 +1,24 @@
+/* ==========================================================================
+   TEST COMPONENT / #buttonlink / Make a button look like a link
+   ========================================================================== */
+
+#buttonlink {
+  color: #1d70b8;
+  padding: 0!important;
+  font-family: "GDS Transport", arial, sans-serif;
+  font-size: 19px;
+  text-decoration: underline;
+  background: none!important;
+  border: none;
+  cursor: pointer;
+}
+
+#buttonlink:focus {
+  // color: #0b0c0c;
+  text-decoration: none;
+  // outline: 3px solid transparent;
+  // background: none;
+  //
+  // -webkit-box-shadow: 0px -4px 0px 0px #ffdd00, 0 4px #0b0c0c;
+  // box-shadow: 0px -4px 0px 0px #ffdd00, 0 4px #0b0c0c;
+}

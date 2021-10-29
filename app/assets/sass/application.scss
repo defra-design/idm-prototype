@@ -19,7 +19,7 @@ $govuk-assets-path: '/govuk/assets/';
 
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
 @import "patterns/check-your-answers";
-@import "patterns/table-test";
+// @import "patterns/table-test";
 @import "patterns/card";
 @import "patterns/idm";
 @import "patterns/login-nav";
@@ -27,6 +27,7 @@ $govuk-assets-path: '/govuk/assets/';
 @import "components/loading-spinner";
 @import "components/filter";
 @import "components/pagination";
+@import "components/button-looks-like-link";
 
 // added for the waste management registration pages
 @import "patterns/login-nav";
