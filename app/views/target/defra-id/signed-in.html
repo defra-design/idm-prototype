@@ -21,7 +21,6 @@
 
 {% block content %}
 
-
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
@@ -36,7 +35,11 @@
           </h1>
 
           <div class="govuk-inset-text">
-            (who am I signed in as?)
+            {% if data['govGateEmail'] %}
+              You are signed in using <span class="govuk-body govuk-!-font-weight-bold">{{ data['govGateEmail'] }}</span>
+            {% else %}
+              You are signed in using <span class="govuk-body govuk-!-font-weight-bold">sam.woods@email.com</span>
+            {% endif %}
           </div>
 
           </legend>

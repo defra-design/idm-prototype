@@ -49,32 +49,63 @@
     </div>
 
     <div class="govuk-grid-column-two-thirds">
+
       <h2 class="govuk-heading-m">
-        Recent work
+        Recent
       </h2>
 
-      <ul class="govuk-list govuk-list--bullet">
-        <li><a href="tasked/defra-id/about-data" class="govuk-link--no-visited-state">Defra account registration with task lists</a></li>
-      </ul>
-
       <h3 class="govuk-heading-s">
-        Target UX
+        Registration variants
       </h3>
 
-
+      <h3 class="govuk-heading-s">
+        Registration like LIVE (task lists and no additional addresses)
+      </h3>
 
       <ul class="govuk-list govuk-list--bullet">
-        <li><a href="target/defra-id/steps" class="govuk-link--no-visited-state">Framing Defra account registration</a></li>
-        <!-- <li><a href="target/gov-gateway/login?version=long" class="govuk-link--no-visited-state">Government Gateway (version A)</a></li>
-        <li><a href="target/gov-gateway/login?version=short" class="govuk-link--no-visited-state">Government Gateway (version B - no additional addresses)</a></li> -->
-
-        <li><a href="target/gov-gateway/login?askAboutExtraAddresses=no" class="govuk-link--no-visited-state">Government Gateway (version A - no additional addresses)</a></li>
-        <li><a href="target/gov-gateway/login?askAboutExtraAddresses=yes" class="govuk-link--no-visited-state">Government Gateway (version B - additional addresses)</a></li>
-        <li><a href="target/defra-id/about-data?askAboutExtraAddresses=no" class="govuk-link--no-visited-state">Defra account registration (version A - no additional addresses)</a></li>
-        <li><a href="target/defra-id/about-data?askAboutExtraAddresses=yes" class="govuk-link--no-visited-state">Defra account registration (version B - additional addresses)</a></li>
-
-        <li><a href="target/defra-id/signed-in" class="govuk-link--no-visited-state">Already signed in</a></li>
+        <li><a href="tasked/gov-gateway/login" class="govuk-link--no-visited-state">Government Gateway registration</a></li>
+        <li><a href="tasked/defra-id/about-data" class="govuk-link--no-visited-state">Defra account registration</a></li>
       </ul>
+
+      <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Registration versions
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+
+          <h3 class="govuk-heading-s">
+            Registration (task lists and additional addresses)
+          </h3>
+
+          <ul class="govuk-list govuk-list--bullet">
+            <li><a href="defra-id" class="govuk-link--no-visited-state">Sign in using Government Gateway</a></li>
+            <li><a href="defra-id/about-data" class="govuk-link--no-visited-state">Your Defra account - what we need from you</a></li>
+          </ul>
+
+          <h3 class="govuk-heading-s">
+            Registration (target UX with no additional addresses)
+          </h3>
+
+          <ul class="govuk-list govuk-list--bullet">
+            <li><a href="target/defra-id/steps" class="govuk-link--no-visited-state">Framing Defra account registration (steps)</a></li>
+            <li><a href="target/gov-gateway/login?askAboutExtraAddresses=no" class="govuk-link--no-visited-state">Government Gateway registration</a></li>
+            <li><a href="target/defra-id/about-data?askAboutExtraAddresses=no" class="govuk-link--no-visited-state">Defra account registration registration</a></li>
+          </ul>
+
+          <h3 class="govuk-heading-s">
+            Registration (target UX with additional addresses)
+          </h3>
+
+          <ul class="govuk-list govuk-list--bullet">
+            <li><a href="target/gov-gateway/login?askAboutExtraAddresses=yes" class="govuk-link--no-visited-state">Government Gateway registration</a></li>
+            <li><a href="target/defra-id/about-data?askAboutExtraAddresses=yes" class="govuk-link--no-visited-state">Defra account registration</a></li>
+            <li><a href="target/defra-id/signed-in" class="govuk-link--no-visited-state">Already signed in</a></li>
+          </ul>
+
+        </div>
+        </details>
 
       <h3 class="govuk-heading-s">
         Org picker / agent sign in
@@ -87,19 +118,9 @@
         <li><a href="/org-switch/org-picker-search-results?matches=1" class="govuk-link--no-visited-state">Org picker for large numbers, matched accounts</a></li>
         <li><a href="/org-switch/org-picker-search-results?matches=" class="govuk-link--no-visited-state">Org picker for large numbers, no matches</a></li>
         <li><a href="/org-switch/org-picker-error" class="govuk-link--no-visited-state">Org picker basic permission changed error</a></li>
-        <!-- <li><a href="/org-switch/org-picker-error" class="govuk-link--no-visited-state">Org picker error message (no organisation selected)</a></li> -->
-        <!-- <li><a href="/org-switch/org-picker-search-results" class="govuk-link--no-visited-state">Org picker search no results</a></li> -->
         <li><a href="/org-switch/add-new-organisation" class="govuk-link--no-visited-state">Add an organisation (interswitch screen)</a></li>
         <li><a href="/org-switch/no-access" class="govuk-link--no-visited-state">No organisations / no access</a></li>
-        <!-- <li><a href="/org-switch/org-picker-permissions-error" class="govuk-link--no-visited-state">Permission change error</a></li> -->
         <li><a href="/signed-out" class="govuk-link--no-visited-state">You have been signed out</a></li>
-        <!-- <br>
-        <p class="govuk-body">
-          Org picker options
-        </p>
-        <li><a href="/org-switch/org-picker" class="govuk-link--no-visited-state">Org picker basic (less than 10 options)</a></li>
-        <li><a href="/org-switch/org-picker-search" class="govuk-link--no-visited-state">Org picker search (more than 10 options)</a></li>
-        <li><a href="/org-switch/org-picker-filter" class="govuk-link--no-visited-state">Org picker search and filter (more than 10 options)</a></li> -->
       </ul>
 
       <h3 class="govuk-heading-s">
@@ -123,67 +144,6 @@
 
       <ul class="govuk-list govuk-list--bullet">
         <li><a href="help#call-charges" class="govuk-link--no-visited-state">The help page</a></li>
-      </ul>
-
-      <h3 class="govuk-heading-s">
-        Registration journey
-      </h3>
-
-      <p class="govuk-body">
-        Government Gateway registration
-      </p>
-
-      <ul class="govuk-list govuk-list--bullet">
-        <li><a href="defra-id" class="govuk-link--no-visited-state">Sign in using Government Gateway</a></li>
-        <li><a href="defra-id/email-address" class="govuk-link--no-visited-state">Create sign in details</a></li>
-        <li><a href="defra-id/check-email" class="govuk-link--no-visited-state">Enter code to confirm your email address</a></li>
-        <li><a href="defra-id/email-confirmed" class="govuk-link--no-visited-state">Email address confirmed</a></li>
-        <li><a href="defra-id/your-name" class="govuk-link--no-visited-state">What is your full name?</a></li>
-        <li><a href="defra-id/create-password" class="govuk-link--no-visited-state">Create a password</a></li>
-        <li><a href="defra-id/recovery-word-1" class="govuk-link--no-visited-state">Set up recovery for your sign in details</a></li>
-        <li><a href="defra-id/recovery-word-2" class="govuk-link--no-visited-state">Set up a recovery word</a></li>
-        <li><a href="defra-id/confirmation" class="govuk-link--no-visited-state">Your Government Gateway user ID is</a></li>
-      </ul>
-
-      <p class="govuk-body">
-        Registration start
-      </p>
-
-      <ul class="govuk-list govuk-list--bullet">
-        <li><a href="defra-id/about-data" class="govuk-link--no-visited-state">Your Defra account - what we need from you</a></li>
-        <li><a href="defra-id/organisation-type" class="govuk-link--no-visited-state">Are you registering as a business or an individual?</a></li>
-      </ul>
-
-      <p class="govuk-body">
-        Company registration
-      </p>
-
-      <ul class="govuk-list govuk-list--bullet">
-        <li><a href="defra-id/organisation-UK-or-else" class="govuk-link--no-visited-state">Where is your organisation registered to trade?</a></li>
-        <li><a href="defra-id/company-registered-question" class="govuk-link--no-visited-state">Is your organisation registered with Companies House?</a></li>
-        <li><a href="defra-id/company-lookup" class="govuk-link--no-visited-state">What is the Companies House number for the company you wish to register?</a></li>
-        <li><a href="defra-id/company-confirm" class="govuk-link--no-visited-state">Are these the correct registered company details?</a></li>
-        <li><a href="defra-id/company-contact" class="govuk-link--no-visited-state">What are the main contact details for this registered company?</a></li>
-        <li><a href="defra-id/add-organisation-addresses" class="govuk-link--no-visited-state">Would you like to add extra addresses to your organisation?</a></li>
-        <li><a href="defra-id/task-list-page-company-details" class="govuk-link--no-visited-state">About the organisation you represent (task list)</a></li>
-        <li><a href="defra-id/personal-name" class="govuk-link--no-visited-state">What is your name? (First name / Surname)</a></li>
-        <li><a href="defra-id/personal-contact" class="govuk-link--no-visited-state">What is your telephone number?</a></li>
-        <li><a href="defra-id/personal-security" class="govuk-link--no-visited-state">Create your security word</a></li>
-        <li><a href="defra-id/check-your-answers" class="govuk-link--no-visited-state">Check your information</a></li>
-      </ul>
-
-      <p class="govuk-body">
-        Individual registration
-      </p>
-
-      <ul class="govuk-list govuk-list--bullet">
-        <li><a href="defra-id/individual-name" class="govuk-link--no-visited-state">What is your name? (First name / Surname)</a></li>
-        <li><a href="defra-id/task-list-page-about-you-details" class="govuk-link--no-visited-state">Your information</a></li>
-        <li><a href="defra-id/individual-contact" class="govuk-link--no-visited-state">What is your telephone number?</a></li>
-        <li><a href="defra-id/individual-address-postcode" class="govuk-link--no-visited-state">What is your address?</a></li>
-        <li><a href="defra-id/individual-select-new-address" class="govuk-link--no-visited-state">Select your address</a></li>
-        <li><a href="defra-id/individual-security" class="govuk-link--no-visited-state">Create your security word</a></li>
-        <li><a href="defra-id/individual-check-your-answers" class="govuk-link--no-visited-state">Check your information</a></li>
       </ul>
 
       <p class="govuk-body">
