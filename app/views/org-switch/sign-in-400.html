@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Your Defra account" %}
+
+{% set title = "You are already signed in to " + data['serviceLine'] + " on another tab or window" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <!-- {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }} -->
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">
+      <!-- <span class="govuk-caption-xl">{{ data['serviceLine'] }}</span> -->
+      {{title}}
+    </h1>
+
+    <p class="govuk-body-l">
+      You should be able to <a href="service-start-complete" class="govuk-link">open the service here</a>.
+    </p>
+
+  </div>
+</div>
+
+{% endblock %}
