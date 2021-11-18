@@ -94,13 +94,14 @@
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key govuk-summary-list__key--wide">
+
             {% if data['orgType'] %}
 
               {% if data['orgType'] == "company" or data['orgType'] == "sole-trader" %}
                 Company name
               {% elseif data['orgType'] == "charity" %}
                 Charity name
-              {% elseif data['orgType'] == "non-uk" %}
+              {% else %}
                 Company name
               {% endif %}
 
@@ -183,6 +184,12 @@
                 {% if data['address-country'] %}
                   {{ data['address-country'] }}
                 {% endif %}
+              {% else %}
+
+                1 Francis Crick Avenue<br>
+                Cambridge Biomedical Campus<br>
+                Cambridge, United Kingdom<br>
+                CB2 0AA
 
               {% endif %}
             {% else %}
@@ -206,8 +213,8 @@
           </dt>
           <dd class="govuk-summary-list__value">
 
-            {{ data['defraIdCompanyPhone'] }}<br>
-            {{ data['defraIdCompanyEmail'] or 'info@company.co.uk' }}
+            {{ data['defraIdCompanyPhone'] or data['businessTelephone'] or '01277 332101'}}<br>
+            {{ data['defraIdCompanyEmail'] or data['businessEmail'] or 'info@company.co.uk' }}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a href="check-company-contact">
@@ -499,7 +506,8 @@
           </button>
         </form>
 
-      </div>
-    </div>
+
+  </div>
+</div>
 
 {% endblock %}

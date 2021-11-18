@@ -19,6 +19,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
 
+    <!-- {{ data['returnUrl'] }} -->
     <h1 class="govuk-heading-xl">{{ title }}</h1>
 
     <h2 class="govuk-heading-m">Your account</h2>
@@ -26,21 +27,27 @@
     <dl class="govuk-summary-list govuk-!-margin-bottom-9">
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
-          Account Type
+          Account type
         </dt>
         <dd class="govuk-summary-list__value">
-          Business
+          {% if data['defraIdType'] %}
+            {% if data['defraIdType'] == "individual" %}
+              Individual
+            {% else %}
+              Business
+            {% endif %}
+          {% endif %}
         </dd>
         <dd class="govuk-summary-list__actions">
-        <a class="govuk-link" href="#">
-          Change<span class="govuk-visually-hidden"> account type</span>
-        </a>
+          <!-- <a class="govuk-link" href="#">
+            Change<span class="govuk-visually-hidden"> account type</span>
+          </a> -->
         </dd>
       </div>
 
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
-          Account email
+          Government Gateway email
         </dt>
         <dd class="govuk-summary-list__value">
           {{ data['govGateEmail'] or 'samwoods@company.co.uk' }}
@@ -54,27 +61,28 @@
 
     </dl>
 
-    <h2 class="govuk-heading-m">About your organisation</h2>
+    {% if (data['orgType'] == "uk") or (data['orgType'] == "charity") or (data['orgType'] == "non-uk") %}
+
+      <h2 class="govuk-heading-m">About your organisation</h2>
 
       <dl class="govuk-summary-list govuk-!-margin-bottom-9">
 
-        <div class="govuk-summary-list__row">
+        <!-- <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             Organisation type
           </dt>
           <dd class="govuk-summary-list__value">
-            {% if data['route'] %}
-              {% if data['route'] == "company" %}
+            {% if data['orgType'] %}
+              {% if data['orgType'] == "company" %}
                 Limited company
-              {% elseif data['route'] == "sole-trader" %}
+              {% elseif data['orgType'] == "sole-trader" %}
                 Sole trader
-              {% elseif data['route'] == "charity" %}
+              {% elseif data['orgType'] == "charity" %}
                 Charity
-              {% elseif data['route'] == "individual" %}
+              {% elseif data['orgType'] == "individual" %}
                 Individual
-              {% elseif data['route'] == "non-uk" %}
+              {% elseif data['orgType'] == "non-uk" %}
                 Non-UK business
-                <!-- Charity -->
               {% endif %}
             {% else %}
               UK company
@@ -82,26 +90,36 @@
           </dd>
           <dd class="govuk-summary-list__actions">
           </dd>
-        </div>
+        </div> -->
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key govuk-summary-list__key--wide">
-            {% if data['route'] %}
-              {% if data['route'] == "company" or data['route'] == "sole-trader" %}
+
+            {% if data['orgType'] %}
+
+              {% if data['orgType'] == "company" or data['orgType'] == "sole-trader" %}
                 Company name
-              {% elseif data['route'] == "charity" %}
+              {% elseif data['orgType'] == "charity" %}
                 Charity name
+              {% else %}
+                Company name
               {% endif %}
+
             {% else %}
+
               Company name
+
             {% endif %}
+
           </dt>
           <dd class="govuk-summary-list__value">
-            {% if data['route'] %}
-              {% if data['route'] == "company" %}
+            {% if data['orgType'] %}
+              {% if data['orgType'] == "company" %}
                 Acme Org Ltd
-              {% elseif data['route'] == "charity" %}
+              {% elseif data['orgType'] == "charity" %}
                 Good Hands (NIC100007)
+              {% elseif data['orgType'] == "non-uk" %}
+                {{ data['business-name'] }}
               {% else %}
                 Acme Org Ltd
               {% endif %}
@@ -116,7 +134,7 @@
           </dd>
         </div>
 
-        {% if data['route'] == "company" %}
+        {% if data['orgType'] == "company" %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Companies House number
@@ -141,18 +159,46 @@
             Main address
           </dt>
           <dd class="govuk-summary-list__value">
-            {% if data['route'] %}
-              {% if data['route'] == "company" %}
+            {% if data['orgType'] %}
+              {% if data['orgType'] == "company" %}
                 Acme Org Ltd<br>
+              {% elseif data['orgType'] == "non-uk" %}
+                {% if data['sub-building-name'] %}
+                  {{ data['sub-building-name'] }},
+                {% endif %}
+                {% if data['building-number'] %}
+                  {{ data['building-number'] }},
+                {% endif %}
+                {% if data['street-name'] %}
+                  {{ data['street-name'] }},
+                {% endif %}
+                {% if data['address-town'] %}
+                  {{ data['address-town'] }},
+                {% endif %}
+                {% if data['address-county'] %}
+                  {{ data['address-county'] }},
+                {% endif %}
+                {% if data['address-postcode'] %}
+                  {{ data['address-postcode'] }},
+                {% endif %}
+                {% if data['address-country'] %}
+                  {{ data['address-country'] }}
+                {% endif %}
+              {% else %}
+
+                1 Francis Crick Avenue<br>
+                Cambridge Biomedical Campus<br>
+                Cambridge, United Kingdom<br>
+                CB2 0AA
+
               {% endif %}
             {% else %}
-              Acme Org Ltd<br>
+              1 Francis Crick Avenue<br>
+              Cambridge Biomedical Campus<br>
+              Cambridge, United Kingdom<br>
+              CB2 0AA
             {% endif %}
 
-            1 Francis Crick Avenue<br>
-            Cambridge Biomedical Campus<br>
-            Cambridge, United Kingdom<br>
-            CB2 0AA
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="#">
@@ -166,12 +212,13 @@
             Main contact details
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ data['defraIdCompanyPhone'] or '01234 567899' }}<br>
-            {{ data['defraIdCompanyEmail'] or 'info@company.co.uk' }}
+
+            {{ data['defraIdCompanyPhone'] or data['businessTelephone'] or '01277 332101'}}<br>
+            {{ data['defraIdCompanyEmail'] or data['businessEmail'] or 'info@company.co.uk' }}
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a href="company-contact?flowType=check">
-              Change<span class="govuk-visually-hidden"> company contact details</span>
+            <a href="check-company-contact">
+              Change<span class="govuk-visually-hidden"> main contact details</span>
             </a>
           </dd>
         </div>
@@ -283,71 +330,128 @@
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="#">
-                Change<span class="govuk-visually-hidden"> correspondence address</span>
+                Change<span class="govuk-visually-hidden"> operations address</span>
               </a>
             </dd>
           </div>
 
         {% endif %}
 
-
       </dl>
 
+    {% endif %}
 
-      <h2 class="govuk-heading-m">About you</h2>
+      {% if data['orgType'] == "sole-trader" %}
+        <h2 class="govuk-heading-m">About you and your business</h2>
+      {% else %}
+        <h2 class="govuk-heading-m">About you</h2>
+      {% endif %}
 
       <dl class="govuk-summary-list govuk-!-margin-bottom-9">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Your name
+            Name
           </dt>
           <dd class="govuk-summary-list__value">
             {{ data['defraIdFirstName'] or 'Nic' }} {{ data['defraIdSurname'] or 'Woods' }}
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="#">
+            <a class="govuk-link" href="check-personal-name">
               Change<span class="govuk-visually-hidden"> your name</span>
             </a>
           </dd>
         </div>
+
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Your phone number
+            Phone number
           </dt>
           <dd class="govuk-summary-list__value">
             {{ data['defraIdPersonalPhone'] or '07711223344' }}<br />
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="#">
-              Change<span class="govuk-visually-hidden"> telephone number</span>
+            <a class="govuk-link" href="check-individual-contact">
+              Change<span class="govuk-visually-hidden"> your phone number</span>
             </a>
           </dd>
         </div>
-        <!-- <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Your contact details
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {{ data['defraIdPersonalPhone'] or '07711223344' }}<br />
-            {{ data['govGateEmail'] or 'samwoods@company.co.uk' }}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="#">
-              Change<span class="govuk-visually-hidden"> your contact details</span>
-            </a>
-          </dd>
-        </div> -->
+
+        {% if data['orgType'] == "sole-trader" %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Business name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['companyName'] or 'Solo Go' }}<br />
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="check-individual-contact">
+                Change<span class="govuk-visually-hidden"> business name</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Business address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['addressList'] or 'Flat 1, 3 Grange Road, Bristol, BS1 5AH' }}<br />
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="check-individual-contact">
+                Change<span class="govuk-visually-hidden"> business address</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Business contact details
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['defraIdCompanyPhone'] or '0117 982 7773' }}<br>
+              {{ data['defraIdCompanyEmail'] or 'sologo@solo.com' }}
+            </dd>
+
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="check-individual-contact">
+                Change<span class="govuk-visually-hidden"> business contact details</span>
+              </a>
+            </dd>
+          </div>
+
+
+        {% endif %}
+
+        {% if data['orgType'] == "individual" %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['defraIdIndividualAddress'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="check-individual-address-postcode?checking=1">
+                Change<span class="govuk-visually-hidden"> individual address</span>
+              </a>
+            </dd>
+          </div>
+        {% endif %}
+
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Your security word
+            Security word
           </dt>
           <dd class="govuk-summary-list__value">
             <!-- {{ data['defraIdSecurityWord'] or 'pancakes' }}<br /> -->
-            ••••••••<br>
-            {{ data['defraIdSecurityHint'] or 'My favourite food' }}
+            ••••••••
+            <br>
+            {{ data['defraIdSecurityHint'] }}
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="#">
+            <a class="govuk-link" href="check-individual-security">
               Change<span class="govuk-visually-hidden"> security word and hint</span>
             </a>
           </dd>
@@ -390,16 +494,20 @@
 
         </div>
 
-        <!-- <form action="/target/defra-id-manage" method="post"> -->
-        <form action="/target/defra-id-manage/account" method="post">
+        {% if data['returnUrl'] %}
+          <form action="{{data['returnUrl']}}" method="post">
+        {% else %}
+          <!-- <form action="/target/defra-id-manage" method="post"> -->
+          <form action="/target/defra-id-manage/account" method="post">
+        {% endif %}
+
+        <button class="govuk-button" id="myButton">
+          Continue
+        </button>
+      </form>
 
 
-          <button class="govuk-button" id="myButton">
-            Continue
-          </button>
-        </form>
-
-      </div>
-    </div>
+  </div>
+</div>
 
 {% endblock %}
