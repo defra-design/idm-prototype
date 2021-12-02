@@ -2,7 +2,7 @@
 
 {% set serviceName = "Defra account" %}
 
-{% set title = "Team member" %}
+{% set title = "Account profile" %}
 
 {% if data['teamType'] == 'other' %}
   {% set fullname = "Sam Woods" %}
@@ -56,30 +56,22 @@
 {% endblock %}
 
 {% block content %}
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-full">
-    <h1 class="govuk-heading-xl">
-      {{title}}
-    </h1>
-  </div>
-</div>
-
 <div class="govuk-grid-row govuk-!-margin-bottom-6">
   <div class="govuk-grid-column-two-thirds">
 
-    <!-- <p class="govuk-body">
-      <span class="govuk-!-font-weight-bold">Full name:</span> Sam Woods<br>
-      <span class="govuk-!-font-weight-bold">Email address:</span> sam.woods@company.co.uk<br>
-      <span class="govuk-!-font-weight-bold">Telephone number:</span> 07711223344
-    </p> -->
+    <h1 class="govuk-heading-xl">
+      <span class="govuk-caption-xl">{{title}}</span><span class="govuk-visually-hidden">: </span>
+      {{ fullname }}
+    </h1>
 
-    <dl class="govuk-summary-list govuk-summary-list--no-border govuk-!-margin-bottom-3">
+    <dl class="govuk-summary-list govuk-summary-list--no-border govuk-!-margin-bottom-6">
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
           Full name
         </dt>
         <dd class="govuk-summary-list__value">
-          {{ fullname }}
+          {{ fullname }}{% if data['teamType'] == 'other' %}<br>
+          <a href="#">Remove<span class="govuk-visually-hidden"> this person</span></a>{% endif %}
         </dd>
       </div>
       <div class="govuk-summary-list__row">
@@ -114,23 +106,11 @@
           Role
         </dt>
         <dd class="govuk-summary-list__value">
-          {{ role }}
+          {{ role }}{% if data['teamType'] == 'other' %}<br>
+          <a href="#">Change account role</a>{% endif %}
         </dd>
       </div>
     </dl>
-
-    {% if data['teamType'] == 'other' %}
-      <p class="govuk-body">
-        <a href="update-details" class="govuk-link--no-visited-state">
-          Remove user
-        </a>
-      </p>
-      <p class="govuk-body">
-        <a href="update-details" class="govuk-link--no-visited-state">
-          Change account role
-        </a>
-      </p>
-    {% endif %}
 
   </div>
 </div>
@@ -165,11 +145,13 @@
         <td class="govuk-table__cell">
           Notifier
         </td>
+        {% if data['teamType'] == 'other' %}<br>
         <td class="govuk-table__cell">
           <a href="dashboard" class="govuk-link--no-visited-state">
             Manage access
           </a>
         </td>
+        {% endif %}
       </tr>
 
     </table>
