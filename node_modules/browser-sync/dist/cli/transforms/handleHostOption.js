@@ -1,9 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var bin_1 = require("../../bin");
+exports.handleHostOption = void 0;
+const bin_1 = require("../../bin");
 function handleHostOption(incoming) {
-    var host = incoming.get("host");
-    var listen = incoming.get("listen");
+    const host = incoming.get("host");
+    const listen = incoming.get("listen");
     if (host && listen) {
         if (host !== listen) {
             return [
@@ -13,7 +14,7 @@ function handleHostOption(incoming) {
                         errors: [
                             {
                                 error: new Error("Cannot specify both `host` and `listen` options"),
-                                meta: function () {
+                                meta() {
                                     return [
                                         "",
                                         "Tip:           Use just the `listen` option *only* if you want to bind only to a particular host."
