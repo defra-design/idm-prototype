@@ -19,6 +19,9 @@ $govuk-assets-path: '/govuk/assets/';
 // HERE IS THE END OF THE CORE STYLES
 
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
+
+@import "components/autocomplete";
+
 @import "patterns/check-your-answers";
 // @import "patterns/table-test";
 @import "patterns/card";
@@ -38,4 +41,41 @@ $govuk-assets-path: '/govuk/assets/';
 @import "patterns/application-additions";
 
 //Cookie banner $govuk-global-styles
-@import "_cookies"
+@import "cookies";
+
+.autocomplete {
+    /*the container must be positioned relative:*/
+    position: relative;
+    display: inline-block;
+    width: 100%;
+  }
+  .autocomplete-items {
+    background-color: #f1f1f1;
+    width: 100%;
+    position: absolute;
+    border: 1px solid #d4d4d4;
+    border-bottom: none;
+    border-top: none;
+    z-index: 99;
+    /*position the autocomplete items to be the same width as the container:*/
+    top: 100%;
+    left: 0;
+    right: 0;
+    div {
+      padding: 1rem;
+      background-color: $background-white;
+      border-bottom: 1px solid $border-grey;
+      &:hover {
+        background-color: $background-grey;
+      }
+    }
+  }
+  .autocomplete-active {
+    /*when navigating through the items using the arrow keys:*/
+    background-color: DodgerBlue !important;
+    color: #ffffff;
+  }
+
+
+
+  

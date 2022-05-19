@@ -13,6 +13,8 @@
     "test": "gulp generate-assets && jest && npm run lint"
   },
   "dependencies": {
+    "@ministryofjustice/frontend": "^1.4.1",
+    "accessible-autocomplete": "^2.0.4",
     "acorn": "^8.5.0",
     "ansi-colors": "^4.1.1",
     "body-parser": "^1.14.1",

@@ -331,6 +331,21 @@ router.post('/cookie-settings', function (req, res) {
     res.redirect('cookie-settings')
 })
 
+// routing for verify
+router.get('/mfa/select-number', function (req, res) {
+  // Make a variable from session data
+  var telNum = req.session.data['telephone'] 
+  // route depending on value
+  if (telNum === 'tel1') {
+    res.redirect('get-code')
+  } else {
+    res.redirect('verify-error')
+  }
+})
+
+// if ( (a == 'b') && ( c == 'd') ) {}
+
+
 // added for the registration pages
 router.use('/defra-id', require('./views/defra-id/_routes'));
 
