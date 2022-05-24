@@ -1,0 +1,138 @@
+{% extends "layout.html" %}
+
+{% set title = "Identity Management" %}
+
+{% block header %}
+{{ govukHeader({ serviceName: "" }) }}
+{% endblock %}
+
+{% block pageTitle %}
+{{title}} - GOV.UK
+{% endblock %}
+{% block beforeContent %}
+{{ govukBackLink({
+text: "Back",
+href: "javascript:history.back()"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">
+      <span class="govuk-caption-xl">Scenarios for</span>
+      {{title}}
+    </h1>
+
+    </div>
+    </div>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-third">
+        <div class="govuk-card govuk-card--contained govuk-card--selectable">
+          <a href=""></a>
+          <div class="govuk-card__content">
+          
+            <p class="govuk-body">User wants to register for a service, has Gov gateway account</p>
+          </div>
+          <div class="govuk-card__actions">
+            <ul class="govuk-list govuk-!-mb-r0">
+              <li><a href="/tasked/defra-id/about-data" class="govuk-link--no-visited-state">View</a></li>
+            </ul>
+          </div>
+        </div>
+  
+      </div>
+      <div class="govuk-grid-column-one-third">
+        <div class="govuk-card govuk-card--contained govuk-card--selectable">
+          <a href=""></a>
+          <div class="govuk-card__content">
+          
+            <p class="govuk-body">User wants to register for a service, has no Gov gateway account</p>
+          </div>
+          <div class="govuk-card__actions">
+            <ul class="govuk-list govuk-!-mb-r0">
+              <li><a href="/tasked/gov-gateway/login" class="govuk-link--no-visited-state">View</a></li>
+            </ul>
+          </div>
+        </div>
+  
+      </div>
+      <div class="govuk-grid-column-one-third">
+        <div class="govuk-card govuk-card--contained govuk-card--selectable">
+          <a href=""></a>
+          <div class="govuk-card__content">
+          
+            <p class="govuk-body">User with Defra account wants to manage an organisation - has 45 altogether</p>
+          </div>
+          <div class="govuk-card__actions">
+            <ul class="govuk-list govuk-!-mb-r0">
+              <li><a href="/mfa/gov-gateway/login" class="govuk-link--no-visited-state">View</a></li>
+            </ul>
+          </div>
+        </div>
+  
+      </div>
+    
+    
+
+    </div>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-third">
+        <div class="govuk-card govuk-card--contained govuk-card--selectable">
+          <a href=""></a>
+          <div class="govuk-card__content">
+          
+            <p class="govuk-body">User with Defra account wants to manage an organisation - has 45 altogether</p>
+          </div>
+          <div class="govuk-card__actions">
+            <ul class="govuk-list govuk-!-mb-r0">
+              <li><a href="/mfa/gov-gateway/login" class="govuk-link--no-visited-state">View</a></li>
+            </ul>
+          </div>
+        </div>
+  
+      </div>
+
+
+    
+    
+    
+    
+
+    </div>
+
+
+
+  
+
+    <h2 class="govuk-heading-m">
+      Assumptions - we think that
+    </h2>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li class="govuk-body">Scenario 1 - User wants to register for a service, has Gov gateway account</li>
+      <li class="govuk-body">Scenario 2 - User wants to register for a service, has no Gov gateway account</li>
+      <li class="govuk-body">Scenario 3
+        User has Defra account has 20 orgs under account</li>
+      <li class="govuk-body">Scenario 4
+        User has Defra account has 45 orgs under account</li>
+
+
+
+    </ul>
+
+
+
+
+
+
+
+  </div>
+</div>
+
+<!-- notes about the service & prototype -->
+
+{% endblock %}

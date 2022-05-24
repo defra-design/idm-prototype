@@ -52,7 +52,11 @@
       }) }}
     </form>
 
-    {% include "includes/get-help.html" %}
+   
+{{ govukDetails({
+  summaryText: "My number is not shown",
+  html: "You can find information on how to update your phone number on the the <a href=''>services help page</a>"
+}) }}
 
   </div>
 </div>

@@ -21,11 +21,10 @@
     }) }}
 
     <h1 class="govuk-heading-xl">
-      Sign in using Government Gateway
+      {{ title }}
     </h1>
 
-  <!-- <form method="post" action="../../org-switch/org-picker-search"> -->
-    <form method="post" action="verify">
+    <form method="post" action="../org-switch/org-picker-search">
 
         {{ govukInput({
             label: {
@@ -35,9 +34,9 @@
                 text: "This could be up to 12 characters."
             },
             classes: "govuk-!-width-one-half",
-            id: "govGateUserId",
-            name: "govGateUserId",
-            value: govGateUserId
+            id: "userId",
+            name: "userId",
+            value: userId
         })  }}
 
         {{ govukInput({
@@ -45,9 +44,9 @@
                 text: "Password"
             },
             classes: "govuk-!-width-three-quarters",
-            id: "govGatePwassword",
-            name: "govGatePwassword",
-            value: govGatePwassword
+            id: "password",
+            name: "password",
+            value: password
         }) }}
 
         {{ govukButton({
@@ -56,7 +55,9 @@
 
     </form>
 
-    <p><a href="email-address">Create sign in details</a></p>
+    <p>
+      <a href="email-address">Create sign in details</a>
+    </p>
 
     <h2 class="govuk-heading-m">Problems signing in</h2>
 
