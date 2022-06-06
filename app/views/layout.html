@@ -41,18 +41,38 @@
 
 {% block header %}
 
-  {{ govukHeader({
-    homepageUrl: "/",
-    serviceName: serviceName,
-    navigation: [
-    {
-      href: "/signed-out",
-      text: "Sign out",
-      active: false
-    }
-    ]
-  })
-  }}
+
+{%- from "moj/components/header/macro.njk" import mojHeader -%}
+
+{{ mojHeader({
+  organisationLabel: {
+    text: 'Defra account',
+    href: '#'
+  },
+  serviceLabel: {
+    text: 'Defra account',
+    href: '#'
+  },
+  navigation: {
+    label: 'Account navigation',
+    items: [{
+      text: 'Owen jones',
+      href: '#',
+      active: true
+    }, {
+      text: 'Sign out',
+      href: '#'
+    }]
+  }
+
+}) }}
+
+
+
+
+
+
+ 
 
 {% endblock %}
 

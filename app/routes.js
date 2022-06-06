@@ -342,6 +342,17 @@ router.get('/mfa/select-number', function (req, res) {
     res.redirect('verify-error')
   }
 })
+// routing for verify
+router.get('/mfa/select-number-v2', function (req, res) {
+  // Make a variable from session data
+  var telNum = req.session.data['telephone'] 
+  // route depending on value
+  if (telNum === 'tel1') {
+    res.redirect('get-code-v2')
+  } else {
+    res.redirect('verify-error-v2')
+  }
+})
 
 // if ( (a == 'b') && ( c == 'd') ) {}
 

@@ -21,7 +21,7 @@ module.exports = {
 
   //"businessType": "Limited company",
   "govGateName": "Sam Woods",
-  "orgName": "Acme Org Ltd",
+  "orgName": "Antillo Fujam Gardens",
   "companyRegNum": "12345678",
   "businessTelephone": "0171 444555666",
   "businessEmail": "simone@org.com ",
