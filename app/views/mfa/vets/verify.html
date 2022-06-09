@@ -1,0 +1,64 @@
+{% extends "layout-signed-out.html" %}
+
+{% set serviceName = "Vets visits" %}
+
+{% set title = "Verify your identity" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">{{ title }}</h1>
+    <p class="govuk-body">Choose a contact number, to send a verification code to.</p>
+
+    <form action="get-code" method="post">
+
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{{ govukRadios({
+  idPrefix: "telephone-number",
+  name: "telephone",
+  value: "select",
+  
+  items: [
+    {
+      value: "tel1",
+      text: "xxxxxxxx478"
+    },
+    {
+      value: "tel2",
+      text: "xxxxxxxx987"
+    },
+    {
+      value: "tel3",
+      text: "xxxxxxxx006"
+    }
+    
+  ]
+}) }}
+
+
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+    </form>
+
+   
+{{ govukDetails({
+  summaryText: "My number is not shown",
+  html: "You can find information on how to update your phone number on the the <a href=''>services help page</a>"
+}) }}
+
+  </div>
+</div>
+
+{% endblock %}
