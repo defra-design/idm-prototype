@@ -2,14 +2,18 @@
 
 {% set serviceName = "Vets visits" %}
 
-{% set title = "Sign in to vets visits" %}
+{% set title = "Enter your email address" %}
 
 {% block pageTitle %}
   {{title}} - GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
-  
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:history.back()"
+}) }}
+
 {% endblock %}
 
 {% block content %}
@@ -17,13 +21,20 @@
 
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-l">
+      <h1 class="govuk-heading-xl">
         {{ title }}
       </h1>
-  
-  
+  <p class="govuk-body">We will send you a code by email, which will allow you to reset your password.</p>
+
+  {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+  {{ govukInsetText({
+    text: "If you use a browser to open your email, you may need to open a new tab to view the code."
+  }) }}
+
       <form action="verify">
   
+        <!-- CRN Number 
   <div class="govuk-form-group">
     <label class="govuk-label" for="crn">
       Customer reference number (CRN)
@@ -37,16 +48,17 @@
   
   <input class="govuk-input govuk-!-width-full-width" id="crn" name="crn" type="text" aria-describedby="crn-hint">
   </div>
+-->
   
   
       
   
   <div class="govuk-form-group">
     <label class="govuk-label" for="password--">
-      Password
+      Email
     </label>
   
-  <input class="govuk-input govuk-!-width-full-width" id="password--" name="password--" type="password">
+  <input class="govuk-input govuk-!-width-full-width" id="email--" name="email--" type="email">
   </div>
   
   
@@ -56,26 +68,15 @@
       
     
   
-  <a href="verify" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
-    Sign in
+  <a href="enter-code" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+    Continue
+    
   </a>
 
 </form>
   
   
-      <p><a href="../../password/enter-email">Ive forgotten my password</a></p>
-      <details class="govuk-details" data-module="govuk-details">
-    <summary class="govuk-details__summary">
-      <span class="govuk-details__summary-text">
-        Other problems signing in
-      </span>
-    </summary>
-    <div class="govuk-details__text">
-      Started creating a new password and received the security code by email - <a href="#">enter it here</a><br>
-  
-        Lost your customer reference number (CRN), call 03000 200 301.
-    </div>
-  </details>
+      
   
   
      

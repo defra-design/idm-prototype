@@ -2,7 +2,7 @@
 
 {% set serviceName = "Vets visits" %}
 
-{% set title = "Verify your identity" %}
+{% set title = "Verify your code" %}
 
 {% block pageTitle %}
   {{title}} - GOV.UK
@@ -24,14 +24,14 @@
     <h1 class="govuk-heading-xl">{{ title }}</h1>
   
 
-    <form action="service-page" method="post">
+    <form action="new-password" method="post">
 
   
       {% from "govuk/components/input/macro.njk" import govukInput %}
 
       {{ govukInput({
         label: {
-          text: "Enter the code sent to xxxxxxxx478."
+          text: "Enter the code sent to ted.barns@cattlemoovement.org."
         },
         id: "account-number",
   name: "account-number",
@@ -46,7 +46,7 @@
 
 
       {{ govukButton({
-        text: "Verify code"
+        text: "Continue"
       }) }}
 
      
@@ -56,7 +56,7 @@
       classes: "govuk-button govuk-button--secondary"
     }) }}
 
-    {% include "includes/get-help.html" %}
+ 
 
   </div>
 </div>
