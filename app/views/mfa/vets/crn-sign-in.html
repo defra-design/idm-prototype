@@ -17,12 +17,23 @@
 
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-l">
+      <h1 class="govuk-heading-xl">
         {{ title }}
       </h1>
   
+      <!-- Redirects for scenarios -->
   
-      <form action="verify">
+      {% if data['scenario'] == "sc1" %}
+<form action="verify-sc1">
+{% endif %}
+
+{% if data['scenario'] == "sc2" %}
+<form action="verify-sc2">
+{% endif %}
+
+{% if data['scenario'] == "sc3" %}
+<form action="verify-sc3">
+{% endif %}
   
   <div class="govuk-form-group">
     <label class="govuk-label" for="crn">
@@ -55,10 +66,9 @@
     
       
     
-  
-  <a href="verify" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
-    Sign in
-  </a>
+  <button class="govuk-button">Sign in</button>
+
+
 
 </form>
   

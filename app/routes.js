@@ -354,6 +354,11 @@ router.get('/mfa/select-number-v2', function (req, res) {
   }
 })
 
+// Routes for Vets examples/scenarios
+
+
+
+
 // Eds example
 
 // if ( (a == 'b') && ( c == 'd') ) {}
@@ -361,6 +366,9 @@ router.get('/mfa/select-number-v2', function (req, res) {
 
 // added for the registration pages
 router.use('/defra-id', require('./views/defra-id/_routes'));
+
+// Vets visits
+
 
 // added routes for target address
 router.use('/target/defra-id', require('./views/target/defra-id/_routes'));
