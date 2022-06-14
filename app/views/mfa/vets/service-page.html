@@ -9,7 +9,7 @@
 
 {% block beforeContent %}
   <div id="account">
-    {% include "includes/account-admin-org-switch.html" %}
+
   </div>
 {% endblock %}
 
@@ -32,103 +32,7 @@
 
  {% set addUserURL = "/manage/team-members/invite-user/add-user-details" %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-one-third">
-      <div class="govuk-card govuk-card--contained govuk-card--selectable">
-        <a href="{{ teamMemberURL }}"></a>
-        <div class="govuk-card__content">
-          <h3 class="govuk-heading-m"><a href="{{ teamMemberURL }}" class="govuk-link--no-visited-state">Manage team access</a></h3>
-          <p class="govuk-!-font-weight-bold govuk-!-font-size-48 govuk-!-font-weight-bold">{{ data['numUsers'] }}</p>
-        </div>
-        <div class="govuk-card__actions">
-          <ul class="govuk-list govuk-!-mb-r0">
-            <li><a href="{{ addUserURL }}" class="govuk-link--no-visited-state">Add a team member</a></li>
-          </ul>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="govuk-grid-column-one-third">
-
-      <div class="govuk-card govuk-card--contained govuk-card--selectable">
-        <a href="{{ agentURL }}"></a>
-        <div class="govuk-card__content">
-          <h3 class="govuk-heading-m"><a href="{{ agentURL }}" class="govuk-link--no-visited-state">Manage your clients
-        </a></h3>
-        <p class="govuk-!-font-weight-bold govuk-!-font-size-48 govuk-!-font-weight-bold">12{{ data['numAgents'] }}</p>
-        </div>
-        <div class="govuk-card__actions">
-          <ul class="govuk-list govuk-!-mb-r0">
-            <li><a href="#" class="govuk-link--no-visited-state">Add a client</a></li>
-          </ul>
-        </div>
-      </div>
-
-    </div>
-
-
-    <div class="govuk-grid-column-one-third">
-
-      <div class="govuk-card govuk-card--contained govuk-card--selectable">
-        <a href="{{locationURL}}"></a>
-        <div class="govuk-card__content">
-          <h3 class="govuk-heading-m"><a href="{{ locationURL }}" class="govuk-link--no-visited-state">Manage your organisation or business</a></h3>
-          <!--
-          <p class="govuk-!-font-weight-bold govuk-!-font-size-48 govuk-!-font-weight-bold">{{ data['numLocations'] }}</p>
-        -->
-        </div>
-        <!--<div class="govuk-card__actions">
-          <ul class="govuk-list govuk-!-mb-r0">
-            <li><a href="{{addLocationURL}}" class="govuk-link--no-visited-state">Add a location</a></li>
-          </ul>
-        </div>
-      -->
-      </div>
-
-    </div>
-
-  </div>
-
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full">
-      <div class="govuk-card__content">
-        <h2 class="govuk-heading-l">Registered services for this account</h2>
-
-        <div class="govuk-grid-row">
-
-          <div class="govuk-grid-column-one-third">
-            <div class="govuk-card govuk-card--contained govuk-card--selectable">
-                <a href="https://chemicals-prototypes.herokuapp.com/prototype/rc4/iu/dashboard"></a>
-                <div class="govuk-card__content">
-                  <h3 class="govuk-heading-m">{{ data['serviceLine'] }}</h3>
-                  <p class="govuk-body">{{ data['service'] }}
-                  <!--
-                  <p class="govuk-body">Report unfavourable or unintended events that occur after use of veterinary medicine.
-                  -->
-                  </p>
-                </div>
-              </div>
-          </div>
-
-
-
-        </div>
-
-      <!--  <div class="govuk-grid-row">
-          <div class="govuk-grid-column-two-thirds">
-            {{ govukButton({
-              text: "Register for another service",
-              href: "#"
-            }) }}
-          </div>
-        </div>
-
-      -->
-
-      </div>
-    </div>
-  </div>
+  
 
 
 
