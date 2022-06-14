@@ -17,34 +17,13 @@
   <div class="govuk-grid-column-two-thirds">
 
     <h1 class="govuk-heading-xl">{{ title }}</h1>
-    <p class="govuk-body">Choose a contact number, to send a verification code to.</p>
+    <p class="govuk-body">This is the number we will send the verification code to.</p>
+    <h2 class="govuk-heading-m">xxxxxxxx478</h2>
 
     <form action="get-code" method="post">
 
-        {% from "govuk/components/radios/macro.njk" import govukRadios %}
-
-{{ govukRadios({
-  idPrefix: "telephone-number",
-  name: "telephone",
-  value: "select",
+     
   
-  items: [
-    {
-      value: "tel1",
-      text: "xxxxxxxx478"
-    },
-    {
-      value: "tel2",
-      text: "xxxxxxxx987"
-    },
-    {
-      value: "tel3",
-      text: "xxxxxxxx006"
-    }
-    
-  ]
-}) }}
-
 
 
       {{ govukButton({
