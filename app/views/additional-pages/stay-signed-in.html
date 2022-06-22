@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% set title = "You will be timed out soon" %}
+
+{% block header %}
+{{ govukHeader({ serviceName: "" }) }}
+{% endblock %}
+
+{% block pageTitle %}
+{{title}} - GOV.UK
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+        <h1 class="govuk-heading-xl">
+            {{title}}
+        </h1>
+        <p>For your security, we will reset your application if you do no respond in 5 minutes. We do this to keep your information secure.</p>
+
+        {{ govukButton({
+            text: "Stay signed in",
+            href: "../mfa/account-page"
+          }) }}
+
+          <a href="../target/gov-gateway/login">Completely sign out</a>
+    </div>
+</div>
+
+{% endblock %}

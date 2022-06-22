@@ -8,6 +8,17 @@ router.get('/', function (req, res) {
 
 // Add your routes here - above the module.exports line
 
+// GET SPRINT NAME - useful for relative templates
+router.use('/', (req, res, next) => {
+  res.locals.currentURL = req.originalUrl; //current screen
+  res.locals.prevURL = req.get('Referrer'); // previous screen
+
+  console.log('folder : ' + res.locals.folder + ', subfolder : ' + res.locals.subfolder  );
+
+  next();
+});
+
+
 // dashboard for a org admin (not agent or individual)
 router.get('/manage/dashboard-all', function (req, res) {
     res.render('manage/dashboard',{

@@ -65,6 +65,9 @@ promoMode = promoMode.toLowerCase()
 // Disable promo mode if docs aren't enabled
 if (!useDocumentation) promoMode = 'false'
 
+// logging
+var useLogging = config.useLogging
+
 // Force HTTPS on production. Do this before using basicAuth to avoid
 // asking for username/password twice (for `http`, then `https`).
 var isSecure = (env === 'production' && useHttps === 'true')
