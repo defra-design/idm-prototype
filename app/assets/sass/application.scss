@@ -16,6 +16,8 @@ $govuk-assets-path: '/govuk/assets/';
 @import "patterns/related-items";
 @import "components/spinner";
 @import "components/defra-header";
+@import "components/modal";
+
 
 
 // HERE IS THE END OF THE CORE STYLES
@@ -23,6 +25,7 @@ $govuk-assets-path: '/govuk/assets/';
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
 
 @import "components/autocomplete";
+
 
 @import "patterns/check-your-answers";
 // @import "patterns/table-test";
@@ -44,3 +47,5 @@ $govuk-assets-path: '/govuk/assets/';
 
 //Cookie banner $govuk-global-styles
 @import "cookies";
+
+// 
