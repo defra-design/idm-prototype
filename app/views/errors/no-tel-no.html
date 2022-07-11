@@ -1,0 +1,119 @@
+{% extends "layout-signed-out.html" %}
+
+{% set serviceName = "Your Defra account" %}
+
+
+
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <!-- {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }} -->
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">
+    There is no telephone number associated with your account
+    </h1>
+  
+
+    {% from "govuk/components/radios/macro.njk" import govukRadios %}
+    {% from "govuk/components/input/macro.njk" import govukInput %}
+    
+    {% set emailHtml %}
+    {{ govukInput({
+      id: "contact-by-email",
+      name: "contact-by-email",
+      type: "email",
+      autocomplete: "email",
+      spellcheck: false,
+      classes: "govuk-!-width-one-third",
+      label: {
+        text: "Email address"
+      }
+    }) }}
+    {% endset -%}
+    
+    {% set phoneHtml %}
+    {{ govukInput({
+      id: "contact-by-phone",
+      name: "contact-by-phone",
+      type: "tel",
+      autocomplete: "tel",
+      classes: "govuk-!-width-one-third",
+      label: {
+        text: "Phone number"
+      }
+    }) }}
+    {% endset -%}
+    
+    {% set textHtml %}
+    {{ govukInput({
+      id: "contact-by-text",
+      name: "contact-by-text",
+      type: "tel",
+      autocomplete: "tel",
+      classes: "govuk-!-width-one-third",
+      label: {
+        text: "Mobile phone number"
+      }
+    }) }}
+    {% endset -%}
+    
+    {{ govukRadios({
+      idPrefix: "contact",
+      name: "contact",
+      fieldset: {
+        legend: {
+          text: "How would you prefer to be contacted?",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--l"
+        }
+      },
+      hint: {
+        text: "Select one option."
+      },
+      items: [
+        {
+          value: "email",
+          text: "Email",
+          conditional: {
+            html: emailHtml
+          }
+        },
+        {
+          value: "phone",
+          text: "Phone",
+          conditional: {
+            html: phoneHtml
+          }
+        },
+        {
+          value: "text",
+          text: "Text message",
+          conditional: {
+            html: textHtml
+          }
+        }
+      ]
+    }) }}
+    {% from "govuk/components/button/macro.njk" import govukButton %}
+
+{{ govukButton({
+  text: "Save and continue"
+}) }}
+
+  
+    
+  </div>
+</div>
+
+{% endblock %}

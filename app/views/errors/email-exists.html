@@ -1,0 +1,36 @@
+{% extends "layout-signed-out.html" %}
+
+{% set serviceName = "Your Defra account" %}
+
+
+
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <!-- {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }} -->
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">
+    An account already exists with that email address
+    </h1>
+   
+
+    <p class="govuk-body-l">
+
+      
+    </p>
+
+  </div>
+</div>
+
+{% endblock %}

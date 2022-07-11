@@ -82,6 +82,12 @@
     }
     </script>
 
+    <script>
+      $("#close").click(function(){
+    $(".model-content").fadeOut(150);
+});
+    </script>
+
 
 
 
@@ -95,11 +101,11 @@
     
     <!-- Modal content -->
     <div class="modal-content" role="dialog" id="dialog1" aria-labelledby="dialog1_label" aria-modal="true">
-      <span class="close">&times;</span>
+      <span id="close" class="close">&times;</span>
       <h1 class="govuk-heading-xl govuk-!-margin-bottom-4">
         {{title}}
     </h1>
-    <p class="govuk-body">We will not be able to save your data and you will lose whats been entered. We do this to keep your information secure.</p>
+    <p class="govuk-body">We will not be able to save your data and you will lose what has been entered. We do this to keep your information secure.</p>
 
 
     {{ govukButton({
