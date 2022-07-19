@@ -297,7 +297,20 @@ Annual livestock health and welfare review
           You need to apply to get a reference number to book a review with your vet.
         </p>
         <p class="govuk-body">
-          To get a reference number you can <a href="apply/start">apply online</a>.
+          To get a reference number you can
+
+          {% if data['scenario'] == "sc1" %}
+          <a href="apply/start?scenario=sc1">apply online</a>.
+          {% endif %}
+
+          {% if data['scenario'] == "sc2" %}
+          <a href="apply/start?scenario=sc2">apply online</a>.
+          {% endif %}
+
+        
+          
+          
+         
         </p>
         <p class="govuk-body">
           The reference number is valid for 12 months.
