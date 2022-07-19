@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "You will be timed out in 15 minutes" %}
+{% set title = "You will be signed out in 15 minutes" %}
 
 {% block header %}
 {{ govukHeader({ serviceName: "" }) }}
@@ -113,7 +113,7 @@
         href: "../mfa/account-page"
       }) }}
 
-      <a class="govuk-body govuk-!-margin-left-3" href="../target/gov-gateway/login">Completely sign out</a>
+      <a class="govuk-body govuk-!-margin-left-3" href="you-have-signed-out">Completely sign out</a>
 
     </div>
   

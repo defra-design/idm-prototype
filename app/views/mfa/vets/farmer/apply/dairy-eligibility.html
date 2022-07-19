@@ -1,0 +1,57 @@
+{% extends "layouts/layout.html" %}
+
+{% block pageTitle %}
+Question page
+{% endblock %}
+{% set serviceName %}
+Apply for an Annual Health and Welfare Review
+{% endset%}
+
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:history.go(-1)">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" method="post">
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="eligibility-cattle-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                Will you have 11 or more dairy cattle on the date of the review?
+              </h1>
+            </legend>
+            <div id="eligibility-hint" class="govuk-hint">
+              You’re only eligible for funding if you’re keeping 11 or more dairy cattle at the registered site on the date the vet visits.
+            </div>
+
+            <div class="govuk-radios govuk-radios--inline">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="eligibility-cattle" name="eligibility-cattle" type="radio" value="check-answers-dairy" onclick="setLocation(this);" {{ checked("eligibility-cattle", "eligibility-cattle-yes") }}>
+                <label class="govuk-label govuk-radios__label" for="eligibility-cattle">
+                  Yes
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="eligibility-cattle-2" name="eligibility-cattle" type="radio" value="eligibility-bps-no" onclick="setLocation(this);" {{ checked("eligibility-cattle", "eligibility-cattle-no") }}>
+                <label class="govuk-label govuk-radios__label" for="eligibility-cattle-2">
+                  No
+                </label>
+              </div>
+            </div>
+
+          </fieldset>
+        </div>
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+
+
+{% endblock %}

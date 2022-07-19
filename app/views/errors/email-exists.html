@@ -2,15 +2,12 @@
 
 {% set serviceName = "Your Defra account" %}
 
-
-
-
 {% block pageTitle %}
-  {{title}} - GOV.UK
+{{title}} - GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
-  <!-- {{ govukBackLink({
+<!-- {{ govukBackLink({
     text: "Back",
     href: "javascript:history.back()"
   }) }} -->
@@ -21,14 +18,19 @@
   <div class="govuk-grid-column-two-thirds">
 
     <h1 class="govuk-heading-xl">
-    An account already exists with that email address
+      An account already exists with that email address
     </h1>
-   
 
-    <p class="govuk-body-l">
 
-      
-    </p>
+    <h2 class="govuk-heading-m">
+      Make sure you:
+    </h2>
+    <ul class="govuk-list">
+      <li>Are using the correct email adress for this account</li>
+      <li>Are using the right Government Gateway account</li>
+    </ul>
+
+    <p>If you are still unsure what to do, you can <a href="">register again</a> using another email address.</p>
 
   </div>
 </div>

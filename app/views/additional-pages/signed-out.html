@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "You have been timed out" %}
+{% set title = "We've signed you out" %}
 
 {% block header %}
 {{ govukHeader({ serviceName: "" }) }}
@@ -22,17 +22,17 @@
       <h1 class="govuk-heading-xl govuk-!-margin-bottom-4">
         {{title}}
     </h1>
-    <p class="govuk-body">We have timed you out because you did not do anything for 15 minutes. We did this to keep your information secure.</p>
+    <p class="govuk-body">If we think you've stopped using your account for 15 minutes, we sign you out to keep your information secure.</p>
 
     
 
 
     {{ govukButton({
-        text: "Start again",
+        text: "Sign in again",
         href: "./"
       }) }}
 
-      <p class="govuk-body">You can <a href="./">return to GOV.UK</a> if you do not want to start again</p>
+      <p class="govuk-body">You can <a href="./">return to GOV.UK</a> if you do not want to sign in again</p>
 
       
       

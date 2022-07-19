@@ -1,0 +1,44 @@
+{% extends "layouts/layout.html" %}
+
+{% block pageTitle %}
+Index page
+{% endblock %}
+{% set serviceName %}
+Claim funding for an annual health and welfare review
+{% endset%}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <span class="govuk-caption-l"></span>
+    <h1 class="govuk-heading-xl">
+      Claim funding for an annual health and welfare review
+    </h1>
+
+    <p>Use this service to claim funding for an annual health and welfare review.</p>
+
+    <p>Claiming takes about 5 minutes.</p>
+
+    <p>You’ll get your payment within 28 days of claiming. The payment will be sent to your Rural Payments account.</p>
+
+    {{ govukButton({
+      text: "Start now",
+      href: "email",
+      isStartButton: true
+    }) }}
+
+    <h2 class="govuk-heading-m">Before you start</h2>
+    <p>You’ll need:</p>
+    <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-12">
+      <li>An email address we’ll use to send you a link to claim funding for a review</li>
+      <li>A digital copy of your invoice from the vet</li>
+    </ul>
+
+<!--
+    <p class="govuk-body">You'll need an email address.</p>
+      <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-12">
+        <li>booking reference number Defra gave the farmer when they applied</li>
+      </ul>
+-->
+{% endblock %}

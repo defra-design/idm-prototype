@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "You will be timed out soon" %}
+{% set title = "You will be signed out soon" %}
 
 {% block header %}
 {{ govukHeader({ serviceName: "" }) }}
@@ -17,7 +17,7 @@
         <h1 class="govuk-heading-l">
             {{title}}
         </h1>
-        <p>For your security, you will be timed out in 15 minutes. We do this to keep your information secure.</p>
+        <p>For your security, you will be signed out in 15 minutes. We do this to keep your information secure.</p>
 
         {{ govukButton({
             text: "Stay signed in",

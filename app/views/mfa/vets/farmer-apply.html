@@ -1,0 +1,49 @@
+{% extends "layout-signed-out.html" %}
+
+{% set serviceName = "Annual health and welfare review of your livestock" %}
+
+{% set title = "Claim funding for an annual health and welfare review of your livestock" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <span class="govuk-caption-l"></span>
+      <h1 class="govuk-heading-l">
+        {{title}}
+      </h1>
+
+
+      <p class="govuk-heading-body">Use this service to claim funding for an annual health welfare review.</p>
+      <p class="govuk-heading-body">Claiming takes about 5 minutes</p>
+      <p class="govuk-heading-body">You'll receive a payment within 28 days of claiming.</p>
+
+
+    {% from "govuk/components/button/macro.njk" import govukButton %}
+
+{{ govukButton({
+  text: "Start now",
+  href: "#",
+  isStartButton: true
+}) }}
+
+    <h2 class="govuk-heading-m">Before you start</h2>
+    <p>You'll need an email address we'll use to send you a link to claim funding for a review.</p>
+    
+    <!--
+      <p class="govuk-body">If you need to find a vet, you can search the <a href="https://findavet.rcvs.org.uk/home/" target="_blank">Royal College of Veterinary Surgeons list.</a></p>
+    -->
+  </div>
+</div>
+    
+
+{% endblock %}

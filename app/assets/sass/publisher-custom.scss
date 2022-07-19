@@ -1,0 +1,18 @@
+  .gem-c-govspeak li ol+p,
+  .gem-c-govspeak li ol+ul,
+  .gem-c-govspeak li p+ol,
+  .gem-c-govspeak li p+p,
+  .gem-c-govspeak li p+ul,
+  .gem-c-govspeak li ul+ol,
+  .gem-c-govspeak li ul+p {
+    margin-top: revert!important;
+  }
+
+  .gem-c-govspeak li p {
+    margin: revert!important;
+    padding: revert!important;
+  }
+
+  .gem-c-govspeak h2:first-child, .gem-c-govspeak h3:first-child, .gem-c-govspeak h4:first-child, .gem-c-govspeak p:first-child {
+    margin-top: 0!important;
+}

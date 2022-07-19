@@ -1,0 +1,54 @@
+{% extends "layouts/layout.html" %}
+
+{% block pageTitle %}
+Index page
+{% endblock %}
+{% set serviceName %}
+Claim funding for an annual health and welfare review
+{% endset%}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:history.go(-1)">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-width-container">
+
+
+
+      <div class="govuk-width-container">
+        <h1 class="govuk-heading-l">Submit your claim for funding</h1>
+
+        <p class="govuk-body">
+          By submitting your claim, you confirm that:</p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>the review took place</li>
+          </ul>
+        <!--
+          <p>Keep paperwork, such as invoices, from the review as the RPA may ask to see it as part of this agreement.</p>
+
+          <div class="govuk-form-group">
+
+            <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" type="checkbox" autofocus="autofocus" name="confirm" id="confirm" value="Declaration Accepted">
+                <label class="govuk-label govuk-checkboxes__label govuk-!-font-weight-bold govuk-checkboxes-long-label" for="confirm">I confirm that the information I have provided is correct to the best of my knowledge</label>
+              </div>
+
+            </div>
+
+          </div>
+        -->
+    <div class="govuk-!-margin-top-6">
+      <a href="confirmation" role="button" draggable="false" class="govuk-button docs-creator" data-module="govuk-button">
+      Submit claim
+      </a>
+    </div>
+      </div>
+
+
+{% endblock %}
