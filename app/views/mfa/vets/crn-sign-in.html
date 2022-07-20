@@ -23,15 +23,15 @@
       <!-- Redirects for scenarios -->
   
       {% if data['scenario'] == "sc1" %}
-<form action="verify-sc1" autocomplete="off">
+<form action="verify-sc1" autocomplete="false">
 {% endif %}
 
 {% if data['scenario'] == "sc2" %}
-<form action="verify-sc2" autocomplete="off">
+<form action="verify-sc2" autocomplete="false">
 {% endif %}
 
 {% if data['scenario'] == "sc3" %}
-<form action="verify-sc3" autocomplete="off">
+<form action="verify-sc3" autocomplete="false">
 {% endif %}
   
   <div class="govuk-form-group">
@@ -56,7 +56,7 @@
       Password
     </label>
   
-  <input class="govuk-input govuk-!-width-full-width" id="password--" name="password--" type="password" value="">
+  <input class="govuk-input govuk-!-width-full-width" id="password--" name="password--" type="password" autocomplete="false">
 
   
 
