@@ -1,0 +1,194 @@
+{% set tocPage = "guide" %}
+
+{% set mainClasses = "guide govuk-!-padding-top-0 govuk-!-padding-bottom-0" %}
+
+{% extends "layouts/layout.html" %}
+
+{% block head %}
+{% include "includes/publisher/head.html" %}
+{% endblock %}
+
+{% block pageTitle %}
+Guidance for vets
+{% endblock %}
+{% set serviceName %}
+How to carry out an annual livestock health and welfare review
+{% endset%}
+
+
+{% block header %}
+{% include "includes/publisher/header.html" %}
+{% include "includes/publisher/global-bar.html" %}
+{% endblock %}
+
+
+{% block beforeContent %}
+
+<div class="govuk-breadcrumbs">
+<ol class="govuk-breadcrumbs__list">
+  <li class="govuk-breadcrumbs__list-item">
+    <a class="govuk-breadcrumbs__link" href="https://www.gov.uk">Home</a>
+  </li>
+  <li class="govuk-breadcrumbs__list-item">
+    ...
+  </li>
+  <li class="govuk-breadcrumbs__list-item">
+    <a class="govuk-breadcrumbs__link" href="../guidance.html">Guidance for vets</a>
+  </li>
+  <li class="govuk-breadcrumbs__list-item">
+    <a class="govuk-breadcrumbs__link" href="../technical.html">Technical guidance</a>
+  </li>
+  <li class="govuk-breadcrumbs__list-item">
+    <a class="govuk-breadcrumbs__link">Testing cattle</a>
+  </li>
+</ol>
+</div>
+{% endblock %}
+
+
+{% block content %}
+
+<style>
+.navigation-container {
+  padding: 20px 0 20px 0;
+  margin-top: 30px;
+  border-top: 1px solid #b1b4b6
+}
+.list-item--dashed:before {
+  content: "—";
+  position: relative ;
+  left: 0;
+  width: 20px;
+  padding-right: 10px;
+  overflow: hidden;
+}
+</style>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <!-- Logo -->
+    <br><br>
+
+    <!-- Blue box -->
+    <div class="govuk-panel govuk-panel--confirmation govuk-!-text-align-left govuk-!-margin-bottom-7" style="background-color:#1d70b8;">
+      <div class="govuk-panel__body govuk-!-margin-bottom-3">
+        Guidance
+      </div>
+      <h1 class="govuk-panel__title">
+        Test for bovine viral diarrhoea (BVD) in cattle
+      </h1>
+      <div class="govuk-panel__body">
+        Published 12 July 2022
+      </div>
+    </div>
+
+    <!-- Intro -->
+
+
+    <!-- Main body -->
+    <h2 class="govuk-heading-m">Test type and sampling for beef cattle</h2>
+
+      <p class="govuk-body">
+        To test for BVD in beef cattle, you must do a blood (serum) antibody test.
+      </p>
+      <p class="govuk-body">
+        You should carry out 6 tests in up to 2 epidemiological groups. 
+        Where the primary or secondary epidemiological group number is less than 6, all animals should be sampled.
+      </p>
+      <p class="govuk-body">
+        Read 
+        <a class="govuk-link" href="https://bvdfree.org.uk/the-scheme/#testing" target="_blank">BVD Free guidance on how to test for BVD</a>.
+        if you need more information. 
+        If the farmer is a CHeCs member, you can either follow 
+        <a class="govuk-link" href="https://checs.co.uk/diseases/bvd/" target="_blank">CHeCs guidance on how to test for BVD</a>
+        or follow BVD Free guidance.
+      </p>
+
+    <h2 class="govuk-heading-m">Test type and sampling for dairy cattle</h2>
+
+      <p class="govuk-body">
+        To test for BVD in dairy cattle, you must do a bulk milk test. 
+        You can choose with the farmer whether to do an antibody or PCR bulk milk test.
+      </p>
+      <p class="govuk-body">
+        You can use the farm’s milk processor bulk milk test results. 
+        You cannot use the results of a test that was carried out before you applied for the review.
+      </p>
+      <p class="govuk-body">
+        If you’re confident the farmer has the expertise to carry out bulk milk sampling and they agree, 
+        they can take the sample. The farmer would not do the test.
+      </p>
+      <p class="govuk-body">
+        If you and the farmer want to do a blood serum antibody test instead of a bulk milk test, you can. 
+        The results would be accepted, but the £372 payment rate for a dairy cattle review will not change. 
+        The antibody test must be to the same standard as is specified for beef cattle.
+      </p>
+      <p class="govuk-body">
+        Read 
+        <a class="govuk-link" href="https://bvdfree.org.uk/the-scheme/#testing" target="_blank">BVD Free guidance on how to test for BVD</a>.
+        if you need more information. 
+        If the farmer is a CHeCs member, you can either follow 
+        <a class="govuk-link" href="https://checs.co.uk/diseases/bvd/" target="_blank">CHeCs guidance on how to test for BVD</a>
+        or follow BVD Free guidance.
+      </p>
+
+    <h2 class="govuk-heading-m">Test sample laboratory analysis</h2>
+
+      <p class="govuk-body">
+        You must send the test sample for analysis to a laboratory 
+        that is one or both of the following:
+      </p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>ISO17025 accredited</li>
+        <li>UKAS accredited (UK accredited) for BVD testing</li>
+      </ul>
+
+      <p class="govuk-body">
+        <a class="govuk-link" href="labs-cattle">
+          Find an approved laboratory to test for bovine viral diarrhoea (BVD) in cattle
+        </a>
+      </p>
+
+    <h2 class="govuk-heading-m">Record and report test results</h2>
+
+      <p class="govuk-body">
+        You must discuss the test results and any further action 
+        that needs to be taken with the farmer as part of the review.
+      </p>
+
+      <p class="govuk-body">
+        You must:
+      </p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>record some test result information with Defra</li>
+        <li>include the test results as part of the written report you give to the farmer after the review, with appropriate recommendations</li>
+      </ul>
+
+      <p class="govuk-body">
+        The test results can be used for other accreditation schemes that the farmer is a member of.
+      </p>
+        
+      <!--Footer-->
+      <div class="app-back-to-top" style="margin: 50px 0 20px 0; border-top: 1px solid #b1b4b6; padding-top: 20px;" data-module="app-back-to-top">
+        <a class="govuk-link govuk-link--no-visited-state app-back-to-top__link" href="#top">
+          <svg role="presentation" focusable="false" class="app-back-to-top__icon" xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17">
+            <path fill="currentColor" d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path>
+          </svg>
+          Back to top
+        </a>
+      </div>
+  </div>
+<!--
+  <div class="govuk-grid-column-one-third">
+    <div class="gem-c-contextual-sidebar">
+      {% block sidebar %}
+      {% include "includes/publisher/transition-countdown.html" %}
+      {% include "includes/publisher/related-content.html" %}
+      {% endblock %}
+    </div>
+  </div>
+-->
+</div>
+
+{% endblock %}

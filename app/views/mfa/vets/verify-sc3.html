@@ -8,8 +8,10 @@
 {% endblock %}
 
 {% block beforeContent %}
-
-{% endblock %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:history.back()"
+}) }}
 
 {% block content %}
 <div class="govuk-grid-row">

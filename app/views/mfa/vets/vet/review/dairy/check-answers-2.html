@@ -1,0 +1,170 @@
+{% extends "layouts/layout.html" %}
+
+{% block pageTitle %}
+Index page
+{% endblock %}
+{% set serviceName %}
+Record data from an Annual Health and Welfare Review
+{% endset%}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:history.go(-1)">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-width-container">
+
+
+
+          <h1 class="govuk-heading-l">Check your answers before sending the record</h1>
+
+          <!-- <h2 class="govuk-heading-m">Eligibility</h2> -->
+
+          <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Farm visit date
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <p class="govuk-body">5 May 2020</p>
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="#">
+                  Change<span class="govuk-visually-hidden"> address</span>
+                </a>
+              </dd>
+            </div>
+
+
+
+
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Herd number
+              </dt>
+              <dd class="govuk-summary-list__value">
+                93
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="#">
+                  Change<span class="govuk-visually-hidden"> name</span>
+                </a>
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Type of dairy cattle
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <p class="govuk-body">2 Dry cows</p>
+                <p class="govuk-body">80 Milking cows</p>
+                <p class="govuk-body">11 Breeding females</p>
+                <!-- <p class="govuk-body">Stock</p>
+                <p class="govuk-body">Finishing</p> -->
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="#">
+                  Change<span class="govuk-visually-hidden"> date of birth</span>
+                </a>
+              </dd>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                BVD present
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Yes
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="#">
+                  Change<span class="govuk-visually-hidden"> name</span>
+                </a>
+              </dd>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Vaccinated
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <p class="govuk-body">Yes</p>
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="#">
+                  Change<span class="govuk-visually-hidden"> date of birth</span>
+                </a>
+              </dd>
+            </div>
+
+
+
+
+            </div>
+
+
+          <h2 class="govuk-heading-m">Now send your record</h2>
+
+          <p class="govuk-body">By submitting this record you're confirming that, to the best of your knowledge, the details you are providing are correct.</p>
+
+          <form action="/form-handler" method="post" novalidate>
+
+            <input type="hidden" name="answers-checked" value="true">
+
+            <!-- <button class="govuk-button" data-module="govuk-button">
+              Confirm and send
+            </button> -->
+            <a href="confirmation" role="button" draggable="false" class="govuk-button docs-creator" data-module="govuk-button">
+      Confirm and send
+    </a>
+
+
+          </form>
+
+        </div>
+
+
+
+
+
+
+
+    <!-- {{ govukButton({
+      text: "Continue",
+      href: "check-answers"
+    }) }} -->
+
+
+{% endblock %}
