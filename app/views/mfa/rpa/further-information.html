@@ -1,0 +1,91 @@
+{% extends "layout-no-top-margin.html" %}
+
+{% set serviceName = "Rural Payments" %}
+
+{% set title = "Use rural payments" %}
+
+{% set mainClasses = mainClasses | default("govuk-!-margin-top-0 govuk-!-padding-0") %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">&nbsp;</div>
+    <div class="govuk-grid-column-one-third hide-mobile">
+      
+<div class="available-languages">
+<ul class="govuk-list">
+<li class="translation">
+  <span>English</span>
+</li>
+<li class="translation last">
+  <a hreflang="cy" href="/gwybodaeth-bellach" lang="cy">Cymraeg</a>
+</li>
+</ul>
+</div>
+
+<div class="verify-logo-right">
+    <img srcset="https://gds-verify-frontend-assets.s3.amazonaws.com/26e4a9d-c79ad1e/govuk-verify-small-black-text-47d03c65bd861979106823a98f2f224aee8fe40060d3e31da8677a2e3bb370ea.svg 1x" alt=" " role="presentation" src="https://gds-verify-frontend-assets.s3.amazonaws.com/26e4a9d-c79ad1e/govuk-verify-small-black-text-6805158e02034cc59640a6f1c97dd1317b3f528bcc4bfe03f32c0313a11a378a.png">
+  </div>
+
+    </div>
+  </div>
+
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+  
+      
+  
+      <h1 class="govuk-heading-l">Use Rural Payments</h1>
+        <p>This is the first time you’ve signed in.</p>
+  
+      <form class="new_cycle_three_attribute" id="further-information" novalidate="novalidate" action="/further-information" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="Z8APEIaKbjW4Bd3LsqPnkMFf66eeS7Mk3KpPGknSKv1sOUpoAsLacXayAT9jmsmXuos++X3Q+PZM1kFOVS4TAg==">
+        <fieldset class="govuk-fieldset">
+          <div class="govuk-form-group ">
+            <label class="govuk-label govuk-!-font-weight-bold" for="cycle_three_attribute_cycle_three_data">
+              Single Business Identifier (SBI) or Personal Identifier (PI)</label>
+              <span class="govuk-hint">Example: SBI number: 908091917, PI number: 908716809</span>
+  
+            <input required="required" pattern="^[\d]{9}$" class="govuk-input govuk-!-width-three-quarters" data-msg="Enter a valid SBI or PI" autocomplete="off" type="text" name="cycle_three_attribute[cycle_three_data]" id="cycle_three_attribute_cycle_three_data" aria-required="true">
+          </div>
+          <div class="govuk-form-group">
+          <details class="govuk-details" data-module="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">Where to find your SBI or PI</span>
+            </summary>
+            <div class="govuk-details__text">
+              <p>Your SBI or PI are on letters and emails from Defra. You may refer to these numbers as a CAP identifier.</p>
+  
+            </div>
+          </details>
+          </div>
+          <div class="form-group">
+            <input type="submit" name="commit" value="Continue" id="continue-button" class="govuk-button">
+          </div>
+        </fieldset>
+  </form>      <div class="form-group">
+          <form action="/futher-information/null-attribute" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="Z8APEIaKbjW4Bd3LsqPnkMFf66eeS7Mk3KpPGknSKv1sOUpoAsLacXayAT9jmsmXuos++X3Q+PZM1kFOVS4TAg==">
+            <button name="button" type="submit" id="cycle_three_null_attribute_link" class="govuk-button" role="link">I don’t have an SBI or PI</button>
+  </form>      </div>
+      <div class="cancel-process">
+        <p><a href="">Cancel and return to use Rural Payments</a></p>
+  </form>    </div>
+    </div>
+  </div>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <div class="meta-data feedback-link">
+<p class="govuk-hint govuk-body-s">Use the <a id="feedback_link_id" href="/feedback-landing?feedback-source=CYCLE_3_PAGE">feedback form</a> to ask a question, report a problem or suggest an improvement</p>
+</div>
+
+    </div>
+  </div>
+
+    
+    
+
+{% endblock %}
