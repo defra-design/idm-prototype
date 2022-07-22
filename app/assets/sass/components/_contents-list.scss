@@ -1,0 +1,29 @@
+
+.nhsuk-contents-list {
+    margin-bottom:40px
+   }
+   @media (min-width: 40.0625em) {
+    .nhsuk-contents-list {
+     margin-bottom:48px
+    }
+   }
+   .nhsuk-contents-list__list {
+    list-style:none;
+    padding:0
+   }
+   .nhsuk-contents-list__item {
+    background:url("data:image/svg+xml,%3Csvg class='nhsuk-icon nhsuk-icon__emdash' xmlns='http://www.w3.org/2000/svg' fill='%23aeb7bd' width='19' height='1' aria-hidden='true'%3E%3Cpath d='M0 0h19v1H0z'%3E%3C/path%3E%3C/svg%3E") left .75rem no-repeat;
+    padding:0 0 0 32px;
+    position:relative
+   }
+   @media (min-width: 40.0625em) {
+    .nhsuk-contents-list__item {
+     background:url("data:image/svg+xml,%3Csvg class='nhsuk-icon nhsuk-icon__emdash' xmlns='http://www.w3.org/2000/svg' fill='%23aeb7bd' width='16' height='1' aria-hidden='true'%3E%3Cpath d='M0 0h19v1H0z'%3E%3C/path%3E%3C/svg%3E") left .875rem no-repeat
+    }
+   }
+   .nhsuk-contents-list__link {
+    display:inline-block
+   }
+   .nhsuk-contents-list__current {
+    font-weight:600
+   }

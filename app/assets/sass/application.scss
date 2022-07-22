@@ -51,6 +51,11 @@ $govuk-assets-path: '/govuk/assets/';
 //Cookie banner $govuk-global-styles
 @import "cookies";
 
+// Third party components 
+
+// NHS
+@import "components/contents-list";
+
 // sidebar
 .gem-c-related-navigation{
     color: $govuk-text-colour;
