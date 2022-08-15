@@ -20,7 +20,19 @@
     <p class="govuk-body">This is the number we will send the verification code to</p>
     <h2 class="govuk-heading-m">xxxxxxxx478</h2>
 
-    <form action="/mfa/select-number" method="post">
+    {% if data['scenario'] == "single"%}
+    <form action="/mfa/get-code-success-search" method="post">
+
+
+{% else %}
+
+
+
+
+
+{% endif %}
+
+   
 
         
 
@@ -28,7 +40,7 @@
 
       {{ govukButton({
         text: "Continue",
-        href: "get-code-success"
+        href: ""
       }) }}
     </form>
 

@@ -24,7 +24,19 @@
       Sign in using Government Gateway
     </h1>
 
-    <form action="../verify-v2" method="post">
+    {% if data['scenario'] == "single"%}
+
+    <form action="../verify-single-number" method="post">
+
+
+
+{% else %}
+
+<form action="../verify-v2" method="post">
+
+{% endif %}
+
+    
 
       {{ govukInput({
           label: {
