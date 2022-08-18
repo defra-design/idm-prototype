@@ -1,6 +1,5 @@
 // ACCESSIBLE AUTOCOMPLETE
 
-
 .autocomplete__wrapper {
   position: relative
 }
@@ -164,44 +163,4 @@
     font-size: 19px;
     line-height: 1.31579
   }
-}
-
-
-.autocomplete {
-  /*the container must be positioned relative:*/
-  position: relative;
-  display: inline-block;
-  width: 100%;
-  // 
-}
-
-.autocomplete-items {
-  background-color: #fff;
-  font-family: "GDS Transport", Arial, Helvetica, sans-serif;
-  width: 100%;
-  position: absolute;
-  border: 1px solid #b1b4b6;
-  border-bottom: none;
-  border-top: none;
-  z-index: 99;
-  /*position the autocomplete items to be the same width as the container:*/
-  top: 100%;
-  left: 0;
-  right: 0;
-
-  div {
-    padding: 1rem;
-    background-color: #f1f1f1;
-    border-bottom: 1px solid #b1b4b6;
-
-    &:hover {
-      background-color: #ffdd00;
-    }
-  }
-}
-
-.autocomplete-active {
-  /*when navigating through the items using the arrow keys:*/
-  background-color: #1d70b8 !important;
-  color: #ffffff;
 }
