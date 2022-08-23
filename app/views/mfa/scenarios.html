@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "Multi factor authentication" %}
+{% set title = "Register and authenticate" %}
 
 {% block header %}
 {{ govukHeader({ serviceName: "" }) }}
@@ -92,7 +92,7 @@ href: "javascript:history.back()"
       <a href=""></a>
       <div class="govuk-card__content">
 
-        <p class="govuk-body">User with Defra ID wants to manage an account - has 20 altogether</p>
+        <p class="govuk-body">User authenticates - has 20 organisations</p>
       </div>
       <div class="govuk-card__actions">
         <ul class="govuk-list govuk-!-mb-r0">
@@ -116,7 +116,7 @@ href: "javascript:history.back()"
       <a href=""></a>
       <div class="govuk-card__content">
 
-        <p class="govuk-body">User with Defra ID wants to manage an account - has 45 altogether</p>
+        <p class="govuk-body">User authenticates - has 45 organisations</p>
       </div>
       <div class="govuk-card__actions">
         <ul class="govuk-list govuk-!-mb-r0">
@@ -137,6 +137,22 @@ href: "javascript:history.back()"
       <div class="govuk-card__actions">
         <ul class="govuk-list govuk-!-mb-r0">
           <li><a href="/mfa/gov-gateway/login-v2?scenario=single" class="govuk-link--no-visited-state">View</a></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+    <div class="govuk-card govuk-card--contained govuk-card--selectable">
+      <a href=""></a>
+      <div class="govuk-card__content">
+
+        <p class="govuk-body">User authenticates with email</p>
+      </div>
+      <div class="govuk-card__actions">
+        <ul class="govuk-list govuk-!-mb-r0">
+          <li><a href="/mfa/gov-gateway/login-v2?scenario=email" class="govuk-link--no-visited-state">View</a></li>
         </ul>
       </div>
     </div>
