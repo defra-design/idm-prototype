@@ -38,13 +38,31 @@ href: "javascript:history.back()"
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
+    {{ govukErrorSummary({
+      titleText: "There is a problem",
+      errorList: [
+        {
+          text: "You must select an organisation",
+          href: "#"
+        }
+        
+      ]
+    }) }}
+    </div>
+    </div>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
 
     <h1 class="govuk-heading-xl">{{ title }}</h1>
+  
 
-
-
+  
 
     <form action="account-page" method="post">
+
+      <div class="govuk-form-group govuk-form-group--error">
       <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
 
         <h2 class="govuk-fieldset__heading">
@@ -53,9 +71,13 @@ href: "javascript:history.back()"
 
       </legend>
 
-      <div class="govuk-form-group">
+      <p id="national-insurance-number-error" class="govuk-error-message">
+        <span class="govuk-visually-hidden">Error:</span> You must select an organisation
+      </p>
 
-        <select id="org-picker">
+      
+
+        <select class="govuk-input govuk-input--error" id="org-picker">
           <option value="">Select an organisation</option>
           <option value="1">A James LLC</option>
           <option value="2">Antillo Fujam Gardens</option>
@@ -112,11 +134,11 @@ href: "javascript:history.back()"
 
         </select>
 
-      </div>
+    
 
 
 
-
+</div>
 
 
       {{ govukButton({
@@ -129,6 +151,8 @@ href: "javascript:history.back()"
     </form>
 
 
+
+
     {{ govukButton({
     text: "Add organisation",
     classes: "govuk-button govuk-button--secondary",
@@ -139,7 +163,6 @@ href: "javascript:history.back()"
     {% include "includes/get-help.html" %}
 
   </div>
-</div>
 
 <!-- AUTOCOMPLETE SCRIPT -->
 

@@ -1,0 +1,153 @@
+{% extends "layout-signed-out.html" %}
+
+{% set serviceName = "" %}
+
+{% set title = "Verification successful" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" data-disable-auto-focus="true" data-module="govuk-error-summary">
+      <h2 class="govuk-error-summary__title" id="error-summary-title">
+        There is a problem
+      </h2>
+      <div class="govuk-error-summary__body">
+        <ul class="govuk-list govuk-error-summary__list">
+          <li>
+            <a href="#">You must choose an organisation</a>
+          </li>
+      
+        </ul>
+      </div>
+    </div>
+
+    <h1 class="govuk-heading-xl">{{ title }}</h1>
+    
+
+    <form action="/mfa/select-number-v2" method="post">
+
+
+
+
+      {{ govukRadios({
+        idPrefix: "which-org",
+        name: "which-org",
+        fieldset: {
+          legend: {
+            text: "Choose an organisation to use",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "Andy James Produce Ltd.",
+            text: "Andy James Produce Ltd."
+          },
+          {
+            value: "mcvities",
+            text: "Mc Vities"
+          },
+          {
+            value: "Ant Farm Co.",
+            text: "Ant Farm Co."
+          },
+          {
+            value: "Drummonds",
+            text: "Drummonds"
+          },
+          {
+            value: "Echo Foods",
+            text: "Echo Foods"
+          },
+          {
+            value: "Eddard Benjamin",
+            text: "Eddard Benjamin"
+          },
+          {
+            value: "Hiscox James Ltd.",
+            text: "Hiscox James Ltd."
+          },
+          {
+            value: "Jan and Jo Exports",
+            text: "Jan and Jo Exports"
+          },
+          {
+            value: "Moonfaced Dog Co.",
+            text: "Moonfaced Dog Co."
+          },
+          {
+            value: "Niche Transit",
+            text: "Niche Transit"
+          },
+          {
+            value: "Poplar Enterprise Group",
+            text: "Poplar Enterprise Group"
+          },
+          {
+            value: "Positively Great Goods",
+            text: "Positively Great Goods"
+          },
+          {
+            value: "Rich Goods Company",
+            text: "Rich Goods Company"
+          },
+          {
+            value: "Runnymede Foods Limited",
+            text: "Runnymede Foods Limited"
+          },
+          {
+            value: "Rusquo Grub",
+            text: "Rusquo Grub"
+          },
+          {
+            value: "Sandford Logistics",
+            text: "Sandford Logistics"
+          },
+          {
+            value: "Sedgeford, Hoppleberg and Wadebridge",
+            text: "Sedgeford, Hoppleberg and Wadebridge"
+          },
+          {
+            value: "Sjambok Steel",
+            text: "Sjambok Steel"
+          }
+          
+        ],
+
+        errorMessage: {
+          text: "You must choose an organisation"
+        }
+      }) }}
+
+ 
+
+
+
+
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+     
+    </form>
+
+    {{ govukButton({
+      text: "Add organisation",
+      classes: "govuk-button--secondary"
+      
+    }) }}
+
+  </div>
+</div>
+
+{% endblock %}
