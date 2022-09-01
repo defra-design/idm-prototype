@@ -33,6 +33,11 @@
 
       <form action="../verify-email" method="post">
 
+
+        {% elif data['scenario'] == "email-recovery" %}
+
+      <form action="../verify-single-number" method="post">
+
         {% else %}
 
 

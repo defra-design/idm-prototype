@@ -2,7 +2,7 @@
 
 {% set serviceName = "Apply for an Annual Health and Welfare review" %}
 
-{% set title = "Verify your identity" %}
+{% set title = "We were unable to send an sms to this number" %}
 
 {% block pageTitle %}
   {{title}} - GOV.UK
@@ -17,17 +17,20 @@
   <div class="govuk-grid-column-two-thirds">
 
     <h1 class="govuk-heading-xl">{{ title }}</h1>
-    <p class="govuk-body">This is the number we will send the verification code to</p>
-    <h2 class="govuk-heading-m">xxxxxxxx478</h2>
+    <p class="govuk-body">Before we send a recovery email with a verification code to <strong>timmy.mallet@wackaday.co.uk</strong>, we will require 
+      you to confirm some security details, so we know its you.
+    </p>
+    
 
     {% if data['scenario'] == "email-recovery"%}
-    
-      <form action="/mfa/unable-to-verify" method="post">
+    <form action="/mfa/security-word" method="post">
 
-        {% else %}
 
-        <form action="/mfa/get-code-success-search" method="post">
-      
+{% else %}
+
+
+
+
 
 {% endif %}
 
@@ -44,8 +47,8 @@
     </form>
 
     {{ govukDetails({
-      summaryText: "My number is not shown",
-      html: "You can find information on how to update your phone number on the the <a href=''>services help page</a>"
+      summaryText: "My email is not shown",
+      html: "You can find information on how to update your phone number on the the <a href='/help'>services help page</a>"
     }) }}
 
   </div>

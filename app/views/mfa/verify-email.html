@@ -23,6 +23,11 @@
     {% if data['scenario'] == "email"%}
     <form action="/mfa/get-code-email" method="post">
 
+      {% elif data['scenario'] == "email-recovery"%}
+      <form action="/mfa/get-code-email" method="post">
+
+
+
 
 {% else %}
 
