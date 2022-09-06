@@ -18,24 +18,15 @@
 
     <h1 class="govuk-heading-xl">{{ title }}</h1>
     <p class="govuk-body">This is the email we will send the verification code to</p>
-    <h2 class="govuk-heading-m">timmy_mallet@wackaday.co.uk</h2>
+    <h2 class="govuk-heading-m">xxxxxxxxxxxx@wackaday.co.uk</h2>
 
-    {% if data['scenario'] == "email"%}
-    <form action="/mfa/get-code-email" method="post">
+  
 
-      {% elif data['scenario'] == "email-recovery"%}
+
       <form action="/mfa/get-code-email" method="post">
 
 
 
-
-{% else %}
-
-
-
-
-
-{% endif %}
 
    
 

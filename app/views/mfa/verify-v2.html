@@ -21,7 +21,7 @@
 
     <form action="/mfa/select-number-v2" method="post">
 
-        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+    
 
 {{ govukRadios({
   idPrefix: "telephone-number",
@@ -40,7 +40,17 @@
     {
       value: "tel3",
       text: "xxxxxxxx006"
+    },
+    {
+      divider: "or"
+    },
+
+    {
+      value: "email",
+      text: "Verify using my email address"
     }
+
+
     
   ]
 }) }}

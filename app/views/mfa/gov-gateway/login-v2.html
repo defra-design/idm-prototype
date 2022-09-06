@@ -25,22 +25,19 @@
     </h1>
 
 
-    {% if data['scenario'] == "single"%}
+    {% if data['scenario'] == "single" or "20-orgs" or "email-recovery" %}
 
     <form action="../verify-single-number" method="post">
 
-      {% elif data['scenario'] == "email" %}
+      {% elif data['scenario'] == "email"%}
 
       <form action="../verify-email" method="post">
-
-
-        {% elif data['scenario'] == "email-recovery" %}
-
-      <form action="../verify-single-number" method="post">
 
         {% elif data['scenario'] == "no-number-exists" %}
 
         <form action="../../errors/no-tel-no" method="post">
+
+          
 
 
 

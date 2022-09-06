@@ -361,7 +361,7 @@ router.get('/mfa/select-number-v2', function (req, res) {
   if (telNum === 'tel1') {
     res.redirect('get-code-v2')
   } else {
-    res.redirect('verify-error-v2')
+    res.redirect('/mfa/security-word')
   }
 })
 

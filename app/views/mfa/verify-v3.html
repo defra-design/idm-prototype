@@ -1,6 +1,6 @@
 {% extends "layout-signed-out.html" %}
 
-{% set serviceName = "Apply for an Annual Health and Welfare review" %}
+{% set serviceName = "Defra identity" %}
 
 {% set title = "Verify your identity" %}
 
@@ -21,7 +21,7 @@
 
     <form action="get-code-v3" method="post">
 
-        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+  
 
 {{ govukRadios({
   idPrefix: "telephone-number",
@@ -40,7 +40,15 @@
     {
       value: "tel3",
       text: "xxxxxxxx006"
+    },
+    {
+      divider: "or"
+    },
+    {
+      value: "email",
+      text: "Send a code to my email address"
     }
+
     
   ]
 }) }}
