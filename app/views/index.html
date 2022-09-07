@@ -215,14 +215,14 @@
           <th scope="row" class="govuk-table__header">MFA - sms</th>
           <td class="govuk-table__cell">
             <ul class="govuk-list">
-              <li><a href="/errors/select-one">Select one option</a></li>
-              <li><a href="/errors/too-short">Invalid code entered - too short</a></li>
-              <li><a href="/errors/no-match">Invalid code entered - no match</a></li>
-              <li><a href="/errors/exceeded-retries">Verification allowance exceeded</a></li>
-              <li><a href="/errors/exceeded-retries-v2">Verification allowance exceeded (same page)</a></li>
-              <li><a href="/errors/cannot-auth">Cannot send message to mobile</a></li>
-              <li><a href="/errors/no-tel-no">No telephone no. with account</a></li>
-              <li><a href="/errors/verify-error">Enter a verification code</a></li>
+              <li><a href="/errors/select-one">You must choose a number</a></li>
+              <li><a href="/errors/too-short">The code entered must 8 digits</a></li>
+              <li><a href="/errors/no-match">Code entered does not match code sent</a></li>
+              <li><a href="/errors/exceeded-retries">Exceeded number of attempts</a></li>
+              <li><a href="/errors/exceeded-retries-v2">Exceeded number of attempts (same page)</a></li>
+              <li><a href="/errors/cannot-use-tel-no">Cannot send message to mobile</a></li>
+              <li><a href="/errors/no-tel-no">No telephone numbers associated with this account</a></li>
+              <li><a href="/errors/cannot-use-tel-no">Enter a verification code</a></li>
 
             </ul>
           </td>
@@ -236,12 +236,12 @@
           <th scope="row" class="govuk-table__header">MFA - security word</th>
           <td class="govuk-table__cell">
             <ul class="govuk-list">
-              <li><a href="/scp/credential-recovery-security-word-error-0">Security word - too many tries</a></li>
-              <li><a href="/scp/credential-recovery-security-word-error-1">Security word - incorrect characters</a></li>
-              <li><a href="/scp/credential-recovery-security-word-error-2">Security word - enter the characters</a></li>
-              <li><a href="/scp/credential-recovery-security-word-error-3">Security word - security word has been
+              <li><a href="/errors/exceeded-retries">Exceeded number of attempts</a></li>
+              <li><a href="/scp/credential-recovery-security-word-error-1">The characters enter are incorrect</a></li>
+              <li><a href="/scp/credential-recovery-security-word-error-2">You must enter the characters required</a></li>
+              <li><a href="/scp/credential-recovery-security-word-error-3">Your security word has been changed
                   changed</a></li>
-              <li><a href="/scp/credential-recovery-security-word-error-4">Security word - no security word set up</a>
+              <li><a href="/scp/credential-recovery-security-word-error-4">You do not have a secure word set up</a>
               </li>
             </ul>
             

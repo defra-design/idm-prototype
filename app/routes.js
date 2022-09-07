@@ -353,6 +353,7 @@ router.get('/mfa/select-number', function (req, res) {
     res.redirect('verify-error')
   }
 })
+
 // routing for verify
 router.get('/mfa/select-number-v2', function (req, res) {
   // Make a variable from session data
@@ -365,12 +366,24 @@ router.get('/mfa/select-number-v2', function (req, res) {
   }
 })
 
+// routing for phone or emal
+router.get('/mfa/sms-email', function (req, res) {
+  // Make a variable from session data
+  var telNum = req.session.data['verify-your-identity'] 
+  // route depending on value
+  if (telNum === 'send-sms') {
+    res.redirect('get-code-v2')
+  } else {
+    res.redirect('/mfa/security-word')
+  }
+})
+
 // Routes for Vets examples/scenarios
 
 
 
 
-// Eds example
+// Ed's' example
 
 // if ( (a == 'b') && ( c == 'd') ) {}
 

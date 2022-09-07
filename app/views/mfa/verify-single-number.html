@@ -15,11 +15,13 @@
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
+    <form action="/mfa/sms-email" method="post">
 
     <!--<h1 class="govuk-heading-xl">{{ title }}</h1>
     <p class="govuk-body">This is the number we will send the verification code to</p>
     <h2 class="govuk-heading-m">xxxxxxxx478</h2>-->
 
+    
   
 
 {{ govukRadios({
@@ -44,24 +46,12 @@
   ]
 }) }}
 
-    {% if data['scenario'] == "email-recovery"%}
     
-      <form action="/mfa/unable-to-verify" method="post">
 
-        {% elif data['scenario'] == "choose-email"%}
-    
-        <form action="/mfa/security-word" method="post">
-
-        {% else %}
-
-        <form action="/mfa/get-code" method="post">
+      
       
 
-{% endif %}
 
-   
-
-        
 
 
 

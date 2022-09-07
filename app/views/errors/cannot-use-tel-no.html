@@ -21,19 +21,18 @@
   <div class="govuk-grid-column-two-thirds">
 
     <h1 class="govuk-heading-xl">
-    You have exceeded the maximum number of attempts allowed
-
-  
+      There are no numbers we can use to authenticate you
     </h1>
 
-    <p class="govuk-body-l"> We do this for security reasons.</p>
-   
+    <p>This means we can not send a verification code to your mobile number.</p>
+  
 
-    <p class="govuk-body-m">
-    Contact the service you need or wait 10 minutes before <a href="../mfa/security-word">trying again</a>
+  <p>Instead, we can send a verification code to the email we have for you: <strong>xxxxxxxxxxxx@wackaday.co.uk</strong>, but we will require you to answer a security question, so we know its you.</p>
 
-    
-    </p>
+{{ govukButton({
+  text: "Continue",
+  href:"/mfa/security-word"
+}) }}
 
   
     
