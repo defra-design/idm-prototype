@@ -19,6 +19,8 @@
     <h1 class="govuk-heading-xl">{{ title }}</h1>
     <p class="govuk-body">Choose a contact number, to send a verification code to.</p>
 
+    
+
     <form action="/mfa/select-number" method="post">
 
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
@@ -53,10 +55,7 @@
     </form>
 
    
-{{ govukDetails({
-  summaryText: "My number is not shown",
-  html: "You can find information on how to update your phone number on the the <a href=''>services help page</a>"
-}) }}
+    {% include "includes/get-help.html" %}
 
   </div>
 </div>

@@ -27,22 +27,12 @@
       {% elif data['scenario'] == "40-orgs" %}
       <form action="/mfa/get-code-success-search" method="post">
      
-
-
       {% else %}
       <form action="/mfa/account-page" method="post">
-
-
-     
-
         {% endif %}
 
 
-      
-
-
-
-
+  
           {{ govukInput({
           label: {
           text: "Enter the code sent to xxxxxxxx478."
@@ -70,13 +60,7 @@
         classes: "govuk-button govuk-button--secondary"
         }) }}
 
-        {{ govukDetails({
-        summaryText: "Help with this page",
-        html: "You can find information on how to update your number on the <a href=''>services help page</a>,
-        or instead you can verify <a href='security-word'>using your email address</a>. You will need to answer a
-        security question first to
-        make sure its you"
-        }) }}
+        {% include "includes/get-help.html" %}
 
   </div>
 </div>

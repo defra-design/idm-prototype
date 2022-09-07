@@ -33,14 +33,7 @@
       value: "tel1",
       text: "xxxxxxxx478"
     },
-    {
-      value: "tel2",
-      text: "xxxxxxxx987"
-    },
-    {
-      value: "tel3",
-      text: "xxxxxxxx006"
-    },
+  
     {
       divider: "or"
     },
@@ -63,10 +56,7 @@
     </form>
 
    
-{{ govukDetails({
-  summaryText: "My number is not shown",
-  html: "You can find information on how to update your phone number on the the <a href=''>services help page</a>"
-}) }}
+    {% include "includes/get-help.html" %}
 
   </div>
 </div>
