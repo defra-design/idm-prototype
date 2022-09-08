@@ -9,10 +9,6 @@
 {% endblock %}
 
 {% block beforeContent %}
-{{ govukBackLink({
-  text: "Back",
-  href: "javascript:history.back()"
-}) }}
 
 {% endblock %}
 
@@ -59,6 +55,8 @@
   text: "Send another code",
   classes: "govuk-button govuk-button--secondary"
 }) }}
+
+{% include "includes/get-help-email.html" %}
 </div>
 </div>
 
