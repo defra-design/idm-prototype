@@ -1,6 +1,5 @@
 {% extends "layout-signed-out.html" %}
-
-{% set serviceName = "" %}
+{% set serviceName = "Defra identity" %}
 
 {% set title = "Verify your identity" %}
 
@@ -22,7 +21,7 @@
       <div class="govuk-error-summary__body">
         <ul class="govuk-list govuk-error-summary__list">
           <li>
-            <a href="#">You must choose a number</a>
+            <a href="#">You must select an option</a>
           </li>
       
         </ul>
@@ -34,8 +33,6 @@
 
     <form action="/mfa/select-number-v2" method="post">
 
-
-        {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
 {{ govukRadios({
     idPrefix: "telephone-number",
@@ -54,30 +51,27 @@
   {
     value: "tel3",
     text: "xxxxxxxx006"
+  },
+  {
+    divider: "or"
+  },
+
+  {
+    value: "email",
+    text: "Verify using my email address"
   }
   ],
   errorMessage: {
-    text: "You must choose a number"
+    text: "You must select an option"
   }
 }) }}
-
-
-
-
-        
-
-
 
       {{ govukButton({
         text: "Continue"
       }) }}
     </form>
 
-   
-{{ govukDetails({
-  summaryText: "My number is not shown",
-  html: "You can find information on how to update your phone number on the the <a href=''>services help page</a>"
-}) }}
+    {% include "includes/get-help.html" %}
 
   </div>
 </div>

@@ -1,6 +1,6 @@
 {% extends "layout-signed-out.html" %}
 
-{% set serviceName = "" %}
+{% set serviceName = "Defra identity" %}
 
 {% set title = "Verification successful" %}
 
@@ -146,6 +146,8 @@
       classes: "govuk-button--secondary"
       
     }) }}
+
+    {% include "includes/get-help.html" %}
 
   </div>
 </div>
