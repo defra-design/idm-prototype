@@ -1,5 +1,5 @@
 {% extends "layout-signed-out.html" %}
-{% set title = "Verify your identity" %}
+{% set title = "Verification successful" %}
 
 {% set serviceName = "Defra identity" %}
 
@@ -21,7 +21,6 @@
 <form action="account-page">
 
 
-{% from "govuk/components/radios/macro.njk" import govukRadios %}
 
       {{ govukRadios({
         idPrefix: "which-org",

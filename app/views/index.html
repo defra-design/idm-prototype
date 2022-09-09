@@ -218,10 +218,10 @@
               <li><a href="/errors/select-one">You must select an option</a></li>
               <li><a href="/errors/too-short">The code entered must 8 digits</a></li>
               <li><a href="/errors/no-match">Code entered does not match code sent</a></li>
-              <li><a href="/errors/exceeded-retries">Exceeded number of attempts</a></li>
-              <li><a href="/errors/exceeded-retries-v2">Exceeded number of attempts (same page)</a></li>
+              <li><a href="/errors/exceeded-retries">You have reached max number of attempts</a></li>
+    
               <li><a href="/errors/cannot-use-tel-no">Tel number format not supported</a></li>
-              <li><a href="/errors/no-tel-no">No telephone numbers associated with this account</a></li>
+              <li><a href="/errors/cannot-tel-no">No telephone numbers associated with this account</a></li>
               <li><a href="/errors/cannot-use-tel-no">No telephone numbers that can be used</a></li>
             
 
@@ -237,7 +237,7 @@
           <th scope="row" class="govuk-table__header">MFA - security word</th>
           <td class="govuk-table__cell">
             <ul class="govuk-list">
-              <li><a href="/errors/exceeded-retries">Exceeded number of attempts</a></li>
+              <li><a href="/errors/exceeded-retries">You have reached max of attempts</a></li>
               <li><a href="/scp/credential-recovery-security-word-error-1">The characters enter are incorrect</a></li>
               <li><a href="/scp/credential-recovery-security-word-error-2">You must enter the characters required</a></li>
               <li><a href="/errors/security-word-changed">Your security word has been changed
@@ -289,25 +289,24 @@
             </ul>
           </td>
         </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Additional pages</th>
+          <td class="govuk-table__cell">
+            <ul class="govuk-list">
+              <li><a href="/additional-pages/page-loading" class="govuk-link--no-visited-state">Page loading</a></li>
+              <li><a href="/additional-pages/time-out">Time out warning</a></li>
+              <li><a href="/additional-pages/signed-out">Signed out</a></li>
+              <li><a href="help">Cookie banner example</a></li>
+              <li><a href="/errors/no-accounts">No accounts exist</a></li>
+              <li><a href="/mfa/verify-single-number">Help section example</a></li>
+              <li><a href="/mfa/">Help section example</a></li>
+
+
+            </ul>
+          </td>
+        </tr>
       </tbody>
     </table>
-
-
-
-
-
-    <h2 class="govuk-heading-m" id="subsection-title">Additional pages</h2>
-    <nav role="navigation" aria-labelledby="subsection-title">
-      <ul class="govuk-list">
-
-        <li><a href="/additional-pages/page-loading" class="govuk-link--no-visited-state">Page loading</a></li>
-        <li><a href="/additional-pages/time-out">Time out warning</a></li>
-        <li><a href="/additional-pages/signed-out">Signed out</a></li>
-        <li><a href="help">Cookie banner example</a></li>
-        <li><a href="/errors/no-accounts">No accounts exist</a></li>
-
-      </ul>
-    </nav>
 
     <h2 class="govuk-heading-m" id="subsection-title">Archived versions</h2>
     <ul class="govuk-list">
