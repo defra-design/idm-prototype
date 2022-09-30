@@ -1,0 +1,127 @@
+{% extends "layouts/layout.html" %}
+
+{% block pageTitle %}
+Confirm the details of your review
+{% endblock %}
+{% set serviceName %}
+Claim funding for an annual health and welfare review
+{% endset%}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:history.go(-1)">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      Update details
+    </h1>
+
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Date
+        </dt>
+        <dd class="govuk-summary-list__value">
+          18 February 2022
+        </dd>
+        <dd class="govuk-summary-list__actions">
+         
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Livestock type
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Cattle
+   
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Cattle type
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <p class="govuk-body">Beef</p>
+        </dd>
+        <dd class="govuk-summary-list__actions">
+         
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Vet practice
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Cross Green Veterinary Centre 
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Vet name
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Mel Sterland
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Post code of review
+        </dt>
+        <dd class="govuk-summary-list__value">
+          LS21 1HT
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          
+        </dd>
+      </div>
+     
+    </dl>
+
+
+    
+    {{ govukRadios({
+      idPrefix: "review-details-correct-check",
+      name: "review-details-correct-check",
+      fieldset: {
+        legend: {
+          text: "Are these livestock review details correct?",
+          classes: "govuk-fieldset__legend--m "
+        }
+      },
+      items: [
+        {
+          value: "yes",
+          text: "Yes, the details are correct"
+        },
+        {
+          value: "no",
+          text: "No, I need to update the details"
+        }
+      ]
+    }) }}
+
+    {{ govukButton({
+      text: "Continue",
+      href: "vet-practise"
+    }) }}
+
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,201 @@
+{% set tocPage = "guide" %}
+
+{% set mainClasses = "guide govuk-!-padding-top-0 govuk-!-padding-bottom-0" %}
+
+{% extends "layouts/layout.html" %}
+
+{% block head %}
+{% include "includes/publisher/head.html" %}
+{% endblock %}
+
+{% block pageTitle %}
+Guidance for vets
+{% endblock %}
+{% set serviceName %}
+How to carry out an annual livestock health and welfare review
+{% endset%}
+
+{% block header %}
+{% include "includes/publisher/header.html" %}
+{% include "includes/publisher/global-bar.html" %}
+{% endblock %}
+
+
+{% block beforeContent %}
+
+<div class="govuk-breadcrumbs">
+<ol class="govuk-breadcrumbs__list">
+  <li class="govuk-breadcrumbs__list-item">
+    <a class="govuk-breadcrumbs__link" href="https://www.gov.uk">Home</a>
+  </li>
+  <li class="govuk-breadcrumbs__list-item">
+    ...
+  </li>
+  <li class="govuk-breadcrumbs__list-item">
+    <a class="govuk-breadcrumbs__link" href="../guidance.html">Guidance for vets</a>
+  </li>
+  <li class="govuk-breadcrumbs__list-item">
+    <a class="govuk-breadcrumbs__link">Technical guidance</a>
+  </li>
+</ol>
+</div>
+{% endblock %}
+
+
+{% block content %}
+
+<style>
+.navigation-container {
+  padding: 20px 0 20px 0;
+  margin-top: 30px;
+  border-top: 1px solid #b1b4b6
+}
+.list-item--dashed:before {
+  content: "—";
+  position: relative ;
+  left: 0;
+  width: 20px;
+  padding-right: 10px;
+  overflow: hidden;
+}
+</style>
+
+<div class="govuk-grid-row">
+<div class="govuk-grid-column-two-thirds">
+  <span class="govuk-caption-xl gem-c-title__context govuk-!-margin-top-9">Guidance</span>
+  <h1 class="govuk-heading-xl">
+    How to carry out disease and endemic condition testing for an annual health and welfare review of livestock
+  </h1>
+</div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <p class="govuk-body govuk-!-font-size-24">
+      Follow this technical guidance when you test livestock 
+      as part of an annual health and welfare review.
+    </p>
+
+    <!-- --- -->
+    <aside class="navigation-container">
+      <p class="govuk-body">From: <br>
+        <a class="govuk-link" href="#" target="_blank">
+          <strong>Department for Environment, Food & Rural Affairs</strong>
+        </a>
+      </p>
+    </aside>
+
+    <!-- Grey box -->
+    <div class="govuk-panel govuk-!-padding-3 govuk-!-margin-bottom-7" style="background-color:#f3f2f1;">
+      <div class="govuk-panel__body govuk-!-text-align-left" style="color:#000000">
+        <strong>Applies to England</strong>
+      </div>
+    </div>
+
+    <br>
+
+    <!-- Icons + links -->
+    <h2 class="govuk-heading-m">Documents</h2>
+
+      <p class="govuk-body-l govuk-!-margin-bottom-1">
+        <a class="govuk-link" href="technical/test-cattle">
+          Test for bovine viral diarrhoea (BVD) in cattle
+        </a>
+      </p>
+      <p class="govuk-body-s govuk-!-margin-bottom-5">HTML</p>
+
+      <p class="govuk-body-l govuk-!-margin-bottom-1">
+        <a class="govuk-link" href="technical/labs-cattle">
+          Approved laboratories to test for bovine viral diarrhoea (BVD) in cattle
+        </a>
+      </p>
+      <p class="govuk-body-s govuk-!-margin-bottom-5">HTML</p>
+
+      <p class="govuk-body-l govuk-!-margin-bottom-1">
+        <a class="govuk-link" href="technical/test-sheep">
+          Test for the effectiveness of worming treatments in sheep
+        </a>
+      </p>
+      <p class="govuk-body-s govuk-!-margin-bottom-5">HTML</p>
+
+      <p class="govuk-body-l govuk-!-margin-bottom-1">
+        <a class="govuk-link" href="technical/labs-sheep">
+          Approved laboratories to test for the effectiveness of worming treatments in sheep
+        </a>
+      </p>
+      <p class="govuk-body-s govuk-!-margin-bottom-5">HTML</p>
+
+      <p class="govuk-body-l govuk-!-margin-bottom-1">
+        <a class="govuk-link" href="technical/test-pigs">
+          Test for porcine reproductive and respiratory syndrome (PRRS) in pigs
+        </a>
+      </p>
+      <p class="govuk-body-s govuk-!-margin-bottom-5">HTML</p>
+
+      <p class="govuk-body-l govuk-!-margin-bottom-1">
+        <a class="govuk-link" href="technical/labs-pigs">
+          Approved laboratories to test for porcine reproductive and respiratory Syndrome (PRRS) in pigs
+        </a>
+      </p>
+      <p class="govuk-body-s govuk-!-margin-bottom-5">HTML</p>
+
+      <br>
+
+    <!-- Main body -->
+    <h2 class="govuk-heading-m">Details</h2>
+
+      <p class="govuk-body">
+        Any vet or vet-led team conducting an annual health and welfare review of livestock needs to follow 
+        the technical guidance for testing and use an approved laboratory for sample analysis.
+      </p>
+
+      <p class="govuk-body">
+        The technical guidance will help you understand the species-specific:
+      </p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>data you need to collect</li>
+        <li>test you need to carry out</li>
+        <li>sample analysis requirements</li>
+      </ul>
+
+      <p class="govuk-body">
+        Read the 
+        <a class="govuk-link" href="../guidance">
+          carry out an annual health and welfare review of livestock guidance
+        </a>
+        before you read this technical guidance.
+      </p>
+<!--
+    <h2 class="govuk-heading-m">Training materials</h2>
+
+      <p class="govuk-body">
+        If you’re not used to reviewing and testing the type of livestock you've been asked to review, 
+        you can find training and learning materials on the 
+        <a class="govuk-link" href="https://ahdb.org.uk/tools" target="_blank">AHDB hub</a>.
+      </p>
+-->
+
+      <!--Footer-->
+      <div class="app-back-to-top" style="margin: 20px 0 20px 0; border-top: 1px solid #b1b4b6; padding-top: 20px;" data-module="app-back-to-top">
+        <a class="govuk-link govuk-link--no-visited-state app-back-to-top__link" href="#top">
+          <svg role="presentation" focusable="false" class="app-back-to-top__icon" xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17">
+            <path fill="currentColor" d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path>
+          </svg>
+          Back to top
+        </a>
+
+      </div>
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+    <div class="gem-c-contextual-sidebar">
+      {% block sidebar %}
+      {% include "includes/publisher/transition-countdown.html" %}
+      {% include "includes/publisher/related-content.html" %}
+      {% endblock %}
+    </div>
+  </div>
+</div>
+
+{% endblock %}

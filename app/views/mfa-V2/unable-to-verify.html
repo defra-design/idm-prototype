@@ -1,0 +1,50 @@
+{% extends "layout-signed-out.html" %}
+
+{% set serviceName = "Apply for an Annual Health and Welfare review" %}
+
+{% set title = "We were unable to authenticate you" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">{{ title }}</h1>
+    <p class="govuk-body">Instead, we can send an email with a verification code to <strong>xxxxxxxxxxxx@wackaday.co.uk</strong>.</p>
+      <p class="govuk-body">
+      We will require you to confirm some security details first, so we know its you.
+    </p>
+    
+
+    {% if data['scenario'] == "email-recovery"%}
+    <form action="/mfa/security-word" method="post">
+
+
+{% else %}
+
+
+
+
+
+{% endif %}
+
+
+      {{ govukButton({
+        text: "Continue",
+        href: ""
+      }) }}
+    </form>
+
+    {% include "includes/get-help.html" %}
+
+  </div>
+</div>
+
+{% endblock %}

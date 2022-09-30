@@ -1,0 +1,42 @@
+{% extends "layout-signed-out.html" %}
+
+{% set serviceName = "Your Defra account" %}
+
+
+
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <!-- {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }} -->
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">
+    There is no telephone number associated with your account
+    </h1>
+
+    <p>This means we can not send a verification code to your mobile number.</p>
+  
+
+  <p>Instead, we can send a verification code to the email we have for you: <strong>xxxxxxxxxxxx@wackaday.co.uk</strong>, but we will require you to confirm some security details, so we know its you.</p>
+
+{{ govukButton({
+  text: "Continue",
+  href:"/mfa/security-word"
+}) }}
+
+  
+    
+  </div>
+</div>
+
+{% endblock %}

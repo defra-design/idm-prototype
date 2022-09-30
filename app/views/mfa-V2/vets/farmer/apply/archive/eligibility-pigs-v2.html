@@ -1,0 +1,56 @@
+{% extends "layouts/layout.html" %}
+
+{% block pageTitle %}
+Question page
+{% endblock %}
+{% set serviceName %}
+Get funding for a livestock health and welfare review
+{% endset%}
+
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:history.go(-1)">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" method="post">
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="eligibility-pigs-v2-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                Do you keep more than 50 pigs?
+              </h1>
+            </legend>
+            <!-- <div id="vet-registered-hint" class="govuk-hint">
+              This includes changing your last name or spelling your name differently.
+            </div> -->
+            <div class="govuk-radios govuk-radios--inline">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="eligibility-pigs-v2" name="eligibility-pigs-v2" type="radio" value="check-answers" onclick="setLocation(this);" {{ checked("eligibility-pigs-v2", "eligibility-pigs-yes") }}>
+                <label class="govuk-label govuk-radios__label" for="eligibility-pigs-v2">
+                  Yes
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="eligibility-pigs-v2-2" name="eligibility-pigs-v2" type="radio" value="eligibility-livestock-no" onclick="setLocation(this);" {{ checked("eligibility-pigs-v2", "eligibility-pigs-no") }}>
+                <label class="govuk-label govuk-radios__label" for="eligibility-pigs-v2-2">
+                  No
+                </label>
+              </div>
+            </div>
+
+          </fieldset>
+        </div>
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+
+
+{% endblock %}

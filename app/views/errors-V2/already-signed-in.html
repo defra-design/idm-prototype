@@ -1,0 +1,40 @@
+{% extends "layout-signed-out.html" %}
+
+{% set serviceName = "Defra identity" %}
+
+{% set body = "You are already signed in to" %}
+{% set title = "Org" %}
+
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <!-- {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }} -->
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">
+      <!-- <span class="govuk-caption-xl">{{ data['serviceLine'] }}</span> -->
+      <span class="govuk-caption-xl">{{body}}</span>
+      
+      {{title}}
+    </h1>
+   
+
+    <p class="govuk-body-l">
+
+      
+    </p>
+
+  </div>
+</div>
+
+{% endblock %}

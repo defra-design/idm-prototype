@@ -1,0 +1,90 @@
+{% extends "layout-signed-out.html" %}
+{% set serviceName = "Rural Payments" %}
+
+{% set title = "Sign in to make or update a rural playments claim" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        {{ title }}
+      </h1>
+  
+      <!-- Redirects for scenarios -->
+  
+
+
+<form action="further-information" autocomplete="false">
+
+  
+  <div class="govuk-form-group">
+    <label class="govuk-label" for="crn">
+      Customer reference number (CRN)
+    </label>
+  
+    
+    
+    <div id="crn-hint" class="govuk-hint">
+      This is the 10 digit number emailed to you when you created your rural payments account
+    </div>
+  
+  <input class="govuk-input govuk-!-width-full-width" id="crn" name="crn" type="text" aria-describedby="crn-hint" autocomplete="false">
+  </div>
+  
+  
+      
+  
+  <div class="govuk-form-group">
+    <label class="govuk-label" for="password--">
+      Password
+    </label>
+  
+  <input class="govuk-input govuk-!-width-full-width" id="password--" name="password--" type="password" autocomplete="false">
+
+  
+
+  </div>
+  
+  
+      
+  
+    
+      
+    
+  <button class="govuk-button">Sign in</button>
+
+
+
+</form>
+  
+  
+      <p><a href="password/enter-email">I've forgotten my password</a></p>
+      <details class="govuk-details" data-module="govuk-details">
+    <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">
+        Other problems signing in
+      </span>
+    </summary>
+    <div class="govuk-details__text">
+      If you started creating a new password and received the security code by email - <a href="#">sign in</a><br>
+  
+        If you lost your customer reference number (CRN), call the Defra rural services helpline 03000 200 301.
+    </div>
+  </details>
+  
+  
+     
+    </div>
+  </div>
+
+{% endblock %}

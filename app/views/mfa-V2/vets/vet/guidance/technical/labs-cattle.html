@@ -1,0 +1,317 @@
+{% set tocPage = "guide" %}
+
+{% set mainClasses = "guide govuk-!-padding-top-0 govuk-!-padding-bottom-0" %}
+
+{% extends "layouts/layout.html" %}
+
+{% block head %}
+{% include "includes/publisher/head.html" %}
+{% endblock %}
+
+{% block pageTitle %}
+Guidance for vets
+{% endblock %}
+{% set serviceName %}
+How to carry out an annual livestock health and welfare review
+{% endset%}
+
+
+{% block header %}
+{% include "includes/publisher/header.html" %}
+{% include "includes/publisher/global-bar.html" %}
+{% endblock %}
+
+
+{% block beforeContent %}
+
+<div class="govuk-breadcrumbs">
+<ol class="govuk-breadcrumbs__list">
+  <li class="govuk-breadcrumbs__list-item">
+    <a class="govuk-breadcrumbs__link" href="https://www.gov.uk">Home</a>
+  </li>
+  <li class="govuk-breadcrumbs__list-item">
+    ...
+  </li>
+  <li class="govuk-breadcrumbs__list-item">
+    <a class="govuk-breadcrumbs__link" href="../guidance.html">Guidance for vets</a>
+  </li>
+  <li class="govuk-breadcrumbs__list-item">
+    <a class="govuk-breadcrumbs__link" href="../technical.html">Technical guidance</a>
+  </li>
+  <li class="govuk-breadcrumbs__list-item">
+    <a class="govuk-breadcrumbs__link">Labs for cattle</a>
+  </li>
+</ol>
+</div>
+{% endblock %}
+
+
+{% block content %}
+
+<style>
+.navigation-container {
+  padding: 20px 0 20px 0;
+  margin-top: 30px;
+  border-top: 1px solid #b1b4b6
+}
+.list-item--dashed:before {
+  content: "—";
+  position: relative ;
+  left: 0;
+  width: 20px;
+  padding-right: 10px;
+  overflow: hidden;
+}
+</style>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <!-- Logo -->
+    <br><br>
+
+    <!-- Blue box -->
+    <div class="govuk-panel govuk-panel--confirmation govuk-!-text-align-left govuk-!-margin-bottom-7" style="background-color:#1d70b8;">
+      <div class="govuk-panel__body govuk-!-margin-bottom-3">
+        Guidance
+      </div>
+      <h1 class="govuk-panel__title">
+        Approved laboratories to test for bovine viral diarrhoea (BVD) in cattle
+      </h1>
+      <div class="govuk-panel__body">
+        Published 12 July 2022
+      </div>
+    </div>
+
+    <!-- Intro -->
+    <p class="govuk-body">
+      Vets must send samples to a laboratory on this list 
+      that has been approved by the Department for Environment, Food and Rural Affairs (Defra).
+    </p>
+    <p class="govuk-body">
+      More laboratories may be added at a later date.
+    </p>
+
+    <aside class="navigation-container">
+      <ul class="govuk-list govuk-body-s">
+        <li>Contents</li>
+        <li class="list-item--dashed"><a href="#afbi">Agri-food and Biosciences Institute</a></li>
+        <li class="list-item--dashed"><a href="#aphapen">APHA Penrith Veterinary Investigation Centre</a></li>
+        <li class="list-item--dashed"><a href="#apha">APHA Scientific</a></li>
+        <li class="list-item--dashed"><a href="#aphastar">APHA Starcross Veterinary Investigation Centre</a></li>
+        <li class="list-item--dashed"><a href="#axiom">Axiom Veterinary Laboratories Ltd</a></li>
+        <li class="list-item--dashed"><a href="#biobest">Biobest Laboratories</a></li>
+        <li class="list-item--dashed"><a href="#cattleinfo">Cattle Information Service</a></li>
+        <li class="list-item--dashed"><a href="#farmlab">FarmLab Diagnostics</a></li>
+        <li class="list-item--dashed"><a href="#nml">National Milk Laboratories (NML)</a></li>
+        <li class="list-item--dashed"><a href="#sruc">SRUC Veterinary Services</a></li>
+        <li class="list-item--dashed"><a href="#wales">Wales Veterinary Science Centre</a></li>
+      </ul>
+    </aside>
+
+    <!-- Main body -->
+    <h2 id="afbi" class="govuk-heading-m">Agri-food and Biosciences Institute (AFBI)</h2>
+
+      <p class="govuk-body">
+        BVD Testing <br>
+        AFBI Stormont <br>
+        Veterinary Sciences Division <br>
+        Stoney Road <br>
+        Stormont <br>
+        Belfast <br>
+        BT4 3SD <br>
+      </p>
+      <p class="govuk-body">
+        Telephone: 02890 525 649
+      </p>
+      <p class="govuk-body">
+        Email: <a href="mailto:bvd.testing@afbini.gov.uk">bvd.testing@afbini.gov.uk</a>
+      </p>
+
+    <h2 id="aphapen" class="govuk-heading-m">APHA Penrith Veterinary Investigation Centre</h2>
+
+      <p class="govuk-body">
+        Merrythought <br>
+        Calthwaite <br>
+        Penrith <br>
+        Cumbria <br>
+        CA11 9RR <br>
+      </p>
+      <p class="govuk-body">
+        Telephone: 03000 600012
+      </p>
+      <p class="govuk-body">
+        Email: <a href="mailto:penrith@apha.gov.uk">penrith@apha.gov.uk</a>
+      </p>
+
+    <h2 id="apha" class="govuk-heading-m">APHA Scientific</h2>
+
+      <p class="govuk-body">
+        Woodham Lane <br>
+        New Haw <br>
+        Addlestone <br>
+        KT15 3NB <br>
+      </p>
+      <p class="govuk-body">
+        Telephone: 03000 600001
+      </p>
+      <p class="govuk-body">
+        Email: <a href="mailto:aphascientific@apha.gov.uk">aphascientific@apha.gov.uk</a>
+      </p>
+
+    <h2 id="aphastar" class="govuk-heading-m">APHA Starcross Veterinary Investigation Centre</h2>
+
+      <p class="govuk-body">
+        Staplake Mount <br>
+        Starcross <br>
+        Devon <br>
+        EX6 8PE <br>
+      </p>
+      <p class="govuk-body">
+        Telephone: 03000 600020
+      </p>
+      <p class="govuk-body">
+        Email: <a href="mailto:starcross@apha.gov.uk">starcross@apha.gov.uk</a>
+      </p>
+
+    <h2 id="axiom" class="govuk-heading-m">Axiom Veterinary Laboratories Ltd</h2>
+
+      <p class="govuk-body">
+        Manor House <br>
+        Brunel Rd <br>
+        Newton Abbot <br>
+        TQ12 4PB <br>
+      </p>
+      <p class="govuk-body">
+        Telephone: 01626 355655
+      </p>
+      <p class="govuk-body">
+        Email: <a href="mailto:admin@axiomvetlab.co.uk">admin@axiomvetlab.co.uk</a>
+      </p>
+
+    <h2 id="biobest" class="govuk-heading-m">Biobest Laboratories</h2>
+
+      <p class="govuk-body">
+        6 Charles Darwin House <br>
+        The Edinburgh Technopole <br>
+        Milton Bridge <br>
+        EH26 0PY <br>
+      </p>
+      <p class="govuk-body">
+        Telephone: 0131 440 262
+      </p>
+      <p class="govuk-body">
+        Email: <a href="mailto:enquiry@biobest.co.uk">enquiry@biobest.co.uk</a>
+      </p>
+
+    <h2 id="cattleinfo" class="govuk-heading-m">Cattle Information Service</h2>
+
+      <p class="govuk-body">
+        Speir House <br>
+        Stafford Park 1 <br>
+        Telford <br>
+        Shropshire <br>
+        TF3 3BD <br>
+      </p>
+      <p class="govuk-body">
+        Telephone: 01923 695319
+      </p>
+      <p class="govuk-body">
+        Email: <a href="mailto:info@thecis.co.uk">info@thecis.co.uk</a>
+      </p>
+
+    <h2 id="farmlab" class="govuk-heading-m">FarmLab Diagnostics</h2>
+
+      <p class="govuk-body">
+        Emlagh Lodge <br>
+        Elphin <br>
+        Co Roscommon <br>
+        F45 VW89 <br>
+      </p>
+      <p class="govuk-body">
+        Telephone: 071 963 0792
+      </p>
+      <p class="govuk-body">
+        Email: <a href="mailto:info@farmlab.ie">info@farmlab.ie</a>
+      </p>
+
+    <h2 id="nml" class="govuk-heading-m">National Milk Laboratories (NML)</h2>
+
+      <p class="govuk-body">
+        Hillington Facility <br>
+        32 Kelvin Avenue <br>
+        Hillington Park <br>
+        Glasgow <br>
+        G52 4LT <br>
+      </p>
+      <p class="govuk-body">
+        Wolverhampton Facility (including transport) <br>
+        Laches Close <br>
+        Calibre Business Park <br>
+        Four Ashes <br>
+        Wolverhampton <br>
+        WV10 7DZ <br>
+      </p>
+      <p class="govuk-body">
+        Telephone: 01902 749920
+      </p>
+      <p class="govuk-body">
+        Email: <a href="mailto:milk@nmrp.com">milk@nmrp.com</a> <br>
+        Web: <a href="https://www.nmr.co.uk/" target="_blank">www.nmr.co.uk</a>
+      </p>
+
+    <h2 id="sruc" class="govuk-heading-m">SRUC Veterinary Services</h2>
+
+      <p class="govuk-body">
+        Health Schemes <br>
+        Greycrook <br>
+        St Boswells <br>
+        Roxburghshire <br>
+        TD6 0EQ <br>
+      </p>
+      <p class="govuk-body">
+        Telephone: 01835 822456
+      </p>
+      <p class="govuk-body">
+        Email: <a href="mailto:pchs1@btconnect.com">pchs1@btconnect.com</a>
+      </p>
+
+    <h2 id="wales" class="govuk-heading-m">Wales Veterinary Science Centre</h2>
+
+      <p class="govuk-body">
+        Buarth <br>
+        Aberystwyth <br>
+        Ceredigion <br>
+        SY23 1ND <br>
+      </p>
+      <p class="govuk-body">
+        Telephone: 01970 612374
+      </p>
+      <p class="govuk-body">
+        Contact form: <a href="https://www.wvsc.wales/#contact" target="_blank">www.wvsc.wales/#contact</a>
+      </p>
+
+    <!--Footer-->
+    <div class="app-back-to-top" style="margin: 50px 0 20px 0; border-top: 1px solid #b1b4b6; padding-top: 20px;" data-module="app-back-to-top">
+      <a class="govuk-link govuk-link--no-visited-state app-back-to-top__link" href="#top">
+        <svg role="presentation" focusable="false" class="app-back-to-top__icon" xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17">
+          <path fill="currentColor" d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path>
+        </svg>
+        Back to top
+      </a>
+    </div>
+
+  </div>
+<!--
+  <div class="govuk-grid-column-one-third">
+    <div class="gem-c-contextual-sidebar">
+      {% block sidebar %}
+      {% include "includes/publisher/transition-countdown.html" %}
+      {% include "includes/publisher/related-content.html" %}
+      {% endblock %}
+    </div>
+  </div>
+-->
+</div>
+
+{% endblock %}

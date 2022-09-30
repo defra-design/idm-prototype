@@ -100,6 +100,42 @@
 
         -->
 
+  <!-- ## MFA V.2
+    Adding small functionalities like:
+
+
+    by: shaleen sachdeva
+  ## -->
+
+  <!-- ## V2.0 - Register for an account / authenticate ## -->
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">
+
+            <a href="mfa-V2/scenarios">Register for an account / authenticate</a>
+          </td>
+          <td class="govuk-table__cell">
+            v 2.0
+          </td>
+          <td class="govuk-table__cell">
+            Sprint
+          </td>
+          <td class="govuk-table__cell">
+            <strong class="govuk-tag govuk-tag--blue">
+              Current 09/22
+            </strong>
+          </td>
+
+          <td class="govuk-table__cell">
+            <ol>
+              <li>MFA with phone number verification only</li>
+              <li>Exist pages</li>
+              <li>--</li>
+              <li>--</li>
+
+            </ol>
+          </td>
+        </tr>
+
 
         <tr class="govuk-table__row">
           <td scope="row" class="govuk-table__cell">
@@ -113,8 +149,8 @@
             Sprint 67 - 75
           </td>
           <td class="govuk-table__cell">
-            <strong class="govuk-tag govuk-tag--blue">
-              Current
+            <strong class="govuk-tag govuk-tag--orange">
+              Not current
             </strong>
           </td>
 
@@ -182,15 +218,50 @@
       </tbody>
     </table>
 
+    <!-- ## V2.0 - Errors ## -->
+    <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">Error pages (2.0)</caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Error type</th>
+          <th scope="col" class="govuk-table__header">Urls</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">404s/505s</th>
+          <td class="govuk-table__cell">
+            <ul class="govuk-list">
+
+              <li><a href="/errors/401-error" class="govuk-link--no-visited-state">401/403-error</a></li>
+              <li><a href="/errors/404-error" class="govuk-link--no-visited-state">404-error</a></li>
+              <li><a href="/errors/500-error" class="govuk-link--no-visited-state">500-error</a></li>
+              <li><a href="/errors/503-error" class="govuk-link--no-visited-state">503-error</a></li>
+          </td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">MFA - sms</th>
+          <td class="govuk-table__cell">
+            <ul class="govuk-list">
+              <li><a href="/errors-V2/select-one">You must select an option</a></li>
+              <li><a href="/errors-V2/too-short">The code entered must 8 digits</a></li>
+              <li><a href="/errors-V2/no-match">Code entered does not match code sent</a></li>
+              <li><a href="/errors-V2/exceeded-retries">You have reached max number of attempts</a></li>
+
+              <li><a href="/errors-V2/cannot-use-tel-no">Tel number format not supported</a></li>
+              <li><a href="/errors-V2/cannot-use-tel-no">No Telephone Numbers that can be used – Core Service - updated:30/09/2022 </a></li>
+              <li><a href="/errors-V2/cannot-use-tel-no-aw">No Telephone Numbers that can be used – Animal Welfare - updated:29/09/22</a></li>
+
+
+            </ul>
+          </td>
+        </tr>
 
 
 
 
 
-
-
-
-
+    <!-- ## Old Version ## -->
     <table class="govuk-table">
       <caption class="govuk-table__caption govuk-table__caption--m">Error pages</caption>
       <thead class="govuk-table__head">
@@ -219,11 +290,11 @@
               <li><a href="/errors/too-short">The code entered must 8 digits</a></li>
               <li><a href="/errors/no-match">Code entered does not match code sent</a></li>
               <li><a href="/errors/exceeded-retries">You have reached max number of attempts</a></li>
-    
+
               <li><a href="/errors/cannot-use-tel-no">Tel number format not supported</a></li>
               <li><a href="/errors/cannot-tel-no">No telephone numbers associated with this account</a></li>
               <li><a href="/errors/cannot-use-tel-no">No telephone numbers that can be used</a></li>
-            
+
 
             </ul>
           </td>
@@ -245,7 +316,7 @@
               <li><a href="/errors/no-secure-word">You do not have a secure word set up</a>
               </li>
             </ul>
-            
+
           </td>
         </tr>
 

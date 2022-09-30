@@ -1,0 +1,104 @@
+{% extends "layouts/layout.html" %}
+
+{% block pageTitle %}
+Index page
+{% endblock %}
+{% set serviceName %}
+Apply for an Annual Health and Welfare Review
+{% endset%}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:history.go(-1)">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-width-container">
+
+      <div class="govuk-width-container">
+        <h1 class="govuk-heading-l">Review your application</h1>
+
+        <p class="govuk-body">
+          You’re applying for beef cattle review for this business:
+        </p>
+        <div class="govuk-inset-text">
+          Arthington Farm Ltd.<br>
+          Primrose Ln, Arthington, Otley, LS21 1PH<br>
+          SBI: 234567890
+        </div>
+
+        <p>You confirm that:</p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>the livestock are registered in England</li>
+            <li>you’re the registered keeper</li>
+            <li>you’ll have 11 or more beef cattle at the time the vet does the review</li>
+          </ul><br>
+
+        <p>By applying for this funding you are entering into an agreement with the RPA.</p>
+        <p>You must:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>book your review within 12 months of the date your application</li>
+          <li>allow a vet to test for BVD</li>
+          <li>allow the vet to share the test results with Defra</li>
+        </ul><br>
+
+        <p>When the vet has submitted their record of the review, you’ll be notified by email.
+          You’ll need to sign in to the Rural Payments service to claim your payment.
+        </p>
+
+        <p>Keep paperwork, such as invoices, from the review
+          as the Rural Payments Agency (RPA) may ask to see it as part of this agreement.
+        </p>
+
+        <p>You’ll be asked to confirm:</p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>the date of the last visit to the farm for the review if the vet visited more than once</li>
+            <li>you agree with the vet’s record of the review</li>
+          </ul><br>
+
+        <p>By applying for this funding you’re entering into an agreement with the RPA.</p>
+
+        <p><a hef="#" class="govuk-link">Read the full terms and conditions</a></p>
+        <div class="govuk-form-group">
+          <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" type="checkbox" name="confirm" id="confirm" value="Declaration Accepted">
+              <label class="govuk-label govuk-checkboxes__label" for="confirm">
+                I have read and agree to the terms and conditions
+              </label>
+            </div>
+  <!--
+            <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                <label class="govuk-label govuk-checkboxes__label govuk-!-font-weight-bold govuk-checkboxes-long-label" for="agree">
+                  I agree to form an agreement with Defra
+                </label>
+              </div>
+
+              {{ govukButton({
+                text: "Submit application",
+                href: "confirmation"
+              }) }}
+  -->
+          </div>
+        </div>
+
+        <div class="govuk-!-margin-top-6">
+          <a href="confirmation" role="button" draggable="false" class="govuk-button docs-creator" data-module="govuk-button">
+            Submit application
+          </a>
+        </div>
+
+        <br>
+        <a class="govuk-link" hef="#">Print this page</a>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

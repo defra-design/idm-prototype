@@ -1,0 +1,46 @@
+{% extends "layout-signed-out.html" %}
+
+{% set serviceName = "Apply for an Annual Health and Welfare review" %}
+
+{% set title = "Verify your identity" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">{{ title }}</h1>
+    <p class="govuk-body">This is the number we will send the 6 digit verification code to.</p>
+    <h2 class="govuk-heading-m">xxxxxxxx478</h2>
+
+    <form action="get-code-sc2" method="post">
+
+
+
+
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+    </form>
+
+
+{{ govukDetails({
+  summaryText: "My number is not shown",
+  html: "You can find information on how to update your phone number on the the <a href=''>services help page</a>"
+}) }}
+
+  </div>
+</div>
+
+{% endblock %}

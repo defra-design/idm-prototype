@@ -1,0 +1,78 @@
+{% extends "layout-signed-out.html" %}
+
+{% set serviceName = "Defra identity" %}
+
+{% set title = "Verification successful" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <h1 class="govuk-heading-xl">{{ title }}</h1>
+
+    
+
+    <form action="account-page" method="post">
+
+  
+      {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+      {{ govukRadios({
+        idPrefix: "which-org",
+        name: "which-org",
+        fieldset: {
+          legend: {
+            text: "Choose an organisation to use",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "MC Squared Corp",
+            text: "MC Squared Corp"
+          },
+          {
+            value: "mcvities",
+            text: "Mc Vities"
+          },
+          {
+            value: "Drummonds Ltd",
+            text: "Drummonds Ltd"
+          }
+          
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Continue"
+        
+      }) }}
+
+
+     
+    </form>
+   
+
+    {{ govukButton({
+      text: "Add organisation",
+      classes: "govuk-button govuk-button--secondary",
+      url: "add-organisation"
+      
+    }) }}
+
+    {% include "includes/get-help.html" %}
+
+  </div>
+</div>
+
+{% endblock %}
