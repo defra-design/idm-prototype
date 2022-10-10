@@ -228,35 +228,57 @@
         </tr>
       </thead>
       <tbody class="govuk-table__body">
+
+
+
         <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header">404s/505s</th>
+          <th scope="row" class="govuk-table__header">CRN</th>
           <td class="govuk-table__cell">
             <ul class="govuk-list">
-
-              <li><a href="/errors/401-error" class="govuk-link--no-visited-state">401/403-error</a></li>
-              <li><a href="/errors/404-error" class="govuk-link--no-visited-state">404-error</a></li>
-              <li><a href="/errors/500-error" class="govuk-link--no-visited-state">500-error</a></li>
-              <li><a href="/errors/503-error" class="govuk-link--no-visited-state">503-error</a></li>
-          </td>
-        </tr>
-        <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header">MFA - sms</th>
-          <td class="govuk-table__cell">
-            <ul class="govuk-list">
-              <li><a href="/errors-V2/select-one">You must select an option</a></li>
-              <li><a href="/errors-V2/too-short">The code entered must 8 digits</a></li>
-              <li><a href="/errors-V2/no-match">Code entered does not match code sent</a></li>
-              <li><a href="/errors-V2/exceeded-retries">You have reached max number of attempts</a></li>
-
-              <li><a href="/errors-V2/cannot-use-tel-no">Tel number format not supported</a></li>
-              <li><a href="/errors-V2/cannot-use-tel-no">No Telephone Numbers that can be used – Core Service - updated:30/09/2022 </a></li>
-              <li><a href="/errors-V2/cannot-use-tel-no-aw">No Telephone Numbers that can be used – Animal Welfare - updated:29/09/22</a></li>
-
-
+              <li><a href="/errors-V2/crn-error-wrong-CRN">CRN number is not 10 digit</a></li>
+              <li><a href="/errors-V2/crn-error-no-password"> NO password</a></li>
+              <li><a href="/errors-V2/crn-error-no-CRN">NO CRN number</a></li>
+              <li><a href="/errors-V2/crn-error-no-password-CRN">Incorrect CRN number and password</a></li>
             </ul>
           </td>
         </tr>
 
+
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">MFA - sms</th>
+          <td class="govuk-table__cell">
+            <ul class="govuk-list">
+              <li><a href="/errors-V2/get-code-error-1">You must enter a verification code</a></li>
+              <li><a href="/errors-V2/get-code-error-2">The code entered must be 6 digits</a></li>
+              <li><a href="/errors-V2/get-code-error-3">Code entered does not match code sent</a></li>
+              <li><a href="/errors-V2/exceeded-retries">You have reached max number of attempts</a></li>
+              <li><a href="/errors-V2/cannot-use-tel-no">No Telephone Numbers that can be used – Core Service - updated:30/09/2022 </a></li>
+              <li><a href="/errors-V2/cannot-use-tel-no-aw">No Telephone Numbers that can be used – Animal Welfare - updated:29/09/22</a></li>
+            </ul>
+          </td>
+        </tr>
+
+
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">MFA - verfiy identity(phone)</th>
+          <td class="govuk-table__cell">
+            <ul class="govuk-list">
+              <li><a href="/errors-V2/-verify-system-issue">Phone number is incorrect</a></li>
+              <li><a href="/errors-V2/verify-wrong-number-2">SMS faliure </a></li>
+            </ul>
+          </td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Org selection</th>
+          <td class="govuk-table__cell">
+            <ul class="govuk-list">
+              <li><a href="/errors-V2/select-org">No organisation chosen - radio list</a></li>
+              <li><a href="/errors-V2/org-search-error">No organisation chosen - auto-suggest</a></li>
+
+            </ul>
+          </td>
+        </tr>
 
 
 

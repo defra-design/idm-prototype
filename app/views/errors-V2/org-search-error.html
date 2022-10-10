@@ -2,7 +2,7 @@
 
 {% set serviceName = "Apply for an Annual Health and Welfare review" %}
 
-{% set title = "Verification successful" %}
+{% set title = "Choose an organisation to use" %}
 
 {% block pageTitle %}
 {{title}} - GOV.UK
@@ -27,10 +27,7 @@
 {% endblock %}
 
 {% block beforeContent %}
-{{ govukBackLink({
-text: "Back",
-href: "javascript:history.back()"
-}) }}
+
 
 {% endblock %}
 
@@ -45,37 +42,36 @@ href: "javascript:history.back()"
           text: "You must select an organisation",
           href: "#"
         }
-        
+
       ]
     }) }}
     </div>
     </div>
 
     <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-grid-column-full">
 
 
     <h1 class="govuk-heading-xl">{{ title }}</h1>
-  
+     </div>
+    </div>
 
   
-
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
     <form action="account-page" method="post">
 
       <div class="govuk-form-group govuk-form-group--error">
-      <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
 
-        <h2 class="govuk-fieldset__heading">
-          Choose an organisation to use
-        </h2>
-
-      </legend>
+      <div id="waste-hint" class="govuk-hint">
+      Select or choose the organisation that you want to represent or act on behalf of for this service
+      </div>
 
       <p id="national-insurance-number-error" class="govuk-error-message">
         <span class="govuk-visually-hidden">Error:</span> You must select an organisation
       </p>
 
-      
+
 
         <select class="govuk-input govuk-input--error" id="org-picker">
           <option value="">Select an organisation</option>
@@ -134,7 +130,7 @@ href: "javascript:history.back()"
 
         </select>
 
-    
+
 
 
 
@@ -151,14 +147,6 @@ href: "javascript:history.back()"
     </form>
 
 
-
-
-    {{ govukButton({
-    text: "Add organisation",
-    classes: "govuk-button govuk-button--secondary",
-    url: "add-organisation"
-
-    }) }}
 
     {% include "includes/get-help.html" %}
 
