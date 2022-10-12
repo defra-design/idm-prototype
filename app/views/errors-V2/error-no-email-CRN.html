@@ -1,0 +1,111 @@
+{% extends "layout-signed-out.html" %}
+
+{% set serviceName = "Vets visits" %}
+
+{% set title = "Enter your email address" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:history.back()"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {% from "govuk/components/error-summary/macro.njk" import govukErrorSummary %}
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: [
+          {
+            text: "Enter your 10 digit Customer reference number (CRN)",
+            href: "#verify-code"
+          },
+          {
+            text: "Enter a postcode, like AA1 1AA",
+            href: "#postcode-input"
+          }
+        ]
+      }) }}
+
+
+      <h1 class="govuk-heading-xl">
+        {{ title }}
+      </h1>
+  <p class="govuk-body">We will send you a code by email that will allow you to reset your password.</p>
+
+
+
+  <p class="govuk-body">Enter the customer reference number and email address associated with annual health and welfare account review account.</p>
+
+      <form action="verify">
+
+
+  <div class="govuk-form-group">
+    <div class="govuk-form-group govuk-form-group--error">
+    <label class="govuk-label" for="crn">
+      Customer reference number (CRN)
+    </label>
+
+
+
+    <div id="crn-hint" class="govuk-hint">
+      This is the 10 digit number emailed to you when you created your annual health and welfare account review account.
+    </div>
+
+    <p id="national-insurance-number-error" class="govuk-error-message">
+      <span class="govuk-visually-hidden">Error:</span> Enter your 10 digit Customer reference number (CRN)
+    </p>
+
+  <input class="govuk-input govuk-!-width-full-width" id="crn" name="crn" type="text" aria-describedby="crn-hint">
+  </div>
+</div>
+
+
+
+  <div class="govuk-form-group">
+    <div class="govuk-form-group govuk-form-group--error">
+    <label class="govuk-label" for="password--">
+      Email
+    </label>
+
+    <p id="national-insurance-number-error" class="govuk-error-message">
+      <span class="govuk-visually-hidden">Error:</span> Enter your 10 digit Customer reference number (CRN)
+    </p>
+
+  <input class="govuk-input govuk-!-width-full-width" id="email--" name="email--" type="email">
+  </div>
+  </div>
+
+
+
+
+
+
+
+
+  <a href="enter-code" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+    Continue
+
+  </a>
+
+</form>
+
+
+
+
+
+
+    </div>
+  </div>
+
+{% endblock %}
