@@ -1,0 +1,45 @@
+{% extends "layout-signed-out.html" %}
+
+{% set serviceName = "There are no accounts found" %}
+
+
+
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <!-- {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }} -->
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">
+      There are no accounts you can access yet
+    </h1>
+
+  <p>You will need to contact your service and ask them to update your details.</p>
+
+  {{ govukDetails({
+    summaryText: "Help to contact your service",
+    html: "If you are having problem you can call the service on [Service Number] [Service Opening Hours](except public holidays).
+    Alternatively you can email the help desk: [service email]"
+  }) }}
+
+{{ govukButton({
+  text: "Sign out",
+  href:"/mfa/security-word"
+}) }}
+
+
+
+  </div>
+</div>
+
+{% endblock %}
