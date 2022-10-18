@@ -2,7 +2,7 @@
 
 {% set serviceName = "Defra identity" %}
 
-{% set title = "Choose an organisation to use" %}
+{% set title = "Select your business" %}
 
 {% block pageTitle %}
 {{title}} - GOV.UK
@@ -14,7 +14,8 @@
 <script type="text/javascript">
   accessibleAutocomplete.enhanceSelectElement({
     defaultValue: '',
-    selectElement: document.querySelector('#org-picker')
+    selectElement: document.querySelector('#org-picker'),
+    placeholder: 'Search for a business'
   })
 
 
@@ -46,20 +47,15 @@
 
     <form action="account-page" method="post">
 
-      <!--<legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-        <h2 class="govuk-fieldset__heading">
-          Choose an account
-        </h2>
-      </legend> -->
-
+      <p class="govuk-body">Businesses registered to your Rural Payments Agency (RPA) account are included in the following list.</p>
       <div id="waste-hint" class="govuk-hint">
-      Select or choose the organisation that you want to represent or act on behalf of for this service
+      Select the business that’s applying for an annual health and welfare review of livestock.
       </div>
 
       <div class="govuk-form-group">
 
         <select id="org-picker">
-          <option value="0">Search for an account</option>
+          <option value="0"></option>
           <option value="1">A James LLC</option>
           <option value="2">Antillo Fujam Gardens</option>
           <option value="3">Crest Jamet Homes Limited</option>
@@ -139,11 +135,21 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    {{ govukDetails({
-      summaryText: "Help with this page",
-      html: "If you are having problem you can call the service on [Service Number] [Service Opening Hours](except public holidays).
-      Alternatively you can email the help desk: [service email]"
-    }) }}
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          Need to update the list?
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        Vets Visits Agency <br>
+        Telephone: 03000 200 301 <br>
+        Monday to Friday, 8:30am to 5pm (except public holidays) <br>
+        <a href="mailto:ruralpayments@defra.gov.uk?subject=feedback">ruralpayments@defra.gov.uk</a>
+        <br><br>
+        <p class="govuk-body">Find out about <a href="">call charges.</p>
+      </div>
+    </details>
 
   </div>
 </div>

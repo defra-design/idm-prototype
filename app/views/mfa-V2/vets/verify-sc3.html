@@ -30,12 +30,21 @@
       }) }}
     </form>
 
-
-    {{ govukDetails({
-      summaryText: "Help with this page",
-      html: "If you are having problem you can call the service on [Service Number] [Service Opening Hours](except public holidays).
-      Alternatively you can email the help desk: [service email]"
-    }) }}
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          Help with this page
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        Vets Visits Agency <br>
+        Telephone: 03000 200 301 <br>
+        Monday to Friday, 8:30am to 5pm (except public holidays) <br>
+        <a href="mailto:ruralpayments@defra.gov.uk?subject=feedback">ruralpayments@defra.gov.uk</a>
+        <br><br>
+        <p class="govuk-body">Find out about <a href="">call charges.</p>
+      </div>
+    </details>
 
   </div>
 </div>
