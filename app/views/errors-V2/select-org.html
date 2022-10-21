@@ -1,8 +1,8 @@
-{% extends "layout-signed-out.html" %}
+{% extends "layout-blank.html" %}
 
 {% set serviceName = "Defra identity" %}
 
-{% set title = "Choose an organisation to use" %}
+{% set title = "Select your business" %}
 
 {% block pageTitle %}
   {{title}} - GOV.UK
@@ -22,7 +22,7 @@
       <div class="govuk-error-summary__body">
         <ul class="govuk-list govuk-error-summary__list">
           <li>
-            <a href="#">You must choose an organisation</a>
+            <a href="#">You must select a business</a>
           </li>
 
         </ul>
@@ -35,6 +35,7 @@
       <div class="govuk-grid-column-full">
 
         <h1 class="govuk-heading-xl">{{ title }}</h1>
+        <p>Businesses registered to your Rural Payments Agency (RPA) account are included in the following list.</p>
 
     <form action="account-page">
 
@@ -58,7 +59,7 @@
           errorMessage:
           {
             classes: "govuk-!-width-two-thirds",
-            text: "You must choose an organisation"
+            text: "You must select a business"
           },
 
             items: [
@@ -147,15 +148,21 @@
     </div>
   </div>
 
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
-        {{ govukDetails({
-          summaryText: "Help with this page",
-          html: "If you are having problem you can call the service on [Service Number] [Service Opening Hours](except public holidays).
-          Alternatively you can email the help desk: [service email]"
-        }) }}
-
-      </div>
+  <details class="govuk-details" data-module="govuk-details">
+    <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">
+        Need to update the list?
+      </span>
+    </summary>
+    <div class="govuk-details__text">
+      Contact the Rural Payments Agency.<br><br>
+      Rural Payments Agency <br>
+      Telephone: 03000 200 301 <br>
+      Monday to Friday, 8:30am to 5pm (except public holidays) <br>
+      <a href="mailto:ruralpayments@defra.gov.uk?subject=feedback">ruralpayments@defra.gov.uk</a>
+      <br><br>
+      <p class="govuk-body">Find out about <a href="https://www.gov.uk/call-charges" target=”_blank”>call charges</p>
     </div>
+  </details>
 
     {% endblock %}

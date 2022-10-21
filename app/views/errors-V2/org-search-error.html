@@ -1,8 +1,8 @@
-{% extends "layout-signed-out.html" %}
+{% extends "layout-blank.html" %}
 
 {% set serviceName = "Defra identity" %}
 
-{% set title = "Choose an organisation to use" %}
+{% set title = "Select your business" %}
 
 {% block pageTitle %}
 {{title}} - GOV.UK
@@ -15,7 +15,7 @@
   accessibleAutocomplete.enhanceSelectElement({
     defaultValue: '',
     selectElement: document.querySelector('#org-picker'),
-    placeholder:'Search for an account'
+    placeholder:'Search for a business'
   })
 </script>
 
@@ -38,7 +38,7 @@
     <div class="govuk-error-summary__body">
       <ul class="govuk-list govuk-error-summary__list">
         <li>
-          <a href="#passport-issued-day">You must choose an organisation</a>
+          <a href="#passport-issued-day">You must select a business</a>
         </li>
       </ul>
     </div>
@@ -52,18 +52,17 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
+    <p>Businesses registered to your Rural Payments Agency (RPA) account are included in the following list.</p>
     <div class="govuk-form-group govuk-form-group--error">
 
     <form action="account-page" method="post">
 
-
-
       <div id="waste-hint" class="govuk-hint">
-      Select or choose the organisation that you want to represent or act on behalf of for this service
+      Select the business that’s applying for an annual health and welfare review of livestock.
       </div>
 
       <p id="national-insurance-number-error" class="govuk-error-message">
-        <span class="govuk-visually-hidden">Error:</span> You must choose an organisation
+        <span class="govuk-visually-hidden">Error:</span>You must select a business
       </p>
 
       <div class="govuk-form-group">
@@ -148,16 +147,22 @@
 
 
 
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    {{ govukDetails({
-      summaryText: "Help with this page",
-      html: "If you are having problem you can call the service on [Service Number] [Service Opening Hours](except public holidays).
-      Alternatively you can email the help desk: [service email]"
-    }) }}
-
-  </div>
-</div>
+  <details class="govuk-details" data-module="govuk-details">
+    <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">
+        Need to update the list?
+      </span>
+    </summary>
+    <div class="govuk-details__text">
+      Contact the Rural Payments Agency.<br><br>
+      Rural Payments Agency <br>
+      Telephone: 03000 200 301 <br>
+      Monday to Friday, 8:30am to 5pm (except public holidays) <br>
+      <a href="mailto:ruralpayments@defra.gov.uk?subject=feedback">ruralpayments@defra.gov.uk</a>
+      <br><br>
+      <p class="govuk-body">Find out about <a href="https://www.gov.uk/call-charges" target=”_blank”>call charges</p>
+    </div>
+  </details>
 
 
 <!-- AUTOCOMPLETE SCRIPT -->
