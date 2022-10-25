@@ -1,0 +1,386 @@
+{% set tocPage = "guide" %}
+
+{% set mainClasses = "guide govuk-!-padding-top-0 govuk-!-padding-bottom-0" %}
+
+{% extends "layouts/layout.html" %}
+
+{% block head %}
+{% include "includes/publisher/head.html" %}
+{% endblock %}
+
+{% block pageTitle %}
+Guidance for vets
+{% endblock %}
+{% set serviceName %}
+How to carry out an annual livestock health and welfare review
+{% endset%}
+
+
+{% block header %}
+{% include "includes/publisher/header.html" %}
+{% include "includes/publisher/global-bar.html" %}
+{% endblock %}
+
+
+{% block beforeContent %}
+
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="https://www.gov.uk">Home</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      ...
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="../">Annual health and welfare review</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link">Guidance for vets</a>
+    </li>
+  </ol>
+  </div>
+{% endblock %}
+
+
+{% block content %}
+
+<style>
+  .navigation-container {
+    padding: 20px 0 20px 0;
+    margin-top: 30px;
+    border-top: 1px solid #b1b4b6
+  }
+  .list-item--dashed:before {
+    content: "—";
+    position: relative ;
+    left: 0;
+    width: 20px;
+    padding-right: 10px;
+    overflow: hidden;
+  }
+</style>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <span class="govuk-caption-xl gem-c-title__context govuk-!-margin-top-9">Guidance</span>
+    <h1 class="govuk-heading-xl">
+      Vets: carry out an annual health and welfare review of livestock
+    </h1>
+
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <p class="govuk-body govuk-!-font-size-24">
+      Vets who want to carry out an annual health and welfare review can find out about 
+      endemic disease and condition testing, data collection and other areas you could discuss.
+    </p>
+
+    <aside class="navigation-container">
+        <ul class="govuk-list govuk-body-s">
+        <li>Contents</li>
+        <li class="list-item--dashed"><a href="#arrangereview">Arrange a review</a></li>
+        <li class="list-item--dashed"><a href="#endemic">Endemic disease and condition testing</a></li>
+        <li class="list-item--dashed"><a href="#advice">Health and welfare advice</a></li>
+        <li class="list-item--dashed"><a href="#biosecurity">Biosecurity</a></li>
+        <li class="list-item--dashed"><a href="#medicine">Medicine usage</a></li>
+        <li class="list-item--dashed"><a href="#report">Written report</a></li>
+        <li class="list-item--dashed"><a href="#record">Data to collect and record</a></li>
+        <li class="list-item--dashed"><a href="#invoice">Invoicing</a></li>
+        <li class="list-item--dashed"><a href="#funding">Funding</a></li>
+        <li class="list-item--dashed"><a href="#training">Refresher training resources</a></li>
+      </ul>
+    </aside>
+
+    <p class="govuk-body">
+      The aim of the annual health and welfare review is for a vet or vet-led team to help a farmer:
+    </p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>reduce endemic diseases and conditions </li>
+      <li>increase animal productivity</li>
+      <li>improve animal welfare</li>
+    </ul>
+    <p class="govuk-body">The review is not an inspection or audit and it is optional.</p>
+
+    <p class="govuk-body">
+      A farmer is eligible for an annual vet-led health and welfare review if they keep:
+    </p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>11 or more beef cattle</li>
+      <li>11 or more dairy cattle</li>
+      <li>21 or more sheep</li>
+      <li>51 or more pigs</li>
+    </ul>
+
+  <h2 id="arrangereview" class="govuk-heading-m">Arrange a review</h2>
+
+    <p class="govuk-body">
+      The farmer will contact you to arrange a review for the livestock type they have selected and give you a reference number. 
+      You'll need this reference number to record information after the review.
+    </p>
+
+    <p class="govuk-body">
+      The review can take up to 3 hours of your time and the farmer’s time. 
+      You can spread the review over several regular visits to the farm or do it in a single visit.
+    </p>
+
+    <p class="govuk-body">You must:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>carry out endemic disease and condition testing</li>
+      <li>provide a written report, including recommended follow-up actions and the test results</li>
+    </ul>
+
+    <p class="govuk-body">
+      You must discuss one or more of the following as part of the review:
+    </p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>health and welfare</li>
+      <li>biosecurity</li>
+      <li>medicine usage</li>
+    </ul>
+
+    <p class="govuk-body">
+      You do not need to cover all of these areas. 
+      The review is flexible, so you can focus on 
+      the most important areas for the farm 
+      in the 2 to 3 hours you visit the farm.
+    </p>
+
+    <p class="govuk-body">You should agree with the farmer:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>when you’ll carry out the review</li>
+      <li>what you’ll do</li>
+      <li>what you’ll discuss</li>
+    </ul>
+
+  <h2 id="endemic" class="govuk-heading-m">Endemic disease and condition testing</h2>
+
+    <p class="govuk-body">
+      You must carry out testing for the livestock type the farmer has selected for review. 
+      You must test for one of the following: 
+    </p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>bovine viral diarrhoea (BVD) in dairy and beef cattle</li>
+      <li>the effectiveness of worming treatments in sheep</li>
+      <li>porcine reproductive and respiratory syndrome (PRRS) in pigs</li>
+    </ul>
+
+    <p class="govuk-body">
+      You do not need to test for other medical conditions or diseases.
+    </p>
+
+    <p class="govuk-body">
+      Read the 
+      <a class="govuk-link" href="guidance/technical">
+        technical guidance on disease and endemic condition testing
+      </a>
+       for the review.
+    </p>
+
+    <p class="govuk-body">
+      You must send the sample to  
+      <a class="govuk-link" href="guidance/technical">a laboratory approved by the Department for Environment, Food and Rural Affairs (Defra) for review testing</a>.
+    </p>
+    <p class="govuk-body">
+      The farmer can use these test results for other accreditation schemes they’re a member of. 
+      They cannot use other accreditation scheme test results to apply for the annual health and welfare review.
+    </p>
+
+
+  <h2 id="advice" class="govuk-heading-m">Health and welfare advice</h2>
+
+    <p class="govuk-body">
+      Depending on the farm, you may choose to give advice on issues 
+      such as lameness, body conditioning or mobility scoring.
+    </p>
+    <p class="govuk-body">
+      Work with the farmer to improve the health and productivity of their animals. 
+      Discuss some easy wins and some more ambitious targets
+      to improve the health and welfare of their livestock. 
+    </p>
+
+  <h2 id="biosecurity" class="govuk-heading-m">Biosecurity</h2>
+
+    <p class="govuk-body">
+      Depending on the farm, you may choose to review biosecurity measures.
+      Discuss the benefits of good biosecurity and any recommendations for improving it.
+    </p>
+
+    <p class="govuk-body">For external biosecurity this may include:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>purchasing policies</li>
+      <li>farm visitors and vehicles</li>
+      <li>wildlife</li>
+      <li>interaction with other farm animals</li>
+      <li>quarantine plans</li>
+    </ul>
+
+    <p class="govuk-body">For internal biosecurity this may include:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>feed stores</li>
+      <li>contaminated water</li>
+      <li>sheds</li>
+      <li>isolation of sick stock</li>
+      <li>movement control</li>
+      <li>training farm workers</li>
+    </ul>
+
+  <h2 id="medicine" class="govuk-heading-m">Medicine usage</h2>
+
+    <p class="govuk-body">
+      Depending on the farm, you may choose to review farm medicines, 
+      including how to prescribe and use them.
+    </p>
+
+    <p class="govuk-body">You could discuss:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>recommendations about medicines used on the farm, including antibiotics and vaccinations</li>
+      <li>preventative medicines, including how and when they should be used as well as information on how to store them</li>
+      <li>the value of testing over treating and why the right diagnostics can save money</li>
+    </ul>
+
+    <p class="govuk-body">
+      You can tell the farmer about the 
+      <a class="govuk-link" href="https://ahdb.org.uk/medicine-hub" target="_blank">Agriculture and Horticulture Development Board (AHDB) Medicine Hub</a>
+      . Explain how it can help them and encourage them to register if they haven’t already.
+    </p>
+
+  <h2 id="report" class="govuk-heading-m">Written report</h2>
+
+    <p class="govuk-body">
+      You must give the farmer recommendations and actions in a written report.
+      The report should explain:
+    </p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>endemic disease or condition testing results</li>
+      <li>other review findings - for example, biosecurity recommendations, medicine usage advice 
+        or suggested species-specific health and welfare actions</li>
+      <li>agreed achievable actions to address issues raised by the review or testing 
+        - likely to be 2 to 3 but can be more or less based on individual needs</li>
+    </ul>
+
+    <p class="govuk-body">
+      You can create a separate review report or 
+      you can integrate the recommendations and actions into an existing health and welfare document.
+    </p>
+
+    <p class="govuk-body">
+      Make sure you can identify the review recommendation and actions if you integrate it.
+    </p>
+
+    <p class="govuk-body">
+      The farmer and vet will need to read over what was agreed each year to be able to monitor progress 
+      when the next review is carried out.
+    </p>
+
+  <h2 id="record" class="govuk-heading-m">Data to collect and record</h2>
+
+    <p class="govuk-body">
+      After the review, you (or a member of your team) must share some information with Defra. 
+      You need to confirm:
+    </p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>date of farm visit</li>
+      <li>livestock type reviewed</li>
+      <li>number of animals reviewed</li>
+      <li>endemic disease or condition test results</li>
+      <li>you’ve given the farmer the written report - do not share the report itself</li>
+    </ul>
+
+    <p class="govuk-body">
+      Test result information will help Defra get a better understanding 
+      of the health and welfare of the national herds and flocks.
+    </p>
+
+    <p class="govuk-body">The information:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>will be anonymised and stored securely online</li>
+      <li>will not be used for site visits or other compliance checks</li>
+    </ul>
+
+    <p class="govuk-body">
+      Recording information takes around 5 minutes.
+      <a href="review/start">Record information about an annual health and welfare review of livestock.</a>
+    </p>
+
+    <p class="govuk-body">
+      After you submit the information, the farmer can claim funding to help pay for the review.
+    </p>
+
+  <h2 id="invoice" class="govuk-heading-m">Invoicing</h2>
+
+    <p class="govuk-body">
+      Invoice the farmer using your normal process.
+      Your invoice must include the costs for:
+    </p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>endemic disease and condition testing</li>
+      <li>your time</li>
+    </ul>
+
+  <h2 id="funding" class="govuk-heading-m">Funding</h2>
+
+    <p class="govuk-body">
+      A farmer will get funding for each livestock type, not for each animal. 
+      They’ll get: 
+    </p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>£522 for a beef cattle review</li>
+      <li>£372 for a dairy cattle review</li>
+      <li>£436 for a sheep review</li>
+      <li>£684 for a pig review</li>
+    </ul>
+
+    <p class="govuk-body">
+      The funding amount for each livestock type is different because: 
+    </p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>testing may take longer for some livestock types</li>
+      <li>some results cost more to analyse</li>
+    </ul>
+
+    <p class="govuk-body">
+      This funding will cover the endemic disease and condition testing costs 
+      and will contribute towards the costs for:
+    </p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>the vet’s time</li>
+      <li>the farmer’s time</li>
+    </ul>
+
+  <h2 id="training" class="govuk-heading-m">Refresher training resources</h2>
+
+    <p class="govuk-body">
+      If you’re reviewing a livestock type that you’re not familiar with or 
+      have not reviewed in a long time, you can 
+      <a class="govuk-link" href="https://ahdb.org.uk/tools" target="_blank">
+        use these refresher training resources to learn more before you carry out a review
+      </a>.
+    </p>
+
+    <!--Footer-->
+    <div class="app-back-to-top" style="margin: 20px 0 20px 0; border-top: 1px solid #b1b4b6; padding-top: 20px;" data-module="app-back-to-top">
+      <a class="govuk-link govuk-link--no-visited-state app-back-to-top__link" href="#top">
+        <svg role="presentation" focusable="false" class="app-back-to-top__icon" xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17">
+          <path fill="currentColor" d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path>
+        </svg>
+        Back to top
+      </a>
+
+    </div>
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+    <div class="gem-c-contextual-sidebar">
+      {% block sidebar %}
+      {% include "includes/publisher/transition-countdown.html" %}
+      {% include "includes/publisher/related-content.html" %}
+      {% endblock %}
+    </div>
+  </div>
+  </div>
+
+{% endblock %}

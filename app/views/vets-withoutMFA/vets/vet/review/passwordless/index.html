@@ -1,0 +1,403 @@
+{% extends "layouts/layout.html" %}
+
+{% block pageTitle %}
+Record data from an Annual Health and Welfare Review
+{% endblock %}
+
+{% block header %}
+<!-- Blank header with no service name for the start page -->
+{{ govukHeader() }}
+{% endblock %}
+
+<!-- Adds spacing for pages without a back button -->
+{% set mainClasses = "govuk-main-wrapper--l" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <span class="govuk-caption-xl">Prototypes</span>
+    <h1 class="govuk-heading-xl">Record data from an Annual Health and Welfare Review</h1>
+
+    <h2 class="govuk-heading-m govuk-!-margin-top-6">
+      Exploring the 'vet' journey
+    </h2>
+
+
+    <table class="govuk-table">
+
+
+
+      <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+      <th class="govuk-table__header" scope="col">Sprint 10</th>
+      <th class="govuk-table__header" scope="col">User journeys</th>
+      <th class="govuk-table__header" scope="col">What we want to learn</th>
+      </tr>
+      </thead>
+
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header"><p>January</p></th>
+          <td class="govuk-table__cell">
+            <ul class="govuk-list">
+              <li><a href="../ahw/vet/10/pigs/visit-date">Data collection pigs only (excluding disease)</a></li>
+            </ul>
+          </td>
+          <td class="govuk-table__cell">
+            <ul class="govuk-list">
+              <li>Assumption and design to test - IF farmer applied for sheep only review we only show that journey for the vet to complete. This ensures Farmer and vet journeys, intent and actions marry up. We can explore any exceptions or new requirements to this baseline as we learn.
+        <li>Assumption and design to test - this is enough data to be of value to start (MVP) to the pathways team realting to national herd data and disease data.</li>
+      </ul></td>
+
+        </tr>
+
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header"><p>January</p></th>
+          <td class="govuk-table__cell">
+            <ul class="govuk-list">
+              <li><a href="../ahw/vet/10/sheep/visit-date">Data collection sheep only (excluding disease)</a></li>
+            </ul>
+          </td>
+          <td class="govuk-table__cell">
+            <ul class="govuk-list">
+              <li>Assumption and design to test - IF farmer applied for sheep only review we only show that journey for the vet to complete. This ensures Farmer and vet journeys, intent and actions marry up. We can explore any exceptions or new requirements to this baseline as we learn.
+        <li>Assumption and design to test - this is enough data to be of value to start (MVP) to the pathways team realting to national herd data and disease data.</li>
+      </ul></td>
+
+        </tr>
+
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header"><p>January</p></th>
+          <td class="govuk-table__cell">
+            <ul class="govuk-list">
+              <li><a href="../ahw/vet/10/beef/visit-date">Data collection beef cattle only</a></li>
+            </ul>
+          </td>
+          <td class="govuk-table__cell">
+            <ul class="govuk-list">
+              <li>Assumption and design to test - IF farmer applied for beef cattle only review we only show that journey for the vet to complete. This ensures Farmer and vet journeys, intent and actions marry up. We can explore any exceptions or new requirements to this baseline as we learn.
+        <li>Assumption and design to test - this is enough data to be of value to start (MVP) to the pathways team realting to national herd data and disease data.</li>
+      </ul></td>
+
+        </tr>
+
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header"><p>January</p></th>
+            <td class="govuk-table__cell">
+              <ul class="govuk-list">
+                <li><a href="../ahw/vet/10/dairy/visit-date">Data collection dairy cattle only</a></li>
+              </ul>
+            </td>
+            <td class="govuk-table__cell">
+              <ul class="govuk-list">
+                <li>Assumption and design to test - IF farmer applied for dairy cattle only review we only show that journey for the vet to complete. This ensures Farmer and vet journeys, intent and actions marry up. We can explore any exceptions or new requirements to this baseline as we learn.
+          <li>Assumption and design to test - this is enough data to be of value to start (MVP) to the pathways team realting to national herd data and disease data.</li>
+        </ul></td>
+
+          </tr>
+
+
+        <th scope="row"><p></p><br><br></th>
+
+
+
+
+
+
+
+
+
+
+      <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+      <th class="govuk-table__header" scope="col">Sprint 9</th>
+      <th class="govuk-table__header" scope="col">User journeys</th>
+      <th class="govuk-table__header" scope="col">What we want to learn</th>
+      </tr>
+      </thead>
+
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header"><p>December</p></th>
+          <td class="govuk-table__cell">
+            <ul class="govuk-list">
+              <li><a href="../ahw/vet/9/passwordless/start">Vet records and completes review (cattle)</a></li>
+            </ul>
+          </td>
+          <td class="govuk-table__cell">
+            <ul class="govuk-list">
+              <li>Assumption - recording data without signin in is quick and easy for a vet.
+                <li>Assumption - this level of data collection is useful to Defra (AHW data teams/policy) and easy and relevant for the vet to record.</li>
+                <li>Testing unique reference number process to link <a href="../ahw/apply/8/confirmation">(farmer) apply</a> with (vet) data record (this journey). Exploring vet and farmer passing this between themselves offline.</li>
+                <li>Assumption - first version number and disease collection for beef and dairy can be the same?</li>
+          </ul></td>
+        </tr>
+
+
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header"><p>December</p></th>
+          <td class="govuk-table__cell">
+            <ul class="govuk-list">
+              <li><a href="../ahw/vet/9/beef/cows-bvd-present">Data collection - disease only. MVP?</a></li>
+            </ul>
+          </td>
+          <td class="govuk-table__cell">
+            <ul class="govuk-list">
+              <li>(no numbers) If farmer has applied for an AHWR for cattle
+          </ul></td>
+        </tr>
+
+
+        <th scope="row"><p></p><br><br></th>
+
+
+
+
+
+
+
+
+
+
+
+      <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+      <th class="govuk-table__header" scope="col">Sprint 8</th>
+      <th class="govuk-table__header" scope="col">User journeys</th>
+      <th class="govuk-table__header" scope="col">What we want to learn</th>
+      </tr>
+      </thead>
+
+
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header"><p>November</p></th>
+          <td class="govuk-table__cell">
+            <ul class="govuk-list">
+              <li><a href="../ahw/vet/8/beef/numbers/numbers-herd-and-type">If Beef only (in apply and CPH?)</a></li>
+            </ul>
+          </td>
+          <td class="govuk-table__cell">
+            <ul class="govuk-list">
+              <li>(low level numbers) Example of how we could collect livestock type number data.
+          </ul></td>
+        </tr>
+
+
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header"><p>November</p></th>
+          <td class="govuk-table__cell">
+            <ul class="govuk-list">
+              <li><a href="../ahw/vet/8/beef/numbers-herd">If Beef or dairy only (in apply and CPH?)</a></li>
+            </ul>
+          </td>
+          <td class="govuk-table__cell">
+            <ul class="govuk-list">
+              <li>(high level numbers) Assumption - to record accurate on farm picture (using data) we will need to ask about livestock type and numbers with disease and vaccination data.</li>
+              <li>Assumption - if disease focused BVD data collection is the same journey if beef or dairy</li>
+              <li>Looking at one livestock type journey at a time to begin (then can combine).</li>
+          </ul></td>
+        </tr>
+
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header"><p>November</p></th>
+            <td class="govuk-table__cell">
+              <ul class="govuk-list">
+                <li><a href="../ahw/vet/8/sheep/numbers-herd-sheep">If sheep only (in apply and CPH?)</a></li>
+              </ul>
+            </td>
+            <td class="govuk-table__cell">
+              <ul class="govuk-list">
+                <li>(high level numbers) Partial journey - Tracey looking at disease requirements for results and vaccines.</li>
+
+            </ul></td>
+          </tr>
+
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header"><p>November</p></th>
+              <td class="govuk-table__cell">
+                <ul class="govuk-list">
+                  <li><a href="../ahw/vet/8/pigs/numbers-herd">If pigs only (in apply and CPH?)</a></li>
+                </ul>
+              </td>
+              <td class="govuk-table__cell">
+                <ul class="govuk-list">
+                  <li>(high level numbers)</li>
+              </ul></td>
+            </tr>
+
+
+
+
+        <th scope="row"><p></p><br><br></th>
+
+
+
+
+      <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+      <th class="govuk-table__header" scope="col">Sprint 6-7</th>
+      <th class="govuk-table__header" scope="col">User journeys</th>
+      <th class="govuk-table__header" scope="col">What we want to learn</th>
+      </tr>
+      </thead>
+
+
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header"><p>November</p></th>
+          <td class="govuk-table__cell">
+            <ul class="govuk-list">
+              <li><a href="../ahw/vet/start">If Beef (in apply and CPH?) - livestock type and numbers data collection</a></li>
+            </ul>
+          </td>
+          <td class="govuk-table__cell">
+            <ul class="govuk-list">
+              <li>Assumption - to record accurate on farm data we will need to ask about livestock type and numbers (rather than rely on existing data. And that existing data is too dispersed. The livestock info service is addressing that).</li>
+          </ul></td>
+        </tr>
+
+
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header"><p>November</p></th>
+          <td class="govuk-table__cell">
+            <ul class="govuk-list">
+              <li><a href="../ahw/vet/cows-bvd-present">BVD data input</a></li>
+            </ul>
+          </td>
+          <td class="govuk-table__cell">
+            <ul class="govuk-list">
+              <li>Assumption is BVD journey is there for vet when ref number is entered IF it was selected in the farmer apply journey and the livestock type exists in the CPH from apply journey. If we work on one master data set we can understand any problems with this in testing.</li>
+          </ul></td>
+        </tr>
+
+
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header"><p>November</p></th>
+            <td class="govuk-table__cell">
+              <ul class="govuk-list">
+                <li><a href="../ahw/vet/pigs/pigs-prrs-present">PRRS data input</a></li>
+              </ul>
+            </td>
+            <td class="govuk-table__cell">
+              <ul class="govuk-list">
+                <li>Assumption is PRRS journey is there for vet when ref number is entered IF it was selected in the farmer apply journey and the livestock type exists in the CPH from apply journey. If we work on one master data set we can understand any problems with this in testing.</li>
+            </ul></td>
+          </tr>
+
+
+           <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header"><p>November</p></th>
+              <td class="govuk-table__cell">
+                <ul class="govuk-list">
+                  <li><a href="../ahw/vet/passwordless/start">Passwordless</a></li>
+                </ul>
+              </td>
+              <td class="govuk-table__cell">
+                <ul class="govuk-list">
+                  <li>Assumption - data entry can be done in one journey without the need for a registration process</li>
+              </ul></td>
+            </tr>
+
+            <tbody class="govuk-table__body">
+             <tr class="govuk-table__row">
+               <th scope="row" class="govuk-table__header"><p>November</p></th>
+               <td class="govuk-table__cell">
+                 <ul class="govuk-list">
+                   <li><a href="../ahw/vet/passwordless/passwordless-email">Email</a></li>
+                 </ul>
+               </td>
+               <td class="govuk-table__cell">
+                 <ul class="govuk-list">
+                   <li>Assumption - data entry can be done in one journey without the need for a registration process</li>
+               </ul></td>
+             </tr>
+
+
+            <!-- <th scope="row"><p></p><br><br></th>  -->
+
+
+
+
+
+
+  </table>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="govuk-grid-column-one-third">
+    <aside class="app-related-items" role="complementary">
+      <h2 class="govuk-heading-m" id="subsection-title">
+        Related content
+      </h2>
+      <nav role="navigation" aria-labelledby="subsection-title">
+        <h3 class="govuk-heading-s">Resources</h3>
+        <ul class="govuk-list govuk-!-font-size-16">
+          <li>
+            <a href="https://defra.sharepoint.com/:x:/r/sites/MST-Defra-SustainableFarmingIncentive2022ProductTeam/_layouts/15/Doc.aspx?sourcedoc=%7BB2E55787-6DC5-46B2-BCBC-3F986E87CC46%7D&file=User%20insights%20and%20needs.xlsx&action=default&mobileredirect=true" target="_blank">
+              User insight and needs
+            </a>
+          </li>
+          <li>
+            <a href="https://eaflood.atlassian.net/wiki/spaces/SFI/pages/3588849665/Vet+Visits" target="_blank">
+              Project Confluence
+            </a>
+          </li>
+          <li>
+            <a href="https://defra.sharepoint.com/sites/MST-Defra-SustainableFarmingIncentive2022ProductTeam/Shared%20Documents/Forms/AllItems.aspx?viewid=c001e37e%2D0f18%2D46ce%2D96ab%2D4070d6882140&id=%2Fsites%2FMST%2DDefra%2DSustainableFarmingIncentive2022ProductTeam%2FShared%20Documents%2FAnimal%20Health%20and%20Welfare&CT=1631111182054&OR=OWA%2DNT&CID=770c6880%2Daf78%2D57d2%2D1344%2Ddb0aacf43184" target="_blank">
+              Team Sharepoint
+            </a>
+          </li>
+        </ul>
+        <h3 class="govuk-heading-s">Design assets</h3>
+        <ul class="govuk-list govuk-!-font-size-16">
+          <li>
+            <a href="https://docs.google.com/drawings/d/1dJIH_7FlDCVj9FPC81DJtrJRtm9TfHJh4p1cxyoT1gs/edit" target="_blank">
+              FFC funding landscape</a>
+          </li>
+          <li>
+            <a href="https://miro.com/app/board/o9J_l8p42uA=/">Miro board</a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+  </div>
+
+</div>
+
+{% endblock %}

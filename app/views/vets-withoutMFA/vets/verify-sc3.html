@@ -1,0 +1,54 @@
+{% extends "layout-blank.html" %}
+
+{% set serviceName = "Apply for an Annual Health and Welfare review" %}
+
+{% set title = "Verify your identity" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">{{ title }}</h1>
+    <p class="govuk-body">This is the number we will send the 6 digit verification code to.</p>
+    <p class="govuk-body">It may take a few minutes to arrive.</p>
+    <h2 class="govuk-heading-m">xxxxxxxx478</h2>
+
+    <form action="get-code-sc3" method="post">
+
+
+
+
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+    </form>
+
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          Help with this page
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        Contact the Rural Payments Agency.<br><br>
+        Rural Payments Agency <br>
+        Telephone: 03000 200 301 <br>
+        Monday to Friday, 8:30am to 5pm (except public holidays) <br>
+        <a href="mailto:ruralpayments@defra.gov.uk?subject=feedback">ruralpayments@defra.gov.uk</a>
+        <br><br>
+        <p class="govuk-body">Find out about <a href="https://www.gov.uk/call-charges" target=”_blank”>call charges</p>
+      </div>
+    </details>
+
+  </div>
+</div>
+
+{% endblock %}

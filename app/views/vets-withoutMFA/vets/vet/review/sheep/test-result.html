@@ -1,0 +1,50 @@
+{% extends "layouts/layout.html" %}
+
+{% block pageTitle %}
+Question page
+{% endblock %}
+{% set serviceName %}
+Record data from an Annual Health and Welfare Review
+{% endset%}
+
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:history.go(-1)">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" method="post">
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="eligibility-sheep-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                What was the percentage reduction in eggs per gram (EPG) from pre- to post- worming treatment?
+              </h1>
+            </legend>
+
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="two-thirds">
+                Percentage
+              </label>
+              <input class="govuk-input govuk-!-width-two-thirds" id="two-thirds" name="two-thirds" type="text">
+            </div>
+
+          </fieldset>
+        </div>
+
+        {{ govukButton({
+          text: "Continue",
+          href: "report"
+        }) }}
+
+      </form>
+
+    </div>
+
+
+{% endblock %}
