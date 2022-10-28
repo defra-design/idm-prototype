@@ -1,18 +1,14 @@
-{% extends "layout-signed-out.html" %}
+{% extends "layout-blank.html" %}
 
 {% set serviceName = "Vets visits" %}
 
-{% set title = "Enter your email address" %}
+{% set title = "Reset your password" %}
 
 {% block pageTitle %}
   {{title}} - GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
-{{ govukBackLink({
-  text: "Back",
-  href: "javascript:history.back()"
-}) }}
 
 {% endblock %}
 
@@ -27,27 +23,26 @@
         titleText: "There is a problem",
         errorList: [
           {
-            text: "Enter your email",
+            text: "Enter your email address",
             href: "#verify-code"
           }
         ]
       }) }}
 
-
       <h1 class="govuk-heading-xl">
         {{ title }}
       </h1>
-  <p class="govuk-body">We will send you a code by email that will allow you to reset your password.</p>
+  <p class="govuk-body">Enter the customer reference number (CRN) and email address associated with your Rural Payments Agency (RPA) account.</p>
 
-  <p class="govuk-body">Enter the customer reference number and email address associated with annual health and welfare account review account.</p>
+  <p class="govuk-body">We will send a verification code to this email. You can use this code to reset your password.</p>
 
-<form action="verify">
+  <form action="verify">
+
 
   <div class="govuk-form-group">
     <label class="govuk-label" for="crn">
-      Customer reference number (CRN)
+      Enter your Customer reference number (CRN)
     </label>
-
 
 
     <div id="crn-hint" class="govuk-hint">
@@ -59,41 +54,46 @@
 
 
 
-
-  <div class="govuk-form-group">
-    <div class="govuk-form-group govuk-form-group--error">
+  <div class="govuk-form-group govuk-form-group--error">
     <label class="govuk-label" for="password--">
-      Email
+      Enter email address
     </label>
 
     <p id="national-insurance-number-error" class="govuk-error-message">
-      <span class="govuk-visually-hidden">Error:</span> Enter your email
-    </p>
+      <span class="govuk-visually-hidden">Error:</span> Enter your email address</p>
 
-  <input class="govuk-input govuk-!-width-full-width govuk-input govuk-input--error" id="email--" name="email--" type="email">
+  <input class="govuk-input govuk-!-width-full-width govuk-input--error" id="email--" name="email--" type="email">
   </div>
-  </div>
-
-
-
-
-
-
 
 
   <a href="enter-code" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
-    Continue
-
-  </a>
+    Continue</a>
 
 </form>
 
 
-
-
-
-
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+        Need help with the page?
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        Contact the Rural Payments Agency.<br><br>
+        Rural Payments Agency  <br>
+        Telephone: 03000 200 301 <br>
+        Monday to Friday, 8:30am to 5pm (except public holidays) <br>
+        <a href="mailto:ruralpayments@defra.gov.uk?subject=feedback">ruralpayments@defra.gov.uk</a>
+        <br><br>
+        <p class="govuk-body">Find out about <a href="https://www.gov.uk/call-charges" target=”_blank”>call charges</p>
+      </div>
+    </details>
     </div>
   </div>
+
+</div>
+</div>
 
 {% endblock %}

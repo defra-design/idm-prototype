@@ -1,4 +1,4 @@
-{% extends "layout-signed-out.html" %}
+{% extends "layout-blank.html" %}
 
 {% set serviceName = "Vets visits" %}
 
@@ -9,10 +9,6 @@
 {% endblock %}
 
 {% block beforeContent %}
-{{ govukBackLink({
-  text: "Back",
-  href: "javascript:history.back()"
-}) }}
 
 {% endblock %}
 
@@ -26,15 +22,25 @@
       titleText: "There is a problem",
       errorList: [
         {
-          text: "The code entered is incorrect",
+          text: "The verification code entered does not match the code sent",
           href: "#verify-code"
         }
       ]
     }) }}
 
-    <h1 class="govuk-heading-xl">{{ title }}</h1>
+  </div>
+</div>
 
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <p>We’ve sent an email with a verification code to ted.barns@cattlemoovement.org.</p>
+    <p>It may take a few minutes to arrive.</p>
+    <p>If you do not get an email check your spam or junk folders</p>
+  </div>
+</div>
 
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
     <form action="new-password" method="post">
 
 
@@ -46,7 +52,7 @@
         },
 
         errorMessage: {
-          text: "The code entered is incorrect"
+          text: "The verification code entered does not match the code sent"
         },
 
         id: "account-number",
@@ -60,12 +66,6 @@
 
       }) }}
 
-      {{ govukDetails({
-        summaryText: "I have not received the email",
-        html: '<p>The email may take a few minutes to arrive. Its subject line is: ‘Confirm your email address - Defra’.</p>
-        <p>Check your spam or junk folder.</p>'
-      }) }}
-
 
       {{ govukButton({
         text: "Continue"
@@ -73,10 +73,27 @@
 
 
     </form>
-    {{ govukButton({
-      text: "Send another code",
-      classes: "govuk-button govuk-button--secondary"
-    }) }}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+            Need help with the page?
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            Contact the Rural Payments Agency.<br><br>
+            Rural Payments Agency  <br>
+            Telephone: 03000 200 301 <br>
+            Monday to Friday, 8:30am to 5pm (except public holidays) <br>
+            <a href="mailto:ruralpayments@defra.gov.uk?subject=feedback">ruralpayments@defra.gov.uk</a>
+            <br><br>
+            <p class="govuk-body">Find out about <a href="https://www.gov.uk/call-charges" target=”_blank”>call charges</p>
+          </div>
+        </details>
+        </div>
+      </div>
 
 
 
