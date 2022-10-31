@@ -59,11 +59,12 @@
 
 
     </form>
-    {{ govukButton({
-      text: "Send another code",
-      classes: "govuk-button govuk-button--secondary"
-    }) }}
-
+    
+    <form action="enter-code-new" method="post">
+      <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+        Resend code
+      </button>
+    </form>
 
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
