@@ -1,8 +1,8 @@
-{% extends "layout-signed-out.html" %}
+{% extends "layout-blank.html" %}
 
 {% set serviceName = "Apply for an Annual Health and Welfare review" %}
 
-{% set title = "Verify your identity" %}
+{% set title = "Enter your verification code" %}
 
 {% block pageTitle %}
   {{title}} - GOV.UK
@@ -10,35 +10,29 @@
 
 {% block beforeContent %}
 
+
 {% endblock %}
 
 {% block content %}
 
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
+  <div class="govuk-grid-column-full">
 
     <h1 class="govuk-heading-xl">{{ title }}</h1>
+  </div>
 
-
+  <div class="govuk-grid-column-two-thirds">
     <form action="get-code-success-sc2" method="post">
 
+      <p class="govuk-body">We’ve sent you a text message with a 6 digit verification code.</p>
+      <p class="govuk-body">It may take a few minutes to arrive.</p>
+      <p class="govuk-body">The code will expire in 10 minutes.</p>
 
-      {% from "govuk/components/input/macro.njk" import govukInput %}
-
-      {{ govukInput({
-        label: {
-          text: "Enter the 6 digit code sent to xxxxxxxx478."
-        },
-        id: "account-number",
-  name: "account-number",
-  inputmode: "numeric",
-  pattern: "[0-9]*",
-  spellcheck: false,
-        classes: "govuk-!-width-two-thirds",
-        id: "verify",
-        name: "verify-code"
-
-      }) }}
+    <div class="govuk-form-group">
+      <div class="govuk-input__wrapper">
+        <input class="govuk-input govuk-input--width-20" id="cost" name="cost" type="text" spellcheck="false">
+      </div>
+    </div>
 
 
       {{ govukButton({
@@ -47,16 +41,32 @@
 
 
     </form>
+
+    <br>
+
+    <p class="govuk-body">If you’ve not received a text message or the verification code has expired</p>
     {{ govukButton({
-      text: "Send another code",
+      text: "Resend code",
       classes: "govuk-button govuk-button--secondary"
     }) }}
 
-    {{ govukDetails({
-      summaryText: "Help with this page",
-      html: "If you are having problem you can call the service on [Service Number] [Service Opening Hours](except public holidays).
-      Alternatively you can email the help desk: [service email]"
-    }) }}
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          If you’re having problems getting a verification code
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        Contact the [Service name].<br><br>
+        [Service name]  <br>
+        [Service telephone number] <br>
+        [Service Opening Hours](except public holidays) <br>
+        [Service email address]
+        <a href="mailto:ruralpayments@defra.gov.uk?subject=feedback">ruralpayments@defra.gov.uk</a>
+        <br><br>
+        <p class="govuk-body">Find out about <a href="https://www.gov.uk/call-charges" target=”_blank”>call charges</p>
+      </div>
+    </details>
 
   </div>
 </div>

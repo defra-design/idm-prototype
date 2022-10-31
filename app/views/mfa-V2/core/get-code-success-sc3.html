@@ -2,7 +2,7 @@
 
 {% set serviceName = "Defra identity" %}
 
-{% set title = "Choose an organisation to use" %}
+{% set title = "Select your business" %}
 
 {% block pageTitle %}
 {{title}} - GOV.UK
@@ -15,7 +15,7 @@
   accessibleAutocomplete.enhanceSelectElement({
     defaultValue: '',
     selectElement: document.querySelector('#org-picker'),
-    placeholder: 'Search for an account'
+    placeholder: 'Search for a business'
   })
 
 
@@ -45,16 +45,12 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
+    <p>Businesses registered to your [Service name] account are included in the following list.</p>
+
     <form action="account-page" method="post">
 
-      <!--<legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-        <h2 class="govuk-fieldset__heading">
-          Choose an account
-        </h2>
-      </legend> -->
-
       <div id="waste-hint" class="govuk-hint">
-      Select or choose the organisation that you want to represent or act on behalf of for this service
+      Select the business that you want to represent or act on behalf of for this service
       </div>
 
       <div class="govuk-form-group">
@@ -127,10 +123,12 @@
       }) }}
 
 
-
-
     </form>
 
+    {{ govukButton({
+      text: "Add a new business",
+      classes: "govuk-button govuk-button--secondary"
+    }) }}
 
   </div>
 </div>
@@ -138,11 +136,24 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    {{ govukDetails({
-      summaryText: "Help with this page",
-      html: "If you are having problem you can call the service on [Service Number] [Service Opening Hours](except public holidays).
-      Alternatively you can email the help desk: [service email]"
-    }) }}
+
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          Need to update the list?
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        Contact the [Service name].<br><br>
+        [Service name]  <br>
+        [Service telephone number] <br>
+        [Service Opening Hours](except public holidays) <br>
+        [Service email address]
+        <a href="mailto:ruralpayments@defra.gov.uk?subject=feedback">ruralpayments@defra.gov.uk</a>
+        <br><br>
+        <p class="govuk-body">Find out about <a href="https://www.gov.uk/call-charges" target=”_blank”>call charges</p>
+      </div>
+    </details>
 
   </div>
 </div>

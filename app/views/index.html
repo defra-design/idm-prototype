@@ -235,10 +235,14 @@
           <th scope="row" class="govuk-table__header">CRN</th>
           <td class="govuk-table__cell">
             <ul class="govuk-list">
+              <li><a href="/errors-V2/500-error">500-error</a></li>
+              ---
               <li><a href="/errors-V2/crn-error-wrong-CRN">CRN is not 10 digit</a></li>
               <li><a href="/errors-V2/crn-error-no-password"> No password is entered</a></li>
               <li><a href="/errors-V2/crn-error-no-CRN">No CRN is entered</a></li>
               <li><a href="/errors-V2/crn-error-no-password-CRN">Incorrect CRN and password</a></li>
+              ---
+              <li><a href="/errors-V2/account-locked">Account locked (reached maximum number of attempts)</a></li>
             </ul>
           </td>
         </tr>
@@ -293,9 +297,12 @@
               <li><a href="/errors-V2/error-no-email"> No email is entered</a></li>
               <li><a href="/errors-V2/error-no-CRN">No CRN number is entered</a></li>
               <li><a href="/errors-V2/error-email-format">Wrong email address format</a></li>
+              <li><a href="/errors-V2/error-CRN-password">CRN and password not recognised</a></li>
+              <li><a href="/errors-V2/">Unable to send code</a> (need discussion)</li>
               --
               <li><a href="/errors-V2/error-enter-code">You must enter a verification code</a></li>
-              <li><a href="/errors-V2/error-code6-digit">The code entered must be 6 digits</a> (need calrification)</li>
+              <li><a href="/errors-V2/error-code6-digit">The code entered must be 6 digits</a></li>
+              <li><a href="/errors-V2/error-code-limit">Code limit reached</a></li>
               <li><a href="/errors-V2/error-wrong-code">Code entered does not match code sent</a></li>
               --
               <li><a href="/errors-V2/error-password-requirement">Password requirement not met</a></li>

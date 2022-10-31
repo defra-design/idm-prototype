@@ -21,7 +21,7 @@
       titleText: "There is a problem",
       errorList: [
         {
-          text: "You must enter a verification code",
+          text: "Cannot request another code. Try again later",
           href: "#verify-code"
         }
       ]
@@ -52,7 +52,7 @@
         },
 
         errorMessage: {
-          text: "Enter a verification code"
+          text: "Cannot request another code. Try again later"
         },
 
         id: "account-number",
@@ -73,6 +73,7 @@
 
 
     </form>
+
     {{ govukButton({
       text: "Send another code",
       classes: "govuk-button govuk-button--secondary"
