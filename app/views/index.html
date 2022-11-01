@@ -235,14 +235,14 @@
           <th scope="row" class="govuk-table__header">CRN</th>
           <td class="govuk-table__cell">
             <ul class="govuk-list">
-              <li><a href="/errors-V2/500-error">500-error</a></li>
+              <li><a href="/errors-V2/error-CRN/500-error">500-error</a></li>
               ---
-              <li><a href="/errors-V2/crn-error-wrong-CRN">CRN is not 10 digit</a></li>
-              <li><a href="/errors-V2/crn-error-no-password"> No password is entered</a></li>
-              <li><a href="/errors-V2/crn-error-no-CRN">No CRN is entered</a></li>
-              <li><a href="/errors-V2/crn-error-no-password-CRN">Incorrect CRN and password</a></li>
+              <li><a href="/errors-V2/error-CRN/crn-error-wrong-CRN">CRN is not 10 digit</a></li>
+              <li><a href="/errors-V2/error-CRN/crn-error-no-password"> No password is entered</a></li>
+              <li><a href="/errors-V2/error-CRN/crn-error-no-CRN">No CRN is entered</a></li>
+              <li><a href="/errors-V2/error-CRN/crn-error-no-password-CRN">Incorrect CRN and password</a></li>
               ---
-              <li><a href="/errors-V2/account-locked">Account locked (reached maximum number of attempts)</a></li>
+              <li><a href="/errors-V2/error-CRN/account-locked">Account locked (reached maximum number of attempts)</a></li>
             </ul>
           </td>
         </tr>
@@ -252,9 +252,9 @@
           <th scope="row" class="govuk-table__header">MFA - verfiy identity(phone)</th>
             <td class="govuk-table__cell">
               <ul class="govuk-list">
-              <li><a href="/errors-V2/verify-wrong-number-2">Phone number is incorrect</a></li>
-              <li><a href="/errors-V2/verify-system-issue">SMS faliure </a></li>
-              <li><a href="/errors-V2/error-verify-multiple-numbers">Verfiy multiple numbers - core journey</a></li>
+              <li><a href="/errors-V2/error-MFA/verify-wrong-number-2">Phone number is incorrect</a></li>
+              <li><a href="/errors-V2/error-MFA/verify-system-issue">SMS faliure </a></li>
+              <li><a href="/errors-V2/error-MFA/error-verify-multiple-numbers">Verfiy multiple numbers - core journey</a></li>
               </ul>
             </td>
         </tr>
@@ -263,13 +263,13 @@
           <th scope="row" class="govuk-table__header">MFA - sms</th>
           <td class="govuk-table__cell">
             <ul class="govuk-list">
-              <li><a href="/errors-V2/get-code-error-1">You must enter a verification code</a></li>
-              <li><a href="/errors-V2/get-code-error-2">The code entered must be 6 digits</a></li>
-              <li><a href="/errors-V2/get-code-error-3">Code entered does not match code sent</a></li>
-              <li><a href="/errors-V2/get-code-error-4">Code entered is expired</a></li>
-              <li><a href="/errors-V2/exceeded-retries">You have reached max number of attempts</a></li>
-              <li><a href="/errors-V2/cannot-use-tel-no">No Telephone Numbers that can be used – Core Service </a></li>
-              <li><a href="/errors-V2/cannot-use-tel-no-aw">No Telephone Numbers that can be used – Animal Welfare</a></li>
+              <li><a href="/errors-V2/error-MFA/get-code-error-1">You must enter a verification code</a></li>
+              <li><a href="/errors-V2/error-MFA/get-code-error-2">The code entered must be 6 digits</a></li>
+              <li><a href="/errors-V2/error-MFA/get-code-error-3">Code entered does not match code sent</a></li>
+              <li><a href="/errors-V2/error-MFA/get-code-error-4">Code entered is expired</a></li>
+              <li><a href="/errors-V2/error-MFA/exceeded-retries">You have reached max number of attempts</a></li>
+              <li><a href="/errors-V2/error-MFA/cannot-use-tel-no">No Telephone Numbers that can be used – Core Service </a></li>
+              <li><a href="/errors-V2/error-MFA/cannot-use-tel-no-aw">No Telephone Numbers that can be used – Animal Welfare</a></li>
             </ul>
           </td>
         </tr>
@@ -293,20 +293,36 @@
           <th scope="row" class="govuk-table__header">Forgot password journey</th>
           <td class="govuk-table__cell">
             <ul class="govuk-list">
-              <li><a href="/errors-V2/error-wrong-CRN">CRN number is not 10 digit</a></li>
-              <li><a href="/errors-V2/error-no-email"> No email is entered</a></li>
-              <li><a href="/errors-V2/error-no-CRN">No CRN number is entered</a></li>
-              <li><a href="/errors-V2/error-email-format">Wrong email address format</a></li>
-              <li><a href="/errors-V2/error-CRN-password">CRN and password not recognised</a></li>
-              <li><a href="/errors-V2/">Unable to send code</a> (need discussion)</li>
+              <li><a href="/errors-V2/error-password/error-wrong-CRN">CRN number is not 10 digit</a></li>
+              <li><a href="/errors-V2/error-password/error-no-email"> No email is entered</a></li>
+              <li><a href="/errors-V2/error-password/error-no-CRN">No CRN number is entered</a></li>
+              <li><a href="/errors-V2/error-password/error-email-format">Wrong email address format</a></li>
+              <li><a href="/errors-V2/error-password/error-CRN-password">CRN and password not recognised</a></li>
+              <li><a href="/errors-V2/error-password/error-OTP">Unable to send code</a></li>
               --
-              <li><a href="/errors-V2/error-enter-code">You must enter a verification code</a></li>
-              <li><a href="/errors-V2/error-code6-digit">The code entered must be 6 digits</a></li>
-              <li><a href="/errors-V2/error-code-limit">Code limit reached</a></li>
-              <li><a href="/errors-V2/error-wrong-code">Code entered does not match code sent</a></li>
+              <li><a href="/errors-V2/error-password/error-enter-code">You must enter a verification code</a></li>
+              <li><a href="/errors-V2/error-password/error-code6-digit">The code entered must be 6 digits</a></li>
+              <li><a href="/errors-V2/error-password/error-code-limit">Code limit reached</a></li>
+              <li><a href="/errors-V2/error-password/error-wrong-code">Code entered does not match code sent</a></li>
               --
-              <li><a href="/errors-V2/error-password-requirement">Password requirement not met</a></li>
-              <li><a href="/errors-V2/error-no-password-match">Passwords do not match</a></li>
+              <li><a href="/errors-V2/error-password/error-password-requirement">Password requirement not met</a></li>
+              <li><a href="/errors-V2/error-password/error-no-password-match">Passwords do not match</a></li>
+            </ul>
+          </td>
+        </tr>
+
+
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Forgot password journey V2-2</th>
+          <td class="govuk-table__cell">
+            <ul class="govuk-list">
+              <li><a href="/errors-V2/error-password-V2-2/error-enter-code-v2-2">You must enter a verification code</a></li>
+              <li><a href="/errors-V2/error-password-V2-2/error-code6-digit">The code entered must be 6 digits</a></li>
+              <li><a href="/errors-V2/error-password-V2-2/error-code-limit">Code limit reached</a></li>
+              <li><a href="/errors-V2/error-password-V2-2/error-wrong-code">Code entered does not match code sent</a></li>
+              --
+              <li><a href="/errors-V2/error-password-V2-2/error-password-requirement">Password requirement not met</a></li>
+              <li><a href="/errors-V2/error-password-V2-2/error-no-password-match">Passwords do not match</a></li>
             </ul>
           </td>
         </tr>

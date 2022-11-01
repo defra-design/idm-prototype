@@ -1,6 +1,6 @@
-{% extends "layout-signed-out.html" %}
+{% extends "layout-blank.html" %}
 
-{% set serviceName = "Defra identity" %}
+{% set serviceName = "Apply for an Annual Health and Welfare review" %}
 
 {% set title = "Select your business" %}
 
@@ -45,7 +45,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <p>Businesses registered to your [Service name] account are included in the following list.</p>
+    <p>Businesses registered to your account are included in the following list.</p>
 
     <form action="account-page" method="post">
 
@@ -149,7 +149,6 @@
         [Service telephone number] <br>
         [Service Opening Hours](except public holidays) <br>
         [Service email address]
-        <a href="mailto:ruralpayments@defra.gov.uk?subject=feedback">ruralpayments@defra.gov.uk</a>
         <br><br>
         <p class="govuk-body">Find out about <a href="https://www.gov.uk/call-charges" target=”_blank”>call charges</p>
       </div>

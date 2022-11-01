@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set title = "You will be signed out in 15 minutes" %}
+{% set title = "Unable to send verification code " %}
 
 {% block header %}
 {{ govukHeader({ serviceName: "" }) }}
@@ -29,13 +29,14 @@
       background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
     }
 
+
     /* Modal Content */
     .modal-content {
       background-color: #fefefe;
       margin: auto;
-      padding: 20px;
+      padding: 30px;
       border: 1px solid #888;
-      width: 80%;
+      width: 40%;
     }
 
     /* The Close Button */
@@ -102,18 +103,18 @@
     <!-- Modal content -->
     <div class="modal-content" role="dialog" id="dialog1" aria-labelledby="dialog1_label" aria-modal="true">
       <span id="close" class="close">&times;</span>
-      <h1 class="govuk-heading-xl govuk-!-margin-bottom-4">
+      <h1 class="govuk-heading-l govuk-!-margin-bottom-4">
         {{title}}
     </h1>
-    <p class="govuk-body">We will not be able to save your data and you will lose what has been entered. We do this to keep your information secure.</p>
+    <p class="govuk-body">We were not be able to send you a verification code.<br> Press 'resend code' or try again later</p>
 
 
     {{ govukButton({
-        text: "Stay signed in",
-        href: "../mfa/account-page"
+        text: "Resend code",
+        href: ""
       }) }}
 
-      <a class="govuk-body govuk-!-margin-left-3" href="you-have-signed-out">Completely sign out</a>
+      <!-- <a class="govuk-body govuk-!-margin-left-3" href="you-have-signed-out">Completely sign out</a> -->
 
     </div>
 
