@@ -387,7 +387,7 @@ router.get('/mfa-V2/sms-email', function (req, res) {
   if (telNum === 'send-sms') {
     res.redirect('get-code-v2')
   } else {
-    res.redirect('/mfa-v2/core/security-word')
+    res.redirect('/mfa-V2/core/security-word')
   }
 })
 
