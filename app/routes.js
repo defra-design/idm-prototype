@@ -380,7 +380,7 @@ router.get('/mfa/sms-email', function (req, res) {
 
 
 // routing for phone or email v2
-router.get('/mfa-v2/sms-email', function (req, res) {
+router.get('/mfa-V2/sms-email', function (req, res) {
   // Make a variable from session data
   var telNum = req.session.data['verify-your-identity']
   // route depending on value
