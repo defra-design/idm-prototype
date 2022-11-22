@@ -32,63 +32,77 @@ href: "javascript:history.back()"
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-<!-- CONTENTS LIST -->
+    <!-- CONTENTS LIST -->
 
-<nav class="nhsuk-contents-list" role="navigation" aria-label="Pages in this guide">
-  <h2 class="govuk-heading-m nhsuk-u-visually-hidden">Service</h2>
-  <ol class="nhsuk-contents-list__list">
-
-    <li class="nhsuk-contents-list__item">
-      <a class="nhsuk-contents-list__link" href="">Registration & Authentication (Core Service)</a>
-    </li>
-    <li class="nhsuk-contents-list__item">
-      <a class="nhsuk-contents-list__link" href="#ahwr">Annual health and welfare review</a>
-    </li>
-    <!-- <li class="nhsuk-contents-list__item">
-      <a class="nhsuk-contents-list__link" href="#rpa">Rural payments service</a>
-    </li> -->
-
-  </ol>
-</nav>
+    <nav class="nhsuk-contents-list" role="navigation" aria-label="Pages in this guide">
+      <h2 class="govuk-heading-m nhsuk-u-visually-hidden">Service</h2>
+      <ol class="nhsuk-contents-list__list">
+        <li class="nhsuk-contents-list__item">
+          <a class="nhsuk-contents-list__link" href="">Registration & Authentication (Core Service)</a>
+        </li>
+        <li class="nhsuk-contents-list__item">
+          <a class="nhsuk-contents-list__link" href="#ahwr">Annual health and welfare review</a>
+        </li>
+      </ol>
+    </nav>
 
 
   </div>
 
 </div>
 
+
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-one-third"></div>
+  <div class="govuk-grid-column-full">
+    <h2 id="ahwr" class="govuk-heading-l">Registration</h2>
+  </div>
+</div>
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-one-third">
-      <div class="govuk-card govuk-card--contained govuk-card--selectable">
-        <a href=""></a>
-        <div class="govuk-card__content">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-third">
+    <div class="govuk-card govuk-card--contained govuk-card--selectable">
+      <a href=""></a>
+      <div class="govuk-card__content">
 
-          <p class="govuk-body">User wants to register for a service, has Gov gateway account</p>
-        </div>
-        <div class="govuk-card__actions">
-          <ul class="govuk-list govuk-!-mb-r0">
-            <li><a href="gov-gateway/login" class="govuk-link--no-visited-state">View</a></li>
-          </ul>
-        </div>
+        <p class="govuk-body">User wants to register for a service, has Gov gateway account</p>
       </div>
-
-    </div>
-    <div class="govuk-grid-column-one-third">
-      <div class="govuk-card govuk-card--contained govuk-card--selectable">
-        <a href=""></a>
-        <div class="govuk-card__content">
-
-          <p class="govuk-body">User wants to register for a service, has no Gov gateway account</p>
-        </div>
-        <div class="govuk-card__actions">
-          <ul class="govuk-list govuk-!-mb-r0">
-            <li><a href="/tasked/gov-gateway/login" class="govuk-link--no-visited-state">View</a></li>
-          </ul>
-        </div>
+      <div class="govuk-card__actions">
+        <ul class="govuk-list govuk-!-mb-r0">
+          <li><a href="gov-gateway/login" class="govuk-link--no-visited-state">View</a></li>
+        </ul>
       </div>
     </div>
+
+  </div>
+  <div class="govuk-grid-column-one-third">
+    <div class="govuk-card govuk-card--contained govuk-card--selectable">
+      <a href=""></a>
+      <div class="govuk-card__content">
+
+        <p class="govuk-body">User wants to register for a service, has no Gov gateway account</p>
+      </div>
+      <div class="govuk-card__actions">
+        <ul class="govuk-list govuk-!-mb-r0">
+          <li><a href="/tasked/gov-gateway/login" class="govuk-link--no-visited-state">View</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h2 id="ahwr" class="govuk-heading-l">Authentication</h2>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+
 
   <div class="govuk-grid-column-one-third">
     <div class="govuk-card govuk-card--contained govuk-card--selectable">
@@ -138,9 +152,43 @@ href: "javascript:history.back()"
 
   </div>
 
+
+
+  <div class="govuk-grid-column-one-third">
+    <div class="govuk-card govuk-card--contained govuk-card--selectable">
+      <a href=""></a>
+      <div class="govuk-card__content">
+
+        <p class="govuk-body">User can authenticate with email - single organisation</p>
+      </div>
+      <div class="govuk-card__actions">
+        <ul class="govuk-list govuk-!-mb-r0">
+          <li><a href="/mfa-V2/core/verify-single-number" class="govuk-link--no-visited-state">View</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+
 </div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div class="govuk-!-padding-bottom-8"></div>
+
+
 
 <!-- VETS VISITS with MFA -->
 <div class="govuk-grid-row">
@@ -155,7 +203,6 @@ href: "javascript:history.back()"
 
 
   <div class="govuk-grid-column-one-third">
-
     <div class="govuk-card govuk-card--contained govuk-card--selectable">
       <a href=""></a>
       <div class="govuk-card__content">
@@ -168,7 +215,6 @@ href: "javascript:history.back()"
         </ul>
       </div>
     </div>
-
   </div>
 
 
@@ -208,10 +254,75 @@ href: "javascript:history.back()"
 
 <div class="govuk-!-padding-bottom-8"></div>
 
-  <!-- VETS VISITS without MFA -->
+<!-- VETS VISITS without MFA -->
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h2 id="ahwr" class="govuk-heading-l">Annual animal health and welfare review - without MFA</h2>
+  </div>
+</div>
+
+
+<!-- SCENARIOS -->
+<div class="govuk-grid-row">
+
+
+  <div class="govuk-grid-column-one-third">
+
+    <div class="govuk-card govuk-card--contained govuk-card--selectable">
+      <a href=""></a>
+      <div class="govuk-card__content">
+
+        <p class="govuk-body">Farmer applies for a welfare review - has single account</p>
+      </div>
+      <div class="govuk-card__actions">
+        <ul class="govuk-list govuk-!-mb-r0">
+          <li><a href="/vets-withoutMFA/guidance?scenario=sc1">View</a></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+
+  <div class="govuk-grid-column-one-third">
+    <div class="govuk-card govuk-card--contained govuk-card--selectable">
+      <a href=""></a>
+      <div class="govuk-card__content">
+
+        <p class="govuk-body">Farmer applies for welfare review - has 20 accounts</p>
+      </div>
+      <div class="govuk-card__actions">
+        <ul class="govuk-list govuk-!-mb-r0">
+          <li><a href="/vets-withoutMFA/guidance?scenario=sc2">View</a></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+    <div class="govuk-card govuk-card--contained govuk-card--selectable">
+      <a href=""></a>
+      <div class="govuk-card__content">
+
+        <p class="govuk-body">Farmer applies for welfare review - has 45 organisations</p>
+      </div>
+      <div class="govuk-card__actions">
+        <ul class="govuk-list govuk-!-mb-r0">
+          <li><a href="/vets-withoutMFA/guidance?scenario=sc3">View</a></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+
+  <div class="govuk-!-padding-bottom-8"></div>
+
+  <!-- FORGOT PASSWORD JOURNEY -->
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
-      <h2 id="ahwr" class="govuk-heading-l">Annual animal health and welfare review - without MFA</h2>
+      <h2 id="ahwr" class="govuk-heading-l">Forgot Password Joruney</h2>
     </div>
   </div>
 
@@ -226,28 +337,11 @@ href: "javascript:history.back()"
         <a href=""></a>
         <div class="govuk-card__content">
 
-          <p class="govuk-body">Farmer applies for a welfare review - has single account</p>
+          <p class="govuk-body">Forgot password journey</p>
         </div>
         <div class="govuk-card__actions">
           <ul class="govuk-list govuk-!-mb-r0">
-            <li><a href="/vets-withoutMFA/guidance?scenario=sc1">View</a></li>
-          </ul>
-        </div>
-      </div>
-
-    </div>
-
-
-    <div class="govuk-grid-column-one-third">
-      <div class="govuk-card govuk-card--contained govuk-card--selectable">
-        <a href=""></a>
-        <div class="govuk-card__content">
-
-          <p class="govuk-body">Farmer applies for welfare review - has 20 accounts</p>
-        </div>
-        <div class="govuk-card__actions">
-          <ul class="govuk-list govuk-!-mb-r0">
-            <li><a href="/vets-withoutMFA/guidance?scenario=sc2">View</a></li>
+            <li><a href="/password-V2/enter-email">View</a></li>
           </ul>
         </div>
       </div>
@@ -255,69 +349,21 @@ href: "javascript:history.back()"
     </div>
 
     <div class="govuk-grid-column-one-third">
+
       <div class="govuk-card govuk-card--contained govuk-card--selectable">
         <a href=""></a>
         <div class="govuk-card__content">
 
-          <p class="govuk-body">Farmer applies for welfare review - has 45 organisations</p>
+          <p class="govuk-body">Forgot password journey <br>(with verification and password on same page)</p>
         </div>
         <div class="govuk-card__actions">
           <ul class="govuk-list govuk-!-mb-r0">
-            <li><a href="/vets-withoutMFA/guidance?scenario=sc3">View</a></li>
+            <li><a href="/password-V2-2/enter-email">View</a></li>
           </ul>
         </div>
       </div>
 
     </div>
-
-
-    <div class="govuk-!-padding-bottom-8"></div>
-
-      <!-- FORGOT PASSWORD JOURNEY -->
-      <div class="govuk-grid-row">
-        <div class="govuk-grid-column-full">
-          <h2 id="ahwr" class="govuk-heading-l">Forgot Password Joruney</h2>
-        </div>
-      </div>
-
-
-      <!-- SCENARIOS -->
-      <div class="govuk-grid-row">
-
-
-        <div class="govuk-grid-column-one-third">
-
-          <div class="govuk-card govuk-card--contained govuk-card--selectable">
-            <a href=""></a>
-            <div class="govuk-card__content">
-
-              <p class="govuk-body">Forgot password journey</p>
-            </div>
-            <div class="govuk-card__actions">
-              <ul class="govuk-list govuk-!-mb-r0">
-                <li><a href="/password-V2/enter-email">View</a></li>
-              </ul>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="govuk-grid-column-one-third">
-
-          <div class="govuk-card govuk-card--contained govuk-card--selectable">
-            <a href=""></a>
-            <div class="govuk-card__content">
-
-              <p class="govuk-body">Forgot password journey <br>(with verification and password on same page)</p>
-            </div>
-            <div class="govuk-card__actions">
-              <ul class="govuk-list govuk-!-mb-r0">
-                <li><a href="/password-V2-2/enter-email">View</a></li>
-              </ul>
-            </div>
-          </div>
-
-        </div>
 
 
   </div>
@@ -325,6 +371,6 @@ href: "javascript:history.back()"
 
 
 
-<!-- notes about the service & prototype -->
+  <!-- notes about the service & prototype -->
 
-{% endblock %}
+  {% endblock %}

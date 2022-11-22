@@ -345,7 +345,7 @@ router.post('/cookie-settings', function (req, res) {
 // routing for verify
 router.get('/mfa/select-number', function (req, res) {
   // Make a variable from session data
-  var telNum = req.session.data['telephone'] 
+  var telNum = req.session.data['telephone']
   // route depending on value
   if (telNum === 'tel1') {
     res.redirect('get-code')
@@ -357,7 +357,7 @@ router.get('/mfa/select-number', function (req, res) {
 // routing for verify
 router.get('/mfa/select-number-v2', function (req, res) {
   // Make a variable from session data
-  var telNum = req.session.data['telephone'] 
+  var telNum = req.session.data['telephone']
   // route depending on value
   if (telNum === 'tel1') {
     res.redirect('get-code-v2')
@@ -369,12 +369,25 @@ router.get('/mfa/select-number-v2', function (req, res) {
 // routing for phone or emal
 router.get('/mfa/sms-email', function (req, res) {
   // Make a variable from session data
-  var telNum = req.session.data['verify-your-identity'] 
+  var telNum = req.session.data['verify-your-identity']
   // route depending on value
   if (telNum === 'send-sms') {
     res.redirect('get-code-v2')
   } else {
     res.redirect('/mfa/security-word')
+  }
+})
+
+
+// routing for phone or email v2
+router.get('/mfa-v2/sms-email', function (req, res) {
+  // Make a variable from session data
+  var telNum = req.session.data['verify-your-identity']
+  // route depending on value
+  if (telNum === 'send-sms') {
+    res.redirect('get-code-v2')
+  } else {
+    res.redirect('/mfa-v2/core/security-word')
   }
 })
 
