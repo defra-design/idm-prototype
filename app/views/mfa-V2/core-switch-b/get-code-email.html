@@ -1,0 +1,63 @@
+{% extends "layout-signed-out.html" %}
+
+{% set serviceName = "Defra identity" %}
+
+{% set title = "Verify your identity" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">{{ title }}</h1>
+
+
+    <form action="account-page" method="post">
+
+
+      {% from "govuk/components/input/macro.njk" import govukInput %}
+
+      {{ govukInput({
+        label: {
+          text: "Enter the code sent to timxxxxxxxxx@xxxxxday.co.uk"
+        },
+        id: "account-number",
+  name: "account-number",
+  inputmode: "numeric",
+  pattern: "[0-9]*",
+  spellcheck: false,
+        classes: "govuk-!-width-two-thirds",
+        id: "verify",
+        name: "verify-code"
+
+      }) }}
+
+
+      {{ govukButton({
+        text: "Verify code"
+      }) }}
+
+
+    </form>
+    {{ govukButton({
+      text: "Send another code",
+      classes: "govuk-button govuk-button--secondary"
+    }) }}
+
+    {% include "includes/get-help.html" %}
+
+    <p class="govuk-body"><a href="verify-single-number">Switch to verification via SMS</a></p>
+
+  </div>
+</div>
+
+{% endblock %}

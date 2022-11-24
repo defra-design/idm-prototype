@@ -391,6 +391,42 @@ router.get('/mfa-V2/sms-email', function (req, res) {
   }
 })
 
+
+
+// routing for phone or email v2
+router.get('/mfa-V2/sms-email-switch-a', function (req, res) {
+  // Make a variable from session data
+  var telNum = req.session.data['verify-your-identity']
+  // route depending on value
+  if (telNum === 'send-sms') {
+    res.redirect('get-code-v2')
+  } else {
+    res.redirect('/mfa-V2/core-switch-a/security-word')
+  }
+})
+
+
+// routing for phone or email v2
+router.get('/mfa-V2/sms-email-switch-b', function (req, res) {
+  // Make a variable from session data
+  var telNum = req.session.data['verify-your-identity']
+  // route depending on value
+  if (telNum === 'send-sms') {
+    res.redirect('get-code-v2')
+  } else {
+    res.redirect('/mfa-V2/core-switch-b/security-word')
+  }
+})
+
+
+
+
+
+
+
+
+
+
 // Routes for Vets examples/scenarios
 
 

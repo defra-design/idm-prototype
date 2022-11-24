@@ -1,0 +1,73 @@
+{% extends "layout-blank.html" %}
+
+{% set serviceName = "Apply for an Annual Health and Welfare review" %}
+
+{% set title = "Enter your verification code" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <h1 class="govuk-heading-xl">{{ title }}</h1>
+  </div>
+
+  <div class="govuk-grid-column-two-thirds">
+    <form action="get-code-success-sc2" method="post">
+
+      <p class="govuk-body">We’ve sent you a text message with a 6 digit verification code.</p>
+      <p class="govuk-body">It may take a few minutes to arrive.</p>
+      <p class="govuk-body">The code will expire in 10 minutes.</p>
+
+    <div class="govuk-form-group">
+      <div class="govuk-input__wrapper">
+        <input class="govuk-input govuk-input--width-20" id="cost" name="cost" type="text" spellcheck="false">
+      </div>
+    </div>
+
+
+      {{ govukButton({
+        text: "Verify code"
+      }) }}
+
+
+    </form>
+
+    <br>
+
+    <p class="govuk-body">If you’ve not received a text message or the verification code has expired</p>
+    {{ govukButton({
+      text: "Resend code",
+      classes: "govuk-button govuk-button--secondary"
+    }) }}
+
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          If you’re having problems getting a verification code
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        Contact the [Service name].<br><br>
+        [Service name]  <br>
+        [Service telephone number] <br>
+        [Service Opening Hours](except public holidays) <br>
+        [Service email address]
+        <br><br>
+        <p class="govuk-body">Find out about <a href="https://www.gov.uk/call-charges" target=”_blank”>call charges</p>
+      </div>
+    </details>
+
+  </div>
+</div>
+
+{% endblock %}

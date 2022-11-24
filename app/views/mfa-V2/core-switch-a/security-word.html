@@ -1,0 +1,95 @@
+{% extends "layout-signed-out.html" %}
+
+{% set title = "Confirm your security word" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+
+      <form method="post" action="verify-email">
+
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+              <h1 class="govuk-fieldset__heading">
+                {{title}}
+              </h1>
+            </legend>
+            <span id="passport-issued-hint" class="govuk-hint">
+              Enter the following 3 characters from your security word.
+            </span>
+
+            <div class="govuk-date-input" id="passport-issued">
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="char1">
+                    3rd
+                  </label>
+                  <input class="govuk-input govuk-input--width-2" id="char1" name="char1">
+                </div>
+              </div>
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="char2">
+                    7th
+                  </label>
+                  <input class="govuk-input govuk-input--width-2" id="char2" name="char2">
+                </div>
+              </div>
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="char3">
+                    12th
+                  </label>
+                  <input class="govuk-input govuk-input--width-2" id="char3" name="char3">
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+        <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              Forgotten your Defra security word?
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            <div class="govuk-body">
+              Your security word hint: My favourite fish
+            </div>
+            If you have forgotten your Defra security word, you can call the service helpline 0300 322 9434. Monday to Friday 8am to 10pm, and Saturday to Sunday 8am to 4pm.
+            Alternatively you can email the help desk: <a href=''>servicedesk@defra.gov.uk.
+          </div>
+        </details>
+
+
+        <p class="govuk-body"><a href="verify-single-number" class="govuk-button govuk-button--secondary">Switch to verification via SMS</a></p>
+
+      </form>
+
+  </div>
+</div>
+<br>
+<br><br><br><br>
+<a href="/scp/credential-recovery-security-word-error-2">show error</a>
+
+{% endblock %}
