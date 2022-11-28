@@ -1,0 +1,48 @@
+{% extends "layout-signed-out.html" %}
+
+{% set serviceName = "Apply for an Annual Health and Welfare review" %}
+
+{% set title = "Verify your identity" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">{{ title }}</h1>
+    <p class="govuk-body">This is the email we will send the verification code to</p>
+    <h2 class="govuk-heading-m">timxxxxxxxxx@xxxxxday.co.uk</h2>
+
+
+
+
+      <form action="/mfa-V2/core/get-code-email" method="post">
+
+
+
+
+
+
+
+
+
+
+      {{ govukButton({
+        text: "Continue",
+        href: ""
+      }) }}
+    </form>
+
+    {% include "includes/get-help.html" %}
+
+  </div>
+</div>
+
+{% endblock %}

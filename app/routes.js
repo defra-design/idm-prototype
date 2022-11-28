@@ -401,7 +401,7 @@ router.get('/mfa-V2/sms-email-switch-a', function (req, res) {
   if (telNum === 'send-sms') {
     res.redirect('get-code-v2')
   } else {
-    res.redirect('/mfa-V2/core-switch-a/security-word')
+    res.redirect('/mfa-V2/email-switch-button/security-word')
   }
 })
 
@@ -414,7 +414,7 @@ router.get('/mfa-V2/sms-email-switch-b', function (req, res) {
   if (telNum === 'send-sms') {
     res.redirect('get-code-v2')
   } else {
-    res.redirect('/mfa-V2/core-switch-b/security-word')
+    res.redirect('/mfa-V2/email-switch-link/security-word')
   }
 })
 
