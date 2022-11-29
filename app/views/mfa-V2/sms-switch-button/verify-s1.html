@@ -22,11 +22,17 @@
     <h2 class="govuk-heading-m">xxxxxxxx478</h2>
 
 
-    <form action="get-code" method="post">
-      {{ govukButton({
-        text: "Continue"
-      }) }}
-    </form>
+
+    <div class="govuk-button-group">
+      <form action="get-code" method="post">
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+        <a href="/mfa-V2/core/security-word" class="govuk-button govuk-button--secondary">Switch to verification via Email</a>
+      </form>
+    </div>
+
+
 
 
     <div class="govuk-grid-row">
@@ -48,7 +54,6 @@
           </div>
         </details>
 
-        <p class="govuk-body"><a href=""></a><a href="verify-single-number" class="govuk-button govuk-button--secondary">Switch to verification via Email</a></p>
         </div>
       </div>
 
