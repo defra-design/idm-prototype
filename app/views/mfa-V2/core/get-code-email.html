@@ -21,7 +21,7 @@
     <h1 class="govuk-heading-xl">{{ title }}</h1>
 
 
-    <form action="account-page" method="post">
+    <form action="{{data['scenario']}}" method="post">
 
 
       {% from "govuk/components/input/macro.njk" import govukInput %}
