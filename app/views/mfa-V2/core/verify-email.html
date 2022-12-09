@@ -1,6 +1,6 @@
-{% extends "layout-signed-out.html" %}
+{% extends "layout-blank.html" %}
 
-{% set serviceName = "Apply for an Annual Health and Welfare review" %}
+{% set serviceName = " " %}
 
 {% set title = "Verify your identity" %}
 
@@ -17,7 +17,8 @@
   <div class="govuk-grid-column-two-thirds">
 
     <h1 class="govuk-heading-xl">{{ title }}</h1>
-    <p class="govuk-body">This is the email we will send the verification code to</p>
+    <p class="govuk-body">This is the email we will send the verification code to.</p>
+    <p class="govuk-body">It may take a few minutes to arrive.</p>
     <h2 class="govuk-heading-m">timxxxxxxxxx@xxxxxday.co.uk</h2>
 
 
@@ -27,20 +28,28 @@
 
 
 
-
-
-
-
-
-
-
       {{ govukButton({
         text: "Continue",
         href: ""
       }) }}
     </form>
 
-    {% include "includes/get-help.html" %}
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+        Need help with the page?
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        Contact the [Service name].<br><br>
+        [Service name]  <br>
+        [Service telephone number] <br>
+        [Service Opening Hours](except public holidays) <br>
+        [Service email address]
+        <br><br>
+        <p class="govuk-body">Find out about <a href="https://www.gov.uk/call-charges" target=”_blank”>call charges</p>
+      </div>
+    </details>
 
   </div>
 </div>
