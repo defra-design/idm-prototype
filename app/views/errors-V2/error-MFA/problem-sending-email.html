@@ -27,7 +27,22 @@
     <p class="govuk-body-l">Error description, content tbc</p>
 
 
-    {% include "includes/get-help.html" %}
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          Need help with the page?
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        Contact the [Service name].<br><br>
+        [Service name]  <br>
+        Telephone: [Service telephone number] <br>
+        [Service Opening Hours](except public holidays) <br>
+        [Service email address]
+        <br><br>
+        <p class="govuk-body">Find out about <a href="https://www.gov.uk/call-charges" target=”_blank”>call charges</p>
+      </div>
+    </details>
 
 
 
