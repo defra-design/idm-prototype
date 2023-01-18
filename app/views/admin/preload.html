@@ -147,59 +147,59 @@
             <p>To show the dashboard tabs for the various different statuses of ECT and mentor eligibility.</p>
             <div class="govuk-grid-row">
                 <div class="govuk-grid-column-one-half">
-                    
-                    {{ govukCheckboxes({    
-                        fieldset: { legend: { text: "Managed by MAT", isPageHeading: false, classes: "govuk-visually-hidden" } },                    
+
+                    {{ govukCheckboxes({
+                        fieldset: { legend: { text: "Managed by MAT", isPageHeading: false, classes: "govuk-visually-hidden" } },
                         items: [ { value: "Yes", text: "Eligible ECTs", checked: checked } ]
-                    } | decorateFormAttributes('showTabEligibleECT')) }}                
+                    } | decorateFormAttributes('showTabEligibleECT')) }}
 
-                    {{ govukCheckboxes({    
-                        fieldset: { legend: { text: "Managed by MAT", isPageHeading: false, classes: "govuk-visually-hidden" } },                    
+                    {{ govukCheckboxes({
+                        fieldset: { legend: { text: "Managed by MAT", isPageHeading: false, classes: "govuk-visually-hidden" } },
                         items: [ { value: "Yes", text: "Eligible mentors", checked: checked } ]
-                    } | decorateFormAttributes('showTabEligibleMentor')) }}                
+                    } | decorateFormAttributes('showTabEligibleMentor')) }}
 
-                    <!-- {{ govukCheckboxes({    
-                        fieldset: { legend: { text: "Managed by MAT", isPageHeading: false, classes: "govuk-visually-hidden" } },                    
+                    <!-- {{ govukCheckboxes({
+                        fieldset: { legend: { text: "Managed by MAT", isPageHeading: false, classes: "govuk-visually-hidden" } },
                         items: [ { value: "Yes", text: "Eligible mentors" } ]
                     } | decorateFormAttributes('showTabEligibleMentorNF')) }}                 -->
 
-                    {{ govukCheckboxes({                        
+                    {{ govukCheckboxes({
                         fieldset: { legend: { text: "Managed by MAT", isPageHeading: false, classes: "govuk-visually-hidden" } },
                         items: [ { value: "Yes", text: "DfE checking eligibility", checked: checked } ]
                     } | decorateFormAttributes('showTabCheckingEligibility')) }}
 
-                    {{ govukCheckboxes({                        
+                    {{ govukCheckboxes({
                         fieldset: { legend: { text: "Managed by MAT", isPageHeading: false, classes: "govuk-visually-hidden" } },
                         items: [ { value: "Yes", text: "Checking QTS", checked: checked } ]
-                    } | decorateFormAttributes('showTabQTS')) }}                    
+                    } | decorateFormAttributes('showTabQTS')) }}
 
-                    
+
 
                 </div>
                 <div class="govuk-grid-column-one-half">
-                    {{ govukCheckboxes({                        
+                    {{ govukCheckboxes({
                         fieldset: { legend: { text: "Managed by MAT", isPageHeading: false, classes: "govuk-visually-hidden" } },
                         items: [ { value: "Yes", text: "Not eligible for funded training", checked: checked } ]
-                    } | decorateFormAttributes('showTabNotEligible')) }}                    
+                    } | decorateFormAttributes('showTabNotEligible')) }}
 
-                    {{ govukCheckboxes({                        
+                    {{ govukCheckboxes({
                         fieldset: { legend: { text: "Managed by MAT", isPageHeading: false, classes: "govuk-visually-hidden" } },
                         items: [ { value: "Yes", text: "No longer been trained", checked: checked } ]
                     } | decorateFormAttributes('showTabWithdrawn')) }}
 
-                    {{ govukCheckboxes({                    
+                    {{ govukCheckboxes({
                         fieldset: { legend: { text: "Managed by MAT", isPageHeading: false, classes: "govuk-visually-hidden" } },
                         items: [ { value: "Yes", text: "Transferring in", checked: checked } ]
                     } | decorateFormAttributes('showTabTransferIn')) }}
 
-                    {{ govukCheckboxes({                        
+                    {{ govukCheckboxes({
                         fieldset: { legend: { text: "Managed by MAT", isPageHeading: false, classes: "govuk-visually-hidden" } },
                         items: [ { value: "Yes", text: "Transferring out", checked: checked } ]
                     } | decorateFormAttributes('showTabTransferOut')) }}
                 </div>
             </div>
 
-            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible"> 
+            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
 
             <h2 class="govuk-heading-m">Entry page</h2>

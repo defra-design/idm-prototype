@@ -22,9 +22,9 @@
     <h1 class="govuk-heading-xl">{{ title }}</h1>
 
     {% if data['route'] == "charity" %}
-      <form method="POST" action="task-list-page-charity-details?personal-name-completed=y">
+      <form method="post" action="task-list-page-charity-details?personal-name-completed=y">
     {% else %}
-      <form method="POST" action="task-list-page-company-details?personal-name-completed=y">
+      <form method="post" action="task-list-page-company-details?personal-name-completed=y">
     {% endif %}
 
       {{ govukInput({

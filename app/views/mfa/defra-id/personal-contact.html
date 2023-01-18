@@ -20,9 +20,9 @@
   <div class="govuk-grid-column-two-thirds">
 
     {% if data['route'] == "charity" %}
-      <form method="POST" action="task-list-page-charity-details?contact-details-completed=y">
+      <form method="post" action="task-list-page-charity-details?contact-details-completed=y">
     {% else %}
-      <form method="POST" action="task-list-page-company-details?contact-details-completed=y">
+      <form method="post" action="task-list-page-company-details?contact-details-completed=y">
     {% endif %}
 
       {{ govukInput({

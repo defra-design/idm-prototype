@@ -19,11 +19,11 @@
 
     <h1 class="govuk-heading-xl">{{ title }}</h1>
 
-    
+
 
     <form action="account-page" method="post">
 
-  
+
       {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
       {{ govukRadios({
@@ -49,25 +49,25 @@
             value: "Drummonds Ltd",
             text: "Drummonds Ltd"
           }
-          
+
         ]
       }) }}
 
       {{ govukButton({
         text: "Continue"
-        
+
       }) }}
 
 
-     
+
     </form>
-   
+
 
     {{ govukButton({
       text: "Add organisation",
       classes: "govuk-button govuk-button--secondary",
       url: "add-organisation"
-      
+
     }) }}
 
     {% include "includes/get-help.html" %}
