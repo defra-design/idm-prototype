@@ -30,7 +30,6 @@ module.exports = {
   useBrowserSync: 'true',
 
 }
-// Enable logging, options: true, false, get or post
-useLogging: 'true'
+
 
 

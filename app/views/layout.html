@@ -31,6 +31,11 @@
 {% from "govuk/components/textarea/macro.njk"            import govukTextarea %}
 {% from "govuk/components/warning-text/macro.njk"        import govukWarningText %}
 
+{% import "macros/page-title.njk" as macroPageTitle %}
+{% import "macros/page-header.njk" as macroPageHeader %}
+
+
+
 {% block head %}
   {% include "includes/head.html" %}
 {% endblock %}
@@ -40,40 +45,44 @@
 {% endblock %}
 
 {% block header %}
+{% include "includes/cookie-banner.html" %}
 
+{# Set serviceName in config.js. #}
+  {{ govukHeader({
+    homepageUrl: "/",
+    serviceName: serviceName,
+    serviceUrl: "/",
+    containerClasses: "govuk-width-container",
+    navigation: [
+      {
+        href: "/sign-out",
+        text: "Sign out"
+      }
+    ] if schoolSignedIn or isAdmin
+  }) }}
 
-{%- from "moj/components/header/macro.njk" import mojHeader -%}
+{% endblock %}
 
-{{ mojHeader({
-  organisationLabel: {
-    text: 'Defra account',
-    href: '#'
-  },
-  serviceLabel: {
-    text: 'Defra account',
-    href: '#'
-  },
-  navigation: {
-    label: 'Account navigation',
-    items: [{
-      text: 'Owen jones',
-      href: '#',
-      active: true
-    }, {
-      text: 'Sign out',
-      href: '#'
-    }]
-  }
+{% block beforeContent %}
 
-}) }}
+{% if showPhaseBanner != false %}
+    {{ govukPhaseBanner({
+      tag: { text: "Prototype" },
+      html: "This is a prototype. It is not a real service."
+    }) }}
+  {% endif %}
 
+    {% if showBackLink != false %}
 
+        {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.go(-1)"
+        }) }}
 
+    {% endif %}
 
-
-
- 
-
+  {% block pageNavigation %}{% endblock %}
+  {% block pageBanner %}{% endblock %}
 {% endblock %}
 
 {% set mainClasses = mainClasses | default("govuk-main-wrapper--auto-spacing") %}
@@ -82,19 +91,41 @@
   {% block footer %}
     {{ govukFooter({
       meta: {
+        html: '<ul class="govuk-footer__inline-list">
+
+                <li class="govuk-footer__inline-list-item">
+                  <a class="govuk-footer__link" href="/help">
+                    Help
+                  </a>
+                </li>
+
+                <li class="govuk-footer__inline-list-item">
+                  <a class="govuk-footer__link" href="#">
+                    Privacy
+                  </a>
+                </li>
+
+                <li class="govuk-footer__inline-list-item">
+                  <a class="govuk-footer__link" href="#">
+                    Cookies
+                  </a>
+                </li>
+
+                <li class="govuk-footer__inline-list-item">
+                  <a class="govuk-footer__link" href="#">
+                    Accessibility
+                  </a>
+                </li>
+
+                <li class="govuk-footer__inline-list-item">
+                  <a class="govuk-footer__link" href="/prototype-admin/clear-data">
+                    Clear data
+                  </a>
+                </li>
+
+            </ul>',
         items: [
-          {
-            href: "/help",
-            text: "Help"
-          },
-          {
-            href: "https://govuk-prototype-kit.herokuapp.com/",
-            text: "GOV.UK Prototype Kit " + releaseVersion
-          },
-          {
-            href: "/prototype-admin/clear-data",
-            text: "Clear data"
-          }
+
         ]
       }
     }) }}
@@ -103,6 +134,7 @@
 
 {% block bodyEnd %}
   {% block scripts %}
+    {{ data | log }}
     {% include "includes/scripts.html" %}
     {% block pageScripts %}{% endblock %}
   {% endblock %}

@@ -1,0 +1,98 @@
+{% extends "layout.html" %}
+{% set showBackLink = false %}
+
+{% set pageHeading = "Preload type of user data" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading, pageSection) }}
+
+        <p class="govuk-!-padding-bottom-3">Preload the prototype with user data otherwise it will use default details.</p>
+
+        <div class="govuk-inset-text">
+          <p>There are <a href="https://docs.google.com/document/d/108aUddTCbHanZk8Q2l6WhzuD9iAL8dUn/edit">three status for validation</a>. Status <a href="https://docs.google.com/document/d/1vDlmDbz6BaUlGiC7wpusUV6B04mZ9ofubQNO0n2xK3Y/edit?ts=60fe8eb3#bookmark=id.1myxpp5aoqa">two and three </a> will show the same confirmation messaging with the changes applied within the backend.
+        </div>
+
+        <form class="form" action="/emails/particpant-email" method="post" class="">
+
+
+
+            {% set skipvalidationhtml %}
+                {{ govukCheckboxes({
+                    idPrefix: "skipValidation",
+                    name: "skipValidation",
+                    fieldset: {
+                        legend: { text: "In partnership", isPageHeading: false, classes: "govuk-visually-hidden" }
+                    },
+                    items: [
+                        { value: "notvalidating", text: "Not able to match journey" }
+                    ]
+                }) }}
+            {% endset -%}
+
+
+
+            {{ govukRadios({
+                idPrefix: "participantOptions",
+                name: "participantOptions",
+                fieldset: {
+                    legend: { text: "Programme", isPageHeading: true, classes: "govuk-fieldset__legend--m" }
+                },
+                items: [
+                    { value: "participantCIP", text: "CIP participant", conditional: { html: skipvalidationhtml}, checked: checked("participantOptions", "participantCIP") },
+                    { value: "participantFIP", text: "FIP participant", conditional: { html: skipvalidationhtml}, checked: checked("participantOptions", "participantFIP")}
+                ]
+            }) }}
+
+
+            {% set betamentorhtml %}
+                {{ govukCheckboxes({
+                    idPrefix: "betaMentor",
+                    name: "betaMentor",
+                    fieldset: {
+                        legend: { text: "beta participant", isPageHeading: false, classes: "govuk-visually-hidden" }
+                    },
+                    items: [
+                        { value: "beta", text: "In beta programme (CIP only)" }
+                    ]
+                }) }}
+            {% endset -%}
+
+
+            {{ govukRadios({
+                idPrefix: "participantType",
+                name: "participantType",
+                fieldset: {
+                    legend: { text: "Partipant type", isPageHeading: true, classes: "govuk-fieldset__legend--m" }
+                },
+                items: [
+                    { value: "participantECT", text: "Early career teacher", checked: checked("participantType", "participantECT")},
+                    { value: "participantMentor", text: "Mentor", conditional: { html: betamentorhtml}, checked: checked("participantType", "participantMentor")},
+                    { value: "participantSIT", text: "SIT as mentor", checked: checked("participantType", "participantSIT")}
+                ]
+            }) }}
+
+            {{ govukCheckboxes({
+                idPrefix: "providerType",
+                name: "providerType",
+                fieldset: {
+                    legend: { text: "Provider is known (FIP only)", isPageHeading: true, classes: "govuk-fieldset__legend--m" }
+                },
+                items: [
+                    { value: "providerKnown", text: "Yes provider is known", checked: checked("providerType", "providerKnown")}
+                ]
+            }) }}
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+
+        </form>
+
+    </div>
+</div>
+{% endblock %}

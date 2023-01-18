@@ -1,0 +1,235 @@
+{% extends "layout.html" %}
+{% set showBackLink = false %}
+
+{% set pageHeading = "Preload type of user data" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+        {{ macroPageHeader.pageHeader(pageHeading, pageSection) }}
+
+        <p class="govuk-!-padding-bottom-3">Preload the prototype with user data.</p>
+        {# <form class="form" action="/schools/participants/" method="post" class=""> #}
+        <form class="form" action="/schools/manage-your-training" method="post" class="">
+
+
+            <h2 class="govuk-heading-m">Induction programme</h2>
+            <div class="govuk-grid-row">
+                <div class="govuk-grid-column-one-half">
+
+                    {% set partnerHtml %}
+                        <!-- Partnership -->
+                        {{ govukCheckboxes({
+                            fieldset: { legend: { text: "Partnership created", isPageHeading: false, classes: "govuk-visually-hidden" } },
+                            items: [ { value: "Yes", text: "In partnership with Provider" } ]
+                        } | decorateFormAttributes('providerPartnership')) }}
+
+                        <!-- Not eligible for funding -->
+                        {{ govukCheckboxes({
+                            fieldset: { legend: { text: "Not eligigle for DfE funding(FIP)", isPageHeading: false, classes: "govuk-visually-hidden" } },
+                            items: [ { value: "No", text: "Not eligible for DfE funding" } ]
+                        } | decorateFormAttributes('eligible-funding')) }}
+                    {% endset -%}
+
+                    {% set materialsHtml %}
+                        <!-- Materials chosen -->
+                        {{ govukCheckboxes({
+                            fieldset: { legend: { text: "Accredited materials chosen(CIP only)", isPageHeading: false, classes: "govuk-visually-hidden" } },
+                            items: [ { value: "Ambition Institute", text: "Materials chosen" } ]
+                        } | decorateFormAttributes('accredited-materials')) }}
+                    {% endset -%}
+
+                    {{ govukRadios({
+                        fieldset: {
+                            legend: { text: "Induction programme", isPageHeading: false, classes: "govuk-visually-hidden" }
+                        },
+                        items: [
+                            { value: "FIP", text: "FIP - training provider, funded by the DfE", conditional: { html: partnerHtml } },
+                            { value: "CIP", text: "CIP - Deliver using DfE accredited materials", conditional: { html: materialsHtml } },
+                            { value: "DYO", text: "DYO - Design and deliver own based ECF" },
+                            { value: "temphold", text: "Use a training provider funded by your school" },
+                            { value: "noECTs", text: "Not expecting to have any early career teachers" }
+                        ]
+                      } | decorateFormAttributes('inductionProgramme')) }}
+                </div>
+                <div class="govuk-grid-column-one-half">
+                    {{ govukCheckboxes({
+                        fieldset: { legend: { text: "Within 2 week period", isPageHeading: false, classes: "govuk-visually-hidden" } },
+                        items: [ { value: "Yes", text: "Within 2 week period where a school can challenge the partnership" } ]
+                    } | decorateFormAttributes('partnershipChallengeWindow')) }}
+                </div>
+            </div>
+            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+            {# <h2 class="govuk-heading-m">Validation</h2>
+            <p>To see correct specific programme content you must choose induction programme.</p>
+            <div class="govuk-grid-row">
+                <div class="govuk-grid-column-one-half">
+                    {% set validateHtml %}
+                        {{ govukRadios({
+                            fieldset: {
+                                legend: { text: "Matching", isPageHeading: false, classes: "govuk-visually-hidden" }
+                            },
+                            items: [
+                                { value: "No", text: "No intial match"  },
+                                { value: "noMatch", text: "No match" }
+                            ]
+                        } | decorateFormAttributes('register-validate')) }}
+                    {% endset -%}
+
+                    {% set betaHtml %}
+                        {{ govukRadios({
+                            fieldset: {
+                                legend: { text: "Matching", isPageHeading: false, classes: "govuk-visually-hidden" }
+                            },
+                            items: [
+                                { value: "noInitial", text: "No intial match"  },
+                                { value: "no", text: "No match" }
+                            ]
+                        } | decorateFormAttributes('register-validate')) }}
+
+                        {{ govukCheckboxes({
+                            fieldset: { legend: { text: "beta participant", isPageHeading: false, classes: "govuk-visually-hidden" } },
+                            items: [ { value: "Yes", text: "Part of beta programme (CIP only)" } ]
+                        } | decorateFormAttributes('betaProgramme')) }}
+                    {% endset -%}
+
+                    {{ govukRadios({
+                        fieldset: {
+                            legend: { text: "Participant type", isPageHeading: false, classes: "govuk-visually-hidden" }
+                        },
+                        items: [
+                            { value: "ECT", text: "Early career teacher", conditional: { html: validateHtml } },
+                            { value: "Mentor", text: "Mentor", conditional: { html: betaHtml } },
+                            { value: "sitMentor", text: "SIT as mentor" }
+                        ]
+                      } | decorateFormAttributes('participantType')) }}
+                </div>
+                <div class="govuk-grid-column-one-half">
+
+                </div>
+            </div>
+            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible"> #}
+
+            <h2 class="govuk-heading-m">Manage training dashboard</h2>
+            <div class="govuk-grid-row">
+                <div class="govuk-grid-column-one-half">
+                    {{ govukCheckboxes({
+                        fieldset: { legend: { text: "Managed by MAT", isPageHeading: false, classes: "govuk-visually-hidden" } },
+                        items: [ { value: "Yes", text: "School is managed by a MAT" } ]
+                    } | decorateFormAttributes('MAT-managed')) }}
+                </div>
+            </div>
+            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+
+            <!-- <h2 class="govuk-heading-m">Transferral</h2>
+            <div class="govuk-grid-row">
+                 <div class="govuk-grid-column-one-half">
+                    {{ govukCheckboxes({
+                        fieldset: { legend: { text: "Transferring participant in", isPageHeading: false, classes: "govuk-visually-hidden" } },
+                        items: [ { value: "Yes", text: "Transfer participant in" } ]
+                    } | decorateFormAttributes('transferIn')) }}
+                </div>
+                <div class="govuk-grid-column-one-half">
+                    {{ govukCheckboxes({
+                        fieldset: { legend: { text: "Transferring participant out", isPageHeading: false, classes: "govuk-visually-hidden" } },
+                        items: [ { value: "Yes", text: "Transfer participant out" } ]
+                    } | decorateFormAttributes('transferOut')) }}
+                </div>
+            </div>
+            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible"> -->
+
+            <h2 class="govuk-heading-m">ECT and mentors dashboard</h2>
+            <p>To show the dashboard tabs for the various different statuses of ECT and mentor eligibility.</p>
+            <div class="govuk-grid-row">
+                <div class="govuk-grid-column-one-half">
+                    
+                    {{ govukCheckboxes({    
+                        fieldset: { legend: { text: "Managed by MAT", isPageHeading: false, classes: "govuk-visually-hidden" } },                    
+                        items: [ { value: "Yes", text: "Eligible ECTs", checked: checked } ]
+                    } | decorateFormAttributes('showTabEligibleECT')) }}                
+
+                    {{ govukCheckboxes({    
+                        fieldset: { legend: { text: "Managed by MAT", isPageHeading: false, classes: "govuk-visually-hidden" } },                    
+                        items: [ { value: "Yes", text: "Eligible mentors", checked: checked } ]
+                    } | decorateFormAttributes('showTabEligibleMentor')) }}                
+
+                    <!-- {{ govukCheckboxes({    
+                        fieldset: { legend: { text: "Managed by MAT", isPageHeading: false, classes: "govuk-visually-hidden" } },                    
+                        items: [ { value: "Yes", text: "Eligible mentors" } ]
+                    } | decorateFormAttributes('showTabEligibleMentorNF')) }}                 -->
+
+                    {{ govukCheckboxes({                        
+                        fieldset: { legend: { text: "Managed by MAT", isPageHeading: false, classes: "govuk-visually-hidden" } },
+                        items: [ { value: "Yes", text: "DfE checking eligibility", checked: checked } ]
+                    } | decorateFormAttributes('showTabCheckingEligibility')) }}
+
+                    {{ govukCheckboxes({                        
+                        fieldset: { legend: { text: "Managed by MAT", isPageHeading: false, classes: "govuk-visually-hidden" } },
+                        items: [ { value: "Yes", text: "Checking QTS", checked: checked } ]
+                    } | decorateFormAttributes('showTabQTS')) }}                    
+
+                    
+
+                </div>
+                <div class="govuk-grid-column-one-half">
+                    {{ govukCheckboxes({                        
+                        fieldset: { legend: { text: "Managed by MAT", isPageHeading: false, classes: "govuk-visually-hidden" } },
+                        items: [ { value: "Yes", text: "Not eligible for funded training", checked: checked } ]
+                    } | decorateFormAttributes('showTabNotEligible')) }}                    
+
+                    {{ govukCheckboxes({                        
+                        fieldset: { legend: { text: "Managed by MAT", isPageHeading: false, classes: "govuk-visually-hidden" } },
+                        items: [ { value: "Yes", text: "No longer been trained", checked: checked } ]
+                    } | decorateFormAttributes('showTabWithdrawn')) }}
+
+                    {{ govukCheckboxes({                    
+                        fieldset: { legend: { text: "Managed by MAT", isPageHeading: false, classes: "govuk-visually-hidden" } },
+                        items: [ { value: "Yes", text: "Transferring in", checked: checked } ]
+                    } | decorateFormAttributes('showTabTransferIn')) }}
+
+                    {{ govukCheckboxes({                        
+                        fieldset: { legend: { text: "Managed by MAT", isPageHeading: false, classes: "govuk-visually-hidden" } },
+                        items: [ { value: "Yes", text: "Transferring out", checked: checked } ]
+                    } | decorateFormAttributes('showTabTransferOut')) }}
+                </div>
+            </div>
+
+            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible"> 
+
+
+            <h2 class="govuk-heading-m">Entry page</h2>
+            <p>If no selection will default to general manage training page.</p>
+
+                {{ govukRadios({
+                    fieldset: {
+                        legend: { text: "Entry page for journey", isPageHeading: false, classes: "govuk-visually-hidden" }
+                    },
+                    items: [
+                        { value: "choose-induction, redirect(/schools/inductionProgramme/)", text: "Choose induction programme" },
+                        { value: "manage-training-email, redirect(/emails/link-to-sign-in)", text: "Manage training for cohort from sign in email" },
+                        { value: "manage-training-mat, redirect(/schools/)", text: "Manage training as MAT" },
+                        { value: "validation, redirect(/participants/validate/)", text: "Validate a participant" }
+                    ]
+                } | decorateFormAttributes('siteEntry')) }}
+
+
+                {{ govukButton({
+                    text: "Add preloaded information and continue"
+                }) }}
+
+
+
+        </form>
+
+    </div>
+</div>
+{% endblock %}
+
+
+
+

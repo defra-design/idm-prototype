@@ -1,0 +1,32 @@
+$primaryNavHeight: 2.5rem;
+
+.primary-nav-container {
+  border-top: 10px solid $govuk-brand-colour;
+  margin-top: -10px;
+  background-color: govuk-colour("light-grey");
+  border-bottom: 1px $govuk-border-colour solid;
+}
+
+.primary-nav {
+  display: flex;
+  flex-direction: row;
+  height: $primaryNavHeight;
+  font-weight: 700;
+}
+
+.nav-item {
+  @include govuk-typography-responsive($size: 19);
+
+  &:not(:last-child) {
+    margin-right: govuk-spacing(8);
+  }
+
+  &.nav-item__selected {
+    border-bottom: solid govuk-colour("blue") 4px;
+  }
+
+  a {
+    text-decoration: none;
+    line-height: $primaryNavHeight;
+  }
+}
