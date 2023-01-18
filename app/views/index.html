@@ -12,157 +12,112 @@
 
 {% block content %}
 
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-xl">
-      <span class="govuk-caption-xl">All prototypes for</span>
-      {{title}}
-    </h1>
-
-    <h2 class="govuk-heading-l">This service will help users to</h2>
-
-    <ul class="govuk-list govuk-list--bullet">
-      <li class="govuk-body">Create a single set of sign-in credentials that they can use to access one or more Defra
-        services.</li>
-      <li class="govuk-body">Store information about the user (and their business, if relevant) so that they do not have
-        to re-enter it each time they want to use a new online service.</li>
-      <li class="govuk-body">Give other people (for example colleagues or agents) access to one or more of the online
-        services they use.</li>
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
 
 
+            <h1 class="govuk-heading-xl">
+                <span class="govuk-caption-xl">Prototype</span>
+                {{title}}
+            </h1>
 
-    </ul>
+            <ul class="govuk-list govuk-body-s">
+          	    <li>Last updated: 18 January 2023</li>
+                <li>Prototype version: {{releaseVersion}}</li>
+            </ul>
 
-
-
-
-
-
-
-  </div>
-
-  <div class="govuk-grid-column-one-third">
-    <div class="gem-c-contextual-sidebar">
-      <div class="gem-c-related-navigation">
-
-        <h2 class="govuk-heading-s govuk-!-margin-top-4">Resources</h2>
-        <nav>
-          <ul class="govuk-list">
-            <li><a href="https://github.com/defra-design/idm-prototype">Github repo</a></li>
-          </ul>
-        </nav>
-        <h2 class="govuk-heading-s govuk-!-margin-top-4">Design assets</h2>
-        <nav>
-          <ul class="govuk-list">
-            <li><a
-                href="https://app.mural.co/t/defraidmanagement4828/m/defraidmanagement4828/1651757057405/8de389e360d3ece2fb5b5adb455eb3fd376c13d5?sender=uc4759e9563ebe5260dd56933">Mural
-                - user journeys</a></li>
-            <li><a
-                href="https://www.figma.com/file/XRzsdo5usIj3oUBfQEinLJ/Identity-management-flows-'To-Be'?node-id=4%3A2804">Figma
-                assets</a></li>
-          </ul>
-        </nav>
-      </div>
+        </div>
     </div>
 
-  </div>
-</div>
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <p>This service will help users:</p>
+            <ul class="govuk-list govuk-list--bullet">
+                <li class="govuk-body">create a single set of sign-in credentials that they can use to access one or more Defra services.</li>
+                <li class="govuk-body">store information about the user (and their business, if relevant) so that they do not have to re-enter it each time they want to use a new online service.</li>
+                <li class="govuk-body">give other people (for example colleagues or agents) access to one or more of the online services they use.</li>
+            </ul>
+        </div>
 
-<!-- notes about the service & prototype -->
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-full">
+        <div class="govuk-grid-column-one-third">
+            <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Assets </h2>
+            <p>The following links open in a new tab</p>
+            <nav>
+                <ul class="govuk-list">
+                    <li><a href="https://github.com/defra-design/idm-prototype" rel="noreferrer noopener" target="_blank" >Github repository <span class="govuk-visually-hidden">(opens in new tab)</span></a></li>
+                    <li><a href="https://app.mural.co/t/defraidmanagement4828/m/defraidmanagement4828/1651757057405/8de389e360d3ece2fb5b5adb455eb3fd376c13d5?sender=uc4759e9563ebe5260dd56933" rel="noreferrer noopener" target="_blank">Mural - user journeys <span class="govuk-visually-hidden">(opens in new tab)</span></a></li>
+                    <li><a href="https://www.figma.com/file/XRzsdo5usIj3oUBfQEinLJ/Identity-management-flows-'To-Be'?node-id=4%3A2804" rel="noreferrer noopener" target="_blank">Figma assets <span class="govuk-visually-hidden">(opens in new tab)</span></a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
 
-    <table class="govuk-table">
-      <caption class="govuk-table__caption govuk-table__caption--l">
-        Alpha
-      </caption>
-      <thead class="govuk-table__head">
-        <tr class="govuk-table__row">
-          <th scope="col" class="govuk-table__header">Prototype</th>
-          <th scope="col" class="govuk-table__header">Version</th>
-          <th scope="col" class="govuk-table__header">Sprint</th>
-          <th scope="col" class="govuk-table__header">Status</th>
-          <th scope="col" class="govuk-table__header">What's changed/changing</th>
-        </tr>
-      </thead>
-      <tbody class="govuk-table__body">
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full govuk-!-margin-top-5">
 
-        <!-- template row
+            {# <div class="govuk-grid-row">
+                <div class="govuk-grid-column-one-half">
+                    <h3 class="govuk-heading-s">Register for an account / authenticate</h3>
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li>MFA with phone number verification only</li>
+                        <li>MFA via email</li>
+                        <li>MFA switching(sms/email)</li>
+                        <li>Exist pages</li>
+                    </ul>
+                    <p><a href="mfa-V2/scenarios">Register for an account / authenticate</a></p>
+                </div>
+                <div class="govuk-grid-column-one-third">
+                    v 2.0
+                    SPrint 83
+                    <strong class="govuk-tag govuk-tag--blue">Current 09/22</strong>
 
-        <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header">
-            <span class="govuk-heading-l"><span class="govuk-heading-l">RC X</span><br></span>
-          </th>
-          <td class="govuk-table__cell">
-            Something here
-          </td>
-        </tr>
-
-        -->
-
-  <!-- ## MFA V.2
-    Adding small functionalities like:
-
-
-    by: shaleen sachdeva
-  ## -->
-
-  <!-- ## V2.0 - Register for an account / authenticate ## -->
-        <tr class="govuk-table__row">
-          <td scope="row" class="govuk-table__cell">
-
-            <a href="mfa-V2/scenarios">Register for an account / authenticate</a>
-          </td>
-          <td class="govuk-table__cell">
-            v 2.0
-          </td>
-          <td class="govuk-table__cell">
-            Sprint
-          </td>
-          <td class="govuk-table__cell">
-            <strong class="govuk-tag govuk-tag--blue">
-              Current 09/22
-            </strong>
-          </td>
-
-          <td class="govuk-table__cell">
-            <ol>
-              <li>MFA with phone number verification only</li>
-              <li>MFA via email</li>
-              <li>MFA switching(sms/email)</li>
-              <li>Exist pages</li>
-            </ol>
-          </td>
-        </tr>
+                </div>
+            </div> #}
 
 
-        <tr class="govuk-table__row">
-          <td scope="row" class="govuk-table__cell">
 
-            <a href="mfa/scenarios">Register for an account / authenticate</a>
-          </td>
-          <td class="govuk-table__cell">
-            v 1.0
-          </td>
-          <td class="govuk-table__cell">
-            Sprint 67 - 75
-          </td>
-          <td class="govuk-table__cell">
-            <strong class="govuk-tag govuk-tag--orange">
-              Not current
-            </strong>
-          </td>
 
-          <td class="govuk-table__cell">
-            <ol>
-              <li>Single number option</li>
-              <li>Error message implementation</li>
-              <li>Replaced 'links list' with radios component</li>
-              <li>Accessible autocomplete added to core journey</li>
+            <table class="govuk-table">
+                <caption class="govuk-table__caption govuk-table__caption--l">Alpha</caption>
+                <thead class="govuk-table__head">
+                    <tr class="govuk-table__row">
+                        <th scope="col" class="govuk-table__header">Prototype</th>
+                        <th scope="col" class="govuk-table__header">Version</th>
+                        <th scope="col" class="govuk-table__header">Sprint</th>
+                        <th scope="col" class="govuk-table__header">Status</th>
+                        <th scope="col" class="govuk-table__header">What's changed/changing</th>
+                    </tr>
+                </thead>
+                <tbody class="govuk-table__body">
+                    <tr class="govuk-table__row">
+                        <td scope="row" class="govuk-table__cell"><a href="mfa-V2/scenarios">Register for an account / authenticate</a></td>
+                        <td class="govuk-table__cell">v 2.0</td>
+                        <td class="govuk-table__cell">Sprint</td>
+                        <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">Current 09/22</strong></td>
+                        <td class="govuk-table__cell">
+                            <ol>
+                                <li>MFA with phone number verification only</li>
+                                <li>MFA via email</li>
+                                <li>MFA switching(sms/email)</li>
+                                <li>Exist pages</li>
+                            </ol>
+                        </td>
+                    </tr>
 
-            </ol>
-          </td>
-        </tr>
+                    <tr class="govuk-table__row">
+                        <td scope="row" class="govuk-table__cell"><a href="mfa/scenarios">Register for an account / authenticate</a></td>
+                        <td class="govuk-table__cell">v 1.0</td>
+                        <td class="govuk-table__cell">Sprint 67 - 75</td>
+                        <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--orange">Not current</strong></td>
+                        <td class="govuk-table__cell">
+                            <ol>
+                                <li>Single number option</li>
+                                <li>Error message implementation</li>
+                                <li>Replaced 'links list' with radios component</li>
+                                <li>Accessible autocomplete added to core journey</li>
+                            </ol>
+                        </td>
+                    </tr>
 
         <tr class="govuk-table__row">
           <td scope="row" class="govuk-table__cell">
