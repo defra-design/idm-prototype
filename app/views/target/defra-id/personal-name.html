@@ -1,53 +1,60 @@
-{% extends "layout-signed-out.html" %}
-
+{# {% extends "layout-signed-out.html" %} #}
+{% extends "layout.html" %}
+{% set showBackLink = true %}
 {% set serviceName = "Defra account" %}
 
-{% set title = "What is your name?" %}
-
-{% block pageTitle %}
-  {{title}} - GOV.UK
-{% endblock %}
-
-{% block beforeContent %}
-  {{ govukBackLink({
-    text: "Back",
-    href: "javascript:history.back()"
-  }) }}
-{% endblock %}
+{% set pageHeading = "What is your name?" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
+
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
+	<div class="govuk-grid-column-two-thirds">
 
-    <h1 class="govuk-heading-xl">{{ title }}</h1>
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-    <form method="post" action="personal-contact">
+    	<form method="post" action="personal-contact">
 
-      {{ govukInput({
-        label: {
-          text: "First or given name"
-        },
-        classes: "govuk-!-width-three-quarters",
-        id: "defraIdFirstName",
-        name: "defraIdFirstName"
-      }) }}
+            {# fieldset: { legend: { text: "Partnership created", isPageHeading: false, classes: "govuk-visually-hidden" } }, #}
+            {# fieldset: {
+                    legend: { text: "Are you registering as a business or an individual?", isPageHeading: false, classes: "govuk-visually-hidden"  }
+                }, #}
 
-      {{ govukInput({
-        label: {
-          text: "Surname or family name"
-        },
-        classes: "govuk-!-width-three-quarters",
-        id: "defraIdSurname",
-        name: "defraIdSurname"
-      }) }}
+            {% call govukFieldset({
+                legend: {
+                    text: pageHeading,
+                    classes: "govuk-visually-hidden",
+                    isPageHeading: false
+                }
+            }) %}
 
-      {{ govukButton({
-        text: "Continue"
-      }) }}
 
-    </form>
+            {{ govukInput({
+                label: {
+          			text: "First or given name"
+        		},
+                classes: "govuk-!-width-three-quarters"
+            } | decorateFormAttributes('defraIdFirstName')) }}
 
-  </div>
+            {{ govukInput({
+                label: {
+          			text: "Surname or family name"
+        		},
+                classes: "govuk-!-width-three-quarters"
+            } | decorateFormAttributes('defraIdSurname')) }}
+
+
+            {% endcall %}
+
+
+      		{{ govukButton({
+        		text: "Continue"
+      		}) }}
+
+    	</form>
+
+  	</div>
 </div>
 
 {% endblock %}

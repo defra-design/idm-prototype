@@ -83,6 +83,14 @@
 
   {% block pageNavigation %}{% endblock %}
   {% block pageBanner %}{% endblock %}
+
+    {% if showProfile == true %}
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual-profile-target.html" %}
+  </div>
+    {% endif %}
+
+
 {% endblock %}
 
 {% set mainClasses = mainClasses | default("govuk-main-wrapper--auto-spacing") %}

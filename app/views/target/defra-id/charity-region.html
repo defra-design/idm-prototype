@@ -1,117 +1,94 @@
-{% extends "layout-target.html" %}
-
+{# {% extends "layout-signed-out.html" %} #}
+{% extends "layout.html" %}
+{% set showBackLink = true %}
 {% set serviceName = "Defra account" %}
 
-{% set title = "Where is the charity registered?" %}
-
-{% block pageTitle %}
-  {{title}} - GOV.UK
-{% endblock %}
-
-{% block beforeContent %}
-  {{ govukBackLink({
-    text: "Back",
-    href: "javascript:history.back()"
-  }) }}
-{% endblock %}
+{% set pageHeading = "Where is the charity registered?" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
+
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
+	<div class="govuk-grid-column-two-thirds">
 
-    <form action="charity-name" method="post">
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-      {% set englandAndWales %}
-      {{ govukInput({
-        id: "charity-number-a",
-        name: "charity-number-a",
-        type: "number",
-        spellcheck: false,
-        classes: "govuk-!-width-one-third",
-        label: {
-          text: "Enter the registered charity number"
-        },
-        hint: {
-          text: "For example 1004005"
-        }
-      }) }}
-      {% endset -%}
+        <form action="charity-name" method="post">
 
-      {% set scotland %}
-      {{ govukInput({
-        id: "charity-number-b",
-        name: "charity-number-b",
-        type: "number",
-        classes: "govuk-!-width-one-third",
-        label: {
-          text: "Enter the registered charity number"
-        },
-        hint: {
-          text: "For example SC000022"
-        }
-      }) }}
-      {% endset -%}
+            {% set englandAndWales %}
+                {{ govukInput({
+                    id: "charity-number-a",
+                    name: "charity-number-a",
+                    type: "number",
+                    spellcheck: false,
+                    classes: "govuk-!-width-one-third",
+                    label: {
+                        text: "Enter the registered charity number"
+                    },
+                    hint: {
+                        text: "For example 1004005"
+                    }
+                }) }}
+            {% endset -%}
 
-      {% set northernIreland %}
-      {{ govukInput({
-        id: "charity-number-c",
-        name: "charity-numberber-c",
-        type: "number",
-        classes: "govuk-!-width-one-third",
-        label: {
-          text: "Enter the registered charity number"
-        },
-        hint: {
-          text: "For example NIC100002"
-        }
-      }) }}
-      {% endset -%}
+            {% set scotland %}
+                {{ govukInput({
+                    id: "charity-number-b",
+                    name: "charity-number-b",
+                    type: "number",
+                    classes: "govuk-!-width-one-third",
+                    label: {
+                        text: "Enter the registered charity number"
+                    },
+                    hint: {
+                        text: "For example SC000022"
+                    }
+                }) }}
+            {% endset -%}
 
-      {{ govukRadios({
-        idPrefix: "charityNumber",
-        name: "charityNumber",
-        fieldset: {
-          legend: {
-            text: title,
-            isPageHeading: true,
-            classes: "govuk-fieldset__legend--xl"
-          }
-        },
-        hint: {
-          text: "Select one option."
-        },
-        items: [
-          {
-            value: "englandAndWales",
-            text: "England and Wales",
-            conditional: {
-              html: englandAndWales
-            }
-          },
-          {
-            value: "scotland",
-            text: "Scotland",
-            conditional: {
-              html: scotland
-            }
-          },
-          {
-            value: "northernIreland",
-            text: "Northern Ireland",
-            conditional: {
-              html: northernIreland
-            }
-          }
-        ]
-      }) }}
+            {% set northernIreland %}
+                {{ govukInput({
+                    id: "charity-number-c",
+                    name: "charity-numberber-c",
+                    type: "number",
+                    classes: "govuk-!-width-one-third",
+                    label: {
+                        text: "Enter the registered charity number"
+                    },
+                    hint: {
+                        text: "For example NIC100002"
+                    }
+                }) }}
+            {% endset -%}
 
-      {{govukButton({
-        text: "Continue"
-      })}}
+            {{ govukRadios({
+                idPrefix: "charityNumber",
+                name: "charityNumber",
+                fieldset: {
+                    legend: {
+                        text: title,
+                        isPageHeading: true,
+                        classes: "govuk-fieldset__legend--xl"
+                    }
+                },
+                hint: {
+                    text: "Select one option."
+                },
+                items: [
+                    { value: "englandAndWales", text: "England and Wales", conditional: { html: englandAndWales } },
+                    { value: "scotland", text: "Scotland", conditional: { html: scotland } },
+                    { value: "northernIreland", text: "Northern Ireland", conditional: { html: northernIreland } }
+                ]
+            }) }}
 
-    </form>
+            {{govukButton({
+                text: "Continue"
+            })}}
 
-  </div>
+        </form>
+
+    </div>
 </div>
 
 {% endblock %}
