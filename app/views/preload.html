@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% set showBackLink = false %}
 
-{% set pageHeading = "Preload user data" %}
+{% set pageHeading = "Preload prototype with user data" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 {% block content %}
@@ -11,7 +11,7 @@
 
       {{ macroPageHeader.pageHeader(pageHeading, pageSection) }}
 
-      <p class="govuk-!-padding-bottom-3">Preload the prototype with user data.</p>
+
 
       {% if data['flow'] == "Registration" %}
 
@@ -34,9 +34,39 @@
             ]
           } | decorateFormAttributes('siteEntry')) }}
 
-      {% else %}
+        {% elif data['flow'] == "Authentication" %}
 
-      {% endif %}
+            <form class="form" action="/mfa-V2/core/gov-login1" method="post" >
+
+            {{ govukRadios({
+            classes: "govuk-radios--inline",
+            fieldset: {
+              legend: { text: "Method of authentication", isPageHeading: false, classes: "govuk-fieldset__legend--m"  }
+            },
+            items: [
+                { value: "SMS", text: "SMS" },
+                { value: "Email, redirect(/mfa-V2/core/verify-single-number)", text: "Email" }
+            ]
+          } | decorateFormAttributes('authenticationMethod')) }}
+
+
+          {{ govukRadios({
+            classes: "govuk-radios--inline",
+            fieldset: {
+              legend: { text: "Size of company", isPageHeading: false, classes: "govuk-fieldset__legend--m"  }
+            },
+            items: [
+                { value: "Single", text: "Single" },
+                { value: "20", text: "Up to 20" },
+                { value: "45", text: "21 to 45" }
+            ]
+          } | decorateFormAttributes('companySize')) }}
+
+
+
+        {% else %}
+
+        {% endif %}
 
         {{ govukButton({
           text: "Add preloaded information and continue"

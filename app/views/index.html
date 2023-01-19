@@ -32,19 +32,19 @@
 
 
             <form action="/preload" method="post" >
-
                 <input type="hidden" name="flow" id="flow" value="Registration" />
-
                 {{ govukButton({
                     text: "Register for a Defra account"
                 }) }}
             </form>
 
-            {{ govukButton({
-      			text: "Authentication",
-                value: "",
-      			href: "/preload"
-    		}) }}
+            <form action="/preload" method="post" >
+                <input type="hidden" name="flow" id="flow" value="Authentication" />
+                {{ govukButton({
+      			    text: "Authentication"
+    		    }) }}
+            </form>
+
 
     		{{ govukButton({
       			text: "Page listings",
