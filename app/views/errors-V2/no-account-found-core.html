@@ -1,41 +1,35 @@
-{% extends "layout-blank.html" %}
-
-{% set serviceName = "There are no accounts found" %}
-
+{% extends "layout.html" %}
+{% set showBackLink = false %}
 
 
-
-{% block pageTitle %}
-  {{title}} - GOV.UK
-{% endblock %}
-
-{% block beforeContent %}
-  <!-- {{ govukBackLink({
-    text: "Back",
-    href: "javascript:history.back()"
-  }) }} -->
-{% endblock %}
+{% set pageHeading = "You do not have access to any accounts" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
+
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-column-two-thirds">
 
-    <h1 class="govuk-heading-xl">
-      There are no accounts you can access yet
-    </h1>
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-  <p>You will need to contact your service and ask them to update your details.</p>
+        <p>You will need to contact your service and ask them to update your details.</p>
+
+        <h2 class="govuk-heading-m">What you can do next</h2>
+        <ul class="govuk-list">
+            <li><a class="govuk-link" href="#">Get access using account management</a></li>
+            <li><a class="govuk-link" href="/mfa/security-word">Sign out</a></li>
+        </ul>
+
+        {# <p><a href="/mfa/security-word">Sign out</a></p> #}
+        {# {{ govukButton({
+            text: "Sign out",
+            href:""
+        }) }} #}
 
 
-
-{{ govukButton({
-  text: "Sign out",
-  href:"/mfa/security-word"
-}) }}
-
-
-<details class="govuk-details" data-module="govuk-details">
-  <summary class="govuk-details__summary">
+        {# <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
     <span class="govuk-details__summary-text">
       Help contact your service
     </span>
@@ -47,7 +41,7 @@
     <br><br>
     <p class="govuk-body">Find out about <a href="https://www.gov.uk/call-charges" target=”_blank”>call charges</p>
   </div>
-</details>
+</details> #}
 
 
 
