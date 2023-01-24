@@ -22,6 +22,8 @@
     </div>
 
     <div class="govuk-grid-row">
+
+
         <div class="govuk-grid-column-two-thirds">
             <p>This service will help users:</p>
             <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
@@ -45,28 +47,21 @@
     		    }) }}
             </form>
 
-
-    		{{ govukButton({
+            {# Page listing buttons #}
+    		{# {{ govukButton({
       			text: "Page listings",
-      			href: "/admin/listings",
+      			href: "",
       			classes: "govuk-button--secondary govuk-!-margin-left-1"
     		}) }}
-
-
 
             {{ govukButton({
       			text: "Preload options",
-      			href: "/admin/preload",
+      			href: "",
       			classes: "govuk-button--secondary govuk-!-margin-left-1"
-    		}) }}
+    		}) }} #}
 
 
-
-
-
-
-
-            <h2 class="govuk-heading-m">Register for a Defra account</h2>
+            {# <h2 class="govuk-heading-m">Register for a Defra account</h2>
             <ul class="govuk-list">
                 <li class="govuk-link"><a href="/mfa-V2/gov-gateway/login" class="govuk-link--no-visited-state">User has Gov gateway account</a></li>
                 <li class="govuk-link"><a href="/tasked/gov-gateway/login" class="govuk-link--no-visited-state">User has no Gov gateway account</a></li>
@@ -93,31 +88,35 @@
             <ul class="govuk-list">
                 <li class="govuk-link"><a href="/password-V2/enter-email">Forgot password</a></li>
                 <li class="govuk-link"><a href="/password-V2-2/enter-email">Forgot password (with verification and password on same page)</a></li>
-            </ul>
+            </ul> #}
+
+
         </div>
-    </div>
+        <!-- End of two thirds column -->
+
+
+
+         <div class="govuk-grid-column-one-third">
+            <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Assets </h2>
+            <p>The following links open in a new tab</p>
+            <nav>
+                <ul class="govuk-list">
+                    <li><a href="https://github.com/defra-design/idm-prototype" rel="noreferrer noopener" target="_blank" >Github repository <span class="govuk-visually-hidden">(opens in new tab)</span></a></li>
+                    <li><a href="https://app.mural.co/t/defraidmanagement4828/m/defraidmanagement4828/1651757057405/8de389e360d3ece2fb5b5adb455eb3fd376c13d5?sender=uc4759e9563ebe5260dd56933" rel="noreferrer noopener" target="_blank">Mural - user journeys <span class="govuk-visually-hidden">(opens in new tab)</span></a></li>
+                    <li><a href="https://www.figma.com/file/XRzsdo5usIj3oUBfQEinLJ/Identity-management-flows-'To-Be'?node-id=4%3A2804" rel="noreferrer noopener" target="_blank">Figma assets <span class="govuk-visually-hidden">(opens in new tab)</span></a></li>
+                </ul>
+            </nav>
+        </div>
+
+
+
+        <div class="govuk-grid-column-two-thirds">
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            {{ govukSummaryList({
+            {# {{ govukSummaryList({
                 rows: [
                     {
                         key: { text: "Register for an account and authenticate" },
@@ -157,7 +156,7 @@
                         }
                     }
                 ]
-                }) }}
+                }) }} #}
 
 
 
@@ -169,17 +168,7 @@
 
         </div>
 
-        <div class="govuk-grid-column-one-third">
-            <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Assets </h2>
-            <p>The following links open in a new tab</p>
-            <nav>
-                <ul class="govuk-list">
-                    <li><a href="https://github.com/defra-design/idm-prototype" rel="noreferrer noopener" target="_blank" >Github repository <span class="govuk-visually-hidden">(opens in new tab)</span></a></li>
-                    <li><a href="https://app.mural.co/t/defraidmanagement4828/m/defraidmanagement4828/1651757057405/8de389e360d3ece2fb5b5adb455eb3fd376c13d5?sender=uc4759e9563ebe5260dd56933" rel="noreferrer noopener" target="_blank">Mural - user journeys <span class="govuk-visually-hidden">(opens in new tab)</span></a></li>
-                    <li><a href="https://www.figma.com/file/XRzsdo5usIj3oUBfQEinLJ/Identity-management-flows-'To-Be'?node-id=4%3A2804" rel="noreferrer noopener" target="_blank">Figma assets <span class="govuk-visually-hidden">(opens in new tab)</span></a></li>
-                </ul>
-            </nav>
-        </div>
+
     </div>
 
     <div class="govuk-grid-row">
