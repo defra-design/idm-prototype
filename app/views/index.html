@@ -33,19 +33,31 @@
             </ul>
 
 
+            <h2 class="govuk-heading-m">Journey flows <span class="govuk-body-s">V2.0</span></h2>
+
+            <div class="govuk-button-group">
             <form action="/preload" method="post" >
                 <input type="hidden" name="flow" id="flow" value="Registration" />
                 {{ govukButton({
-                    text: "Register for a Defra account"
+                    text: "Registration"
                 }) }}
             </form>
 
             <form action="/preload" method="post" >
                 <input type="hidden" name="flow" id="flow" value="Authentication" />
                 {{ govukButton({
-      			    text: "Authentication and verification"
+      			    text: "Authentication and verification",
+                    classes: "govuk-!-margin-left-1"
     		    }) }}
             </form>
+            </div>
+
+            <ul class="govuk-list govuk-list--bullet">
+                        <li>MFA with phone number verification only</li>
+                        <li>MFA via email</li>
+                        <li>MFA switching (sms/email)</li>
+                        <li>Exit pages</li>
+                    </ul>
 
             {# Page listing buttons #}
     		{# {{ govukButton({
