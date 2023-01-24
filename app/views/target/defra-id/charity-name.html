@@ -1,44 +1,39 @@
-{% extends "layout-target.html" %}
-
+{# {% extends "layout-signed-out.html" %} #}
+{% extends "layout.html" %}
+{% set showBackLink = true %}
 {% set serviceName = "Defra account" %}
 
-{% set title = "What is the registered charity name?" %}
-
-{% block pageTitle %}
-  {{title}} - GOV.UK
-{% endblock %}
-
-{% block beforeContent %}
-  {{ govukBackLink({
-    text: "Back",
-    href: "javascript:history.back()"
-  }) }}
-{% endblock %}
+{% set pageHeading = "What is the registered charity name?" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
+
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
+	<div class="govuk-grid-column-two-thirds">
 
-    <form action="add-charity-address-postcode" method="post">
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-      {{ govukInput({
-        label: {
-          text: title,
-          classes: "govuk-label--xl",
-          isPageHeading: true
-        },
-        id: "charity-name",
-        name: "charity-name",
-        classes: "govuk-input--width-20"
-      }) }}
+        <form action="add-charity-address-postcode" method="post">
 
-      {{ govukButton({
-        text: "Continue"
-      }) }}
+            {{ govukInput({
+                label: {
+                    text: pageHeading,
+                    classes: "govuk-visually-hidden",
+                    isPageHeading: false
+                },
+                id: "charity-name",
+                name: "charity-name",
+                classes: "govuk-input--width-20"
+            }) }}
 
-    </form>
+            {{ govukButton({
+                text: "Continue"
+            }) }}
 
-  </div>
+        </form>
+
+    </div>
 </div>
 
 {% endblock %}

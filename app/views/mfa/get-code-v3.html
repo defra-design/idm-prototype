@@ -19,12 +19,12 @@
   <div class="govuk-grid-column-two-thirds">
 
     <h1 class="govuk-heading-xl">{{ title }}</h1>
-  
+
 
     <form action="get-code-success-search" method="post">
 
-  
-     
+
+
 
       {{ govukInput({
         label: {
@@ -38,7 +38,7 @@
         classes: "govuk-!-width-two-thirds",
         id: "verify",
         name: "verify-code"
-        
+
       }) }}
 
 
@@ -46,7 +46,7 @@
         text: "Verify code"
       }) }}
 
-     
+
     </form>
     {{ govukButton({
       text: "Send another code",

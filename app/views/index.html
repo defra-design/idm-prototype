@@ -1,14 +1,9 @@
 {% extends "layout.html" %}
+{% set showBackLink = false %}
 
-{% set title = "Identity Management" %}
-
-{% block header %}
-{{ govukHeader({ serviceName: "Defra ID" }) }}
-{% endblock %}
-
-{% block pageTitle %}
-{{title}} - GOV.UK
-{% endblock %}
+{% set pageHeading = "Identity Management" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
 
@@ -16,10 +11,7 @@
         <div class="govuk-grid-column-two-thirds">
 
 
-            <h1 class="govuk-heading-xl">
-                <span class="govuk-caption-xl">Prototype</span>
-                {{title}}
-            </h1>
+            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
             <ul class="govuk-list govuk-body-s">
           	    <li>Last updated: 18 January 2023</li>
@@ -30,6 +22,8 @@
     </div>
 
     <div class="govuk-grid-row">
+
+
         <div class="govuk-grid-column-two-thirds">
             <p>This service will help users:</p>
             <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
@@ -39,15 +33,70 @@
             </ul>
 
 
+            <form action="/preload" method="post" >
+                <input type="hidden" name="flow" id="flow" value="Registration" />
+                {{ govukButton({
+                    text: "Register for a Defra account"
+                }) }}
+            </form>
+
+            <form action="/preload" method="post" >
+                <input type="hidden" name="flow" id="flow" value="Authentication" />
+                {{ govukButton({
+      			    text: "Authentication and verification"
+    		    }) }}
+            </form>
+
+            {# Page listing buttons #}
+    		{# {{ govukButton({
+      			text: "Page listings",
+      			href: "",
+      			classes: "govuk-button--secondary govuk-!-margin-left-1"
+    		}) }}
+
+            {{ govukButton({
+      			text: "Preload options",
+      			href: "",
+      			classes: "govuk-button--secondary govuk-!-margin-left-1"
+    		}) }} #}
 
 
+            {# <h2 class="govuk-heading-m">Register for a Defra account</h2>
+            <ul class="govuk-list">
+                <li class="govuk-link"><a href="/mfa-V2/gov-gateway/login" class="govuk-link--no-visited-state">User has Gov gateway account</a></li>
+                <li class="govuk-link"><a href="/tasked/gov-gateway/login" class="govuk-link--no-visited-state">User has no Gov gateway account</a></li>
+            </ul>
+
+            <h2 class="govuk-heading-m">Authentication</h2>
+            <h3 class="govuk-heading-s govuk-!-margin-bottom-1">Using SMS</h3>
+            <ul class="govuk-list">
+                <li class="govuk-link"><a href="/mfa-V2/core/gov-login1" class="govuk-link--no-visited-state">Single organisation</a></li>
+                <li class="govuk-link"><a href="/mfa-V2/core/gov-login2" class="govuk-link--no-visited-state">Up to 20 organisations</a></li>
+                <li class="govuk-link"><a href="/mfa-V2/core/gov-login3" class="govuk-link--no-visited-state">21 to 45 organisations</a></li>
+                <li class="govuk-link"><a href="/mfa-V2/sms-switch-button/gov-login1" class="govuk-link--no-visited-state">User can authenticate with SMS or switch to email (secondary button)</a></li>
+                <li class="govuk-link"><a href="/mfa-V2/sms-switch-link/gov-login1" class="govuk-link--no-visited-state">User can authenticate with SMS or switch to email (link)</a></li>
+            </ul>
+            <h3 class="govuk-heading-s govuk-!-margin-bottom-1">Using email address</h3>
+            <ul class="govuk-list">
+                <li class="govuk-link"><a href="/mfa-V2/core/verify-single-number?scenario=account-page" class="govuk-link--no-visited-state">Single organisation</a></li>
+                <li class="govuk-link"><a href="/mfa-V2/core/verify-single-number?scenario=get-code-success-sc2" class="govuk-link--no-visited-state">Up to 20 organisations</a></li>
+                <li class="govuk-link"><a href="/mfa-V2/core/verify-single-number?scenario=get-code-success-sc3" class="govuk-link--no-visited-state">21 - 45 organisations</a></li>
+            </ul>
 
 
+            <h2 class="govuk-heading-m">Forgot password</h2>
+            <ul class="govuk-list">
+                <li class="govuk-link"><a href="/password-V2/enter-email">Forgot password</a></li>
+                <li class="govuk-link"><a href="/password-V2-2/enter-email">Forgot password (with verification and password on same page)</a></li>
+            </ul> #}
 
 
         </div>
+        <!-- End of two thirds column -->
 
-        <div class="govuk-grid-column-one-third">
+
+
+         <div class="govuk-grid-column-one-third">
             <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Assets </h2>
             <p>The following links open in a new tab</p>
             <nav>
@@ -58,6 +107,68 @@
                 </ul>
             </nav>
         </div>
+
+
+
+        <div class="govuk-grid-column-two-thirds">
+
+
+
+
+
+            {# {{ govukSummaryList({
+                rows: [
+                    {
+                        key: { text: "Register for an account and authenticate" },
+                        value: { html: '<ul class="govuk-list govuk-list--bullet">
+                        <li>MFA with phone number verification only</li>
+                        <li>MFA via email</li>
+                        <li>MFA switching(sms/email)</li>
+                        <li>Exist pages</li>
+                    </ul>' },
+                        actions: {
+                            items: [
+                                { href: "mfa-V2/scenarios", text: "View", visuallyHiddenText: "name" }
+                            ]
+                        }
+                    },
+                    {
+                        key: { text: "Register for an account and authenticate" },
+                        value: { html: '<ul class="govuk-list govuk-list--bullet">
+                        <li>Single number option</li>
+                                <li>Error message implementation</li>
+                                <li>Replaced ’links list’ with radios component</li>
+                                <li>Accessible autocomplete added to core journey</li>
+                    </ul>' },
+                        actions: {
+                            items: [
+                                { href: "mfa-V2/scenarios", text: "View", visuallyHiddenText: "name" }
+                            ]
+                        }
+                    },
+                    {
+                        key: { text: "Error pages" },
+                        value: { html: '' },
+                        actions: {
+                            items: [
+                                { href: "#", text: "View", visuallyHiddenText: "name" }
+                            ]
+                        }
+                    }
+                ]
+                }) }} #}
+
+
+
+
+
+
+
+
+
+        </div>
+
+
     </div>
 
     <div class="govuk-grid-row">

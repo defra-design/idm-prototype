@@ -1,27 +1,41 @@
-{% extends "layout-signed-out.html" %}
-
+{# {% extends "layout-signed-out.html" %} #}
+{% extends "layout.html" %}
+{% set showBackLink = true %}
 {% set serviceName = "Defra account" %}
 
-{% set title = "Are you registering as a business or an individual?" %}
-
-{% block pageTitle %}
-  {{title}} - GOV.UK
-{% endblock %}
-
-{% block beforeContent %}
-  {{ govukBackLink({
-    text: "Back",
-    href: "javascript:history.back()"
-  }) }}
-{% endblock %}
+{% set pageHeading = "Are you registering as a business or an individual?" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <!-- Radio button routing in ../defra-id/_routes.js -->
-    <form action="organisation-type-choice" method="post">
 
-      <div class="govuk-form-group">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+        <!-- Radio button routing in ../defra-id/_routes.js -->
+
+        <form method="post" action="organisation-type-choice">
+
+          {{ govukRadios({
+            fieldset: {
+              legend: { text: "Are you registering as a business or an individual?", isPageHeading: false, classes: "govuk-visually-hidden"  }
+            },
+            items: [
+                { value: "organisation", html: '<strong>A business or organisation</strong>', hint: { text: "You represent a business or organisation that wants to use this service (including sole traders and charities) and you have permission to create an account for them" }  },
+                { value: "individual, redirect(personal-name?orgType=individual)", html: '<strong>An individual</strong>', hint: { text: "You want to use this service for your own personal use" } }
+            ]
+          } | decorateFormAttributes('defraIdType')) }}
+
+          {{govukButton({
+            text: "Continue"
+          })}}
+
+        </form>
+
+
+          {# <div class="govuk-form-group">
         <fieldset class="govuk-fieldset">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
             <h1 class="govuk-fieldset__heading">
@@ -45,13 +59,7 @@
             </div>
           </div>
         </fieldset>
-      </div>
-
-      {{govukButton({
-        text: "Continue"
-      })}}
-
-    </form>
+      </div> #}
 
   </div>
 </div>

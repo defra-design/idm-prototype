@@ -22,11 +22,11 @@
   <div class="govuk-grid-column-two-thirds">
 
     <h1 class="govuk-heading-xl">{{ title }}</h1>
-  
+
 
     <form action="get-code-success-sc3" method="post">
 
-  
+
       {% from "govuk/components/input/macro.njk" import govukInput %}
 
       {{ govukInput({
@@ -41,7 +41,7 @@
         classes: "govuk-!-width-two-thirds",
         id: "verify",
         name: "verify-code"
-        
+
       }) }}
 
 
@@ -49,7 +49,7 @@
         text: "Verify code"
       }) }}
 
-     
+
     </form>
     {{ govukButton({
       text: "Send another code",

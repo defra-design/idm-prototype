@@ -1,75 +1,60 @@
-{% extends "layout-blank.html" %}
-
+{% extends "layout.html" %}
+{% set showBackLink = false %}
 {% set serviceName = "Defra identity" %}
 
-{% set title = "Verify your identity" %}
-
-{% block pageTitle %}
-  {{title}} - GOV.UK
-{% endblock %}
-
-{% block beforeContent %}
-
-{% endblock %}
+{% set pageHeading = "How do you want to verify your identity?" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
+
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <form action="/mfa-v2/sms-email" method="post">
+    <div class="govuk-grid-column-two-thirds">
 
-    <!--<h1 class="govuk-heading-xl">{{ title }}</h1>
-    <p class="govuk-body">This is the number we will send the verification code to</p>
-    <h2 class="govuk-heading-m">xxxxxxxx478</h2>-->
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-<!-- <h1>{{data['scenario']}}</h1> -->
+        <p>We will send you a 6 digit verification code.</p>
+        <form action="/mfa-v2/sms-email" method="post">
 
 
-{{ govukRadios({
-  idPrefix: "verify-your-identity",
-  name: "verify-your-identity",
-  fieldset: {
-    legend: {
-      text: "Verify your identity",
-      isPageHeading: true,
-      classes: "govuk-fieldset__legend--xl"
-    }
-  },
-  items: [
-    {
-      value: "send-sms",
-      text: "Send a code to xxxxxxxx478"
-    },
-    {
-      value: "send-email",
-      text: "Send a code to my email address"
-    }
-  ]
-}) }}
+            {{ govukRadios({
+                idPrefix: "verify-your-identity",
+                name: "verify-your-identity",
+                fieldset: {
+                    legend: {
+                        text: "Verify your identity",
+                        isPageHeading: false,
+                        classes: "govuk-visually-hidden"
+                    }
+                },
 
-      {{ govukButton({
-        text: "Continue",
-        href: ""
-      }) }}
-    </form>
+                items: [
+                    { value: "send-sms, redirect(/mfa-V2/core/verify)", text: "Phone" },
+                    { value: "send-email", text: "Email" }
+                ]
+            }) }}
 
-    <details class="govuk-details" data-module="govuk-details">
-      <summary class="govuk-details__summary">
-        <span class="govuk-details__summary-text">
-        Need help with the page?
-        </span>
-      </summary>
-      <div class="govuk-details__text">
-        Contact the [Service name].<br><br>
-        [Service name]  <br>
-        Telephone: [Service telephone number] <br>
-        [Service Opening Hours](except public holidays) <br>
-        [Service email address]
-        <br><br>
-        <p class="govuk-body">Find out about <a href="https://www.gov.uk/call-charges" target=”_blank”>call charges</p>
-      </div>
-    </details>
+            {{ govukButton({
+                text: "Continue"
+            }) }}
 
-  </div>
+        </form>
+
+        <details class="govuk-details" data-module="govuk-details">
+            <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">Need help with the page?</span>
+            </summary>
+            <div class="govuk-details__text">
+                Contact the [Service name].<br><br>
+                [Service name]  <br>
+                Telephone: [Service telephone number] <br>
+                [Service Opening Hours](except public holidays) <br>
+                [Service email address]
+                <br><br>
+                <p class="govuk-body">Find out about <a href="https://www.gov.uk/call-charges" target=”_blank”>call charges</p>
+            </div>
+        </details>
+
+    </div>
 </div>
-
 {% endblock %}

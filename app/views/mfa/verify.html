@@ -19,7 +19,7 @@
     <h1 class="govuk-heading-xl">{{ title }}</h1>
     <p class="govuk-body">Choose a contact number, to send a verification code to.</p>
 
-    
+
 
     <form action="/mfa/select-number" method="post">
 
@@ -29,7 +29,7 @@
   idPrefix: "telephone-number",
   name: "telephone",
   value: "select",
-  
+
   items: [
     {
       value: "tel1",
@@ -43,7 +43,7 @@
       value: "tel3",
       text: "xxxxxxxx006"
     }
-    
+
   ]
 }) }}
 
@@ -54,7 +54,7 @@
       }) }}
     </form>
 
-   
+
     {% include "includes/get-help.html" %}
 
   </div>

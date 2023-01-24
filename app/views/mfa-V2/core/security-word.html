@@ -1,96 +1,75 @@
-{% extends "layout-blank.html" %}
+{% extends "layout.html" %}
+{% set showBackLink = false %}
+{% set serviceName = "Defra identity" %}
 
-{% set title = "Confirm your security word" %}
-
-{% block pageTitle %}
-    {{title}} - GOV.UK
-{% endblock %}
-
-{% block beforeContent %}
-
-
-
-{% endblock %}
-
+{% set pageHeading = "Confirm your security word" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
 
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+        <p>Enter the following 3 characters from your security word.</p>
 
 
+        <form method="post" action="verify-email">
 
-      <form method="post" action="verify-email">
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl"></legend>
 
-
-        <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
-              <h1 class="govuk-fieldset__heading">
-                {{title}}
-              </h1>
-            </legend>
-            <span id="passport-issued-hint" class="govuk-hint">
-              Enter the following 3 characters from your security word.
-            </span>
-
-            <div class="govuk-date-input" id="passport-issued">
-              <div class="govuk-date-input__item">
-                <div class="govuk-form-group">
-                  <label class="govuk-label govuk-date-input__label" for="char1">
-                    3rd
-                  </label>
-                  <input class="govuk-input govuk-input--width-2" id="char1" name="char1">
-                </div>
-              </div>
-              <div class="govuk-date-input__item">
-                <div class="govuk-form-group">
-                  <label class="govuk-label govuk-date-input__label" for="char2">
-                    7th
-                  </label>
-                  <input class="govuk-input govuk-input--width-2" id="char2" name="char2">
-                </div>
-              </div>
-              <div class="govuk-date-input__item">
-                <div class="govuk-form-group">
-                  <label class="govuk-label govuk-date-input__label" for="char3">
-                    12th
-                  </label>
-                  <input class="govuk-input govuk-input--width-2" id="char3" name="char3">
-                </div>
-              </div>
+                    <div class="govuk-date-input" id="passport-issued">
+                        <div class="govuk-date-input__item">
+                            <div class="govuk-form-group">
+                                <label class="govuk-label govuk-date-input__label" for="char1">3rd</label>
+                                <input class="govuk-input govuk-input--width-2" id="char1" name="char1">
+                            </div>
+                        </div>
+                        <div class="govuk-date-input__item">
+                            <div class="govuk-form-group">
+                                <label class="govuk-label govuk-date-input__label" for="char2">7th</label>
+                                <input class="govuk-input govuk-input--width-2" id="char2" name="char2">
+                            </div>
+                        </div>
+                        <div class="govuk-date-input__item">
+                            <div class="govuk-form-group">
+                                <label class="govuk-label govuk-date-input__label" for="char3">12th</label>
+                                <input class="govuk-input govuk-input--width-2" id="char3" name="char3">
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
             </div>
-          </fieldset>
-        </div>
-        {{ govukButton({
-          text: "Continue"
-        }) }}
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+
+        </form>
 
         <details class="govuk-details" data-module="govuk-details">
-          <summary class="govuk-details__summary">
-            <span class="govuk-details__summary-text">
-              Forgotten your Defra security word?
-            </span>
-          </summary>
-          <div class="govuk-details__text">
-            <div class="govuk-body">
-              Your security word hint: [Hint Word]
+            <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">Forgotten your Defra security word?</span>
+            </summary>
+            <div class="govuk-details__text">
+                <div class="govuk-body">Your security word hint: [Hint Word]</div>
+                If you have forgotten your Defra Security Word, you can Contact the [Service name].<br><br>
+                [Service name]  <br>
+                Telephone: [Service telephone number] <br>
+                [Service Opening Hours](except public holidays) <br>
+                [Service email address]
+                <br><br>
+                <p class="govuk-body">Find out about <a href="https://www.gov.uk/call-charges" target=”_blank”>call charges</p>
             </div>
-            If you have forgotten your Defra Security Word, you can Contact the [Service name].<br><br>
-                    [Service name]  <br>
-                    Telephone: [Service telephone number] <br>
-                    [Service Opening Hours](except public holidays) <br>
-                    [Service email address]
-                    <br><br>
-                    <p class="govuk-body">Find out about <a href="https://www.gov.uk/call-charges" target=”_blank”>call charges</p>
-          </div>
         </details>
-
-
-      </form>
-
-  </div>
+    </div>
 </div>
+
+
 <br>
 <br><br><br><br>
 <a href="/scp/credential-recovery-security-word-error-2">show error</a>

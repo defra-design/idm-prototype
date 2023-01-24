@@ -1,23 +1,21 @@
 {% extends "layout.html" %}
+{% set showBackLink = false %}
 
-{% set serviceName = "Defra account" %}
 
-{% set title = "Your Defra account" %}
-
-{% block pageTitle %}
-  {{title}} - GOV.UK
-{% endblock %}
+{% set pageHeading = "Your Defra account" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
 
-<div class="govuk-grid-row">
+  <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-        <form method="POST" action="organisation-type">
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-            <h1 class="govuk-heading-xl">
-              {{ title }}
-            </h1>
+        <form method="post" action="organisation-type">
+
+
             <p>Your Defra account lets you access and manage Defra services for yourself or on behalf of the organisations that you represent. Once you have an account, you'll use your Government Gateway details to sign in each time you visit.</p>
 
             <h2 class="govuk-heading-l">
