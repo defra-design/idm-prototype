@@ -2,7 +2,7 @@
 {% set showBackLink = false %}
 
 
-{% set pageHeading = "Verify your identity" %}
+{% set pageHeading = "The verification code message failed to send" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -10,42 +10,40 @@
 
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
-        {{ govukErrorSummary({
-            titleText: "There is a problem",
-            errorList: [
-                {
-                    text: "The verification code message failed to send",
-                    href: "#verify-code"
-                },
-                {
-                    text: "Resend the code",
-                    href: "#verify-code"
-                }
-                
-            ]
-        }) }}
+        
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-        <div class="govuk-form-group govuk-form-group--error">
-            <p class="govuk-body">This is the number we will send the 6 digit verification code to.</p>
-            <p class="govuk-body">It may take a few minutes to arrive.</p>
+            <p>This could be due to:</p>
+            <ul class="govuk-list govuk-list--bullet">
+                <li>a technical issue with the service</li>
+                <li>the number we have for you no longer works or has an issue</li>
+            </ul>
+            <p class="govuk-body govuk-!-margin-bottom-7">You can resend the verification code or change how you receive the code.</p>            
             
-            <h2 class="govuk-heading-m">xxxxxxxx478</h2>
-
-            <p id="national-insurance-number-error" class="govuk-error-message">
-                <span class="govuk-visually-hidden">Error:</span>Resend the code
-            </p>
+            
 
             
-        </div>
-        <form action="get-code" method="post">
-            {{ govukButton({
-                text: "Send code",
-                id: "button-continue"
-            }) }}
-        </form>
+
+            
+            <form action="get-code" method="post"></form>
+        
+
+            <div class="govuk-button-group">
+                
+                {{ govukButton({
+                    text: "Resend verification code"
+                }) }}
+                
+                <a class="govuk-link" href="#">Change how to verify your identity</a>
+              </div>
+
+            </form>
+
+
+
+
+            
 
         <details class="govuk-details" data-module="govuk-details">
             <summary class="govuk-details__summary">
