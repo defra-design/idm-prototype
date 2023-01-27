@@ -14,7 +14,7 @@
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
             <ul class="govuk-list govuk-body-s">
-          	    <li>Last updated: 18 January 2023</li>
+          	    <li>Last updated: 27 January 2023</li>
                 <li>Prototype version: {{releaseVersion}}</li>
             </ul>
 
@@ -27,8 +27,8 @@
         <div class="govuk-grid-column-two-thirds">
             <p>This service will help users:</p>
             <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
-                <li class="govuk-body">create a single set of sign-in credentials that they can use to access one or more Defra services.</li>
-                <li class="govuk-body">store information about the user (and their business, if relevant) so that they do not have to re-enter it each time they want to use a new online service.</li>
+                <li class="govuk-body">create a single set of sign-in credentials that can be used to access one or more Defra services.</li>
+                <li class="govuk-body">store information about the user (and their business, if relevant).</li>
                 <li class="govuk-body">give other people (for example colleagues or agents) access to one or more of the online services they use.</li>
             </ul>
 
@@ -106,30 +106,32 @@
         </div>
         <!-- End of two thirds column -->
 
-
-
          <div class="govuk-grid-column-one-third">
             <h2 class="govuk-heading-s govuk-!-margin-bottom-1" id="subsection-title">Assets </h2>
-
             <nav class="govuk-!-margin-bottom-7">
                 <ul class="govuk-list">
-                    <li><a href="https://github.com/defra-design/idm-prototype" rel="noreferrer noopener" target="_blank" >Github repository <span class="govuk-visually-hidden">(opens in new tab)</span></a></li>
-                    <li><a href="https://app.mural.co/t/defraidmanagement4828/m/defraidmanagement4828/1651757057405/8de389e360d3ece2fb5b5adb455eb3fd376c13d5?sender=uc4759e9563ebe5260dd56933" rel="noreferrer noopener" target="_blank">Mural - user journeys <span class="govuk-visually-hidden">(opens in new tab)</span></a></li>
-                    <li><a href="https://www.figma.com/file/XRzsdo5usIj3oUBfQEinLJ/Identity-management-flows-'To-Be'?node-id=4%3A2804" rel="noreferrer noopener" target="_blank">Figma assets <span class="govuk-visually-hidden">(opens in new tab)</span></a></li>
+                    <li><a href="https://github.com/defra-design/idm-prototype" class="govuk-link govuk-link--no-visited-state" rel="noreferrer noopener" target="_blank" >Github repository <span class="govuk-visually-hidden">(opens in new tab)</span></a></li>
+                    <li><a href="https://app.mural.co/t/defraidmanagement4828/m/defraidmanagement4828/1651757057405/8de389e360d3ece2fb5b5adb455eb3fd376c13d5?sender=uc4759e9563ebe5260dd56933" class="govuk-link govuk-link--no-visited-state" rel="noreferrer noopener" target="_blank">Mural - user journeys <span class="govuk-visually-hidden">(opens in new tab)</span></a></li>
+                    <li><a href="https://www.figma.com/file/XRzsdo5usIj3oUBfQEinLJ/Identity-management-flows-'To-Be'?node-id=4%3A2804" rel="noreferrer noopener" class="govuk-link govuk-link--no-visited-state" target="_blank">Figma assets <span class="govuk-visually-hidden">(opens in new tab)</span></a></li>
+                </ul>
+            </nav>            
+
+            <h2 class="govuk-heading-s govuk-!-margin-bottom-1" id="subsection-title">Page error messages</h2>
+            <nav class="govuk-!-margin-bottom-7">
+                <ul class="govuk-list">
+                    <li><a href="/error-pages" class="govuk-link govuk-link--no-visited-state">Version 2.0 <span class="govuk-visually-hidden">(opens in new tab)</span></a></li>
+                    <li><a href="/error-pages-old" class="govuk-link govuk-link--no-visited-state">Version 1.0 <span class="govuk-visually-hidden">(opens in new tab)</span></a></li>                      
                 </ul>
             </nav>
-
             <!-- Check these still exist and work -->
             {# <h2 class="govuk-heading-s govuk-!-margin-bottom-1" id="subsection-title">Archived prototypes</h2>
             <nav>
                 <ul class="govuk-list">
-                    <li><a href="index_archived" class="govuk-link--no-visited-state">All prototypes from 2021</a></li>
-                    <li><a href="index-old" class="govuk-link--no-visited-state">Older archived prototypes</a></li>
+                    <li><a href="index_archived" class="govuk-link govuk-link--no-visited-state">All prototypes from 2021</a></li>
+                    <li><a href="index-old" class="govuk-link govuk-link--no-visited-state">Older archived prototypes</a></li>
                 </ul>
             </nav> #}
         </div>
-
-
 
         <div class="govuk-grid-column-two-thirds">
 
@@ -295,266 +297,8 @@
       </tbody>
     </table>
 
-    <!-- ## V2.0 - Errors ## -->
-    <table class="govuk-table">
-      <caption class="govuk-table__caption govuk-table__caption--m">Error pages (2.0)</caption>
-      <thead class="govuk-table__head">
-        <tr class="govuk-table__row">
-          <th scope="col" class="govuk-table__header">Error type</th>
-          <th scope="col" class="govuk-table__header">Urls</th>
-        </tr>
-      </thead>
-      <tbody class="govuk-table__body">
-
-
-
-        <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header">CRN</th>
-          <td class="govuk-table__cell">
-            <ul class="govuk-list">
-              <li><a href="/errors-V2/error-CRN/500-error">500-error</a></li>
-              ---
-              <li><a href="/errors-V2/error-CRN/crn-error-wrong-CRN">CRN is not 10 digit</a></li>
-              <li><a href="/errors-V2/error-CRN/crn-error-no-password"> No password is entered</a></li>
-              <li><a href="/errors-V2/error-CRN/crn-error-no-CRN">No CRN is entered</a></li>
-              <li><a href="/errors-V2/error-CRN/crn-error-no-password-CRN">Incorrect CRN and password</a></li>
-              ---
-              <li><a href="/errors-V2/error-CRN/account-locked">Account locked (reached maximum number of attempts)</a></li>
-            </ul>
-          </td>
-        </tr>
-
-
-        <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header">MFA - verfiy identity(phone)</th>
-            <td class="govuk-table__cell">
-              <ul class="govuk-list">
-              <li><a href="/errors-V2/error-MFA/verify-wrong-number-2">Phone number is incorrect</a></li>
-              <li><a href="/errors-V2/error-MFA/verify-system-issue">SMS faliure </a></li>
-              <li><a href="/errors-V2/error-MFA/error-verify-multiple-numbers">Verfiy multiple numbers - core journey</a></li>
-              </ul>
-            </td>
-        </tr>
-
-        <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header">MFA - sms</th>
-          <td class="govuk-table__cell">
-            <ul class="govuk-list">
-              <li><a href="/errors-V2/error-MFA/get-code-error-1">You must enter a verification code</a></li>
-              <li><a href="/errors-V2/error-MFA/get-code-error-2">The code entered must be 6 digits</a></li>
-              <li><a href="/errors-V2/error-MFA/get-code-error-3">Code entered does not match code sent</a></li>
-              <li><a href="/errors-V2/error-MFA/get-code-error-4">Code entered is expired</a></li>
-              <li><a href="/errors-V2/error-MFA/exceeded-retries">You have reached max number of attempts</a></li>
-              <li><a href="/errors-V2/error-MFA/cannot-use-tel-no">No Telephone Numbers that can be used – Core Service </a></li>
-              <li><a href="/errors-V2/error-MFA/cannot-use-tel-no-aw">No Telephone Numbers that can be used – Animal Welfare</a></li>
-            </ul>
-          </td>
-        </tr>
-
-        <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header">MFA - email</th>
-          <td class="govuk-table__cell">
-            <ul class="govuk-list">
-              <li><a href="/errors/no-secure-word">No memorable word</a></li>
-              <li><a href="/scp/credential-recovery-security-word-error-1">Incorrect memorable word</a></li>
-              <li><a href="/errors/security-word-changed">Memorable word has changed</a></li>
-              <li><a href="/errors-V2/error-MFA/get-code-error-1_email">You must enter a verification code</a></li>
-              <li><a href="/errors-V2/error-MFA/get-code-error-2_email">The code entered must be 6 digits</a></li>
-              <li><a href="/errors-V2/error-MFA/get-code-error-3_email">Code entered does not match code sent</a></li>
-              <li><a href="/errors-V2/error-MFA/get-code-error-4_email">Verification code has expired</a></li>
-              <li><a href="/errors-V2/error-MFA/exceeded-retries">You have reached the maximum number of attempts</a></li>
-              <li><a href="/errors-V2/error-MFA/problem-sending-email">There has been a problem sending the email</a></li>
-            </ul>
-          </td>
-        </tr>
-
-
-        <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header">Org selection</th>
-          <td class="govuk-table__cell">
-            <ul class="govuk-list">
-              <li><a href="/errors-V2/no-account-found-core">No account found - Core journey</a></li>
-              <li><a href="/errors-V2/no-account-found-VV">No account found - Vets Visits</a></li>
-              <li><a href="/errors-V2/select-org">No organisation chosen - radio list</a></li>
-              <li><a href="/errors-V2/org-search-error">No organisation chosen - auto-suggest</a></li>
-
-            </ul>
-          </td>
-        </tr>
-
-
-        <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header">Forgot password journey</th>
-          <td class="govuk-table__cell">
-            <ul class="govuk-list">
-              <li><a href="/errors-V2/error-password/error-wrong-CRN">CRN number is not 10 digit</a></li>
-              <li><a href="/errors-V2/error-password/error-no-email"> No email is entered</a></li>
-              <li><a href="/errors-V2/error-password/error-no-CRN">No CRN number is entered</a></li>
-              <li><a href="/errors-V2/error-password/error-email-format">Wrong email address format</a></li>
-              <li><a href="/errors-V2/error-password/error-CRN-password">CRN and password not recognised</a></li>
-              <li><a href="/errors-V2/error-password/error-OTP">Unable to send code</a></li>
-              --
-              <li><a href="/errors-V2/error-password/error-enter-code">You must enter a verification code</a></li>
-              <li><a href="/errors-V2/error-password/error-code6-digit">The code entered must be 6 digits</a></li>
-              <li><a href="/errors-V2/error-password/error-code-limit">Code limit reached</a></li>
-              <li><a href="/errors-V2/error-password/error-wrong-code">Code entered does not match code sent</a></li>
-              --
-              <li><a href="/errors-V2/error-password/error-password-requirement">Password requirement not met</a></li>
-              <li><a href="/errors-V2/error-password/error-no-password-match">Passwords do not match</a></li>
-            </ul>
-          </td>
-        </tr>
-
-
-        <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header">Forgot password journey V2-2</th>
-          <td class="govuk-table__cell">
-            <ul class="govuk-list">
-              <li><a href="/errors-V2/error-password-V2-2/error-enter-code-v2-2">You must enter a verification code</a></li>
-              <li><a href="/errors-V2/error-password-V2-2/error-code6-digit">The code entered must be 6 digits</a></li>
-              <li><a href="/errors-V2/error-password-V2-2/error-code-limit">Code limit reached</a></li>
-              <li><a href="/errors-V2/error-password-V2-2/error-wrong-code">Code entered does not match code sent</a></li>
-              --
-              <li><a href="/errors-V2/error-password-V2-2/error-password-requirement">Password requirement not met</a></li>
-              <li><a href="/errors-V2/error-password-V2-2/error-no-password-match">Passwords do not match</a></li>
-            </ul>
-          </td>
-        </tr>
-
-
-        <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header">Additional pages</th>
-          <td class="govuk-table__cell">
-            <ul class="govuk-list">
-              <li><a href="/additional-pages-V2/signed-out-VV">Signed out page for Vets Visits</a></li>
-              <li><a href="/additional-pages-V2/signed-out">Signed out page - universal</a></li>
-              <li><a href="/additional-pages-V2/verify-multiple-numbers">Verify - multiple phone number - core journey</a></li>
-
-
-            </ul>
-          </td>
-        </tr>
-
-
-
-
-    <!-- ## Old Version ## -->
-    <table class="govuk-table">
-      <caption class="govuk-table__caption govuk-table__caption--m">Error pages</caption>
-      <thead class="govuk-table__head">
-        <tr class="govuk-table__row">
-          <th scope="col" class="govuk-table__header">Error type</th>
-          <th scope="col" class="govuk-table__header">Urls</th>
-        </tr>
-      </thead>
-      <tbody class="govuk-table__body">
-        <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header">404s/505s</th>
-          <td class="govuk-table__cell">
-            <ul class="govuk-list">
-
-              <li><a href="/errors/401-error" class="govuk-link--no-visited-state">401/403-error</a></li>
-              <li><a href="/errors/404-error" class="govuk-link--no-visited-state">404-error</a></li>
-              <li><a href="/errors/500-error" class="govuk-link--no-visited-state">500-error</a></li>
-              <li><a href="/errors/503-error" class="govuk-link--no-visited-state">503-error</a></li>
-          </td>
-        </tr>
-        <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header">MFA - sms</th>
-          <td class="govuk-table__cell">
-            <ul class="govuk-list">
-              <li><a href="/errors/select-one">You must select an option</a></li>
-              <li><a href="/errors/too-short">The code entered must 8 digits</a></li>
-              <li><a href="/errors/no-match">Code entered does not match code sent</a></li>
-              <li><a href="/errors/exceeded-retries">You have reached max number of attempts</a></li>
-
-              <li><a href="/errors/cannot-use-tel-no">Tel number format not supported</a></li>
-              <li><a href="/errors/cannot-tel-no">No telephone numbers associated with this account</a></li>
-              <li><a href="/errors/cannot-use-tel-no">No telephone numbers that can be used</a></li>
-
-
-            </ul>
-          </td>
-        </tr>
-
-        <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header">MFA - security word</th>
-          <td class="govuk-table__cell">
-            <ul class="govuk-list">
-              <li><a href="/errors/exceeded-retries">You have reached max of attempts</a></li>
-              <li><a href="/scp/credential-recovery-security-word-error-1">The characters enter are incorrect</a></li>
-              <li><a href="/scp/credential-recovery-security-word-error-2">You must enter the characters required</a></li>
-              <li><a href="/errors/security-word-changed">Your security word has been changed
-                  changed</a></li>
-              <li><a href="/errors/no-secure-word">You do not have a secure word set up</a>
-              </li>
-            </ul>
-
-          </td>
-        </tr>
-
-        <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header">Cookies</th>
-          <td class="govuk-table__cell">
-            <ul class="govuk-list">
-              <li><a href="/errors/blocked-cookies-error" class="govuk-link--no-visited-state">Blocked cookies error</a>
-              </li>
-            </ul>
-          </td>
-        </tr>
-
-        <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header">Org selection</th>
-          <td class="govuk-table__cell">
-            <ul class="govuk-list">
-              <li><a href="/errors/select-org">No organisation chosen - radio list</a></li>
-              <li><a href="/errors/org-search-error">No organisation chosen - auto-suggest</a></li>
-
-            </ul>
-          </td>
-        </tr>
-        <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header">Sign in</th>
-          <td class="govuk-table__cell">
-            <ul class="govuk-list">
-              <li><a href="/errors/email-exists">Email is in use</a></li>
-              <li><a href="errors/no-tel-no">No number exists</a></li>
-
-
-            </ul>
-          </td>
-        </tr>
-        <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header">Companies house page</th>
-          <td class="govuk-table__cell">
-            <ul class="govuk-list">
-              <li><a href="/errors/companies-house-error">Companies house number - error</a></li>
-
-            </ul>
-          </td>
-        </tr>
-        <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header">Additional pages</th>
-          <td class="govuk-table__cell">
-            <ul class="govuk-list">
-              <li><a href="/additional-pages/page-loading" class="govuk-link--no-visited-state">Page loading</a></li>
-              <li><a href="/additional-pages/time-out">Time out warning</a></li>
-              <li><a href="/additional-pages/signed-out">Signed out</a></li>
-              <li><a href="help">Cookie banner example</a></li>
-              <li><a href="/errors/no-accounts">No accounts exist</a></li>
-              <li><a href="/mfa/verify-single-number">Help section example</a></li>
-              <li><a href="/mfa/">Help section example</a></li>
-
-
-            </ul>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-
-
-
-  </div>
-</div>
+    
+        </div>
+    </div>
 
 {% endblock %}
