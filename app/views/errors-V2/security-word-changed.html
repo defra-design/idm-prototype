@@ -1,36 +1,25 @@
-{% extends "layout-signed-out.html" %}
+{% extends "layout.html" %}
 {% set serviceName = "Defra identity" %}
-
-{% set title = "Confirm your security word" %}
-
-{% block pageTitle %}
-    {{title}} - GOV.UK
-{% endblock %}
-
-{% block beforeContent %}
+{% set showBackLink = false %}
 
 
-
-{% endblock %}
-
+{% set pageHeading = "Your security word has changed" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
 
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-column-two-thirds">
 
-    <h1 class="govuk-heading-xl">Your security word has been changed</h1>
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-    <p class="govuk-body-l">This may have been done by an administrator of the account</p>
+        <p class="govuk-body">This may have been done by an administrator of the account.</p>
+        <p>The administrator of your account has changed your security word.</p>
 
-    {% include "includes/get-help.html" %}
+        {% include "includes/get-help.html" %}
 
-
-    
-      
-
-  </div>
+    </div>
 </div>
-
 
 {% endblock %}
