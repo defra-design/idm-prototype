@@ -55,6 +55,12 @@ $govuk-assets-path: '/govuk/assets/';
 // NHS
 @import "components/contents-list";
 
+
+.key {
+    background: #f3f2f1;
+    padding: 10px;
+}
+
 // sidebar
 // .gem-c-related-navigation{
 //     color: $govuk-text-colour;
