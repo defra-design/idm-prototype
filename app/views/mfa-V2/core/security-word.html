@@ -15,8 +15,11 @@
 
         <p>Enter the following 3 characters from your security word.</p>
 
-
-        <form method="post" action="verify-email">
+        {% if data['securityWordChanged'] == "Yes" %}
+            <form method="post" action="/errors-V2/security-word-changed">
+        {% else %}
+            <form method="post" action="verify-email">
+        {% endif %}
 
             <div class="govuk-form-group">
                 <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
@@ -73,5 +76,6 @@
 <br>
 <br><br><br><br>
 <a href="/scp/credential-recovery-security-word-error-2">show error</a>
+
 
 {% endblock %}

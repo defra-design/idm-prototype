@@ -50,6 +50,15 @@
           } | decorateFormAttributes('authenticationMethod')) }}
 
 
+            {{ govukCheckboxes({
+                idPrefix: "securityWordChanged",
+                classes: "govuk-checkboxes--small",
+                name: "securityWordChanged",
+                items: [
+                    { value: "Yes", text: "Security word has changed", checked: checked("securityWordChanged", "Yes")}
+                ]
+            }) }}
+
           {{ govukRadios({
             classes: "govuk-radios--inline",
             fieldset: {
