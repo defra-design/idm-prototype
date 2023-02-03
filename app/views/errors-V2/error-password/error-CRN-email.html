@@ -1,8 +1,8 @@
 {% extends "layout.html" %}
 {% set showBackLink = false %}
-{% set serviceName = "" %}
+{% set serviceName = "Defra identity" %}
 
-{% set pageHeading = "Sign in to apply for an animal health and welfare review of your livestock" %}
+{% set pageHeading = "Reset your password" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -16,7 +16,7 @@
         titleText: "There is a problem",
         errorList: [
           {
-            text: "This combination of customer reference number (CRN) and password is not recognised",
+            text: "This combination of customer reference number (CRN) and email address is not recognised",
             href: "#verify-code"
           }
         ]
@@ -25,6 +25,8 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
+        <p class="govuk-body">Enter the customer reference number (CRN) and email address associated with your Rural Payments Agency (RPA) account.</p>
+        <p class="govuk-body">We will send a verification code to this email. You can use this code to reset your password.</p>
 
 
         <form action="verify">
@@ -43,19 +45,18 @@
                 name: "crn",
                 value: "8592750275",
                 errorMessage: {
-                    text: "This combination of customer reference number (CRN) and password is not recognised"
+                    text: "This combination of customer reference number (CRN) and email address is not recognised"
                 }
             }) }}
 
 
             {{ govukInput({
                 label: {
-                    text: "Password"
+                    text: "Enter email address"
                 },
-                id: "password",
-                name: "password",
-                type: "password",
-                value: "1234567898",
+                id: "email--",
+                name: "email--",
+                value: "customeridentity@test.defra.gov.uk",
                 errorMessage: {
                     text: ""
                 }
@@ -64,14 +65,10 @@
         </div>
 
         {{ govukButton({
-            text: "Sign in"
+            text: "Continue"
         }) }}
 
         </form>
-
-
-        <p><a href="#">I’ve forgotten my password</a></p>
-
 
 
 <div class="govuk-grid-row">
@@ -79,11 +76,17 @@
     <details class="govuk-details" data-module="govuk-details">
       <summary class="govuk-details__summary">
         <span class="govuk-details__summary-text">
-        I forgot or have lost my CRN
+        Need help with the page?
         </span>
       </summary>
       <div class="govuk-details__text">
-
+        Contact the Rural Payments Agency.<br><br>
+        Rural Payments Agency  <br>
+        Telephone: 03000 200 301 <br>
+        Monday to Friday, 8:30am to 5pm (except public holidays) <br>
+        <a href="mailto:ruralpayments@defra.gov.uk?subject=feedback">ruralpayments@defra.gov.uk</a>
+        <br><br>
+        <p class="govuk-body">Find out about <a href="https://www.gov.uk/call-charges" target=”_blank”>call charges</p>
       </div>
     </details>
     </div>
