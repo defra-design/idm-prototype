@@ -11,26 +11,26 @@
         <div class="govuk-grid-column-two-thirds">
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-            
-        
+
+
             <h2 class="govuk-heading-m">CRN</h2>
             <ul class="govuk-list">
-                <li><a href="/errors-V2/error-CRN/500-error">500-error</a></li>          
+                <li><a href="/errors-V2/error-CRN/500-error">500-error</a></li>
                 <li><a href="/errors-V2/error-CRN/crn-error-wrong-CRN">CRN is not 10 digit</a></li>
                 <li><a href="/errors-V2/error-CRN/crn-error-no-password"> No password is entered</a></li>
                 <li><a href="/errors-V2/error-CRN/crn-error-no-CRN">No CRN is entered</a></li>
-                <li><a href="/errors-V2/error-CRN/crn-error-no-password-CRN">Incorrect CRN and password</a></li>              
+                <li><a href="/errors-V2/error-CRN/crn-error-no-password-CRN">Incorrect CRN and password</a></li>
                 <li><a href="/errors-V2/error-CRN/account-locked">Account locked (reached maximum number of attempts)</a></li>
             </ul>
-        
-            <h2 class="govuk-heading-m">MFA - verfiy identity(phone)</h2>            
+
+            <h2 class="govuk-heading-m">MFA - verfiy identity(phone)</h2>
             <ul class="govuk-list">
                 <li><a href="/errors-V2/error-MFA/verify-wrong-number-2">Phone number is incorrect</a></li>
                 <li><a href="/errors-V2/error-MFA/verify-system-issue">SMS faliure </a></li>
                 <li><a href="/errors-V2/error-MFA/error-verify-multiple-numbers">Verfiy multiple numbers - core journey</a></li>
-            </ul>                    
-        
-            <h2 class="govuk-heading-m">MFA - sms</h2>          
+            </ul>
+
+            <h2 class="govuk-heading-m">MFA - sms</h2>
             <ul class="govuk-list">
                 <li><a href="/errors-V2/error-MFA/get-code-error-1">You must enter a verification code</a></li>
                 <li><a href="/errors-V2/error-MFA/get-code-error-2">The code entered must be 6 digits</a></li>
@@ -39,9 +39,9 @@
                 <li><a href="/errors-V2/error-MFA/exceeded-retries">You have reached max number of attempts</a></li>
                 <li><a href="/errors-V2/error-MFA/cannot-use-tel-no">No Telephone Numbers that can be used – Core Service </a></li>
                 <li><a href="/errors-V2/error-MFA/cannot-use-tel-no-aw">No Telephone Numbers that can be used – Animal Welfare</a></li>
-            </ul>                  
+            </ul>
 
-            <h2 class="govuk-heading-m">MFA - email</h2>          
+            <h2 class="govuk-heading-m">MFA - email</h2>
             <ul class="govuk-list">
                 <li><a href="/errors/no-secure-word">No memorable word</a></li>
                 <li><a href="/scp/credential-recovery-security-word-error-1">Incorrect memorable word</a></li>
@@ -52,33 +52,37 @@
                 <li><a href="/errors-V2/error-MFA/get-code-error-4_email">Verification code has expired</a></li>
                 <li><a href="/errors-V2/error-MFA/exceeded-retries">You have reached the maximum number of attempts</a></li>
                 <li><a href="/errors-V2/error-MFA/problem-sending-email">There has been a problem sending the email</a></li>
-            </ul>                  
+            </ul>
 
-            <h2 class="govuk-heading-m">Org selection</h2>          
+            <h2 class="govuk-heading-m">Org selection</h2>
             <ul class="govuk-list">
                 <li><a href="/errors-V2/no-account-found-core">No account found - Core journey</a></li>
                 <li><a href="/errors-V2/no-account-found-VV">No account found - Vets Visits</a></li>
                 <li><a href="/errors-V2/select-org">No organisation chosen - radio list</a></li>
                 <li><a href="/errors-V2/org-search-error">No organisation chosen - auto-suggest</a></li>
-            </ul>                  
-        
-            <h2 class="govuk-heading-m">Forgot password journey</h2>          
+            </ul>
+
+            <h2 class="govuk-heading-m">Forgot password journey</h2>
             <ul class="govuk-list">
+
+
+            errors-V2/error-password/error-crn-password
                 <li><a href="/errors-V2/error-password/error-wrong-CRN">CRN number is not 10 digit</a></li>
                 <li><a href="/errors-V2/error-password/error-no-email"> No email is entered</a></li>
                 <li><a href="/errors-V2/error-password/error-no-CRN">No CRN number is entered</a></li>
                 <li><a href="/errors-V2/error-password/error-email-format">Wrong email address format</a></li>
-                <li><a href="/errors-V2/error-password/error-CRN-password">CRN and password not recognised</a></li>
-                <li><a href="/errors-V2/error-password/error-OTP">Unable to send code</a></li>              
+                <li><a href="/errors-V2/error-password/error-crn-email">CRN number and email not recognised</a></li>
+                <li><a href="/errors-V2/error-password/error-crn-password">CRN and password not recognised</a></li>
+                <li><a href="/errors-V2/error-password/error-OTP">Unable to send code</a></li>
                 <li><a href="/errors-V2/error-password/error-enter-code">You must enter a verification code</a></li>
                 <li><a href="/errors-V2/error-password/error-code6-digit">The code entered must be 6 digits</a></li>
                 <li><a href="/errors-V2/error-password/error-code-limit">Code limit reached</a></li>
-                <li><a href="/errors-V2/error-password/error-wrong-code">Code entered does not match code sent</a></li>                
+                <li><a href="/errors-V2/error-password/error-wrong-code">Code entered does not match code sent</a></li>
                 <li><a href="/errors-V2/error-password/error-password-requirement">Password requirement not met</a></li>
                 <li><a href="/errors-V2/error-password/error-no-password-match">Passwords do not match</a></li>
-            </ul>                  
+            </ul>
 
-            <h2 class="govuk-heading-m">Forgot password journey V2-2</h2>          
+            <h2 class="govuk-heading-m">Forgot password journey V2-2</h2>
             <ul class="govuk-list">
                 <li><a href="/errors-V2/error-password-V2-2/error-enter-code-v2-2">You must enter a verification code</a></li>
                 <li><a href="/errors-V2/error-password-V2-2/error-code6-digit">The code entered must be 6 digits</a></li>
@@ -86,14 +90,14 @@
                 <li><a href="/errors-V2/error-password-V2-2/error-wrong-code">Code entered does not match code sent</a></li>
                 <li><a href="/errors-V2/error-password-V2-2/error-password-requirement">Password requirement not met</a></li>
                 <li><a href="/errors-V2/error-password-V2-2/error-no-password-match">Passwords do not match</a></li>
-            </ul>                  
-        
-            <h2 class="govuk-heading-m">Additional pages</h2>          
+            </ul>
+
+            <h2 class="govuk-heading-m">Additional pages</h2>
             <ul class="govuk-list">
                 <li><a href="/additional-pages-V2/signed-out-VV">Signed out page for Vets Visits</a></li>
                 <li><a href="/additional-pages-V2/signed-out">Signed out page - universal</a></li>
                 <li><a href="/additional-pages-V2/verify-multiple-numbers">Verify - multiple phone number - core journey</a></li>
-            </ul>                  
+            </ul>
 
         </div>
     </div>
