@@ -72,114 +72,94 @@
         {% elif data['companySize'] == "45" %}
 
             <form action="check-your-details" method="post">
-
-
-
                 <div class="govuk-form-group">
-
                     <select id="org-picker">
-                    <option value=""></option>
-                    <option value="1">A James LLC</option>
-                    <option value="2">Antillo Fujam Gardens</option>
-                    <option value="3">Crest Jamet Homes Limited</option>
-                    <option value="4">Dursley Jams Co.</option>
-                    <option value="5">James Company</option>
-                    <option value="6">Eddard Benjamin</option>
-                    <option value="7">Fruit Jams Co</option>
-                    <option value="8">Terry PLC</option>
-                    <option value="9">McClure-Mowen</option>
-                    <option value="10">Feeney Group</option>
-                    <option value="11">Medhurst-Jackson</option>
-                    <option value="12">Schroeder-Corkery</option>
-                    <option value="13">Jaskolski-Mertzen</option>
-                    <option value="14">Daugherty-Jacobson</option>
-                    <option value="15">Becker and Sons</option>
-                    <option value="16">Emmerich-Turcotte</option>
-                    <option value="17">O'Reilly and Son</option>
-                    <option value="18">Becker-Kevins</option>
-                    <option value="19">Lang, Daniel and Schmeler</option>
-                    <option value="20">Dunster</option>
-                    <option value="21">Turcotte and Homes</option>
-                    <option value="22">Bartell LLC, Heidenreich-Gower</option>
-                    <option value="23">Pollack Inc</option>
-                    <option value="24">Schroeder Ltd</option>
-                    <option value="25">Bo Inc.</option>
-                    <option value="26">Mosciski</option>
-                    <option value="27">Langworth and Medhurst</option>
-                    <option value="28">Diverse Holdings</option>
-                    <option value="29">Rippin-Lindgren</option>
-                    <option value="30">Champlin Ltd</option>
-                    <option value="31">Raker Group</option>
-                    <option value="32">Raker Group</option>
-                    <option value="33">Goyette LLC&quot;</option>
-                    <option value="34">Wilderman</option>
-                    <option value="35">Oberbrunner and Hammes</option>
-                    <option value="36">Hertzer W Group</option>
-                    <option value="37">Luke Swimmer LLC</option>
-                    <option value="38">Watsica PLC</option>
-                    <option value="39">Richmann LLC</option>
-                    <option value="40">Gislason-Klocko</option>
-                    <option value="41">Skiles and Sons</option>
-                    <option value="42">Orn Ltd</option>
-                    <option value="43">Rutherford Inc</option>
-                    <option value="44">Waelchi and Sons</option>
-                    <option value="45">Moen PLC</option>
-                    <option value="46">QQC Plc</option>
-                    <option value="47">Hoppe, Boyer and Ortiz</option>
-                    <option value="48">Heathcote-Bradtke</option>
-                    <option value="49">Rempel-Reynolds</option>
-
-
+                        <option value=""></option>
+                        <option value="1">A James LLC</option>
+                        <option value="2">Antillo Fujam Gardens</option>
+                        <option value="3">Crest Jamet Homes Limited</option>
+                        <option value="4">Dursley Jams Co.</option>
+                        <option value="5">James Company</option>
+                        <option value="6">Eddard Benjamin</option>
+                        <option value="7">Fruit Jams Co</option>
+                        <option value="8">Terry PLC</option>
+                        <option value="9">McClure-Mowen</option>
+                        <option value="10">Feeney Group</option>
+                        <option value="11">Medhurst-Jackson</option>
+                        <option value="12">Schroeder-Corkery</option>
+                        <option value="13">Jaskolski-Mertzen</option>
+                        <option value="14">Daugherty-Jacobson</option>
+                        <option value="15">Becker and Sons</option>
+                        <option value="16">Emmerich-Turcotte</option>
+                        <option value="17">O'Reilly and Son</option>
+                        <option value="18">Becker-Kevins</option>
+                        <option value="19">Lang, Daniel and Schmeler</option>
+                        <option value="20">Dunster</option>
+                        <option value="21">Turcotte and Homes</option>
+                        <option value="22">Bartell LLC, Heidenreich-Gower</option>
+                        <option value="23">Pollack Inc</option>
+                        <option value="24">Schroeder Ltd</option>
+                        <option value="25">Bo Inc.</option>
+                        <option value="26">Mosciski</option>
+                        <option value="27">Langworth and Medhurst</option>
+                        <option value="28">Diverse Holdings</option>
+                        <option value="29">Rippin-Lindgren</option>
+                        <option value="30">Champlin Ltd</option>
+                        <option value="31">Raker Group</option>
+                        <option value="32">Raker Group</option>
+                        <option value="33">Goyette LLC&quot;</option>
+                        <option value="34">Wilderman</option>
+                        <option value="35">Oberbrunner and Hammes</option>
+                        <option value="36">Hertzer W Group</option>
+                        <option value="37">Luke Swimmer LLC</option>
+                        <option value="38">Watsica PLC</option>
+                        <option value="39">Richmann LLC</option>
+                        <option value="40">Gislason-Klocko</option>
+                        <option value="41">Skiles and Sons</option>
+                        <option value="42">Orn Ltd</option>
+                        <option value="43">Rutherford Inc</option>
+                        <option value="44">Waelchi and Sons</option>
+                        <option value="45">Moen PLC</option>
+                        <option value="46">QQC Plc</option>
+                        <option value="47">Hoppe, Boyer and Ortiz</option>
+                        <option value="48">Heathcote-Bradtke</option>
+                        <option value="49">Rempel-Reynolds</option>
                     </select>
-
                 </div>
-
-
-
-
 
         {% endif %}
 
 
-            <div class="govuk-button-group">
+                <div class="govuk-button-group">
 
-                {{ govukButton({
-                    text: "Continue"
-                }) }}
+                    {{ govukButton({
+                        text: "Continue"
+                    }) }}
 
-                {% if data['interSwitch'] == "Yes" %}
-                <a class="govuk-link" href="/mfa-V2/core/new-enrolment">Enroll a business not listed</a>
-                {% endif %}
-                {# {{ govukButton({
-                    text: "Add a new business",
-                    classes: "govuk-button govuk-button--secondary"
-                }) }} #}
-            </div>
-
-        </form>
+                    {% if data['interSwitch'] == "Yes" %}
+                        <a class="govuk-link" href="/mfa-V2/core/new-enrolment">Enroll a business not listed</a>
+                    {% endif %}
+                </div>
+            </form>
 
 
-        <details class="govuk-details govuk-!-margin-top-9" data-module="govuk-details">
-            <summary class="govuk-details__summary">
-                <span class="govuk-details__summary-text">Need to update the list?</span>
-            </summary>
-            <div class="govuk-details__text">
-                Contact the [Service name].<br><br>
-                [Service name]  <br>
-                Telephone: [Service telephone number] <br>
-                [Service Opening Hours](except public holidays) <br>
-                [Service email address]
-                <br><br>
-                <p class="govuk-body">Find out about <a href="https://www.gov.uk/call-charges" target=”_blank”>call charges</p>
-            </div>
-        </details>
+            <details class="govuk-details govuk-!-margin-top-9" data-module="govuk-details">
+                <summary class="govuk-details__summary">
+                    <span class="govuk-details__summary-text">Need to update the list?</span>
+                </summary>
+                <div class="govuk-details__text">
+                    Contact the [Service name].<br><br>
+                    [Service name]  <br>
+                    Telephone: [Service telephone number] <br>
+                    [Service Opening Hours](except public holidays) <br>
+                    [Service email address]
+                    <br><br>
+                    <p class="govuk-body">Find out about <a href="https://www.gov.uk/call-charges" target=”_blank”>call charges</p>
+                </div>
+            </details>
 
     </div>
 </div>
-
-
-
-
 
 
 {% if data['companySize'] == "45" %}

@@ -69,6 +69,15 @@
                 ]
             }) }}
 
+            {{ govukCheckboxes({
+                idPrefix: "interSwitchSize",
+                classes: "govuk-checkboxes--small",
+                name: "interSwitchSize",
+                items: [
+                    { value: "Single", text: "Only 1 extra business for enrollment", checked: checked("interSwitchSize", "Single")}
+                ]
+            }) }}
+
 
 
           {{ govukRadios({

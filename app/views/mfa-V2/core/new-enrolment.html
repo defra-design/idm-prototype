@@ -1,7 +1,11 @@
 {% extends "layout.html" %}
 {% set showBackLink = true %}
 
-{% set pageHeading = "Which business do you want to enroll?" %}
+{% if data['interSwitchSize'] == "Single" %}
+    {% set pageHeading = "Confirm you want to enroll this business" %}
+{% else %}
+    {% set pageHeading = "Which business do you want to enroll?" %}
+{% endif %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -12,7 +16,20 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-            <form action="redirect-to-enrollment" method="post" >
+        <form action="redirect-to-enrollment" method="post" >
+
+
+        {% if data['interSwitchSize'] == "Single" %}
+
+            <p>There is only 1 business that you can enroll.</p>
+
+            <div class="govuk-inset-text">
+            <p>Kith and Kiln</p>
+
+            </div>
+
+
+        {% else %}
 
                 {{ govukRadios({
                     idPrefix: "newEnrolmentBusiness",
@@ -32,13 +49,27 @@
                     ]
                 }) }}
 
+        {% endif %}
+
             <div class="govuk-button-group">
 
-                {{ govukButton({
-                    text: "Continue"
-                }) }}
+                {% if data['interSwitchSize'] == "Single" %}
 
-                <a class="govuk-link" href="/mfa-V2/core/business-not-listed">The business is not listed</a>
+                    {{ govukButton({
+                        text: "Confirm and continue"
+                    }) }}
+
+                    <a class="govuk-link" href="/mfa-V2/core/business-not-listed">Do not see the business you are looking for</a>
+
+                {% else %}
+
+                    {{ govukButton({
+                        text: "Continue"
+                    }) }}
+
+                    <a class="govuk-link" href="/mfa-V2/core/business-not-listed">The business is not listed</a>
+
+                {% endif %}
                 {# {{ govukButton({
                     text: "Add a new business",
                     classes: "govuk-button govuk-button--secondary"
