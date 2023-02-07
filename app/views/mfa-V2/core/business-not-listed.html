@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% set showBackLink = true %}
+
+
+{% set pageHeading = "Business not listed heading required" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+
+        <p>We will need to work out the content that we require here to give the right information to the various types of user. This could be: </p>
+        <ul class="govuk-list govuk-list--bullet">
+            <li>provide an option here</li>
+            <li>or an alternative line of content if not</li>
+        </ul>
+
+
+        <p><a href="#">Sign out</a></p>
+
+
+    </div>
+</div>
+
+{% endblock %}

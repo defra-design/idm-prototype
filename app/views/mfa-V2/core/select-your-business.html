@@ -7,8 +7,8 @@
     <script type="text/javascript">
         accessibleAutocomplete.enhanceSelectElement({
             defaultValue: '',
-            selectElement: document.querySelector('#org-picker'),
-            placeholder: 'Search for a business'
+            selectElement: document.querySelector('#org-picker')
+
         })
     </script>
 {% endblock %}
@@ -16,7 +16,7 @@
 
 
 
-{% set pageHeading = "Select your business" %}
+{% set pageHeading = "Which business do you want to represent?" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -27,9 +27,7 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-        <p>Businesses registered to your account are included in the following list.</p>
-
-
+        {# <p>These are the businesses registered under your account.</p> #}
 
 
         {% if data['companySize'] == "20" %}
@@ -46,9 +44,7 @@
                             classes: "govuk-fieldset__legend--l"
                         }
                     },
-                    hint: {
-                        text: "Select the business that you want to represent or act on behalf of for this service"
-                    },
+
                     items: [
                         { value: "Andy James Produce Ltd.", text: "Andy James Produce Ltd." },
                         { value: "mcvities", text: "Mc Vities" },
@@ -71,19 +67,13 @@
                     ]
                 }) }}
 
-                {{ govukButton({
-                    text: "Continue"
-                }) }}
 
-            </form>
 
         {% elif data['companySize'] == "45" %}
 
             <form action="check-your-details" method="post">
 
-                <div id="waste-hint" class="govuk-hint">
-                    Select the business that you want to represent or act on behalf of for this service
-                </div>
+
 
                 <div class="govuk-form-group">
 
@@ -144,24 +134,32 @@
 
                 </div>
 
-                {{ govukButton({
-                    text: "Continue"
-                }) }}
 
-            </form>
 
 
 
         {% endif %}
 
 
-        {{ govukButton({
-            text: "Add a new business",
-            classes: "govuk-button govuk-button--secondary"
-        }) }}
+            <div class="govuk-button-group">
+
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+
+                {% if data['interSwitch'] == "Yes" %}
+                <a class="govuk-link" href="/mfa-V2/core/new-enrolment">Enroll a business not listed</a>
+                {% endif %}
+                {# {{ govukButton({
+                    text: "Add a new business",
+                    classes: "govuk-button govuk-button--secondary"
+                }) }} #}
+            </div>
+
+        </form>
 
 
-        <details class="govuk-details" data-module="govuk-details">
+        <details class="govuk-details govuk-!-margin-top-9" data-module="govuk-details">
             <summary class="govuk-details__summary">
                 <span class="govuk-details__summary-text">Need to update the list?</span>
             </summary>

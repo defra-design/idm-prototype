@@ -59,6 +59,18 @@
                 ]
             }) }}
 
+
+             {{ govukCheckboxes({
+                idPrefix: "interSwitch",
+                classes: "govuk-checkboxes--small",
+                name: "interSwitch",
+                items: [
+                    { value: "Yes", text: "Interswitch", checked: checked("interSwitch", "Yes")}
+                ]
+            }) }}
+
+
+
           {{ govukRadios({
             classes: "govuk-radios--inline",
             fieldset: {

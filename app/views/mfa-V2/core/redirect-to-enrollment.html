@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% set showBackLink = true %}
+
+
+{% set pageHeading = "Redirect to enrollment journey" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+
+        <p>This will go into the enrollment journey.</p>
+
+
+    </div>
+</div>
+
+{% endblock %}

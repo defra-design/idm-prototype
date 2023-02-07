@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+{% set showBackLink = true %}
+
+{% set pageHeading = "Which business do you want to enroll?" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+            <form action="redirect-to-enrollment" method="post" >
+
+                {{ govukRadios({
+                    idPrefix: "newEnrolmentBusiness",
+                    name: "newEnrolmentBusiness",
+                    fieldset: {
+                        legend: {
+                            text: "",
+                            isPageHeading: false,
+                            classes: "govuk-fieldset__legend--l"
+                        }
+                    },
+                    items: [
+                        { value: "ACME products", text: "ACME products" },
+                        { value: "Dean and Daniella", text: "Dean and Daniella" },
+                        { value: "Rustic Cup", text: "Rustic Cup" },
+                        { value: "Kith and Kiln", text: "Kith and Kiln" }
+                    ]
+                }) }}
+
+            <div class="govuk-button-group">
+
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+
+                <a class="govuk-link" href="/mfa-V2/core/business-not-listed">The business is not listed</a>
+                {# {{ govukButton({
+                    text: "Add a new business",
+                    classes: "govuk-button govuk-button--secondary"
+                }) }} #}
+            </div>
+
+        </form>
+
+
+
+
+    </div>
+</div>
+
+{% endblock %}
