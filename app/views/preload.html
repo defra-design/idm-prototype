@@ -60,26 +60,6 @@
             }) }}
 
 
-             {{ govukCheckboxes({
-                idPrefix: "interSwitch",
-                classes: "govuk-checkboxes--small",
-                name: "interSwitch",
-                items: [
-                    { value: "Yes", text: "Interswitch", checked: checked("interSwitch", "Yes")}
-                ]
-            }) }}
-
-            {{ govukCheckboxes({
-                idPrefix: "interSwitchSize",
-                classes: "govuk-checkboxes--small",
-                name: "interSwitchSize",
-                items: [
-                    { value: "Single", text: "Only 1 extra business for enrollment", checked: checked("interSwitchSize", "Single")}
-                ]
-            }) }}
-
-
-
           {{ govukRadios({
             classes: "govuk-radios--inline",
             fieldset: {
@@ -92,6 +72,35 @@
             ]
           } | decorateFormAttributes('companySize')) }}
 
+
+        <h3 class="govuk-heading-m">Interswitch</h3>
+
+            <div class="govuk-grid-row">
+                <div class="govuk-grid-column-one-half">
+
+                    {{ govukCheckboxes({
+                        idPrefix: "interSwitch",
+                        classes: "govuk-checkboxes--small",
+                        name: "interSwitch",
+                        items: [
+                            { value: "Yes", text: "Interswitch", checked: checked("interSwitch", "Yes")}
+                        ]
+                    }) }}
+
+                </div>
+                <div class="govuk-grid-column-one-half">
+
+                    {{ govukCheckboxes({
+                        idPrefix: "interSwitchSize",
+                        classes: "govuk-checkboxes--small",
+                        name: "interSwitchSize",
+                        items: [
+                            { value: "Single", text: "Only 1 extra business for enrollment", checked: checked("interSwitchSize", "Single")}
+                        ]
+                    }) }}
+
+                </div>
+            </div>
 
 
         {% else %}
