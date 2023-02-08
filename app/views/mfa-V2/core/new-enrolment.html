@@ -2,9 +2,9 @@
 {% set showBackLink = true %}
 
 {% if data['interSwitchSize'] == "Single" %}
-    {% set pageHeading = "Confirm you want to enrol this business" %}
+    {% set pageHeading = "Confirm you want to register this business for this service" %}
 {% else %}
-    {% set pageHeading = "Which business do you want to enrol?" %}
+    {% set pageHeading = "Who do you want to register for this service?" %}
 {% endif %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -16,16 +16,18 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
+        {# <p>You are associated with these business’s ..... </p> #}
+
         <form action="redirect-to-enrollment" method="post" >
 
 
         {% if data['interSwitchSize'] == "Single" %}
 
             <div class="govuk-inset-text">
-            <p>Kith and Kiln
-            <br>172 Park View
+            <p>Kith and Kiln</p>
+            {# <br>172 Park View
             <br>Whitley Bay
-            <br>NE26 3QW
+            <br>NE26 3QW #}
             </div>
 
 
@@ -56,18 +58,18 @@
                 {% if data['interSwitchSize'] == "Single" %}
 
                     {{ govukButton({
-                        text: "Confirm and continue"
+                        text: "Confirm and register"
                     }) }}
 
-                    <a class="govuk-link" href="/mfa-V2/core/business-not-listed">Not the correct business</a>
+                    <a class="govuk-link" href="/mfa-V2/core/business-not-listed">The THING i want to register is not listed</a>
 
                 {% else %}
 
                     {{ govukButton({
-                        text: "Continue"
+                        text: "Continue and register"
                     }) }}
 
-                    <a class="govuk-link" href="/mfa-V2/core/business-not-listed">The business is not listed</a>
+                    <a class="govuk-link" href="/mfa-V2/core/business-not-listed">The THING i want to register is not listed</a>
 
                 {% endif %}
                 {# {{ govukButton({

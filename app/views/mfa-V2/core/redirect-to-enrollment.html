@@ -1,8 +1,8 @@
 {% extends "layout.html" %}
-{% set showBackLink = true %}
+{% set showBackLink = false %}
 
 
-{% set pageHeading = "Redirect to enrollment journey" %}
+{% set pageHeading = "Registration complete" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -11,10 +11,24 @@
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
 
-        <p>This will go into the enrollment journey.</p>
+
+        {{ govukPanel({
+        titleText: pageHeading,
+        classes: "govuk-!-margin-bottom-7"
+
+      }) }}
+
+        <p>You have succesfully registered NAME with SERVICENAME.</p>
+
+
+      <p class="govuk-body">
+        <a href="#" class="govuk-link">Continue to SERVICENAME</a>
+      </p>
+
+
+
 
 
     </div>

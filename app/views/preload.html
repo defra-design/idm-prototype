@@ -15,7 +15,12 @@
 
       {% if data['flow'] == "Registration" %}
 
-        <form class="form" action="/mfa-V2/gov-gateway/login" method="post" class="">
+
+        {% if data['flowVersion'] == "current" %}
+            <form class="form" action="/mfa-V2/gov-gateway/login" method="post" class="">
+        {% else %}
+            <form class="form" action="/mfa/gov-gateway/login" method="post" class="">
+        {% endif %}
 
           {{ govukCheckboxes({
               fieldset: { legend: { text: "User has Government Gateway account", isPageHeading: false, classes: "govuk-visually-hidden" } },
@@ -36,7 +41,12 @@
 
         {% elif data['flow'] == "Authentication" %}
 
-            <form class="form" action="/mfa-V2/core/gov-login" method="post" >
+            {% if data['flowVersion'] == "current" %}
+                <form class="form" action="/mfa-V2/core/gov-login" method="post" >
+            {% else %}
+                <form class="form" action="/mfa/gov-gateway/login-v2" method="post" class="">
+            {% endif %}
+
 
             {{ govukRadios({
             classes: "govuk-radios--inline",
