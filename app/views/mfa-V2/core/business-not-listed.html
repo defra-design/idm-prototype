@@ -1,8 +1,8 @@
 {% extends "layout.html" %}
-{% set showBackLink = true %}
+{% set showBackLink = false %}
 
 
-{% set pageHeading = "The business you want to register is not listed" %}
+{% set pageHeading = "The organisation you want to register is not listed" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -20,8 +20,12 @@
             <li>or an alternative line of content if not</li>
         </ul>
 
+        <p>Possible links such as:</p>
+        <ul class="govuk-list">
+            <li><a href="#">Sign out</a></li>
+            <li><a href="/mfa-V2/core/select-your-business">Return to your list of organisations</a></li>
+        </ul>
 
-        <p><a href="#">Sign out</a></p>
 
 
     </div>
