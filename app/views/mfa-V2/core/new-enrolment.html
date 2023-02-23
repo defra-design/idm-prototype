@@ -2,9 +2,9 @@
 {% set showBackLink = true %}
 
 {% if data['interSwitchSize'] == "Single" %}
-    {% set pageHeading = "Confirm you want to register this business for this service" %}
+    {% set pageHeading = "Confirm this is who you want to enrol" %}
 {% else %}
-    {% set pageHeading = "Who do you want to register for this service?" %}
+    {% set pageHeading = "Who do you want to enrol?" %}
 {% endif %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -58,18 +58,18 @@
                 {% if data['interSwitchSize'] == "Single" %}
 
                     {{ govukButton({
-                        text: "Confirm and register"
+                        text: "Confirm"
                     }) }}
 
-                    <a class="govuk-link" href="/mfa-V2/core/business-not-listed">The business i want to register is not listed</a>
+                    <a class="govuk-link" href="/mfa-V2/core/business-not-listed">I want to enrol someone else</a>
 
                 {% else %}
 
                     {{ govukButton({
-                        text: "Continue and register"
+                        text: "Continue"
                     }) }}
 
-                    <a class="govuk-link" href="/mfa-V2/core/business-not-listed">The business i want to register is not listed</a>
+                    <a class="govuk-link" href="/mfa-V2/core/business-not-listed">I want to enrol someone not listed</a>
 
                 {% endif %}
                 {# {{ govukButton({

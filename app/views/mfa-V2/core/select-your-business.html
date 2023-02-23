@@ -16,7 +16,7 @@
 
 
 
-{% set pageHeading = "Who do you want to represent in this service?" %}
+{% set pageHeading = "Who do you want to represent?" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -137,7 +137,7 @@
                     }) }}
 
                     {% if data['companySize'] >= "20"  %}
-                        <a class="govuk-link" href="/mfa-V2/core/new-enrolment">Represent somone not listed</a>
+                        <a class="govuk-link" href="/mfa-V2/core/new-enrolment">An organisation not listed</a>
                     {% endif %}
                 </div>
             </form>
