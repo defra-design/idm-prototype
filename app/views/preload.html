@@ -15,7 +15,12 @@
 
       {% if data['flow'] == "Registration" %}
 
-        <form class="form" action="/mfa-V2/gov-gateway/login" method="post" class="">
+
+        {% if data['flowVersion'] == "current" %}
+            <form class="form" action="/mfa-V2/gov-gateway/login" method="post" class="">
+        {% else %}
+            <form class="form" action="/mfa/gov-gateway/login" method="post" class="">
+        {% endif %}
 
           {{ govukCheckboxes({
               fieldset: { legend: { text: "User has Government Gateway account", isPageHeading: false, classes: "govuk-visually-hidden" } },
@@ -36,7 +41,12 @@
 
         {% elif data['flow'] == "Authentication" %}
 
-            <form class="form" action="/mfa-V2/core/gov-login" method="post" >
+            {% if data['flowVersion'] == "current" %}
+                <form class="form" action="/mfa-V2/core/gov-login" method="post" >
+            {% else %}
+                <form class="form" action="/mfa/gov-gateway/login-v2" method="post" class="">
+            {% endif %}
+
 
             {{ govukRadios({
             classes: "govuk-radios--inline",
@@ -59,6 +69,7 @@
                 ]
             }) }}
 
+
           {{ govukRadios({
             classes: "govuk-radios--inline",
             fieldset: {
@@ -71,6 +82,35 @@
             ]
           } | decorateFormAttributes('companySize')) }}
 
+
+        <h3 class="govuk-heading-m">Interswitch</h3>
+
+            <div class="govuk-grid-row">
+                <div class="govuk-grid-column-one-half">
+
+                    {{ govukCheckboxes({
+                        idPrefix: "interSwitch",
+                        classes: "govuk-checkboxes--small",
+                        name: "interSwitch",
+                        items: [
+                            { value: "Yes", text: "Interswitch", checked: checked("interSwitch", "Yes")}
+                        ]
+                    }) }}
+
+                </div>
+                <div class="govuk-grid-column-one-half">
+
+                    {{ govukCheckboxes({
+                        idPrefix: "interSwitchSize",
+                        classes: "govuk-checkboxes--small",
+                        name: "interSwitchSize",
+                        items: [
+                            { value: "Single", text: "Only 1 extra business for enrollment", checked: checked("interSwitchSize", "Single")}
+                        ]
+                    }) }}
+
+                </div>
+            </div>
 
 
         {% else %}

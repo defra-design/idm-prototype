@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% set showBackLink = false %}
+
+
+{% set pageHeading = "Enrollment complete" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukPanel({
+            titleText: pageHeading,
+            classes: "govuk-!-margin-bottom-7"
+        }) }}
+
+
+        {% if data['interSwitchSize'] == "Single" %}
+        <p><span class="govuk-!-font-weight-bold">Kith and Kiln</span> have been successfully enrolled, and you are now acting as their representative.</p>
+        {% else %}
+        <p><span class="govuk-!-font-weight-bold">{{ data['newEnrolmentBusiness'] }}</span> have been successfully enrolled, and you are now acting as their representative.</p>
+        {% endif %}
+
+        <p class="govuk-body"><a href="#" class="govuk-link">Continue to SERVICENAME</a></p>
+
+    </div>
+</div>
+
+{% endblock %}

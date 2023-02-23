@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% set showBackLink = false %}
+
+
+{% set pageHeading = "You do not have access to enrol anyone else" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+
+        <p>If you expected to see other options, you can:</p>
+        <ul class="govuk-list govuk-list--bullet">
+            <li>speak to the account administator of another organisation to make sure you have the right access to enrol them</li>
+            <li>check they are not <a href="/mfa-V2/core/select-your-business">using a different name</a> in the list of who you can represent</li>
+
+
+            <li><a href="#">add a new organisation</a> to reprsent using account management</li>
+        </ul>
+
+
+
+
+    </div>
+</div>
+
+{% endblock %}

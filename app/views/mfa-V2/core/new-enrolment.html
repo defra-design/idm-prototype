@@ -1,0 +1,89 @@
+{% extends "layout.html" %}
+{% set showBackLink = true %}
+
+{% if data['interSwitchSize'] == "Single" %}
+    {% set pageHeading = "Confirm this is who you want to enrol" %}
+{% else %}
+    {% set pageHeading = "Who do you want to enrol?" %}
+{% endif %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+        {# <p>You are associated with these business’s ..... </p> #}
+
+        <form action="redirect-to-enrollment" method="post" >
+
+
+        {% if data['interSwitchSize'] == "Single" %}
+
+            <div class="govuk-inset-text">
+            <p>Kith and Kiln</p>
+            {# <br>172 Park View
+            <br>Whitley Bay
+            <br>NE26 3QW #}
+            </div>
+
+
+        {% else %}
+
+                {{ govukRadios({
+                    idPrefix: "newEnrolmentBusiness",
+                    name: "newEnrolmentBusiness",
+                    fieldset: {
+                        legend: {
+                            text: "",
+                            isPageHeading: false,
+                            classes: "govuk-fieldset__legend--l"
+                        }
+                    },
+                    items: [
+                        { value: "ACME products", text: "ACME products" },
+                        { value: "Dean and Daniella", text: "Dean and Daniella" },
+                        { value: "Rustic Cup", text: "Rustic Cup" },
+                        { value: "Kith and Kiln", text: "Kith and Kiln" }
+                    ]
+                }) }}
+
+        {% endif %}
+
+            <div class="govuk-button-group">
+
+                {% if data['interSwitchSize'] == "Single" %}
+
+                    {{ govukButton({
+                        text: "Confirm"
+                    }) }}
+
+                    <a class="govuk-link" href="/mfa-V2/core/business-not-listed">I want to enrol someone else</a>
+
+                {% else %}
+
+                    {{ govukButton({
+                        text: "Continue"
+                    }) }}
+
+                    <a class="govuk-link" href="/mfa-V2/core/business-not-listed">I want to enrol someone not listed</a>
+
+                {% endif %}
+                {# {{ govukButton({
+                    text: "Add a new business",
+                    classes: "govuk-button govuk-button--secondary"
+                }) }} #}
+            </div>
+
+        </form>
+
+
+
+
+    </div>
+</div>
+
+{% endblock %}
