@@ -105,7 +105,16 @@
                         classes: "govuk-checkboxes--small",
                         name: "interSwitchSize",
                         items: [
-                            { value: "Single", text: "Only 1 extra business for enrollment", checked: checked("interSwitchSize", "Single")}
+                            { value: "Single", text: "Only 1 extra entity available to enrol", checked: checked("interSwitchSize", "Single")}
+                        ]
+                    }) }}
+
+                    {{ govukCheckboxes({
+                        idPrefix: "citizenEnrol",
+                        classes: "govuk-checkboxes--small",
+                        name: "citizenEnrol",
+                        items: [
+                            { value: "Yes", text: "Is Citizen only", checked: checked("citizenEnrol", "Yes")}
                         ]
                     }) }}
 
