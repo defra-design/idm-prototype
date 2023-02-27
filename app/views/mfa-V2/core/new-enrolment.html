@@ -2,7 +2,12 @@
 {% set showBackLink = false %}
 
 {% if data['interSwitchSize'] == "Single" %}
-    {% set pageHeading = "Confirm you want to enrol this organisation" %}
+
+    {% if data['citizenEnrol'] == "Yes"  %}
+        {% set pageHeading = "Confirm you want to enrol yourself to this service" %}
+    {% else %}
+        {% set pageHeading = "Confirm you want to enrol this organisation" %}
+    {% endif %}
 {% else %}
     {% set pageHeading = "Who do you want to enrol?" %}
 {% endif %}
@@ -23,12 +28,21 @@
 
         {% if data['interSwitchSize'] == "Single" %}
 
-            <div class="govuk-inset-text">
-            <p>Kith and Kiln</p>
-            {# <br>172 Park View
-            <br>Whitley Bay
-            <br>NE26 3QW #}
-            </div>
+            {% if data['citizenEnrol'] == "Yes"  %}
+
+                <p class="govuk-body govuk-!-margin-bottom-7">This will enrol you on SERVICENAME.</p>
+
+            {% else %}
+
+                <p class="govuk-body govuk-!-margin-bottom-7">Enrolling this organistation will allow you to represent them in SERVICENAME.</p>
+
+                <div class="govuk-inset-text">
+                <p>Kith and Kiln</p>
+                {# <br>172 Park View
+                <br>Whitley Bay
+                <br>NE26 3QW #}
+                </div>
+            {% endif %}
 
 
         {% else %}
@@ -58,7 +72,7 @@
                 {% if data['interSwitchSize'] == "Single" %}
 
                     {{ govukButton({
-                        text: "Confirm"
+                        text: "Confirm and continue"
                     }) }}
 
                     <a class="govuk-link" href="/mfa-V2/core/business-not-listed">I want to enrol someone else</a>
