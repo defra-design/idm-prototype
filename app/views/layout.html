@@ -99,10 +99,7 @@
   {% block footer %}
     {{ govukFooter({
       meta: {
-        html: '
-
-
-
+        html: '        
         <ul class="govuk-footer__inline-list">
 
                 <li class="govuk-footer__inline-list-item">
@@ -126,11 +123,10 @@
                   <a class="govuk-footer__link" href="/accessibility" rel="noreferrer noopener" target="_blank">Accessibility</a>
                 </li>
 
-                <li class="govuk-footer__inline-list-item">
-                  <a class="govuk-footer__link" href="/prototype-admin/clear-data" rel="noreferrer noopener" target="_blank">Clear data</a>
-                </li>
+                
 
-            </ul>',
+            </ul>
+            <p><a class="govuk-body-s govuk-footer__link" href="/prototype-admin/clear-data" >Clear data</a></p>',
 
 
         items: [
