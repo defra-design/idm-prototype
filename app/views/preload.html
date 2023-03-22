@@ -122,17 +122,30 @@
             </div>
 
             
-
+            <h3 class="govuk-heading-m">Service using customer identity</h3>
             <div class="govuk-grid-row">
                 <div class="govuk-grid-column-one-half">
-
-                    
-                  {{ govukRadios({                    
-                    fieldset: {
-                      legend: { text: "Service", isPageHeading: false, classes: "govuk-fieldset__legend--m"  }
-                    },
+                  
+                  <p>Uses the core version by default.</p>
+                  
+                  {% set emailHtml %}
+                  
+                  {{ govukCheckboxes({
+                    idPrefix: "claimJourney",
+                    classes: "govuk-checkboxes--small",
+                    name: "claimJourney",
+                    hint: { text: "Something here" },
                     items: [
-                        { value: "vetsVisit", text: "Vets Visit" }
+                        { value: "Yes", text: "Claim journey", checked: checked("claimJourney", "Yes")}
+                    ]
+                }) }}
+
+                  {% endset -%}
+
+                  {{ govukRadios({                    
+                  
+                    items: [
+                        { value: "vetsVisit", text: "Vets Visit", conditional: {html: emailHtml} }
                         
                     ]
                   } | decorateFormAttributes('serviceName')) }}

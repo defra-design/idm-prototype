@@ -17,7 +17,12 @@
 
 
 {% if data['serviceName'] == "vetsVisit" %}
-  {% set pageHeading = "Who are you applying for?" %}
+
+  {% if data['claimJourney'] == "Yes" %}
+    {% set pageHeading = "Who are you claiming for?" %}
+  {% else %}
+    {% set pageHeading = "Who are you applying for?" %}
+  {% endif %}
 {% else %}
   {% set pageHeading = "Who do you want to represent?" %}
 {% endif %}
@@ -34,10 +39,18 @@
 
         {% if data['serviceName'] == "vetsVisit" %}
         	{% if data['companySize'] == "45" %}
-            	<p>Enter a business registered to your rural payments account or its single business identifier (SBI) number.</p>            
-            	<p class="govuk-hint">For example, The Dairy Farm or SBI 123456789</p>          
+              {% if data['claimJourney'] == "Yes" %}
+              <p>Enter a business registered to your rural payments account or its single business identifier (SBI) number.</p>                            
+              {% else %}
+                <p>Enter a business registered to your rural payments account or its single business identifier (SBI) number.</p>                            
+              {% endif %}
+              <p class="govuk-hint">For example, The Dairy Farm or SBI 123456789</p>          
           	{% elif data['companySize'] == "20" %}
-            	<p>These are the businesses registered to your rural payments account including their single business identifier (SBI) numbers. Choose which business you're applying for.</p>
+                {% if data['claimJourney'] == "Yes" %}
+                <p>These are the businesses registered to your rural payments account including their single business identifier (SBI) numbers. Choose which business you're claiming for.</p>
+                {% else %}
+            	    <p>These are the businesses registered to your rural payments account including their single business identifier (SBI) numbers. Choose which business you're applying for.</p>
+                {% endif %}
           	{% endif %}
         {% endif %}
 
