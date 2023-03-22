@@ -1,0 +1,146 @@
+{% set tocPage = "guide" %}
+
+{% set mainClasses = "guide govuk-!-padding-top-0 govuk-!-padding-bottom-0" %}
+
+{% extends "layouts/layout.html" %}
+
+{% block head %}
+{% include "includes/publisher/head.html" %}
+{% endblock %}
+
+{% block pageTitle %}
+Funding for the Annual Health and Welfare Review
+{% endblock %}
+
+{% block header %}
+{% include "includes/publisher/header.html" %}
+{% include "includes/publisher/global-bar.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+
+<!--<div id="global-header-bar"></div>-->
+
+<div class="gem-c-contextual-breadcrumbs">
+
+  <div class="gem-c-breadcrumbs govuk-breadcrumbs " data-module="track-click">
+    <ol class="govuk-breadcrumbs__list">
+      <li class="govuk-breadcrumbs__list-item" aria-current="false">
+        <a data-track-category="homeLinkClicked" data-track-action="homeBreadcrumb" data-track-label="" data-track-options="{}" class="govuk-breadcrumbs__link" aria-current="false" href="/">Home</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item" aria-current="false">
+        <a data-track-category="breadcrumbClicked" data-track-action="2" data-track-label="#" data-track-options="{}" class="govuk-breadcrumbs__link" aria-current="false" href="#">Rural grants and payments </a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item" aria-current="false">
+        <a data-track-category="breadcrumbClicked" data-track-action="2" data-track-label="#" data-track-options="{}" class="govuk-breadcrumbs__link" aria-current="false" href="pathway-guidance">Funding for the Annual Health and Welfare Review 
+</a>
+      </li>
+    </ol>
+  </div>
+
+</div>
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <div class="gem-c-title govuk-!-margin-top-8 govuk-!-margin-bottom-8">
+      <h1 class="gem-c-title__text">
+        Funding for the Annual Health and Welfare Review
+      </h1>
+    </div>
+
+    <p class="gem-c-lead-paragraph">How to apply for funding for a vet to visit your farm and carry out a health and welfare review of your livestock.</p>
+
+
+    <aside id="toc" class="part-navigation-container" role="complementary"><nav class="gem-c-contents-list " aria-label="Pages in this guide" role="navigation" data-module="track-click">
+    </aside>
+
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <div class="gem-c-govspeak govuk-govspeak " data-module="govspeak">
+      <h2 class="govuk-!-margin-top-4" id="overview">Overview</h2>
+<p>You can apply for funding for a yearly vet visit that will cover:</p>
+      <ul>
+      <li>a check of your biosecurity measures and advice on improving it</li>
+      <li>recommendations about medicines used on the farm</li>
+      <li>a health and welfare review</li>
+      <li>testing for BVD in cattle, resistance to parasite treatments in sheep and PRRSv in pigs</li>
+      <li>advice on access to grants and payments </li>
+      </ul>
+<p>You and your vet will agree on the best actions for your farm.</p>
+<p>The vet will also collect data that will be used to improve understanding of the health and welfare of the national stock. The data will not be used for inspection purposes.</p>
+
+
+
+      <h2 id="eligibility">Who is eligible</h2>
+      <p>You’re eligible for funding if you’re a commercial cattle, pig and sheep keeper who has:</p>
+      <ul>
+        <li>received BPS (direct payments) in the last 12 months</li>
+        <li>at least one of the following:</li>
+          <ul><li>10 cattle</li>
+              <li>20 sheep</li>
+              <li>50 pigs</li></ul>
+          </ul>
+
+
+
+<h2 id="payments">Payments</h2>
+      <p>Payments will range from £374 to £684, depending on the type of livestock you have.</p>
+      <!-- <h3>Type of Livestock</h3> -->
+<p><strong>Beef cattle</strong> – £522</p>
+<p><strong>Dairy cattle</strong> – £374</p>
+<p><strong>Sheep</strong> – £436</p>
+<p><strong>Pigs</strong> – £684</p>
+
+<p>You’ll receive payment in the same way you do for the Basic Payment Scheme (BPS).</p>
+
+      <h2 id="youwilldo">What you need to do</h2>
+<p>Once you apply for funding, you’ll:</p>
+      <ul>
+        <li>need to contact your vet to arrange a visit</li>
+        <li>pay the vet</li>
+      </ul>
+      <p>Following the vet visit, it’ll usually take Defra about 28 days to send the funding. You may need to pay the vet before you get your funding.</p>
+
+
+      <h2 id="apply">How to apply</h2>
+        <p><strong><a href="start" class="docs-creator">Apply for funding</a></strong>, it takes around 5 minutes.</p>
+
+
+      <h2 id="contact">Contact</h2>
+        <p>If you cannot apply online or have a question about your application, contact:</p>
+
+      <div class="contact">
+        <p><strong>Rural Payments Agency</strong><br>
+          <a href="mailto:ruralpayments@defra.gov.uk">ruralpayments@defra.gov.uk</a><br>
+          Telephone: 03000 200 301<br>
+          Monday to Friday, 8:30am to 5pm</p>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+    <div class="gem-c-contextual-sidebar">
+      {% block sidebar %}
+      {% include "includes/publisher/transition-countdown.html" %}
+      {% include "includes/publisher/related-content.html" %}
+      {% endblock %}
+    </div>
+  </div>
+
+</div>
+
+{% endblock %}
+
+{% block footer %}
+{% include "includes/publisher/feedback.html" %}
+{% include "includes/publisher/footer.html" %}
+{% endblock %}

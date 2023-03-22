@@ -1,0 +1,77 @@
+{% extends "layouts/layout.html" %}
+
+{% block pageTitle %}
+Index page
+{% endblock %}
+{% set serviceName %}
+Record data from an Annual Health and Welfare Review
+{% endset%}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:history.go(-1)">Back</a>
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" method="post">
+
+<div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <h1 class="govuk-fieldset__heading">
+                  What type of cattle were in the herd?
+                </h1>
+              </legend>
+              <div id="waste-hint" class="govuk-hint">
+                Select all that apply.
+              </div>
+              <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="cows" name="cows" type="checkbox" value="numbers-herd">
+                  <label class="govuk-label govuk-checkboxes__label" for="cows">
+                    Breeding
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="cows-2" name="cows" type="checkbox" value="numbers-herd">
+                  <label class="govuk-label govuk-checkboxes__label" for="cows-2">
+                    Youngstock
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="cows-3" name="cows" type="checkbox" value="numbers-herd">
+                  <label class="govuk-label govuk-checkboxes__label" for="cows-3">
+                    Stores
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="cows-4" name="cows" type="checkbox" value="numbers-herd">
+                  <label class="govuk-label govuk-checkboxes__label" for="cows-4">
+                    Stock
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="cows-5" name="cows" type="checkbox" value="numbers-herd">
+                  <label class="govuk-label govuk-checkboxes__label" for="cows-5">
+                    Finishing
+                  </label>
+                </div>
+              </div>
+
+            </fieldset>
+          </div>
+
+      <!-- <button class="govuk-button" data-module="govuk-button">Continue</button> -->
+      {{ govukButton({
+  text: "Continue",
+  href: "cows-bvd-present"
+}) }}
+
+
+  </div>
+
+{% endblock %}

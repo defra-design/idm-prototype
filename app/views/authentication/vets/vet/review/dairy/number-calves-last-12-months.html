@@ -1,0 +1,37 @@
+{% extends "layouts/layout.html" %}
+
+{% block pageTitle %}
+Index page
+{% endblock %}
+{% set serviceName %}
+Record data from an Annual Health and Welfare Review
+{% endset%}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:history.go(-1)">Back</a>
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="cows-bvd-present" method="post">
+
+      <div class="govuk-form-group">
+        <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--l" for="event-name">
+    How many breeding females were in the dairy cattle herd?
+  </label>
+</h1>
+        <label class="govuk-label" for="width-3">
+          Number
+        </label>
+        <input class="govuk-input govuk-input--width-3" id="width-3" name="width-3" type="text"></div>
+
+      <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+
+  </div>
+
+{% endblock %}

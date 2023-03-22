@@ -55,7 +55,7 @@
             },
             items: [
                 { value: "SMS", text: "SMS" },
-                { value: "Email, redirect(/mfa-V2/core/verify-single-number)", text: "Email" }
+                { value: "Email, redirect(/authentication/verify-single-number)", text: "Email" }
             ]
           } | decorateFormAttributes('authenticationMethod')) }}
 
@@ -117,6 +117,26 @@
                             { value: "Yes", text: "Is Citizen only", checked: checked("citizenEnrol", "Yes")}
                         ]
                     }) }}
+
+                </div>
+            </div>
+
+            
+
+            <div class="govuk-grid-row">
+                <div class="govuk-grid-column-one-half">
+
+                    
+                  {{ govukRadios({                    
+                    fieldset: {
+                      legend: { text: "Service", isPageHeading: false, classes: "govuk-fieldset__legend--m"  }
+                    },
+                    items: [
+                        { value: "vetsVisit", text: "Vets Visit" }
+                        
+                    ]
+                  } | decorateFormAttributes('serviceName')) }}
+                    
 
                 </div>
             </div>

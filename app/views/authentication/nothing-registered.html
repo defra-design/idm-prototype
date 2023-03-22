@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+{% set showBackLink = false %}
+{% set serviceName = "" %}
+
+
+{% set pageHeading = "There are no businesses registered to this account" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+        <p>You have no businesses registered to your rural payments account.</p>
+        <p>For a business to be registered to you, you must have been given a ‘permission’ for that business in the Rural Payments service.</p>
+
+        <h2 class="govuk-heading-m">What to do next</h2>
+        <p>If you think you should have been given a permission for the business, contact the business owner to update their rural payments account.</p>
+
+        <p>If you have another question, contact the Rural Payments Agency by email or phone.</p>
+
+        <p>Email: <a href="mailto:ruralpayments@defra.gov.uk">ruralpayments@defra.gov.uk</a></p>
+        <p>Telephone: 03000 200 301
+        <br>Monday to Friday, 8:30am to 5pm, except bank holidays</p>
+                
+        <p class="govuk-body"><a href="https://www.gov.uk/call-charges" class="govuk-link" rel="noreferrer noopener" target=”_blank”>Find out about call charges (opens in new tab)</p>                                        
+
+
+
+
+
+
+    </div>
+    <div class="govuk-grid-column-one-third review">      
+        <ul class="govuk-list govuk-body-s govuk-!-text-align-right">        
+            <li><a href="/errors" class="govuk-link govuk-link--no-visited-state">Error page</a></li>        
+            <li><a href="/mfa-V2/defra-id/about-data?status=review" class="govuk-link govuk-link--no-visited-state">Suggested page review</a></li>        
+        </ul>      
+    </div>
+</div>
+{% endblock %}

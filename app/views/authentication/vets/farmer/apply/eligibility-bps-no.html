@@ -1,0 +1,33 @@
+{% extends "layouts/layout.html" %}
+
+{% block pageTitle %}
+Index page
+{% endblock %}
+{% set serviceName %}
+Apply for the Annual Health and Welfare Review funding
+{% endset%}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:history.go(-1)">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <!-- <span class="govuk-caption-xl">Get funding for a vet visit</span> -->
+
+            <h1 class="govuk-heading-l">You’re not eligible to apply</h1>
+            <p class="govuk-body">
+              Based on your answers you’re not eligible to apply.
+            </p>
+            <p class="govuk-body">
+              Read guidance to <a class="govuk-link" href="https://www.gov.uk/guidance/funding-for-farmers">find out if you could be eligible for other farming schemes</a>.
+            </p>
+            <!-- <p class="govuk-body">
+              <a class="govuk-link" href="#">Contact the Tax Credits Helpline</a> if you need to make changes to your claim or speak to someone about your tax credits.
+            </p> -->
+          </div>
+        </div>
+
+{% endblock %}

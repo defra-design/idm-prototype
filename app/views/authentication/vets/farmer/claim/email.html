@@ -1,0 +1,40 @@
+{% extends "layouts/layout.html" %}
+
+{% block pageTitle %}
+Index page
+{% endblock %}
+{% set serviceName %}
+Claim funding for an annual health and welfare review
+{% endset%}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:history.go(-1)">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <div class="govuk-form-group">
+      <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--l" for="event-name">
+        Enter your email address</label>
+      </h1>
+      <label class="govuk-label" for="email">
+        Email address
+      </label>
+      <div id="email-hint" class="govuk-hint">
+        We’ll use this to send you a link to claim funding for a review.
+      </div>
+      <input class="govuk-input govuk-!-width-three-quarters" id="email" name="email" type="email" spellcheck="false" aria-describedby="email-hint" autocomplete="email">
+    </div>
+
+    {{ govukButton({
+      text: "Continue",
+      href: "check-email"
+    }) }}
+
+  </div>
+</div>
+
+{% endblock %}

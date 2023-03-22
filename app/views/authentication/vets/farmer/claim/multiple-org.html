@@ -1,0 +1,263 @@
+{% extends "layouts/layout.html" %}
+
+{% block pageTitle %}
+Select the organisation to claim funding for
+{% endblock %}
+{% set serviceName %}
+Get funding for a livestock health and welfare review
+{% endset%}
+{% block beforeContent %}
+{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Select the organisation to claim funding for
+      </h1>
+
+      <p>Only eligible organisations that you have access to are shown. </p>
+
+      <div class="user-search-box govuk-!-width-two-thirds">
+        <label class="govuk-label govuk-label--s" for="user-search">
+          Search for an organisation by SBI number
+        </label>
+        <form action="/v7/l2/users/search/search-results-none" method="post" class="form">
+            <input class="govuk-input" id="user-search" name="user-search" type="text" aria-describedby="user-search-hint" spellcheck="false">
+
+            <button class="search-button" data-module="govuk-button">
+                Search
+            </button>
+        </form>
+    </div>
+
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full govuk-!-padding-top-6">
+
+
+      {{ govukTable({
+        firstCellIsHeader: false,
+        head: [
+          {
+            text: "Organisation"
+          },
+          {
+            text: "SBI Number"
+          },
+          {
+            text: "Applications"
+          },
+          {
+            text: " "
+          }
+        ],
+
+        rows: [
+          [
+            {
+              html: "Arthington Dairy Ltd"
+            },
+            {
+              text: "106599006"
+            },
+            {
+              html: '2'
+            },
+            {
+              html: "<a href='business'>Claim funding</a>"
+            }
+          ],
+
+
+          [
+            {
+              html: "D B Stockwell & Son"
+            },
+            {
+              text: "103489123"
+            },
+            {
+              html: '1'
+            },
+            {
+              html: "<a href='business'>Claim funding</a>"
+            }
+          ],
+
+
+          [
+            {
+              html: "P & D Fearnley & Sons"
+            },
+            {
+              text: "103491987"
+            },
+            {
+              html: '0'
+            },
+            {
+              html: "<a href='business'>Claim funding</a>"
+            }
+          ],
+
+
+          [
+            {
+              html: "Deer Park Farm"
+            },
+            {
+              text: "106712004"
+            },
+            {
+              html: '1'
+            },
+            {
+              html: "<a href='business'>Claim funding</a>"
+            }
+          ],
+
+
+          [
+            {
+              html: "Bishopwoods Farm"
+            },
+            {
+              text: "108901125"
+            },
+            {
+              html: '0'
+            },
+            {
+              html: "<a href='business'>Claim funding</a>"
+            }
+          ],
+
+
+          [
+            {
+              html: "Holte Farm"
+            },
+            {
+              text: "108659387"
+            },
+            {
+              html: '0'
+            },
+            {
+              html: "<a href='business'>Claim funding</a>"
+            }
+          ],
+
+
+          [
+            {
+              html: "Stockeld Park Farm"
+            },
+            {
+              text: "108902387"
+            },
+            {
+              html: '1'
+            },
+            {
+              html: "<a href='business'>Claim funding</a>"
+            }
+          ],
+
+
+          [
+            {
+              html: "JP Metcalfe & Son"
+            },
+            {
+              text: "107458967"
+            },
+            {
+              html: '1'
+            },
+            {
+              html: "<a href='business'>Claim funding</a>"
+            }
+          ],
+
+
+          [
+            {
+              html: "Mill Farm"
+            },
+            {
+              text: "107264765"
+            },
+            {
+              html: '1'
+            },
+            {
+              html: "<a href='business'>Claim funding</a>"
+            }
+          ],
+
+
+          [
+            {
+              html: "Stubbings Mill Farm"
+            },
+            {
+              text: "108966003"
+            },
+            {
+              html: '0'
+            },
+            {
+              html: "<a href='business'>Claim funding</a>"
+            }
+          ]
+
+
+        ]
+      }) }}
+
+
+      <nav role="navigation" aria-label="Pagination">
+        <div class="pagination__summary">
+            Showing 1 &ndash; 10 of 34 organisations
+        </div>
+
+        <ul class="pagination">
+            <li class="pagination__item">
+                <span class="pagination__link disabled" aria-label="Previous page">
+                    <span aria-hidden="true" role="presentation">&laquo;</span> Previous
+                </span>
+            </li>
+
+            <li class="pagination__item">
+                <span class="pagination__link current" aria-label="Page 1">1</span>
+            </li>
+
+            <li class="pagination__item">
+                <a class="pagination__link" href="all-2" aria-label="Page 2">2</a>
+            </li>
+
+            <li class="pagination__item">
+                <a class="pagination__link" href="all-3" aria-label="Page 3">3</a>
+            </li>
+
+
+
+            <li class="pagination__item">
+                <a class="pagination__link" href="all-2" aria-label="Next page">
+                    Next <span aria-hidden="true" role="presentation">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+
+
+  </div>
+</div>
+
+{% endblock %}
