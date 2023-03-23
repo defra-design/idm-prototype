@@ -39,7 +39,9 @@
             ]
           } | decorateFormAttributes('siteEntry')) }}
 
-        {% elif data['flow'] == "Authentication" %}
+      
+      
+      {% elif data['flow'] == "Authentication" %}
 
             {% if data['flowVersion'] == "current" %}
                 <form class="form" action="/mfa-V2/core/gov-login" method="post" >
@@ -145,7 +147,7 @@
                   {{ govukRadios({                    
                   
                     items: [
-                        { value: "vetsVisit", text: "Vets Visit", conditional: {html: emailHtml} }
+                        { value: "vetsVisit, redirect(/authentication/vets/start)", text: "Vets Visit", conditional: {html: emailHtml} }
                         
                     ]
                   } | decorateFormAttributes('serviceName')) }}
