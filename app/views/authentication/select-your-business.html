@@ -44,17 +44,17 @@
         {% if data['serviceName'] == "vetsVisit" %}
         	{% if data['companySize'] == "45" %}
               {% if data['claimJourney'] == "Yes" %}
-              <p>Enter a business registered to your rural payments account or its single business identifier (SBI) number.</p>                            
+              <p>Enter a business registered to your rural payments account or its single business identifier (SBI) number.</p>
               {% else %}
-                <p>Enter a business registered to your rural payments account or its single business identifier (SBI) number.</p>  
-                <p><a href="https://www.ruralpayments.service.gov.uk/">Sign in to the Rural Payments service</a> to add or update the businesses registered to your account.</p>
+                <p>Enter a business registered to your rural payments account or its single business identifier (SBI) number. You can <a href="https://www.ruralpayments.service.gov.uk/">update your businesses in the Rural Payments service</a>. </p>
               {% endif %}
               <p class="govuk-hint">For example, The Dairy Farm or 123456789.</p>          
           	{% elif data['companySize'] == "20" %}
                 {% if data['claimJourney'] == "Yes" %}
-                <p>These are the businesses registered to your rural payments account including their single business identifier (SBI) numbers. <a href="https://www.ruralpayments.service.gov.uk/">sign in to the Rural Payments service</a> to add or update the businesses registered to your account. Choose which business you’re claiming for.</p>
+                <p>These are the businesses registered to your rural payments account including their single business identifier (SBI) numbers.</p>
                 {% else %}
-            	    <p>These are the businesses registered to your rural payments account including their single business identifier (SBI) numbers. To add or update the businesses <a href="https://www.ruralpayments.service.gov.uk/">sign in to the Rural Payments service</a>. </p>
+            	    <p>These are the businesses registered to your rural payments account including their single business identifier (SBI) numbers. You can <a href="https://www.ruralpayments.service.gov.uk/">update your businesses in the Rural Payments service</a>. </p>
+                  
                 {% endif %}
           	{% endif %}
         {% endif %}
@@ -243,18 +243,18 @@
                     {% if data['serviceName'] == "vetsVisit" %}
 
                     <summary class="govuk-details__summary">
-                      <span class="govuk-details__summary-text">I can’t find the business I’m looking for</span>
+                      <span class="govuk-details__summary-text">Need more help?</span>
                   </summary>
                   <div class="govuk-details__text">
                     
                     <!-- <p><a href="https://www.ruralpayments.service.gov.uk/">Sign in to the Rural Payments service</a> to add or update the businesses registered to your account.</p> -->
-                    <p>If you’re unable to update your account or need help, contact the Rural Payments Agency by email or phone.</p>
+                    <p>Contact the Rural Payments Agency by email or phone.</p>
 
                     <p>Email: <a href="mailto:ruralpayments@defra.gov.uk">ruralpayments@defra.gov.uk</a></p>
-        <p>Telephone: 03000 200 301
-        <br>Monday to Friday, 8:30am to 5pm, except bank holidays</p>
+                    <p>Telephone: 03000 200 301
+                    <br>Monday to Friday, 8:30am to 5pm, except bank holidays</p>
                 
-        <p class="govuk-body"><a href="https://www.gov.uk/call-charges" class="govuk-link" rel="noreferrer noopener" target=”_blank”>Find out about call charges (opens in new tab)</p>                                        
+                    <p class="govuk-body"><a href="https://www.gov.uk/call-charges" class="govuk-link" rel="noreferrer noopener" target=”_blank”>Find out about call charges (opens in new tab)</p>                                        
 
                     {% else %}
 
