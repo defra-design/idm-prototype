@@ -40,6 +40,8 @@
                 <form action="/preload" method="post" >
                     <input type="hidden" name="flow" id="flow" value="Registration" />
                     <input type="hidden" name="flowVersion" id="flowVersion" value="current" />
+                    <input type="hidden" name="serviceName" id="serviceName" value="coreDefault" />
+                    <input type="hidden" name="companySize" id="companySize" value="20" />
                     {{ govukButton({
                         text: "Register for Defra Identity"
                     }) }}
@@ -47,6 +49,11 @@
                 <form action="/preload" method="post" >
                     <input type="hidden" name="flow" id="flow" value="Authentication" />
                     <input type="hidden" name="flowVersion" id="flowVersion" value="current" />
+                    <input type="hidden" name="serviceName" id="serviceName" value="coreDefault" />
+                    <input type="hidden" name="companySize" id="companySize" value="20" />
+                    <input type="hidden" name="interSwitch" id="interSwitch" value="Yes" />
+
+                    
                     {{ govukButton({
                         text: "Authentication and verification",
                         classes: "govuk-!-margin-left-1"
@@ -61,7 +68,7 @@
             </ul> -->
 
 
-            <!-- <h2 class="govuk-heading-m">Archived flows <span class="govuk-body-s">V1.0</span></h2> -->
+            
 
             <h2 class="govuk-heading-m">Archived flows <span class="govuk-body-s">V1.0</span></h2>
 
@@ -93,6 +100,23 @@
                 <li>Replaced 'links list' with radios component</li>
                 <li>Accessible autocomplete added to core journey</li>
             </ul>
+            
+
+
+            <h2 class="govuk-heading-m">Annual Health and Welfare Review of livestock<span class="govuk-body-s"></span></h2>
+            <p>Illustrates the journey flow for authentication for Annual Health and Welfare Review of livestock service in both applying and claiming states.</p>
+            
+                <form action="/preload" method="post" >
+                    <input type="hidden" name="flow" id="flow" value="Authentication" />                    
+                    <input type="hidden" name="serviceName" id="serviceName" value="vetsVisit" />    
+                    <input type="hidden" name="companySize" id="companySize" value="20" />                    
+                    
+                    {{ govukButton({
+                        text: "Continue with Authentication"                        
+                    }) }}
+                </form>
+            
+
 
 
             {# Page listing buttons #}
