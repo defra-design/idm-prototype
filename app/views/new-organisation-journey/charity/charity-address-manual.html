@@ -47,13 +47,17 @@
               name: "sub-building-name"
             }) }}
 
+            <div class="govuk-form-group govuk-form-group--error">
             {{ govukInput({
               label: {
                 html: 'Building number'
               },
               classes: "govuk-input--width-10",
               id: "building-number",
-              name: "building-number"
+              name: "building-number",
+              errorMessage: {
+                text: "Enter either a building number or building name"
+              }
             }) }}
 
             {{ govukInput({
@@ -62,8 +66,12 @@
               },
               classes: "govuk-input--width-10",
               id: "building-name",
-              name: "building-name"
+              name: "building-name",
+              errorMessage: {
+                text: ""
+              }
             }) }}
+          </div>
 
             {{ govukInput({
               label: {
