@@ -2,7 +2,7 @@
 {% set showBackLink = false %}
 
 
-{% set pageHeading = "Sorry, there was a problem with enrolment" %}
+{% set pageHeading = "Sorry, there is a problem with the service" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -13,8 +13,15 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
+        
+        {% if data['interSwitchSize'] == "Single" %}
+        <p>We have not been able to enrol <span class="govuk-!-font-weight-bold">Kith and Kiln</span> on {NAME of SERVICE}.</p>
+        {% else %}
+        <p>We have not been able to enrol <span class="govuk-!-font-weight-bold">{{ data['newEnrolmentBusiness'] }}</span> on {NAME of SERVICE}.</p>
+         
+        {% endif %}
 
-        <p>Content to be confirmed</p>
+        <p>Try again later.</p>
 
 
 

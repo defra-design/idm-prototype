@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+{% set showBackLink = false %}
+{% set serviceName = "" %}
+
+
+{% set pageHeading = "Enrolment complete" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukPanel({
+            titleText: pageHeading,
+            classes: "govuk-!-margin-bottom-7"
+        }) }}
+
+
+        {% if data['interSwitchSize'] == "Single" %}
+        <p><span class="govuk-!-font-weight-bold">Kith and Kiln</span> have been successfully enrolled, and you are now acting as their representative.</p>
+        {% else %}
+        <p><span class="govuk-!-font-weight-bold">{{ data['newEnrolmentBusiness'] }}</span> have been successfully enrolled, and you are now acting as their representative.</p>
+        {% endif %}
+
+        <p class="govuk-body"><a href="/backtoservice" class="govuk-link govuk-link--no-visited-state">Continue to SERVICENAME</a></p>
+
+    </div>
+    <div class="govuk-grid-column-one-third review">      
+        <ul class="govuk-list govuk-body-s govuk-!-text-align-right">        
+            <li><a href="/errors" class="govuk-link govuk-link--no-visited-state">Error page</a></li>        
+            <li><a href="/mfa-V2/defra-id/about-data?status=review" class="govuk-link govuk-link--no-visited-state">Suggested page review</a></li>        
+        </ul>      
+    </div>
+</div>
+{% endblock %}

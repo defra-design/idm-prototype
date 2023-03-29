@@ -39,7 +39,9 @@
             ]
           } | decorateFormAttributes('siteEntry')) }}
 
-        {% elif data['flow'] == "Authentication" %}
+      
+      
+      {% elif data['flow'] == "Authentication" %}
 
             {% if data['flowVersion'] == "current" %}
                 <form class="form" action="/mfa-V2/core/gov-login" method="post" >
@@ -55,7 +57,7 @@
             },
             items: [
                 { value: "SMS", text: "SMS" },
-                { value: "Email, redirect(/mfa-V2/core/verify-single-number)", text: "Email" }
+                { value: "Email, redirect(/authentication/verify-single-number)", text: "Email" }
             ]
           } | decorateFormAttributes('authenticationMethod')) }}
 
@@ -117,6 +119,39 @@
                             { value: "Yes", text: "Is Citizen only", checked: checked("citizenEnrol", "Yes")}
                         ]
                     }) }}
+
+                </div>
+            </div>
+
+            
+            <h3 class="govuk-heading-m">Service using customer identity</h3>
+            <div class="govuk-grid-row">
+                <div class="govuk-grid-column-one-half">
+                  
+                  <p>Uses the core version by default.</p>
+                  
+                  {% set emailHtml %}
+                  
+                  {{ govukCheckboxes({
+                    idPrefix: "claimJourney",
+                    classes: "govuk-checkboxes--small",
+                    name: "claimJourney",
+                    hint: { text: "Something here" },
+                    items: [
+                        { value: "Yes", text: "Claim journey", checked: checked("claimJourney", "Yes")}
+                    ]
+                }) }}
+
+                  {% endset -%}
+
+                  {{ govukRadios({                    
+                  
+                    items: [
+                        { value: "vetsVisit, redirect(/authentication/vets/start)", text: "Vets Visit", conditional: {html: emailHtml} }
+                        
+                    ]
+                  } | decorateFormAttributes('serviceName')) }}
+                    
 
                 </div>
             </div>

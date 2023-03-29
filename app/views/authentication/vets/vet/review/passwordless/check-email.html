@@ -1,0 +1,38 @@
+{% extends "layouts/layout.html" %}
+
+{% block pageTitle %}
+Index page
+{% endblock %}
+{% set serviceName %}
+Record data from an Annual Health and Welfare Review
+{% endset%}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:history.go(-1)">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+                  <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--l" for="event-name">
+                      Check your email
+                    </label>
+                  </h1>
+
+                  <p>We've sent a link to email@address.com</p>
+
+                  <p>This can take a few minutes to arrive.</p>
+                  <p>If you don't get an email:</p>
+
+                  <ul class="govuk-list govuk-list--bullet">
+                      <li>check your spam or junk folders</li>
+                      <li>check you have entered the correct email</li>
+                      <li><a href="passwordless-email">resend the email</a></li>
+                  </ul>
+                  </div>
+
+  </div>
+
+{% endblock %}

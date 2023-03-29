@@ -18,12 +18,13 @@
 
 
         {% if data['interSwitchSize'] == "Single" %}
-        <p><span class="govuk-!-font-weight-bold">Kith and Kiln</span> have been successfully enrolled, and you are now acting as their representative.</p>
+        <p><span class="govuk-!-font-weight-bold">Kith and Kiln</span> have been enrolled successfully on {NAME of SERVICE}.</p>
         {% else %}
-        <p><span class="govuk-!-font-weight-bold">{{ data['newEnrolmentBusiness'] }}</span> have been successfully enrolled, and you are now acting as their representative.</p>
+        <p><span class="govuk-!-font-weight-bold">{{ data['newEnrolmentBusiness'] }}</span> have been enrolled successfully on {NAME of SERVICE}.</p>
+         
         {% endif %}
 
-        <p class="govuk-body"><a href="#" class="govuk-link">Continue to SERVICENAME</a></p>
+        <p class="govuk-body"><a href="#" class="govuk-link">Continue to {NAME of SERVICE}</a></p>
 
     </div>
     <div class="govuk-grid-column-one-third review">      

@@ -1,0 +1,59 @@
+{% extends "layouts/layout.html" %}
+
+{% block pageTitle %}
+Index page
+{% endblock %}
+{% set serviceName %}
+Get funding for a livestock health and welfare review
+{% endset%}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:history.go(-1)">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="" method="post">
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              What type of cattle do you keep?
+            </h1>
+          </legend>
+          <div class="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="what-type-of-cattle" name="what-type-of-cattle" type="radio" value="eligibility-sheep" onclick="setLocation(this);" {{ checked("eligibility-pigs-v2", "cattletype-beef") }}>
+              <label class="govuk-label govuk-radios__label" for="what-type-of-cattle">
+                Beef
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="what-type-of-cattle-2" name="what-type-of-cattle" type="radio" value="eligibility-sheep" onclick="setLocation(this);" {{ checked("eligibility-pigs-v2", "cattletype-dairy") }}>
+              <label class="govuk-label govuk-radios__label" for="what-type-of-cattle-2">
+                Dairy
+              </label>
+            </div>
+            <div class="govuk-radios__divider">or</div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="what-type-of-cattle-3" name="what-type-of-cattle" type="radio" value="eligibility-sheep" onclick="setLocation(this);" {{ checked("eligibility-pigs-v2", "cattletype-both") }}>
+              <label class="govuk-label govuk-radios__label" for="what-type-of-cattle-3">
+                Both
+              </label>
+            </div>
+          </div>
+
+        </fieldset>
+      </div>
+
+      <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+    </form>
+
+  </div>
+</div>
+{% endblock %}

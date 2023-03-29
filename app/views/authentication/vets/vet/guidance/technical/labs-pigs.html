@@ -1,0 +1,190 @@
+{% set tocPage = "guide" %}
+
+{% set mainClasses = "guide govuk-!-padding-top-0 govuk-!-padding-bottom-0" %}
+
+{% extends "layouts/layout.html" %}
+
+{% block head %}
+{% include "includes/publisher/head.html" %}
+{% endblock %}
+
+{% block pageTitle %}
+Guidance for vets
+{% endblock %}
+{% set serviceName %}
+How to carry out an annual livestock health and welfare review
+{% endset%}
+
+
+{% block header %}
+{% include "includes/publisher/header.html" %}
+{% include "includes/publisher/global-bar.html" %}
+{% endblock %}
+
+
+{% block beforeContent %}
+
+<div class="govuk-breadcrumbs">
+<ol class="govuk-breadcrumbs__list">
+  <li class="govuk-breadcrumbs__list-item">
+    <a class="govuk-breadcrumbs__link" href="https://www.gov.uk">Home</a>
+  </li>
+  <li class="govuk-breadcrumbs__list-item">
+    ...
+  </li>
+  <li class="govuk-breadcrumbs__list-item">
+    <a class="govuk-breadcrumbs__link" href="../guidance.html">Guidance for vets</a>
+  </li>
+  <li class="govuk-breadcrumbs__list-item">
+    <a class="govuk-breadcrumbs__link" href="../technical.html">Technical guidance</a>
+  </li>
+  <li class="govuk-breadcrumbs__list-item">
+    <a class="govuk-breadcrumbs__link">Labs for pigs</a>
+  </li>
+</ol>
+</div>
+{% endblock %}
+
+
+{% block content %}
+
+<style>
+.navigation-container {
+  padding: 20px 0 20px 0;
+  margin-top: 30px;
+  border-top: 1px solid #b1b4b6
+}
+.list-item--dashed:before {
+  content: "—";
+  position: relative ;
+  left: 0;
+  width: 20px;
+  padding-right: 10px;
+  overflow: hidden;
+}
+</style>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <!-- Logo -->
+    <br><br>
+
+    <!-- Blue box -->
+    <div class="govuk-panel govuk-panel--confirmation govuk-!-text-align-left govuk-!-margin-bottom-7" style="background-color:#1d70b8;">
+      <div class="govuk-panel__body govuk-!-margin-bottom-3">
+        Guidance
+      </div>
+      <h1 class="govuk-panel__title">
+        Approved laboratories to test for porcine reproductive and respiratory syndrome (PRRS) in pigs
+      </h1>
+      <div class="govuk-panel__body">
+        Published 12 July 2022
+      </div>
+    </div>
+
+    <!-- Intro -->
+    <p class="govuk-body">
+      Vets must send samples to a laboratory on this list that has been 
+      approved by the Department for Environment, Food and Rural Affairs (Defra).
+    </p>
+    <p class="govuk-body">
+      More laboratories may be added at a later date.
+    </p>
+
+    <aside class="navigation-container">
+      <ul class="govuk-list govuk-body-s">
+        <li>Contents</li>
+        <li class="list-item--dashed"><a href="#apha">APHA Scientific</a></li>
+        <li class="list-item--dashed"><a href="#scitech">Sci-Tech Laboratories England</a></li>
+        <li class="list-item--dashed"><a href="#scitechNI">Sci-Tech Laboratories Northern Ireland</a></li>
+        <li class="list-item--dashed"><a href="#sruc">SRUC Veterinary and Analytical Services</a></li>
+      </ul>
+    </aside>
+
+    <!-- Main body -->
+    <h2 id="apha" class="govuk-heading-m">APHA Scientific</h2>
+
+      <p class="govuk-body">
+        Woodham Lane <br>
+        New Haw <br>
+        Addlestone <br>
+        KT15 3NB <br>
+      </p>
+      <p class="govuk-body">
+        Telephone: 03000 600001
+      </p>
+      <p class="govuk-body">
+        Email: <a href="mailto:aphascientific@apha.gov.uk">aphascientific@apha.gov.uk</a>
+      </p>
+
+    <h2 id="scitech" class="govuk-heading-m">Sci-Tech Laboratories England</h2>
+
+      <p class="govuk-body">
+        The Grove <br>
+        Craven Arms <br>
+        Shropshire <br>
+        SY7 8DA <br>
+      </p>
+      <p class="govuk-body">
+        Telephone: 01588 672600
+      </p>
+      <p class="govuk-body">
+        Email: <a href="mailto:enquiries@scitech-labs.uk.com">enquiries@scitech-labs.uk.com</a>
+      </p>
+
+    <h2 id="scitechNI" class="govuk-heading-m">Sci-Tech Laboratories Northern Ireland</h2>
+
+      <p class="govuk-body">
+        20 Roskeen Road <br>
+        Moygashel <br>
+        Dungannon <br>
+        BT71 7RG <br>
+      </p>
+      <p class="govuk-body">
+        Telephone: 02887 722907
+      </p>
+      <p class="govuk-body">
+        Email: <a href="mailto:enquiriesdungannon@scitech-labs.com">enquiriesdungannon@scitech-labs.com</a>
+      </p>
+
+    <h2 id="sruc" class="govuk-heading-m">SRUC Veterinary and Analytical Services</h2>
+
+      <p class="govuk-body">
+        Pentlands Science Park <br>
+        Bush Loan <br>
+        Penicuik <br>
+        Midlothian <br>
+        EH26 0PZ <br>
+      </p>
+      <p class="govuk-body">
+        Telephone: 0131 535 3130
+      </p>
+      <p class="govuk-body">
+        Contact form: <a href="https://www.sruc.ac.uk/connect/contact-us/" target="_blank">www.sruc.ac.uk/connect/contact-us</a>
+      </p>
+
+    <!--Footer-->
+    <div class="app-back-to-top" style="margin: 50px 0 20px 0; border-top: 1px solid #b1b4b6; padding-top: 20px;" data-module="app-back-to-top">
+      <a class="govuk-link govuk-link--no-visited-state app-back-to-top__link" href="#top">
+        <svg role="presentation" focusable="false" class="app-back-to-top__icon" xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17">
+          <path fill="currentColor" d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path>
+        </svg>
+        Back to top
+      </a>
+    </div>
+
+  </div>
+<!--
+  <div class="govuk-grid-column-one-third">
+    <div class="gem-c-contextual-sidebar">
+      {% block sidebar %}
+      {% include "includes/publisher/transition-countdown.html" %}
+      {% include "includes/publisher/related-content.html" %}
+      {% endblock %}
+    </div>
+  </div>
+-->
+</div>
+
+{% endblock %}

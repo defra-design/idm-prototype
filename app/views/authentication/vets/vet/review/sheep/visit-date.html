@@ -1,0 +1,72 @@
+{% extends "layouts/layout.html" %}
+
+{% block pageTitle %}
+Index page
+{% endblock %}
+{% set serviceName %}
+Record data from an Annual Health and Welfare Review
+{% endset%}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:history.go(-1)">Back</a>
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="{{query.return_url or 'eligibility'}}" method="post">
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" role="group" aria-describedby="when-review-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              When was the review completed?
+            </h1>
+          </legend>
+          <div id="when-review-hint" class="govuk-hint">
+            For example, 27 3 2022
+          </div>
+          <div class="govuk-date-input" id="when-review">
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="when-review-day">
+                  Day
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="when-review-day" name="when-review-day" type="text" pattern="[0-9]*" inputmode="numeric"></div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="when-review-month">
+                  Month
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="when-review-month" name="when-review-month" type="text" pattern="[0-9]*" inputmode="numeric"></div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="when-review-year">
+                  Year
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="when-review-year" name="when-review-year" type="text" pattern="[0-9]*" inputmode="numeric"></div>
+            </div>
+          </div>
+
+        </fieldset>
+      </div>
+
+      <input class="govuk-button" type="submit" name="saveAndContinue" value="Continue" id="Button-SaveAndContinue" data-qa-id="Button-SaveAndContinue">
+
+     <!--
+      {{ govukButton({
+        text: "Continue",
+        href: "eligibility"
+      }) }}
+    -->
+    </form>
+
+
+  </div>
+
+{% endblock %}

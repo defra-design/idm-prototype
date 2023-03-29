@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+{% set showBackLink = false %}
+{% set serviceName = "Defra identity" %}
+
+{% set pageHeading = "Enter your verification code" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+        <p class="govuk-body">We’ve sent you an email with a 6 digit verification code.</p>
+        <p class="govuk-body">It may take a few minutes to arrive.</p>
+        <p class="govuk-body">The code will expire in 10 minutes.</p>
+
+
+        {# <form action="{{data['scenario']}}" method="post"> #}
+
+
+        {% if data['companySize'] == "Single" %}
+            <form action="check-your-details" method="post">
+        {% else %}
+            <form action="select-your-business" method="post">
+        {% endif %}
+
+            <div class="govuk-form-group">
+                <div class="govuk-input__wrapper">
+                    <input class="govuk-input" id="cost" name="cost" type="text" spellcheck="false">
+                </div>
+            </div>
+
+            {{ govukButton({
+                text: "Verify code"
+            }) }}
+
+        </form>
+
+        <p class="govuk-body">If you’ve not received an email or the verification code has expired</p>
+
+        {{ govukButton({
+            text: "Resend code",
+            classes: "govuk-button govuk-button--secondary"
+        }) }}
+
+        <details class="govuk-details" data-module="govuk-details">
+            <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">If you’re having problems getting a verification code</span>
+            </summary>
+            <div class="govuk-details__text">
+                Contact the [Service name].<br><br>
+                [Service name]  <br>
+                Telephone: [Service telephone number] <br>
+                [Service Opening Hours](except public holidays) <br>
+                [Service email address]
+                <br><br>
+                <p class="govuk-body">Find out about <a href="https://www.gov.uk/call-charges" class="govuk-link" rel="noreferrer noopener" target=”_blank”>call charges (opens in new tab)</p>
+            </div>
+        </details>
+
+    </div>
+    <div class="govuk-grid-column-one-third review">      
+        <ul class="govuk-list govuk-body-s govuk-!-text-align-right">        
+            <li><a href="/errors" class="govuk-link govuk-link--no-visited-state">Error page</a></li>        
+            <li><a href="/mfa-V2/defra-id/about-data?status=review" class="govuk-link govuk-link--no-visited-state">Suggested page review</a></li>        
+        </ul>      
+    </div>
+</div>
+{% endblock %}

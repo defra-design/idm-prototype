@@ -1,0 +1,42 @@
+{% extends "layout-signed-out.html" %}
+
+{% block pageTitle %}
+Index page
+{% endblock %}
+{% set serviceName %}
+Apply for an Annual Health and Welfare Review
+{% endset%}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:history.go(-1)">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-label-wrapper">
+      <label class="govuk-label govuk-label--l" for="event-name">
+        Check your email
+      </label>
+    </h1>
+
+    <p>We've sent an email to <a href="passwordless-email">email@address.com</a></p>
+
+    <p>The email includes a link to apply for a review.
+      This link will expire in 15 minutes.</p>
+    <p>If you do not get an email:</p>
+    <ul class="govuk-list govuk-list--bullet">
+        <li>check your spam or junk folders</li>
+        <li><a href="email">enter your email</a> again</li>
+    </ul>
+<!--
+    <p>This email includes a link to apply for a review.
+      The link will expire in 15 minutes and can only be used once.</p>
+-->
+  </div>
+
+</div>
+
+{% endblock %}

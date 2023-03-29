@@ -1,0 +1,263 @@
+{% set tocPage = "guide" %}
+
+{% set mainClasses = "guide govuk-!-padding-top-0 govuk-!-padding-bottom-0" %}
+
+{% extends "layouts/layout.html" %}
+
+{% block head %}
+{% include "includes/publisher/head.html" %}
+{% endblock %}
+
+{% block pageTitle %}
+Guidance for farmers
+{% endblock %}
+{% set serviceName %}
+Annual livestock health and welfare review
+{% endset%}
+
+{% block header %}
+{% include "includes/publisher/header.html" %}
+{% include "includes/publisher/global-bar.html" %}
+{% endblock %}
+
+
+{% block beforeContent %}
+
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="https://www.gov.uk">Home</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="#">Section</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link">Subsection</a>
+    </li>
+  </ol>
+</div>
+{% endblock %}
+
+
+{% block content %}
+
+<style>
+  .navigation-container {
+    padding: 20px 0 20px 0;
+    margin-top: 30px;
+    border-top: 1px solid #b1b4b6
+  }
+  .list-item--dashed:before {
+    content: "—";
+    position: relative ;
+    left: 0;
+    width: 20px;
+    padding-right: 10px;
+    overflow: hidden;
+  }
+</style>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div>
+    <span class="govuk-caption-xl gem-c-title__context govuk-!-margin-top-9">Guidance</span>
+    <h1 class="govuk-heading-xl">
+      Farmers: get a funded annual health and welfare review for cattle, sheep and pigs
+    </h1>
+    </div>
+
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <p class="govuk-body govuk-!-font-size-24">
+      Find out what to expect from a review, check if you’re eligible, the funding you’ll get and how to apply.
+    </p>
+
+    <aside class="navigation-container">
+
+      <ul class="govuk-list govuk-body-s">
+      <li>Contents</li>
+      <li class="list-item--dashed"><a href="#howmuchpaid">How much funding you’ll get</a></li>
+      <li class="list-item--dashed"><a href="#checkeligibility">Check you're eligible for a review</a></li>
+      <li class="list-item--dashed"><a href="#whattoexpect">What to expect from a review</a></li>
+      <li class="list-item--dashed"><a href="#howapply">Apply for a review</a></li>
+      <li class="list-item--dashed"><a href="#infoshare">Information the vet will record and share</a></li>
+      <li class="list-item--dashed"><a href="#whenpaid">When you'll get paid</a></li>
+      <li class="list-item--dashed"><a href="#gethelp">Get help with your application</a></li>
+    </ul>
+
+  </aside>
+
+    <p class="govuk-body">You can get funding for a vet or vet-led team to visit your farm to do a health and welfare review if you keep:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>beef cattle</li>
+      <li>dairy cattle</li>
+      <li>sheep</li>
+      <li>pigs</li>
+    </ul>
+
+    <p class="govuk-body">A health and welfare review will help you:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>reduce endemic diseases and conditions</li>
+      <li>increase animal productivity</li>
+      <li>improve animal welfare</li>
+    </ul>
+
+    <p class="govuk-body">You can have one review each year for one type of livestock. If you have more than one type of livestock, you must choose the one that you would like reviewed.</p>
+    <p class="govuk-body">The review will not be an inspection or be used for compliance or monitoring. The review is optional.</p>
+    <p class="govuk-body">You can choose the vet that you want to do the review.</p>
+<!--
+    <div class="govuk-inset-text">
+      <p class="govuk-body">The review will not be an inspection or be used for compliance or monitoring.</p>
+    </div>
+-->
+
+    <h2 id="howmuchpaid" class="govuk-heading-m">How much funding you’ll get</h2>
+
+      <p class="govuk-body">You’ll get funding for each livestock type, not for each animal.
+        You’ll get:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>£522 for a beef cattle review</li>
+        <li>£372 for a dairy cattle review</li>
+        <li>£436 for a sheep review</li>
+        <li>£684 for a pig review</li>
+      </ul>
+
+      <p class="govuk-body">This funding will help you cover the costs for:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>the vet</li>
+        <li>endemic diseases and conditions testing</li>
+        <li>your time</li>
+      </ul>
+
+      <p class="govuk-body">The funding amount for each type of livestock is different because:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>testing may take longer for some types of livestock</li>
+        <li>some results cost more to analyse</li>
+      </ul>
+
+    <h2 id="checkeligibility" class="govuk-heading-m">Check you're eligible for a review</h2>
+
+      <p class="govuk-body">You must have a minimum number of animals on the date the vet will visit your farm to do the review.
+        You must have at least:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>11 beef cattle</li>
+        <li>11 dairy cattle</li>
+        <li>21 sheep</li>
+        <li>51 pigs</li>
+      </ul>
+
+      <p class="govuk-body">The livestock must be registered in England and you must be the registered keeper.</p>
+      <p class="govuk-body">You must be eligible for the Basic Payment Scheme (BPS).
+        To be eligible for BPS the farm or business must have at least:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>5 hectares (ha) of BPS eligible land</li>
+        <li>5 BPS entitlements on 16 May 2022</li>
+      </ul>
+
+      <p class="govuk-body">Your farm or business must also have a Single Business Identifier (SBI).</p>
+
+
+    <h2 id="whattoexpect" class="govuk-heading-m">What to expect from a review</h2>
+
+      <p class="govuk-body">The vet will test for:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>bovine viral diarrhoea (BVD) in dairy and beef cattle</li>
+        <li>the effectiveness of worming treatments in sheep</li>
+        <li>porcine reproductive and respiratory syndrome virus (PRRS) in pigs</li>
+      </ul>
+
+      <p class="govuk-body">You can use these test results for other accreditation schemes you’re a member of.</p>
+      <p class="govuk-body">The vet will not test for other medical conditions or diseases.</p>
+      <p class="govuk-body">After the vet has completed the review, they’ll give you a written report.
+        This will include agreed recommendations and actions the vet or you can take to improve the health and welfare of the livestock.</p>
+      <p class="govuk-body">The review can take up to 3 hours of your time and the vet’s time.
+        Discuss with your vet the best way to organise the review.</p>
+      <p class="govuk-body">It can be flexible, so you can focus on the most important things for your farm.
+        For example, you could agree with the vet to spread it over several regular visits to the farm or do it all in one visit.</p>
+
+      <p class="govuk-body">You can also ask your vet to:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>check current biosecurity measures and suggest recommendations for improvements</li>
+        <li>give recommendations on farm medicines, including antibiotics, vaccinations and how you can register and submit data on the
+          <a href="https://ahdb.org.uk/medicine-hub" target="_blank">Agriculture and Horticulture Development Board (AHDB) Medicine Hub</a>
+        </li>
+      </ul>
+
+    <h2 id="howapply" class="govuk-heading-m">Apply for a review</h2>
+
+    <p class="govuk-body">You need to apply to get a reference number to book a review with your vet.</p>
+    <p class="govuk-body">To get a reference number you can <a href="start">apply online</a>.</p>
+    <p class="govuk-body">The booking reference is valid for 12 months.</p>
+<!--
+    {{ govukButton({
+      text: "Start now",
+      href: "../apply/email",
+      isStartButton: true
+    }) }}
+-->
+    <h2 id="infoshare" class="govuk-heading-m">Information the vet will record and share</h2>
+
+      <p class="govuk-body">The vet must also share some information with Defra. The vet will confirm:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>they’ve given you a written report</li>
+        <li>priority disease or endemic condition test results</li>
+      </ul>
+
+      <p class="govuk-body">The written report you get from the vet will not be shared with Defra or used for site visits or other compliance checks.</p>
+
+      <p class="govuk-body">Test result information will help Defra get a better understanding of the health and welfare of the national herds and flocks.
+        The information:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>will be anonymised and stored securely online</li>
+        <li>will not be used for site visits or other compliance checks</li>
+      </ul>
+
+    <h2 id="whenpaid" class="govuk-heading-m">When you'll be paid</h2>
+
+      <p class="govuk-body">After the vet has recorded the review with Defra, you’ll get an email asking you to confirm the record is correct.
+        Sign in to confirm the record and submit your claim.</p>
+      <p class="govuk-body">Your claim will be paid within 28 days of confirming the record and will be sent to your Rural Payments account.</p>
+      <p class="govuk-body">It’s your responsibility to pay the vet when the review is complete. The vet’s invoice will include any testing costs.</p>
+
+
+    <h2 id="gethelp" class="govuk-heading-m">Get help with your application</h2>
+
+      <p class="govuk-body">If you cannot apply online or have a question about your application, contact the Rural Payments Agency.</p>
+      <p class="govuk-body">If you have your booking reference number, have it with you when you call or include it in your email.</p>
+      <ul class="govuk-list">
+        <li>Telephone: 03000 200 301</li>
+        <li>Monday to Friday, 8:30am to 5pm (except public holidays)</li>
+        <li><a class="govuk-link" href="mailto:ruralpayments@defra.gov.uk">ruralpayments@defra.gov.uk</a></li>
+      </ul>
+      <p class="govuk-body"><a class="govuk-link" href="https://www.gov.uk/call-charges">Find out about call charges</a></p>
+
+
+    <div class="app-back-to-top navigation-container" data-module="app-back-to-top">
+      <a class="govuk-link govuk-link--no-visited-state app-back-to-top__link" href="#top">
+        <svg role="presentation" focusable="false" class="app-back-to-top__icon" xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17">
+          <path fill="currentColor" d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path>
+        </svg>
+        Back to top
+      </a>
+
+    </div>
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+    <div class="gem-c-contextual-sidebar">
+      {% block sidebar %}
+      {% include "includes/publisher/transition-countdown.html" %}
+      {% include "includes/publisher/related-content.html" %}
+      {% endblock %}
+    </div>
+  </div>
+
+</div>
+
+
+
+{% endblock %}
