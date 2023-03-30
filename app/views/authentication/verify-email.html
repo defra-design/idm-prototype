@@ -43,8 +43,11 @@
     </div>
     <div class="govuk-grid-column-one-third review">      
         <ul class="govuk-list govuk-body-s govuk-!-text-align-right">        
-            <li><a href="/errors" class="govuk-link govuk-link--no-visited-state">Error page</a></li>        
-            <li><a href="/mfa-V2/defra-id/about-data?status=review" class="govuk-link govuk-link--no-visited-state">Suggested page review</a></li>        
+            {% if data['status'] == "review" %}
+            <li><a href="/authentication/verify-email?status=" class="govuk-link govuk-link--no-visited-state">Current page</a></li>        
+            {% else %}
+            <li><a href="/authentication/verify-email?status=review" class="govuk-link govuk-link--no-visited-state">Suggested page changes</a></li>                    
+            {% endif %}
         </ul>      
     </div>
 </div>

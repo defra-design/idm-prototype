@@ -2,11 +2,21 @@
 {% set showBackLink = false %}
 {% set serviceName = "" %}
 
-{% if data['status'] == "review" %}
-    {% set pageHeading = "Enter the verification code" %}
+
+{% if data['verify-your-identity'] == "send-email" %}
+    {% if data['status'] == "review" %}
+        {% set pageHeading = "Enter the verification code" %}
+    {% else %}
+        {% set pageHeading = "Enter your verification code" %}
+    {% endif %}
 {% else %}
-    {% set pageHeading = "Enter your verification code" %}
+    {% if data['status'] == "review" %}
+        {% set pageHeading = "Enter the verification code" %}
+    {% else %}
+        {% set pageHeading = "Enter your verification code" %}
+    {% endif %}
 {% endif %}
+
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -18,6 +28,25 @@
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
         {% if data['status'] == "review" %}
+
+            {% if data['verify-your-identity'] == "send-email" %}
+                
+                <p class="govuk-body">We have sent a 6-digit verification code to <span class="govuk-!-font-weight-bold">con****@************kit.net</span></p>
+                <p class="govuk-body">It may take a few minutes to arrive and will expire in 10 mins.</p>
+
+                <details class="govuk-details" data-module="govuk-details">
+                    <summary class="govuk-details__summary">
+                      <span class="govuk-details__summary-text">
+                        If the verification code has not arrived
+                      </span>
+                    </summary>
+                    <div class="govuk-details__text">                        
+                        <p>If you have not received the email you can <a href="#">resend the verfication code</a>.</p>
+                    </div>
+                  </details>
+
+            {% else %}
+
             <p class="govuk-body">We have sent a 6-digit verification code to <span class="govuk-!-font-weight-bold">+XXXXXXX123</span></p>
             <p class="govuk-body">It may take a few minutes to arrive and will expire in 10 mins.</p>
             <!-- <p class="govuk-body">The code will expire in 10 minutes.</p> -->
@@ -38,8 +67,15 @@
                 </div>
               </details>
 
+              {% endif %}
+
         {% else %}
-            <p class="govuk-body">We’ve sent you a text message with a 6 digit verification code.</p>
+
+            {% if data['verify-your-identity'] == "send-email" %}
+                <p class="govuk-body">We’ve sent you an email with a 6 digit verification code.</p>
+            {% else %}
+                <p class="govuk-body">We’ve sent you a text message with a 6 digit verification code.</p>
+            {% endif %}
             <p class="govuk-body">It may take a few minutes to arrive.</p>
             <p class="govuk-body">The code will expire in 10 minutes.</p>
         {% endif %}
@@ -82,7 +118,12 @@
             </form>
 
             {% if data['status'] != "review" %}
-            <p class="govuk-body">If you’ve not received a text message or the verification code has expired</p>
+
+                {% if data['verify-your-identity'] == "send-email" %}
+                    <p class="govuk-body">If you’ve not received an email or the verification code has expired</p>
+                {% else %}
+                    <p class="govuk-body">If you’ve not received a text message or the verification code has expired</p>
+                {% endif %}
             {{ govukButton({
                 text: "Resend code",
                 classes: "govuk-button govuk-button--secondary"
