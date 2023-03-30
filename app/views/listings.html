@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% set showBackLink = false %}
+{% set serviceName = "Defra " %}
+
+{% set pageHeading = "Page listings" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+            <p class="govuk-body-s">Last updated 30 March 2023</p>
+            <p class="govuk-body govuk-!-margin-bottom-7">Some pages have dynamic content, so if using the links and not going through the flows that lead to each page, its not always possible to show the right content for all scenarios.</p>
+
+            {% set registrationHtml %}
+            <h3 class="govuk-heading-m">Example heading</h3>
+            <ul class="govuk-list govuk-list--bullet">
+                <li><a class="govuk-link" href="#" >Name of page</a></li>                
+            </ul>
+            {% endset -%}
+
+            {% set authenticationHtml %}
+            <h3 class="govuk-heading-m">Example heading</h3>
+            <ul class="govuk-list govuk-list--bullet">
+                <li><a class="govuk-link" href="#" >Name of page</a></li>                
+            </ul>            
+            {% endset -%}
+
+            {% set vetsVisitHtml %}
+            <h3 class="govuk-heading-m">Example heading</h3>
+            <ul class="govuk-list govuk-list--bullet">
+                <li><a class="govuk-link" href="#" >Name of page</a></li>                
+            </ul>            
+            {% endset -%}
+
+            <!-- Tabs -->
+            {{ govukTabs({
+                items: [
+                    { label: "Registration", id: "registration", panel: { html: registrationHtml } },    
+                    { label: "Authentication", id: "authentication", panel: { html: authenticationHtml } },
+                    { label: "Vets Visit", id: "vetsVisit", panel: { html: vetsVisitHtml } }
+                ]
+            }) }}
+
+            <p><a href="/data">Data been stored as part of current session</a></p>
+
+    </div>
+</div>
+
+{% endblock %}
