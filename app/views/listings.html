@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% set showBackLink = false %}
-{% set serviceName = "Defra " %}
+{% set serviceName = "Defra Identity Management " %}
 
 {% set pageHeading = "Page listings" %}
 {% set pageSection = "" %}
@@ -25,10 +25,23 @@
             {% endset -%}
 
             {% set authenticationHtml %}
-            <h3 class="govuk-heading-m">Example heading</h3>
+
+            
+
             <ul class="govuk-list govuk-list--bullet">
-                <li><a class="govuk-link" href="#" >Name of page</a></li>                
+                <li><a class="govuk-link" href="/authentication/verify-single-number?status=" >How do you want to verify your identity?</a></li>                
+                <li><a class="govuk-link" href="/authentication/get-code?status=" >How do you want to verify your identity?</a></li>                
+
+
+                
             </ul>            
+
+            <h3 class="govuk-heading-m">Issues with service</h3>
+            <ul class="govuk-list govuk-list--bullet">
+                <li><a class="govuk-link" href="/403-status?status=" >Sorry, there is a problem with the service</a></li>                
+            </ul>            
+
+
             {% endset -%}
 
             {% set vetsVisitHtml %}
@@ -44,6 +57,7 @@
                     { label: "Registration", id: "registration", panel: { html: registrationHtml } },    
                     { label: "Authentication", id: "authentication", panel: { html: authenticationHtml } },
                     { label: "Vets Visit", id: "vetsVisit", panel: { html: vetsVisitHtml } }
+                    
                 ]
             }) }}
 

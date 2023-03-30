@@ -2,7 +2,11 @@
 {% set showBackLink = false %}
 {% set serviceName = "" %}
 
-{% set pageHeading = "How do you want to verify your identity?" %}
+{% if data['status'] == "review" %}
+    {% set pageHeading = "How do you want to get a verification code?" %}
+{% else %}
+    {% set pageHeading = "How do you want to verify your identity?" %}
+{% endif %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -14,12 +18,32 @@
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
         {% if data['status'] == "review" %}
-        <p class="govuk-body">We will send you a 6 digit verification code.</p>
+        <p class="govuk-body">We will send you a 6-digit verification code.</p>
         {% else %}
         <p class="govuk-body">We will send you a 6 digit verification code.</p>
         {% endif %}
         <form action="/authentication/security-word" method="post">
 
+            {% if data['status'] == "review" %}
+
+            {{ govukRadios({
+                idPrefix: "verify-your-identity",
+                name: "verify-your-identity",
+                fieldset: {
+                    legend: {
+                        text: "Verify your identity",
+                        isPageHeading: false,
+                        classes: "govuk-visually-hidden"
+                    }
+                },
+
+                items: [
+                    { value: "send-sms, redirect(/authentication/verify)", text: "Text message" },
+                    { value: "send-email", text: "Email" }
+                ]
+            }) }}
+
+            {% else %}
 
             {{ govukRadios({
                 idPrefix: "verify-your-identity",
@@ -37,6 +61,8 @@
                     { value: "send-email", text: "Email" }
                 ]
             }) }}
+
+            {% endif %}
 
             {{ govukButton({
                 text: "Continue"
