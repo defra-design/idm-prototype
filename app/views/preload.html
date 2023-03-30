@@ -75,6 +75,15 @@
                     ]
                 }) }}
 
+                {{ govukCheckboxes({
+                    idPrefix: "multiplePhoneNumber",
+                    classes: "govuk-checkboxes--small",
+                    name: "multiplePhoneNumber",
+                    items: [
+                        { value: "Yes", text: "Multiple phone numbers on account", checked: checked("multiplePhoneNumber", "Yes")}
+                    ]
+                }) }}
+
             {% endif %}
 
             {% if data['serviceName'] == "vetsVisit" %}   

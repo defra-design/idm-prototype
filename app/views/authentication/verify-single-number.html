@@ -24,46 +24,96 @@
         {% endif %}
         <form action="/authentication/security-word" method="post">
 
-            {% if data['status'] == "review" %}
+            {% if data['multiplePhoneNumber'] == "Yes" %}
 
-            {{ govukRadios({
-                idPrefix: "verify-your-identity",
-                name: "verify-your-identity",
-                fieldset: {
-                    legend: {
-                        text: "Verify your identity",
-                        isPageHeading: false,
-                        classes: "govuk-visually-hidden"
-                    }
-                },
+                {% if data['status'] == "review" %}
 
-                items: [
-                    { value: "send-sms, redirect(/authentication/verify)", text: "Text message" },
-                    { value: "send-email", text: "Email" }
-                ]
-            }) }}
+                    {{ govukRadios({
+                        idPrefix: "verify-your-identity",
+                        name: "verify-your-identity",
+                        fieldset: {
+                            legend: {
+                                text: "Verify your identity",
+                                isPageHeading: false,
+                                classes: "govuk-visually-hidden"
+                            }
+                        },
+
+                        items: [
+                            { value: "send-sms, redirect(/authentication/verify-multiple-numbers)", text: "Text message" },
+                            { value: "send-email", text: "Email" }
+                        ]
+                    }) }}
+                
+                {% else %}
+
+                    {{ govukRadios({
+                        idPrefix: "verify-your-identity",
+                        name: "verify-your-identity",
+                        fieldset: {
+                            legend: {
+                                text: "Verify your identity",
+                                isPageHeading: false,
+                                classes: "govuk-visually-hidden"
+                            }
+                        },
+
+                        items: [
+                            { value: "send-sms, redirect(/authentication/verify-multiple-numbers)", text: "Phone" },
+                            { value: "send-email", text: "Email" }
+                        ]
+                    }) }}
+
+                {% endif %}
+
 
             {% else %}
 
-            {{ govukRadios({
-                idPrefix: "verify-your-identity",
-                name: "verify-your-identity",
-                fieldset: {
-                    legend: {
-                        text: "Verify your identity",
-                        isPageHeading: false,
-                        classes: "govuk-visually-hidden"
-                    }
-                },
+                {% if data['status'] == "review" %}
 
-                items: [
-                    { value: "send-sms, redirect(/authentication/verify)", text: "Phone" },
-                    { value: "send-email", text: "Email" }
-                ]
-            }) }}
+                    {{ govukRadios({
+                        idPrefix: "verify-your-identity",
+                        name: "verify-your-identity",
+                        fieldset: {
+                            legend: {
+                                text: "Verify your identity",
+                                isPageHeading: false,
+                                classes: "govuk-visually-hidden"
+                            }
+                        },
 
+                        items: [
+                            { value: "send-sms, redirect(/authentication/get-code)", text: "Text message" },
+                            { value: "send-email", text: "Email" }
+                        ]
+                    }) }}
+                
+
+                {% else %}
+
+                    {{ govukRadios({
+                        idPrefix: "verify-your-identity",
+                        name: "verify-your-identity",
+                        fieldset: {
+                            legend: {
+                                text: "Verify your identity",
+                                isPageHeading: false,
+                                classes: "govuk-visually-hidden"
+                            }
+                        },
+
+                        items: [
+                            { value: "send-sms, redirect(/authentication/verify)", text: "Phone" },
+                            { value: "send-email", text: "Email" }
+                        ]
+                    }) }}
+
+                {% endif %}
+            
             {% endif %}
 
+            <input type="hidden" id="status" name="status" value="" />
+            
             {{ govukButton({
                 text: "Continue"
             }) }}

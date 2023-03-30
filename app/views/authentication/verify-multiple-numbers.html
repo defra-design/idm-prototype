@@ -2,7 +2,11 @@
 {% set showBackLink = false %}
 {% set serviceName = "" %}
 
-{% set pageHeading = "Verify your identity" %}
+{% if data['status'] == "review" %}
+    {% set pageHeading = "Which number should we send the code to?" %}
+{% else %}
+    {% set pageHeading = "Verify your identity" %}
+{% endif %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -13,14 +17,41 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-        <p class="govuk-body">Choose a contact number, to send the 6 digit verification code to.</p>
-        <p class="govuk-body">It may take a few minutes to arrive.</p>
+        {% if data['status'] == "review" %}
+
+        {% else %}
+            <p class="govuk-body">Choose a contact number, to send the 6 digit verification code to.</p>
+            <p class="govuk-body">It may take a few minutes to arrive.</p>
+        {% endif %}
+
+        {% if data['status'] == "review" %}
+
+        <form action="/authentication/get-code" method="post">
+
+            {{ govukRadios({
+              idPrefix: "whichPhoneNumber",
+              name: "whichPhoneNumber",
+              fieldset: {
+                  legend: {
+                      text: "Which contact number should we send the verification code to",
+                      isPageHeading: false,
+                      classes: "govuk-visually-hidden"
+                  }
+              },
+              items: [
+                  { value: "whichPhoneNumber", text: "+XXXXXXXXX123" },
+                  { value: "whichPhoneNumber", text: "+XXXXXXXXX456" },
+                  { value: "whichPhoneNumber", text: "+XXXXXXXXX789" }
+              ]
+          }) }}
+
+        {% else %}
 
         <form action="/authentication/get-code" method="post">
 
           {{ govukRadios({
-            idPrefix: "telephone-number",
-            name: "telephone-number",
+            idPrefix: "whichPhoneNumber",
+            name: "whichPhoneNumber",
             fieldset: {
                 legend: {
                     text: "Choose a phone numner to verify your identity",
@@ -30,12 +61,16 @@
             },
 
             items: [
-                { value: "telephone-number, redirect(/authentication/verify)", text: "+XXXXXXXXX123" },
-                { value: "telephone-number", text: "+XXXXXXXXX456" }
+                { value: "whichPhoneNumber, redirect(/authentication/verify)", text: "+XXXXXXXXX123" },
+                { value: "whichPhoneNumber", text: "+XXXXXXXXX456" }
             ]
         }) }}
 
+        {% endif %}
 
+
+        <input type="hidden" id="status" name="status" value="" />
+        
       {{ govukButton({
         text: "Continue"
       }) }}
@@ -45,7 +80,11 @@
     <details class="govuk-details" data-module="govuk-details">
       <summary class="govuk-details__summary">
         <span class="govuk-details__summary-text">
-          Help with this page
+            {% if data['status'] == "review" %}
+            Get help with this page
+            {% else %}
+            Help with this page
+            {% endif %}
         </span>
       </summary>
       <div class="govuk-details__text">
@@ -59,6 +98,16 @@
       </div>
     </details>
 
+  </div>
+  <div class="govuk-grid-column-one-third review">      
+    <ul class="govuk-list govuk-body-s govuk-!-text-align-right">        
+      <!-- <li><a href="/errors" class="govuk-link govuk-link--no-visited-state">Error page</a></li>         -->
+      {% if data['status'] == "review" %}
+      <li><a href="/authentication/verify-multiple-numbers?status=" class="govuk-link govuk-link--no-visited-state">Current page</a></li>        
+      {% else %}
+      <li><a href="/authentication/verify-multiple-numbers?status=review" class="govuk-link govuk-link--no-visited-state">Suggested page changes</a></li>        
+      {% endif %}
+    </ul>      
   </div>
 </div>
 
