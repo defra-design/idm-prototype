@@ -1,0 +1,81 @@
+{% extends "layout.html" %}
+{% set showBackLink = false %}
+
+{% set pageHeading = "Update your details" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/account-nav-admin-corp.html" %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "services-on-team-member-admin-account_onlyrep"
+  }) }}
+{% endblock %}
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+        <p>Make updates to Your Defra account personal information.</p>
+
+        {{ govukSummaryList({
+            rows: [
+              { key: { text: "Personal information" },
+                value: { text: "Peter Moyles" },
+                actions: {
+                  items: [
+                    { href: "#", text: "Change", visuallyHiddenText: "personal information" }
+                  ]
+                }
+              },              
+              {
+                key: { text: "Personal address" },
+                value: { html: '<p class="govuk-body">Hutton Yeat Farm<br>Old Hutton<br>Kendal<br>South Lakeland<br>LA8 0NL</p>' },
+                actions: {
+                  items: [
+                    { href: "#", text: "Change", visuallyHiddenText: "personal address" }
+                  ]
+                }
+              }
+            ]
+        }) }}
+        
+            
+        <h2 class="govuk-heading-m govuk-!-margin-top-9">Updating your email or password</h2>
+        <p>Defra account uses your Government Gateway credentials to log in, so you will need to go to your Government Gateway profile to:</p>
+        <ul class="govuk-list govuk-list--bullet">
+            <li>update your email address</li>
+            <li>change your password</li>
+        </ul>        
+
+        <div class="govuk-inset-text">
+        <p>You will be signed out of your Defra account if you <a href="">go to your Government Gateway profile (opens in new tab)</a>.</p>
+    </div>
+
+
+        <!-- <p>To access Your Defra account and related services you use Government Gateway credentials to login. You can change your password or update your email address through your <a href="#">Government Gateway profile</a>.</p> -->
+
+    <!-- <details class="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">Update your Government Gateway details (email and password)</span>
+      </summary>
+      <div class="govuk-details__text">
+        To access Your Defra account and related services you use Government Gateway credentials to login. You can change your password or update your email address through your <a href="#">Government Gateway profile</a>.
+      </div>
+    </details> -->
+
+    <p class=govuk-body>Information about call charges is available <a href="https://www.gov.uk/call-charges"target="_blank">on the GOV.UK website</a> (opens in a new tab).</p>
+
+  </div>
+</div>
+
+
+
+
+{% endblock %}
