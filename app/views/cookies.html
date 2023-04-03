@@ -2,22 +2,36 @@
 {% set showBackLink = false %}
 {% set serviceName = "" %}
 
-{% set pageHeading = "Details about cookies on Your Defra account" %}
+{% set pageHeading = "Cookies on Your Defra account" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
 
-    <div class="govuk-grid-row">
-        <div class="govuk-grid-column-two-thirds">
+{% if errors.length %}
+    {{ govukErrorSummary({
+    titleText: 'There is a problem',
+    errorList: errors
+    }) }}
+  {% endif %}
 
-            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
 
-            <p class="govuk-body">Cookies are files saved on your phone, tablet or computer when you visit a website. We use 2 types of cookies on this site:</p>
-            <ul class="govuk-list govuk-list--bullet">
-                <li>cookies that are strictly necessary</li>
-                <li>cookies that measure service usage</li>
-            </ul>
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+       
+  
+ 
+        <p class="govuk-body">Cookies are files saved on your phone, tablet or computer when you visit a website.</p>        
+        
+       
+        
+        
+            <!-- <h2 class="govuk-heading-m">Strictly necessary cookies</h2>
+            <p class="govuk-body">These cookies are essential to make this service run effectively and to help us comply with data protection laws. You cannot turn these cookies off.</p>        
+            <input type="hidden" id="redirectLink" name="redirectLink" value="{{ redirectLink | safe }}"/>
+            <p class="govuk-body"><a href="/cookies" class="govuk-link govuk-link--no-visited-state">Find out more about cookies</a></p> -->
 
             <h2 class="govuk-heading-l">Cookies that are strictly necessary</h2>
             <p class="govuk-body">These cookies are essential to make this service run and to help us stay in line with data protection laws. You cannot turn these cookies off.</p>
@@ -87,80 +101,14 @@
                 </tbody>
             </table>
 
-            <h2 class="govuk-heading-l">Cookies that measure your use of the service</h2>
-            <p class="govuk-body">These cookies track the pages you visit here, how long you spend on each page and the options you choose. You can turn these cookies on or off.</p>
-            <p class="govuk-body">We use software (Google Universal Analytics and Microsoft Application Insights) to collect information about how you use the service.</p>
-            <p class="govuk-body">This information is ’anonymised’, we don’t know who it’s about.</p>
-            <p class="govuk-body">We do not collect or store your personal information (for example, your name or address) and we do not allow Google or Microsoft to use our data or share it with anyone else.</p>
-            <p class="govuk-body">We collect this information to make sure the service is meeting your needs and to help us improve it.</p>
-
-            <h3 class="govuk-heading-m">Google Analytics cookies</h3>
-            <table class="govuk-table">
-                <thead class="govuk-table__head">
-                    <tr class="govuk-table__row">
-                        <th class="govuk-table__header govuk-table__header--column-full" scope="col">Name</th>
-                        <th class="govuk-table__header govuk-table__header--column-full" scope="col">Purpose</th>
-                        <th class="govuk-table__header govuk-table__header--column-sixth column-full" scope="col">Expires</th>
-                    </tr>
-                </thead>
-                <tbody class="govuk-table__body">
-                    <tr class="govuk-table__row">
-                        <td class="govuk-table__cell">yda_ga</td>
-                        <td class="govuk-table__cell">Helps us to count how many people use the service by tracking if you’ve visited before</td>
-                        <td class="govuk-table__cell">In 2 years</td>
-                    </tr>
-                    <tr class="govuk-table__row">
-                        <td class="govuk-table__cell">yda_ga_gid</td>
-                        <td class="govuk-table__cell">Helps us to count how many people use the service by tracking if you’ve visited before</td>
-                        <td class="govuk-table__cell">In 24 hours</td>
-                    </tr>
-                    <tr class="govuk-table__row">
-                        <td class="govuk-table__cell">_ga</td>
-                        <td class="govuk-table__cell">Helps us to count how many people use the service by tracking if you’ve visited before</td>
-                        <td class="govuk-table__cell">In 2 years</td>
-                    </tr>
-                    <tr class="govuk-table__row">
-                        <td class="govuk-table__cell">_gid</td>
-                        <td class="govuk-table__cell">Helps us to count how many people use the service by tracking if you’ve visited before</td>
-                        <td class="govuk-table__cell">In 24 hours</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <div class="govuk-inset-text">
-                <p>You can <a href="https://tools.google.com/dlpage/gaoptout" class="govuk-link" rel="noreferrer noopener" target="_blank">opt out of Google Analytics cookies (opens in new tab)</a>.</p>
-            </div>
-
-            <h3 class="govuk-heading-m">Microsoft Application Insights cookies</h3>
-            <table class="govuk-table">
-                <thead class="govuk-table__head">
-                    <tr class="govuk-table__row">
-                        <th class="govuk-table__header govuk-table__header--column-full" scope="col">Name</th>
-                        <th class="govuk-table__header govuk-table__header--column-full" scope="col">Purpose</th>
-                        <th class="govuk-table__header govuk-table__header--column-sixth column-full" scope="col">Expires</th>
-                    </tr>
-                </thead>
-                <tbody class="govuk-table__body">
-                    <tr class="govuk-table__row">
-                        <td class="govuk-table__cell">ai_session</td>
-                        <td class="govuk-table__cell">Helps us to count how many people use the service by tracking if you’ve visited before</td>
-                        <td class="govuk-table__cell">In 1 hour</td>
-                    </tr>
-                    <tr class="govuk-table__row">
-                        <td class="govuk-table__cell">ai_user</td>
-                        <td class="govuk-table__cell">Helps us to count how many people use the service by tracking if you’ve visited before</td>
-                        <td class="govuk-table__cell">In 1 year</td>
-                    </tr>
-                </tbody>
-            </table>
-
-
-            <div class="govuk-inset-text">
-                <p class="govuk-body-s">This was last updated on 22 March 2023</p>
-            </div>
-
-
+        <h3 class="govuk-heading-m">Government services</h3>
+        <p class="govuk-body">Most services we link to are run by different government departments, for example HM Revenue and Customs or the Home Office. These services may set other cookies and, if so, will have their own cookies policy.</p>
+        
+        <div class="govuk-inset-text">
+            <p class="govuk-body-s">This was last updated on 22 March 2023</p>
         </div>
-    </div>
 
+
+    </div>
+</div>
 {% endblock %}
