@@ -10,51 +10,30 @@
 
 {% if errors.length %}
     {{ govukErrorSummary({
-        titleText: 'There is a problem',
-        errorList: errors
+    titleText: 'There is a problem',
+    errorList: errors
     }) }}
-{% endif %}
+  {% endif %}
 
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-        {% if data['flow'] == "Registration" %}
-
-            {% if data['savedCookieChanges'] %}
-                <div class="cookie-settings__warning govuk-!-margin-bottom-0" data-cookie-warning="true">
-                    <section class="gem-c-notice govuk-!-margin-bottom-8" aria-label="Notice" role="region">
-                        <h2 class="govuk-heading-m">Your cookie settings have been saved</h2>
-                        <p class="govuk-body">Government services may set other cookies and, if so, will have their own cookie policy.<a class="govuk_link govuk-!-margin-top-5 cookie-settings__prev-page" href="/" data-module="track-click" data-track-category="cookieSettings" data-track-action="Back to previous page" style="display: block;">Go back to the page you were looking at</a></p>
-                    </section>
-                </div>
-            {% elif data['savedCookieChanges'] === "" %}
-            
-            {% else %}
-                <div class="cookie-settings__warning govuk-!-margin-bottom-0" data-cookie-warning="true">
-                    <section class="gem-c-notice govuk-!-margin-bottom-8" aria-label="Notice" role="region">
-                        <h2 class="govuk-heading-m">Your cookie settings have not yet been saved</h2>
-                        <p class="gem-c-notice__description">Defra sets cookies when you visit our service. You can choose to change these settings to your own preferences. You'll need to save this page, below, with your new choices.</p>
-                    </section>
-                </div>
-            {% endif %}
-
-        {% endif %}
-        
+       
+  
+ 
         <p class="govuk-body">Cookies are files saved on your phone, tablet or computer when you visit a website.</p>        
         
-
-                   
-
-        <!-- <h2 class="govuk-heading-m">Strictly necessary cookies</h2>
-        <p class="govuk-body">These cookies are essential to make this service run effectively and to help us comply with data protection laws. You cannot turn these cookies off.</p>        
-        <input type="hidden" id="redirectLink" name="redirectLink" value="{{ redirectLink | safe }}"/>
-        <p class="govuk-body"><a href="/cookies" class="govuk-link govuk-link--no-visited-state">Find out more about cookies</a></p> -->
-
+       
         
+        
+            <!-- <h2 class="govuk-heading-m">Strictly necessary cookies</h2>
+            <p class="govuk-body">These cookies are essential to make this service run effectively and to help us comply with data protection laws. You cannot turn these cookies off.</p>        
+            <input type="hidden" id="redirectLink" name="redirectLink" value="{{ redirectLink | safe }}"/>
+            <p class="govuk-body"><a href="/cookies" class="govuk-link govuk-link--no-visited-state">Find out more about cookies</a></p> -->
 
-            <h2 class="govuk-heading-m">Cookies that are strictly necessary</h2>
+            <h2 class="govuk-heading-l">Cookies that are strictly necessary</h2>
             <p class="govuk-body">These cookies are essential to make this service run and to help us stay in line with data protection laws. You cannot turn these cookies off.</p>
 
             <h3 class="govuk-heading-m">Introductory cookie message</h3>
@@ -81,10 +60,8 @@
                 </tbody>
             </table>
 
-            <div class="key">
             <h3 class="govuk-heading-m">Google reCAPTCHA cookies</h3>
             <p class="govuk-body">We use Google reCAPTCHA on this site to make sure that information (for example, in forms) is entered by a human and not by automated software. Some of the data collected by reCAPTCHA cookies is forwarded to Google. See the <a href="https://policies.google.com/privacy" class="govuk-link" rel="noreferrer noopener" target="_blank">Google Privacy Policy (opens in new tab)</a> and the <a href="https://policies.google.com/terms" class="govuk-link" rel="noreferrer noopener" target="_blank">Google Terms of Service (opens in new tab)</a>.</p>
-            </div>
 
             <h3 class="govuk-heading-m">Other essential cookies</h3>
             <table class="govuk-table">
@@ -124,81 +101,6 @@
                 </tbody>
             </table>
 
-            {% if data['flow'] == "Registration" %}
-
-            <form method="post" action="/cookie-settings" class="govuk-!-margin-bottom-5">
-    
-                {{ govukRadios({
-                    classes: "govuk-radios--inline",
-                    idPrefix: "cookieUsage",
-                    name: "cookieUsage",
-                    fieldset: {
-                        legend: {
-                            text: "Cookies that measure the way you use the service",
-                            isPageHeading: false,
-                            classes: "govuk-fieldset__legend--m"
-                        }
-                    },
-                    hint: {
-                        text: 'These cookies track the pages you visit here, how long you spend on each page and the options you choose. You can turn these cookies on or off.'
-                    },
-                    items: [
-                        { value: "on", text: "On", checked: checked("cookieUsage", "on") },
-                        { value: "off", text: "Off", checked: checked("cookieUsage", "off") }
-                    ]
-                }) }}
-    
-                {{ govukRadios({
-                    classes: "govuk-radios--inline",
-                    idPrefix: "cookieComms",
-                    name: "cookieComms",
-                    fieldset: {
-                        legend: {
-                            text: "Cookies that help with our communications and marketing",
-                            isPageHeading: false,
-                            classes: "govuk-fieldset__legend--m"
-                        }
-                    },
-                    hint: {
-                        text: 'These cookies may be set by third party websites and do things like measure how you view YouTube videos that are on Your Defra account.'
-                    },
-                    items: [
-                        { value: "on", text: "On", checked: checked("cookieComms", "on") },
-                        { value: "off", text: "Off", checked: checked("cookieComms", "off") }
-                    ]
-                }) }}
-    
-                {{ govukRadios({
-                    classes: "govuk-radios--inline",
-                    idPrefix: "cookieSettings",
-                    name: "cookieSettings",
-                    fieldset: {
-                        legend: {
-                            text: "Cookies that remember your settings",
-                            isPageHeading: false,
-                            classes: "govuk-fieldset__legend--m"
-                        }
-                    },
-                    hint: {
-                        text: 'These cookies do things like remember your preferences and the choices you make to personalise your experience when using this service.'
-                    },
-                    items: [
-                        { value: "on", text: "On", checked: checked("cookieSettings", "on") },
-                        { value: "off", text: "Off", checked: checked("campcookieSettings", "off") }
-                    ]
-                }) }}
-            
-                {{ govukButton({
-                    text: "Save changes",
-                    attributes:{
-                        id: "button-continue"
-                    }
-                }) }}
-    
-            </form>
-    
-            {% endif %} 
-      
         <h3 class="govuk-heading-m">Government services</h3>
         <p class="govuk-body">Most services we link to are run by different government departments, for example HM Revenue and Customs or the Home Office. These services may set other cookies and, if so, will have their own cookies policy.</p>
         
