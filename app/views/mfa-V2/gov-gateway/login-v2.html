@@ -30,11 +30,13 @@
     <form action="/mfa/get-code-success-search" method="post">
       {% elif data['scenario'] == "no-mfa-20"%}
       <form action="/mfa/get-code-success-v2" method="post">
+    {% else %}
+      
+
+      <form action="/authentication/verify-single-number" method="post">
 
 
-
-{% else %}
-<form action="/mfa/verify-single-number" method="post">
+        
 
 {% endif %}
 

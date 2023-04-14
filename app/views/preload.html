@@ -46,25 +46,29 @@
         <!-- Authentication journey flow -->
         {% elif data['flow'] == "Authentication" %}
 
+            
             {% if data['serviceName'] == "vetsVisit" %}      
                 <form class="form" action="/authentication/vets/start" method="post" >
             {% elif data['flowVersion'] == "current" %}
-                <form class="form" action="/mfa-V2/core/gov-login" method="post" >
+                <form class="form" action="/sign-in" method="post" >
             {% else %}
                 <form class="form" action="/mfa/gov-gateway/login-v2" method="post" class="">
             {% endif %}
             
             {% if data['serviceName'] != "vetsVisit" %}      
-                {{ govukRadios({
-                    classes: "govuk-radios--inline",
-                    fieldset: {
-                        legend: { text: "Method of authentication", isPageHeading: false, classes: "govuk-fieldset__legend--m"  }
-                    },
+                    
+                <h3 class="govuk-heading-m">Authentication options</h3>
+                
+                <div class="mspace">
+                {{ govukCheckboxes({
+                    idPrefix: "multiplePhoneNumber",
+                    classes: "govuk-checkboxes--small",
+                    name: "multiplePhoneNumber",
                     items: [
-                        { value: "SMS", text: "SMS" },
-                        { value: "Email, redirect(/authentication/verify-single-number)", text: "Email" }
+                        { value: "Yes", text: "Multiple phone numbers on account", checked: checked("multiplePhoneNumber", "Yes")}
                     ]
-                } | decorateFormAttributes('authenticationMethod')) }}
+                }) }}
+                </div>
 
                 {{ govukCheckboxes({
                     idPrefix: "securityWordChanged",
@@ -74,15 +78,8 @@
                         { value: "Yes", text: "Security word has changed", checked: checked("securityWordChanged", "Yes")}
                     ]
                 }) }}
-
-                {{ govukCheckboxes({
-                    idPrefix: "multiplePhoneNumber",
-                    classes: "govuk-checkboxes--small",
-                    name: "multiplePhoneNumber",
-                    items: [
-                        { value: "Yes", text: "Multiple phone numbers on account", checked: checked("multiplePhoneNumber", "Yes")}
-                    ]
-                }) }}
+                
+                
 
             {% endif %}
 
@@ -126,7 +123,8 @@
             </div>
             <div class="govuk-grid-row">                
                 <div class="govuk-grid-column-one-half">
-
+                    
+                    <div class="mspace">
                     {{ govukCheckboxes({
                         idPrefix: "interSwitchSize",
                         classes: "govuk-checkboxes--small",
@@ -135,6 +133,7 @@
                             { value: "Single", text: "Only 1 organisation available for enrolment", checked: checked("interSwitchSize", "Single")}
                         ]
                     }) }}
+                    </div>
 
                     {{ govukCheckboxes({
                         idPrefix: "citizenEnrol",
