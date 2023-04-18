@@ -87,21 +87,23 @@
                 </ul> -->
             </div>
 
-            <h2 class="govuk-heading-l govuk-!-margin-top-9">Other service integrations</h2>            
-            <h3 class="govuk-heading-m">Annual Health and Welfare Review of livestock<span class="govuk-body-s"></span></h3>
-            <p class="govuk-body">Illustrates the journey flow for authentication for Annual Health and Welfare Review of livestock service in both applying and claiming states.</p>            
-            <form action="/preload" method="post" >
-                <input type="hidden" name="flow" id="flow" value="Authentication" />                    
-                <input type="hidden" name="serviceName" id="serviceName" value="vetsVisit" />    
-                <input type="hidden" name="companySize" id="companySize" value="20" />  
-                <input type="hidden" name="interSwitch" id="interSwitch" value="" />                                      
-                {{ govukButton({
-                    text: "Continue"
-                }) }}
-            </form>            
+            <h2 class="govuk-heading-m govuk-!-margin-top-9">Service user flows</h2>
+            <h3 class="govuk-heading-s">Annual Health and Welfare Review of livestock<span class="govuk-body-s"></span></h3>
+            <p>Illustrates the journey flow for authentication for Annual Health and Welfare Review of livestock service in both applying and claiming states.</p>
+            
+                <form action="/preload" method="post" >
+                    <input type="hidden" name="flow" id="flow" value="Authentication" />                    
+                    <input type="hidden" name="serviceName" id="serviceName" value="vetsVisit" />    
+                    <input type="hidden" name="companySize" id="companySize" value="20" />  
+                    <input type="hidden" name="interSwitch" id="interSwitch" value="" />                  
+                    
+                    {{ govukButton({
+                        text: "Continue with Authentication"                        
+                    }) }}
+                </form>         
 
 
-            <h2 class="govuk-heading-m">Register for a Defra account</h2>
+            <!--<h2 class="govuk-heading-m">Register for a Defra account</h2>
             <ul class="govuk-list">
                 <li class="govuk-link"><a href="/mfa-V2/gov-gateway/login" class="govuk-link--no-visited-state">User has Gov gateway account</a></li>
                 <li class="govuk-link"><a href="/tasked/gov-gateway/login" class="govuk-link--no-visited-state">User has no Gov gateway account</a></li>
@@ -129,7 +131,7 @@
                 <li class="govuk-link"><a href="/password-V2/enter-email">Forgot password</a></li>
                 <li class="govuk-link"><a href="/password-V2-2/enter-email">Forgot password (with verification and password on same page)</a></li>
             </ul> 
-
+        -->
 
         </div>
         <!-- End of two thirds column -->
