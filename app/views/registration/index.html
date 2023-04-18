@@ -18,7 +18,7 @@
         <p>To complete your registration, we’ll ask for some personal details and for information about who wants to use this service.</p>
         <p>To find out how we use, process and store your data, read our <a href="/privacy-notice">Privacy notice</a>.</p>
 
-        <form method="post" action="/registration/journey/default/account-type">
+        <form method="post" action="/registration/account-type">
 
             {{ govukCheckboxes({
               fieldset: { legend: { text: "Terms and conditions", isPageHeading: false, classes: "govuk-visually-hidden" } },
@@ -31,6 +31,16 @@
 
         </form>
 
+    </div>
+    <div class="govuk-grid-column-one-third review">      
+      <ul class="govuk-list govuk-body-s govuk-!-text-align-right">        
+        <!-- <li><a href="/errors" class="govuk-link govuk-link--no-visited-state">Error page</a></li>         -->
+        {% if data['status'] == "review" %}
+        <li><a href="/registration/?status=" class="govuk-link govuk-link--no-visited-state">Current page</a></li>        
+        {% else %}
+        <li><a href="/registration/?status=review" class="govuk-link govuk-link--no-visited-state">Suggested page changes</a></li>        
+        {% endif %}
+      </ul>      
     </div>
 </div>
 

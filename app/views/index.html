@@ -43,20 +43,14 @@
                 </form>
                 <form action="/preload" method="post" >
                     <input type="hidden" name="flow" id="flow" value="Registration" />
-                    <input type="hidden" name="flowVersion" id="flowVersion" value="" />
+                    <input type="hidden" name="flowVersion" id="flowVersion" value="version_1" />
                     {{ govukButton({
                         text: "Archived V1.0",
                         classes: "govuk-button--secondary govuk-!-margin-left-1"
                     }) }}
                 </form>                
-            </div>
-            <!-- <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
-                <li>MFA with phone number verification only</li>
-                <li>MFA via email</li>
-                <li>MFA switching (sms/email)</li>
-                <li>Exit pages</li>
-            </ul> -->
-
+            </div>            
+            
             <!-- Get this linking the correct way fro preload -->
             {# <p class="govuk-body"><a href="mfa/scenarios">Register for an account/authenitcate</a> #}
             <div class="govuk-button-group">
@@ -65,22 +59,11 @@
                     <input type="hidden" name="flowVersion" id="flowVersion" value="current" />
                     <input type="hidden" name="serviceName" id="serviceName" value="coreDefault" />
                     <input type="hidden" name="companySize" id="companySize" value="20" />
-                    <input type="hidden" name="interSwitch" id="interSwitch" value="Yes" />
-                    
+                    <input type="hidden" name="interSwitch" id="interSwitch" value="Yes" />                    
                     {{ govukButton({
                         text: "Authentication and verification"                        
                     }) }}
-                </form>
-
-
-                <!-- <form action="/preload" method="post" >
-                    <input type="hidden" name="flow" id="flow" value="Registration" />
-                    <input type="hidden" name="flowVersion" id="flowVersion" value="" />
-                    {{ govukButton({
-                        text: "Register for Defra Identity",
-                        classes: "govuk-button--secondary"
-                    }) }}
-                </form> -->
+                </form>                
                 <form action="/preload" method="post" >
                     <input type="hidden" name="flow" id="flow" value="Authentication" />
                     <input type="hidden" name="flowVersion" id="flowVersion" value="" />
@@ -89,15 +72,19 @@
                         classes: "govuk-button--secondary govuk-!-margin-left-1"
                     }) }}
                 </form>
+                <!-- <ul class="govuk-list govuk-list--bullet">
+                    <li>MFA with phone number verification only</li>
+                    <li>MFA via email</li>
+                    <li>MFA switching (sms/email)</li>
+                    <li>Exit pages</li>
+                </ul>
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>Single number option</li>
+                    <li>Error message implementation</li>
+                    <li>Replaced 'links list' with radios component</li>
+                    <li>Accessible autocomplete added to core journey</li>
+                </ul> -->
             </div>
-
-            <!-- <ul class="govuk-list govuk-list--bullet">
-                <li>Single number option</li>
-                <li>Error message implementation</li>
-                <li>Replaced 'links list' with radios component</li>
-                <li>Accessible autocomplete added to core journey</li>
-            </ul> -->
-                        
 
             <h2 class="govuk-heading-l govuk-!-margin-top-9">Other service integrations</h2>            
             <h3 class="govuk-heading-m">Annual Health and Welfare Review of livestock<span class="govuk-body-s"></span></h3>
@@ -110,23 +97,10 @@
                 {{ govukButton({
                     text: "Continue"
                 }) }}
-            </form>
-
-            {# Page listing buttons #}
-    		{# {{ govukButton({
-      			text: "Page listings",
-      			href: "",
-      			classes: "govuk-button--secondary govuk-!-margin-left-1"
-    		}) }}
-
-            {{ govukButton({
-      			text: "Preload options",
-      			href: "",
-      			classes: "govuk-button--secondary govuk-!-margin-left-1"
-    		}) }} #}
+            </form>            
 
 
-            {# <h2 class="govuk-heading-m">Register for a Defra account</h2>
+            <h2 class="govuk-heading-m">Register for a Defra account</h2>
             <ul class="govuk-list">
                 <li class="govuk-link"><a href="/mfa-V2/gov-gateway/login" class="govuk-link--no-visited-state">User has Gov gateway account</a></li>
                 <li class="govuk-link"><a href="/tasked/gov-gateway/login" class="govuk-link--no-visited-state">User has no Gov gateway account</a></li>
@@ -153,7 +127,7 @@
             <ul class="govuk-list">
                 <li class="govuk-link"><a href="/password-V2/enter-email">Forgot password</a></li>
                 <li class="govuk-link"><a href="/password-V2-2/enter-email">Forgot password (with verification and password on same page)</a></li>
-            </ul> #}
+            </ul> 
 
 
         </div>
