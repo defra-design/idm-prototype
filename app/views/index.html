@@ -10,11 +10,9 @@
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
 
-
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
             <ul class="govuk-list govuk-body-s">
-
           	    <li>Last updated: 18 April 2023</li>
                 <li>Prototype version: {{releaseVersion}}</li>
             </ul>
@@ -23,8 +21,6 @@
     </div>
 
     <div class="govuk-grid-row">
-
-
         <div class="govuk-grid-column-two-thirds">
             <p>This service will help users:</p>
             <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
@@ -33,9 +29,7 @@
                 <li class="govuk-body">give other people (for example colleagues or agents) access to one or more of the online services they use.</li>
             </ul>
 
-
             <h2 class="govuk-heading-m">Core user flows <span class="govuk-body-s">V2.0</span></h2>
-
             <div class="govuk-button-group">
                 <form action="/preload" method="post" >
                     <input type="hidden" name="flow" id="flow" value="Registration" />
@@ -51,15 +45,16 @@
                     <input type="hidden" name="flowVersion" id="flowVersion" value="current" />
                     <input type="hidden" name="serviceName" id="serviceName" value="coreDefault" />
                     <input type="hidden" name="companySize" id="companySize" value="20" />
-                    <input type="hidden" name="interSwitch" id="interSwitch" value="Yes" />
-
-                    
+                    <input type="hidden" name="interSwitch" id="interSwitch" value="Yes" />     
                     {{ govukButton({
                         text: "Authentication and verification",
                         classes: "govuk-!-margin-left-1"
                     }) }}
                 </form>
             </div>
+
+            
+            
             <!-- <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
                 <li>MFA with phone number verification only</li>
                 <li>MFA via email</li>
@@ -67,11 +62,7 @@
                 <li>Exit pages</li>
             </ul> -->
 
-
-            
-
             <h2 class="govuk-heading-m">Archived flows <span class="govuk-body-s">V1.0</span></h2>
-
             <!-- Get this linking the correct way fro preload -->
             {# <p><a href="mfa/scenarios">Register for an account/authenitcate</a> #}
             <div class="govuk-button-group">
@@ -93,7 +84,6 @@
                     }) }}
                 </form>
             </div>
-
             <!-- <ul class="govuk-list govuk-list--bullet">
                 <li>Single number option</li>
                 <li>Error message implementation</li>
@@ -101,40 +91,30 @@
                 <li>Accessible autocomplete added to core journey</li>
             </ul> -->
                         
-
             <h2 class="govuk-heading-m govuk-!-margin-top-9">Service user flows</h2>
             <h3 class="govuk-heading-s">Annual Health and Welfare Review of livestock<span class="govuk-body-s"></span></h3>
-            <p>Illustrates the journey flow for authentication for Annual Health and Welfare Review of livestock service in both applying and claiming states.</p>
-            
-                <form action="/preload" method="post" >
-                    <input type="hidden" name="flow" id="flow" value="Authentication" />                    
-                    <input type="hidden" name="serviceName" id="serviceName" value="vetsVisit" />    
-                    <input type="hidden" name="companySize" id="companySize" value="20" />  
-                    <input type="hidden" name="interSwitch" id="interSwitch" value="" />                  
-                    
-                    {{ govukButton({
-                        text: "Continue with Authentication"                        
-                    }) }}
-                </form>
-            
+            <p>Illustrates the journey flow for authentication for Annual Health and Welfare Review of livestock service in both applying and claiming states.</p>        
+            <form action="/preload" method="post" >
+                <input type="hidden" name="flow" id="flow" value="Authentication" />                    
+                <input type="hidden" name="serviceName" id="serviceName" value="vetsVisit" />    
+                <input type="hidden" name="companySize" id="companySize" value="20" />  
+                <input type="hidden" name="interSwitch" id="interSwitch" value="" />                  
+                
+                {{ govukButton({
+                    text: "Continue with Authentication"                        
+                }) }}
+            </form>
 
-
+            
 
             {# Page listing buttons #}
-    		{# {{ govukButton({
-      			text: "Page listings",
-      			href: "",
-      			classes: "govuk-button--secondary govuk-!-margin-left-1"
-    		}) }}
-
+    		{# 
             {{ govukButton({
       			text: "Preload options",
       			href: "",
       			classes: "govuk-button--secondary govuk-!-margin-left-1"
-    		}) }} #}
-
-
-            {# <h2 class="govuk-heading-m">Register for a Defra account</h2>
+    		}) }}
+            <h2 class="govuk-heading-m">Register for a Defra account</h2>
             <ul class="govuk-list">
                 <li class="govuk-link"><a href="/mfa-V2/gov-gateway/login" class="govuk-link--no-visited-state">User has Gov gateway account</a></li>
                 <li class="govuk-link"><a href="/tasked/gov-gateway/login" class="govuk-link--no-visited-state">User has no Gov gateway account</a></li>
@@ -155,15 +135,11 @@
                 <li class="govuk-link"><a href="/mfa-V2/core/verify-single-number?scenario=get-code-success-sc2" class="govuk-link--no-visited-state">Up to 20 organisations</a></li>
                 <li class="govuk-link"><a href="/mfa-V2/core/verify-single-number?scenario=get-code-success-sc3" class="govuk-link--no-visited-state">21 - 45 organisations</a></li>
             </ul>
-
-
             <h2 class="govuk-heading-m">Forgot password</h2>
             <ul class="govuk-list">
                 <li class="govuk-link"><a href="/password-V2/enter-email">Forgot password</a></li>
                 <li class="govuk-link"><a href="/password-V2-2/enter-email">Forgot password (with verification and password on same page)</a></li>
             </ul> #}
-
-
         </div>
         <!-- End of two thirds column -->
 
@@ -171,6 +147,7 @@
             <h2 class="govuk-heading-s govuk-!-margin-bottom-1" id="subsection-title">Assets </h2>
             <nav class="govuk-!-margin-bottom-7">
                 <ul class="govuk-list">
+                    <li><a href="/listings" class="govuk-link govuk-link--no-visited-state" >Page listings</a></li>
                     <li><a href="https://github.com/defra-design/idm-prototype" class="govuk-link govuk-link--no-visited-state" rel="noreferrer noopener" target="_blank" >Github repository <span class="govuk-visually-hidden">(opens in new tab)</span></a></li>
                     <li><a href="https://app.mural.co/t/defraidmanagement4828/m/defraidmanagement4828/1651757057405/8de389e360d3ece2fb5b5adb455eb3fd376c13d5?sender=uc4759e9563ebe5260dd56933" class="govuk-link govuk-link--no-visited-state" rel="noreferrer noopener" target="_blank">Mural - user journeys <span class="govuk-visually-hidden">(opens in new tab)</span></a></li>
                     <li><a href="https://www.figma.com/file/XRzsdo5usIj3oUBfQEinLJ/Identity-management-flows-'To-Be'?node-id=4%3A2804" rel="noreferrer noopener" class="govuk-link govuk-link--no-visited-state" target="_blank">Figma assets <span class="govuk-visually-hidden">(opens in new tab)</span></a></li>
