@@ -25,7 +25,7 @@
   {% if data['claimJourney'] == "Yes" %}
     {% set pageHeading = "Who are you claiming for?" %}
   {% else %}
-    {% set pageHeading = "Who are you applying for?" %}
+    {% set pageHeading = "Choose a business or its single business identifier" %}
   {% endif %}
 {% else %}
   {% set pageHeading = "Who do you want to represent?" %}
@@ -46,14 +46,14 @@
               {% if data['claimJourney'] == "Yes" %}
               <p>Enter a business registered to your rural payments account or its single business identifier (SBI) number.</p>
               {% else %}
-                <p>Enter a business registered to your rural payments account or its single business identifier (SBI) number. You can <a href="https://www.ruralpayments.service.gov.uk/customer-account/login">update your businesses in the Rural Payments service</a>. </p>
+                <p>This must be a business registered to your rural payments account.</p>
               {% endif %}
               <p class="govuk-hint">For example, The Dairy Farm or 123456789.</p>          
           	{% elif data['companySize'] == "20" %}
                 {% if data['claimJourney'] == "Yes" %}
                 <p>These are the businesses registered to your rural payments account including their single business identifier (SBI) numbers.</p>
                 {% else %}
-            	    <p>These are the businesses registered to your rural payments account including their single business identifier (SBI) numbers. You can <a href="https://www.ruralpayments.service.gov.uk/customer-account/login">update your businesses in the Rural Payments service</a>. </p>
+            	    <p>These are the businesses registered to your rural payments account.</p>
                   
                 {% endif %}
           	{% endif %}
