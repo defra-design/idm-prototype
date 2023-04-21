@@ -47,9 +47,12 @@
     
     </div>
     <div class="govuk-grid-column-one-third review">      
-        <ul class="govuk-list govuk-body-s govuk-!-text-align-right">                    
-            <li><a href="/403-status?status=review" class="govuk-link govuk-link--no-visited-state">Suggested page changes</a></li>        
-            <li><a href="/403-status?status=" class="govuk-link govuk-link--no-visited-state">Current page</a></li>        
+        <ul class="govuk-list govuk-body-s govuk-!-text-align-right">        
+            {% if data['status'] == "review" %}                        
+                <li><a href="/403-status?status=" class="govuk-link govuk-link--no-visited-state">Current page</a></li>        
+            {% else %}
+                <li><a href="/403-status?status=review" class="govuk-link govuk-link--no-visited-state">Suggested page changes</a></li>        
+            {% endif %}
         </ul>      
     </div>
 </div>

@@ -3,7 +3,7 @@
 {% set showBackLink = false %}
 {% set serviceName = "Defra Identity Management " %}
 
-{% set pageHeading = "Page listings" %}
+{% set pageHeading = "Page listings " %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -12,7 +12,7 @@
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }} 
 
             <p class="govuk-body-s">Last updated 18 April 2023</p>
             <p class="govuk-body govuk-!-margin-bottom-7">Some pages have dynamic content, so if using the links and not going through the flows that lead to each page, its not always possible to show the right content for all scenarios.</p>
@@ -45,7 +45,7 @@
                 <li><a class="govuk-link" href="/authentication/business-not-listed?status=">There are no other organisations available for you to enrol</a></li>
             </ul>            
 
-            <h3 class="govuk-heading-m">Issues with service</h3>
+            <h3 class="govuk-heading-m">Issues with service &apos; &lsquo; &rsquo;</h3>
             <ul class="govuk-list govuk-list--bullet">
                 <li><a class="govuk-link" href="/403-status?status=">Sorry, there is a problem with the service</a></li>                
             </ul>            
@@ -68,7 +68,16 @@
             {% set vetsVisitHtml %}
             <h3 class="govuk-heading-m">Example heading</h3>
             <ul class="govuk-list govuk-list--bullet">
-                <li><a class="govuk-link" href="#" >Name of page</a></li>                
+                <li><a class="govuk-link" href="/authentication/vets/start" >Apply for an annual health and welfare review of your livestock</a></li>                
+                <li><a class="govuk-link" href="/authentication/vets/sign-in" >Sign in to annual health and welfare review of livestock</a>
+                    <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-2">
+                        <li><a class="govuk-link" href="/authentication/password/reset" >Reset your password</a>
+                    </ul>                
+                </li>                
+                <li><a class="govuk-link" href="/authentication/vets/sign-in" >There are no businesses registered to this account</a>
+                <li><a class="govuk-link" href="/authentication/select-your-business?companySize=20" >Choose a business</a></li>                
+                <li><a class="govuk-link" href="/authentication/select-your-business?companySize=45" >Enter a business or its single business identifier (SBI)</a></li>                
+                
             </ul>            
             {% endset -%}
 
@@ -83,6 +92,15 @@
             }) }}
 
             <p><a href="/data">Data been stored as part of current session</a></p>
+
+            &#8217; &#8216;1
+
+
+            &rsquo; or &#x2019;
+
+            &apos;
+
+            &apos;, &lsquo;, &rsquo;
 
     </div>
 </div>
