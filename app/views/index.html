@@ -50,8 +50,8 @@
                 </form>                
             </div>            
             
-            <!-- Get this linking the correct way fro preload -->
-            {# <p class="govuk-body"><a href="mfa/scenarios">Register for an account/authenitcate</a> #}
+            
+            
             <div class="govuk-button-group">
                 <form action="/preload" method="post" >
                     <input type="hidden" name="flow" id="flow" value="Authentication" />
@@ -85,7 +85,11 @@
                 </ul> -->
             </div>
 
-            <h2 class="govuk-heading-m govuk-!-margin-top-9">Service user flows</h2>
+            <p class="govuk-body"><a href="mfa-V2/scenarios">Previous register for an account/authenticate V2</a>
+                <br><a href="mfa/scenarios">Previous register for an account/authenticate V1</a></p>
+    
+
+            <h2 class="govuk-heading-m govuk-!-margin-top-9">Service specific flows</h2>
             <h3 class="govuk-heading-s">Annual Health and Welfare Review of livestock<span class="govuk-body-s"></span></h3>
             <p>Illustrates the journey flow for authentication for Annual Health and Welfare Review of livestock service in both applying and claiming states.</p>
             
@@ -96,38 +100,12 @@
                     <input type="hidden" name="interSwitch" id="interSwitch" value="" />                  
                     
                     {{ govukButton({
-                        text: "Continue with Authentication"                        
+                        text: "Sign in authentication"                        
                     }) }}
                 </form>         
 
 
-            <!--<h2 class="govuk-heading-m">Register for a Defra account</h2>
-            <ul class="govuk-list">
-                <li class="govuk-link"><a href="/mfa-V2/gov-gateway/login" class="govuk-link--no-visited-state">User has Gov gateway account</a></li>
-                <li class="govuk-link"><a href="/tasked/gov-gateway/login" class="govuk-link--no-visited-state">User has no Gov gateway account</a></li>
-            </ul>
-
-            <h2 class="govuk-heading-m">Authentication</h2>
-            <h3 class="govuk-heading-s govuk-!-margin-bottom-1">Using SMS</h3>
-            <ul class="govuk-list">
-                <li class="govuk-link"><a href="/mfa-V2/core/gov-login1" class="govuk-link--no-visited-state">Single organisation</a></li>
-                <li class="govuk-link"><a href="/mfa-V2/core/gov-login2" class="govuk-link--no-visited-state">Up to 20 organisations</a></li>
-                <li class="govuk-link"><a href="/mfa-V2/core/gov-login3" class="govuk-link--no-visited-state">21 to 45 organisations</a></li>
-                <li class="govuk-link"><a href="/mfa-V2/sms-switch-button/gov-login1" class="govuk-link--no-visited-state">User can authenticate with SMS or switch to email (secondary button)</a></li>
-                <li class="govuk-link"><a href="/mfa-V2/sms-switch-link/gov-login1" class="govuk-link--no-visited-state">User can authenticate with SMS or switch to email (link)</a></li>
-            </ul>
-            <h3 class="govuk-heading-s govuk-!-margin-bottom-1">Using email address</h3>
-            <ul class="govuk-list">
-                <li class="govuk-link"><a href="/mfa-V2/core/verify-single-number?scenario=account-page" class="govuk-link--no-visited-state">Single organisation</a></li>
-                <li class="govuk-link"><a href="/mfa-V2/core/verify-single-number?scenario=get-code-success-sc2" class="govuk-link--no-visited-state">Up to 20 organisations</a></li>
-                <li class="govuk-link"><a href="/mfa-V2/core/verify-single-number?scenario=get-code-success-sc3" class="govuk-link--no-visited-state">21 - 45 organisations</a></li>
-            </ul>
-            <h2 class="govuk-heading-m">Forgot password</h2>
-            <ul class="govuk-list">
-                <li class="govuk-link"><a href="/password-V2/enter-email">Forgot password</a></li>
-                <li class="govuk-link"><a href="/password-V2-2/enter-email">Forgot password (with verification and password on same page)</a></li>
-            </ul> 
-        -->
+                {% include "includes/old-mfav2.html" %}
 
         </div>
         <!-- End of two thirds column -->
@@ -171,60 +149,13 @@
 
 
 
-        </div>
-
-        <div class="govuk-grid-column-two-thirds">
-            <!-- {{ govukSummaryList({
-                rows: [
-                    {
-                        key: { text: "Register for an account and authenticate" },
-                        value: { html: '<ul class="govuk-list govuk-list--bullet">
-                        <li>MFA with phone number verification only</li>
-                        <li>MFA via email</li>
-                        <li>MFA switching(sms/email)</li>
-                        <li>Exist pages</li>
-                    </ul>' },
-                        actions: {
-                            items: [
-                                { href: "mfa-V2/scenarios", text: "View", visuallyHiddenText: "name" }
-                            ]
-                        }
-                    },
-                    {
-                        key: { text: "Register for an account and authenticate" },
-                        value: { html: '<ul class="govuk-list govuk-list--bullet">
-                        <li>Single number option</li>
-                                <li>Error message implementation</li>
-                                <li>Replaced ’links list’ with radios component</li>
-                                <li>Accessible autocomplete added to core journey</li>
-                    </ul>' },
-                        actions: {
-                            items: [
-                                { href: "mfa-V2/scenarios", text: "View", visuallyHiddenText: "name" }
-                            ]
-                        }
-                    }
-                    
-                ]
-                }) }}  -->
-
-
-
-
-
-
-
-
-
-        </div>
-
-
+        </div>    
     </div>
 
     <!-- <div class="govuk-grid-row">
         <div class="govuk-grid-column-full govuk-!-margin-top-5">
 
-    <p><a href="mfa/scenarios">Register for an account/authenitcate</a>
+    <p><a href="mfa/scenarios">Register for an account/authenticate</a>
     <br>Sprint current | v2.0</p>
     <ul class="govuk-list govuk-list--bullet">
         <li>MFA with phone number verification only</li>
