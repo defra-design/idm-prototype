@@ -209,7 +209,7 @@
 
         {% endif %}
 
-
+				<input type="hidden" id="status" name="status" value="" />    		
                 <div class="govuk-button-group">
 
                     {{ govukButton({
@@ -228,43 +228,60 @@
 
 
             <details class="govuk-details" data-module="govuk-details">
-                
-
-                    {% if data['serviceName'] == "vetsVisit" %}
+              
+                {% if data['serviceName'] == "vetsVisit" %}
 
                     <summary class="govuk-details__summary">
-                      <span class="govuk-details__summary-text">Need more help?</span>
-                  </summary>
-                  <div class="govuk-details__text">
-                    
-                    <!-- <p><a href="https://www.ruralpayments.service.gov.uk/">Sign in to the Rural Payments service</a> to add or update the businesses registered to your account.</p> -->
-                    <p>Contact the Rural Payments Agency by email or phone.</p>
-
-                    <p>Email: <a href="mailto:ruralpayments@defra.gov.uk">ruralpayments@defra.gov.uk</a></p>
-                    <p>Telephone: 03000 200 301
-                    <br>Monday to Friday, 8:30am to 5pm, except bank holidays</p>
-                
-                    <p class="govuk-body"><a href="https://www.gov.uk/call-charges" class="govuk-link" rel="noreferrer noopener" target=”_blank”>Find out about call charges (opens in new tab)</p>                                        
+                    	<span class="govuk-details__summary-text">Need more help?</span>
+                  	</summary>
+                  	<div class="govuk-details__text">                    
+                    	<!-- <p><a href="https://www.ruralpayments.service.gov.uk/">Sign in to the Rural Payments service</a> to add or update the businesses registered to your account.</p> -->
+                    	<p>Contact the Rural Payments Agency by email or phone.</p>
+                    	<p>Email: <a href="mailto:ruralpayments@defra.gov.uk">ruralpayments@defra.gov.uk</a></p>
+                    	<p>Telephone: 03000 200 301
+                    	<br>Monday to Friday, 8:30am to 5pm, except bank holidays</p>                
+                    	<p class="govuk-body"><a href="https://www.gov.uk/call-charges" class="govuk-link" rel="noreferrer noopener" target=”_blank”>Find out about call charges (opens in new tab)</p>                                        
 
                     {% else %}
 
-                    <summary class="govuk-details__summary">
-                      <span class="govuk-details__summary-text">Need to update the list?</span>
-                  </summary>
-                  <div class="govuk-details__text">
-
-                      Contact the [Service name].<br><br>
-                      [Service name]  <br>
-                      Telephone: [Service telephone number] <br>
-                      [Service Opening Hours](except public holidays) <br>
-                      [Service email address]
-                      <br><br>
-                      <p class="govuk-body">Find out about <a href="https://www.gov.uk/call-charges" class="govuk-link" rel="noreferrer noopener" target=”_blank”>call charges (opens in new tab)</p>
-
-                    {% endif %}
-                </div>
+                        {% if data['status'] == "review" %}                        	
+							<summary class="govuk-details__summary">
+								<span class="govuk-details__summary-text">Need more help?</span>
+							</summary>
+							<div class="govuk-details__text">                    
+								<p>Contact the [Service Name] by email or phone.</p>
+								<p>Email: <a href="#">[Service email]</a></p>
+								<p>Telephone: [Service phone number]
+								<br>[Service Opening Hours], except bank holidays</p>      
+								<p class="govuk-body"><a href="https://www.gov.uk/call-charges" class="govuk-link" rel="noreferrer noopener" target=”_blank”>Find out about call charges (opens in new tab)</p>                                        
+							</div>                          	
+                      	{% else %}
+                    		<summary class="govuk-details__summary">
+                      			<span class="govuk-details__summary-text">Need to update the list?</span>
+                  			</summary>
+                  			<div class="govuk-details__text">
+                      			Contact the [Service name].<br><br>
+								[Service name]  <br>
+								Telephone: [Service telephone number] <br>
+								[Service Opening Hours](except public holidays) <br>
+								[Service email address]
+								<br><br>
+								<p class="govuk-body">Find out about <a href="https://www.gov.uk/call-charges" class="govuk-link" rel="noreferrer noopener" target=”_blank”>call charges (opens in new tab)</p>
+                      		</div>
+                    	{% endif %}
+					{% endif %}
             </details>
 
+    </div>
+	<div class="govuk-grid-column-one-third review">      
+        <ul class="govuk-list govuk-body-s govuk-!-text-align-right"> 
+            {% if data['status'] == "review" %}                   
+            <li><a href="/authentication/select-your-business?status=" class="govuk-link govuk-link--no-visited-state">Current page</a></li>        
+            {% else %}
+            <li><a href="/authentication/select-your-business?status=review" class="govuk-link govuk-link--no-visited-state">Suggested page changes</a></li>        
+            
+            {% endif %}
+        </ul>      
     </div>
 </div>
 

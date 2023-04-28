@@ -50,7 +50,7 @@
 
             {% else %}
 
-            <p class="govuk-body">We have sent a 6-digit verification code to <span class="govuk-!-font-weight-bold">+XXXXXXX123</span></p>
+            <p class="govuk-body">We have sent a 6-digit verification code to <span class="govuk-!-font-weight-bold">{% if data['whichPhoneNumber'] %} {{ data.whichPhoneNumber }} {% else %}+XXXXXXX123{% endif %}</span></p>
             <p class="govuk-body">It may take a few minutes to arrive and will expire in 10 mins.</p>
             <!-- <p class="govuk-body">The code will expire in 10 minutes.</p> -->
 
@@ -89,6 +89,7 @@
             <form action="/authentication/select-your-business" method="post">
         {% endif %}
 
+        <input type="hidden" id="status" name="status" value="" />    		
                 {% if data['status'] == "review" %}
 
                 {{ govukInput({
@@ -153,22 +154,20 @@
 
                     {% else %}
                         
-                        {% if data['status'] == "review" %}
-
+                    {% if data['status'] == "review" %}
+                    
                         <summary class="govuk-details__summary">
-                            <span class="govuk-details__summary-text">Need help with this page</span>
+                            <span class="govuk-details__summary-text">Need more help?</span>
                         </summary>
-                        <div class="govuk-details__text">
-                            Contact the [Service name].<br><br>
-                            [Service name]  <br>
-                            Telephone: [Service telephone number] <br>
-                            [Service Opening Hours](except public holidays) <br>
-                            [Service email address]
-                            <br><br>
-                            <p class="govuk-body">Find out about <a href="https://www.gov.uk/call-charges" class="govuk-link" rel="noreferrer noopener" target=”_blank”>call charges (opens in new tab)</p>
-                        </div>  
-
-                        {% else %}
+                        <div class="govuk-details__text">                    
+                            <p>Contact the [Service Name] by email or phone.</p>
+                            <p>Email: <a href="#">[Service email]</a></p>
+                            <p>Telephone: [Service phone number]
+                            <br>[Service Opening Hours], except bank holidays</p>      
+                            <p class="govuk-body"><a href="https://www.gov.uk/call-charges" class="govuk-link" rel="noreferrer noopener" target=”_blank”>Find out about call charges (opens in new tab)</p>                                        
+                        </div>
+                    
+                {% else %}
                 <summary class="govuk-details__summary">
                     <span class="govuk-details__summary-text">If you’re having problems getting a verification code</span>
                 </summary>
