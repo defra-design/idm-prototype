@@ -31,10 +31,10 @@
 
             {% if data['verify-your-identity'] == "send-email" %}
                 
-                <p class="govuk-body">We have sent a 6-digit verification code to this email address.</p>
-                <div class="govuk-inset-text">
+                <p class="govuk-body">We have sent a 6-digit verification code to <span class="govuk-!-font-weight-bold">con****@************kit.net</span></p>
+                <!-- <div class="govuk-inset-text">
                 <p><span class="govuk-!-font-weight-bold">con****@************kit.net</span></p>
-                </div>
+                </div> -->
                 <p class="govuk-body">It may take a few minutes to arrive and will expire in 10 mins.</p>
 
                 <details class="govuk-details" data-module="govuk-details">
@@ -89,7 +89,7 @@
             <form action="/authentication/select-your-business" method="post">
         {% endif %}
 
-        <input type="hidden" id="status" name="status" value="" />    		
+                <input type="hidden" id="status" name="status" value="" />    		
                 {% if data['status'] == "review" %}
 
                 {{ govukInput({

@@ -2,8 +2,13 @@
 {% set serviceName = "Defra identity" %}
 {% set showBackLink = false %}
 
+{% if data['status'] == "review" %}
+    {% set pageHeading = "Your security word has changed" %}
+{% else %}
+    {% set pageHeading = "Your security word has changed" %}
+{% endif %}
 
-{% set pageHeading = "Your security word has changed" %}
+
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -17,8 +22,8 @@
         {# <p class="govuk-body">This may have been done by an administrator of the account.</p>
         <p>The administrator of your account has changed your security word.</p> #}
         
-        <p>Your security word has been updated by an account administrator.</p>
-        <p>You will need to contact the account administrator for further information.</p>
+        
+        <p class="govuk-body govuk-!-margin-bottom-7">Your security word has been updated by an account administrator. You will need to contact them for further information.</p>
 
         {% if data['status'] == "review" %}
                             <details class="govuk-details" data-module="govuk-details">

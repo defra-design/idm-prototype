@@ -2,10 +2,19 @@
 {% set showBackLink = false %}
 {% set serviceName = "" %}
 
-{% if data['status'] == "review" %}
-    {% set pageHeading = "We will send the text message to this number" %}
+
+{% if data['verify-your-identity'] == "send-email" %}
+    {% if data['status'] == "review" %}
+        {% set pageHeading = "We will send the verification code to this email address" %}
+    {% else %}
+        {% set pageHeading = "Verify your identity" %}
+    {% endif %}
 {% else %}
-    {% set pageHeading = "Verify your identity" %}
+    {% if data['status'] == "review" %}
+        {% set pageHeading = "We will send the text message to this number" %}
+    {% else %}
+        {% set pageHeading = "Verify your identity" %}
+    {% endif %}
 {% endif %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -19,16 +28,36 @@
 
         {% if data['status'] == "review" %}
 
-        <div class="govuk-inset-text">
-            <span class="govuk-!-font-weight-bold">+XXXXXXX123</span>
-        </div>
-            <!-- <p class="govuk-body">We use this to send a 6-digit verification code.</p>             -->
+                {% if data['verify-your-identity'] == "send-email" %}
+
+                    <div class="govuk-inset-text">
+                        <span class="govuk-!-font-weight-bold">con****@************kit.net</span>
+                    </div>
+                    <!-- <p class="govuk-body">We use this to send a 6-digit verification code.</p>             -->
+
+                {% else %}
+
+                    <div class="govuk-inset-text">
+                        <span class="govuk-!-font-weight-bold">+XXXXXXX123</span>
+                    </div>
+                        <!-- <p class="govuk-body">We use this to send a 6-digit verification code.</p>             -->
+                {% endif %}
 
         {% else %}
-        <p class="govuk-body">This is the number we will send the 6 digit verification code to.</p>
-        <p class="govuk-body">It may take a few minutes to arrive.</p>
 
-        <h2 class="govuk-heading-m">+XXXXXXX123</h2>
+                {% if data['verify-your-identity'] == "send-email" %}
+
+                <p class="govuk-body">This is the email we will send the verification code to.</p>
+                <p class="govuk-body">It may take a few minutes to arrive.</p>
+        
+                <h2 class="govuk-heading-m">con****@************kit.net</h2>
+
+                {% else %}
+                    <p class="govuk-body">This is the number we will send the 6 digit verification code to.</p>
+                    <p class="govuk-body">It may take a few minutes to arrive.</p>
+
+                    <h2 class="govuk-heading-m">+XXXXXXX123</h2>
+                {% endif %}
 
         {% endif %}
 
@@ -36,6 +65,8 @@
 
 
         <form action="/authentication/get-code" method="post">
+
+            <input type="hidden" id="status" name="status" value="" />    		
 
         {% if data['status'] == "review" %}
 
