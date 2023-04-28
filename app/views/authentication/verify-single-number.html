@@ -2,11 +2,7 @@
 {% set showBackLink = false %}
 {% set serviceName = "" %}
 
-{% if data['status'] == "review" %}
-    {% set pageHeading = "How do you want to get a verification code?" %}
-{% else %}
-    {% set pageHeading = "How do you want to verify your identity?" %}
-{% endif %}
+{% set pageHeading = "How do you want to verify your identity?" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 

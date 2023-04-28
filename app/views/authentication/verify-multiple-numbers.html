@@ -3,7 +3,7 @@
 {% set serviceName = "" %}
 
 {% if data['status'] == "review" %}
-    {% set pageHeading = "Which number should we send the code to?" %}
+    {% set pageHeading = "Which number should we send the text message to?" %}
 {% else %}
     {% set pageHeading = "Verify your identity" %}
 {% endif %}
@@ -18,7 +18,7 @@
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
         {% if data['status'] == "review" %}
-
+        <p class="govuk-body">It may take a few minutes to arrive.</p>
         {% else %}
             <p class="govuk-body">Choose a contact number, to send the 6 digit verification code to.</p>
             <p class="govuk-body">It may take a few minutes to arrive.</p>
@@ -39,8 +39,7 @@
                   }
               },
               items: [
-                  { value: "whichPhoneNumber", text: "+XXXXXXXXX123" },
-                  { value: "whichPhoneNumber", text: "+XXXXXXXXX456" },
+                  { value: "whichPhoneNumber", text: "+XXXXXXXXX123" },                  
                   { value: "whichPhoneNumber", text: "+XXXXXXXXX789" }
               ]
           }) }}
