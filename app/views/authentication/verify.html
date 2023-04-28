@@ -2,7 +2,11 @@
 {% set showBackLink = false %}
 {% set serviceName = "" %}
 
-{% set pageHeading = "Verify your identity" %}
+{% if data['status'] == "review" %}
+    {% set pageHeading = "We will send the text message to this number" %}
+{% else %}
+    {% set pageHeading = "Verify your identity" %}
+{% endif %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -13,65 +17,111 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
+        {% if data['status'] == "review" %}
+
+        <div class="govuk-inset-text">
+            <span class="govuk-!-font-weight-bold">+XXXXXXX123</span>
+        </div>
+            <!-- <p class="govuk-body">We use this to send a 6-digit verification code.</p>             -->
+
+        {% else %}
         <p class="govuk-body">This is the number we will send the 6 digit verification code to.</p>
         <p class="govuk-body">It may take a few minutes to arrive.</p>
 
         <h2 class="govuk-heading-m">+XXXXXXX123</h2>
+
+        {% endif %}
+
+
+
+
         <form action="/authentication/get-code" method="post">
+
+        {% if data['status'] == "review" %}
+
+            {{ govukButton({
+                text: "Confirm and continue"
+            }) }}
+
+        {% else %}
 
             {{ govukButton({
                 text: "Send code"
             }) }}
+
+        {% endif %}
 
         </form>
 
 
         <div class="govuk-grid-row">
             <div class="govuk-grid-column-full">
-                <details class="govuk-details" data-module="govuk-details">
+                
 
                     {% if data['serviceName'] == "vetsVisit" %}
-
-                        <summary class="govuk-details__summary">
-                            <span class="govuk-details__summary-text">Need help with the page?</span>
-                        </summary>
-                        <div class="govuk-details__text">
-                            Contact the Vets' Visits.
-                            <br><br>
-                            Vets' Visits<br>      
-                            Telephone: 800001066<br>
-                            9-5 Monday to Friday (except public holidays)<br>
-                            <a href="mailto:vetsvisits@example.com">Vets'Visits@example.com</a>
-                                    <br><br>
-                                    <p class="govuk-body">Find out about <a href="https://www.gov.uk/call-charges" class="govuk-link" rel="noreferrer noopener" target=”_blank”>call charges (opens in new tab)</p>
-                        </div>
+                        <details class="govuk-details" data-module="govuk-details">
+                            <summary class="govuk-details__summary">
+                                <span class="govuk-details__summary-text">Need help with the page?</span>
+                            </summary>
+                            <div class="govuk-details__text">
+                                Contact the Vets' Visits.
+                                <br><br>
+                                Vets' Visits<br>      
+                                Telephone: 800001066<br>
+                                9-5 Monday to Friday (except public holidays)<br>
+                                <a href="mailto:vetsvisits@example.com">Vets'Visits@example.com</a>
+                                        <br><br>
+                                        <p class="govuk-body">Find out about <a href="https://www.gov.uk/call-charges" class="govuk-link" rel="noreferrer noopener" target=”_blank”>call charges (opens in new tab)</p>
+                            </div>
+                        </details>
 
                     {% else %}
-
-                    <summary class="govuk-details__summary">
-                        <span class="govuk-details__summary-text">Need help with the page?</span>
-                    </summary>
-                    <div class="govuk-details__text">
-                        Contact the [Service name].<br><br>
-                        [Service name]  <br>
-                        Telephone: [Service telephone number] <br>
-                        [Service Opening Hours](except public holidays) <br>
-                        [Service email address]
-                        <br><br>
-                        <p class="govuk-body">Find out about <a href="https://www.gov.uk/call-charges" class="govuk-link" rel="noreferrer noopener" target=”_blank”>call charges (opens in new tab)</p>
-                    </div>
+                        
+                        {% if data['status'] == "review" %}
+                            <details class="govuk-details" data-module="govuk-details">
+                                <summary class="govuk-details__summary">
+                                    <span class="govuk-details__summary-text">Need more help?</span>
+                                </summary>
+                                <div class="govuk-details__text">                    
+                                    <p>Contact the [Service Name] by email or phone.</p>
+                                    <p>Email: <a href="#">[Service email]</a></p>
+                                    <p>Telephone: [Service phone number]
+                                    <br>[Service Opening Hours], except bank holidays</p>      
+                                    <p class="govuk-body"><a href="https://www.gov.uk/call-charges" class="govuk-link" rel="noreferrer noopener" target=”_blank”>Find out about call charges (opens in new tab)</p>                                        
+                                </div>
+                            </details>
+                        {% else %}
+                            <details class="govuk-details" data-module="govuk-details">
+                                <summary class="govuk-details__summary">
+                                    <span class="govuk-details__summary-text">Need help with the page?</span>
+                                </summary>
+                                <div class="govuk-details__text">
+                                    Contact the [Service name].<br><br>
+                                    [Service name]  <br>
+                                    Telephone: [Service telephone number] <br>
+                                    [Service Opening Hours](except public holidays) <br>
+                                    [Service email address]
+                                    <br><br>
+                                    <p class="govuk-body">Find out about <a href="https://www.gov.uk/call-charges" class="govuk-link" rel="noreferrer noopener" target=”_blank”>call charges (opens in new tab)</p>
+                                </div>
+                            </details>
+                        {% endif %}
 
                     {% endif %}
-                </details>
+                
             </div>
         </div>
 
     </div>
-    <!-- <div class="govuk-grid-column-one-third review">      
+    <div class="govuk-grid-column-one-third review">      
         <ul class="govuk-list govuk-body-s govuk-!-text-align-right">        
-            <li><a href="/errors" class="govuk-link govuk-link--no-visited-state">Error page</a></li>        
-            <li><a href="/mfa-V2/defra-id/about-data?status=review" class="govuk-link govuk-link--no-visited-state">Suggested page review</a></li>        
+          <!-- <li><a href="/errors" class="govuk-link govuk-link--no-visited-state">Error page</a></li>         -->
+          {% if data['status'] == "review" %}
+          <li><a href="/authentication/verify?status=" class="govuk-link govuk-link--no-visited-state">Current page</a></li>        
+          {% else %}
+          <li><a href="/authentication/verify?status=review" class="govuk-link govuk-link--no-visited-state">Suggested page changes</a></li>        
+          {% endif %}
         </ul>      
-    </div> -->
+      </div>
 </div>
 {% endblock %}
