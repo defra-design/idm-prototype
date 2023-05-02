@@ -40,15 +40,24 @@
             <ul class="govuk-list govuk-list--bullet">
                 <li><a class="govuk-link govuk-link--no-visited-state" href="/sign-in?status=">Sign in using Government Gateway</a>
                     <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-2">
-                        <li><a class="govuk-link govuk-link--no-visited-state" href="/authentication/verify-single-number?status=">How do you want to verify your identity?</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/authentication/verify-multiple-numbers?status=">Verify your identity?</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/authentication/security-word?status=">Confirm your security word</a></li>                
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/authentication/get-code?status=">Enter your verification code</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/authentication/business-not-listed?status=">There are no other organisations available for you to enrol</a></li>
-                    </ul>
-                
-                </li>
-                
+                        <li><a class="govuk-link govuk-link--no-visited-state" href="/authentication/verify-single-number?status=">How do you want to verify your identity?</a></li>                        
+                            <h3 class="govuk-heading-s govuk-!-margin-bottom-1 govuk-!-margin-top-3">Text message</h3>
+                            <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-2">
+                                <li><a class="govuk-link govuk-link--no-visited-state" href="/authentication/verify?status=&verify-your-identity=send-sms">Verify your identity?</a>
+                                <li><a class="govuk-link govuk-link--no-visited-state" href="/authentication/verify-multiple-numbers?status=&verify-your-identity=send-sms">Verify your identity? (multiple numbers)</a>
+                                <li><a class="govuk-link govuk-link--no-visited-state" href="/authentication/get-code?status=&verify-your-identity=send-sms">Enter your verification code</a></li>
+                            </ul>
+                        
+                            <h3 class="govuk-heading-s govuk-!-margin-bottom-1 govuk-!-margin-top-3">Email</h3>
+                            <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-2">
+                                <li><a class="govuk-link govuk-link--no-visited-state" href="/authentication/security-word?status=">Confirm your security word</a></li>
+                                <li><a class="govuk-link govuk-link--no-visited-state" href="/authentication/verify?status=&verify-your-identity=send-email">Verify your identity?</a>
+                                <li><a class="govuk-link govuk-link--no-visited-state" href="/authentication/get-code?status=&verify-your-identity=send-email">Enter your verification code</a></li>
+                            </ul>                        
+                        </li>                                        
+                        <li><a class="govuk-link govuk-link--no-visited-state" href="/authentication/business-not-listed?status=">There are no other organisations available for you to enrol</a></li>
+                    </ul>                
+                </li>                
             </ul>            
 
             <h3 class="govuk-heading-m">Issues with service</h3>
