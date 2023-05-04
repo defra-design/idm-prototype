@@ -120,6 +120,90 @@
             </tbody>
         </table>
 
+
+
+        <h3 class="govuk-heading-m">Azure Active Directory B2C cookies</h3>
+        <table class="govuk-table govuk-!-margin-bottom-7">
+            <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                    <th class="govuk-table__header govuk-!-width-one-third" scope="col">Name</th>
+                    <th class="govuk-table__header govuk-!-width-one-half" scope="col">Purpose</th>
+                    <th class="govuk-table__header" scope="col">Expires</th>
+                </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">x-ms-cpim-admin</td>
+                    <td class="govuk-table__cell">Holds user membership data across tenants</td>
+                    <td class="govuk-table__cell">On closing browser</td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">x-ms-cpim-slice</td>
+                    <td class="govuk-table__cell">Used to route requests to the appropriate production instance</td>
+                    <td class="govuk-table__cell">On closing browser</td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">x-ms-cpim-trans</td>
+                    <td class="govuk-table__cell">Used for tracking the transactions and the current transaction</td>
+                    <td class="govuk-table__cell">On closing browser</td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">x-ms-cpim-sso:{Id}</td>
+                    <td class="govuk-table__cell">Used for maintaining the SSO session</td>
+                    <td class="govuk-table__cell">On closing browser</td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">x-ms-cpim-cache:{id}_n</td>
+                    <td class="govuk-table__cell">Used for maintaining the request state, successful authentication</td>
+                    <td class="govuk-table__cell">On closing browser</td>
+                </tr>                
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">x-ms-cpim-csrf</td>
+                    <td class="govuk-table__cell">Cross-Site Request Forgery token used for CRSF protection</td>
+                    <td class="govuk-table__cell">On closing browser</td>
+                </tr>                                
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">x-ms-cpim-dc</td>
+                    <td class="govuk-table__cell">Used for Azure AD B2C network routing</td>
+                    <td class="govuk-table__cell">On closing browser</td>
+                </tr>                                
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">x-ms-cpim-ctx</td>
+                    <td class="govuk-table__cell">Context</td>
+                    <td class="govuk-table__cell">On closing browser</td>
+                </tr>                                
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">x-ms-cpim-rp</td>
+                    <td class="govuk-table__cell">Used for storing membership data for the resource provider tenant</td>
+                    <td class="govuk-table__cell">On closing browser</td>
+                </tr>                                
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">x-ms-cpim-csrf</td>
+                    <td class="govuk-table__cell">Used for storing the relay cookie</td>
+                    <td class="govuk-table__cell">On closing browser</td>
+                </tr>                                
+            </tbody>
+        </table>
+
+
+
+
+
+
+        		
+	
+	
+	
+		
+	
+	
+	
+	
+	
+
+
+
+
         {% if data['flow'] == "Registration" %}
 
         <h2 class="govuk-heading-l">Cookies that measure your use of the service</h2>
