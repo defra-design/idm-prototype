@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+<!-- Review remove back link -->
+{% if data['status'] == "review" %}
+    {% set showBackLink = false %}
+{% else %}
+    {% set showBackLink = false %}
+{% endif %}
+{% set serviceName = "" %}
+
+{% if data['status'] == "review" %}
+    {% set pageHeading = "Sorry, the service is unavailable" %}
+{% else %}
+    {% set pageHeading = "Sorry, the service is unavailable" %}
+{% endif %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+        {% if data['status'] == "review" %}
+            <p>You will be able to use the service later.</p>
+            <p>When the service is available, you will have to start again.</p>
+            <p class="govuk-body">Contact <a class="govuk-link govuk-link--no-visited-state" href=“mailto:defra.helpline@defra.gov.uk”>defra.helpline@defra.gov.uk</a> if you need help or call our helpline.</p>
+            <p class="govuk-body">
+                Helpline:<br>
+                <strong class="govuk-!-font-weight-bold">03459 33 55 77</strong>
+            </p>
+            <p class="govuk-body">
+                Opening times:<br>
+                <strong class="govuk-!-font-weight-bold">Monday to Friday: 8:30am to 5pm</strong>
+            </p>
+            
+            <p><a href="https://www.gov.uk/call-charges" class="govuk-link govuk-link--no-visited-state" rel="noreferrer noopener" target="_blank" >Find out about call charges (opens in a new tab).</a></p>
+        
+        {% else %}
+                    
+            <p class="govuk-body">You will be able to use the service later.</a></p>
+                
+        {% endif %}
+    
+    </div>
+    <div class="govuk-grid-column-one-third review">      
+        <ul class="govuk-list govuk-body-s govuk-!-text-align-right">        
+            {% if data['status'] == "review" %}                        
+                <li><a href="/unavailable?status=" class="govuk-link govuk-link--no-visited-state">Current page</a></li>        
+            {% else %}
+                <li><a href="/unavailable?status=review" class="govuk-link govuk-link--no-visited-state">Suggested page changes</a></li>        
+            {% endif %}
+        </ul>      
+    </div>
+</div>
+
+
+{% endblock %}
