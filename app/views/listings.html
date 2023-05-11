@@ -18,9 +18,100 @@
             <p class="govuk-body govuk-!-margin-bottom-7">Some pages have dynamic content, so if using the links and not going through the flows that lead to each page, its not always possible to show the right content for all scenarios.</p>
 
             {% set registrationHtml %}
-            <h3 class="govuk-heading-m">Example heading</h3>
+            <!-- <h3 class="govuk-heading-m">Example heading</h3>
             <ul class="govuk-list govuk-list--bullet">
                 <li><a class="govuk-link govuk-link--no-visited-state" href="#" >Name of page</a></li>                
+            </ul> -->
+
+            <p>Currently checking pages as lots of duplicates ( 10 May 2023 )</p>
+
+            <h3 class="govuk-heading-m">Registration</h3>
+            <ul class="govuk-list govuk-list--bullet">
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/about-data" >Your Defra account</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/add-address-manual" >What is the address?</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/add-address-postcode" >What is the address?</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/add-address-region" >Is the new address in the UK?</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/add-address-type" >What kind of address do you want to add?</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/add-charity-address-postcode" >What is the registered address?</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/add-non-uk-address" >What is the non-UK address?</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/add-organisation-addresses" >Would you like to add extra addresses to your organisation?</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/change-organisation-type" >Are you registering as a business or an individual?</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/charity-confirm" >Are these the correct charity details?</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/charity-contact" >What are the main contact details for the charity?</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/charity-name" >What is the registered charity name?</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/charity-region" >Where is the charity registered?</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/check-email" >Enter code to confirm your email address</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/check-your-answers" >Check your information</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/company-confirm" >Are these the correct registered company details?</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/company-contact" >What are the main contact details for this registered company?</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/company-lookup" >What is the Companies House number for the company you wish to register?</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/company-registered-question" >Is your organisation registered with Companies House?</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/confirmation" >Your Government Gateway user ID is</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/create-password" >Create a password</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/defra-help" >Help using Your Defra account</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/defra-redirect" >We are sending you to Defra to get help</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/email-address" >Enter your email address</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/email-confirmed" >Email address confirmed</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/extra-addresses" >Would you like to add extra addresses to your organisation?</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/index" >Sign in using Government Gateway</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/individual-address-postcode" >What is your address?</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/individual-check-your-answers" >Check your information</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/individual-contact" >What is your telephone number?</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/individual-name" >What is your name?</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/individual-security" >Create your security word</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/individual-select-new-address" >Select your address</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/login" >Sign in using Government Gateway</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/non-uk-address" >What is the non-UK address?</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/non-uk-business-name" >What is the name of your business?</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/non-uk-contact" >What are the main contact details for the business?</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/organisation-type" >Are you registering as a business or an individual?</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/organisation-UK-or-else" >Where is your organisation registered to trade?</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/personal-contact" >What is your telephone number?</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/personal-name" >What is your name?</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/personal-security" >Create your security word</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/recovery-word-1" >Set up recovery for your sign in details</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/recovery-word-2" >Set up a recovery word</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/select-charity-address" >Select the address</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/select-new-address" >What is the address?</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/sole-trader-or-charity" >Is this organisation a sole trader or a charity?</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/task-list-page-about-you-details" >Your information</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/task-list-page-charity-details" >About the organisation you represent</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/task-list-page-company-details" >About the organisation you represent</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/task-list-page-non-uk-details" >About the organisation you represent</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/your-name" >What is your full name?</a></li>
+                <!-- <li><a class="govuk-link govuk-link--no-visited-state" href="/account/" >Text</a></li> -->
+                
+                
+            </ul>
+
+
+            <h3 class="govuk-heading-m">Account mangement</h3>
+            <ul class="govuk-list govuk-list--bullet">
+                
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/update-details" >Update your details</a></li>                
+                
+
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/account" >Defra account profile</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/add-address-manual" >What is the address?</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/add-address-postcode" >What is the address?</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/add-address-region" >Is the new address in the UK?</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/add-address-type" >What kind of address do you want to add?</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/add-non-uk-address" >What is the non-UK address?</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/dashboard" >Dashboard - Big Company Ltd</a></li>
+                <!-- <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/index" >Text</a></li> -->
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/organisation-details" >Organisation details</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/remove-address" >Are you sure you want to remove this address?</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/reset-security-word" >Reset your security word</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/select-new-address" >What is the address?</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/team-member" >Profile - Nicky Bidbod</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/team" >Manage team access</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/update-address" >Do you want to replace this address?</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/update-company-email-address" >What is the email address for this registered company?</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/update-company-phone-number" >What is the main telephone number for this registered company?</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/update-details" >Update your details</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/update-organisation-contact-details" >Update registered contact information</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/update-organisation-details" >Update organisation details</a></li>
+                
             </ul>
 
             <h3 class="govuk-heading-m">Footer</h3>
