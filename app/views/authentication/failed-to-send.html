@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+{% set showBackLink = false %}
+
+
+{% set pageHeading = "Text message failed to send" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+            <p>This could be due to:</p>
+            <ul class="govuk-list govuk-list--bullet">
+                <li>a technical issue with the service</li>
+                <li>the number no longer works or has an issue</li>
+            </ul>
+            <p class="govuk-body govuk-!-margin-bottom-7">You can resend the 6-digit verification code.</p>            
+            
+            
+
+            
+
+            
+            <form action="get-code" method="post"></form>
+        
+
+            <div class="govuk-button-group">
+                
+                {{ govukButton({
+                    text: "Resend code"
+                }) }}
+                
+                
+              </div>
+
+            </form>
+
+
+
+
+            
+
+        <details class="govuk-details" data-module="govuk-details">
+            <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">Help with this page</span>
+            </summary>
+            <div class="govuk-details__text">
+                Rural Payments Agency <br>
+                Telephone: 03000 200 301 <br>
+                Monday to Friday, 8:30am to 5pm (except public holidays) <br>
+                <a href="mailto:ruralpayments@defra.gov.uk?subject=feedback">ruralpayments@defra.gov.uk</a>
+                <br><br>
+                <p class="govuk-body">Find out about <a href="https://www.gov.uk/call-charges" target=”_blank”>call charges</p>
+            </div>
+        </details>
+    
+    </div>
+</div>
+
+{% endblock %}
