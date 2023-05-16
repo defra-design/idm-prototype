@@ -2,7 +2,7 @@
 {% set showBackLink = false %}
 
 
-{% set pageHeading = "The verification code message failed to send" %}
+{% set pageHeading = "Text message failed to send" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -17,9 +17,9 @@
             <p>This could be due to:</p>
             <ul class="govuk-list govuk-list--bullet">
                 <li>a technical issue with the service</li>
-                <li>the number we have for you no longer works or has an issue</li>
+                <li>the number no longer works or has an issue</li>
             </ul>
-            <p class="govuk-body govuk-!-margin-bottom-7">You can resend the verification code or change how you receive the code.</p>            
+            <p class="govuk-body govuk-!-margin-bottom-7">You can resend the 6-digit verification code.</p>            
             
             
 
@@ -32,10 +32,10 @@
             <div class="govuk-button-group">
                 
                 {{ govukButton({
-                    text: "Resend verification code"
+                    text: "Resend code"
                 }) }}
                 
-                <a class="govuk-link" href="#">Change how to verify your identity</a>
+                
               </div>
 
             </form>
