@@ -32,7 +32,10 @@
             {% if data['verify-your-identity'] == "send-email" %}
                 
                 <p class="govuk-body">We have sent a 6-digit verification code to <span class="govuk-!-font-weight-bold">con****@************kit.net</span></p>
-                <p class="govuk-body">It may take a few minutes to arrive and will expire in 10 mins.</p>
+                <!-- <div class="govuk-inset-text">
+                <p><span class="govuk-!-font-weight-bold">con****@************kit.net</span></p>
+                </div> -->
+                <p class="govuk-body">It may take a few minutes to arrive and will expire in 10 minutes.</p>
 
                 <details class="govuk-details" data-module="govuk-details">
                     <summary class="govuk-details__summary">
@@ -41,14 +44,14 @@
                       </span>
                     </summary>
                     <div class="govuk-details__text">                        
-                        <p>If you have not received the email you can <a href="#">resend the verfication code</a>.</p>
+                        <p>If you have not received the email you can <a href="#">resend the verification code</a>.</p>
                     </div>
                   </details>
 
             {% else %}
 
-            <p class="govuk-body">We have sent a 6-digit verification code to <span class="govuk-!-font-weight-bold">+XXXXXXX123</span></p>
-            <p class="govuk-body">It may take a few minutes to arrive and will expire in 10 mins.</p>
+            <p class="govuk-body">We have sent a 6-digit verification code to <span class="govuk-!-font-weight-bold">{% if data['whichPhoneNumber'] %} {{ data.whichPhoneNumber }} {% else %}********123{% endif %}</span></p>
+            <p class="govuk-body">It may take a few minutes to arrive and will expire in 10 minutes.</p>
             <!-- <p class="govuk-body">The code will expire in 10 minutes.</p> -->
 
             <details class="govuk-details" data-module="govuk-details">
@@ -63,7 +66,7 @@
                         <li>is turned on, not in flight mode and has a strong signal</li>
                         <li>can receive text messages from other senders</li>
                     </ul>
-                    <p>If you have still not received the text message you can <a href="#">resend the verfication code</a>.</p>
+                    <p>If you have still not received the text message you can <a href="#">resend the verification code</a>.</p>
                 </div>
               </details>
 
@@ -86,6 +89,7 @@
             <form action="/authentication/select-your-business" method="post">
         {% endif %}
 
+                <input type="hidden" id="status" name="status" value="" />    		
                 {% if data['status'] == "review" %}
 
                 {{ govukInput({
@@ -148,12 +152,27 @@
                                     <p class="govuk-body">Find out about <a href="https://www.gov.uk/call-charges" class="govuk-link" rel="noreferrer noopener" target=”_blank”>call charges (opens in new tab)</p>
                         </div>
 
-                    {% else %}
+                {% else %}
                         
-                        {% if data['status'] == "review" %}
-
+                    {% if data['status'] == "review" %}
+                    
                         <summary class="govuk-details__summary">
-                            <span class="govuk-details__summary-text">Need help with this page</span>
+                            <span class="govuk-details__summary-text">Need more help?</span>
+                        </summary>
+                        <div class="govuk-details__text">                    
+                            <p class="govuk-body">Contact [Service name] by phone or email.</p>                            
+                                    <p class="govuk-body">Telephone:<br>
+                                    [Service telephone number]</p>
+                                    <p class="govuk-body">Email:<br>
+                                    <a href="#" class="govuk-link govuk-link--no-visited-state">[Service email]</a></p>
+                                    <p class="govuk-body">Service opening times:<br>
+                                    [Service Opening Hours], except public holidays</p>       
+                                    <p class="govuk-body"><a href="https://www.gov.uk/call-charges" class="govuk-link govuk-link--no-visited-state" rel="noreferrer noopener" target=”_blank”>Find out about call charges (opens in new tab)</p>                                                                    
+                        </div>
+                    
+                    {% else %}
+                        <summary class="govuk-details__summary">
+                            <span class="govuk-details__summary-text">If you’re having problems getting a verification code</span>
                         </summary>
                         <div class="govuk-details__text">
                             Contact the [Service name].<br><br>
@@ -164,21 +183,7 @@
                             <br><br>
                             <p class="govuk-body">Find out about <a href="https://www.gov.uk/call-charges" class="govuk-link" rel="noreferrer noopener" target=”_blank”>call charges (opens in new tab)</p>
                         </div>  
-
-                        {% else %}
-                <summary class="govuk-details__summary">
-                    <span class="govuk-details__summary-text">If you’re having problems getting a verification code</span>
-                </summary>
-                <div class="govuk-details__text">
-                    Contact the [Service name].<br><br>
-                    [Service name]  <br>
-                    Telephone: [Service telephone number] <br>
-                    [Service Opening Hours](except public holidays) <br>
-                    [Service email address]
-                    <br><br>
-                    <p class="govuk-body">Find out about <a href="https://www.gov.uk/call-charges" class="govuk-link" rel="noreferrer noopener" target=”_blank”>call charges (opens in new tab)</p>
-                </div>  
-                        {% endif %}
+                    {% endif %}
 
                 {% endif %}
             </details>

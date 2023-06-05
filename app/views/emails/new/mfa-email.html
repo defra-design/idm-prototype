@@ -1,0 +1,43 @@
+{% extends "layout_email.html" %}
+
+{% set serviceName = "" %}
+
+{% set title = "Defra verification" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">{{ title }}</h1>
+        
+    <p class="govuk-body">Your 6-digit Defra verfication code is:</p>    
+    <p class="govuk-body govuk-!-font-weight-bold govuk-!-font-size-48">DBWSJF</p>
+
+    
+    <p>This code will expire in 10 minutes.</p>
+    <p class="govuk-body">If this email account is not shared, and you did not request this verification code, you need to contact Defra.</p>
+    <p>This is an automated email - do not reply.</p>
+
+
+
+
+
+
+  
+
+
+
+
+  </div>
+</div>
+
+{% endblock %}

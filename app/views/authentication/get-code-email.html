@@ -2,7 +2,11 @@
 {% set showBackLink = false %}
 {% set serviceName = "Defra identity" %}
 
-{% set pageHeading = "Enter your verification code" %}
+{% if data['status'] == "review" %}
+        {% set pageHeading = "Enter the verification code" %}
+    {% else %}
+        {% set pageHeading = "Enter your verification code" %}
+    {% endif %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 

@@ -438,13 +438,13 @@ router.get('/mfa-V2/sms-email-switch-b', function (req, res) {
 
 
 // added for the registration pages
-router.use('/defra-id', require('./views/defra-id/_routes'));
+// router.use('/defra-id', require('./views/defra-id/_routes'));
 
 // Vets visits
 
 
 // added routes for target address
-router.use('/target/defra-id', require('./views/target/defra-id/_routes'));
-router.use('/tasked/defra-id', require('./views/tasked/defra-id/_routes'));
+// router.use('/target/defra-id', require('./views/target/defra-id/_routes'));
+// router.use('/tasked/defra-id', require('./views/tasked/defra-id/_routes'));
 
 module.exports = router

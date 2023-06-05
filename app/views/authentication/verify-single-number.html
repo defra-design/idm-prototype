@@ -2,11 +2,7 @@
 {% set showBackLink = false %}
 {% set serviceName = "" %}
 
-{% if data['status'] == "review" %}
-    {% set pageHeading = "How do you want to get a verification code?" %}
-{% else %}
-    {% set pageHeading = "How do you want to verify your identity?" %}
-{% endif %}
+{% set pageHeading = "How do you want to verify your identity?" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -120,6 +116,23 @@
 
         </form>
 
+        {% if data['status'] == "review" %}
+        <details class="govuk-details" data-module="govuk-details">
+            <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">Need more help?</span>
+            </summary>
+            <div class="govuk-details__text">                            
+                <p class="govuk-body">Contact [Service name] by phone or email.</p>                            
+                                    <p class="govuk-body">Telephone:<br>
+                                    [Service telephone number]</p>
+                                    <p class="govuk-body">Email:<br>
+                                    <a href="#" class="govuk-link govuk-link--no-visited-state">[Service email]</a></p>
+                                    <p class="govuk-body">Service opening times:<br>
+                                    [Service Opening Hours], except public holidays</p>       
+                                    <p class="govuk-body"><a href="https://www.gov.uk/call-charges" class="govuk-link govuk-link--no-visited-state" rel="noreferrer noopener" target=”_blank”>Find out about call charges (opens in new tab)</p>                                                                    
+            </div>
+        </details>
+        {% else %}
         <details class="govuk-details" data-module="govuk-details">
             <summary class="govuk-details__summary">
                 <span class="govuk-details__summary-text">Need help with the page?</span>
@@ -127,15 +140,16 @@
             <div class="govuk-details__text">
                 Contact the [Service name].<br><br>
                 [Service name]  <br>
-                Telephone: [Service telephone number] <br>
+                Telephone: [Service phone number] <br>
                 [Service Opening Hours](except public holidays) <br>
                 [Service email address]
                 <br><br>
                 <p class="govuk-body">Find out about <a href="https://www.gov.uk/call-charges" class="govuk-link" rel="noreferrer noopener" target=”_blank”>call charges (opens in new tab)</p>
             </div>
         </details>
-
+        {% endif %}
     </div>
+    
     <div class="govuk-grid-column-one-third review">      
         <ul class="govuk-list govuk-body-s govuk-!-text-align-right">        
           <!-- <li><a href="/errors" class="govuk-link govuk-link--no-visited-state">Error page</a></li>         -->

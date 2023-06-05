@@ -3,7 +3,7 @@
 {% set serviceName = "" %}
 
 {% if data['status'] == "review" %}
-    {% set pageHeading = "Which number should we send the code to?" %}
+    {% set pageHeading = "Which number should we send the text message to?" %}
 {% else %}
     {% set pageHeading = "Verify your identity" %}
 {% endif %}
@@ -18,7 +18,7 @@
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
         {% if data['status'] == "review" %}
-
+        	<!-- <p class="govuk-body">It may take a few minutes to arrive.</p> -->
         {% else %}
             <p class="govuk-body">Choose a contact number, to send the 6 digit verification code to.</p>
             <p class="govuk-body">It may take a few minutes to arrive.</p>
@@ -39,9 +39,8 @@
                   }
               },
               items: [
-                  { value: "whichPhoneNumber", text: "+XXXXXXXXX123" },
-                  { value: "whichPhoneNumber", text: "+XXXXXXXXX456" },
-                  { value: "whichPhoneNumber", text: "+XXXXXXXXX789" }
+                  { value: "*********123", text: "*********123" },                  
+                  { value: "*********789", text: "*********789" }
               ]
           }) }}
 
@@ -59,44 +58,79 @@
                     classes: "govuk-visually-hidden"
                 }
             },
-
             items: [
-                { value: "whichPhoneNumber, redirect(/authentication/verify)", text: "+XXXXXXXXX123" },
-                { value: "whichPhoneNumber", text: "+XXXXXXXXX456" }
+                { value: "+XXXXXXXXX123, redirect(/authentication/verify)", text: "+XXXXXXXXX123" },
+                { value: "+XXXXXXXXX456", text: "+XXXXXXXXX456" }
             ]
         }) }}
 
         {% endif %}
 
 
-        <input type="hidden" id="status" name="status" value="" />
-        
-      {{ govukButton({
-        text: "Continue"
-      }) }}
+        	<input type="hidden" id="status" name="status" value="" />    		
+      		{{ govukButton({
+        		text: "Continue"
+      		}) }}		
     </form>
 
 
     <details class="govuk-details" data-module="govuk-details">
-      <summary class="govuk-details__summary">
-        <span class="govuk-details__summary-text">
-            {% if data['status'] == "review" %}
-            Get help with this page
-            {% else %}
-            Help with this page
-            {% endif %}
-        </span>
-      </summary>
-      <div class="govuk-details__text">
+		
+              
+			{% if data['serviceName'] == "vetsVisit" %}
 
-        Rural Payments Agency <br>
-        Telephone: 03000 200 301 <br>
-        Monday to Friday, 8:30am to 5pm (except public holidays) <br>
-        <a href="mailto:ruralpayments@defra.gov.uk?subject=feedback">ruralpayments@defra.gov.uk</a>
-        <br><br>
-        <p class="govuk-body">Find out about <a href="https://www.gov.uk/call-charges" class="govuk-link" rel="noreferrer noopener" target=”_blank”>call charges (opens in new tab)</p>
-      </div>
-    </details>
+				<summary class="govuk-details__summary">
+					<span class="govuk-details__summary-text">Need more help?</span>
+				  </summary>
+				  <div class="govuk-details__text">                    
+					<!-- <p><a href="https://www.ruralpayments.service.gov.uk/">Sign in to the Rural Payments service</a> to add or update the businesses registered to your account.</p> -->
+					<p>Contact the Rural Payments Agency by email or phone.</p>
+					<p>Email: <a href="mailto:ruralpayments@defra.gov.uk">ruralpayments@defra.gov.uk</a></p>
+					<p>Telephone: 03000 200 301
+					<br>Monday to Friday, 8:30am to 5pm, except bank holidays</p>                
+					<p class="govuk-body"><a href="https://www.gov.uk/call-charges" class="govuk-link" rel="noreferrer noopener" target=”_blank”>Find out about call charges (opens in new tab)</p>                                        
+
+				{% else %}
+
+					{% if data['status'] == "review" %}                        	
+						<summary class="govuk-details__summary">
+							<span class="govuk-details__summary-text">Need more help?</span>
+						</summary>
+						<div class="govuk-details__text">                    
+              <p class="govuk-body">Contact [Service name] by phone or email.</p>                            
+                                    <p class="govuk-body">Telephone:<br>
+                                    [Service telephone number]</p>
+                                    <p class="govuk-body">Email:<br>
+                                    <a href="#" class="govuk-link govuk-link--no-visited-state">[Service email]</a></p>
+                                    <p class="govuk-body">Service opening times:<br>
+                                    [Service Opening Hours], except public holidays</p>       
+                                    <p class="govuk-body"><a href="https://www.gov.uk/call-charges" class="govuk-link govuk-link--no-visited-state" rel="noreferrer noopener" target=”_blank”>Find out about call charges (opens in new tab)</p>                                                                    
+
+						</div>                          	
+					  {% else %}
+						<summary class="govuk-details__summary">
+							  <span class="govuk-details__summary-text">Need to update the list?</span>
+						  </summary>
+						  <div class="govuk-details__text">
+							  Contact the [Service name].<br><br>
+							[Service name]  <br>
+							Telephone: [Service telephone number] <br>
+							[Service Opening Hours](except public holidays) <br>
+							[Service email address]
+							<br><br>
+							<p class="govuk-body">Find out about <a href="https://www.gov.uk/call-charges" class="govuk-link" rel="noreferrer noopener" target=”_blank”>call charges (opens in new tab)</p>
+						  </div>
+					{% endif %}
+				{% endif %}
+		</details>
+
+
+
+
+
+
+
+      
 
   </div>
   <div class="govuk-grid-column-one-third review">      

@@ -16,7 +16,13 @@
         {% if data ['noBusinessRegistered'] == "Yes" %}
             <form action="/authentication/nothing-registered" autocomplete="false">
         {% else %}
+
+            {% if data['companySize'] == "Single" %}
+            <form action="/authentication/vets/account-page" autocomplete="false">
+            {% else %}
             <form action="/authentication/select-your-business" autocomplete="false">
+            {% endif %}
+
         {% endif %}
 <!-- Redirects for scenarios -->  
 <!-- {% if data['scenario'] == "sc1" %}

@@ -1,8 +1,8 @@
 {% extends "layout.html" %}
 
-{% set serviceName = "Apply for an Annual Health and Welfare review" %}
+{% set serviceName = "Defra identity" %}
 
-{% set title = "Verification successful" %}
+{% set title = "Select your business" %}
 
 {% block pageTitle %}
 {{title}} - GOV.UK
@@ -14,23 +14,15 @@
 <script type="text/javascript">
   accessibleAutocomplete.enhanceSelectElement({
     defaultValue: '',
-    selectElement: document.querySelector('#org-picker')
+    selectElement: document.querySelector('#org-picker'),
+    placeholder:'Search for a business'
   })
-
-
-
-
 </script>
-
-
 
 {% endblock %}
 
 {% block beforeContent %}
-{{ govukBackLink({
-text: "Back",
-href: "javascript:history.back()"
-}) }}
+
 
 {% endblock %}
 
@@ -38,47 +30,45 @@ href: "javascript:history.back()"
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    {{ govukErrorSummary({
-      titleText: "There is a problem",
-      errorList: [
-        {
-          text: "You must select an organisation",
-          href: "#"
-        }
 
-      ]
-    }) }}
+  <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" data-module="govuk-error-summary">
+  <h2 class="govuk-error-summary__title" id="error-summary-title">
+    There is a problem
+  </h2>
+    <div class="govuk-error-summary__body">
+      <ul class="govuk-list govuk-error-summary__list">
+        <li>
+          <a href="#passport-issued-day">You must select a business</a>
+        </li>
+      </ul>
     </div>
-    </div>
+  </div>
 
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
+</div>
 
-
+<div class="govuk-grid-column-full">
     <h1 class="govuk-heading-xl">{{ title }}</h1>
 
 
-
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <p>Businesses registered to your Rural Payments Agency (RPA) account are included in the following list.</p>
+    <div class="govuk-form-group govuk-form-group--error">
 
     <form action="account-page" method="post">
 
-      <div class="govuk-form-group govuk-form-group--error">
-      <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-
-        <h2 class="govuk-fieldset__heading">
-          Choose an organisation to use
-        </h2>
-
-      </legend>
+      <div id="waste-hint" class="govuk-hint">
+      Select the business that’s applying for an annual health and welfare review of livestock.
+      </div>
 
       <p id="national-insurance-number-error" class="govuk-error-message">
-        <span class="govuk-visually-hidden">Error:</span> You must select an organisation
+        <span class="govuk-visually-hidden">Error:</span>You must select a business
       </p>
 
+      <div class="govuk-form-group">
 
-
-        <select class="govuk-input govuk-input--error" id="org-picker">
-          <option value="">Select an organisation</option>
+        <select id="org-picker">
+          <option value="0"></option>
           <option value="1">A James LLC</option>
           <option value="2">Antillo Fujam Gardens</option>
           <option value="3">Crest Jamet Homes Limited</option>
@@ -91,8 +81,7 @@ href: "javascript:history.back()"
           <option value="10">Feeney Group</option>
           <option value="11">Medhurst-Jackson</option>
           <option value="12">Schroeder-Corkery</option>
-          <option value="13">Jaskolski-Mertzen
-          </option>
+          <option value="13">Jaskolski-Mertzen</option>
           <option value="14">Daugherty-Jacobson</option>
           <option value="15">Becker and Sons</option>
           <option value="16">Emmerich-Turcotte</option>
@@ -112,10 +101,9 @@ href: "javascript:history.back()"
           <option value="30">Champlin Ltd</option>
           <option value="31">Raker Group</option>
           <option value="32">Raker Group</option>
-          <option value="33">Goyette LLC&quot;</td>
+          <option value="33">Goyette LLC&quot;</option>
           <option value="34">Wilderman</option>
-          <option value="35">Oberbrunner and Hammes
-          </option>
+          <option value="35">Oberbrunner and Hammes</option>
           <option value="36">Hertzer W Group</option>
           <option value="37">Luke Swimmer LLC</option>
           <option value="38">Watsica PLC</option>
@@ -130,15 +118,17 @@ href: "javascript:history.back()"
           <option value="47">Hoppe, Boyer and Ortiz</option>
           <option value="48">Heathcote-Bradtke</option>
           <option value="49">Rempel-Reynolds</option>
-
-
         </select>
 
+</form>
+
+      </div>
+    </div>
 
 
 
 
-</div>
+
 
 
       {{ govukButton({
@@ -148,21 +138,32 @@ href: "javascript:history.back()"
 
 
 
-    </form>
 
 
 
 
-    {{ govukButton({
-    text: "Add organisation",
-    classes: "govuk-button govuk-button--secondary",
-    url: "add-organisation"
-
-    }) }}
-
-    {% include "includes/get-help.html" %}
-
+    </div>
   </div>
+
+
+
+  <details class="govuk-details" data-module="govuk-details">
+    <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">
+        Need to update the list?
+      </span>
+    </summary>
+    <div class="govuk-details__text">
+      Contact the Rural Payments Agency.<br><br>
+      Rural Payments Agency <br>
+      Telephone: 03000 200 301 <br>
+      Monday to Friday, 8:30am to 5pm (except public holidays) <br>
+      <a href="mailto:ruralpayments@defra.gov.uk?subject=feedback">ruralpayments@defra.gov.uk</a>
+      <br><br>
+      <p class="govuk-body">Find out about <a href="https://www.gov.uk/call-charges" target=”_blank”>call charges</p>
+    </div>
+  </details>
+
 
 <!-- AUTOCOMPLETE SCRIPT -->
 

@@ -24,7 +24,7 @@
             {% if data['flowVersion'] == "current" %}
                 <form class="form" action="/mfa-V2/gov-gateway/login" method="post" class="">
             {% else %}
-                <form class="form" action="/mfa/gov-gateway/login" method="post" class="">
+                <form class="form" action="/archived/mfa/gov-gateway/login" method="post" class="">
             {% endif %}
 
             {{ govukCheckboxes({
@@ -52,7 +52,7 @@
             {% elif data['flowVersion'] == "current" %}
                 <form class="form" action="/sign-in" method="post" >
             {% else %}
-                <form class="form" action="/mfa/gov-gateway/login-v2" method="post" class="">
+                <form class="form" action="/archived/mfa/gov-gateway/login-v2" method="post" class="">
             {% endif %}
             
             {% if data['serviceName'] != "vetsVisit" %}      
@@ -149,25 +149,12 @@
             {% endif %}
 
             {% if data['serviceName'] == "vetsVisit" %}      
-            <h3 class="govuk-heading-m">Flow journey</h3>
+            <h3 class="govuk-heading-m">Flow overrides</h3>
             <div class="govuk-grid-row">
-                <div class="govuk-grid-column-two-thirds">
-                    <p>There is both an applying and claiming journey flow for annual health and welfare review of livestock.</p>
-                    <p>Uses the the applying version by default.</p>
-                </div>
+                
                   
-                    <div class="govuk-grid-column-one-half">  
-                        
-                        {{ govukCheckboxes({
-                            idPrefix: "claimJourney",
-                            classes: "govuk-checkboxes--small",
-                            name: "claimJourney",                            
-                            items: [
-                                { value: "Yes", text: "Show the claim journey", checked: checked("claimJourney", "Yes")}
-                            ]
-                        }) }}
-                    </div>
-                    <div class="govuk-grid-column-one-half">
+                    
+                    <div class="govuk-grid-column-full">
 
                         {{ govukCheckboxes({
                             idPrefix: "noBusinessRegistered",
