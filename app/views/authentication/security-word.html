@@ -2,13 +2,7 @@
 {% set showBackLink = false %}
 {% set serviceName = "" %}
 
-{% if data['status'] == "review" %}
-    {% set pageHeading = "Enter the following three characters from your security word" %}
-{% else %}
-    {% set pageHeading = "Confirm your security word" %}
-{% endif %}
-
-
+{% set pageHeading = "Enter the following three characters from your security word" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -18,13 +12,9 @@
     <div class="govuk-grid-column-two-thirds">
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-
-        {% if data['status'] == "review" %}
-            <p>Your security word hint is: <span class="govuk-!-font-weight-bold">MemorableWord</span></p>
-        {% else %}
-            <p>Enter the following 3 characters from your security word.</p>
-        {% endif %}
-
+        
+        <p>Your security word hint is: <span class="govuk-!-font-weight-bold">MemorableWord</span></p>
+        
         {% if data['securityWordChanged'] == "Yes" %}
             <form method="post" action="/authentication/security-word-changed">
         {% else %}
@@ -65,48 +55,24 @@
 
         </form>
 
-
-
-        <details class="govuk-details" data-module="govuk-details">                  
-            {% if data['status'] == "review" %}                        	
-                <summary class="govuk-details__summary">
-                    <span class="govuk-details__summary-text">Need more help?</span>
-                </summary>
-                <div class="govuk-details__text">                    
-                    <p class="govuk-body">Contact [Service name] by phone or email.</p>                            
-                                    <p class="govuk-body">Telephone:<br>
-                                    [Service telephone number]</p>
-                                    <p class="govuk-body">Email:<br>
-                                    <a href="#" class="govuk-link govuk-link--no-visited-state">[Service email]</a></p>
-                                    <p class="govuk-body">Service opening times:<br>
-                                    [Service Opening Hours], except public holidays</p>       
-                                    <p class="govuk-body"><a href="https://www.gov.uk/call-charges" class="govuk-link govuk-link--no-visited-state" rel="noreferrer noopener" target=”_blank”>Find out about call charges (opens in new tab)</p>                                                                    
-
-                </div>                          	
-                {% else %}
-                
-                    <summary class="govuk-details__summary">
-                        <span class="govuk-details__summary-text">Forgotten your Defra security word?</span>
-                    </summary>
-                    <div class="govuk-details__text">
-                        <div class="govuk-body">Your security word hint: [Hint Word]</div>
-                        If you have forgotten your Defra Security Word, you can Contact the [Service name].<br><br>
-                        [Service name]  <br>
-                        Telephone: [Service telephone number] <br>
-                        [Service Opening Hours](except public holidays) <br>
-                        [Service email address]
-                        <br><br>
-                        <p class="govuk-body">Find out about <a href="https://www.gov.uk/call-charges" class="govuk-link" rel="noreferrer noopener" target=”_blank”>call charges (opens in new tab)</p>
-                    </div>
-                
-            {% endif %}                
+        <details class="govuk-details" data-module="govuk-details">
+            <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">Need more help?</span>
+            </summary>
+            <div class="govuk-details__text">                    
+                <p class="govuk-body">Contact [Service name] by phone or email.</p>                            
+                <p class="govuk-body">Telephone:<br>
+                [Service telephone number]</p>
+                <p class="govuk-body">Email:<br>
+                <a href="#" class="govuk-link govuk-link--no-visited-state">[Service email]</a></p>
+                <p class="govuk-body">Service opening times:<br>
+                [Service Opening Hours], except public holidays</p>       
+                <p class="govuk-body"><a href="https://www.gov.uk/call-charges" class="govuk-link govuk-link--no-visited-state" rel="noreferrer noopener" target=”_blank”>Find out about call charges (opens in new tab)</p>                                                                    
+            </div>                          	                
         </details>
-
-
-        
         
     </div>
-    <div class="govuk-grid-column-one-third review">      
+    <!-- <div class="govuk-grid-column-one-third review">      
         <ul class="govuk-list govuk-body-s govuk-!-text-align-right"> 
             {% if data['status'] == "review" %}
             <li><a href="/authentication/security-word?status=" class="govuk-link govuk-link--no-visited-state">Current page</a></li>        
@@ -115,15 +81,15 @@
             
             {% endif %}
         </ul>      
-    </div>
+    </div> -->
 
 
 </div>
-
+<!-- 
 
 <br>
 <br><br><br><br>
-<a href="/scp/credential-recovery-security-word-error-2">show error</a>
+<a href="/scp/credential-recovery-security-word-error-2">show error</a> -->
 
 
 {% endblock %}
