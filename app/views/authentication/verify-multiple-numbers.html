@@ -2,11 +2,7 @@
 {% set showBackLink = false %}
 {% set serviceName = "" %}
 
-{% if data['status'] == "review" %}
-    {% set pageHeading = "Which number should we send the text message to?" %}
-{% else %}
-    {% set pageHeading = "Verify your identity" %}
-{% endif %}
+{% set pageHeading = "Which number should we send the text message to?" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -15,16 +11,7 @@
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-
-        {% if data['status'] == "review" %}
-        	<!-- <p class="govuk-body">It may take a few minutes to arrive.</p> -->
-        {% else %}
-            <p class="govuk-body">Choose a contact number, to send the 6 digit verification code to.</p>
-            <p class="govuk-body">It may take a few minutes to arrive.</p>
-        {% endif %}
-
-        {% if data['status'] == "review" %}
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}                
 
         <form action="/authentication/get-code" method="post">
 
@@ -43,30 +30,7 @@
                   { value: "*********789", text: "*********789" }
               ]
           }) }}
-
-        {% else %}
-
-        <form action="/authentication/get-code" method="post">
-
-          {{ govukRadios({
-            idPrefix: "whichPhoneNumber",
-            name: "whichPhoneNumber",
-            fieldset: {
-                legend: {
-                    text: "Choose a phone numner to verify your identity",
-                    isPageHeading: false,
-                    classes: "govuk-visually-hidden"
-                }
-            },
-            items: [
-                { value: "+XXXXXXXXX123, redirect(/authentication/verify)", text: "+XXXXXXXXX123" },
-                { value: "+XXXXXXXXX456", text: "+XXXXXXXXX456" }
-            ]
-        }) }}
-
-        {% endif %}
-
-
+        
         	<input type="hidden" id="status" name="status" value="" />    		
       		{{ govukButton({
         		text: "Continue"
@@ -92,57 +56,33 @@
 
 				{% else %}
 
-					{% if data['status'] == "review" %}                        	
+					                    	
 						<summary class="govuk-details__summary">
 							<span class="govuk-details__summary-text">Need more help?</span>
 						</summary>
 						<div class="govuk-details__text">                    
               <p class="govuk-body">Contact [Service name] by phone or email.</p>                            
-                                    <p class="govuk-body">Telephone:<br>
-                                    [Service telephone number]</p>
-                                    <p class="govuk-body">Email:<br>
-                                    <a href="#" class="govuk-link govuk-link--no-visited-state">[Service email]</a></p>
-                                    <p class="govuk-body">Service opening times:<br>
-                                    [Service Opening Hours], except public holidays</p>       
-                                    <p class="govuk-body"><a href="https://www.gov.uk/call-charges" class="govuk-link govuk-link--no-visited-state" rel="noreferrer noopener" target=”_blank”>Find out about call charges (opens in new tab)</p>                                                                    
-
-						</div>                          	
-					  {% else %}
-						<summary class="govuk-details__summary">
-							  <span class="govuk-details__summary-text">Need to update the list?</span>
-						  </summary>
-						  <div class="govuk-details__text">
-							  Contact the [Service name].<br><br>
-							[Service name]  <br>
-							Telephone: [Service telephone number] <br>
-							[Service Opening Hours](except public holidays) <br>
-							[Service email address]
-							<br><br>
-							<p class="govuk-body">Find out about <a href="https://www.gov.uk/call-charges" class="govuk-link" rel="noreferrer noopener" target=”_blank”>call charges (opens in new tab)</p>
-						  </div>
-					{% endif %}
+              <p class="govuk-body">Telephone:<br>
+              [Service telephone number]</p>
+              <p class="govuk-body">Email:<br>
+              <a href="#" class="govuk-link govuk-link--no-visited-state">[Service email]</a></p>
+              <p class="govuk-body">Service opening times:<br>
+              [Service Opening Hours], except public holidays</p>       
+              <p class="govuk-body"><a href="https://www.gov.uk/call-charges" class="govuk-link govuk-link--no-visited-state" rel="noreferrer noopener" target=”_blank”>Find out about call charges (opens in new tab)</p>                                                                    
+						</div>                          						
 				{% endif %}
 		</details>
 
-
-
-
-
-
-
-      
-
   </div>
-  <div class="govuk-grid-column-one-third review">      
-    <ul class="govuk-list govuk-body-s govuk-!-text-align-right">        
-      <!-- <li><a href="/errors" class="govuk-link govuk-link--no-visited-state">Error page</a></li>         -->
+  <!-- <div class="govuk-grid-column-one-third review">      
+    <ul class="govuk-list govuk-body-s govuk-!-text-align-right">              
       {% if data['status'] == "review" %}
       <li><a href="/authentication/verify-multiple-numbers?status=" class="govuk-link govuk-link--no-visited-state">Current page</a></li>        
       {% else %}
       <li><a href="/authentication/verify-multiple-numbers?status=review" class="govuk-link govuk-link--no-visited-state">Suggested page changes</a></li>        
       {% endif %}
     </ul>      
-  </div>
+  </div> -->
 </div>
 
 {% endblock %}

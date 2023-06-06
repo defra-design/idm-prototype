@@ -13,98 +13,46 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-        {% if data['status'] == "review" %}
-        <p class="govuk-body">We will send you a 6-digit verification code.</p>
-        {% else %}
-        <p class="govuk-body">We will send you a 6 digit verification code.</p>
-        {% endif %}
-        <form action="/authentication/security-word" method="post">
+        <p class="govuk-body">We will send you a 6-digit verification code.</p>        
+        <form action="/authentication/verify" method="post">
 
-            {% if data['multiplePhoneNumber'] == "Yes" %}
+            {% if data['multiplePhoneNumber'] == "Yes" %}                
 
-                {% if data['status'] == "review" %}
+                {{ govukRadios({
+                    idPrefix: "verify-your-identity",
+                    name: "verify-your-identity",
+                    fieldset: {
+                        legend: {
+                            text: "Verify your identity",
+                            isPageHeading: false,
+                            classes: "govuk-visually-hidden"
+                        }
+                    },
 
-                    {{ govukRadios({
-                        idPrefix: "verify-your-identity",
-                        name: "verify-your-identity",
-                        fieldset: {
-                            legend: {
-                                text: "Verify your identity",
-                                isPageHeading: false,
-                                classes: "govuk-visually-hidden"
-                            }
-                        },
+                    items: [
+                        { value: "send-sms, redirect(/authentication/verify-multiple-numbers)", text: "Text message" },
+                        { value: "send-email", text: "Email" }
+                    ]
+                }) }}                                
 
-                        items: [
-                            { value: "send-sms, redirect(/authentication/verify-multiple-numbers)", text: "Text message" },
-                            { value: "send-email", text: "Email" }
-                        ]
-                    }) }}
-                
-                {% else %}
+            {% else %}                
 
-                    {{ govukRadios({
-                        idPrefix: "verify-your-identity",
-                        name: "verify-your-identity",
-                        fieldset: {
-                            legend: {
-                                text: "Verify your identity",
-                                isPageHeading: false,
-                                classes: "govuk-visually-hidden"
-                            }
-                        },
+                {{ govukRadios({
+                    idPrefix: "verify-your-identity",
+                    name: "verify-your-identity",
+                    fieldset: {
+                        legend: {
+                            text: "Verify your identity",
+                            isPageHeading: false,
+                            classes: "govuk-visually-hidden"
+                        }
+                    },
 
-                        items: [
-                            { value: "send-sms, redirect(/authentication/verify-multiple-numbers)", text: "Phone" },
-                            { value: "send-email", text: "Email" }
-                        ]
-                    }) }}
-
-                {% endif %}
-
-
-            {% else %}
-
-                {% if data['status'] == "review" %}
-
-                    {{ govukRadios({
-                        idPrefix: "verify-your-identity",
-                        name: "verify-your-identity",
-                        fieldset: {
-                            legend: {
-                                text: "Verify your identity",
-                                isPageHeading: false,
-                                classes: "govuk-visually-hidden"
-                            }
-                        },
-
-                        items: [
-                            { value: "send-sms, redirect(/authentication/get-code)", text: "Text message" },
-                            { value: "send-email", text: "Email" }
-                        ]
-                    }) }}
-                
-
-                {% else %}
-
-                    {{ govukRadios({
-                        idPrefix: "verify-your-identity",
-                        name: "verify-your-identity",
-                        fieldset: {
-                            legend: {
-                                text: "Verify your identity",
-                                isPageHeading: false,
-                                classes: "govuk-visually-hidden"
-                            }
-                        },
-
-                        items: [
-                            { value: "send-sms, redirect(/authentication/verify)", text: "Phone" },
-                            { value: "send-email", text: "Email" }
-                        ]
-                    }) }}
-
-                {% endif %}
+                    items: [
+                        { value: "send-sms", text: "Text message" },
+                        { value: "send-email", text: "Email" }
+                    ]
+                }) }}                                
             
             {% endif %}
 
@@ -115,51 +63,33 @@
             }) }}
 
         </form>
-
-        {% if data['status'] == "review" %}
+        
         <details class="govuk-details" data-module="govuk-details">
             <summary class="govuk-details__summary">
                 <span class="govuk-details__summary-text">Need more help?</span>
             </summary>
             <div class="govuk-details__text">                            
                 <p class="govuk-body">Contact [Service name] by phone or email.</p>                            
-                                    <p class="govuk-body">Telephone:<br>
-                                    [Service telephone number]</p>
-                                    <p class="govuk-body">Email:<br>
-                                    <a href="#" class="govuk-link govuk-link--no-visited-state">[Service email]</a></p>
-                                    <p class="govuk-body">Service opening times:<br>
-                                    [Service Opening Hours], except public holidays</p>       
-                                    <p class="govuk-body"><a href="https://www.gov.uk/call-charges" class="govuk-link govuk-link--no-visited-state" rel="noreferrer noopener" target=”_blank”>Find out about call charges (opens in new tab)</p>                                                                    
+                <p class="govuk-body">Telephone:<br>
+                [Service telephone number]</p>
+                <p class="govuk-body">Email:<br>
+                <a href="#" class="govuk-link govuk-link--no-visited-state">[Service email]</a></p>
+                <p class="govuk-body">Service opening times:<br>
+                [Service Opening Hours], except public holidays</p>       
+                <p class="govuk-body"><a href="https://www.gov.uk/call-charges" class="govuk-link govuk-link--no-visited-state" rel="noreferrer noopener" target=”_blank”>Find out about call charges (opens in new tab)</p>                                                                    
             </div>
-        </details>
-        {% else %}
-        <details class="govuk-details" data-module="govuk-details">
-            <summary class="govuk-details__summary">
-                <span class="govuk-details__summary-text">Need help with the page?</span>
-            </summary>
-            <div class="govuk-details__text">
-                Contact the [Service name].<br><br>
-                [Service name]  <br>
-                Telephone: [Service phone number] <br>
-                [Service Opening Hours](except public holidays) <br>
-                [Service email address]
-                <br><br>
-                <p class="govuk-body">Find out about <a href="https://www.gov.uk/call-charges" class="govuk-link" rel="noreferrer noopener" target=”_blank”>call charges (opens in new tab)</p>
-            </div>
-        </details>
-        {% endif %}
+        </details>        
     </div>
     
-    <div class="govuk-grid-column-one-third review">      
-        <ul class="govuk-list govuk-body-s govuk-!-text-align-right">        
-          <!-- <li><a href="/errors" class="govuk-link govuk-link--no-visited-state">Error page</a></li>         -->
+    <!-- <div class="govuk-grid-column-one-third review">      
+        <ul class="govuk-list govuk-body-s govuk-!-text-align-right">                  
           {% if data['status'] == "review" %}
           <li><a href="/authentication/verify-single-number?status=" class="govuk-link govuk-link--no-visited-state">Current page</a></li>        
           {% else %}
           <li><a href="/authentication/verify-single-number?status=review" class="govuk-link govuk-link--no-visited-state">Suggested page changes</a></li>        
           {% endif %}
         </ul>      
-      </div>
+      </div> -->
 
     
 </div>
