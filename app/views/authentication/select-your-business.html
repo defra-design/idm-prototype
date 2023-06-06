@@ -277,6 +277,8 @@
             </details>
 
     </div>
+
+    {% if data['serviceName'] != "vetsVisit" %}
 	<div class="govuk-grid-column-one-third review">      
         <ul class="govuk-list govuk-body-s govuk-!-text-align-right"> 
             {% if data['status'] == "review" %}                   
@@ -287,6 +289,7 @@
             {% endif %}
         </ul>      
     </div>
+    {% endif %}
 </div>
 
 
