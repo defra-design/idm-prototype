@@ -33,9 +33,8 @@
             <div class="govuk-button-group">
                 <form action="/preload" method="post" >
                     <input type="hidden" name="flow" id="flow" value="Registration" />
-                    <input type="hidden" name="flowVersion" id="flowVersion" value="current" />
-                    <input type="hidden" name="serviceName" id="serviceName" value="coreDefault" />
-                    <input type="hidden" name="companySize" id="companySize" value="20" />
+                    <input type="hidden" name="flowVersion" id="flowVersion" value="" />                    
+                    <!-- <input type="hidden" name="companySize" id="companySize" value="20" /> -->
                     {{ govukButton({
                         text: "Register for a Defra Account"
                     }) }}
