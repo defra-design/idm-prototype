@@ -154,6 +154,7 @@
             	<form action="/authentication/wheretoo" method="post">
 					
                     
+                    {% if data['status'] == "error-messages" %}
 
 
 					<div class="govuk-form-group govuk-form-group--error">
@@ -175,6 +176,29 @@
 							<option value="11">Runnymede Foods Limited - SBI 123456789</option>							
 						</select>
 					</div>
+
+                    {% else %}
+
+                    <div class="govuk-form-group ">                        
+						<select id="org-picker">
+							<option value=""></option>
+							<option value="1">Andy James Produce Ltd - SBI 107684959</option>
+							<option value="2">Ant Farm Co. - SBI 123456789</option>
+							<option value="3">Drummonds - SBI 123456789</option>
+							<option value="4">Echo Foods - SBI 123456789</option>
+							<option value="5">Eddard Benjamin - SBI 123456789</option>
+							<option value="6">Hiscox James Ltd. - SBI 123456789</option>
+							<option value="7">Jan and Jo Exports - SBI 123456789</option>
+							<option value="8">McVities - SBI 123456789</option>
+							<option value="9">Moonfaced Dog Co. - SBI 123456789</option>
+							<option value="10">Niche Transit - SBI 123456789</option>
+							<option value="11">Runnymede Foods Limited - SBI 123456789</option>							
+						</select>
+					</div>
+
+
+
+                    {% endif %}
     
         	{% endif %}
 
