@@ -19,16 +19,19 @@
 {% endblock %}
 {% endif %}
 
-
+<!-- Page title information -->
 {% if data['serviceName'] == "vetsVisit" %}
-  {% if data['companySize'] == "45" %}
-      {% set pageHeading = "Enter a business or its single business identifier (SBI)" %}  
-  {% else %}  
-      {% set pageHeading = "Choose a business" %}
-  {% endif %}
+    {% if data['companySize'] == "45" %}
+        {% set pageHeading = "Enter a business or its single business identifier (SBI)" %}  
+    {% else %}  
+        {% set pageHeading = "Choose a business" %}
+    {% endif %}
+
 {% else %}
-  {% set pageHeading = "Who do you want to represent?" %}
+    {% set pageHeading = "Who do you want to represent?" %}
 {% endif %}
+<!-- //////////// end of page title information ///////// -->
+
 
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -37,6 +40,36 @@
 
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+
+        <!-- Error messaging  -->
+        {% if data['serviceName'] == "vetsVisit" %}
+
+            {% if data['status'] == "error-messages" %}
+
+                {% if data['companySize'] == "45" %}              
+
+                    {{ govukErrorSummary({
+                        titleText: "There is a problem",
+                        errorList: [
+                            { text: "Enter a business", href: "#" }          
+                        ]
+                    }) }}
+
+                {% elif data['companySize'] == "20" %} 
+
+                    {{ govukErrorSummary({
+                        titleText: "There is a problem",
+                        errorList: [
+                            { text: "Choose a business", href: "#" }          
+                        ]
+                    }) }}
+
+                {% endif %}
+
+            {% endif %}
+
+        {% endif %}
+        <!-- // End of error messaging // -->
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
@@ -55,37 +88,78 @@
         
             {% if data['companySize'] == "20" %}        
 
-				{{ govukRadios({
-					idPrefix: "which-org",
-					name: "which-org",
-					fieldset: {
-						legend: {
-							text: "",
-							isPageHeading: false,
-							classes: "govuk-fieldset__legend--l"
-						}
-					},
-					items: [                    
-						{ value: "Andy James Produce Ltd - SBI 107684959", text: "Andy James Produce Ltd - SBI 107684959" },
-						{ value: "Ant Farm Co. - SBI 123456789", text: "Ant Farm Co. - SBI 123456789" },
-						{ value: "Drummonds - SBI 123456789", text: "Drummonds - SBI 123456789" },
-						{ value: "Echo Foods - SBI 123456789", text: "Echo Foods - SBI 123456789" },
-						{ value: "Eddard Benjamin - SBI 123456789", text: "Eddard Benjamin - SBI 123456789" },
-						{ value: "Hiscox James Ltd. - SBI 123456789", text: "Hiscox James Ltd. - SBI 123456789" },
-						{ value: "Jan and Jo Exports - SBI 123456789", text: "Jan and Jo Exports - SBI 123456789" },
-						{ value: "McVities - SBI 123456789", text: "McVities - SBI 123456789" },
-						{ value: "Moonfaced Dog Co. - SBI 123456789", text: "Moonfaced Dog Co. - SBI 123456789" },
-						{ value: "Niche Transit - SBI 123456789", text: "Niche Transit - SBI 123456789" },
-						{ value: "Runnymede Foods Limited - SBI 123456789", text: "Runnymede Foods Limited - SBI 123456789" }
+                {% if data['status'] == "error-messages" %}
 
-					]
-				}) }}
+                    {{ govukRadios({
+                        idPrefix: "which-org",
+                        name: "which-org",
+                        fieldset: {
+                            legend: {
+                                text: "",
+                                isPageHeading: false,
+                                classes: "govuk-fieldset__legend--l"
+                            }
+                        },
+                        errorMessage: {
+                            text: "Choose a business"
+                        },
+                        items: [                    
+                            { value: "Andy James Produce Ltd - SBI 107684959", text: "Andy James Produce Ltd - SBI 107684959" },
+                            { value: "Ant Farm Co. - SBI 123456789", text: "Ant Farm Co. - SBI 123456789" },
+                            { value: "Drummonds - SBI 123456789", text: "Drummonds - SBI 123456789" },
+                            { value: "Echo Foods - SBI 123456789", text: "Echo Foods - SBI 123456789" },
+                            { value: "Eddard Benjamin - SBI 123456789", text: "Eddard Benjamin - SBI 123456789" },
+                            { value: "Hiscox James Ltd. - SBI 123456789", text: "Hiscox James Ltd. - SBI 123456789" },
+                            { value: "Jan and Jo Exports - SBI 123456789", text: "Jan and Jo Exports - SBI 123456789" },
+                            { value: "McVities - SBI 123456789", text: "McVities - SBI 123456789" },
+                            { value: "Moonfaced Dog Co. - SBI 123456789", text: "Moonfaced Dog Co. - SBI 123456789" },
+                            { value: "Niche Transit - SBI 123456789", text: "Niche Transit - SBI 123456789" },
+                            { value: "Runnymede Foods Limited - SBI 123456789", text: "Runnymede Foods Limited - SBI 123456789" }
+
+                        ]
+                    }) }}
+                
+                {% else %}
+
+                    {{ govukRadios({
+                        idPrefix: "which-org",
+                        name: "which-org",
+                        fieldset: {
+                            legend: {
+                                text: "",
+                                isPageHeading: false,
+                                classes: "govuk-fieldset__legend--l"
+                            }
+                        },                        
+                        items: [                    
+                            { value: "Andy James Produce Ltd - SBI 107684959", text: "Andy James Produce Ltd - SBI 107684959" },
+                            { value: "Ant Farm Co. - SBI 123456789", text: "Ant Farm Co. - SBI 123456789" },
+                            { value: "Drummonds - SBI 123456789", text: "Drummonds - SBI 123456789" },
+                            { value: "Echo Foods - SBI 123456789", text: "Echo Foods - SBI 123456789" },
+                            { value: "Eddard Benjamin - SBI 123456789", text: "Eddard Benjamin - SBI 123456789" },
+                            { value: "Hiscox James Ltd. - SBI 123456789", text: "Hiscox James Ltd. - SBI 123456789" },
+                            { value: "Jan and Jo Exports - SBI 123456789", text: "Jan and Jo Exports - SBI 123456789" },
+                            { value: "McVities - SBI 123456789", text: "McVities - SBI 123456789" },
+                            { value: "Moonfaced Dog Co. - SBI 123456789", text: "Moonfaced Dog Co. - SBI 123456789" },
+                            { value: "Niche Transit - SBI 123456789", text: "Niche Transit - SBI 123456789" },
+                            { value: "Runnymede Foods Limited - SBI 123456789", text: "Runnymede Foods Limited - SBI 123456789" }
+
+                        ]
+                    }) }}
+
+                {% endif %}
             
             {% elif data['companySize'] == "45" %}
 
             	<form action="/authentication/wheretoo" method="post">
 					
-					<div class="govuk-form-group">
+                    
+
+
+					<div class="govuk-form-group govuk-form-group--error">
+                        <p id="national-insurance-number-error" class="govuk-error-message">
+                            <span class="govuk-visually-hidden">Error:</span> Enter a business
+                          </p>
 						<select id="org-picker">
 							<option value=""></option>
 							<option value="1">Andy James Produce Ltd - SBI 107684959</option>
@@ -289,6 +363,18 @@
             {% endif %}
         </ul>      
     </div>
+    {% elif data['serviceName'] == "vetsVisit" %}
+    <div class="govuk-grid-column-one-third review">      
+        <ul class="govuk-list govuk-body-s govuk-!-text-align-right"> 
+            {% if data['status'] == "error-messages" %}                   
+            <li><a href="/authentication/select-your-business?status=" class="govuk-link govuk-link--no-visited-state">Show no error</a></li>        
+            {% else %}
+            <li><a href="/authentication/select-your-business?status=error-messages" class="govuk-link govuk-link--no-visited-state">Show error message</a></li>        
+            
+            {% endif %}
+        </ul>      
+    </div>
+
     {% endif %}
 </div>
 
