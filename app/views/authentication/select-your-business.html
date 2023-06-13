@@ -365,13 +365,9 @@
     </div>
     {% elif data['serviceName'] == "vetsVisit" %}
     <div class="govuk-grid-column-one-third review">      
-        <ul class="govuk-list govuk-body-s govuk-!-text-align-right"> 
-            {% if data['status'] == "error-messages" %}                   
-            <li><a href="/authentication/select-your-business?status=" class="govuk-link govuk-link--no-visited-state">Show no error</a></li>        
-            {% else %}
-            <li><a href="/authentication/select-your-business?status=error-messages" class="govuk-link govuk-link--no-visited-state">Show error message</a></li>        
-            
-            {% endif %}
+        <ul class="govuk-list govuk-body-s govuk-!-text-align-right">                             
+            <li><a href="/authentication/select-your-business?status=" class="govuk-link govuk-link--no-visited-state">Show no error</a></li>                    
+            <li><a href="/authentication/select-your-business?status=error-messages" class="govuk-link govuk-link--no-visited-state">Show error message</a></li>                                
         </ul>      
     </div>
 
