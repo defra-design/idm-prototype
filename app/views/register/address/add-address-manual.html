@@ -28,7 +28,14 @@
 
     {% else %}
 
-    <form action="/register/task-list-page-about-you-details?individual-address=completed" method="post" class="form">
+      {% if data['defraIdCompanyRegisteredLocation'] == "non-uk" %}
+
+	  	<form action="/register/non-uk-contact" method="post" class="form">
+	
+
+      {% else %}
+        <form action="/register/task-list-page-about-you-details?individual-address=completed" method="post" class="form">
+      {% endif %}
 
     {% endif %}
 
@@ -78,6 +85,9 @@
           <input class="govuk-input govuk-!-width-two-thirds" id="address-town" name="address-town" type="text">
         </div>
 
+
+        {% if data['defraIdCompanyRegisteredLocation'] != "non-uk" %}
+
         <div class="govuk-form-group">
           <label class="govuk-label" for="address-county">
             County
@@ -85,9 +95,15 @@
           <input class="govuk-input govuk-!-width-two-thirds" id="address-county" name="address-county" type="text">
         </div>
 
+        {% endif %}
+
         <div class="govuk-form-group">
           <label class="govuk-label" for="address-postcode">
-            Zip of postal code
+            {% if data['defraIdCompanyRegisteredLocation'] != "non-uk" %}
+              Postcode
+            {% else %}
+              Zip or postal code
+            {% endif %}
           </label>
           <input class="govuk-input govuk-input--width-10" id="address-postcode" name="address-postcode" type="text">
         </div>
@@ -352,9 +368,9 @@
         </div>
       </fieldset>
 
-      <button class="govuk-button" data-module="govuk-button" type="submit">
-        Continue
-      </button>
+      {{ govukButton({
+		text: "Continue"
+	}) }}
 
     </form>
 

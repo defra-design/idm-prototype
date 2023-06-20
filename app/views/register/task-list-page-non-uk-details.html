@@ -1,18 +1,18 @@
 {% extends "layout.html" %}
+{% set showBackLink = false %}
+{% set serviceName = "Service Name" %}
 
-{% set serviceName = "Defra account" %}
-
-{% set title = "About the organisation you represent" %}
-
-{% block pageTitle %}
-  {{title}} - GOV.UK
-{% endblock %}
+{% set pageHeading = "About the organisation you represent" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
 
-    <h1 class="govuk-heading-xl">{{ title }}</h1>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
     <p>
       If you sign out before you complete everything, we will save your answers for <strong>3 days</strong> so that you can return and continue.
     </p>

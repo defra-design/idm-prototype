@@ -20,8 +20,8 @@
                     legend: { text: "Are you registering as a business or an individual?", isPageHeading: false, classes: "govuk-visually-hidden"  }
                 },
                 items: [
-                    { value: "uk", html: 'UK'   },
-					{ value: "non-uk", html: 'Non-UK (Organisation that is not registered in the UK)'   }                    
+                    { value: "uk", text: 'UK'   },
+					{ value: "non-uk, redirect(/register/non-uk-business-name)", text: 'Non-UK (Organisation that is not registered in the UK)'   }                    
                 ]
             } | decorateFormAttributes('defraIdCompanyRegisteredLocation')) }}
 

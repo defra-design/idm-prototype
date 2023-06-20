@@ -16,92 +16,66 @@
     	<form method="post" action="/register/charity-name">      
 
         	{% set englandAndWales %}
-		
+
 				{{ govukInput({
-					id: "charity-number-a",
-					name: "charity-number-a",
-					type: "number",
-					spellcheck: false,
-					classes: "govuk-!-width-one-third",
 					label: {
-						text: "Enter the registered charity number"
+						text: "Enter the registered charity number",
+						classes: "govuk-!-font-weight-bold"				
 					},
 					hint: {
-						text: "For example 1004005"
-					}
-				}) }}
+						text: "For example 1004005."
+					},
+					classes: "govuk-!-width-one-third",
+					type: "number"      
+				} | decorateFormAttributes('charity-number')) }}
 
         	{% endset -%}
 
         	{% set scotland %}
 
 				{{ govukInput({
-					id: "charity-number-b",
-					name: "charity-number-b",
-					type: "number",
-					classes: "govuk-!-width-one-third",
 					label: {
-						text: "Enter the registered charity number"
+						text: "Enter the registered charity number",
+						classes: "govuk-!-font-weight-bold"				
 					},
 					hint: {
-						text: "For example SC000022"
-					}
-				}) }}
+						text: "For example, SC000022."
+					},
+					classes: "govuk-!-width-one-third",
+					type: "number"      
+				} | decorateFormAttributes('charity-number')) }}				
         	
 			{% endset -%}
 
-        {% set northernIreland %}
-        {{ govukInput({
-          id: "charity-number-c",
-          name: "charity-numberber-c",
-          type: "number",
-          classes: "govuk-!-width-one-third",
-          label: {
-            text: "Enter the registered charity number"
-          },
-          hint: {
-            text: "For example NIC100002"
-          }
-        }) }}
-        {% endset -%}
+        	{% set northernIreland %}
+        		
+				{{ govukInput({
+					label: {
+						text: "Enter the registered charity number",
+						classes: "govuk-!-font-weight-bold"				
+					},
+					hint: {
+						text: "For example NIC100002."
+					},
+					classes: "govuk-!-width-one-third",
+					type: "number"      
+				} | decorateFormAttributes('charity-number')) }}					
 
-        {{ govukRadios({
-          idPrefix: "charityNumber",
-          name: "charityNumber",
-          fieldset: {
-            legend: {
-              text: title,
-              isPageHeading: true,
-              classes: "govuk-fieldset__legend--xl"
-            }
-          },
-          hint: {
-            text: "Select one option."
-          },
-          items: [
-            {
-              value: "englandAndWales",
-              text: "England and Wales",
-              conditional: {
-                html: englandAndWales
-              }
-            },
-            {
-              value: "scotland",
-              text: "Scotland",
-              conditional: {
-                html: scotland
-              }
-            },
-            {
-              value: "northernIreland",
-              text: "Northern Ireland",
-              conditional: {
-                html: northernIreland
-              }
-            }
-          ]
-        }) }}
+        	{% endset -%}
+
+
+
+			{{ govukRadios({
+                fieldset: {
+                    legend: { text: "Is this organisation a sole trader or a charity?", isPageHeading: false, classes: "govuk-visually-hidden"  }
+                },
+                items: [
+                    { value: "sole-trader", text: 'England and Wales', conditional: { html: englandAndWales } },
+					{ value: "charity, redirect(/register/sole-trader-or-charity)", text: 'Scotland', conditional: { html: scotland } },
+					{ value: "charity, redirect(/register/sole-trader-or-charity)", text: 'Northern Ireland', conditional: { html: northernIreland } }                    
+                ]
+            } | decorateFormAttributes('charityLocation')) }}   
+       
 
         {{govukButton({
           text: "Continue"
