@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% set serviceName = "Defra account" %}
 
-{% set title = "What is the non-UK address?" %}
+{% set title = "What is your address?" %}
 
 {% block pageTitle %}
   {{title}} - GOV.UK
@@ -25,6 +25,11 @@
       <form action="extra-addresses?correspondence-address=true&correspondence-address-type=normal&new-address=no" method="post" class="form">
     {% elseif data['new-address'] == "operations" %}
       <form action="extra-addresses?operations-address=true&operations-address-type=normal&new-address=no" method="post" class="form">
+
+    {% else %}
+
+    <form action="/register/task-list-page-about-you-details?individual-address=completed" method="post" class="form">
+
     {% endif %}
 
       <fieldset class="govuk-fieldset">
@@ -49,7 +54,7 @@
           <label class="govuk-label" for="building-number">
             Building number
           </label>
-          <input class="govuk-input govuk-input--width-5" id="building-number" name="building-number" type="text">
+          <input class="govuk-input govuk-input--width-10" id="building-number" name="building-number" type="text">
         </div>
 
         <div class="govuk-form-group">
@@ -75,14 +80,14 @@
 
         <div class="govuk-form-group">
           <label class="govuk-label" for="address-county">
-            County or state
+            County
           </label>
           <input class="govuk-input govuk-!-width-two-thirds" id="address-county" name="address-county" type="text">
         </div>
 
         <div class="govuk-form-group">
           <label class="govuk-label" for="address-postcode">
-            Postcode or zip code
+            Zip of postal code
           </label>
           <input class="govuk-input govuk-input--width-10" id="address-postcode" name="address-postcode" type="text">
         </div>

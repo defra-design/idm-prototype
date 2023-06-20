@@ -1,56 +1,54 @@
 {% extends "layout.html" %}
+{% set showBackLink = true %}
+{% set serviceName = "Service Name" %}
 
-{% set serviceName = "Defra account" %}
-
-{% set title = "Where is the charity registered?" %}
-
-{% block pageTitle %}
-  {{title}} - GOV.UK
-{% endblock %}
-
-{% block beforeContent %}
-  {{ govukBackLink({
-    text: "Back",
-    href: "javascript:history.back()"
-  }) }}
-{% endblock %}
+{% set pageHeading = "Where is the charity registered?" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
-<div class="govuk-grid-row">
+
+  <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form method="post" action="charity-name">
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   
 
-        {% set englandAndWales %}
-        {{ govukInput({
-          id: "charity-number-a",
-          name: "charity-number-a",
-          type: "number",
-          spellcheck: false,
-          classes: "govuk-!-width-one-third",
-          label: {
-            text: "Enter the registered charity number"
-          },
-          hint: {
-            text: "For example 1004005"
-          }
-        }) }}
-        {% endset -%}
+    	<form method="post" action="/register/charity-name">      
 
-        {% set scotland %}
-        {{ govukInput({
-          id: "charity-number-b",
-          name: "charity-number-b",
-          type: "number",
-          classes: "govuk-!-width-one-third",
-          label: {
-            text: "Enter the registered charity number"
-          },
-          hint: {
-            text: "For example SC000022"
-          }
-        }) }}
-        {% endset -%}
+        	{% set englandAndWales %}
+		
+				{{ govukInput({
+					id: "charity-number-a",
+					name: "charity-number-a",
+					type: "number",
+					spellcheck: false,
+					classes: "govuk-!-width-one-third",
+					label: {
+						text: "Enter the registered charity number"
+					},
+					hint: {
+						text: "For example 1004005"
+					}
+				}) }}
+
+        	{% endset -%}
+
+        	{% set scotland %}
+
+				{{ govukInput({
+					id: "charity-number-b",
+					name: "charity-number-b",
+					type: "number",
+					classes: "govuk-!-width-one-third",
+					label: {
+						text: "Enter the registered charity number"
+					},
+					hint: {
+						text: "For example SC000022"
+					}
+				}) }}
+        	
+			{% endset -%}
 
         {% set northernIreland %}
         {{ govukInput({
