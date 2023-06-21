@@ -11,6 +11,38 @@
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
+        {% if data['status'] == "error-messages" %}
+
+            {{ govukErrorSummary({
+                titleText: "There is a problem",
+                errorList: [
+                    { text: "Enter your 10-digit customer reference number (CRN)", href: "#" },
+                    { text: "Enter your password", href: "#" }                    
+                ]
+            }) }}
+
+        {% elif data['status'] == "error-messages-2" %}
+
+            {{ govukErrorSummary({
+                titleText: "There is a problem",
+                errorList: [
+                    { text: "Check you have entered your 10-digit customer reference number (CRN) correctly", href: "#" }                                       
+                ]
+            }) }}
+
+        {% elif data['status'] == "error-messages-3" %}
+
+            {{ govukErrorSummary({
+                titleText: "There is a problem",
+                errorList: [
+                    { text: "Enter a valid 10-digit customer reference number (CRN) and password", href: "#" }                                       
+                ]
+            }) }}
+
+        {% endif %}
+
+
+
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
         {% if data ['noBusinessRegistered'] == "Yes" %}
@@ -35,27 +67,126 @@
 <form action="verify-sc3" autocomplete="false">
 {% endif %} -->
             
-                {{ govukInput({
-                    label: {
-                        text: "Customer reference number (CRN)",                        
-                        isPageHeading: false
-                    },
-                    hint: {
-                        text: "This is the 10 digit number emailed to you when you registered with the Rural Payments service." 
-                    },
-                    classes: "govuk-!-width-two-thirds"
-                } | decorateFormAttributes('crnNumber')) }}
 
-                {{ govukInput({
-                    label: {
-                        text: "Password",                      
-                        isPageHeading: false
-                    },
-                    hint: {
-                        text: "This is your Rural Payments service password." 
-                    },
-                    classes: "govuk-!-width-two-thirds"
-                } | decorateFormAttributes('crnPassword')) }}
+                {% if data['status'] == "error-messages" %}
+
+                    {{ govukInput({
+                        label: {
+                            text: "Customer reference number (CRN)",                        
+                            isPageHeading: false
+                        },
+                        hint: {
+                            text: "This is the 10 digit number emailed to you when you registered with the Rural Payments service." 
+                        },
+                        classes: "govuk-!-width-two-thirds",
+                        errorMessage: {
+                            text: "Enter your 10-digit customer reference number (CRN)"
+                        }
+                    } | decorateFormAttributes('crnNumber')) }}
+
+                    {{ govukInput({
+                        label: {
+                            text: "Password",                      
+                            isPageHeading: false
+                        },
+                        hint: {
+                            text: "This is your Rural Payments service password." 
+                        },
+                        classes: "govuk-!-width-two-thirds",
+                        errorMessage: {
+                            text: "Enter your password"
+                        }
+                        
+                    } | decorateFormAttributes('crnPassword')) }}
+                
+                {% elif data['status'] == "error-messages-2" %}
+
+                    {{ govukInput({
+                        label: {
+                            text: "Customer reference number (CRN)",                        
+                            isPageHeading: false
+                        },
+                        hint: {
+                            text: "This is the 10 digit number emailed to you when you registered with the Rural Payments service." 
+                        },
+                        classes: "govuk-!-width-two-thirds",
+                        errorMessage: {
+                            text: "Check you have entered your 10-digit customer reference number (CRN) correctly"
+                        }
+                    } | decorateFormAttributes('crnNumber')) }}
+
+                    {{ govukInput({
+                        label: {
+                            text: "Password",                      
+                            isPageHeading: false
+                        },
+                        hint: {
+                            text: "This is your Rural Payments service password." 
+                        },
+                        classes: "govuk-!-width-two-thirds"                        
+                        
+                    } | decorateFormAttributes('crnPassword')) }}
+
+                {% elif data['status'] == "error-messages-3" %}
+                
+                    <div class="govuk-form-group govuk-form-group--error">
+
+                    {{ govukInput({
+                        label: {
+                            text: "Customer reference number (CRN)",                        
+                            isPageHeading: false
+                        },
+                        hint: {
+                            text: "This is the 10 digit number emailed to you when you registered with the Rural Payments service." 
+                        },
+                        classes: "govuk-!-width-two-thirds",
+                        errorMessage: {
+                            text: "Enter a valid 10-digit customer reference number (CRN) and password"
+                        }
+                    } | decorateFormAttributes('crnNumber')) }}
+
+                    {{ govukInput({
+                        label: {
+                            text: "Password",                      
+                            isPageHeading: false
+                        },
+                        hint: {
+                            text: "This is your Rural Payments service password." 
+                        },
+                        classes: "govuk-!-width-two-thirds",
+                        errorMessage: {
+                            text: ""
+                        }
+                        
+                    } | decorateFormAttributes('crnPassword')) }}
+
+                </div>
+
+                {% else %}
+
+                    {{ govukInput({
+                        label: {
+                            text: "Customer reference number (CRN)",                        
+                            isPageHeading: false
+                        },
+                        hint: {
+                            text: "This is the 10 digit number emailed to you when you registered with the Rural Payments service." 
+                        },
+                        classes: "govuk-!-width-two-thirds"                        
+                    } | decorateFormAttributes('crnNumber')) }}
+
+                    {{ govukInput({
+                        label: {
+                            text: "Password",                      
+                            isPageHeading: false
+                        },
+                        hint: {
+                            text: "This is your Rural Payments service password." 
+                        },
+                        classes: "govuk-!-width-two-thirds"                                                
+                    } | decorateFormAttributes('crnPassword')) }}
+
+                {% endif %}
                 
                 {{ govukButton({
                     text: "Sign in"                    
@@ -97,5 +228,18 @@
             </details>
        
     </div>
+    
+    <div class="govuk-grid-column-one-third review">      
+        <ul class="govuk-list govuk-body-s govuk-!-text-align-right">             
+            <li><a href="/authentication/vets/sign-in?status=" class="govuk-link govuk-link--no-visited-state">No error</a></li>                    
+            <li><a href="/authentication/vets/sign-in?status=error-messages" class="govuk-link govuk-link--no-visited-state">Error message 1</a></li>        
+            <li><a href="/authentication/vets/sign-in?status=error-messages-2" class="govuk-link govuk-link--no-visited-state">Error message 2</a></li>        
+            <li><a href="/authentication/vets/sign-in?status=error-messages-3" class="govuk-link govuk-link--no-visited-state">Error message 3</a></li>                                
+        </ul>      
+    </div>
+
+    
+
+
 </div>
 {% endblock %}
