@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+{% set showBackLink = true %}
+{% set serviceName = "Service Name" %}
+
+{% set pageHeading = "Are you sure you wish to change your account type?" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   
+
+        <p class="govuk-hint">Changing your account type means that any information you have previously entered will be deleted</p>
+
+        <form method="post" action="/register/account-type" />
+
+        {{ govukRadios({
+            fieldset: {
+                legend: { text: "Are you registering as a business or an individual?", isPageHeading: false, classes: "govuk-visually-hidden"  }
+            },
+            items: [
+                { value: "Yes", html: ' <span class="govuk-body govuk-!-font-weight-bold">Yes</span> - change my account type and delete any information I have entered'   },
+                { value: "No, redirect(/register/task-list-page-non-uk-details)", html: ' <span class="govuk-body govuk-!-font-weight-bold">No</span> - do not change my account type'   }                    
+            ]
+        } | decorateFormAttributes('cancelAccount')) }}                
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+
+      </form>
+    </div>
+  </div>
+
+
+
+
+{% endblock %}

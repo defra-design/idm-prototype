@@ -1,0 +1,216 @@
+{% extends "layout.html" %}
+{% set showBackLink = true %}
+{% set serviceName = "Service Name" %}
+
+{% set pageHeading = "Check your information" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   
+
+    	<h2 class="govuk-heading-m">Your account</h2>
+
+		<!-- Account Type -->
+    	<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+      		<div class="govuk-summary-list__row">
+        		<dt class="govuk-summary-list__key">Account Type</dt>
+        		<dd class="govuk-summary-list__value">
+          			{{ data['defraIdType'] }}
+        		</dd>
+        		<dd class="govuk-summary-list__actions">
+					<a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> account type</span></a>
+        		</dd>
+      		</div>
+    	</dl>
+
+		{% if data['defraIdType'] != "Individual" %}
+
+			<!-- About the organisation -->
+			<h2 class="govuk-heading-m">About your organisation</h2>
+			<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">Your organisation’s details</dt>
+					<dd class="govuk-summary-list__value">
+						{% if data['route'] == "company" %}
+							Acme Org Ltd ({{ data['defraIdCompaniesHouseNumber'] or '01234567' }})<br />
+						{% elseif data['route'] == "charity" %}
+							Good Hands (NIC100007)
+						{% endif %}
+						
+						1 Francis Crick Avenue<br>
+						Cambridge Biomedical Campus<br>
+						Cambridge, United Kingdom<br>
+						CB2 0AA
+					</dd>
+					<dd class="govuk-summary-list__actions">
+						<a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> registered company</span></a>
+					</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">Organisation type</dt>
+					<dd class="govuk-summary-list__value">
+						{% if data['route'] == "company" %}
+							Limited company
+						{% elseif data['route'] == "charity" %}
+							Charity
+						{% endif %}
+					</dd>
+					<dd class="govuk-summary-list__actions"></dd>
+				</div>			
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">Main contact details</dt>
+					<dd class="govuk-summary-list__value">
+						{{ data['defraIdCompanyPhone'] or '01234 567899' }}<br>
+						{{ data['defraIdCompanyEmail'] or 'info@company.co.uk' }}
+					</dd>
+					<dd class="govuk-summary-list__actions">
+						<a href="company-contact?flowType=check">Change<span class="govuk-visually-hidden"> company contact details</span></a>
+					</dd>
+				</div>
+
+			
+				{% if data['correspondence-address'] == "true" %}          		
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">Correspondence address</dt>
+					<dd class="govuk-summary-list__value">
+						{% if data['correspondence-address-type'] == "normal" %}
+							Clifton House<br>
+							Clifton Road<br>
+							London<br>
+							SW19 5JA
+						{% elseif data['correspondence-address-type'] == "manual" %}
+							Laurel Ho<br>
+							Laurelhill Business Park<br>
+							Stirling<br>
+							FK7 9JQ
+						{% elseif data['correspondence-address-type'] == "non-uk" %}
+							LG. Do Município<br>
+							6060-163 - Idanha-A-Nova<br>
+							Portugal
+						{% endif %}
+					</dd>
+					<dd class="govuk-summary-list__actions">
+						<a href="#">Change<span class="govuk-visually-hidden"> correspondence address</span></a>
+					</dd>
+				</div>
+				{% endif %}
+
+				{% if data['billing-address'] == "true" %}
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">Billing address</dt>
+					<dd class="govuk-summary-list__value">              		
+						{% if data['billing-address-type'] == "normal" %}
+							Clifton House<br>
+							Clifton Road<br>
+							London<br>
+							SW19 5JA
+						{% elseif data['billing-address-type'] == "manual" %}
+							Laurel Ho<br>
+							Laurelhill Business Park<br>
+							Stirling<br>
+							FK7 9JQ
+						{% elseif data['Billing-address-type'] == "non-uk" %}
+							LG. Do Município<br>
+							6060-163 - Idanha-A-Nova<br>
+							Portugal
+						{% endif %}
+					</dd>
+					<dd class="govuk-summary-list__actions">
+						<a href="#">Change<span class="govuk-visually-hidden"> billing address</span></a>
+					</dd>
+				</div>
+				{% endif %}
+
+				{% if data['operations-address'] == "true" %}
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">Operations address</dt>
+					<dd class="govuk-summary-list__value">
+						{% if data['operations-address-type'] == "normal" %}
+							Clifton House<br>
+							Clifton Road<br>
+							London<br>
+							SW19 5JA
+						{% elseif data['operations-address-type'] == "manual" %}
+							Laurel Ho<br>
+							Laurelhill Business Park<br>
+							Stirling<br>
+							FK7 9JQ
+						{% elseif data['operations-address-type'] == "non-uk" %}
+							LG. Do Município<br>
+							6060-163 - Idanha-A-Nova<br>
+							Portugal
+						{% endif %}
+					</dd>
+					<dd class="govuk-summary-list__actions">
+						<a href="#">Change<span class="govuk-visually-hidden"> correspondence address</span></a>
+					</dd>
+				</div>
+				{% endif %}
+			</dl>
+
+		{% endif %}
+
+      	<h2 class="govuk-heading-m">About you</h2>
+      	<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        	<div class="govuk-summary-list__row">
+          		<dt class="govuk-summary-list__key">Your name</dt>
+          		<dd class="govuk-summary-list__value">
+            		{{ data['defraIdFirstName'] or 'Sam' }} {{ data['defraIdSurname'] or 'Woods' }}
+          		</dd>
+          		<dd class="govuk-summary-list__actions">
+            		<a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> your name</span></a>
+          		</dd>
+        	</div>
+        	<div class="govuk-summary-list__row">
+          		<dt class="govuk-summary-list__key">Your contact details</dt>
+          		<dd class="govuk-summary-list__value">
+            		{{ data['defraIdPersonalPhone'] or '07711223344' }}<br />
+            		{{ data['govGateEmail'] or 'samwoods@company.co.uk' }}
+          		</dd>
+          		<dd class="govuk-summary-list__actions">
+            		<a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> your contact details</span></a>
+          		</dd>
+        	</div>
+
+			{% if data['defraIdType'] == "Individual" %}
+			<div class="govuk-summary-list__row">
+				<dt class="govuk-summary-list__key">Your address</dt>
+				<dd class="govuk-summary-list__value">
+					7 BARLEY WAY, KILLINGWORTH, NEWCASTLE UPON TYNE, NORTH TYNESIDE, NE12 7BN, United Kingdom
+				</dd>
+				<dd class="govuk-summary-list__actions">
+				  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> your contact details</span></a>
+				</dd>
+		  </div>
+		  {% endif %}
+
+
+        	<div class="govuk-summary-list__row">
+          		<dt class="govuk-summary-list__key">Your security word</dt>
+          		<dd class="govuk-summary-list__value">
+            		{{ data['defraIdSecurityWord'] or 'pancakes' }}<br />
+            		{{ data['defraIdSecurityHint'] or 'My favourite food' }}
+          		</dd>
+          		<dd class="govuk-summary-list__actions">
+            		<a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> security word and hint</span></a>
+          		</dd>
+        	</div>
+      	</dl>
+
+        <form method="post" action="/account/manage/">
+
+			{{ govukButton({
+				text: "Continue"
+			}) }}
+          
+        </form>
+
+      </div>
+    </div>
+
+{% endblock %}
