@@ -20,12 +20,11 @@
 
         <!-- Registration journey flow -->
         {% if data['flow'] == "Registration" %}
-
-            {% if data['flowVersion'] == "current" %}
-                <form class="form" action="/mfa-V2/gov-gateway/login" method="post" class="">
-            {% else %}
-                <form class="form" action="/archived/mfa/gov-gateway/login" method="post" class="">
-            {% endif %}
+            
+            <form class="form" action="/gov-gateway/login" method="post" class="">
+            
+                <!-- <form class="form" action="/archived/mfa/gov-gateway/login" method="post" class=""> -->
+            
 
             {{ govukCheckboxes({
                 fieldset: { legend: { text: "User has Government Gateway account", isPageHeading: false, classes: "govuk-visually-hidden" } },

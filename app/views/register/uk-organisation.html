@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% set showBackLink = true %}
+{% set serviceName = "Service Name" %}
+
+{% set pageHeading = "Where is your organisation registered to trade?" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   
+
+    	<form method="post" action="/register/companies-house">
+
+			
+            {{ govukRadios({
+                fieldset: {
+                    legend: { text: "Are you registering as a business or an individual?", isPageHeading: false, classes: "govuk-visually-hidden"  }
+                },
+                items: [
+                    { value: "uk", text: 'UK'   },
+					{ value: "non-uk, redirect(/register/non-uk-business-name)", text: 'Non-UK (Organisation that is not registered in the UK)'   }                    
+                ]
+            } | decorateFormAttributes('defraIdCompanyRegisteredLocation')) }}
+
+            {{govukButton({
+                text: "Continue"
+            })}}
+	
+    	</form>
+
+  	</div>
+</div>
+
+{% endblock %}

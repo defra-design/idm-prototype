@@ -13,7 +13,7 @@
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
             <ul class="govuk-list govuk-body-s">
-          	    <li>Last updated: 20 June 2023</li>
+          	    <li>Last updated: 21 June 2023</li>
                 <li>Prototype version: {{releaseVersion}}</li>
             </ul>
 
@@ -22,124 +22,90 @@
 
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-            <p>This service will help users:</p>
+            <p class="govuk-body">This service will help users:</p>
             <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
                 <li class="govuk-body">create a single set of sign-in credentials that can be used to access one or more Defra services.</li>
                 <li class="govuk-body">store information about the user (and their business, if relevant).</li>
                 <li class="govuk-body">give other people (for example colleagues or agents) access to one or more of the online services they use.</li>
             </ul>
 
-            <h2 class="govuk-heading-m">Core user flows <span class="govuk-body-s">V2.0</span></h2>
+            <h2 class="govuk-heading-m">Core user flows</h2>            
             <div class="govuk-button-group">
                 <form action="/preload" method="post" >
                     <input type="hidden" name="flow" id="flow" value="Registration" />
-                    <input type="hidden" name="flowVersion" id="flowVersion" value="current" />
-                    <input type="hidden" name="serviceName" id="serviceName" value="coreDefault" />
-                    <input type="hidden" name="companySize" id="companySize" value="20" />
+                    <input type="hidden" name="flowVersion" id="flowVersion" value="" />                    
+                    <!-- <input type="hidden" name="companySize" id="companySize" value="20" /> -->
                     {{ govukButton({
-                        text: "Register for Defra Identity"
+                        text: "Register for a Defra Account"
                     }) }}
                 </form>
+                <form action="/preload" method="post" >
+                    <input type="hidden" name="flow" id="flow" value="Registration" />
+                    <input type="hidden" name="flowVersion" id="flowVersion" value="version_1" />
+                    {{ govukButton({
+                        text: "Archived V1.0",
+                        classes: "govuk-button--secondary govuk-!-margin-left-1"
+                    }) }}
+                </form>                
+            </div>            
+            
+            
+            
+            <div class="govuk-button-group">
                 <form action="/preload" method="post" >
                     <input type="hidden" name="flow" id="flow" value="Authentication" />
                     <input type="hidden" name="flowVersion" id="flowVersion" value="current" />
                     <input type="hidden" name="serviceName" id="serviceName" value="coreDefault" />
                     <input type="hidden" name="companySize" id="companySize" value="20" />
-                    <input type="hidden" name="interSwitch" id="interSwitch" value="Yes" />     
+                    <input type="hidden" name="interSwitch" id="interSwitch" value="Yes" />                    
                     {{ govukButton({
-                        text: "Authentication and verification",
-                        classes: "govuk-!-margin-left-1"
+                        text: "Sign in authentication and verification"                        
                     }) }}
-                </form>
-            </div>
-
-            
-            
-            <!-- <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
-                <li>MFA with phone number verification only</li>
-                <li>MFA via email</li>
-                <li>MFA switching (sms/email)</li>
-                <li>Exit pages</li>
-            </ul> -->
-
-            <h2 class="govuk-heading-m">Archived flows <span class="govuk-body-s">V1.0</span></h2>
-            <!-- Get this linking the correct way fro preload -->
-            {# <p><a href="mfa/scenarios">Register for an account/authenitcate</a> #}
-            <div class="govuk-button-group">
-                <form action="/preload" method="post" >
-                    <input type="hidden" name="flow" id="flow" value="Registration" />
-                    <input type="hidden" name="flowVersion" id="flowVersion" value="" />
-                    {{ govukButton({
-                        text: "Register for Defra Identity",
-                        classes: "govuk-button--secondary"
-                    }) }}
-                </form>
+                </form>                
                 <form action="/preload" method="post" >
                     <input type="hidden" name="flow" id="flow" value="Authentication" />
                     <input type="hidden" name="flowVersion" id="flowVersion" value="" />
                     {{ govukButton({
-                        text: "Authentication and verification",
-                        classes: "govuk-!-margin-left-1",
-                        classes: "govuk-button--secondary"
+                        text: "Archived V1.0",
+                        classes: "govuk-button--secondary govuk-!-margin-left-1"
                     }) }}
                 </form>
+                <!-- <ul class="govuk-list govuk-list--bullet">
+                    <li>MFA with phone number verification only</li>
+                    <li>MFA via email</li>
+                    <li>MFA switching (sms/email)</li>
+                    <li>Exit pages</li>
+                </ul>
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>Single number option</li>
+                    <li>Error message implementation</li>
+                    <li>Replaced 'links list' with radios component</li>
+                    <li>Accessible autocomplete added to core journey</li>
+                </ul> -->
             </div>
-            <!-- <ul class="govuk-list govuk-list--bullet">
-                <li>Single number option</li>
-                <li>Error message implementation</li>
-                <li>Replaced 'links list' with radios component</li>
-                <li>Accessible autocomplete added to core journey</li>
-            </ul> -->
-                        
-            <h2 class="govuk-heading-m govuk-!-margin-top-9">Service user flows</h2>
+
+            <!-- <p class="govuk-body"><a href="mfa-V2/scenarios">Previous register for an account/authenticate V2</a>
+                <br><a href="mfa/scenarios">Previous register for an account/authenticate V1</a></p>
+     -->
+
+            <h2 class="govuk-heading-m govuk-!-margin-top-9">Service specific flows</h2>
             <h3 class="govuk-heading-s">Annual Health and Welfare Review of livestock<span class="govuk-body-s"></span></h3>
-            <p>Illustrates the journey flow for authentication for Annual Health and Welfare Review of livestock service in both applying and claiming states.</p>        
-            <form action="/preload" method="post" >
-                <input type="hidden" name="flow" id="flow" value="Authentication" />                    
-                <input type="hidden" name="serviceName" id="serviceName" value="vetsVisit" />    
-                <input type="hidden" name="companySize" id="companySize" value="20" />  
-                <input type="hidden" name="interSwitch" id="interSwitch" value="" />                  
-                
-                {{ govukButton({
-                    text: "Continue with Authentication"                        
-                }) }}
-            </form>
-
+            <p>Illustrates the journey flow for authentication for Annual Health and Welfare Review of livestock service in both applying and claiming states.</p>
             
+                <form action="/preload" method="post" >
+                    <input type="hidden" name="flow" id="flow" value="Authentication" />                    
+                    <input type="hidden" name="serviceName" id="serviceName" value="vetsVisit" />    
+                    <input type="hidden" name="companySize" id="companySize" value="20" />  
+                    <input type="hidden" name="interSwitch" id="interSwitch" value="" />                  
+                    
+                    {{ govukButton({
+                        text: "Sign in authentication"                        
+                    }) }}
+                </form>         
 
-            {# Page listing buttons #}
-    		{# 
-            {{ govukButton({
-      			text: "Preload options",
-      			href: "",
-      			classes: "govuk-button--secondary govuk-!-margin-left-1"
-    		}) }}
-            <h2 class="govuk-heading-m">Register for a Defra account</h2>
-            <ul class="govuk-list">
-                <li class="govuk-link"><a href="/mfa-V2/gov-gateway/login" class="govuk-link--no-visited-state">User has Gov gateway account</a></li>
-                <li class="govuk-link"><a href="/tasked/gov-gateway/login" class="govuk-link--no-visited-state">User has no Gov gateway account</a></li>
-            </ul>
 
-            <h2 class="govuk-heading-m">Authentication</h2>
-            <h3 class="govuk-heading-s govuk-!-margin-bottom-1">Using SMS</h3>
-            <ul class="govuk-list">
-                <li class="govuk-link"><a href="/mfa-V2/core/gov-login1" class="govuk-link--no-visited-state">Single organisation</a></li>
-                <li class="govuk-link"><a href="/mfa-V2/core/gov-login2" class="govuk-link--no-visited-state">Up to 20 organisations</a></li>
-                <li class="govuk-link"><a href="/mfa-V2/core/gov-login3" class="govuk-link--no-visited-state">21 to 45 organisations</a></li>
-                <li class="govuk-link"><a href="/mfa-V2/sms-switch-button/gov-login1" class="govuk-link--no-visited-state">User can authenticate with SMS or switch to email (secondary button)</a></li>
-                <li class="govuk-link"><a href="/mfa-V2/sms-switch-link/gov-login1" class="govuk-link--no-visited-state">User can authenticate with SMS or switch to email (link)</a></li>
-            </ul>
-            <h3 class="govuk-heading-s govuk-!-margin-bottom-1">Using email address</h3>
-            <ul class="govuk-list">
-                <li class="govuk-link"><a href="/mfa-V2/core/verify-single-number?scenario=account-page" class="govuk-link--no-visited-state">Single organisation</a></li>
-                <li class="govuk-link"><a href="/mfa-V2/core/verify-single-number?scenario=get-code-success-sc2" class="govuk-link--no-visited-state">Up to 20 organisations</a></li>
-                <li class="govuk-link"><a href="/mfa-V2/core/verify-single-number?scenario=get-code-success-sc3" class="govuk-link--no-visited-state">21 - 45 organisations</a></li>
-            </ul>
-            <h2 class="govuk-heading-m">Forgot password</h2>
-            <ul class="govuk-list">
-                <li class="govuk-link"><a href="/password-V2/enter-email">Forgot password</a></li>
-                <li class="govuk-link"><a href="/password-V2-2/enter-email">Forgot password (with verification and password on same page)</a></li>
-            </ul> #}
+                {% include "includes/old-mfav2.html" %}
+
         </div>
         <!-- End of two thirds column -->
 
@@ -183,65 +149,13 @@
 
 
 
-        </div>
-
-        <div class="govuk-grid-column-two-thirds">
-
-
-
-
-
-            <!-- {{ govukSummaryList({
-                rows: [
-                    {
-                        key: { text: "Register for an account and authenticate" },
-                        value: { html: '<ul class="govuk-list govuk-list--bullet">
-                        <li>MFA with phone number verification only</li>
-                        <li>MFA via email</li>
-                        <li>MFA switching(sms/email)</li>
-                        <li>Exist pages</li>
-                    </ul>' },
-                        actions: {
-                            items: [
-                                { href: "mfa-V2/scenarios", text: "View", visuallyHiddenText: "name" }
-                            ]
-                        }
-                    },
-                    {
-                        key: { text: "Register for an account and authenticate" },
-                        value: { html: '<ul class="govuk-list govuk-list--bullet">
-                        <li>Single number option</li>
-                                <li>Error message implementation</li>
-                                <li>Replaced ’links list’ with radios component</li>
-                                <li>Accessible autocomplete added to core journey</li>
-                    </ul>' },
-                        actions: {
-                            items: [
-                                { href: "mfa-V2/scenarios", text: "View", visuallyHiddenText: "name" }
-                            ]
-                        }
-                    }
-                    
-                ]
-                }) }}  -->
-
-
-
-
-
-
-
-
-
-        </div>
-
-
+        </div>    
     </div>
 
     <!-- <div class="govuk-grid-row">
         <div class="govuk-grid-column-full govuk-!-margin-top-5">
 
-    <p><a href="mfa/scenarios">Register for an account/authenitcate</a>
+    <p><a href="mfa/scenarios">Register for an account/authenticate</a>
     <br>Sprint current | v2.0</p>
     <ul class="govuk-list govuk-list--bullet">
         <li>MFA with phone number verification only</li>
