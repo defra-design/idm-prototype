@@ -23,7 +23,7 @@
           			{{ data['defraIdType'] }}
         		</dd>
         		<dd class="govuk-summary-list__actions">
-					<a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> account type</span></a>
+					<a class="govuk-link govuk-link--no-visited-state" href="/register/account-type?link=change">Change<span class="govuk-visually-hidden"> account type</span></a>
         		</dd>
       		</div>
     	</dl>
@@ -160,20 +160,20 @@
         	<div class="govuk-summary-list__row">
           		<dt class="govuk-summary-list__key">Your name</dt>
           		<dd class="govuk-summary-list__value">
-            		{{ data['defraIdFirstName'] or 'Sam' }} {{ data['defraIdSurname'] or 'Woods' }}
+            		{{ data['defraIdFirstName'] or 'Hugo' }} {{ data['defraIdSurname'] or 'Furst' }}
           		</dd>
           		<dd class="govuk-summary-list__actions">
-            		<a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> your name</span></a>
+            		<a class="govuk-link govuk-link--no-visited-state" href="/register/personal-name?link=change">Change<span class="govuk-visually-hidden"> your name</span></a>
           		</dd>
         	</div>
         	<div class="govuk-summary-list__row">
           		<dt class="govuk-summary-list__key">Your contact details</dt>
           		<dd class="govuk-summary-list__value">
             		{{ data['defraIdPersonalPhone'] or '07711223344' }}<br />
-            		{{ data['govGateEmail'] or 'samwoods@company.co.uk' }}
+            		{{ data['govGateEmail'] or 'hugofurst@soleheaven.co.uk' }}
           		</dd>
           		<dd class="govuk-summary-list__actions">
-            		<a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> your contact details</span></a>
+            		<a class="govuk-link govuk-link--no-visited-state" href="/register/your-contact-details?link=change">Change<span class="govuk-visually-hidden"> your contact details</span></a>
           		</dd>
         	</div>
 
@@ -181,10 +181,10 @@
 			<div class="govuk-summary-list__row">
 				<dt class="govuk-summary-list__key">Your address</dt>
 				<dd class="govuk-summary-list__value">
-					7 BARLEY WAY, KILLINGWORTH, NEWCASTLE UPON TYNE, NORTH TYNESIDE, NE12 7BN, United Kingdom
+					{{ data['address'] or 'Top Gun, Mirimar, San Diego' }}					
 				</dd>
 				<dd class="govuk-summary-list__actions">
-				  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> your contact details</span></a>
+				  <a class="govuk-link govuk-link--no-visited-state" href="/register/address/postcode?link=change">Change<span class="govuk-visually-hidden"> your contact details</span></a>
 				</dd>
 		  </div>
 		  {% endif %}
@@ -193,11 +193,11 @@
         	<div class="govuk-summary-list__row">
           		<dt class="govuk-summary-list__key">Your security word</dt>
           		<dd class="govuk-summary-list__value">
-            		{{ data['defraIdSecurityWord'] or 'pancakes' }}<br />
-            		{{ data['defraIdSecurityHint'] or 'My favourite food' }}
+            		{{ data['defraIdSecurityWord'] or 'TheGoat23' }}
+            		<!-- {{ data['defraIdSecurityHint'] or 'My favourite food' }} -->
           		</dd>
           		<dd class="govuk-summary-list__actions">
-            		<a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> security word and hint</span></a>
+            		<a class="govuk-link govuk-link--no-visited-state" href="/register/individual-security?link=change">Change<span class="govuk-visually-hidden"> security word and hint</span></a>
           		</dd>
         	</div>
       	</dl>
