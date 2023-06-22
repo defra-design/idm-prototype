@@ -57,26 +57,63 @@
             {% if data['serviceName'] != "vetsVisit" %}      
                     
                 <h3 class="govuk-heading-m">Authentication options</h3>
-                
-                <div class="mspace">
-                {{ govukCheckboxes({
-                    idPrefix: "multiplePhoneNumber",
-                    classes: "govuk-checkboxes--small",
-                    name: "multiplePhoneNumber",
-                    items: [
-                        { value: "Yes", text: "Multiple phone numbers on account", checked: checked("multiplePhoneNumber", "Yes")}
-                    ]
-                }) }}
-                </div>
 
-                {{ govukCheckboxes({
-                    idPrefix: "securityWordChanged",
-                    classes: "govuk-checkboxes--small",
-                    name: "securityWordChanged",
-                    items: [
-                        { value: "Yes", text: "Security word has changed", checked: checked("securityWordChanged", "Yes")}
-                    ]
-                }) }}
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-one-half">
+                
+                        <div class="mspace">
+                        {{ govukCheckboxes({
+                            idPrefix: "mfaEmailDisabled",
+                            classes: "govuk-checkboxes--small",
+                            name: "mfaEmailDisabled",
+                            items: [
+                                { value: "Yes", text: "MFA via email disabled", checked: checked("mfaEmailDisabled", "Yes")}
+                            ]
+                        }) }}
+                        </div>
+                        <div class="mspace">
+                        {{ govukCheckboxes({
+                            idPrefix: "mfaSmsDisabled",
+                            classes: "govuk-checkboxes--small",
+                            name: "mfaSmsDisabled",
+                            items: [
+                                { value: "Yes", text: "MFA via SMS disabled", checked: checked("mfaSmsDisabled", "Yes")}
+                            ]
+                        }) }}
+                        </div>
+                        {{ govukCheckboxes({
+                            idPrefix: "mfaDisabled",
+                            classes: "govuk-checkboxes--small",
+                            name: "mfaDisabled",
+                            items: [
+                                { value: "Yes", text: "MFA via Email and SMS disabled", checked: checked("mfaDisabled", "Yes")}
+                            ]
+                        }) }}
+                    </div>
+                    <div class="govuk-grid-column-one-half">
+
+                        <div class="mspace">
+                            {{ govukCheckboxes({
+                                idPrefix: "multiplePhoneNumber",
+                                classes: "govuk-checkboxes--small",
+                                name: "multiplePhoneNumber",
+                                items: [
+                                    { value: "Yes", text: "Multiple phone numbers on account", checked: checked("multiplePhoneNumber", "Yes")}
+                                ]
+                            }) }}
+                            </div>
+    
+                            {{ govukCheckboxes({
+                                idPrefix: "securityWordChanged",
+                                classes: "govuk-checkboxes--small",
+                                name: "securityWordChanged",
+                                items: [
+                                    { value: "Yes", text: "Security word has changed", checked: checked("securityWordChanged", "Yes")}
+                                ]
+                            }) }}
+
+                        </div>
+                    </div>
                 
                 
 

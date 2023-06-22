@@ -14,7 +14,7 @@
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
         <p class="govuk-body">We will send you a 6-digit verification code.</p>        
-        <form action="/authentication/security-word" method="post">
+        <form action="/authentication/verify" method="post">
 
             {% if data['multiplePhoneNumber'] == "Yes" %}                
 
