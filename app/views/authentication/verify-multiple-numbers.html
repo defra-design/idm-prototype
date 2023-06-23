@@ -40,11 +40,15 @@
           }) }}
                 
 
-        	<input type="hidden" id="status" name="status" value="" />    		
-      		{{ govukButton({
-        		text: "Continue"
-      		}) }}		
-    </form>
+        	<input type="hidden" id="status" name="status" value="" />   
+          
+          	<div class="govuk-button-group">
+            	{{ govukButton({
+              		text: "Continue"
+            	}) }}		          
+              	<a class="govuk-link" href="#">I do not have access to these numbers</a>          
+            </div>
+    	</form>
 
 
     <details class="govuk-details" data-module="govuk-details">

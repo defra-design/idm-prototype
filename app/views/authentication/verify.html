@@ -18,16 +18,10 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
         
-
         {% if data['mfaEmailDisabled'] == "Yes" %}
-            <!-- <p>The option to verify your identity by email is not currently available. You have been directed to get the 6-digit code sent by text message.</p> -->
-            
-
             <p>The option to verify your identity by email is not available.</p>            
             <p>We have switched you to verify your identity by sending the 6-digit code using a text message.</p>
         {% endif %}
-
-
 
         {% if data['verify-your-identity'] == "send-email" %}
 
@@ -45,9 +39,20 @@
 
         <form action="/authentication/get-code" method="post">
             <input type="hidden" id="status" name="status" value="" />    		
+
+            <div class="govuk-button-group">
+
+
             {{ govukButton({
                 text: "Confirm and send code"
             }) }}
+
+            {% if data['verify-your-identity'] == "send-email" %}
+                <a class="govuk-link" href="#">I do not have access to this email address</a>
+            {% else %}
+                <a class="govuk-link" href="/authentication/not-recognise">I do not have access to this number</a>
+            {% endif %}
+            </div>
 
         </form>
 
