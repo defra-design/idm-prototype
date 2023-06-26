@@ -48,7 +48,7 @@
             }) }}
 
             {% if data['verify-your-identity'] == "send-email" %}
-                <a class="govuk-link" href="#">I do not have access to this email address</a>
+                <a class="govuk-link" href="/authentication/not-recognise">I do not have access to this email address</a>
             {% else %}
                 <a class="govuk-link" href="/authentication/not-recognise">I do not have access to this number</a>
             {% endif %}
