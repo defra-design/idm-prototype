@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+{% set showBackLink = false %}
+{% set serviceName = "" %}
+
+{% if data['verify-your-identity'] == "send-email" %}
+    {% set pageHeading = "Changing the email address used for identity verification" %}
+{% else %}
+    {% set pageHeading = "Changing the phone number used for identity verification" %}
+{% endif %}
+
+
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+        
+        
+        {% if data['verify-your-identity'] == "send-email" %}
+        <p>If you do not have access to the email address associated with your account, you’ll need contact us to make a change to it.</p>
+        {% else %}
+        <p>If you do not have access to the phone number associated with your account, you’ll need to contact us to make a change to it.</p>
+        {% endif %}
+
+        <p>It is not possible to change this online.</p>
+
+        <h2 class="govuk-heading-m">What to do</h2>
+        
+        <p class="govuk-body">Contact <a class="govuk-link govuk-link--no-visited-state" href=“mailto:{SERVICE EMAIL}”>{SERVICE email address}</a> if you need help or call our helpline.</p>
+        <p class="govuk-body">
+            Helpline:<br>
+            <strong class="govuk-!-font-weight-bold">{SERVICE helpline number}</strong>
+        </p>
+        <p class="govuk-body">
+            Opening times:<br>
+            <strong class="govuk-!-font-weight-bold">{SERVICE opening times}</strong>
+        </p>
+        
+        <p><a href="https://www.gov.uk/call-charges" class="govuk-link govuk-link--no-visited-state" rel="noreferrer noopener" target="_blank" >Find out about call charges (opens in a new tab).</a></p>                
+    
+    </div>
+    <!-- <div class="govuk-grid-column-one-third review">      
+        <ul class="govuk-list govuk-body-s govuk-!-text-align-right">        
+            {% if data['status'] == "review" %}                        
+                <li><a href="/403-status?status=" class="govuk-link govuk-link--no-visited-state">Current page</a></li>        
+            {% else %}
+                <li><a href="/403-status?status=review" class="govuk-link govuk-link--no-visited-state">Suggested page changes</a></li>        
+            {% endif %}
+        </ul>      
+    </div> -->
+</div>
+
+
+{% endblock %}
