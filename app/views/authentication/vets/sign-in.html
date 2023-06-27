@@ -41,8 +41,6 @@
 
         {% endif %}
 
-
-
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
         {% if data ['noBusinessRegistered'] == "Yes" %}
@@ -56,16 +54,6 @@
             {% endif %}
 
         {% endif %}
-<!-- Redirects for scenarios -->  
-<!-- {% if data['scenario'] == "sc1" %}
-<form action="verify-sc1" autocomplete="false">
-
-{% elif data['scenario'] == "sc2" %}
-<form action="verify-sc2" autocomplete="false">
-
-{% elif data['scenario'] == "sc3" %}
-<form action="verify-sc3" autocomplete="false">
-{% endif %} -->
             
 
                 {% if data['status'] == "error-messages" %}
