@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% set showBackLink = false %}
-{% set serviceName = "Defra Identity Management " %}
+{% set serviceFlow = "Defra Identity Management " %}
 
 {% set pageHeading = "Page listings " %}
 {% set pageSection = "" %}
@@ -199,18 +199,18 @@
             {% set vetsVisitHtml %}
             
             <ul class="govuk-list govuk-list--bullet">
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/authentication/vets/start?serviceName=vetsVisit" >Apply for an annual health and welfare review of your livestock</a></li>                
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/authentication/vets/sign-in?serviceName=vetsVisit" >Sign in to annual health and welfare review of livestock</a>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/authentication/vets/start?serviceFlow=vetsVisit" >Apply for an annual health and welfare review of your livestock</a></li>                
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/authentication/vets/sign-in?serviceFlow=vetsVisit" >Sign in to annual health and welfare review of livestock</a>
                     <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-2">
-                        <li><a class="govuk-link govuk-link--no-visited-state" href="/authentication/password/reset?serviceName=vetsVisit" >Reset your password</a>
-                        <!-- <li><a class="govuk-link govuk-link--no-visited-state" href="/authentication/vets/sign-in?serviceName=vetsVisit" >There are no businesses registered to this account</a></li> -->
+                        <li><a class="govuk-link govuk-link--no-visited-state" href="/authentication/password/reset?serviceFlow=vetsVisit" >Reset your password</a>
+                        <!-- <li><a class="govuk-link govuk-link--no-visited-state" href="/authentication/vets/sign-in?serviceFlow=vetsVisit" >There are no businesses registered to this account</a></li> -->
                     </ul>                
                 </li>                
                 
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/authentication/select-your-business?companySize=20&serviceName=vetsVisit" >Choose a business</a></li>                
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/authentication/select-your-business?companySize=45&serviceName=vetsVisit" >Enter a business or its single business identifier (SBI)</a></li>                
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/authentication/select-your-business?companySize=20&serviceFlow=vetsVisit" >Choose a business</a></li>                
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/authentication/select-your-business?companySize=45&serviceFlow=vetsVisit" >Enter a business or its single business identifier (SBI)</a></li>                
 
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/authentication/vets/check-details?serviceName=vetsVisit" >Check your details</a></li>                
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/authentication/vets/check-details?serviceFlow=vetsVisit" >Check your details</a></li>                
                 
 
                 

@@ -43,17 +43,13 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-        {% if data ['noBusinessRegistered'] == "Yes" %}
-            <form action="/authentication/nothing-registered" autocomplete="false">
-        {% else %}
-
-            {% if data['companySize'] == "Single" %}
-            <form action="/authentication/vets/account-page" autocomplete="false">
+            {% if data ['companySize'] == "None" %}
+            <form action="/authentication/nothing-registered" autocomplete="false">        
+            {% elif data['companySize'] == "Single" %}
+            <form action="/authentication/vets/check-details" autocomplete="false">
             {% else %}
             <form action="/authentication/select-your-business" autocomplete="false">
-            {% endif %}
-
-        {% endif %}
+            {% endif %}        
             
 
                 {% if data['status'] == "error-messages" %}

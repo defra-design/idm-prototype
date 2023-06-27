@@ -4,7 +4,7 @@
 
 {% set pageHeading = "Preload prototype with data" %}
 
-{% if data['serviceName'] == "vetsVisit" %}  
+{% if data['serviceFlow'] == "vetsVisit" %}  
     {% set pageSection = "Annual health and welfare review of livestock" %}
 {% else %}
     {% set pageSection = "" %}
@@ -19,6 +19,7 @@
         {{ macroPageHeader.pageHeader(pageHeading, pageSection) }}
 
         <!-- Registration journey flow -->
+        <!-- //////////////////////////////////////////////////////////// -->
         {% if data['flow'] == "Registration" %}
             
             <form class="form" action="/gov-gateway/login" method="post" class="">
@@ -42,92 +43,81 @@
                 ]
             } | decorateFormAttributes('siteEntry')) }}
 
+        <!-- ////////////////// End of Registration flow /////////////////////////// -->
+        
+        
         <!-- Authentication journey flow -->
+        <!-- //////////////////////////////////////////////////////////// -->
         {% elif data['flow'] == "Authentication" %}
 
+            <!-- Start page flow depending on service -->
             
-            {% if data['serviceName'] == "vetsVisit" %}      
-                <form class="form" action="/authentication/vets/start" method="post" >
-            {% elif data['flowVersion'] == "current" %}
-                <form class="form" action="/sign-in" method="post" >
+            {% if data['serviceFlow'] == "vetsVisit" %}      
+                <form class="form" action="/authentication/vets/start" method="post" >            
             {% else %}
-                <form class="form" action="/archived/mfa/gov-gateway/login-v2" method="post" class="">
-            {% endif %}
-            
-            {% if data['serviceName'] != "vetsVisit" %}      
+                    <form class="form" action="/sign-in" method="post" >            
+            {% endif %}        
+                
+            <!-- <form class="form" action="/archived/mfa/gov-gateway/login-v2" method="post" class=""> -->
+
+            {% if data['serviceFlow'] != "vetsVisit" %}      
                     
                 <h3 class="govuk-heading-m">Authentication options</h3>
-
                 <div class="govuk-grid-row">
-                    <div class="govuk-grid-column-one-half">
-                
+                    <div class="govuk-grid-column-one-half">    
                         <div class="mspace">
-                        {{ govukCheckboxes({
-                            idPrefix: "mfaEmailDisabled",
-                            classes: "govuk-checkboxes--small",
-                            name: "mfaEmailDisabled",
+                        {{ govukCheckboxes({                            
+                            classes: "govuk-checkboxes--small",                            
                             items: [
                                 { value: "Yes", text: "MFA via email disabled", checked: checked("mfaEmailDisabled", "Yes")}
                             ]
-                        }) }}
+                        } | decorateFormAttributes('mfaEmailDisabled')) }}
                         </div>
                         <div class="mspace">
-                        {{ govukCheckboxes({
-                            idPrefix: "mfaSmsDisabled",
-                            classes: "govuk-checkboxes--small",
-                            name: "mfaSmsDisabled",
+                        {{ govukCheckboxes({                            
+                            classes: "govuk-checkboxes--small",                            
                             items: [
                                 { value: "Yes", text: "MFA via SMS disabled", checked: checked("mfaSmsDisabled", "Yes")}
                             ]
-                        }) }}
+                        } | decorateFormAttributes('mfaSmsDisabled')) }}
                         </div>
-                        {{ govukCheckboxes({
-                            idPrefix: "mfaDisabled",
-                            classes: "govuk-checkboxes--small",
-                            name: "mfaDisabled",
+                        {{ govukCheckboxes({                            
+                            classes: "govuk-checkboxes--small",                            
                             items: [
                                 { value: "Yes", text: "MFA via Email and SMS disabled", checked: checked("mfaDisabled", "Yes")}
                             ]
-                        }) }}
+                        } | decorateFormAttributes('mfaDisabled')) }}
                     </div>
                     <div class="govuk-grid-column-one-half">
-
                         <div class="mspace">
-                            {{ govukCheckboxes({
-                                idPrefix: "multiplePhoneNumber",
-                                classes: "govuk-checkboxes--small",
-                                name: "multiplePhoneNumber",
+                            {{ govukCheckboxes({                                
+                                classes: "govuk-checkboxes--small",                                
                                 items: [
                                     { value: "Yes", text: "Multiple phone numbers on account", checked: checked("multiplePhoneNumber", "Yes")}
                                 ]
-                            }) }}
-                            </div>
-    
-                            {{ govukCheckboxes({
-                                idPrefix: "securityWordChanged",
-                                classes: "govuk-checkboxes--small",
-                                name: "securityWordChanged",
-                                items: [
-                                    { value: "Yes", text: "Security word has changed", checked: checked("securityWordChanged", "Yes")}
-                                ]
-                            }) }}
-
-                        </div>
+                            } | decorateFormAttributes('multiplePhoneNumber')) }}
+                        </div>    
+                        {{ govukCheckboxes({                                
+                            classes: "govuk-checkboxes--small",                                
+                            items: [
+                                { value: "Yes", text: "Security word has changed", checked: checked("securityWordChanged", "Yes")}
+                            ]
+                        } | decorateFormAttributes('securityWordChanged')) }}
                     </div>
-                
-                
-
+                </div>                            
             {% endif %}
+                
+            <!-- Organisation registered to choose from -->
+            <!-- //////////////////////////////////////////////////////////// -->
+            {% if data['serviceFlow'] == "vetsVisit" %}   
 
-            {% if data['serviceName'] == "vetsVisit" %}   
-
-                {{ govukRadios({
-                    classes: "govuk-radios--inline",
+                {{ govukRadios({                    
                     fieldset: {
-                        legend: { text: "Businesses registered to rural payments account", isPageHeading: false, classes: "govuk-fieldset__legend--m"  }
+                        legend: { text: "Businesses registered on rural payments account", isPageHeading: false, classes: "govuk-fieldset__legend--m"  }
                     },
                     items: [
-                        { value: "Single", text: "Single", checked: checked("companySize", "Single") },
+                        { value: "None", text: "None", checked: checked("companySize", "None") },    
+                        { value: "Single", text: "One", checked: checked("companySize", "Single") },
                         { value: "20", text: "Up to 20", checked: checked("companySize", "20") },
                         { value: "45", text: "More than 20", checked: checked("companySize", "45") }
                     ]
@@ -138,7 +128,7 @@
                 {{ govukRadios({
                     classes: "govuk-radios--inline",
                     fieldset: {
-                        legend: { text: "Organisations registered to account that you can represent", isPageHeading: false, classes: "govuk-fieldset__legend--m"  }
+                        legend: { text: "Organisations or businesses registered to account", isPageHeading: false, classes: "govuk-fieldset__legend--m"  }
                     },
                     items: [
                         { value: "Single", text: "Single" },
@@ -148,69 +138,40 @@
                 } | decorateFormAttributes('companySize')) }}
 
             {% endif %}
+            <!-- ////////////////// End of business or organisation totals /////////////////////////// -->
             
-
-            {% if data['serviceName'] != "vetsVisit" %}      
-            <h3 class="govuk-heading-m">Interswitch flow options</h3>
-            <div class="govuk-grid-row">
-                <div class="govuk-grid-column-two-thirds">
-                    <p>User journey options to show the different scenarios that can happen within interswitch pages.</p>            
-                </div>
-            </div>
+            <!-- Interswitch -->
+            <!-- //////////////////////////////////////////////////////////// -->
+            {% if data['serviceFlow'] != "vetsVisit" %}      
+            <h3 class="govuk-heading-m">Interswitch options</h3>            
             <div class="govuk-grid-row">                
                 <div class="govuk-grid-column-one-half">
                     
                     <div class="mspace">
-                    {{ govukCheckboxes({
-                        idPrefix: "interSwitchSize",
-                        classes: "govuk-checkboxes--small",
-                        name: "interSwitchSize",
+                    {{ govukCheckboxes({                        
+                        classes: "govuk-checkboxes--small",                        
                         items: [
                             { value: "Single", text: "Only 1 organisation available for enrolment", checked: checked("interSwitchSize", "Single")}
                         ]
-                    }) }}
+                    } | decorateFormAttributes('interSwitchSize')) }}
                     </div>
 
-                    {{ govukCheckboxes({
-                        idPrefix: "citizenEnrol",
-                        classes: "govuk-checkboxes--small",
-                        name: "citizenEnrol",
+                    {{ govukCheckboxes({                        
+                        classes: "govuk-checkboxes--small",                        
                         items: [
                             { value: "Yes", text: "Shows citizen only option for enrolment", checked: checked("citizenEnrol", "Yes")}
                         ]
-                    }) }}
+                    } | decorateFormAttributes('citizenEnrol')) }}
 
                 </div>
             </div>
             {% endif %}
-
-            {% if data['serviceName'] == "vetsVisit" %}      
-            <h3 class="govuk-heading-m">Flow overrides</h3>
-            <div class="govuk-grid-row">
-                
-                  
-                    
-                    <div class="govuk-grid-column-full">
-
-                        {{ govukCheckboxes({
-                            idPrefix: "noBusinessRegistered",
-                            classes: "govuk-checkboxes--small",
-                            name: "noBusinessRegistered",                            
-                            items: [
-                                { value: "Yes", text: "No businesses registered to rural payments account", checked: checked("noBusinessRegistered", "Yes")}
-                            ]
-                        }) }}
-
-                  
-                    
-                </div>
-            </div>
-            {% endif %}
+            <!-- ////////////////// End of interswitch /////////////////////////// -->            
 
         {% endif %}
 
             {{ govukButton({
-                text: "Add preloaded information and continue"
+                text: "Add preloaded data and continue"
             }) }}
 
         </form>

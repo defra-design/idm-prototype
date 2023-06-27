@@ -29,7 +29,8 @@
                 <li class="govuk-body">give other people (for example colleagues or agents) access to one or more of the online services they use.</li>
             </ul>
 
-            <h2 class="govuk-heading-m">Core user flows</h2>            
+            <h2 class="govuk-heading-m">User flows</h2>      
+            <p>These are the core flows, but you can also select a service on the preload to show any service specific pages and content.</p>      
             <div class="govuk-button-group">
                 <form action="/preload" method="post" >
                     <input type="hidden" name="flow" id="flow" value="Registration" />
@@ -52,12 +53,12 @@
             
             
             <div class="govuk-button-group">
-                <form action="/preload" method="post" >
+                <form action="/service" method="post" >
                     <input type="hidden" name="flow" id="flow" value="Authentication" />
                     <input type="hidden" name="flowVersion" id="flowVersion" value="current" />
-                    <input type="hidden" name="serviceName" id="serviceName" value="coreDefault" />
+                    <input type="hidden" name="serviceFlow" id="serviceFlow" value="coreDefault" />
                     <input type="hidden" name="companySize" id="companySize" value="20" />
-                    <input type="hidden" name="interSwitch" id="interSwitch" value="Yes" />                    
+                    <!-- <input type="hidden" name="interSwitch" id="interSwitch" value="Yes" />                     -->
                     {{ govukButton({
                         text: "Sign in authentication and verification"                        
                     }) }}
@@ -88,20 +89,20 @@
                 <br><a href="mfa/scenarios">Previous register for an account/authenticate V1</a></p>
      -->
 
-            <h2 class="govuk-heading-m govuk-!-margin-top-9">Service specific flows</h2>
+            <!-- <h2 class="govuk-heading-m govuk-!-margin-top-9">Service specific flows</h2>
             <h3 class="govuk-heading-s">Annual Health and Welfare Review of livestock<span class="govuk-body-s"></span></h3>
             <p>Illustrates the journey flow for authentication for Annual Health and Welfare Review of livestock service in both applying and claiming states.</p>
             
                 <form action="/preload" method="post" >
                     <input type="hidden" name="flow" id="flow" value="Authentication" />                    
-                    <input type="hidden" name="serviceName" id="serviceName" value="vetsVisit" />    
+                    <input type="hidden" name="serviceFlow" id="serviceFlow" value="vetsVisit" />    
                     <input type="hidden" name="companySize" id="companySize" value="20" />  
                     <input type="hidden" name="interSwitch" id="interSwitch" value="" />                  
                     
                     {{ govukButton({
                         text: "Sign in authentication"                        
                     }) }}
-                </form>         
+                </form>          -->
 
 
                 {% include "includes/old-mfav2.html" %}
