@@ -2,13 +2,13 @@
 {% set showBackLink = false %}
 {% set serviceName = "Preload - Defra identity management" %}
 
-{% set pageHeading = "Preload prototype with data" %}
-
 {% if data['serviceFlow'] == "vetsVisit" %}  
     {% set pageSection = "Annual health and welfare review of livestock" %}
 {% else %}
-    {% set pageSection = "" %}
+    {% set pageHeading = "Core service flow" %}
 {% endif %}
+{% set pageSection = "Preload data" %}
+
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 {% block content %}
