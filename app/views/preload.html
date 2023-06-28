@@ -3,7 +3,7 @@
 {% set serviceName = "Preload - Defra identity management" %}
 
 {% if data['serviceFlow'] == "vetsVisit" %}  
-    {% set pageSection = "Annual health and welfare review of livestock" %}
+    {% set pageHeading = "Annual health and welfare review of livestock" %}
 {% else %}
     {% set pageHeading = "Core service flow" %}
 {% endif %}
@@ -111,7 +111,8 @@
             <!-- //////////////////////////////////////////////////////////// -->
             {% if data['serviceFlow'] == "vetsVisit" %}   
 
-                {{ govukRadios({                    
+                {{ govukRadios({     
+                    classes: "govuk-radios--inline",               
                     fieldset: {
                         legend: { text: "Businesses registered on rural payments account", isPageHeading: false, classes: "govuk-fieldset__legend--m"  }
                     },
