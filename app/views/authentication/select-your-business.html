@@ -20,7 +20,7 @@
 {% endif %}
 
 <!-- Page title information -->
-{% if data['serviceName'] == "vetsVisit" %}
+{% if data['serviceFlow'] == "vetsVisit" %}
     {% if data['companySize'] == "45" %}
         {% set pageHeading = "Enter a business or its single business identifier (SBI)" %}  
     {% else %}  
@@ -42,7 +42,7 @@
     <div class="govuk-grid-column-two-thirds">
 
         <!-- Error messaging  -->
-        {% if data['serviceName'] == "vetsVisit" %}
+        {% if data['serviceFlow'] == "vetsVisit" %}
 
             {% if data['status'] == "error-messages" %}
 
@@ -73,7 +73,7 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-        {% if data['serviceName'] == "vetsVisit" %}
+        {% if data['serviceFlow'] == "vetsVisit" %}
         	{% if data['companySize'] == "45" %}              
               <p>This must be a business registered to your rural payments account.</p>              
               <p class="govuk-hint">For example, The Dairy Farm or 123456789.</p>          
@@ -82,7 +82,7 @@
           	{% endif %}
         {% endif %}
 
-        {% if data['serviceName'] == "vetsVisit" %}
+        {% if data['serviceFlow'] == "vetsVisit" %}
 
         	<form action="/authentication/vets/check-details" method="post" >
         
@@ -311,7 +311,7 @@
                         text: "Continue"
                     }) }}
                     
-                    {% if data['serviceName'] != "vetsVisit" %}
+                    {% if data['serviceFlow'] != "vetsVisit" %}
                     
                     {% if data['companySize'] >= "20"  %}
                         <a class="govuk-link" href="/authentication/new-enrolment">An organisation not listed</a>
@@ -324,7 +324,7 @@
 
             <details class="govuk-details" data-module="govuk-details">
               
-                {% if data['serviceName'] == "vetsVisit" %}
+                {% if data['serviceFlow'] == "vetsVisit" %}
 
                     <summary class="govuk-details__summary">
                     	<span class="govuk-details__summary-text">Need more help?</span>
@@ -358,7 +358,7 @@
 
     </div>
 
-    {% if data['serviceName'] != "vetsVisit" %}
+    {% if data['serviceFlow'] != "vetsVisit" %}
 	<!-- <div class="govuk-grid-column-one-third review">      
         <ul class="govuk-list govuk-body-s govuk-!-text-align-right"> 
             {% if data['status'] == "review" %}                   
@@ -369,7 +369,7 @@
             {% endif %}
         </ul>      
     </div> -->
-    {% elif data['serviceName'] == "vetsVisit" %}
+    {% elif data['serviceFlow'] == "vetsVisit" %}
     <div class="govuk-grid-column-one-third review">      
         <ul class="govuk-list govuk-body-s govuk-!-text-align-right">                             
             <li><a href="/authentication/select-your-business?status=" class="govuk-link govuk-link--no-visited-state">Show no error</a></li>                    
