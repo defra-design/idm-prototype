@@ -2,7 +2,7 @@
 {% set showBackLink = false %}
 {% set serviceName = "" %}
 
-{% set pageHeading = "Apply register or sign in to service name" %}
+{% set pageHeading = "Apply/Register for service" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -14,17 +14,19 @@
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
         
 
-      	<p class="govuk-heading-body">Use this service to do something that would be a short paragraph of intro content to help the user.</p>
-      	<ul class="govuk-list govuk-list--bullet">                
-        	<li>moving goods between Great Britain and Northern Ireland or Northern Ireland and the EU</li>
-        	<li>sending goods through the post</li>
-        	<li>taking a small amount of goods personally to sell abroad</li>
-        	<li>taking goods temporarily out of the UK</li>
+      	<p class="govuk-heading-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      	<ul class="govuk-list govuk-list--bullet">
+			<li>praesent non elit ac nibh eleifend lacinia.</li>
+			<li>quisque pellentesque enim ac finibus mattis.</li>
+			<li>nullam et dolor a lacus cursus egestas et ac ex.</li>
+			<li>nam accumsan ligula sed orci vehicula tincidunt.</li>        	
       	</ul>
 		
-	
+		<p class="govuk-!-margin-bottom-7">Aliquam euismod ut leo et tristique. Maecenas eleifend odio elit, id vehicula elit laoreet et.</p>
+
+
 		{% if data['useOneLogin'] == "Yes" %}
-			<form class="form" action="/authentication/email-address" method="post" >
+			<form class="form" action="/sign-in" method="post" >				
 		{% else %}
 			<form class="form" action="/sign-in" method="post" >
 		{% endif %}
@@ -36,10 +38,18 @@
 		
 
     	<h2 class="govuk-heading-m">Before you start</h2>
-    	<p>You can use a GOV.UK One Login to use this service. If you do not have a GOV.UK One Login, you can create one.</p>
+    	<p>Vivamus efficitur turpis arcu, id hendrerit turpis convallis et. Sed massa sapien, scelerisque id nunc vitae, porta consequat lorem.</p>
+		
+		<h3 class="govuk-heading-s">If you need help with the service</h3>
+
+		<p>Vestibulum a orci ac <a href="#">nunc ultricies fringilla</a> sit amet eget massa.</p>
+
+
+
+		<!-- <p>You can use a GOV.UK One Login to use this service. If you do not have a GOV.UK One Login, you can create one.</p>
 		<p>You’ll need an email address and be asked for this information and possibly some other information.</p>
     	<p>You must be eligible to apply for {service name}.
-      	Read the guidance on <a href="guidance-for-farmers">{service name}</a> before you use this service.</p>
+      	Read the guidance on <a href="guidance-for-farmers">{service name}</a> before you use this service.</p> -->
     
   	</div>
 </div>

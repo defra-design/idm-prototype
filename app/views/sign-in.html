@@ -1,8 +1,8 @@
 {% extends "layout.html" %}
 {% set showBackLink = false %}
-{% set serviceName = "Government Gateway" %}
+{% set serviceName = "" %}
 
-{% set pageHeading = "Sign in using Government Gateway" %}
+{% set pageHeading = "Sign in using GOV.UK One Login or Government Gateway" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -11,94 +11,108 @@
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-        {% set html %}
-            <p>Do not share your Government Gateway user ID and password with anyone else.</p>
-        {% endset %}
-
-        {{ govukNotificationBanner({
-            titleText: 'Keep your information secure',
-            html: html
-        }) }}
-
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
 
-        {% if data['mfaDisabled'] == "Yes" %}
-
-            <form action="/unavailable" method="post">
+        <h2 class="govuk-heading-m">GOV.UK One Login</h2>
+        <p>You can create a GOV.UK One Login or if you already have one use it to <a href="#">sign in</a>.</p>
         
-        {% elif data['mfaEmailDisabled'] == "Yes" %}
-            {% if data['multiplePhoneNumber'] == "Yes" %}
-                <form action="/authentication/verify-multiple-numbers" method="post">
-                <input type="hidden" id="verify-your-identity" name="verify-your-identity" value="send-sms" />
-            {% else %}
-                <form action="/authentication/verify" method="post">
-                <input type="hidden" id="verify-your-identity" name="verify-your-identity" value="send-sms" />            
-            {% endif %}
-        {% elif data['mfaSmsDisabled'] == "Yes" %}
-            <form action="/authentication/security-word" method="post">
-            <input type="hidden" id="verify-your-identity" name="verify-your-identity" value="send-email" />
 
-        {% else %}
+        <details class="govuk-details" data-module="govuk-details">
+            <summary class="govuk-details__summary"><span class="govuk-details__summary-text">About GOV.UK One Login</span></summary>
+            <div class="govuk-details__text">
+                <p>GOV.UK One Login is new. At the moment you can only use your GOV.UK One Login with:</p>
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>This {service name}</li>
+                    <li>Apply for a vehicle operator licence</li>
+                    <li>GOV.UK email subscriptions</li>
+                    <li>LITE ( Licensing for International Trader and Enterprise)</li>
+                    <li>Request a basic DBS check</li>
+                </ul>
+                <p>GOV.UK One Login is currently separate from other government accounts (for example Government Gateway or Universal Credit)</p>
+                <p>In the future, you’ll be able to use your GOV.UK One Login to sign in to most services on OGV.UK</p>                
+            </div>
+        </details>
 
-            {% if data['companySize'] == "Single" %}
-                <!-- <form action="verify" method="post"> -->
-                <form action="/authentication/verify-single-number" method="post">
-            {% elif data['companySize'] == "20" %}
-                <form action="/authentication/verify-single-number" method="post">
-            {% elif data['companySize'] == "45" %}
-                <form action="/authentication/verify-single-number" method="post">
-            {% endif %}
 
-        {% endif %}
 
-                {{ govukInput({
-                    label: {
-                    text: "Government Gateway user ID"
-                    },
-                    hint: {
-                    text: "This could be up to 12 characters."
-                    },
-                    classes: "govuk-!-width-one-half",
-                    id: "govGateUserId",
-                    name: "govGateUserId",
-                    value: govGateUserId
-                }) }}
+        <p>You’ll need:</p>
 
-                {{ govukInput({
-                    label: {
-                        text: "Password"
-                    },
-                    classes: "govuk-!-width-three-quarters",
-                    id: "govGatePwassword",
-                    name: "govGatePwassword",
-                    value: govGatePwassword
-                }) }}
-
-                {{ govukButton({
-                    text: "Sign in"
-                }) }}
-
-            </form>
-
-        <h2 class="govuk-heading-m">New users of Government Gateway</h2>
-        <p><a href="/gov-gateway/email-address" class="govuk-link govuk-link--no-visited-state">Create sign in details</a></p>
-
-        <h2 class="govuk-heading-m">Problems signing in</h2>
-        <ul class="govuk-list">
-            <li><a href="#" class="govuk-link govuk-link--no-visited-state">I have forgotten my password</a></li>
-            <li><a href="#" class="govuk-link govuk-link--no-visited-state">I have forgotten my Government Gateway user ID</a></li>
-            <li><a href="#" class="govuk-link govuk-link--no-visited-state">I have forgotten my Government Gateway user ID and password</a></li>
+        <ul class="govuk-list govuk-list--bullet">
+            <li>an email address</li>
+            <li>a way to get security codes - this can be a mobile phone number or an authenticator app</li>
         </ul>
 
-        {% include "includes/get-help.html" %}
+        <div class="govuk-inset-text">
+            The GOV.UK One Login is also available <a href="#">in Welsh (Cymraeg)</a>.
+        </div>
 
-    </div>
-    <div class="govuk-grid-column-one-third review">      
-        <ul class="govuk-list govuk-body-s govuk-!-text-align-right">        
-            <!-- <li><a href="/errors" class="govuk-link govuk-link--no-visited-state">Error page</a></li>         -->
+
+        
+        <form method="post" action="" >            
             
-        </ul>      
+            {{ govukButton({
+                text: "Create a GOV.UK One Login"
+            }) }}                                
+
+
+        </form>
+
+        
+
+
+        
+    <h2 class="govuk-heading-m">Government Gateway</h2>
+
+
+      {% if data['mfaDisabled'] == "Yes" %}
+
+          <form action="/unavailable" method="post">
+      
+      {% elif data['mfaEmailDisabled'] == "Yes" %}
+          {% if data['multiplePhoneNumber'] == "Yes" %}
+              <form action="/authentication/verify-multiple-numbers" method="post">
+              <input type="hidden" id="verify-your-identity" name="verify-your-identity" value="send-sms" />
+          {% else %}
+              <form action="/authentication/verify" method="post">
+              <input type="hidden" id="verify-your-identity" name="verify-your-identity" value="send-sms" />            
+          {% endif %}
+      {% elif data['mfaSmsDisabled'] == "Yes" %}
+          <form action="/authentication/security-word" method="post">
+          <input type="hidden" id="verify-your-identity" name="verify-your-identity" value="send-email" />
+
+      {% else %}
+
+          {% if data['companySize'] == "Single" %}
+              <!-- <form action="verify" method="post"> -->
+              <form action="/authentication/verify-single-number" method="post">
+          {% elif data['companySize'] == "20" %}
+              <form action="/authentication/verify-single-number" method="post">
+          {% elif data['companySize'] == "45" %}
+              <form action="/authentication/verify-single-number" method="post">
+          {% endif %}
+
+      {% endif %}
+
+              
+
+              
+
+          </form>
+
+      <h2 class="govuk-heading-m">New users of Government Gateway</h2>
+      <p><a href="/gov-gateway/email-address" class="govuk-link govuk-link--no-visited-state">Create sign in details</a></p>
+
+      <h2 class="govuk-heading-m">Not sure if you have either</h2>      
+        <p>If you can tell us your email address we can help you find out if you have a GOV.UK One Login or Government Gateway account already.</p>
+          
+      
+
+      {% include "includes/get-help.html" %}
+
+       
     </div>
 </div>
+
+
 {% endblock %}
