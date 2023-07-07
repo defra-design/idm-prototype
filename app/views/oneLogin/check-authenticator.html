@@ -2,8 +2,8 @@
 {% set showBackLink = true %}
 {% set serviceName = "" %}
 
-{% set pageHeading = "Enter your email address to sign in to your GOV.UK One Login" %}
-{% set pageSection = "One Login Journey Flow" %}
+{% set pageHeading = "Enter the 6 digit security code you see in the authenticator app" %}
+{% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
@@ -11,21 +11,18 @@
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-        
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}            
 
-        <form action="/oneLogin/password" method="post" >        
-            
-           
-            
+        <form method="post" action="" >
+
             {{ govukInput({
                 label: {
-                    text: "Email address",
+                    text: "Enter the 6 digit security code", 
                     classes: "govuk-visually-hidden",
                     isPageHeading: false
                 },                
-                classes: "govuk-!-width-two-thirds"
-            } | decorateFormAttributes(govOneLoginEmail)) }}
+                classes: "govuk-input--width-10"
+            } | decorateFormAttributes(govOneLoginCodeAuthenticator)) }}
             
             
             {{ govukButton({
@@ -34,8 +31,10 @@
 
 
         </form>
-       
+
+        
     </div>
 </div>
+
 
 {% endblock %}
