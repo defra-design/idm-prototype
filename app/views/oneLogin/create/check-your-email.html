@@ -1,8 +1,8 @@
 {% extends "layout.html" %}
-{% set showBackLink = false %}
+{% set showBackLink = true %}
 {% set serviceName = "" %}
 
-{% set pageHeading = "Enter your email address to sign in to your GOV.UK One Login" %}
+{% set pageHeading = "Check your email" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -13,16 +13,23 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
         
+        <p>We have sent an email to: {{ data['govOneLoginEmail'] }}</p>
+
+        <p>The email contains a 6 digit security code.</p>
+        <p>Your email might take a few minutes to arrive. If you do not get an email, check your spam folder.</p>
+        <p>The code will expire after 2 hours.</p>    
+
+
         <form method="post" action="" >
 
             {{ govukInput({
                 label: {
-                    text: "Email address",
+                    text: "Enter the 6 digit security code",
                     classes: "govuk-visually-hidden",
                     isPageHeading: false
-                },
-                classes: "govuk-!-width-two-thirds"
-            } | decorateFormAttributes(verificaationCode)) }}
+                },                
+                classes: "govuk-input--width-10"
+            } | decorateFormAttributes(govOneLoginCode)) }}
             
             
             {{ govukButton({

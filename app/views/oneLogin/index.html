@@ -2,8 +2,8 @@
 {% set showBackLink = false %}
 {% set serviceName = "" %}
 
-{% set pageHeading = "Create a GOV.UK One Login or sign in" %}
-{% set pageSection = "" %}
+{% set pageHeading = "Create a GOV.UK One Login" %}
+{% set pageSection = "GOV.UK Pages" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
@@ -14,7 +14,6 @@
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
         <p>You’ll need:</p>
-
         <ul class="govuk-list govuk-list--bullet">
             <li>an email address</li>
             <li>a way to get security codes - this can be a mobile phone number or an authenticator app</li>
@@ -24,19 +23,15 @@
             The GOV.UK One Login is also available <a href="#">in Welsh (Cymraeg)</a>.
         </div>
 
-
-        
-        <form method="post" action="" >            
+        <form method="post" action="/oneLogin/create/email-address" >            
             
             {{ govukButton({
                 text: "Create a GOV.UK One Login"
             }) }}                                
 
-
         </form>
 
         <p>If you already have a GOV.UK One Login you can <a href="#">sign in</a>.</p>
-
 
         <details class="govuk-details" data-module="govuk-details">
             <summary class="govuk-details__summary">
@@ -53,7 +48,7 @@
                     <li>Request a basic DBS check</li>
                 </ul>
                 <p>GOV.UK One Login is currently separate from other government accounts (for example Government Gateway or Universal Credit)</p>
-                <p>In the future, you’ll be able to use your GOV.UK One Login to sign in to most services on OGV.UK</p>
+                <p>In the future, you’ll be able to use your GOV.UK One Login to sign in to most services on GOV.UK</p>
                 
             </div>
           </details>

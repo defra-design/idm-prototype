@@ -3,6 +3,7 @@
 {% set serviceName = "" %}
 
 {% set pageHeading = "Sign in using GOV.UK One Login or Government Gateway" %}
+{% set pageHeading = "Sign in using GOV.UK One Login" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -13,12 +14,62 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
+        <div class="govuk-inset-text">
+            <p>GOV.UK One Login is new.</p>
+        </div>
+        <p>It’s currently separate from other government accounts (for example Government Gateway or Universal Credit).</p>
+        <p class="govuk-!-margin-bottom-7">In the future, you’ll be able to use your GOV.UK One Login to sign in to most services on GOV.UK.</p>
 
-        <h2 class="govuk-heading-m">GOV.UK One Login</h2>
-        <p>You can create a GOV.UK One Login or if you already have one use it to <a href="#">sign in</a>.</p>
+
+        <form method="post" action="/oneLogin/email-address" >
+
+        {{ govukButton({
+            text: "Sign in with GOV.UK One Login"            
+        }) }}  
+
+        </form>
+
+
+        <!-- {{ govukInput({
+            label: {
+            text: "Email address"
+            },            
+            classes: "govuk-!-width-one-half",
+            id: "govOneLoginEmail",
+            name: "govOneLoginEmail",
+            value: govOneLoginEmail
+        }) }} -->
+
+        <!-- <h2 class="govuk-heading-m">New users of GOV.UK One Login</h2>
+        <p><a href="/gov-gateway/email-address" class="govuk-link govuk-link--no-visited-state">Create a GOV.UK One Login</a></p> -->
+        <!-- <p>You can create a GOV.UK One Login or if you already have one use it to <a href="#">sign in</a>.</p> -->
         
 
-        <details class="govuk-details" data-module="govuk-details">
+        <h2 class="govuk-heading-m govuk-!-margin-top-3">Problems signing in</h2>
+        <ul class="govuk-list">
+            <li><a href="/oneLogin/" class="govuk-link govuk-link--no-visited-state">Create a new GOV.UK One Login</a></li>
+            <li><a href="/gov-gateway/sign-in" class="govuk-link govuk-link--no-visited-state">Sign in using your Government Gateway user ID</a></li>
+            
+        </ul>
+
+        <!-- <h2 class="govuk-heading-m">Not sure if you have either</h2>       -->
+        <p>If you are not sure if you have a GOV.UK One Login or Government Gateway ID <a href="/email-address">you can tell us your email address</a> and we will help you find out.</p>
+      
+
+
+
+        <!-- <p>You’ll need:</p>
+
+        <ul class="govuk-list govuk-list--bullet">
+            <li>an email address</li>
+            <li>a way to get security codes - this can be a mobile phone number or an authenticator app</li>
+        </ul>
+
+        <div class="govuk-inset-text">
+            The GOV.UK One Login is also available <a href="#">in Welsh (Cymraeg)</a>.
+        </div> -->
+
+        <!-- <details class="govuk-details" data-module="govuk-details">
             <summary class="govuk-details__summary"><span class="govuk-details__summary-text">About GOV.UK One Login</span></summary>
             <div class="govuk-details__text">
                 <p>GOV.UK One Login is new. At the moment you can only use your GOV.UK One Login with:</p>
@@ -32,37 +83,22 @@
                 <p>GOV.UK One Login is currently separate from other government accounts (for example Government Gateway or Universal Credit)</p>
                 <p>In the future, you’ll be able to use your GOV.UK One Login to sign in to most services on OGV.UK</p>                
             </div>
-        </details>
-
-
-
-        <p>You’ll need:</p>
-
-        <ul class="govuk-list govuk-list--bullet">
-            <li>an email address</li>
-            <li>a way to get security codes - this can be a mobile phone number or an authenticator app</li>
-        </ul>
-
-        <div class="govuk-inset-text">
-            The GOV.UK One Login is also available <a href="#">in Welsh (Cymraeg)</a>.
-        </div>
-
-
+        </details> -->
         
-        <form method="post" action="" >            
+        <!-- <form method="post" action="" >            
             
             {{ govukButton({
                 text: "Create a GOV.UK One Login"
             }) }}                                
 
 
-        </form>
+        </form> -->
 
         
 
 
         
-    <h2 class="govuk-heading-m">Government Gateway</h2>
+
 
 
       {% if data['mfaDisabled'] == "Yes" %}
@@ -100,15 +136,10 @@
 
           </form>
 
-      <h2 class="govuk-heading-m">New users of Government Gateway</h2>
-      <p><a href="/gov-gateway/email-address" class="govuk-link govuk-link--no-visited-state">Create sign in details</a></p>
-
-      <h2 class="govuk-heading-m">Not sure if you have either</h2>      
-        <p>If you can tell us your email address we can help you find out if you have a GOV.UK One Login or Government Gateway account already.</p>
-          
+      
       
 
-      {% include "includes/get-help.html" %}
+      <!-- {% include "includes/get-help.html" %} -->
 
        
     </div>

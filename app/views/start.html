@@ -2,8 +2,8 @@
 {% set showBackLink = false %}
 {% set serviceName = "" %}
 
-{% set pageHeading = "Apply/Register for service" %}
-{% set pageSection = "" %}
+{% set pageHeading = "Apply/Register/Sign in to service" %}
+{% set pageSection = "Dummy service" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
@@ -28,7 +28,7 @@
 		{% if data['useOneLogin'] == "Yes" %}
 			<form class="form" action="/sign-in" method="post" >				
 		{% else %}
-			<form class="form" action="/sign-in" method="post" >
+			<form class="form" action="/gov-gateway/sign-in" method="post" >
 		{% endif %}
 
 		{{ govukButton({
