@@ -1,0 +1,157 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Vets visits" %}
+
+{% set title = "Change your password" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+        {% from "govuk/components/error-summary/macro.njk" import govukErrorSummary %}
+        {{ govukErrorSummary({
+          titleText: "There is a problem",
+          errorList: [
+            {
+              text: "Verification code must be 6 digits",
+              href: "#verify-code"
+            }
+          ]
+        }) }}
+
+
+    <h1 class="govuk-heading-xl">{{ title }}</h1>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <p>We’ve sent an email with a 6 digit verification code to ted.barns@cattlemoovement.org.</p>
+    <p>The code will be valid for 12 hours.</p>
+    <p>It may take a few minutes to arrive.</p>
+    <p>If you do not get an email check your spam or junk folders.</p>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form action="new-password" method="post">
+
+
+      {% from "govuk/components/input/macro.njk" import govukInput %}
+
+      {{ govukInput({
+        label: {
+          text: "Enter verification code"
+        },
+
+        errorMessage: {
+          text: "Verification code must be 6 digits"
+        },
+
+        id: "account-number",
+        name: "account-number",
+        inputmode: "numeric",
+        pattern: "[0-9]*",
+        spellcheck: false,
+        classes: "govuk-!-width-two-thirds",
+        id: "verify",
+        name: "verify-code"
+
+      }) }}
+
+    </form>
+
+    <form action="enter-code-new" method="post">
+      <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+        Resend code
+      </button>
+    </form>
+
+    <div class="govuk-!-padding-bottom-6"></div>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+
+        <h1 class="govuk-heading-m">Choose a new password </h1>
+
+    <p>Your new password must:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li class="govuk-list-item">Contain at least 8 characters</li>
+      <li class="govuk-list-item">Contain at least 1 upper case letter</li>
+      <li>Contain at least 1 special character</li>
+      <li>Not be one of your previous passwords</li>
+    </ul>
+
+        <form action="reset-complete" method="post">
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="password">
+              Enter a Password
+            </label>
+
+            <div class="moj-password-reveal"><input class="govuk-input govuk-input--width-20" id="password" name="password"
+                type="password" value="1234ABC!" data-module="moj-password-reveal">
+            </div>
+
+          </div>
+
+
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="password">
+              Confirm Password
+            </label>
+
+            <div class="moj-password-reveal"><input class="govuk-input govuk-input--width-20" id="password" name="password"
+                type="password" value="1234ABC!" data-module="moj-password-reveal">
+            </div>
+
+          </div>
+
+
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+        </form>
+
+
+
+
+
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+            Need help with the page?
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            Contact the Rural Payments Agency.<br><br>
+            Rural Payments Agency  <br>
+            Telephone: 03000 200 301 <br>
+            Monday to Friday, 8:30am to 5pm (except public holidays) <br>
+            <a href="mailto:ruralpayments@defra.gov.uk?subject=feedback">ruralpayments@defra.gov.uk</a>
+            <br><br>
+            <p class="govuk-body">Find out about <a href="https://www.gov.uk/call-charges" target=”_blank”>call charges</p>
+          </div>
+        </details>
+        </div>
+      </div>
+
+  </div>
+</div>
+
+{% endblock %}

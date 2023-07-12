@@ -1,0 +1,91 @@
+{% extends "layouts/layout.html" %}
+
+{% block pageTitle %}
+Index page
+{% endblock %}
+{% set serviceName %}
+Record data from an Annual Health and Welfare Review
+{% endset%}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:history.go(-1)">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper govuk-main-wrapper--l" id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">
+      Record outcomes from the review
+    </h1>
+    <p class="govuk-body govuk-!-margin-bottom-7">Record livestock health and welfare review information.</p>
+    <ol class="app-task-list">
+      <li>
+        <h2 class="app-task-list__section">
+          <span class="app-task-list__section-number">1. </span> Livestock
+        </h2>
+        <ul class="app-task-list__items">
+          <li class="app-task-list__item">
+            <span class="app-task-list__task-name">
+              <a href="#" aria-describedby="eligibility-status">
+                Beef Cattle
+              </a>
+            </span>
+            <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="eligibility-status">Not started</strong>
+          </li>
+          <li class="app-task-list__item">
+            <span class="app-task-list__task-name">
+              <a href="#" aria-describedby="eligibility-status">
+                Cattle Dairy
+              </a>
+            </span>
+            {% if data.confirm_address == "yes" %}
+            <strong class="govuk-tag app-task-list__tag" id="eligibility-status">Complete</strong>
+            {% else %}
+            <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>
+            {% endif %}
+          </li>
+          <li class="app-task-list__item">
+            <span class="app-task-list__task-name">
+              <a href="#" aria-describedby="contact-details-status">
+                Sheep
+              </a>
+            </span>
+            {% if data.navigation == "yes" %}
+            <strong class="govuk-tag app-task-list__tag" id="status-c">Complete</strong>
+            {% else %}
+            <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="status-ns">Not started</strong>
+            {% endif %}
+          </li>
+        </ul>
+      </li>
+      <li>
+        <h2 class="app-task-list__section">
+          <span class="app-task-list__section-number">2. </span> Check and submit your record
+        </h2>
+        <ul class="app-task-list__items">
+          <li class="app-task-list__item">
+            <span class="task-list-submit-disabled">
+              <span class="app-task-list__task-name">
+                Check your answers and submit your record
+              </span>
+              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="submit-pay-status">Cannot start yet</strong>
+            </span>
+            <span class="task-list-submit-enabled" style="display:none">
+              <span class="app-task-list__task-name">
+                <a href="#" aria-describedby="list-convictions-status">
+                  Check your answers and submit your application
+                </a>
+              </span>
+            </span>
+          </li>
+        </ul>
+      </li>
+    </ol>
+
+  </div>
+</div>
+</main>
+</div>
+{% endblock %}

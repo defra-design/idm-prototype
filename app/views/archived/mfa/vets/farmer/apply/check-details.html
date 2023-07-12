@@ -1,0 +1,184 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Health and welfare review funding for this organisation
+{% endblock %}
+{% set serviceName %}
+Apply for an Annual Health and Welfare Review
+{% endset%}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:history.go(-1)">Back</a>
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">
+      Check your details
+    </h1>
+<!--
+    <h2 class="govuk-heading-m">Arthington Farm Ltd</h2>
+-->
+    <dl class="govuk-summary-list govuk-!-margin-bottom-3">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Farmer name
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Jane Doe
+        </dd>
+        <dd class="govuk-summary-list__actions">
+
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Business name
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Arthington Farm Ltd
+        </dd>
+        <dd class="govuk-summary-list__actions">
+
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          SBI number
+        </dt>
+        <dd class="govuk-summary-list__value">
+          106599006
+        </dd>
+        <dd class="govuk-summary-list__actions">
+
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Address
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Primrose Ln<br>Arthington<br>Otley<br>LS21 1PH
+        </dd>
+        <dd class="govuk-summary-list__actions">
+
+        </dd>
+      </div>
+<!--
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Contact email address:
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <p>d.smith@gmail.com</p>
+
+        </dd>
+        <dd class="govuk-summary-list__actions">
+
+        </dd>
+      </div>
+-->
+    </dl>
+    <br>
+
+    {{ govukRadios({
+      classes: "govuk-radios--inline",
+      idPrefix: "review-details-correct-check",
+      name: "review-details-correct-check",
+      fieldset: {
+        legend: {
+          text: "Are your details correct?",
+          classes: "govuk-fieldset__legend--m "
+        }
+      },
+      items: [
+        {
+          value: "yes",
+          text: "Yes"
+        },
+        {
+          value: "no",
+          text: "No"
+        }
+      ]
+    }) }}
+
+    {{ govukButton({
+      text: "Continue",
+      href: "which-review"
+    }) }}
+
+  </div>
+</div>
+
+<!--
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+      <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+      <h2 class="govuk-heading-m">Applications</h2>
+
+
+      {{ govukTable({
+        firstCellIsHeader: false,
+        head: [
+          {
+            text: "Application"
+          },
+          {
+            text: "Last updated"
+          },
+          {
+            text: "Status"
+          },
+          {
+            text: " "
+          }
+        ],
+
+        rows: [
+          [
+            {
+              html: "SFIAD002"
+            },
+            {
+              text: "10 September 2021"
+            },
+            {
+              html: '<strong class="govuk-tag govuk-tag--yellow">IN PROGRESS</strong>'
+            },
+            {
+              html: "<a href='job-detail'>Continue application</a>"
+            }
+          ],
+
+
+          [
+            {
+              html: "SFIAD001"
+            },
+            {
+              text: "2 October 2021"
+            },
+            {
+              html: '<strong class="govuk-tag govuk-tag--yellow">IN PROGRESS</strong>'
+            },
+            {
+              html: "<a href='job-detail'>Continue application</a>"
+            }
+          ]
+        ]
+      }) }}
+
+  </div>
+</div>
+-->
+
+{% endblock %}

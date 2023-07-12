@@ -1,0 +1,54 @@
+{% extends "layout-target.html" %}
+
+{% set serviceName = "Defra account" %}
+
+{% set title = "Your Defra account" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <form method="post" action="organisation-type">
+
+            <h1 class="govuk-heading-xl">
+              {{ title }}
+            </h1>
+            <p>
+              Your Defra account lets you access and manage Defra services for yourself or on behalf of the organisations that you represent.
+            </p>
+            <p>
+              Use your Government Gateway to sign in to your Defra account.
+            </p>
+
+            <h2 class="govuk-heading-l">
+                What we need from you
+            </h2>
+            <p>To complete your registration, we'll ask for some personal details and for information about who wants to use this service.</p>
+            <p>To find out how we use, process and store your data, read our <a href="/privacy-notice" target="_blank">Privacy notice (opens in a new tab)</a>.</p>
+
+            <div class="govuk-form-group">
+              <div class="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="defraIdTerms" name="defraIdTerms" type="checkbox" value="I agree">
+                  <label class="govuk-label govuk-checkboxes__label" for="defraIdTerms">
+                    I have read and agree to the <a href="/terms" target="_blank">Terms and conditions (opens in a new tab)</a>.
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            {{ govukButton({
+                text: "Continue"
+            })}}
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

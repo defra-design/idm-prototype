@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Your Defra account" %}
+
+
+
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <!-- {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }} -->
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">
+      We cannot send you a verification code
+    </h1>
+    <!-- <p>There is no valid telephone number on your rural payments account that we can send a verification code to authenticate you.</p>     -->
+    <p>We cannot send a verification code to authenticate you as there is no valid telephone number registered with your Rural Payments service.</p>
+
+    <p>You will need to contact Rural Payments service and ask them to update your telephone number.</p>            
+
+          <p>Email: <a href="mailto:ruralpayments@defra.gov.uk">ruralpayments@defra.gov.uk</a></p>
+          <p>Telephone: 03000 200 301
+          <br>Monday to Friday, 8:30am to 5pm, except bank holidays</p>
+                  
+          <p class="govuk-body"><a href="https://www.gov.uk/call-charges" class="govuk-link" rel="noreferrer noopener" target=”_blank”>Find out about call charges (opens in new tab)</p>                                        
+    
+
+
+    
+
+
+  </div>
+</div>
+
+
+
+{% endblock %}

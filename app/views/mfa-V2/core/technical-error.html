@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% set showBackLink = false %}
+
+
+{% set pageHeading = "Sorry, there is a problem with the service" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+        
+        {% if data['interSwitchSize'] == "Single" %}
+        <p>We have not been able to enrol <span class="govuk-!-font-weight-bold">Kith and Kiln</span> on {NAME of SERVICE}.</p>
+        {% else %}
+        <p>We have not been able to enrol <span class="govuk-!-font-weight-bold">{{ data['newEnrolmentBusiness'] }}</span> on {NAME of SERVICE}.</p>
+         
+        {% endif %}
+
+        <p>Try again later.</p>
+
+
+
+
+
+    </div>
+    <div class="govuk-grid-column-one-third review">      
+        <ul class="govuk-list govuk-body-s govuk-!-text-align-right">        
+            <li><a href="/errors" class="govuk-link govuk-link--no-visited-state">Error page</a></li>        
+            <li><a href="/mfa-V2/defra-id/about-data?status=review" class="govuk-link govuk-link--no-visited-state">Suggested page review</a></li>        
+        </ul>      
+    </div>
+</div>
+{% endblock %}

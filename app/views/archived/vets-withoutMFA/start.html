@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Apply for an Annual Health and Welfare review" %}
+
+{% set title = "Sign in to apply for an annual health and welfare review of your livestock" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <span class="govuk-caption-l"></span>
+      <h1 class="govuk-heading-l">
+        Apply for an animal health and welfare review
+      </h1>
+
+
+      <p class="govuk-heading-body">Use this service to get a reference number to book a review with your vet.</p>
+      <p class="govuk-heading-body">The booking reference is valid for 12 months.</p>
+      <p class="govuk-heading-body">Applying takes around 5 minutes.</p>
+
+
+    <!-- <h2 class="govuk-heading-m">
+      Only apply if
+    </h2>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>you've claimed Basic Payments Scheme (BPS) funding in the last 12 months</li>
+      <li>your livestock are registered in England</li>
+      <li>you keep cattle, sheep and/or pigs</li>
+    </ul> -->
+
+    <a href="vets/crn-sign-in" role="button" draggable="false" class="govuk-button govuk-!-margin-top-2 govuk-!-margin-bottom-8 govuk-button--start" data-module="govuk-button">
+      Start now
+      <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
+        <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z"></path>
+      </svg>
+    </a>
+
+    <h2 class="govuk-heading-m">Before you start</h2>
+    <p>You’ll need an email address.</p>
+    <p>You must be eligible to apply for an annual health and welfare review.
+      Read the guidance on <a href="guidance-for-farmers">getting a funded annual health and welfare review for cattle, sheep and pigs</a> before you use this service.</p>
+
+    <h2 class="govuk-heading-m">Get help with your application</h2>
+      <p>If you cannot apply online or have a question about your application, contact the Rural Payments Agency.</p>
+      <ul class="govuk-list">
+        <li>Telephone: 03000 200 301</li>
+        <li>Monday to Friday, 8:30am to 5pm (except public holidays)</li>
+        <li><a class="govuk-link" href="mailto:ruralpayments@defra.gov.uk">ruralpayments@defra.gov.uk</a></li>
+      </ul>
+    <!--
+      <p class="govuk-body">If you need to find a vet, you can search the <a href="https://findavet.rcvs.org.uk/home/" target="_blank">Royal College of Veterinary Surgeons list.</a></p>
+    -->
+  </div>
+</div>
+
+
+{% endblock %}

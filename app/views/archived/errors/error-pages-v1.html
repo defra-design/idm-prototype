@@ -1,0 +1,79 @@
+{% extends "layout.html" %}
+
+
+{% set pageHeading = "Error pages" %}
+{% set pageSection = "Version 1.0" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+                    
+            <h2 class="govuk-heading-m">404s/505s</h2>          
+            <ul class="govuk-list">
+                <li><a href="/archived/errors/401-error" class="govuk-link--no-visited-state">401/403-error</a></li>
+                <li><a href="/archived/errors/404-error" class="govuk-link--no-visited-state">404-error</a></li>
+                <li><a href="/archived/errors/500-error" class="govuk-link--no-visited-state">500-error</a></li>
+                <li><a href="/archived/errors/503-error" class="govuk-link--no-visited-state">503-error</a></li>                  
+            </ul>
+        
+            <h2 class="govuk-heading-m">MFA - sms</h2>          
+            <ul class="govuk-list">
+                <li><a href="/archived/errors/select-one">You must select an option</a></li>
+                <li><a href="/archived/errors/too-short">The code entered must 8 digits</a></li>
+                <li><a href="/archived/errors/no-match">Code entered does not match code sent</a></li>
+                <li><a href="/archived/errors/exceeded-retries">You have reached max number of attempts</a></li>
+                <li><a href="/archived/errors/cannot-use-tel-no">Tel number format not supported</a></li>
+                <li><a href="/archived/errors/cannot-tel-no">No telephone numbers associated with this account</a></li>
+                <li><a href="/archived/errors/cannot-use-tel-no">No telephone numbers that can be used</a></li>
+            </ul>                  
+        
+            <h2 class="govuk-heading-m">MFA - security word</h2>          
+            <ul class="govuk-list">
+                <li><a href="/archived/errors/exceeded-retries">You have reached max of attempts</a></li>
+                <li><a href="/archived/scp/credential-recovery-security-word-error-1">The characters enter are incorrect</a></li>
+                <li><a href="/archived/scp/credential-recovery-security-word-error-2">You must enter the characters required</a></li>
+                <li><a href="/archived/errors/security-word-changed">Your security word has been changed changed</a></li>
+                <li><a href="/archived/errors/no-secure-word">You do not have a secure word set up</a></li>
+            </ul>
+            
+            <h2 class="govuk-heading-m">Cookies</h2>          
+            <ul class="govuk-list">
+                <li><a href="/archived/errors/blocked-cookies-error" class="govuk-link--no-visited-state">Blocked cookies error</a></li>
+            </ul>                  
+
+            <h2 class="govuk-heading-m">Org selection</h2>          
+            <ul class="govuk-list">
+                <li><a href="/archived/errors/select-org">No organisation chosen - radio list</a></li>
+                <li><a href="/archived/errors/org-search-error">No organisation chosen - auto-suggest</a></li>
+            </ul>                  
+        
+            <h2 class="govuk-heading-m">Sign in</h2>          
+            <ul class="govuk-list">
+                <li><a href="/archived/errors/email-exists">Email is in use</a></li>
+                <li><a href="errors/no-tel-no">No number exists</a></li>
+            </ul>                  
+        
+            <h2 class="govuk-heading-m">Companies house page</h2>          
+            <ul class="govuk-list">
+                <li><a href="/archived/errors/companies-house-error">Companies house number - error</a></li>
+            </ul>                  
+        
+            <h2 class="govuk-heading-m">Additional pages</h2>          
+            <ul class="govuk-list">
+                <li><a href="/archived/additional-pages/page-loading" class="govuk-link--no-visited-state">Page loading</a></li>
+                <li><a href="/archived/additional-pages/time-out">Time out warning</a></li>
+                <li><a href="/archived/additional-pages/signed-out">Signed out</a></li>
+                <li><a href="help">Cookie banner example</a></li>
+                <li><a href="/archived/errors/no-accounts">No accounts exist</a></li>
+                <li><a href="/archived/mfa/verify-single-number">Help section example</a></li>
+                <li><a href="/archived/mfa/">Help section example</a></li>
+            </ul>                  
+
+        </div>
+    </div>
+
+{% endblock %}

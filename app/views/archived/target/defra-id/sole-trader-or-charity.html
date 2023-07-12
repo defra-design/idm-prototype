@@ -1,0 +1,39 @@
+{# {% extends "layout.html" %} #}
+{% extends "layout.html" %}
+{% set showBackLink = true %}
+{% set serviceName = "Defra account" %}
+
+{% set pageHeading = "Is this organisation a sole trader or a charity?" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+
+         <form method="post" action="">
+
+          {{ govukRadios({
+            fieldset: {
+              legend: { text: pageHeading, isPageHeading: false, classes: "govuk-visually-hidden"  }
+            },
+            items: [
+                { value: "sole-trader, redirect(personal-name?orgType=sole-trader)", text: "Sole trader" },
+                { value: "charity, redirect(charity-region?orgType=charity)", text: "Charity" }
+            ]
+          } | decorateFormAttributes('defraIdSoleTraderOrCharity')) }}
+
+          {{govukButton({
+            text: "Continue"
+          })}}
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

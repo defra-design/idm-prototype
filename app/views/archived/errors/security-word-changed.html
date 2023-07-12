@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+{% set serviceName = "Defra identity" %}
+
+{% set title = "Confirm your security word" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">Your security word has been changed</h1>
+
+    <p class="govuk-body-l">This may have been done by an administrator of the account</p>
+
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          Need help with the page?
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        Contact the [Service name].<br><br>
+        [Service name]  <br>
+        Telephone: [Service telephone number] <br>
+        [Service Opening Hours](except public holidays) <br>
+        [Service email address]
+        <br><br>
+        <p class="govuk-body">Find out about <a href="https://www.gov.uk/call-charges" target=”_blank”>call charges</p>
+      </div>
+    </details>  
+
+  </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,108 @@
+{% extends "layout.html" %}
+{% set showBackLink = false %}
+
+{% if data['interSwitchSize'] == "Single" %}
+
+    {% if data['citizenEnrol'] == "Yes"  %}
+        {% set pageHeading = "Confirm you want to enrol yourself to this service" %}
+    {% else %}
+        {% set pageHeading = "Confirm you want to enrol this organisation" %}
+    {% endif %}
+{% else %}
+    {% set pageHeading = "Who do you want to enrol?" %}
+{% endif %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+        {# <p>You are associated with these business’s ..... </p> #}
+
+        <form action="redirect-to-enrollment" method="post" >
+
+
+        {% if data['interSwitchSize'] == "Single" %}
+
+            {% if data['citizenEnrol'] == "Yes"  %}
+
+                <p class="govuk-body govuk-!-margin-bottom-7">This will enrol you on SERVICENAME.</p>
+
+            {% else %}
+
+                <p class="govuk-body govuk-!-margin-bottom-7">Enrolling this organistation will allow you to represent them in SERVICENAME.</p>
+
+                <div class="govuk-inset-text">
+                <p>Kith and Kiln</p>
+                {# <br>172 Park View
+                <br>Whitley Bay
+                <br>NE26 3QW #}
+                </div>
+            {% endif %}
+
+
+        {% else %}
+
+                {{ govukRadios({
+                    idPrefix: "newEnrolmentBusiness",
+                    name: "newEnrolmentBusiness",
+                    fieldset: {
+                        legend: {
+                            text: "",
+                            isPageHeading: false,
+                            classes: "govuk-fieldset__legend--l"
+                        }
+                    },
+                    items: [
+                        { value: "ACME products", text: "ACME products" },
+                        { value: "Dean and Daniella", text: "Dean and Daniella" },
+                        { value: "Rustic Cup", text: "Rustic Cup" },
+                        { value: "Kith and Kiln", text: "Kith and Kiln" }
+                    ]
+                }) }}
+
+        {% endif %}
+
+            <div class="govuk-button-group">
+
+                {% if data['interSwitchSize'] == "Single" %}
+
+                    {{ govukButton({
+                        text: "Confirm and continue"
+                    }) }}
+
+                    <a class="govuk-link" href="/mfa-V2/core/business-not-listed">I want to enrol someone else</a>
+
+                {% else %}
+
+                    {{ govukButton({
+                        text: "Continue"
+                    }) }}
+
+                    <a class="govuk-link" href="/mfa-V2/core/business-not-listed">I want to enrol someone not listed</a>
+
+                {% endif %}
+                {# {{ govukButton({
+                    text: "Add a new business",
+                    classes: "govuk-button govuk-button--secondary"
+                }) }} #}
+            </div>
+
+        </form>
+
+
+
+
+    </div>
+    <div class="govuk-grid-column-one-third review">      
+        <ul class="govuk-list govuk-body-s govuk-!-text-align-right">        
+            <li><a href="/errors" class="govuk-link govuk-link--no-visited-state">Error page</a></li>        
+            <li><a href="/mfa-V2/defra-id/about-data?status=review" class="govuk-link govuk-link--no-visited-state">Suggested page review</a></li>        
+        </ul>      
+    </div>
+</div>
+{% endblock %}

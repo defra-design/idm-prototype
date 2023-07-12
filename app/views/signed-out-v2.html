@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% set title = "You have signed out" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+  <!-- {% include "includes/account-nav-admin-login.html" %} -->
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      {{title}}
+    </h1>
+
+    <p>&nbsp;</p>
+    <p class="govuk-body">
+      You can <a href="./">return to GOV.UK</a> or close your browser window
+    </p>
+    <p>&nbsp;</p>
+
+  </div>
+</div>
+
+{% endblock %}

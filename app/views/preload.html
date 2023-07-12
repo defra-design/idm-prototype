@@ -1,0 +1,182 @@
+{% extends "layout.html" %}
+{% set showBackLink = false %}
+{% set serviceName = "Preload - Defra identity management" %}
+
+{% if data['serviceFlow'] == "vetsVisit" %}  
+    {% set pageHeading = "Annual health and welfare review of livestock" %}
+{% else %}
+    {% set pageHeading = "Core service flow" %}
+{% endif %}
+{% set pageSection = "Preload data" %}
+
+
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+        {{ macroPageHeader.pageHeader(pageHeading, pageSection) }}
+
+        <!-- Registration journey flow -->
+        <!-- //////////////////////////////////////////////////////////// -->
+        {% if data['flow'] == "Registration" %}
+            
+            <form class="form" action="/gov-gateway/login" method="post" class="">
+            
+                <!-- <form class="form" action="/archived/mfa/gov-gateway/login" method="post" class=""> -->
+            
+
+            {{ govukCheckboxes({
+                fieldset: { legend: { text: "User has Government Gateway account", isPageHeading: false, classes: "govuk-visually-hidden" } },
+                items: [ { value: "Yes", text: "User has Government Gateway account" } ]
+            } | decorateFormAttributes('GovernmentGatewayAccount')) }}
+
+            {{ govukRadios({
+                classes: "govuk-radios--inline",
+                fieldset: {
+                    legend: { text: "User has Government Gateway account", isPageHeading: false, classes: "govuk-fieldset__legend--m"  }
+                },
+                items: [
+                    { value: "Yes", text: "Yes" },
+                    { value: "No, redirect(/tasked/gov-gateway/login)", text: "No" }
+                ]
+            } | decorateFormAttributes('siteEntry')) }}
+
+        <!-- ////////////////// End of Registration flow /////////////////////////// -->
+        
+        
+        <!-- Authentication journey flow -->
+        <!-- //////////////////////////////////////////////////////////// -->
+        {% elif data['flow'] == "Authentication" %}
+
+            <!-- Start page flow depending on service -->
+            
+            {% if data['serviceFlow'] == "vetsVisit" %}      
+                <form class="form" action="/authentication/vets/start" method="post" >            
+            {% else %}
+                    <form class="form" action="/sign-in" method="post" >            
+            {% endif %}        
+                
+            <!-- <form class="form" action="/archived/mfa/gov-gateway/login-v2" method="post" class=""> -->
+
+            {% if data['serviceFlow'] != "vetsVisit" %}      
+                    
+                <h3 class="govuk-heading-m">Authentication options</h3>
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-one-half">    
+                        <div class="mspace">
+                        {{ govukCheckboxes({                            
+                            classes: "govuk-checkboxes--small",                            
+                            items: [
+                                { value: "Yes", text: "MFA via email disabled", checked: checked("mfaEmailDisabled", "Yes")}
+                            ]
+                        } | decorateFormAttributes('mfaEmailDisabled')) }}
+                        </div>
+                        <div class="mspace">
+                        {{ govukCheckboxes({                            
+                            classes: "govuk-checkboxes--small",                            
+                            items: [
+                                { value: "Yes", text: "MFA via SMS disabled", checked: checked("mfaSmsDisabled", "Yes")}
+                            ]
+                        } | decorateFormAttributes('mfaSmsDisabled')) }}
+                        </div>
+                        {{ govukCheckboxes({                            
+                            classes: "govuk-checkboxes--small",                            
+                            items: [
+                                { value: "Yes", text: "MFA via Email and SMS disabled", checked: checked("mfaDisabled", "Yes")}
+                            ]
+                        } | decorateFormAttributes('mfaDisabled')) }}
+                    </div>
+                    <div class="govuk-grid-column-one-half">
+                        <div class="mspace">
+                            {{ govukCheckboxes({                                
+                                classes: "govuk-checkboxes--small",                                
+                                items: [
+                                    { value: "Yes", text: "Multiple phone numbers on account", checked: checked("multiplePhoneNumber", "Yes")}
+                                ]
+                            } | decorateFormAttributes('multiplePhoneNumber')) }}
+                        </div>    
+                        {{ govukCheckboxes({                                
+                            classes: "govuk-checkboxes--small",                                
+                            items: [
+                                { value: "Yes", text: "Security word has changed", checked: checked("securityWordChanged", "Yes")}
+                            ]
+                        } | decorateFormAttributes('securityWordChanged')) }}
+                    </div>
+                </div>                            
+            {% endif %}
+                
+            <!-- Organisation registered to choose from -->
+            <!-- //////////////////////////////////////////////////////////// -->
+            {% if data['serviceFlow'] == "vetsVisit" %}   
+
+                {{ govukRadios({     
+                    classes: "govuk-radios--inline",               
+                    fieldset: {
+                        legend: { text: "Businesses registered on rural payments account", isPageHeading: false, classes: "govuk-fieldset__legend--m"  }
+                    },
+                    items: [
+                        { value: "None", text: "None", checked: checked("companySize", "None") },    
+                        { value: "Single", text: "One", checked: checked("companySize", "Single") },
+                        { value: "20", text: "Up to 20", checked: checked("companySize", "20") },
+                        { value: "45", text: "More than 20", checked: checked("companySize", "45") }
+                    ]
+                } | decorateFormAttributes('companySize')) }}
+
+            {% else %}
+
+                {{ govukRadios({
+                    classes: "govuk-radios--inline",
+                    fieldset: {
+                        legend: { text: "Organisations or businesses registered to account", isPageHeading: false, classes: "govuk-fieldset__legend--m"  }
+                    },
+                    items: [
+                        { value: "Single", text: "Single" },
+                        { value: "20", text: "Up to 20" },
+                        { value: "45", text: "More than 20" }
+                    ]
+                } | decorateFormAttributes('companySize')) }}
+
+            {% endif %}
+            <!-- ////////////////// End of business or organisation totals /////////////////////////// -->
+            
+            <!-- Interswitch -->
+            <!-- //////////////////////////////////////////////////////////// -->
+            {% if data['serviceFlow'] != "vetsVisit" %}      
+            <h3 class="govuk-heading-m">Interswitch options</h3>            
+            <div class="govuk-grid-row">                
+                <div class="govuk-grid-column-one-half">
+                    
+                    <div class="mspace">
+                    {{ govukCheckboxes({                        
+                        classes: "govuk-checkboxes--small",                        
+                        items: [
+                            { value: "Single", text: "Only 1 organisation available for enrolment", checked: checked("interSwitchSize", "Single")}
+                        ]
+                    } | decorateFormAttributes('interSwitchSize')) }}
+                    </div>
+
+                    {{ govukCheckboxes({                        
+                        classes: "govuk-checkboxes--small",                        
+                        items: [
+                            { value: "Yes", text: "Shows citizen only option for enrolment", checked: checked("citizenEnrol", "Yes")}
+                        ]
+                    } | decorateFormAttributes('citizenEnrol')) }}
+
+                </div>
+            </div>
+            {% endif %}
+            <!-- ////////////////// End of interswitch /////////////////////////// -->            
+
+        {% endif %}
+
+            {{ govukButton({
+                text: "Add preloaded data and continue"
+            }) }}
+
+        </form>
+
+    </div>
+</div>
+{% endblock %}

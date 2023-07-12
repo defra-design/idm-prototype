@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+{% set showBackLink = false %}
+
+
+{% set pageHeading = "Verify your identity" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukErrorSummary({
+            titleText: "There is a problem",
+            errorList: [
+                {
+                    text: "The verification code message failed to send",
+                    href: "#verify-code"
+                },
+                {
+                    text: "Resend the code",
+                    href: "#verify-code"
+                }
+                
+            ]
+        }) }}
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+        <div class="govuk-form-group govuk-form-group--error">
+            <p class="govuk-body">This is the number we will send the 6 digit verification code to.</p>
+            <p class="govuk-body">It may take a few minutes to arrive.</p>
+            
+            <h2 class="govuk-heading-m">xxxxxxxx478</h2>
+
+            <p id="national-insurance-number-error" class="govuk-error-message">
+                <span class="govuk-visually-hidden">Error:</span>Resend the code
+            </p>
+
+            
+        </div>
+        <form action="get-code" method="post">
+            {{ govukButton({
+                text: "Send code",
+                id: "button-continue"
+            }) }}
+        </form>
+
+        <details class="govuk-details" data-module="govuk-details">
+            <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">Help with this page</span>
+            </summary>
+            <div class="govuk-details__text">
+                Rural Payments Agency <br>
+                Telephone: 03000 200 301 <br>
+                Monday to Friday, 8:30am to 5pm (except public holidays) <br>
+                <a href="mailto:ruralpayments@defra.gov.uk?subject=feedback">ruralpayments@defra.gov.uk</a>
+                <br><br>
+                <p class="govuk-body">Find out about <a href="https://www.gov.uk/call-charges" target=”_blank”>call charges</p>
+            </div>
+        </details>
+    
+    </div>
+</div>
+
+{% endblock %}

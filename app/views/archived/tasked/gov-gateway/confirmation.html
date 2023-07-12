@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "" %}
+
+{% set govGateUserId = "49 21 78 79 24 96"%}
+
+{% set title = "Your Government Gateway user ID is "+data['govGateUserId'] %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <div class="govuk-panel govuk-panel--confirmation">
+      <h1 class="govuk-panel__title">Your Government Gateway user ID is</h1>
+      <div class="govuk-panel__body">
+        {{govGateUserId}}
+      </div>
+    </div>
+
+    <p>We have sent it to <strong>{{ data['govGateEmail'] or 'samwoods@company.co.uk' }}</strong>.</p>
+    <p>You will need this ID and your password each time you sign in to Government Gateway.</p>
+
+    <!-- <form action="../defra-id/about-data" method="post"> -->
+    <form action="../defra-id/about-data" method="post">
+      {{ govukButton({
+        text: "Continue",
+        href: ""
+      }) }}
+    </form>
+
+    {% include "includes/get-help.html" %}
+
+  </div>
+</div>
+{% endblock %}

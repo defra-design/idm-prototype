@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+
+{# {% extends "layout.html" %} #}
+{% extends "layout.html" %}
+{% set showBackLink = true %}
+{% set serviceName = "Defra account" %}
+
+{% set pageHeading = "Where is your organisation registered to trade?" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+
+
+        <form method="post" action="company-registered-question?orgType=uk-org">
+
+          {{ govukRadios({
+            fieldset: {
+              legend: { text: "Are you registering as a business or an individual?", isPageHeading: false, classes: "govuk-visually-hidden"  }
+            },
+            items: [
+                { value: "UK", text: "UK" },
+                { value: "Non-UK (Organisation that is not registered in the UK), redirect(non-uk-business-name?orgType=non-uk-org)", text: "Non-UK (Organisation that is not registered in the UK)" }
+            ]
+          } | decorateFormAttributes('defraIdCompanyRegisteredLocation')) }}
+
+          {{govukButton({
+            text: "Continue"
+          })}}
+
+        </form>
+
+
+
+
+    {# <form action="organisation-uk-choice" method="post">
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+            <h1 class="govuk-fieldset__heading">
+              {{ title }}
+            </h1>
+          </legend>
+          <div class="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="uk1" name="defraIdCompanyRegisteredLocation" type="radio" value="uk">
+              <label class="govuk-label govuk-radios__label" for="uk1">
+                UK
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="uk2" name="defraIdCompanyRegisteredLocation" type="radio" value="non-uk">
+              <label class="govuk-label govuk-radios__label" for="uk2">
+                Non-UK (Organisation that is not registered in the UK)
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div> #}
+
+
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

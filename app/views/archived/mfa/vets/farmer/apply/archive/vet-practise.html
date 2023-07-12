@@ -1,0 +1,52 @@
+{% extends "layouts/layout.html" %}
+
+{% block pageTitle %}
+Index page
+{% endblock %}
+{% set serviceName %}
+Apply for the Annual Health and Welfare Review funding
+{% endset%}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:history.go(-1)">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+                <!-- <div id="changed-name-hint" class="govuk-hint">
+                  This includes changing your last name or spelling your name differently.
+                </div> -->
+                <div class="govuk-form-group">
+                  <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--l" for="event-name">
+                      What's the name of the vet practice?
+                    </label>
+                  </h1>
+                  <label class="govuk-label" for="event-name">
+   Vet practice name
+ </label>
+                  <input class="govuk-input govuk-!-width-three-quarters" id="event-name" name="event-name" type="text">
+                </div>
+
+
+                <!-- <div class="govuk-form-group">
+                <select class="govuk-select govuk-!-width-three-quarters" id="sort" name="sort">
+                  <option value="published">Recently published</option>
+                  <option value="updated" selected>Recently updated</option>
+                  <option value="views">Most views</option>
+                  <option value="comments">Most comments</option>
+                </select>
+                                </div> -->
+
+
+
+
+    {{ govukButton({
+      text: "Continue",
+      href: "vet-email"
+    }) }}
+
+  </div>
+
+{% endblock %}

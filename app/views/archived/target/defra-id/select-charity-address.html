@@ -1,0 +1,48 @@
+{# {% extends "layout.html" %} #}
+{% extends "layout.html" %}
+{% set showBackLink = true %}
+{% set serviceName = "Defra account" %}
+
+{% set pageHeading = "Select the address" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+        <form action="charity-confirm" method="post" class="form">
+
+            <p class="govuk-body">Postcode: <span class="govuk-!-font-weight-bold">BS8 1LB</span> <a href="add-charity-address">Change</a></p>
+
+            {{ govukSelect({
+                id: "charityAddress",
+                name: "charityAddress",
+                items: [
+                    { value: "", text: "8 addresses found", selected: true },
+                    { value: "address1", text: "11 Clifton Road, BRISTOL BS8 1LB" },
+                    { value: "address2", text: "12 Clifton Road, BRISTOL BS8 1LB" },
+                    { value: "address3", text: "13 Clifton Road, BRISTOL BS8 1LB" },
+                    { value: "address4", text: "14 Clifton Road, BRISTOL BS8 1LB" },
+                    { value: "address5", text: "15 Clifton Road, BRISTOL BS8 1LB" },
+                    { value: "address6", text: "16 Clifton Road, BRISTOL BS8 1LB" },
+                    { value: "address7", text: "17 Clifton Road, BRISTOL BS8 1LB" },
+                    { value: "address8", text: "18 Clifton Road, BRISTOL BS8 1LB" }
+                ]
+            }) }}
+
+            <p class="govuk-body"><a href="#">I cannot find the address in the list</a></p>
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

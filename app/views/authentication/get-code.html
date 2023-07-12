@@ -1,0 +1,140 @@
+{% extends "layout.html" %}
+{% set showBackLink = false %}
+{% set serviceName = "" %}
+
+
+{% if data['verify-your-identity'] == "send-email" %}    
+    {% set pageHeading = "Enter the verification code" %}    
+{% else %}    
+    {% set pageHeading = "Enter the verification code" %}    
+{% endif %}
+
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+        {% if data['verify-your-identity'] == "send-email" %}
+            
+            <p class="govuk-body">We have sent a 6-digit verification code to <span class="govuk-!-font-weight-bold">con****@************kit.net</span></p>
+            <!-- <div class="govuk-inset-text">
+            <p><span class="govuk-!-font-weight-bold">con****@************kit.net</span></p>
+            </div> -->
+            <p class="govuk-body">It may take a few minutes to arrive and will expire in 10 minutes.</p>
+
+            <details class="govuk-details" data-module="govuk-details">
+                <summary class="govuk-details__summary">
+                    <span class="govuk-details__summary-text">
+                    If the verification code has not arrived
+                    </span>
+                </summary>
+                <div class="govuk-details__text">                        
+                    <p>If you have not received the email you can <a href="#">resend the verification code</a>.</p>
+                </div>
+                </details>
+
+        {% else %}
+
+        <p class="govuk-body">We have sent a 6-digit verification code to <span class="govuk-!-font-weight-bold">{% if data['whichPhoneNumber'] %} {{ data.whichPhoneNumber }} {% else %}********123{% endif %}</span></p>
+        <p class="govuk-body">It may take a few minutes to arrive and will expire in 10 minutes.</p>
+        <!-- <p class="govuk-body">The code will expire in 10 minutes.</p> -->
+
+        <details class="govuk-details" data-module="govuk-details">
+            <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                If the verification code has not arrived
+                </span>
+            </summary>
+            <div class="govuk-details__text">
+                <p>Please make sure that your device:</p>
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>is turned on, not in flight mode and has a strong signal</li>
+                    <li>can receive text messages from other senders</li>
+                </ul>
+                <p>If you have still not received the text message you can <a href="#">resend the verification code</a>.</p>
+            </div>
+            </details>
+
+            {% endif %}
+
+        
+
+        {% if data['companySize'] == "Single" %}
+            <form action="/authentication/new-enrolment" method="post">
+        {% else %}
+            <form action="/authentication/select-your-business" method="post">
+        {% endif %}
+
+                <input type="hidden" id="status" name="status" value="" />    		                
+
+                {{ govukInput({
+                    label: {
+                        text: pageHeading,
+                        classes: "govuk-visually-hidden",
+                        isPageHeading: false
+                    },
+                    classes: "govuk-input--width-10"
+                } | decorateFormAttributes(verificaationCode)) }}
+                
+                
+                {{ govukButton({
+                    text: "Continue"
+                }) }}                                
+
+            </form>                                   
+
+            <details class="govuk-details" data-module="govuk-details">
+
+                {% if data['serviceName'] == "vetsVisit" %}
+
+                    <summary class="govuk-details__summary">
+                        <span class="govuk-details__summary-text">If you’re having problems getting a verification code</span>
+                    </summary>
+                    <div class="govuk-details__text">
+                        Contact the Vets' Visits.
+                        <br><br>
+                        Vets' Visits<br>      
+                        Telephone: 800001066<br>
+                        9-5 Monday to Friday (except public holidays)<br>
+                        <a href="mailto:vetsvisits@example.com">Vets'Visits@example.com</a>
+                        <br><br>
+                        <p class="govuk-body">Find out about <a href="https://www.gov.uk/call-charges" class="govuk-link" rel="noreferrer noopener" target=”_blank”>call charges (opens in new tab)</p>
+                    </div>
+
+                {% else %}
+                    
+                    <summary class="govuk-details__summary">
+                        <span class="govuk-details__summary-text">Need more help?</span>
+                    </summary>
+                    <div class="govuk-details__text">                    
+                        <p class="govuk-body">Contact [Service name] by phone or email.</p>                            
+                        <p class="govuk-body">Telephone:<br>
+                        [Service telephone number]</p>
+                        <p class="govuk-body">Email:<br>
+                        <a href="#" class="govuk-link govuk-link--no-visited-state">[Service email]</a></p>
+                        <p class="govuk-body">Service opening times:<br>
+                        [Service Opening Hours], except public holidays</p>       
+                        <p class="govuk-body"><a href="https://www.gov.uk/call-charges" class="govuk-link govuk-link--no-visited-state" rel="noreferrer noopener" target=”_blank”>Find out about call charges (opens in new tab)</p>                                                                    
+                    </div>
+                                        
+                {% endif %}
+            </details>
+
+    </div>
+    <!-- <div class="govuk-grid-column-one-third review">      
+        <ul class="govuk-list govuk-body-s govuk-!-text-align-right"> 
+            {% if data['status'] == "review" %}                   
+            <li><a href="/authentication/get-code?status=" class="govuk-link govuk-link--no-visited-state">Current page</a></li>        
+            {% else %}
+            <li><a href="/authentication/get-code?status=review" class="govuk-link govuk-link--no-visited-state">Suggested page changes</a></li>        
+            
+            {% endif %}
+        </ul>      
+    </div> -->
+</div>
+{% endblock %}

@@ -1,47 +1,65 @@
-{% extends "layout-signed-out.html" %}
+{% extends "layout.html" %}
 {% set serviceName = "Defra identity" %}
-
-{% set title = "Confirm your security word" %}
-
-{% block pageTitle %}
-    {{title}} - GOV.UK
-{% endblock %}
-
-{% block beforeContent %}
+{% set showBackLink = false %}
 
 
-
-{% endblock %}
-
+{% set pageHeading = "Your security word has changed" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
 
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-column-two-thirds">
 
-    <h1 class="govuk-heading-xl">Your security word has been changed</h1>
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-    <p class="govuk-body-l">This may have been done by an administrator of the account</p>
+        {# <p class="govuk-body">This may have been done by an administrator of the account.</p>
+        <p>The administrator of your account has changed your security word.</p> #}
+        
+        <p>Your security word has been updated by an account administrator.</p>
+        <p>You will need to contact the account administrator for further information.</p>
 
-    <details class="govuk-details" data-module="govuk-details">
-      <summary class="govuk-details__summary">
-        <span class="govuk-details__summary-text">
-          Need help with the page?
-        </span>
-      </summary>
-      <div class="govuk-details__text">
-        Contact the [Service name].<br><br>
-        [Service name]  <br>
-        Telephone: [Service telephone number] <br>
-        [Service Opening Hours](except public holidays) <br>
-        [Service email address]
-        <br><br>
-        <p class="govuk-body">Find out about <a href="https://www.gov.uk/call-charges" target=”_blank”>call charges</p>
-      </div>
-    </details>  
+        {% if data['status'] == "review" %}
+                            <details class="govuk-details" data-module="govuk-details">
+                                <summary class="govuk-details__summary">
+                                    <span class="govuk-details__summary-text">Need more help?</span>
+                                </summary>
+                                <div class="govuk-details__text">                    
+                                    <p>Contact the [Service Name] by email or phone.</p>
+                                    <p>Email: <a href="#">[Service email]</a></p>
+                                    <p>Telephone: [Service phone number]
+                                    <br>[Service Opening Hours], except bank holidays</p>      
+                                    <p class="govuk-body"><a href="https://www.gov.uk/call-charges" class="govuk-link" rel="noreferrer noopener" target=”_blank”>Find out about call charges (opens in new tab)</p>                                        
+                                </div>
+                            </details>
+                        {% else %}
+                            <details class="govuk-details" data-module="govuk-details">
+                                <summary class="govuk-details__summary">
+                                    <span class="govuk-details__summary-text">Need help with the page?</span>
+                                </summary>
+                                <div class="govuk-details__text">
+                                    Contact the [Service name].<br><br>
+                                    [Service name]  <br>
+                                    Telephone: [Service telephone number] <br>
+                                    [Service Opening Hours](except public holidays) <br>
+                                    [Service email address]
+                                    <br><br>
+                                    <p class="govuk-body">Find out about <a href="https://www.gov.uk/call-charges" class="govuk-link" rel="noreferrer noopener" target=”_blank”>call charges (opens in new tab)</p>
+                                </div>
+                            </details>
+                        {% endif %}
 
-  </div>
+    </div>
+    <div class="govuk-grid-column-one-third review">      
+        <ul class="govuk-list govuk-body-s govuk-!-text-align-right">        
+            {% if data['status'] == "review" %}
+            <li><a href="/authentication/security-word-changed?status=" class="govuk-link govuk-link--no-visited-state">Current page</a></li>        
+            {% else %}
+            <li><a href="/authentication/security-word-changed?status=review" class="govuk-link govuk-link--no-visited-state">Suggested page changes</a></li>                    
+            {% endif %}
+        </ul>      
+    </div>
 </div>
-
 
 {% endblock %}

@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Apply for an Annual Health and Welfare review" %}
+
+{% set title = "Verify your identity" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">{{ title }}</h1>
+
+
+    <form action="account-page" method="post">
+
+
+      {% from "govuk/components/input/macro.njk" import govukInput %}
+
+      {{ govukInput({
+        label: {
+          text: "Enter the 6 digit code sent to xxxxxxxx478."
+        },
+        id: "account-number",
+  name: "account-number",
+  inputmode: "numeric",
+  pattern: "[0-9]*",
+  spellcheck: false,
+        classes: "govuk-!-width-two-thirds",
+        id: "verify",
+        name: "verify-code"
+
+      }) }}
+
+
+      {{ govukButton({
+        text: "Verify code"
+      }) }}
+
+
+    </form>
+    {{ govukButton({
+      text: "Send another code",
+      classes: "govuk-button govuk-button--secondary"
+    }) }}
+
+    {{ govukDetails({
+      summaryText: "Help with this page",
+      html: "If you are having problem you can call the service on [Service Number] [Service Opening Hours](except public holidays).
+      Alternatively you can email the help desk: [service email]"
+    }) }}
+
+  </div>
+</div>
+
+{% endblock %}

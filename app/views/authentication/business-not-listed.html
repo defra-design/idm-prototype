@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% set showBackLink = false %}
+{% set serviceName = "" %}
+
+
+{% set pageHeading = "There are no other organisations available for you to enrol" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+        {% if data['status'] == "review" %}   
+        <p>If you expected to see other organisations to enrol, you will need to contact the account administator for that organisation to make sure you have the right access.</p>
+        {% else %}
+        <p>If you expected to see other options to enrol, you will need to speak to the account administator of that organisation to make sure you have the right access to enrol them.</p>
+        {% endif %}
+        {% if data['status'] == "review" %}   
+        <p><a href="#">Sign out</a></p>
+        {% endif %}
+
+
+    </div>
+    <div class="govuk-grid-column-one-third review">      
+        <ul class="govuk-list govuk-body-s govuk-!-text-align-right">    
+            {% if data['status'] == "review" %}                   
+            <li><a href="/authentication/business-not-listed?status=" class="govuk-link govuk-link--no-visited-state">Current page</a></li>        
+            {% else %}
+                <li><a href="/authentication/business-not-listed?status=review" class="govuk-link govuk-link--no-visited-state">Suggested page review</a></li>        
+            {% endif %}
+            <!-- <li><a href="/errors" class="govuk-link govuk-link--no-visited-state">Error page</a></li>         -->
+            
+        </ul>      
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,76 @@
+{% extends "layouts/layout.html" %}
+
+{% block pageTitle %}
+Index page
+{% endblock %}
+{% set serviceName %}
+Apply for the Annual Health and Welfare Review funding
+{% endset%}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:history.go(-1)">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<!-- <a href="index" class="govuk-back-link">Back</a> -->
+<!-- <a class="govuk-back-link" href="/url/of/previous/page">Back</a> -->
+<!-- <a class="govuk-back-link" href="javascript:history.go(-1)">Back</a> -->
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <!-- <span class="govuk-caption-xl">Get funding for a vet visit</span> -->
+
+                <div class="govuk-form-group">
+                  <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--l" for="event-name">
+                      Where are the livestock registered?
+                    </label>
+                  </h1>
+                  <div id="changed-name-hint" class="govuk-hint">
+                    If you have more than one holding, enter the CPH number of the holding closest to where you want the vet to visit
+                  </div>
+                  <!-- <label class="govuk-label" for="event-name">
+   Enter holding number
+ </label>
+                  <input class="govuk-input govuk-!-width-three-quarters" id="event-name" name="event-name" type="text">
+                </div> -->
+
+                <div class="govuk-form-group">
+                  <label class="govuk-label" for="width-10">
+                    Enter the CPH number
+                  </label>
+                  <input class="govuk-input govuk-input--width-10" id="width-10"
+
+                </div>
+
+
+
+</div>
+</div>
+
+<details class="govuk-details" data-module="govuk-details">
+<summary class="govuk-details__summary">
+<span class="govuk-details__summary-text">
+Find your CPH number
+</span>
+</summary>
+<div class="govuk-details__text">
+<p>To find your <abbr title="County Parish Holding">CPH</abbr> contact the <abbr title="Rural Payments Agency">RPA</abbr> on 03000 200 301. Find out about <a href="https://www.gov.uk/call-charges" target=blank class="govuk-link docs-creator">call charges (opens in new tab)</a>.</p>
+</div>
+</details>
+
+
+
+
+
+
+
+
+{{ govukButton({
+  text: "Continue",
+  href: "name"
+}) }}
+</div>
+
+
+{% endblock %}

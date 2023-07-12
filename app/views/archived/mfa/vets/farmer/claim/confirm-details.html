@@ -1,0 +1,122 @@
+{% extends "layouts/layout.html" %}
+
+{% block pageTitle %}
+Confirm the details of your review
+{% endblock %}
+{% set serviceName %}
+Claim funding for an annual health and welfare review
+{% endset%}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:history.go(-1)">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      Confirm the details of the annual health and welfare review
+    </h1>
+
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Business name
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Arthington Farm Ltd
+        </dd>
+        <dd class="govuk-summary-list__actions">
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Date of review
+        </dt>
+        <dd class="govuk-summary-list__value">
+          1 May 2022
+        </dd>
+        <dd class="govuk-summary-list__actions">
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Vet name
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Peter Jones
+        </dd>
+        <dd class="govuk-summary-list__actions">
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Type of review
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Beef cattle
+        </dd>
+        <dd class="govuk-summary-list__actions">
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          BVD in herd
+        </dt>
+        <dd class="govuk-summary-list__value">
+          No
+        </dd>
+        <dd class="govuk-summary-list__actions">
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Payment amount
+        </dt>
+        <dd class="govuk-summary-list__value">
+          £522
+        </dd>
+        <dd class="govuk-summary-list__actions">
+        </dd>
+      </div>
+    </dl>
+
+
+    {{ govukRadios({
+      idPrefix: "review-details-correct-check",
+      name: "review-details-correct-check",
+      fieldset: {
+        legend: {
+          text: "Are these details correct?",
+          classes: "govuk-fieldset__legend--m "
+        }
+      },
+      items: [
+        {
+          value: "yes",
+          text: "Yes"
+        },
+        {
+          value: "no",
+          text: "No"
+        }
+      ]
+    }) }}
+    <!-- We need to inform user what happens if 'No' -->
+
+    {{ govukButton({
+      text: "Continue",
+      href: "upload-invoice"
+    }) }}
+
+  </div>
+</div>
+
+{% endblock %}

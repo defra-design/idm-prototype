@@ -1,0 +1,101 @@
+{% extends "layout.html" %}
+{% set showBackLink = false %}
+{% set serviceName = "" %}
+
+{% set pageHeading = "Which number should we send the text message to?" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}               
+        
+        {% if data['mfaEmailDisabled'] == "Yes" %}
+        <!-- <p>The option to verify your identity by email is not currently available. You have been directed to get the 6-digit code sent by text message.</p> -->
+        
+
+        <p>The option to verify your identity by email is not available.</p>            
+        <p>We have switched you to verify your identity by sending the 6-digit code using a text message.</p>
+    {% endif %}
+
+        <form action="/authentication/get-code" method="post">
+
+            {{ govukRadios({
+              idPrefix: "whichPhoneNumber",
+              name: "whichPhoneNumber",
+              fieldset: {
+                  legend: {
+                      text: "Which contact number should we send the verification code to",
+                      isPageHeading: false,
+                      classes: "govuk-visually-hidden"
+                  }
+              },
+              items: [
+                  { value: "*********123", text: "*********123" },                  
+                  { value: "*********789", text: "*********789" }
+              ]
+          }) }}
+                
+
+        	<input type="hidden" id="status" name="status" value="" />   
+          
+          	<div class="govuk-button-group">
+            	{{ govukButton({
+              		text: "Continue"
+            	}) }}		          
+              	<a class="govuk-link" href="/authentication/not-recognise">I do not have access to these numbers</a>          
+            </div>
+    	</form>
+
+
+    <details class="govuk-details" data-module="govuk-details">
+		
+              
+			{% if data['serviceName'] == "vetsVisit" %}
+
+				<summary class="govuk-details__summary">
+					<span class="govuk-details__summary-text">Need more help?</span>
+				  </summary>
+				  <div class="govuk-details__text">                    
+					<!-- <p><a href="https://www.ruralpayments.service.gov.uk/">Sign in to the Rural Payments service</a> to add or update the businesses registered to your account.</p> -->
+					<p>Contact the Rural Payments Agency by email or phone.</p>
+					<p>Email: <a href="mailto:ruralpayments@defra.gov.uk">ruralpayments@defra.gov.uk</a></p>
+					<p>Telephone: 03000 200 301
+					<br>Monday to Friday, 8:30am to 5pm, except bank holidays</p>                
+					<p class="govuk-body"><a href="https://www.gov.uk/call-charges" class="govuk-link" rel="noreferrer noopener" target=”_blank”>Find out about call charges (opens in new tab)</p>                                        
+
+				{% else %}
+
+					                    	
+						<summary class="govuk-details__summary">
+							<span class="govuk-details__summary-text">Need more help?</span>
+						</summary>
+						<div class="govuk-details__text">                    
+              <p class="govuk-body">Contact [Service name] by phone or email.</p>                            
+              <p class="govuk-body">Telephone:<br>
+              [Service telephone number]</p>
+              <p class="govuk-body">Email:<br>
+              <a href="#" class="govuk-link govuk-link--no-visited-state">[Service email]</a></p>
+              <p class="govuk-body">Service opening times:<br>
+              [Service Opening Hours], except public holidays</p>       
+              <p class="govuk-body"><a href="https://www.gov.uk/call-charges" class="govuk-link govuk-link--no-visited-state" rel="noreferrer noopener" target=”_blank”>Find out about call charges (opens in new tab)</p>                                                                    
+						</div>                          						
+				{% endif %}
+		</details>
+
+  </div>
+  <!-- <div class="govuk-grid-column-one-third review">      
+    <ul class="govuk-list govuk-body-s govuk-!-text-align-right">              
+      {% if data['status'] == "review" %}
+      <li><a href="/authentication/verify-multiple-numbers?status=" class="govuk-link govuk-link--no-visited-state">Current page</a></li>        
+      {% else %}
+      <li><a href="/authentication/verify-multiple-numbers?status=review" class="govuk-link govuk-link--no-visited-state">Suggested page changes</a></li>        
+      {% endif %}
+    </ul>      
+  </div> -->
+</div>
+
+{% endblock %}

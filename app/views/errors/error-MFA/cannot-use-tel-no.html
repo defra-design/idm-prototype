@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Your Defra account" %}
+
+
+
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <!-- {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }} -->
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">
+      There are no numbers we can use to authenticate you
+    </h1>
+
+    <p>This means we can not send a verification code to your mobile number.</p>
+
+
+  <p>You will need to contact your service and ask them to update your details.</p>
+
+
+{{ govukButton({
+  text: "Sign out",
+  href:"/mfa/security-word"
+}) }}
+
+<details class="govuk-details" data-module="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      Help contact your service
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    Telephone: 03000 200 301 <br>
+    Monday to Friday, 8:30am to 5pm (except public holidays) <br>
+    <a href="mailto:ruralpayments@defra.gov.uk?subject=feedback">[email]@defra.gov.uk</a>
+    <br><br>
+    <p class="govuk-body">Find out about <a href="https://www.gov.uk/call-charges" target=”_blank”>call charges</p>
+  </div>
+</details>
+
+
+  </div>
+</div>
+
+{% endblock %}

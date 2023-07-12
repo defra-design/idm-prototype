@@ -5,7 +5,7 @@
 module.exports = {
 
   // Service name used in header. Eg: 'Renew your passport'
-  serviceName: 'Defra account',
+  serviceName: 'Defra Identity Management',
 
   // Default port that prototype runs on
   port: '3000',
@@ -30,7 +30,6 @@ module.exports = {
   useBrowserSync: 'true',
 
 }
-// Enable logging, options: true, false, get or post
-useLogging: 'true'
+
 
 

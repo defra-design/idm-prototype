@@ -1,0 +1,82 @@
+{% extends "layout.html" %}
+{% set serviceName = "Defra" %}
+
+{% set title = "Choose a page template" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+  
+      
+
+<form action="reference-data" autocomplete="false">
+  
+  {% from "govuk/components/radios/macro.njk" import govukRadios %}
+  {% from "govuk/components/button/macro.njk" import govukButton %}
+
+{{ govukRadios({
+  idPrefix: "choose-page-template",
+  name: "choose-page-template",
+  fieldset: {
+    legend: {
+      text: "Choose a page template",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  items: [
+    {
+      value: "terms",
+      text: "Terms and conditions"
+    },
+    {
+      value: "accessibility-statement",
+      text: "Accessibility statement"
+    },
+    {
+      value: "cookies",
+      text: "Cookies"
+    },
+    {
+      value: "privacy-notice",
+      text: "Privacy notice"
+    },
+    {
+      value: "help",
+      text: "Help"
+    }
+  ]
+}) }}
+
+
+{{ govukButton({
+  text: "Continue"
+}) }}
+
+</form>
+  
+  
+    
+  
+  
+     
+    </div>
+  </div>
+
+{% endblock %}

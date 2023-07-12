@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+{% set showBackLink = false %}
+
+
+{% set pageHeading = "You do not have access to any accounts" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+        <p>You will need to contact your service and ask them to update your details.</p>
+
+        <h2 class="govuk-heading-m">What you can do next</h2>
+        <ul class="govuk-list">
+            <li><a class="govuk-link" href="#">Get access using account management</a></li>
+            <li><a class="govuk-link" href="/mfa/security-word">Sign out</a></li>
+        </ul>
+
+        {# <p><a href="/mfa/security-word">Sign out</a></p> #}
+        {# {{ govukButton({
+            text: "Sign out",
+            href:""
+        }) }} #}
+
+
+        {# <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      Help contact your service
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    Telephone: 03000 200 301 <br>
+    Monday to Friday, 8:30am to 5pm (except public holidays) <br>
+    <a href="mailto:ruralpayments@defra.gov.uk?subject=feedback">[email]@defra.gov.uk</a>
+    <br><br>
+    <p class="govuk-body">Find out about <a href="https://www.gov.uk/call-charges" target=”_blank”>call charges</p>
+  </div>
+</details> #}
+
+
+
+  </div>
+</div>
+
+{% endblock %}
