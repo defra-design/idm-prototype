@@ -13,11 +13,13 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
         
-        <p>We have sent an email to: {{ data['govOneLoginEmail'] }}</p>
+        <div class="govuk-inset-text">
+            <p>We have sent an email to: <span class="govuk-!-font-weight-bold"> {{ data['govOneLoginEmail'] or "test@defraid.com"  }}</span></p>
+        </div>
 
         <p>The email contains a 6 digit security code.</p>
         <p>Your email might take a few minutes to arrive. If you do not get an email, check your spam folder.</p>
-        <p>The code will expire after 2 hours.</p>    
+        <p>The code will expire after one hour.</p>    
 
 
         <form method="post" action="" >
@@ -25,7 +27,7 @@
             {{ govukInput({
                 label: {
                     text: "Enter the 6 digit security code",
-                    classes: "govuk-visually-hidden",
+                    classes: "",
                     isPageHeading: false
                 },                
                 classes: "govuk-input--width-10"
@@ -38,6 +40,19 @@
 
 
         </form>
+
+
+        <details class="govuk-details" data-module="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                Problems with the code?
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+                <p>Content to be confirmed - new variation of screen.</p>
+                
+            </div>
+          </details>
        
     </div>
 </div>
