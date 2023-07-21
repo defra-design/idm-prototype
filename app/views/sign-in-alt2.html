@@ -2,9 +2,8 @@
 {% set showBackLink = false %}
 {% set serviceName = "" %}
 
-{% set pageHeading = "Sign in using GOV.UK One Login or Government Gateway" %}
-{% set pageHeading = "Sign in using GOV.UK One Login" %}
-{% set pageHeading = "Sign in options" %}
+{% set pageHeading = "Sign in using Government Gateway" %}
+
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -15,49 +14,44 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-        <div class="govuk-inset-text">
-            <p>This service allows you to sign in using the new GOV.UK One Login, or Government Gateway.</p>
-        </div>
         
-        <!-- <h2 class="govuk-heading-l govuk-!-margin-top-3">Sign in options</h2> -->
-        <h2 class="govuk-heading-m govuk-!-margin-top-3">GOV.UK One Login</h2>
-        <p>At the moment you can only use it to access some government services.</p>
-        <!-- <p>It’s currently separate from other government accounts (for example Government Gateway or Universal Credit).</p> -->
-        <p class="govuk-!-margin-bottom-7">In the future, you’ll be able to use your GOV.UK One Login to sign in to most services on GOV.UK.</p>
+            
 
         {% if data['defraAccount'] != "No"  %}
         <form method="post" action="/oneLogin/email-address" >
         {% else %}
-            <form method="post" action="/oneLogin/email-address" >
+            <form method="post" action="/oneLogin/" >
         {% endif %}
 
-        <div class="govuk-button-group">
-        {{ govukButton({
-            text: "Sign in",
-            href: "/oneLogin/email-address"
-        }) }}  
-
-        {{ govukButton({
-            text: "Create a new GOV.UK One Login",
-            href: "/oneLogin/",
-            classes: "govuk-button--secondary"
-
-        }) }}  
-
-        </div>
         
-    </form>
+
+        {{ govukButton({
+            text: "Sign in"            
+        }) }}      
+        
+        <p></p>
+
+        </form>
 
 
-        <h2 class="govuk-heading-m govuk-!-margin-top-3">Government Gateway</h2>        
-        <p>You can also <a href="/gov-gateway/sign-in" class="govuk-link govuk-link--no-visited-state">sign in using your Government Gateway</a> account if you do not have a GOV.UK One Login account.</p>            
+        <h2 class="govuk-heading-m">GOV.UK One Login</h2>
 
+        <p>GOV.UK One Login is new. It’s currently separate from other government accounts (for example Government Gateway or Universal Credit).</p>
+        <p>In the future, you’ll be able to use your GOV.UK One Login to sign in to most services on GOV.UK.</p>
 
+        <p><a href="#">Create a GOV.UK One Login</a></p>
+        
+        <!-- <ul class="govuk-list">
+            <li><a href="/gov-gateway/sign-in" class="govuk-link govuk-link--no-visited-state">Sign in using your Government Gateway user ID</a></li>                        
+            
+        </ul> -->
 
         {% if data['defraAccount'] != "No"  %}
-        <h2 class="govuk-heading-m govuk-!-margin-top-3">Need help signing in </h2>
-            <!-- <p>If you’re not sure if you have a Defra account or if you use GOV.UK One Login or Government Gateway <a href="/email-address">you can tell us your email address</a> and we can check for you.</p> -->
-            <p>If you can <a href="/email-address">tell us your email address</a> we can check if you have an existing account and how you sign in.</p>
+
+        <h2 class="govuk-heading-m govuk-!-margin-top-3">Not sure if you have a Defra account</h2>
+
+        <p>If you’re not sure if you have a Defra account or if you use GOV.UK One Login or Government Gateway <a href="/email-address">you can tell us your email address</a> and we can check for you.</p>
+
         {% endif %}
 
         <!-- {{ govukInput({
@@ -119,7 +113,7 @@
       
       
 
-      <!-- {% include "includes/get-help.html" %} -->
+      {% include "includes/get-help.html" %}
 
        
     </div>

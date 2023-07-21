@@ -18,11 +18,22 @@
 
         {{ macroPageHeader.pageHeader(pageHeading, pageSection) }}
 
+        <h3 class="govuk-heading-m">One Login</h3>
+        <p>Let your users sign in to your service with One Login.</p>        
+
         <!-- Registration journey flow -->
         <!-- //////////////////////////////////////////////////////////// -->
         {% if data['flow'] == "Registration" %}
             
             <form class="form" action="/gov-gateway/login" method="post" class="">
+
+
+                <!-- {{ govukCheckboxes({
+                    fieldset: { legend: { text: "User has Government Gateway account", isPageHeading: false, classes: "govuk-visually-hidden" } },
+                    items: [ { value: "Available", text: "User can choose One Login for authentication" } ]
+                } | decorateFormAttributes('oneLogin')) }} -->
+
+
             
                 <!-- <form class="form" action="/archived/mfa/gov-gateway/login" method="post" class=""> -->
             
@@ -55,10 +66,15 @@
             {% if data['serviceFlow'] == "vetsVisit" %}      
                 <form class="form" action="/authentication/vets/start" method="post" >            
             {% else %}
-                    <form class="form" action="/sign-in" method="post" >            
+                    <form class="form" action="/start" method="post" >            
             {% endif %}        
                 
             <!-- <form class="form" action="/archived/mfa/gov-gateway/login-v2" method="post" class=""> -->
+
+                {{ govukCheckboxes({
+                    fieldset: { legend: { text: "User has Government Gateway account", isPageHeading: false, classes: "govuk-visually-hidden" } },
+                    items: [ { value: "Yes", text: "User can choose One Login for authentication" } ]
+                } | decorateFormAttributes('useOneLogin')) }}
 
             {% if data['serviceFlow'] != "vetsVisit" %}      
                     
