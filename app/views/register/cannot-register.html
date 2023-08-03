@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+{% set showBackLink = false %}
+{% set serviceName = "" %}
+
+{% set pageHeading = "Sorry, you cannot register/sign up for this service" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+        
+        <p>Your business or organistaion must be registered to trade in the UK in order to use { ServiceName }.</p>        
+        
+        <p class="govuk-body">Contact <a class="govuk-link govuk-link--no-visited-state" href=“mailto:{SERVICE EMAIL}”>{SERVICE email address}</a> if you need help or call our helpline.</p>
+        <p class="govuk-body">
+            Helpline:<br>
+            <strong class="govuk-!-font-weight-bold">{SERVICE helpline number}</strong>
+        </p>
+        <p class="govuk-body">
+            Opening times:<br>
+            <strong class="govuk-!-font-weight-bold">{SERVICE opening times}</strong>
+        </p>
+        
+        <p><a href="https://www.gov.uk/call-charges" class="govuk-link govuk-link--no-visited-state" rel="noreferrer noopener" target="_blank" >Find out about call charges (opens in a new tab).</a></p>                
+    
+    </div>    
+</div>
+
+
+{% endblock %}

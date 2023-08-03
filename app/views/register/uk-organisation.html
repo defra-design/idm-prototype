@@ -2,7 +2,7 @@
 {% set showBackLink = true %}
 {% set serviceName = "Service Name" %}
 
-{% set pageHeading = "Where is your organisation registered to trade?" %}
+{% set pageHeading = "Is your business or organisation registered to trade in the UK?" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -13,10 +13,26 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   
 
-    	<form method="post" action="/register/companies-house">
+
+        {% if data['regNonUk'] == "No" %}
+            <form method="post" action="/register/cannot-register">
+        {% else %}
+    	    <form method="post" action="/register/non-uk-business-name">
+        {% endif %}
 
 			
             {{ govukRadios({
+                fieldset: {
+                    legend: { text: "Are you registering as a business or an individual?", isPageHeading: false, classes: "govuk-visually-hidden"  }
+                },
+                classes: "govuk-radios--inline",
+                items: [
+                    { value: "Yes, redirect(/register/companies-house)", text: 'Yes'   },
+					{ value: "No", text: 'No'   }                    
+                ]
+            } | decorateFormAttributes('defraIdCompanyRegisteredLocation')) }}
+
+            <!-- {{ govukRadios({
                 fieldset: {
                     legend: { text: "Are you registering as a business or an individual?", isPageHeading: false, classes: "govuk-visually-hidden"  }
                 },
@@ -24,7 +40,7 @@
                     { value: "uk", text: 'UK'   },
 					{ value: "non-uk, redirect(/register/non-uk-business-name)", text: 'Non-UK (Organisation that is not registered in the UK)'   }                    
                 ]
-            } | decorateFormAttributes('defraIdCompanyRegisteredLocation')) }}
+            } | decorateFormAttributes('defraIdCompanyRegisteredLocation')) }} -->
 
             {{govukButton({
                 text: "Continue"
