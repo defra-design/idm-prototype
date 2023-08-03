@@ -202,7 +202,12 @@
         	</div>
       	</dl>
 
+
+		{% if data['serviceHook'] == "WasteTracking" %}
+		<form method="post" action="https://wts-prototype.herokuapp.com/v18/index-homepage"></form>
+		{% else %}
         <form method="post" action="/account/manage/">
+		{% endif %}
 
 			{{ govukButton({
 				text: "Continue"
