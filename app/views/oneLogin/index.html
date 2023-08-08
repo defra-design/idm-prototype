@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+{% set showBackLink = false %}
+{% set serviceName = "" %}
+
+{% set pageHeading = "Create a GOV.UK One Login" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+        <p>You’ll need:</p>
+        <ul class="govuk-list govuk-list--bullet">
+            <li>an email address</li>
+            <li>a way to get security codes - this can be a mobile phone number or an authenticator app</li>
+        </ul>
+
+        <div class="govuk-inset-text">
+            You can also <a href="#">use GOV.UK One Login in Welsh (Cymraeg)</a>.
+        </div>
+
+        
+            
+           <div class="govuk-button-group">
+
+            {{ govukButton({
+                text: "Create a GOV.UK One Login",
+                href: "/oneLogin/create/email-address"
+            }) }}                                
+
+            {{ govukButton({
+                text: "Sign in",
+                classes: "govuk-button--secondary govuk",
+                href: "/oneLogin/email-address"
+            }) }}                          
+            
+        </div> 
+
+            
+
+        <details class="govuk-details" data-module="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                About GOV.UK One Login
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+                <p>GOV.UK One Login is new. At the moment you can only use it to access some government services.</p>                
+                <p>It does not work with all government accounts or services yet (for example Government Gateway or Universal Credit).</p>
+                <p>In the future, you’ll be able to use your GOV.UK One Login to sign in to most services on GOV.UK</p>
+                
+            </div>
+          </details>
+
+
+
+       
+    </div>
+</div>
+
+
+{% endblock %}
