@@ -29,7 +29,9 @@ module.exports = {
   // Enable or disable Browser Sync
   useBrowserSync: 'true',
 
-
+  NODE_ENV: 'production',
+  USERNAME: 'id',
+  PASSWORD: 'younotme',
 }
 
 
