@@ -1,0 +1,131 @@
+{% extends "layout.html" %}
+
+{% set pageHeading = "User research" %}
+{% set pageSection = "Defra Identity Management" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+        {{ macroPageHeader.pageHeader(pageHeading, pageSection) }}
+
+        <!-- <p>No current user research taking place.</p> -->
+
+
+        <h2 class="govuk-heading-m">GOV.UK OneLogin implementation</h2>
+        <p class="govuk-body">Running: 10 to 18 August 2023</p>
+        
+        <p>Looking at how we implement GOV.UK OneLogin into Defra Identity.</p>
+
+
+
+
+
+
+
+            <!-- Dashboard options -->
+
+            <!-- <input type="hidden" name="show-participant-no-QTS" id="show-participant-no-QTS" value="Yes" /> -->
+            <!-- <input type="hidden" name="show-participant-status-eligible" id="show-participant-status-eligible" value="Yes" /> -->
+
+            <!-- Participants -->
+            <!-- <input type="hidden" name="participantType" id="participantType" value="" />
+            <input type="hidden" name="participant-1-name" id="participant-1-name" value="Hugo Furst" />
+            <input type="hidden" name="participant-1-know-trn" id="participant-1-know-trn" value="Yes" />
+            <input type="hidden" name="participant-1-trn" id="participant-1-trn" value="5472825" />
+            <input type="hidden" name="participant-1-dob-date-day" id="participant-1-dob-date-day" value="10" />
+            <input type="hidden" name="participant-1-dob-date-month" id="participant-1-dob-date-month" value="08" />
+            <input type="hidden" name="participant-1-dob-date-year" id="participant-1-dob-date-year" value="1980" />
+            <input type="hidden" name="participant-1-email" id="participant-1-email" value="hugo.furst@test.dfe.gov.uk" />
+            <input type="hidden" name="participant-1-start-date" id="participant-1-start-date" value="Autumn 2021" />
+            <input type="hidden" name="participant-1-added" id="participant-1-added" value="Yes" />
+            <input type="hidden" name="participant-1-mentor" id="participant-1-mentor" value="Brian Coult" />
+            <input type="hidden" name="participant-1-eligible" id="participant-1-eligible" value="Yes" /> -->
+
+            <!-- Mentor -->
+            <!-- <input type="hidden" name="participant-1-mentor-name" id="participant-1-mentor-name" value="Brian Coult" />
+            <input type="hidden" name="participant-1-mentor-know-trn" id="participant-1-mentor-know-trn" value="Yes" />
+            <input type="hidden" name="participant-1-mentor-trn" id="participant-1-mentor-trn" value="8886667" />
+            <input type="hidden" name="participant-1-mentor-email" id="participant-1-mentor-email" value="brian.coultc@test.dfe.gov.uk" />
+            <input type="hidden" name="participant-1-mentor-start-date" id="participant-1-mentor-start-date" value="Autumn 2021" />
+            <input type="hidden" name="participant-1-mentor-added" id="participant-1-mentor-added" value="Yes" />
+            <input type="hidden" name="participant-1-mentor-eligible" id="participant-1-mentor-eligible" value="Yes" /> -->
+
+
+            <!-- <input type="hidden" name="participant-2-name" id="participant-2-name" value="Nicola Page" />
+            <input type="hidden" name="participant-2-email" id="participant-2-email" value="nicolap@test.dfe.gov.uk" />
+            <input type="hidden" name="participant-2-added" id="participant-2-added" value="Yes" />
+
+            <input type="hidden" name="induction-tutor-as-mentor" id="induction-tutor-as-mentor" value="Yes" />
+            <input type="hidden" name="participant-1-sit-mentor-added" id="participant-1-sit-mentor-added" value="Yes" /> -->
+
+
+
+
+        <!-- <form action="/emails/next-academic-year" method="post" >
+
+            <input type="hidden" id="cohort" name="cohort" value="2022" />
+
+
+            <input type="hidden" name="inductionProgramme" id="inductionProgramme" value="FIP" />
+            <input type="hidden" name="providerPartnership" id="providerPartnership" value="Yes" />
+            <input type="hidden" name="rolesexplanation" id="rolesexplanation" value="Seen" />
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+        </form> -->
+
+
+
+
+
+        <form action="/start" method="post" >
+
+            <input type="hidden" id="flow" name="flow" value="Authentication" />
+            <input type="hidden" id="flowVersion" name="flowVersion" value="current" />
+            <input type="hidden" id="serviceFlow" name="serviceFlow" value="coreDefault" />
+            <input type="hidden" id="companySize" name="companySize" value="20" />
+            <input type="hidden" id="useOneLogin" name="useOneLogin" value="Yes" />
+
+            
+            {{ govukButton({
+                text: "Start version 1 research"
+            }) }}
+        </form>
+
+        <form action="/start" method="post" >
+
+            <input type="hidden" id="flow" name="flow" value="Authentication" />
+            <input type="hidden" id="flowVersion" name="flowVersion" value="current" />
+            <input type="hidden" id="serviceFlow" name="serviceFlow" value="coreDefault" />
+            <input type="hidden" id="companySize" name="companySize" value="20" />
+            <input type="hidden" id="useOneLogin" name="useOneLogin" value="Yes" />
+            <input type="hidden" id="oneLoginVersion" name="oneLoginVersion" value="version2" />
+
+            
+            {{ govukButton({
+                text: "Start version 2 research"
+            }) }}
+        </form>
+
+
+
+
+
+        <!-- <form action="/schools/manage-your-training" method="post" >
+
+            <input type="hidden" name="rolesexplanation" id="rolesexplanation" value="Seen" />
+            <input type="hidden" name="accredited-materials" id="accredited-materials" value="Education Development Trust" />
+
+            {{ govukButton({
+                text: "Start research"
+            }) }}
+        </form> -->
+
+    </div>
+</div>
+
+{% endblock %}
