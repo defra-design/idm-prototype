@@ -16,16 +16,23 @@
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
         <div class="govuk-inset-text">
-            <p>This service allows you to sign in using the new GOV.UK One Login, or Government Gateway.</p>
+            <p>This service allows you to sign in using GOV.UK One Login, or Government Gateway.</p>
         </div>
         
         <!-- <h2 class="govuk-heading-l govuk-!-margin-top-3">Sign in options</h2> -->
         <h2 class="govuk-heading-m govuk-!-margin-top-3">GOV.UK One Login</h2>
-        <p>At the moment you can only use it to access some government services.</p>
-        <!-- <p>It’s currently separate from other government accounts (for example Government Gateway or Universal Credit).</p> -->
-        <p class="govuk-!-margin-bottom-7">In the future, you’ll be able to use your GOV.UK One Login to sign in to most services on GOV.UK.</p>
+        
+        <p>GOV.UK One Login is new. At the moment you can only use it to access some government services. In the future, you’ll be able to use it to sign in to most services on GOV.UK.</p>
+            
+            <p>If you already have an account you can <a href="/oneLogin/email-address">sign in</a> or alternatively you can <a href="/oneLogin/">create an account</a> if you do not have one.</p>
+            
+            
+            
 
-        {% if data['defraAccount'] != "No"  %}
+        <!-- <p>It’s currently separate from other government accounts (for example Government Gateway or Universal Credit).</p> -->
+        <!-- <p class="govuk-!-margin-bottom-7">In the future, you’ll be able to use your GOV.UK One Login to sign in to most services on GOV.UK.</p> -->
+
+        <!-- {% if data['defraAccount'] != "No"  %}
         <form method="post" action="/oneLogin/email-address" >
         {% else %}
             <form method="post" action="/oneLogin/email-address" >
@@ -44,9 +51,9 @@
 
         }) }}  
 
-        </div>
+        </div> 
         
-    </form>
+    </form>-->
 
 
         <h2 class="govuk-heading-m govuk-!-margin-top-3">Government Gateway</h2>        
