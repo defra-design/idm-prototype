@@ -93,7 +93,7 @@
 
             
             {{ govukButton({
-                text: "Start version 1 research"
+                text: "Version 1"
             }) }}
         </form>
 
@@ -108,7 +108,23 @@
 
             
             {{ govukButton({
-                text: "Start version 2 research"
+                text: "Version 2"
+            }) }}
+        </form>
+
+
+        <form action="/start" method="post" >
+
+            <input type="hidden" id="flow" name="flow" value="Authentication" />
+            <input type="hidden" id="flowVersion" name="flowVersion" value="current" />
+            <input type="hidden" id="serviceFlow" name="serviceFlow" value="coreDefault" />
+            <input type="hidden" id="companySize" name="companySize" value="20" />
+            <input type="hidden" id="useOneLogin" name="useOneLogin" value="Yes" />
+            <input type="hidden" id="oneLoginVersion" name="oneLoginVersion" value="version3" />
+
+            
+            {{ govukButton({
+                text: "Version 3"
             }) }}
         </form>
 
