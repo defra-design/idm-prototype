@@ -14,21 +14,13 @@
     <div class="govuk-grid-column-two-thirds">
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-
-        <div class="govuk-inset-text">
-            <p>This service allows you to sign in using GOV.UK One Login, or Government Gateway.</p>
-        </div>
         
-        <!-- <h2 class="govuk-heading-l govuk-!-margin-top-3">Sign in options</h2> -->
-        <h2 class="govuk-heading-m govuk-!-margin-top-3">GOV.UK One Login</h2>
-        
-        <p>GOV.UK One Login is new. At the moment you can only use it to access some government services. In the future, you’ll be able to use it to sign in to most services on GOV.UK.</p>
+        <p>This service allows you to sign in using GOV.UK One Login, or Government Gateway.</p>
+                    
+        <h2 class="govuk-heading-m govuk-!-margin-top-3">GOV.UK One Login</h2>        
+        <!-- <p>GOV.UK One Login is new.</p> -->
+        <p>If you already have an account you can <a href="/oneLogin/email-address">sign in using your GOV.UK One Login</a> or you can <a href="/oneLogin/">create a GOV.UK One Login account</a> if you do not have one.</p>
             
-            <p>If you already have an account you can <a href="/oneLogin/email-address">sign in using your GOV.UK One Login</a> or you can <a href="/oneLogin/">create an account</a> if you do not have one.</p>
-            
-            
-            
-
         <!-- <p>It’s currently separate from other government accounts (for example Government Gateway or Universal Credit).</p> -->
         <!-- <p class="govuk-!-margin-bottom-7">In the future, you’ll be able to use your GOV.UK One Login to sign in to most services on GOV.UK.</p> -->
 
@@ -57,12 +49,12 @@
 
 
         <h2 class="govuk-heading-m govuk-!-margin-top-3">Government Gateway</h2>        
-        <p>You can also <a href="/gov-gateway/sign-in" class="govuk-link govuk-link--no-visited-state">sign in using your Government Gateway</a> account if you do not have a GOV.UK One Login account.</p>            
+        <p>You can also <a href="/gov-gateway/sign-in" class="govuk-link govuk-link--no-visited-state">sign in using your Government Gateway</a> account if you do not have a GOV.UK One Login account and do not wish to create one.</p>            
 
 
 
         {% if data['defraAccount'] != "No"  %}
-        <h2 class="govuk-heading-m govuk-!-margin-top-3">Need help signing in </h2>
+        <h2 class="govuk-heading-m govuk-!-margin-top-7">Need help signing in </h2>
             <!-- <p>If you’re not sure if you have a Defra account or if you use GOV.UK One Login or Government Gateway <a href="/email-address">you can tell us your email address</a> and we can check for you.</p> -->
             <p>If you can <a href="/email-address">tell us your email address</a> we can check if you have an existing account and how you sign in.</p>
         {% endif %}
