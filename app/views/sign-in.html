@@ -22,7 +22,7 @@
         {% if data['oneLoginVersion'] == "version2" %}
 
             <div class="govuk-inset-text">
-                <p>You can sign in to this service using either:</p>
+                <p>You can sign in to this service using:</p>
                 <ul class="govuk-list govuk-list--bullet">
                     
                     <li>Government Gateway</span></li>
@@ -47,7 +47,7 @@
 
             {% if data['defraAccount'] != "No"  %}
             <h2 class="govuk-heading-m govuk-!-margin-top-7">Need help signing in </h2>            
-                <p>If you <a href="/email-address">tell us your email address</a> we can check if you have an existing account and how currently sign in to this service.</p>
+                <p>If you <a href="/email-address">tell us your email address</a> we can check if you have an existing account and how you sign in to this service.</p>
             {% endif %}
 
 
@@ -69,7 +69,7 @@
         <form method="post" action="/oneLogin/email-address" >
         {% else %}
             <form method="post" action="/oneLogin/email-address" >
-        {% endif %}
+        {% endif %}index
 
         <div class="govuk-button-group">
         {{ govukButton({

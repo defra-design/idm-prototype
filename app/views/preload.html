@@ -76,6 +76,11 @@
                     items: [ { value: "Yes", text: "User can choose One Login for authentication" } ]
                 } | decorateFormAttributes('useOneLogin')) }}
 
+                {{ govukCheckboxes({
+                    fieldset: { legend: { text: "Version", isPageHeading: false, classes: "govuk-visually-hidden" } },
+                    items: [ { value: "version2", text: "Use version 2" } ]
+                } | decorateFormAttributes('oneLoginVersion')) }}
+
             {% if data['serviceFlow'] != "vetsVisit" %}      
                     
                 <h3 class="govuk-heading-m">Authentication options</h3>
