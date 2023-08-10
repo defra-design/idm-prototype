@@ -6,7 +6,7 @@
 {% if data['oneLoginVersion'] == "version1" %}
     {% set pageHeading = "How do you want to sign in?" %}
 {% else %}
-    {% set pageHeading = "Sign in" %}
+    {% set pageHeading = "Sign in using GOV.UK One Login or Government Gateway" %}
 {% endif  %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
