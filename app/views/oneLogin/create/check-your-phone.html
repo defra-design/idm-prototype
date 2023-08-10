@@ -13,11 +13,11 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
         
-        <p>We sent a code to the phone number linked to your account.</p>        
+        <p>We sent a code to <span class="govuk-!-font-weight-bold">{{ data['govOneLoginPhoneNumber'] }}</span></p>        
         <p>It might take a few minutes to arrive. The code will expire after 2 hours.</p>        
 
 
-        <form method="post" action="/authentication/select-your-business" >
+        <form method="post" action="/oneLogin/create/confirmation" >
 
             {{ govukInput({
                 label: {
@@ -29,7 +29,13 @@
                 name: "govOneLoginCode"  
             }) }}            
             
-            
+            {{ govukDetails({
+                summaryText: "Problems with the code?",
+                html: '<p>We can <a href="#">send the code again</a> or you can <a href="#">use a different phone number</a>.</p>
+                <p><a href="#">Get a code another way</a>.</p>'
+              }) }}
+
+
             {{ govukButton({
                 text: "Continue"
             }) }}                                
@@ -37,10 +43,10 @@
 
         </form>
 
-        {{ govukDetails({
-            summaryText: "Problems with the code?",
-            html: '<p>We can <a href="#">send the code again</a> if the code is not working or you did not receive it.</p>'
-          }) }}
+        
+
+
+       
        
     </div>
 </div>

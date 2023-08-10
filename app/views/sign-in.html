@@ -39,14 +39,14 @@
             <li><a href="/oneLogin/" class="govuk-link govuk-link--no-visited-state">Create a GOV.UK One Login account</a></li>
         </ul>
 
-        {% if data['defraAccount'] != "No"  %}
+        
 
         <div class="govuk-inset-text govuk-!-margin-top-7">
         <h2 class="govuk-heading-m">Need help signing in </h2>            
         
-            <p>If you <a href="/email-address">tell us your email address</a> we can check to see if you have an existing Defra account to use this service and how you sign in.</p>
+        <p>If you <a href="/email-address">tell us your email address</a> we can check to see if you have an existing Defra account and how you sign in to Defra services.</p>
         </div>
-        {% endif %}
+        
 
         
         {% elif data['oneLoginVersion'] == "version3" %}
@@ -74,7 +74,7 @@
             <div class="govuk-inset-text govuk-!-margin-top-7">
             <h2 class="govuk-heading-m">Need help signing in </h2>            
             
-                <p>If you <a href="/email-address">tell us your email address</a> we can check to see if you have an existing Defra account to use this service and how you sign in.</p>
+                <p>If you <a href="/email-address">tell us your email address</a> we can check to see if you have an existing Defra account and how you sign in to Defra services.</p>
             </div>
             {% endif %}
         
@@ -100,7 +100,7 @@
                 ]
             }) }}
 
-            <p class="govuk-body govuk-!-margin-bottom-7">If you need help signing in you can <a href="/email-address">tell us your email address</a> and we can check if you have an existing account and how you sign in.</p>
+            <p>If you <a href="/email-address">tell us your email address</a> we can check to see if you have an existing Defra account and how you sign in to Defra services.</p>
 
             {{ govukButton({
                 text: "Continue"
