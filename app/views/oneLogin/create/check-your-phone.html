@@ -1,5 +1,5 @@
 {% extends "layout.html" %}
-{% set showBackLink = true %}
+{% set showBackLink = false %}
 {% set serviceName = "" %}
 
 {% set pageHeading = "Check your phone" %}
@@ -12,8 +12,9 @@
     <div class="govuk-grid-column-two-thirds">
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-        
-        <p>We sent a code to <span class="govuk-!-font-weight-bold">{{ data['govOneLoginPhoneNumber'] or "0778451496" }}</span></p>        
+        <div class="govuk-inset-text">
+            <p>We sent a code to <span class="govuk-!-font-weight-bold">{{ data['govOneLoginPhoneNumber'] or data['govOneLoginPhoneNumberNonUk'] or "0778451496" }}</span></p>        
+        </div>
         <p>It might take a few minutes to arrive. The code will expire after 2 hours.</p>        
 
 
