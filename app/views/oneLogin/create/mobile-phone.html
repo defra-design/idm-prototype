@@ -2,7 +2,7 @@
 {% set showBackLink = true %}
 {% set serviceName = "" %}
 
-{% set pageHeading = "Enter your email address" %}
+{% set pageHeading = "Enter your mobile phone" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -13,17 +13,21 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
         
-        <form method="post" action="/oneLogin/create/check-your-email" >
+        <p>We will send a 6 digit security code to the number you give us.</p>
+
+        
+
+        <form method="post" action="/oneLogin/create/check-your-phone" >
 
             {{ govukInput({
                 label: {
-                    text: "Email address",
-                    classes: "govuk-visually-hidden",
+                    text: "UK mobile phone number",
+                    classes: "",
                     isPageHeading: false
                 },                
                 classes: "govuk-!-width-two-thirds",
-                id: "emailOneLogin",
-                name: "emailOneLogin"  
+                name: "govOneLoginPhoneNumber",
+                id: "govOneLoginPhoneNumber"
             }) }}
             
             
@@ -32,7 +36,7 @@
             }) }}                                
 
 
-        </form>
+        </form>        
        
     </div>
 </div>

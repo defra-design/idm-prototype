@@ -1,0 +1,83 @@
+{% extends "layout.html" %}
+{% set showBackLink = true %}
+{% set serviceName = "" %}
+
+{% set pageHeading = "Set up authenticator app" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+        
+        <p>1. Open your authenticator app on your smartphone, tablet or computer.</p>
+        <details class="govuk-details" data-module="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                I don’t have an authenticator app
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+                <p>You can download an authenticator app for your smartphone or tablet from your app store.</p>
+                <p>If you don’t have a smartphone or tablet, search online for an authenticator app for your computer.</p>
+                <p>You can use any authenticator app.</p>                
+            </div>
+          </details>
+
+        <p>2. Use your authenticator app to scan the QR code.</p>
+
+
+
+        <details class="govuk-details" data-module="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                I cannot scan the QR code
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+                <p>You can enter the secret key into your authenticator app instead.</p>
+                <p>Secret key:
+                <br><span class="govuk-!-font-weight-bold">HC7F SZQW YIJJ RRIT X64U KCSS OHSK</span></p>
+                <p>Some authenticator apps call the secret key a 'code'.</p>
+                
+            </div>
+          </details>
+        <p>3. The authenticator app will show a security code.</p>
+        <p>4. Enter the security code.</p>
+
+
+        <form method="post" action="/oneLogin/create/confirmation" >
+
+            {{ govukInput({
+                label: {
+                    text: "Security code",
+                    classes: "",
+                    isPageHeading: false
+                },                
+                hint: {
+                    text: "This is the 6-digit number shown in your authenticator app"
+                },
+                classes: "govuk-input--width-10",
+                name: "govOneLoginAuthApp",
+                id: "govOneLoginAuthApp"
+            }) }}
+            
+            
+            {{ govukButton({
+                text: "Continue"
+            }) }}                                
+
+
+        </form>
+
+
+        
+       
+    </div>
+</div>
+
+
+{% endblock %}

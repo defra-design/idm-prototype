@@ -2,7 +2,7 @@
 {% set showBackLink = true %}
 {% set serviceName = "" %}
 
-{% set pageHeading = "We were unable to find a account with that email address" %}
+{% set pageHeading = "We were unable to find an account with that email address" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -16,22 +16,19 @@
         <p>Check there is no errors with the email address you provided, you can <a href="/email-address">go back and change it</a> if there is and we will check again.</p>
 
         <div class="govuk-inset-text">
-            <p>testemaila@defra.gov.uk</p>
+            <p>{{ data['emailCheckAccount'] }}</p>
         </div>
-            
-        
-        
+                        
         <h2 class="govuk-heading-m">What to do next</h2>
-        <p>You will need to use GOV.UK One Login or Government Gateway to create a Defra account that lets you access and manage Defra services.</p>
-        
-
-         
+        <p>You will need to create a Defra account that lets you access and manage Defra services using GOV.UK One Login or Government Gateway.</p>
+                 
         <form method="post" action="/create-account" >   
             
             <input type="text" class="govuk-visually-hidden"  name="defraAccount" id="defraAccount" value="No" />
 
             {{ govukButton({
-                text: "Create an account"
+                text: "Create a Defra account",
+                classes: "govuk-!-margin-top-3"
             }) }}                                
 
 

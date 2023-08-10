@@ -14,15 +14,15 @@
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
         
         <div class="govuk-inset-text">
-            <p>We have sent an email to: <span class="govuk-!-font-weight-bold"> {{ data['govOneLoginEmail'] or "test@defraid.com"  }}</span></p>
+            <p>We have sent an email to: <span class="govuk-!-font-weight-bold"> {{ data['emailOneLogin'] or "test@defraidentity.com"  }}</span></p>
         </div>
 
         <p>The email contains a 6 digit security code.</p>
         <p>Your email might take a few minutes to arrive. If you do not get an email, check your spam folder.</p>
-        <p>The code will expire after one hour.</p>    
+        <p>The code will expire after 2 hours.</p>    
 
 
-        <form method="post" action="" >
+        <form method="post" action="/oneLogin/create/create-password" >
 
             {{ govukInput({
                 label: {
@@ -33,6 +33,10 @@
                 classes: "govuk-input--width-10"
             } | decorateFormAttributes(govOneLoginCode)) }}
             
+            {{ govukDetails({
+                summaryText: "Problems with the code?",
+                html: '<p>We can <a href="#">send the code again</a> or you can <a href="#">use a different email address</a>.</p>'
+              }) }}
             
             {{ govukButton({
                 text: "Continue"
@@ -42,17 +46,7 @@
         </form>
 
 
-        <details class="govuk-details" data-module="govuk-details">
-            <summary class="govuk-details__summary">
-              <span class="govuk-details__summary-text">
-                Problems with the code?
-              </span>
-            </summary>
-            <div class="govuk-details__text">
-                <p>Content to be confirmed - new variation of screen.</p>
-                
-            </div>
-          </details>
+        
        
     </div>
 </div>

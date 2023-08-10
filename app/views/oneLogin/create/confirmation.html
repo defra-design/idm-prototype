@@ -2,7 +2,7 @@
 {% set showBackLink = true %}
 {% set serviceName = "" %}
 
-{% set pageHeading = "Enter your email address" %}
+{% set pageHeading = "You’ve created your GOV.UK One Login" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -13,19 +13,9 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
         
-        <form method="post" action="/oneLogin/create/check-your-email" >
+        <p>Now continue to use the service.</p>        
 
-            {{ govukInput({
-                label: {
-                    text: "Email address",
-                    classes: "govuk-visually-hidden",
-                    isPageHeading: false
-                },                
-                classes: "govuk-!-width-two-thirds",
-                id: "emailOneLogin",
-                name: "emailOneLogin"  
-            }) }}
-            
+        <form method="post" action="/authentication/select-your-business" >            
             
             {{ govukButton({
                 text: "Continue"
@@ -33,6 +23,7 @@
 
 
         </form>
+        
        
     </div>
 </div>
