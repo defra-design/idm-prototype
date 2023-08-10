@@ -41,7 +41,9 @@
 
         {% else %}
 
-            {% if data['companySize'] == "Single" %}
+            {% if data['userResearch'] == "Yes" %}
+                <form action="/authentication/select-your-business" method="post">
+            {% elif data['companySize'] == "Single" %}
                 <!-- <form action="verify" method="post"> -->
                 <form action="/authentication/verify-single-number" method="post">
             {% elif data['companySize'] == "20" %}
