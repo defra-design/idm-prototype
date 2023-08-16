@@ -3,6 +3,7 @@
 {% set serviceName = "Service Name" %}
 
 {% set pageHeading = "Is this organisation a sole trader or a charity?" %}
+{% set pageHeading = "What type of business are you?" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -20,8 +21,8 @@
                     legend: { text: "Is this organisation a sole trader or a charity?", isPageHeading: false, classes: "govuk-visually-hidden"  }
                 },
                 items: [
-                    { value: "sole-trader, redirect(/register/sole-trader-name)", text: 'Sole trader'   },
-					{ value: "charity", text: 'Charity'   }                    
+                    { value: "charity", text: 'Charity' },
+                    { value: "sole-trader, redirect(/register/sole-trader-name)", text: 'Sole trader'   }					
                 ]
             } | decorateFormAttributes('defraIdSoleTraderOrCharity')) }}                            	
 
