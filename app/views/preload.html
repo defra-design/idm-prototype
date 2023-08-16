@@ -77,11 +77,27 @@
             {% endif %}        
                 
             <!-- <form class="form" action="/archived/mfa/gov-gateway/login-v2" method="post" class=""> -->
-
+                <div class="mspace">
                 {{ govukCheckboxes({
                     fieldset: { legend: { text: "User has Government Gateway account", isPageHeading: false, classes: "govuk-visually-hidden" } },
-                    items: [ { value: "Yes", text: "User can choose One Login for authentication" } ]
+                    classes: "govuk-checkboxes--small",  
+                    items: [ { value: "Yes", text: "One Login as option for authentication" } ]
                 } | decorateFormAttributes('useOneLogin')) }}
+                </div>
+                <div class="mspace">
+                {{ govukCheckboxes({
+                    fieldset: { legend: { text: "Version", isPageHeading: false, classes: "govuk-visually-hidden" } },
+                    classes: "govuk-checkboxes--small",  
+                    items: [ { value: "version2", text: "Use version 2" } ]
+                } | decorateFormAttributes('oneLoginVersion')) }}
+                </div>
+                {{ govukCheckboxes({
+                    fieldset: { legend: { text: "Version", isPageHeading: false, classes: "govuk-visually-hidden" } },
+                    classes: "govuk-checkboxes--small",  
+                    items: [ { value: "version3", text: "Use version 3" } ]
+                } | decorateFormAttributes('oneLoginVersion')) }}
+
+                
 
             {% if data['serviceFlow'] != "vetsVisit" %}      
                     

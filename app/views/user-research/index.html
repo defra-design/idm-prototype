@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+
+{% set pageHeading = "User research" %}
+{% set pageSection = "Defra Identity Management" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+        {{ macroPageHeader.pageHeader(pageHeading, pageSection) }}
+
+        <!-- <p>No current user research taking place.</p> -->
+
+
+        <h2 class="govuk-heading-m">GOV.UK OneLogin</h2>
+        <p class="govuk-body">Running: 10 to 18 August 2023</p>
+        
+        <p>Looking at how we can implement GOV.UK OneLogin into Defra Identity.</p>
+        <p>Variations on screen and flows</p>
+
+        <div class="govuk-button-group">
+
+            <form action="/start" method="post" >
+                <input type="hidden" id="flow" name="flow" value="Authentication" />
+                <input type="hidden" id="flowVersion" name="flowVersion" value="current" />
+                <input type="hidden" id="serviceFlow" name="serviceFlow" value="coreDefault" />
+                <input type="hidden" id="companySize" name="companySize" value="20" />
+                <input type="hidden" id="useOneLogin" name="useOneLogin" value="Yes" />
+                <input type="hidden" id="oneLoginVersion" name="oneLoginVersion" value="" />   
+                <input type="hidden" id="userResearch" name="userResearch" value="Yes" />   
+
+                {{ govukButton({
+                    text: "Version 1"
+                }) }}
+            </form>
+
+            <form action="/start" method="post" >
+                <input type="hidden" id="flow" name="flow" value="Authentication" />
+                <input type="hidden" id="flowVersion" name="flowVersion" value="current" />
+                <input type="hidden" id="serviceFlow" name="serviceFlow" value="coreDefault" />
+                <input type="hidden" id="companySize" name="companySize" value="20" />
+                <input type="hidden" id="useOneLogin" name="useOneLogin" value="Yes" />
+                <input type="hidden" id="oneLoginVersion" name="oneLoginVersion" value="version2" />
+                <input type="hidden" id="userResearch" name="userResearch" value="Yes" />   
+                {{ govukButton({
+                    text: "Version 2"
+                }) }}
+            </form>
+
+
+            <form action="/start" method="post" >
+                <input type="hidden" id="flow" name="flow" value="Authentication" />
+                <input type="hidden" id="flowVersion" name="flowVersion" value="current" />
+                <input type="hidden" id="serviceFlow" name="serviceFlow" value="coreDefault" />
+                <input type="hidden" id="companySize" name="companySize" value="20" />
+                <input type="hidden" id="useOneLogin" name="useOneLogin" value="Yes" />
+                <input type="hidden" id="oneLoginVersion" name="oneLoginVersion" value="version3" />                
+                <input type="hidden" id="userResearch" name="userResearch" value="Yes" />   
+                {{ govukButton({
+                    text: "Version 3"
+                }) }}
+            </form>
+        </div>        
+
+    </div>
+</div>
+
+{% endblock %}

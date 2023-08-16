@@ -13,11 +13,14 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
         
-        <p>We have found a Defra account registered to the email you provided.</p>        
+        <p>We have found a Defra account registered to the email you provided.</p> 
         
-        
+        <div class="govuk-inset-text">
+            <p>{{ data['emailCheckAccount'] or "test@defraidentity.com" }}</p>
+        </div>
+                
         {% if data['accountVerifyType'] == "oneLog" %}
-        <p>We can also see that this email address is using GOV.UK One Login to sign in to Defra services.</p>                     
+        <p>This email address is using GOV.UK One Login to sign in to Defra services.</p>                     
         <form method="post" action="/oneLogin/email-address" >   
             
             {{ govukButton({
@@ -27,7 +30,7 @@
 
         {% elif data['accountVerifyType'] == "GovGate" %}
 
-        <p>We can also see that this email address is using GOV.UK One Login to sign in to Defra services.</p>                     
+        <p>This email address is using GOV.UK One Login to sign in to Defra services.</p>                     
         <form method="post" action="/gov-gateway/sign-in" >   
 
             {{ govukButton({
@@ -36,18 +39,20 @@
             
         {% elif data['accountVerifyType'] == "both" %}
 
-        <p>We can also see that this email address is using GOV.UK One Login and Government Gateway to sign in to Defra services.</p>                     
+        <p>This email address is used by GOV.UK One Login and Government Gateway.</p>                     
             <!-- <p>We can also see that this email address is using both GOV.UK One Login and Government Gateway to sign in to Defra services.</p>                      -->
 
-            <div class="govuk-button-group">
+            <div class="govuk-button-group govuk-!-margin-top-5">
 
             {{ govukButton({
-                text: "Sign in with GOV.UK One Login"
+                text: "Sign in with GOV.UK One Login",
+                href: "/oneLogin/email-address"
             }) }}     
 
             {{ govukButton({
                 text: "Sign in with Government Gateway",
-                classes: "govuk-button--secondary"
+                classes: "govuk-button--secondary",
+                href: "/gov-gateway/sign-in"
             }) }}    
         </div> 
 

@@ -13,10 +13,17 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-        <p>Not sure if you have an existing account and if you use a GOV.UK One Login or Government Gateway ID tell us your email address and we will check for you.</p>
+        <!-- <p>Not sure if you have an existing Defra account and if you use a GOV.UK One Login or Government Gateway ID tell us your email address and we will check for you.</p> -->
         <!-- <p>Not sure if you are using GOV.UK One Login or Government Gateway, you can tell us your email address and we can try to help you.</p> -->
         
-        <form method="post" action="" >
+
+        {% if data['oneLoginVersion'] == "" %}
+            <form method="post" action="/no-account" >
+        {% elif data['oneLoginVersion'] == "version2" %}
+            <form method="post" action="/account-found?accountVerifyType=both" >
+        {% elif data['oneLoginVersion'] == "version3" %}
+            <form method="post" action="/account-found?accountVerifyType=oneLog" >
+        {% endif %}
 
             {{ govukInput({
                 label: {
@@ -24,8 +31,10 @@
                     classes: "govuk-visually-hidden",
                     isPageHeading: false
                 },
-                classes: "govuk-!-width-two-thirds"
-            } | decorateFormAttributes(verificaationCode)) }}
+                classes: "govuk-!-width-two-thirds",
+                id: "emailCheckAccount",
+                name: "emailCheckAccount"            
+            }) }}
             
             
             {{ govukButton({
@@ -36,13 +45,13 @@
         </form>
 
 
-        <ul class="govuk-list govuk-font-weight-s">
+        <!-- <ul class="govuk-list govuk-font-weight-s">
             <li><a href="/account-found?accountVerifyType=oneLog">Account and using GOV.UK One Login</a></li>
             <li><a href="/account-found?accountVerifyType=GovGate">Account and using Government Gateway</a></li>
             <li><a href="/account-found?accountVerifyType=both">Account and both options</a></li>
             <li><a href="/no-account">No account</a></li>
 
-        </ul>
+        </ul> -->
        
     </div>
 </div>

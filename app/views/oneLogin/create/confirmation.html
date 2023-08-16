@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% set showBackLink = false %}
+{% set serviceName = "" %}
+
+{% set pageHeading = "You’ve created your GOV.UK One Login" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+        
+        <p>Now continue to use the service.</p>        
+
+        <form method="post" action="/authentication/select-your-business" >            
+            
+            {{ govukButton({
+                text: "Continue"
+            }) }}                                
+
+
+        </form>
+        
+       
+    </div>
+</div>
+
+
+{% endblock %}

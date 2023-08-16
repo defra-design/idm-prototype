@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+{% set showBackLink = false %}
+{% set serviceName = "" %}
+
+{% set pageHeading = "Choose how to get security codes" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+        
+        <form method="post" action="/oneLogin/create/mobile-phone" >
+
+            
+            {{ govukRadios({
+                name: "govOneLoginSecurity",
+                fieldset: {
+                    legend: {
+                        text: "How do you want to sign in?",
+                        isPageHeading: false,
+                        classes: "govuk-visually-hidden"
+                    }
+                },         
+                hint: {
+                    text: "To finish creating your account, choose a way to prove it’s you when you sign in."
+                },
+                items: [
+                    { value: "Text message", text: "Text message" }, 
+                    { value: "Authenticator, redirect(/oneLogin/create/setup-authenticator)", text: "Authenticator app for smartphone, tablet or computer" }              
+                ]
+            }) }}
+
+
+            <details class="govuk-details" data-module="govuk-details">
+                <summary class="govuk-details__summary">
+                  <span class="govuk-details__summary-text">
+                    What is an authenticator app?
+                  </span>
+                </summary>
+                <div class="govuk-details__text">
+                    <p>An authenticator app creates a security code that helps confirm it’s you when you sign in.</p>
+                    <p>You can use an authenticator app on your smartphone, tablet or desktop computer. Download an authenticator app for your smartphone or tablet from your app store or search online for an authenicator app for your computer.</p>
+                    
+                </div>
+              </details>
+
+
+            
+            {{ govukButton({
+                text: "Continue"
+            }) }}                                
+
+
+        </form>
+
+
+        
+       
+    </div>
+</div>
+
+
+{% endblock %}
