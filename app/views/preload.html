@@ -43,6 +43,13 @@
                 items: [ { value: "Yes", text: "User has Government Gateway account" } ]
             } | decorateFormAttributes('GovernmentGatewayAccount')) }}
 
+
+
+            {{ govukCheckboxes({
+                fieldset: { legend: { text: "Service does not allow NON-uk business", isPageHeading: false, classes: "govuk-visually-hidden" } },
+                items: [ { value: "No", text: "Service does not allow NON-ukregistered business or organisations" } ]
+            } | decorateFormAttributes('regNonUk')) }}
+
             {{ govukRadios({
                 classes: "govuk-radios--inline",
                 fieldset: {
