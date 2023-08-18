@@ -2,7 +2,7 @@
 {% set showBackLink = true %}
 {% set serviceName = "" %}
 
-{% set pageHeading = "What is the name of your business?" %}
+{% set pageHeading = "What is the name of the business?" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -23,7 +23,7 @@
 				hint: {
 					text: "You may trade under your own name or a name you have given to the business."
 				  },		
-				classes: "govuk-input--width-20"				
+				classes: "govuk-!-width-two-thirds"
 			} | decorateFormAttributes('business-name')) }}      
 
       		{{ govukButton({

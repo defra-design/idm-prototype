@@ -3,6 +3,7 @@
 {% set serviceName = "" %}
 
 {% set pageHeading = "Are you registering as a business or an individual?" %}
+{% set pageHeading = "Who are you registering?" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -20,8 +21,8 @@
                     legend: { text: "Are you registering as a business or an individual?", isPageHeading: false, classes: "govuk-visually-hidden"  }
                 },
                 items: [
-                    { value: "Organisation", html: '<strong>Business or organisation</strong>', hint: { text: "You represent a business or organisation that wants to use this service (including sole traders and charities) and you have permission to create an account for them" }  },
-                    { value: "Individual, redirect(/register/personal-name)", html: '<strong>Individual</strong>', hint: { text: "You want to use this service for your own personal use" } }
+                    { value: "Organisation", html: '<strong>Business or organisation</strong>', hint: { text: "You represent a business or organisation that wants to use this service (including sole traders and charities) and you have permission to create an account for them." }  },
+                    { value: "Individual, redirect(/register/personal-name)", html: '<strong>Individual</strong>', hint: { text: "You want to use this service for your own personal use." } }
                 ]
             } | decorateFormAttributes('defraIdType')) }}
 

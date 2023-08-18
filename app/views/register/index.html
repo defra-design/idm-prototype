@@ -2,7 +2,7 @@
 {% set showBackLink = false %}
 {% set serviceName = "" %}
 
-{% set pageHeading = "Your Defra account" %}
+{% set pageHeading = "Register for a Defra account" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -13,31 +13,43 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-        <p>Defra account lets you access and manage Defra services for yourself or on behalf of the organisations that you represent. Once you have an account, you'll use your Government Gateway details to sign in each time you visit.</p>
+        <!-- <p>Defra account lets you access and manage Defra services for yourself or on behalf of the organisations that you represent. Once you have an account, you'll use your Government Gateway details to sign in each time you visit.</p> -->
+        <div class="govuk-inset-text">
+            <p>To access Defra services such as {SERVICENAME} you need to have a Defra account.</p>
+        </div>
+        <p>Once you have registered for a Defra account you can access and manage services:
+        <ul class="govuk-list govuk-list--bullet">
+            <li>for yourself as a business or individual</li>
+            <li>on behalf of business’s you may represent</li>
+        </ul>                        
+            
+            
+        <p>You will use your Government Gateway details to sign in to {SERVICENAME} each time you visit.</p>
 
-        <p>You need to register for a Defra account so you can access and manage services:</p>
+
+
+        <!-- <p>You need to register for a Defra account so you can access and manage Defra services:</p>
         
         <ul class="govuk-list govuk-list--bullet">
             <li>for yourself</li>
             <li>on behalf of business’s you represent</li>
-        </ul>
-        <p>You’ll use your Government Gateway details to sign in each time you visit.</p>
-            
-            Once you have an account, you'll use your Government Gateway details to sign in each time you visit.</p>
+        </ul>                     -->
+        
 
-        <h2 class="govuk-heading-l">What we need from you</h2>
+        <!-- <h2 class="govuk-heading-m">What we need</h2>
         <p>To complete your registration, we'll ask for some personal details and for information about who wants to use this service.</p>
-        <p>To find out how we use, process and store your data, read our <a href="/privacy-notice">Privacy notice</a>.</p>
+        <p>To find out how we use, process and store your data, read our <a href="/privacy-notice">Privacy notice</a>.</p> -->
 
-        <form method="post" action="/register/account-type">
+        <form method="post" action="/register/what-we-need">
 
-            {{ govukCheckboxes({
+            <!-- {{ govukCheckboxes({
               fieldset: { legend: { text: "Terms and conditions", isPageHeading: false, classes: "govuk-visually-hidden" } },
               items: [ { value: "Yes", html: 'I have read and agree to the <a href="/terms-and-conditions">Terms and conditions</a>. ' } ]
-            } | decorateFormAttributes('defraIdTerms')) }}
+            } | decorateFormAttributes('defraIdTerms')) }} -->
 
             {{ govukButton({
-                text: "Continue"
+                text: "Register",
+                classes: "govuk-!-margin-top-5"
             })}}
 
         </form>

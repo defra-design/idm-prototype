@@ -2,7 +2,7 @@
 {% set showBackLink = true %}
 {% set serviceName = "" %}
 
-{% set pageHeading = "What is the business’s telephone number?" %}
+{% set pageHeading = "What is the business’s email address?" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -14,23 +14,21 @@
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   
 
     	<!-- <p class="govuk-hint">These could be details included on the website, or contact details for the head office or management team.</p> -->
-        <!-- <p>This could be the number for head office or management team.</p> -->
     
-    	<form action="/register/task-list-page-company-details" method="post">
+    	<form action="/register/task-list-page-company-details" method="post">			
 
 			{{ govukInput({
                 label: {
-                    text: "Telephone number",
-                    classes: "govuk-visually-hidden"					
+                    text: "Email address",
+                    classes: "govuk-visually-hidden"				
                 },
                 hint: {
-                    text: "For international numbers include the country code."
+                    text: "We will only use this for ...... "
                 },
                 classes: "govuk-!-width-two-thirds",
-				type: "tel"      
-            } | decorateFormAttributes('defraIdCompanyPhone')) }}
-
-			
+				type: "email",
+                spellcheck: "false"       
+            } | decorateFormAttributes('defraIdCompanyEmail')) }}      
 
       		{{ govukButton({
         		text: "Continue"
