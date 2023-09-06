@@ -3,7 +3,12 @@
 {% set showBackLink = false %}
 {% set serviceName = "Government Gateway" %}
 
-{% set pageHeading = "Your Defra account" %}
+
+{% if data['status'] == "review" %}
+    {% set pageHeading = "You’ve signed out" %}
+{% else %}
+    {% set pageHeading = "Your Defra account" %}
+{% endif %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -32,6 +37,18 @@
             <li><a class="govuk-link" href="/service-start-logged-out">Testing chemicals 1</a></li>
             <li><a class="govuk-link" href="/service-start-logged-out">Chemicals testing 1</a></li>
         </ul>
+
+        
+    </div>
+    <div class="govuk-grid-column-one-third review">      
+        <ul class="govuk-list govuk-body-s govuk-!-text-align-right"> 
+            {% if data['status'] == "review" %}                   
+            <li><a href="/signed-out?status=" class="govuk-link govuk-link--no-visited-state">Current page</a></li>        
+            {% else %}
+            <li><a href="/signed-out?status=review" class="govuk-link govuk-link--no-visited-state">Suggested page changes</a></li>        
+            
+            {% endif %}
+        </ul>      
     </div>
 </div>
 
