@@ -205,6 +205,8 @@
 
 		{% if data['serviceHook'] == "WasteTracking" %}
 		  <form method="post" action="https://wts-prototype.herokuapp.com/v18/index-homepage">
+		{% elif data['serviceHook'] == "Forest" %}
+			<form method="post" action="https://forest-risk-commodities.herokuapp.com/">
 		{% else %}
         <form method="post" action="/account/manage/">
 		{% endif %}
