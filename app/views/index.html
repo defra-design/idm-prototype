@@ -32,8 +32,8 @@
             <h2 class="govuk-heading-m">User flows</h2>      
             <p>These are the core flows, but you can also select a service on the preload to show any service specific pages and content.</p>      
             <div class="govuk-button-group">
-                <form action="/preload" method="post" >
-                    <input type="hidden" name="flow" id="flow" value="Registration" />
+                <form action="/flow" method="post" >
+                    <input type="hidden" name="userFlow" id="userFlow" value="Registration" />
                     <input type="hidden" name="flowVersion" id="flowVersion" value="" />                    
                     <!-- <input type="hidden" name="companySize" id="companySize" value="20" /> -->
                     {{ govukButton({
@@ -41,7 +41,7 @@
                     }) }}
                 </form>
                 <form action="/preload" method="post" >
-                    <input type="hidden" name="flow" id="flow" value="Registration" />
+                    <input type="hidden" name="userFlow" id="userFlow" value="Registration" />
                     <input type="hidden" name="flowVersion" id="flowVersion" value="version_1" />
                     {{ govukButton({
                         text: "Archived V1.0",
@@ -53,8 +53,8 @@
             
             
             <div class="govuk-button-group">
-                <form action="/service" method="post" >
-                    <input type="hidden" name="flow" id="flow" value="Authentication" />
+                <form action="/flow" method="post" >
+                    <input type="hidden" name="userFlow" id="userFlow" value="Authentication" />
                     <input type="hidden" name="flowVersion" id="flowVersion" value="current" />
                     <input type="hidden" name="serviceFlow" id="serviceFlow" value="coreDefault" />
                     <input type="hidden" name="companySize" id="companySize" value="20" />
