@@ -1,13 +1,22 @@
 {% extends "layout.html" %}
 {% set showBackLink = false %}
-{% set serviceName = "Preload - Defra identity management" %}
+{% set serviceName = "" %}
 
 {% if data['serviceFlow'] == "vetsVisit" %}  
-    {% set pageHeading = "Annual health and welfare review of livestock" %}
+    {% set pageHeading = "Annual Health and Welfare Review of livestock" %}
 {% else %}
-    {% set pageHeading = "Core service flow" %}
+    {% set pageHeading = "Core service (default)" %}
 {% endif %}
-{% set pageSection = "Preload data" %}
+
+
+
+{% if data['userFlow'] == "Registration" %}
+    {% set pageSection = "Preload registration data" %}
+{% elif data['userFlow'] == "Authentication" %}
+    {% set pageSection = "Preload authentication data" %}
+{% endif %}
+
+
 
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}

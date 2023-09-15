@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% set showBackLink = false %}
-{% set serviceName = "Preload - Defra identity management" %}
+{% set serviceName = "" %}
 
 {% set pageHeading = "User flows" %}
 {% set pageSection = "Preload data" %}
@@ -12,12 +12,12 @@
     <div class="govuk-grid-column-two-thirds">
 
         {{ macroPageHeader.pageHeader(pageHeading, pageSection) }}                        
-
         
         <p>The flow defaults to "Registration" and "Core service" unless alternative options override that selection.</p>
                 
         <form action="/preload" method="post" >
 
+            <!-- // User Journey // -->
             {{ govukRadios({   
                 fieldset: {
                     legend: {
@@ -33,9 +33,7 @@
                 ]
             } | decorateFormAttributes('userFlow')) }}
 
-
-
-            
+            <!-- // Service Flow // -->
             {{ govukRadios({   
                 fieldset: {
                     legend: {
@@ -54,9 +52,6 @@
                 ]
             } | decorateFormAttributes('serviceFlow')) }}
  
-
-
-
  
             {{ govukButton({
                 text: "Continue"
