@@ -2,69 +2,78 @@
 {% set showBackLink = false %}
 {% set serviceName = "" %}
 
-{% set pageHeading = "Register for a Defra account" %}
+{% if data['status'] == "review" %}
+    {% set pageHeading = "Register for a Defra account" %}
+{% else %}
+    {% set pageHeading = "Your Defra account" %}
+{% endif %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
 
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-column-two-thirds">        
 
-        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+        {% if data['status'] == "review" %}
 
-        <!-- <p>Defra account lets you access and manage Defra services for yourself or on behalf of the organisations that you represent. Once you have an account, you'll use your Government Gateway details to sign in each time you visit.</p> -->
-        <div class="govuk-inset-text">
-            <p>To access Defra services such as {SERVICENAME} you need to have a Defra account.</p>
-        </div>
-        <p>Once you have registered for a Defra account you can access and manage services:
-        <ul class="govuk-list govuk-list--bullet">
-            <li>for yourself as a business or individual</li>
-            <li>on behalf of business’s you may represent</li>
-        </ul>                        
+            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
             
-            
-        <p>You will use your Government Gateway details to sign in to {SERVICENAME} each time you visit.</p>
+            <p>To access Defra services you need to have a Defra account.</p>            
+            <p>Once you have registered for a Defra account you can access and manage Defra services:
+            <ul class="govuk-list govuk-list--bullet">
+                <li>for yourself as a business or individual</li>
+                <li>on behalf of businesses that you represent</li>
+            </ul>                                                
+            <div class="govuk-inset-text">
+            <p>You’ll use your Government Gateway details to sign in to this and other Defra services each time you visit.</p>
+            </div>
 
+            <p>To find out how we use, process and store your personal information, read our <a href="/privacy-notice" target="_blank" >Privacy notice (opens in new tab)</a>.</p>
+            <form method="post" action="/terms-and-conditions">
+                
+                {{ govukButton({
+                    text: "Continue registering for a Defra account",
+                    classes: "govuk-!-margin-top-5"
+                })}}
+    
+            </form>    
 
+        {% else %}
 
-        <!-- <p>You need to register for a Defra account so you can access and manage Defra services:</p>
-        
-        <ul class="govuk-list govuk-list--bullet">
-            <li>for yourself</li>
-            <li>on behalf of business’s you represent</li>
-        </ul>                     -->
-        
+            <h1 class="govuk-heading-l">{{pageHeading}}</h1>
 
-        <!-- <h2 class="govuk-heading-m">What we need</h2>
-        <p>To complete your registration, we'll ask for some personal details and for information about who wants to use this service.</p>
-        <p>To find out how we use, process and store your data, read our <a href="/privacy-notice">Privacy notice</a>.</p> -->
+            <p>Your Defra account lets you access and manage Defra services for yourself or on behalf of the organisations that you represent. Once you have an account, you'll use your Government Gateway details to sign in each time you visit.</p>
+            <h2 class="govuk-heading-l">What we need from you</h2>
+            <p>To complete your registration, we'll ask for some personal details and for information about who wants to use this service.</p>
+            <p>To find out how we use, process and store your data, read our <a href="/privacy-notice">Privacy notice</a>.</p>
 
-        <form method="post" action="/register/what-we-need">
+            <form method="post" action="/register/account-type">
 
-            <!-- {{ govukCheckboxes({
-              fieldset: { legend: { text: "Terms and conditions", isPageHeading: false, classes: "govuk-visually-hidden" } },
-              items: [ { value: "Yes", html: 'I have read and agree to the <a href="/terms-and-conditions">Terms and conditions</a>. ' } ]
-            } | decorateFormAttributes('defraIdTerms')) }} -->
+                {{ govukCheckboxes({
+                  fieldset: { legend: { text: "Terms and conditions", isPageHeading: false, classes: "govuk-visually-hidden" } },
+                  items: [ { value: "Yes", html: 'I have read and agree to the <a href="/terms-and-conditions">Terms and conditions</a>. ' } ]
+                } | decorateFormAttributes('defraIdTerms')) }}
+    
+                {{ govukButton({
+                    text: "Continue"                    
+                })}}
+    
+            </form>
+    
 
-            {{ govukButton({
-                text: "Register",
-                classes: "govuk-!-margin-top-5"
-            })}}
-
-        </form>
-
+        {% endif %}    
+       
     </div>
-    <!-- <div class="govuk-grid-column-one-third review">      
-        <ul class="govuk-list govuk-body-s govuk-!-text-align-right">        
-        
+    <div class="govuk-grid-column-one-third review">      
+        <ul class="govuk-list govuk-body-s govuk-!-text-align-right">                
             {% if data['status'] == "review" %}
-                <li><a href="/registration/?status=" class="govuk-link govuk-link--no-visited-state">Current page</a></li>        
+                <li><a href="/register/?status=" class="govuk-link govuk-link--no-visited-state">Current page</a></li>        
             {% else %}
-                <li><a href="/registration/?status=review" class="govuk-link govuk-link--no-visited-state">Suggested page changes</a></li>        
+                <li><a href="/register/?status=review" class="govuk-link govuk-link--no-visited-state">Suggested page changes</a></li>        
             {% endif %}
         </ul>          
-    </div> -->
+    </div>
 </div>
 
 {% endblock %}

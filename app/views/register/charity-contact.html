@@ -1,0 +1,88 @@
+{% extends "layout.html" %}
+{% set showBackLink = true %}
+{% set serviceName = "" %}
+
+{% if data['status'] == "review" %}
+    {% set pageHeading = "What’s {Charity Name}’s telephone and email address?" %}
+{% else %}
+    {% set pageHeading = "What are the main contact details for the charity?" %} 
+{% endif %}
+
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   
+
+		{% if data['status'] == "review" %}
+        <!-- <p>These could be from your website, or for the head office or management team.</p> -->
+		{% else %}
+		<p class="govuk-hint">These could be details included on the website, or contact details for the head office or management team.</p>
+		{% endif %}
+
+
+		<form action="/register/task-list-page-charity-details" method="post">
+
+
+		{% if data['status'] == "review" %}
+
+			{{ govukInput({
+				label: {
+					text: "Telephone number"
+				},
+				classes: "govuk-!-width-two-thirds",				
+				type: "tel"
+			} | decorateFormAttributes('registrationCharityPhone')) }}
+
+			{{ govukInput({
+				label: {
+				text: "Email address"
+				},
+				classes: "govuk-!-width-two-thirds",				
+				type: "email"
+			} | decorateFormAttributes('registrationCharityEmail')) }}
+
+		{% else %}				
+
+			{{ govukInput({
+				label: {
+					text: "Telephone number"
+				},
+				classes: "govuk-!-width-one-half",				
+				type: "tel"
+			} | decorateFormAttributes('registrationCharityPhone')) }}
+
+			{{ govukInput({
+				label: {
+				text: "Email address"
+				},
+				classes: "govuk-!-width-three-quarters",				
+				type: "email"
+			} | decorateFormAttributes('registrationCharityEmail')) }}
+		
+		{% endif %}
+
+			{{ govukButton({
+				text: "Continue"
+			}) }}
+
+		</form>
+
+  	</div>	
+	<div class="govuk-grid-column-one-third review">      
+		<ul class="govuk-list govuk-body-s govuk-!-text-align-right">                
+			{% if data['status'] == "review" %}
+				<li><a href="/register/charity-contact?status=" class="govuk-link govuk-link--no-visited-state">Current page</a></li>        
+			{% else %}
+				<li><a href="/register/charity-contact?status=review" class="govuk-link govuk-link--no-visited-state">Suggested page changes</a></li>        
+			{% endif %}
+		</ul>          
+	</div> 
+</div>
+
+{% endblock %}

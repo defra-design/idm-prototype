@@ -2,8 +2,8 @@
 {% set showBackLink = false %}
 {% set serviceName = "" %}
 
-{% set pageHeading = "What we need" %}
-{% set pageSection = "" %}
+{% set pageHeading = "What we need from you" %}
+{% set pageSection = "Register Defra account" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
@@ -20,26 +20,14 @@
             <li>email address</li>
         </ul>
 
-
-        <p class="govuk-body">If you are a business you may also need to tell us your:</p>
+        <p class="govuk-body">If you are registering as a business you may also need to tell us your:</p>
         <ul class="govuk-list govuk-list--bullet">            
             <li>company registration number</li>
             <li>registered business address</li> 
             <li>business contact details</li>                       
-        </ul>
+        </ul>        
         
-
-        <!-- <p>To complete your registration, we'll ask for some personal details and for information about who wants to use this service.</p> -->
-        <div class="govuk-inset-text">
-            <p>Read our <a href="/privacy-notice" target="_blank">Privacy notice (opens in new tab)</a> to find out how we use, process and store your data.</p>
-        </div>
-
-        <form method="post" action="/register/account-type">
-
-            <!-- {{ govukCheckboxes({
-              fieldset: { legend: { text: "Terms and conditions", isPageHeading: false, classes: "govuk-visually-hidden" } },
-              items: [ { value: "Yes", html: 'I have read and agree to the <a href="/terms-and-conditions">Terms and conditions</a>. ' } ]
-            } | decorateFormAttributes('defraIdTerms')) }} -->
+        <form method="post" action="/register/account-type" class="govuk-!-margin-top-7">
 
             {{ govukButton({
                 text: "Continue"
@@ -47,17 +35,7 @@
 
         </form>
 
-    </div>
-    <!-- <div class="govuk-grid-column-one-third review">      
-        <ul class="govuk-list govuk-body-s govuk-!-text-align-right">        
-        
-            {% if data['status'] == "review" %}
-                <li><a href="/registration/?status=" class="govuk-link govuk-link--no-visited-state">Current page</a></li>        
-            {% else %}
-                <li><a href="/registration/?status=review" class="govuk-link govuk-link--no-visited-state">Suggested page changes</a></li>        
-            {% endif %}
-        </ul>          
-    </div> -->
+    </div>    
 </div>
 
 {% endblock %}

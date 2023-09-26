@@ -13,7 +13,12 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
         
-        <p>Your business must be registered in the UK in order to use {ServiceName}.</p>
+
+        {% if data['registrationAccountType'] == "Individual" %}
+        <p>Your must live in the UK in order to register for {ServiceName}.</p>
+        {% else %}
+        <p>Your business must be registered to trade in the UK in order to register for {ServiceName}.</p>
+        {% endif %}
         
         <p class="govuk-body">Contact <a class="govuk-link govuk-link--no-visited-state" href=“mailto:{SERVICE EMAIL}”>{SERVICE email address}</a> if you need help or call our helpline.</p>
         <p class="govuk-body">

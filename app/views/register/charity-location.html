@@ -2,7 +2,11 @@
 {% set showBackLink = true %}
 {% set serviceName = "" %}
 
-{% set pageHeading = "Where is the charity registered?" %}
+{% if data['status'] == "review" %}
+	{% set pageHeading = "Where is the charity registered?" %}
+{% else %}
+	{% set pageHeading = "Where is the charity registered?" %}
+{% endif %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -11,7 +15,11 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
+		{% if data['status'] == "review" %}
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   
+		{% else %}
+		<h1 class="govuk-heading-l">{{pageHeading}}</h1>
+		{% endif %}
 
     	<form method="post" action="/register/charity-name">      
 
@@ -27,7 +35,7 @@
 					},
 					classes: "govuk-!-width-one-third",
 					type: "number"      
-				} | decorateFormAttributes('charity-number')) }}
+				} | decorateFormAttributes('registrationCharityNumber')) }}
 
         	{% endset -%}
 
@@ -43,7 +51,7 @@
 					},
 					classes: "govuk-!-width-one-third",
 					type: "number"      
-				} | decorateFormAttributes('charity-number')) }}				
+				} | decorateFormAttributes('registrationCharityNumberScotland')) }}				
         	
 			{% endset -%}
 
@@ -59,7 +67,7 @@
 					},
 					classes: "govuk-!-width-one-third",
 					type: "number"      
-				} | decorateFormAttributes('charity-number')) }}					
+				} | decorateFormAttributes('registrationCharityNumberNI')) }}					
 
         	{% endset -%}
 
@@ -70,11 +78,11 @@
                     legend: { text: "Is this organisation a sole trader or a charity?", isPageHeading: false, classes: "govuk-visually-hidden"  }
                 },
                 items: [
-                    { value: "sole-trader", text: 'England and Wales', conditional: { html: englandAndWales } },
-					{ value: "charity, redirect(/register/sole-trader-or-charity)", text: 'Scotland', conditional: { html: scotland } },
-					{ value: "charity, redirect(/register/sole-trader-or-charity)", text: 'Northern Ireland', conditional: { html: northernIreland } }                    
+                    { value: "England and Wales", text: 'England and Wales', conditional: { html: englandAndWales } },
+					{ value: "Scotland, redirect(/register/sole-trader-or-charity)", text: 'Scotland', conditional: { html: scotland } },
+					{ value: "Northern Ireland, redirect(/register/sole-trader-or-charity)", text: 'Northern Ireland', conditional: { html: northernIreland } }                    
                 ]
-            } | decorateFormAttributes('charityLocation')) }}   
+            } | decorateFormAttributes('registrationCharityLocation')) }}   
        
 
         {{govukButton({
@@ -84,6 +92,15 @@
       </form>
 
     </div>
+	<div class="govuk-grid-column-one-third review">      
+        <ul class="govuk-list govuk-body-s govuk-!-text-align-right">                
+            {% if data['status'] == "review" %}
+                <li><a href="/register/charity-location?status=" class="govuk-link govuk-link--no-visited-state">Current page</a></li>        
+            {% else %}
+                <li><a href="/register/charity-location?status=review" class="govuk-link govuk-link--no-visited-state">Suggested page changes</a></li>        
+            {% endif %}
+        </ul>          
+    </div> 
 </div>
 
 {% endblock %}

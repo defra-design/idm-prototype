@@ -2,7 +2,11 @@
 {% set showBackLink = true %}
 {% set serviceName = "" %}
 
-{% set pageHeading = "What is your name?" %}
+{% if data['status'] == "review" %}
+    {% set pageHeading = "What’s your full name?" %}
+{% else %}
+    {% set pageHeading = "What is your name?" %}
+{% endif %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -11,31 +15,52 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
+        {% if data['status'] == "review" %}
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-
-        {% if data['route'] == "charity" %}
-            <form method="post" action="task-list-page-charity-details?personal-name-completed=y">
         {% else %}
-
-            
-
-            <form method="post" action="/register/task-list-page-about-you-details">
-                <!-- <form method="post" action="/register/task-list-page-company-details?personal-name-completed=y"></form> -->
+        <h1 class="govuk-heading-l">{{pageHeading}}</h1>
         {% endif %}
 
+        {% if data['registrationAccountType'] == "Individual" %}
+            {% if data['registrationIndividualAddressUK'] == "No" %}
+                <form method="post" action="/register/address/add-address-manual">
+            {% else %}
+                <form method="post" action="/register/address/postcode">
+            {% endif %}
+        {% elif data['registrationOrganisationType'] == "Charity" %}
+            <form method="post" action="/register/task-list-page-charity-details?personal-name-completed=y">
+        {% else %}                        
+            <form method="post" action="/register/task-list-page-company-details?personal-name-completed=y">
+        {% endif %}
+
+
+        {% if data['status'] == "review" %}
+
+            {{ govukInput({
+                label: {
+                    text: "Your name",
+                    classes: "govuk-visually-hidden"
+                },
+                classes: "govuk-!-width-three-quarters"        
+            } | decorateFormAttributes('registrationFullName')) }}
+
+        {% else %}
+            
             {{ govukInput({
                 label: {
                     text: "First or given name"
                 },
                 classes: "govuk-!-width-three-quarters"        
-            } | decorateFormAttributes('defraIdFirstName')) }}
+            } | decorateFormAttributes('registrationFullName')) }}
 
             {{ govukInput({
                 label: {
                     text: "Surname or family name"
                 },
                 classes: "govuk-!-width-three-quarters"        
-            } | decorateFormAttributes('defraIdSurname')) }}
+            } | decorateFormAttributes('registrationSurname')) }}
+
+        {% endif %}
 
             {{ govukButton({
                 text: "Continue"
@@ -44,6 +69,15 @@
         </form>
 
     </div>
+    <div class="govuk-grid-column-one-third review">      
+        <ul class="govuk-list govuk-body-s govuk-!-text-align-right">                
+            {% if data['status'] == "review" %}
+                <li><a href="/register/personal-name?status=" class="govuk-link govuk-link--no-visited-state">Current page</a></li>        
+            {% else %}
+                <li><a href="/register/personal-name?status=review" class="govuk-link govuk-link--no-visited-state">Suggested page changes</a></li>        
+            {% endif %}
+        </ul>          
+    </div>      
 </div>
 
 {% endblock %}

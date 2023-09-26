@@ -8,15 +8,11 @@
     {% set pageHeading = "Core service (default)" %}
 {% endif %}
 
-
-
 {% if data['userFlow'] == "Registration" %}
     {% set pageSection = "Preload registration data" %}
 {% elif data['userFlow'] == "Authentication" %}
     {% set pageSection = "Preload authentication data" %}
 {% endif %}
-
-
 
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -26,89 +22,100 @@
     <div class="govuk-grid-column-full">
 
         {{ macroPageHeader.pageHeader(pageHeading, pageSection) }}
-
-        <h3 class="govuk-heading-m">One Login</h3>
-        <p>Let your users sign in to your service with One Login.</p>        
-
-        <!-- Registration journey flow -->
-        <!-- //////////////////////////////////////////////////////////// -->
+        
+        <!-- // Registration flow // -->
         {% if data['userFlow'] == "Registration" %}
-            
-            <form class="form" action="/gov-gateway/login" method="post" class="">
 
+            {% if data['serviceFlow'] == "vetsVisit" %}      
+            <form class="form" action="/authentication/vets/start" method="post" >            
+            {% else %}        
+            <form class="form" action="/service-start-page" method="post" class="">
+            {% endif %}
 
                 <!-- {{ govukCheckboxes({
                     fieldset: { legend: { text: "User has Government Gateway account", isPageHeading: false, classes: "govuk-visually-hidden" } },
                     items: [ { value: "Available", text: "User can choose One Login for authentication" } ]
-                } | decorateFormAttributes('oneLogin')) }} -->
+                } | decorateFormAttributes('oneLogin')) }} -->        
+
+                {% if data['serviceFlow'] == "vetsVisit" %}      
+
+                    <p>There are no override options available for this service as part of registration.</p>
+
+                {% else %}
+
+                    <h3 class="govuk-heading-m">Service feature options</h3>
+                    {{ govukCheckboxes({
+                        fieldset: { legend: { text: "Service does not allow NON-uk business", isPageHeading: false, classes: "govuk-visually-hidden" } },
+                        items: [ { value: "No", text: "Business must be registered to trade in UK or individual must have UK address" } ]
+                    } | decorateFormAttributes('regNonUk')) }}
 
 
-            
-                <!-- <form class="form" action="/archived/mfa/gov-gateway/login" method="post" class=""> -->
-            
+                    <h3 class="govuk-heading-m">GOV.UK One Login</h3>                                        
 
-            {{ govukCheckboxes({
-                fieldset: { legend: { text: "User has Government Gateway account", isPageHeading: false, classes: "govuk-visually-hidden" } },
-                items: [ { value: "Yes", text: "User has Government Gateway account" } ]
-            } | decorateFormAttributes('GovernmentGatewayAccount')) }}
+                    {{ govukCheckboxes({
+                        fieldset: { legend: { text: "OneLogin", isPageHeading: false, classes: "govuk-visually-hidden" } },                        
+                        items: [ { value: "Yes", text: "Allow users to register using the new GOV.UK One Login ( Experimental )" } ]
+                    } | decorateFormAttributes('useOneLogin')) }}
 
-
-
-            {{ govukCheckboxes({
-                fieldset: { legend: { text: "Service does not allow NON-uk business", isPageHeading: false, classes: "govuk-visually-hidden" } },
-                items: [ { value: "No", text: "Do not allow NON-uk registered business" } ]
-            } | decorateFormAttributes('regNonUk')) }}
-
-            {{ govukRadios({
-                classes: "govuk-radios--inline",
-                fieldset: {
-                    legend: { text: "User has Government Gateway account", isPageHeading: false, classes: "govuk-fieldset__legend--m"  }
-                },
-                items: [
-                    { value: "Yes", text: "Yes" },
-                    { value: "No, redirect(/tasked/gov-gateway/login)", text: "No" }
-                ]
-            } | decorateFormAttributes('siteEntry')) }}
-
-        <!-- ////////////////// End of Registration flow /////////////////////////// -->
+                    <p>Various variations of this whilst we undertake discovery and research about how best to implement.</p>
+                    {{ govukRadios({
+                        fieldset: { legend: { text: "User has Government Gateway account", isPageHeading: false, classes: "govuk-visually-hidden" } },
+                        classes: "govuk-checkboxes--small",  
+                        items: [ 
+                            { value: "variationOne", text: "Buttons", checked: ("oneLoginVariation", "variationOne") },                        
+                            { value: "variationTwo", text: "Radio buttons" },
+                            { value: "variationThree", text: "Listed" }                            
+                        ]
+                    } | decorateFormAttributes('oneLoginVariation')) }}
+                
+                
+                    <!-- {{ govukCheckboxes({
+                        fieldset: { legend: { text: "User has Government Gateway account", isPageHeading: false, classes: "govuk-visually-hidden" } },
+                        items: [ { value: "Yes", text: "User does not have Government Gateway account" } ]
+                    } | decorateFormAttributes('GovernmentGatewayAccount')) }} -->
+                
+                {% endif %}                
+                <!-- // End of Registration flow // -->
         
         
-        <!-- Authentication journey flow -->
-        <!-- //////////////////////////////////////////////////////////// -->
+        <!-- // Authentication flow // -->        
         {% elif data['userFlow'] == "Authentication" %}
 
-            <!-- Start page flow depending on service -->
-            
+            <!-- Start page flow depending on service -->            
             {% if data['serviceFlow'] == "vetsVisit" %}      
-                <form class="form" action="/authentication/vets/start" method="post" >            
+            <form class="form" action="/authentication/vets/start" method="post" >            
             {% else %}
-                    <form class="form" action="/start" method="post" >            
+            <form class="form" action="/start" method="post" >            
             {% endif %}        
-                
+            <!-- Old variation -->
             <!-- <form class="form" action="/archived/mfa/gov-gateway/login-v2" method="post" class=""> -->
-                <div class="mspace">
-                {{ govukCheckboxes({
-                    fieldset: { legend: { text: "User has Government Gateway account", isPageHeading: false, classes: "govuk-visually-hidden" } },
-                    classes: "govuk-checkboxes--small",  
-                    items: [ { value: "Yes", text: "One Login as option for authentication" } ]
-                } | decorateFormAttributes('useOneLogin')) }}
-                </div>
-                <div class="mspace">
-                {{ govukCheckboxes({
-                    fieldset: { legend: { text: "Version", isPageHeading: false, classes: "govuk-visually-hidden" } },
-                    classes: "govuk-checkboxes--small",  
-                    items: [ { value: "version2", text: "Use version 2" } ]
-                } | decorateFormAttributes('oneLoginVersion')) }}
-                </div>
-                {{ govukCheckboxes({
-                    fieldset: { legend: { text: "Version", isPageHeading: false, classes: "govuk-visually-hidden" } },
-                    classes: "govuk-checkboxes--small",  
-                    items: [ { value: "version3", text: "Use version 3" } ]
-                } | decorateFormAttributes('oneLoginVersion')) }}
 
+                <h3 class="govuk-heading-m">One Login</h3>
+                <p>Let your users sign in to your service with One Login.</p>        
+
+                <div class="mspace">
+                    {{ govukCheckboxes({
+                        fieldset: { legend: { text: "User has Government Gateway account", isPageHeading: false, classes: "govuk-visually-hidden" } },
+                        classes: "govuk-checkboxes--small",  
+                        items: [ { value: "Yes", text: "One Login as option for authentication" } ]
+                    } | decorateFormAttributes('useOneLogin')) }}
+                </div>
+                <div class="mspace">
+                    {{ govukCheckboxes({
+                        fieldset: { legend: { text: "Version", isPageHeading: false, classes: "govuk-visually-hidden" } },
+                        classes: "govuk-checkboxes--small",  
+                        items: [ { value: "version2", text: "Use version 2" } ]
+                    } | decorateFormAttributes('oneLoginVersion')) }}
+                </div>
+                    {{ govukCheckboxes({
+                        fieldset: { legend: { text: "Version", isPageHeading: false, classes: "govuk-visually-hidden" } },
+                        classes: "govuk-checkboxes--small",  
+                        items: [ { value: "version3", text: "Use version 3" } ]
+                    } | decorateFormAttributes('oneLoginVersion')) }}
                 
-
-            {% if data['serviceFlow'] != "vetsVisit" %}      
+                <!-- // Service Specific // -->
+                <!-- // Annual Health and Welfare Review of livestock // -->
+                {% if data['serviceFlow'] != "vetsVisit" %}      
                     
                 <h3 class="govuk-heading-m">Authentication options</h3>
                 <div class="govuk-grid-row">
@@ -218,10 +225,16 @@
             <!-- ////////////////// End of interswitch /////////////////////////// -->            
 
         {% endif %}
-
-            {{ govukButton({
-                text: "Add preloaded data and continue"
-            }) }}
+        
+            {% if ((data['userFlow'] == "Registration" ) and (data['serviceFlow'] == "vetsVisit" )) %}      
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+            {% else %}
+                {{ govukButton({
+                    text: "Add preloaded data and continue"
+                }) }}
+            {% endif %}
 
         </form>
 

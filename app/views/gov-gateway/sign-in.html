@@ -23,65 +23,60 @@
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
 
-        {% if data['mfaDisabled'] == "Yes" %}
+        {% if data['userFlow'] == "Registration" %}            
 
-            <form action="/unavailable" method="post">
-        
-        {% elif data['mfaEmailDisabled'] == "Yes" %}
-            {% if data['multiplePhoneNumber'] == "Yes" %}
+            <form action="/register/" method="post">                
+
+        {% elif data['userFlow'] == "Authentication" %}            
+
+            {% if data['mfaDisabled'] == "Yes" %}
+            <form action="/unavailable" method="post">        
+            {% elif data['mfaEmailDisabled'] == "Yes" %}
+                {% if data['multiplePhoneNumber'] == "Yes" %}
                 <form action="/authentication/verify-multiple-numbers" method="post">
-                <input type="hidden" id="verify-your-identity" name="verify-your-identity" value="send-sms" />
-            {% else %}
+                    <input type="hidden" id="verify-your-identity" name="verify-your-identity" value="send-sms" />
+                {% else %}
                 <form action="/authentication/verify" method="post">
-                <input type="hidden" id="verify-your-identity" name="verify-your-identity" value="send-sms" />            
-            {% endif %}
-        {% elif data['mfaSmsDisabled'] == "Yes" %}
+                    <input type="hidden" id="verify-your-identity" name="verify-your-identity" value="send-sms" />            
+                {% endif %}
+            {% elif data['mfaSmsDisabled'] == "Yes" %}
             <form action="/authentication/security-word" method="post">
-            <input type="hidden" id="verify-your-identity" name="verify-your-identity" value="send-email" />
+                <input type="hidden" id="verify-your-identity" name="verify-your-identity" value="send-email" />
+            {% else %}
 
-        {% else %}
-
-            {% if data['userResearch'] == "Yes" %}
+                {% if data['userResearch'] == "Yes" %}
                 <form action="/authentication/select-your-business" method="post">
-            {% elif data['companySize'] == "Single" %}
-                <!-- <form action="verify" method="post"> -->
+                {% elif data['companySize'] == "Single" %}            
                 <form action="/authentication/verify-single-number" method="post">
-            {% elif data['companySize'] == "20" %}
+                {% elif data['companySize'] == "20" %}
                 <form action="/authentication/verify-single-number" method="post">
-            {% elif data['companySize'] == "45" %}
+                {% elif data['companySize'] == "45" %}
                 <form action="/authentication/verify-single-number" method="post">
+                {% endif %}
             {% endif %}
 
-        {% endif %}
+        {% endif %}        
 
-                {{ govukInput({
-                    label: {
-                    text: "Government Gateway user ID"
-                    },
-                    hint: {
+            {{ govukInput({
+                label: { text: "Government Gateway user ID" },
+                hint: {
                     text: "This could be up to 12 characters."
-                    },
-                    classes: "govuk-!-width-one-half",
-                    id: "govGateUserId",
-                    name: "govGateUserId",
-                    value: govGateUserId
-                }) }}
+                },
+                classes: "govuk-!-width-one-half"                    
+            } | decorateFormAttributes('govGateUserId')) }}
 
-                {{ govukInput({
-                    label: {
-                        text: "Password"
-                    },
-                    classes: "govuk-!-width-three-quarters",
-                    id: "govGatePwassword",
-                    name: "govGatePwassword",
-                    value: govGatePwassword
-                }) }}
+            {{ govukInput({
+                label: {
+                    text: "Password"
+                },
+                classes: "govuk-!-width-three-quarters"                    
+            } | decorateFormAttributes('govGatePassword')) }}
 
-                {{ govukButton({
-                    text: "Sign in"
-                }) }}
+            {{ govukButton({
+                text: "Sign in"
+            }) }}
 
-            </form>
+        </form>
 
         <h2 class="govuk-heading-m">New users of Government Gateway</h2>
         <p><a href="/gov-gateway/email-address" class="govuk-link govuk-link--no-visited-state">Create sign in details</a></p>
@@ -96,11 +91,12 @@
         {% include "includes/get-help.html" %}
 
     </div>
+    
     <div class="govuk-grid-column-one-third review">      
         <ul class="govuk-list govuk-body-s govuk-!-text-align-right">        
-            <!-- <li><a href="/errors" class="govuk-link govuk-link--no-visited-state">Error page</a></li>         -->
-            
+            <!-- <li><a href="/errors" class="govuk-link govuk-link--no-visited-state">Error page</a></li>         -->            
         </ul>      
     </div>
 </div>
+
 {% endblock %}

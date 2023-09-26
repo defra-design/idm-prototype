@@ -2,7 +2,22 @@
 {% set showBackLink = true %}
 {% set serviceName = "" %}
 
-{% set pageHeading = "Select your address" %}
+
+{% if data['status'] == "review" %}
+	{% if data['registrationAccountType'] == "Individual" %}
+        {% set pageHeading = "Select your address" %}
+	{% else %}
+        {% set pageHeading = "Select your address" %}
+	{% endif %}
+{% else %}
+	{% if data['registrationAccountType'] == "Individual" %}
+        {% set pageHeading = "Select the address" %}
+	{% else %}
+        {% set pageHeading = "Select the address" %}
+	{% endif %}
+{% endif %}
+
+
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -11,33 +26,82 @@
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">        
 
+        
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-        <p class="govuk-body">Postcode: <span class="govuk-!-font-weight-bold">{{ data['postcode'] }}</span> <a href="" class="govuk-link">Change</a></p>
-        <!-- <p class="govuk-body">3 addresses found for Clifton House and SW19 5JA. <a href="" class="govuk-link">Change</a></p> -->
 
-        <form action="/register/task-list-page-about-you-details?individual-address=completed" method="post" class="form">
+        {% if data['status'] == "review" %}
 
-            {{ govukSelect({                
-                fieldset: {
-                    legend: { text: "Select the address", isPageHeading: false, classes: "govuk-visually-hidden"  }
-                },
-                items: [
-                    { value: "Not selected", text: "3 addresses found", checked: checked("companySize", "Single") },    
-                    { value: "Clifton House, Clifton Road, LONDON SW19 5JA", text: "Clifton House, Clifton Road, LONDON SW19 5JA", checked: checked("companySize", "Single") },
-                    { value: "2a, Clifton House, Clifton Road, LONDON SW19 5JA", text: "2a, Clifton House, Clifton Road, LONDON SW19 5JA", checked: checked("companySize", "20") },
-                    { value: "2b, Clifton House, Clifton Road, LONDON SW19 5JA", text: "2b, Clifton House, Clifton Road, LONDON SW19 5JA", checked: checked("companySize", "45") }
-                ]
-            } | decorateFormAttributes('address')) }}          
+            <div class="govuk-inset-text">
+            <p class="govuk-body">We found 3 addresses for postcode <span class="govuk-!-font-weight-bold">{{ data['registrationIndividualPostcode'] or "SW19 5JA" }}</span>.</p>
+            <p><a href="/register/address/postcode" class="govuk-link govuk-link--no-visited-state">Change postcode</a></p>
+            </div>
 
-            <p><a href="/register/address/manual-address" class="govuk-link">I cannot find the address in the list</a></p>
+            
 
-            {{ govukButton({
-                text: "Continue"
-            }) }}
+            <form action="/register/task-list-page-about-you-details?individual-address=completed" method="post" class="form">
+
+                {{ govukRadios({                
+                    fieldset: {
+                        legend: { text: "Select the address", isPageHeading: false, classes: "govuk-visually-hidden"  }
+                    },
+                    items: [                        
+                        { value: "Clifton House, Clifton Road, LONDON SW19 5JA", text: "Clifton House, Clifton Road, LONDON SW19 5JA", checked: checked("companySize", "Single") },
+                        { value: "2a, Clifton House, Clifton Road, LONDON SW19 5JA", text: "2a, Clifton House, Clifton Road, LONDON SW19 5JA", checked: checked("companySize", "20") },
+                        { value: "2b, Clifton House, Clifton Road, LONDON SW19 5JA", text: "2b, Clifton House, Clifton Road, LONDON SW19 5JA", checked: checked("companySize", "45") }
+                    ]
+                } | decorateFormAttributes('registrationIndividualAddress')) }}          
+                
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+
+                <p class="govuk-body"><a href="/register/address/add-address-manual" class="govuk-link govuk-link--no-visited-state">My address is not in the list</a></p>
+
+
+
+        {% else %}
+
+            <p class="govuk-body">Postcode: <span class="govuk-!-font-weight-bold">{{ data['registrationIndividualPostcode'] or "SW19 5JA" }}</span> <a href="/register/address/postcode" class="govuk-link">Change</a></p>
+            <!-- <p class="govuk-body">3 addresses found for Clifton House and SW19 5JA. <a href="" class="govuk-link">Change</a></p> -->
+
+            <form action="/register/task-list-page-about-you-details?individual-address=completed" method="post" class="form">
+
+                {{ govukSelect({                
+                    fieldset: {
+                        legend: { text: "Select the address", isPageHeading: false, classes: "govuk-visually-hidden"  }
+                    },
+                    items: [
+                        { value: "Not selected", text: "3 addresses found", checked: checked("companySize", "Single") },    
+                        { value: "Clifton House, Clifton Road, LONDON SW19 5JA", text: "Clifton House, Clifton Road, LONDON SW19 5JA", checked: checked("companySize", "Single") },
+                        { value: "2a, Clifton House, Clifton Road, LONDON SW19 5JA", text: "2a, Clifton House, Clifton Road, LONDON SW19 5JA", checked: checked("companySize", "20") },
+                        { value: "2b, Clifton House, Clifton Road, LONDON SW19 5JA", text: "2b, Clifton House, Clifton Road, LONDON SW19 5JA", checked: checked("companySize", "45") }
+                    ]
+                } | decorateFormAttributes('registrationIndividualAddress')) }}          
+
+                <p><a href="/register/address/add-address-manual" class="govuk-link">I cannot find the address in the list</a></p>
+
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+
+        {% endif %}
+
+        
+       
+            
       
         </form>
     </div>
+    <div class="govuk-grid-column-one-third review">      
+		<ul class="govuk-list govuk-body-s govuk-!-text-align-right">                
+			{% if data['status'] == "review" %}
+				<li><a href="/register/address/select-address?status=" class="govuk-link govuk-link--no-visited-state">Current page</a></li>        
+			{% else %}
+				<li><a href="/register/address/select-address?status=review" class="govuk-link govuk-link--no-visited-state">Suggested page changes</a></li>        
+			{% endif %}
+		</ul>          
+	</div> 
 </div>
 
 {% endblock %}

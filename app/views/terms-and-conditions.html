@@ -12,7 +12,12 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
+
+        {% if data['status'] != "review" %}
+
         <p class="govuk-body">By ticking the acceptance box you confirm you have read and accepted the terms and conditions of this site.</p>
+
+        {% endif %}
 
         <h2 class="govuk-heading-m">Sharing and storing personal data</h2>
         <p class="govuk-body">Our privacy notice explains where your data is stored, and who it is shared with. Our cookie policy explains how this service uses and stores cookies. By agreeing to these terms and conditions you are agreeing to be contacted by us by email, text, phone or letter.</p>
@@ -105,6 +110,29 @@
             <p class="govuk-body govuk-body-s">This was last updated on 21 April 2023</p>
         </div>
 
+
+        {% if data['status'] == "review" %}
+
+        <form method="post" action="/register/what-we-need" >
+
+        
+        {{ govukButton({
+            text: "Accept and continue",
+            classes: "govuk-!-margin-top-5"
+        })}}
+        </form>
+        {% endif %}
+
+    </div>
+    <div class="govuk-grid-column-one-third review">      
+        <ul class="govuk-list govuk-body-s govuk-!-text-align-right">        
+        
+            {% if data['status'] == "review" %}
+                <li><a href="/terms-and-conditions?status=" class="govuk-link govuk-link--no-visited-state">Current page</a></li>        
+            {% else %}
+                <li><a href="/terms-and-conditions?status=review" class="govuk-link govuk-link--no-visited-state">Suggested page changes</a></li>        
+            {% endif %}
+        </ul>          
     </div>
 </div>
 
