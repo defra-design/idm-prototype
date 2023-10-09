@@ -22,13 +22,13 @@
 
         <div class="govuk-button-group">
 
-            <form action="/start" method="post" >
+            <form action="/service-start-page" method="post" >
                 <input type="hidden" id="flow" name="flow" value="Authentication" />
                 <input type="hidden" id="flowVersion" name="flowVersion" value="current" />
                 <input type="hidden" id="serviceFlow" name="serviceFlow" value="coreDefault" />
                 <input type="hidden" id="companySize" name="companySize" value="20" />
                 <input type="hidden" id="useOneLogin" name="useOneLogin" value="Yes" />
-                <input type="hidden" id="oneLoginVersion" name="oneLoginVersion" value="" />   
+                <input type="hidden" id="oneLoginVariation" name="oneLoginVariation" value="variationOne" />   
                 <input type="hidden" id="userResearch" name="userResearch" value="Yes" />   
 
                 {{ govukButton({
@@ -36,13 +36,13 @@
                 }) }}
             </form>
 
-            <form action="/start" method="post" >
+            <form action="/service-start-page" method="post" >
                 <input type="hidden" id="flow" name="flow" value="Authentication" />
                 <input type="hidden" id="flowVersion" name="flowVersion" value="current" />
                 <input type="hidden" id="serviceFlow" name="serviceFlow" value="coreDefault" />
                 <input type="hidden" id="companySize" name="companySize" value="20" />
                 <input type="hidden" id="useOneLogin" name="useOneLogin" value="Yes" />
-                <input type="hidden" id="oneLoginVersion" name="oneLoginVersion" value="version2" />
+                <input type="hidden" id="oneLoginVariation" name="oneLoginVariation" value="variationTwo" />
                 <input type="hidden" id="userResearch" name="userResearch" value="Yes" />   
                 {{ govukButton({
                     text: "Version 2"
@@ -50,13 +50,13 @@
             </form>
 
 
-            <form action="/start" method="post" >
+            <form action="/service-start-page" method="post" >
                 <input type="hidden" id="flow" name="flow" value="Authentication" />
                 <input type="hidden" id="flowVersion" name="flowVersion" value="current" />
                 <input type="hidden" id="serviceFlow" name="serviceFlow" value="coreDefault" />
                 <input type="hidden" id="companySize" name="companySize" value="20" />
                 <input type="hidden" id="useOneLogin" name="useOneLogin" value="Yes" />
-                <input type="hidden" id="oneLoginVersion" name="oneLoginVersion" value="version3" />                
+                <input type="hidden" id="oneLoginVariation" name="oneLoginVariation" value="variationThree" />                
                 <input type="hidden" id="userResearch" name="userResearch" value="Yes" />   
                 {{ govukButton({
                     text: "Version 3"
