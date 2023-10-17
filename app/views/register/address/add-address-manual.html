@@ -27,6 +27,18 @@
 		{% if data['status'] == "review" %}
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   
 		{% else %}
+
+		{{ govukErrorSummary({
+			titleText: "There is a problem",
+			errorList: [
+			  {
+				text: "Enter a building number or name",
+				href: "#"
+			  }
+			  
+			]
+		  }) }}
+
 		<h1 class="govuk-heading-l">{{pageHeading}}</h1>
 		{% endif %}
 
@@ -65,19 +77,28 @@
 					{{ govukInput({
 						label: {
 							text: "Address line 1"
-						}						
+						},
+						errorMessage: {
+							text: "Enter address line 1"
+						  }							
 					} | decorateFormAttributes('registrationManualAddressLine1')) }}
 				
 					{{ govukInput({
 						label: {
 							text: "Address line 2 (optional)"
-						}						
+						},
+						errorMessage: {
+							text: "Enter address line 2"
+						  }									
 					} | decorateFormAttributes('registrationManualAddressLine2')) }}
 				
 					{{ govukInput({
 						label: {
 							text: "Town or city"
 						},
+						errorMessage: {
+							text: "Enter town or city"
+						  },			
 						classes: "govuk-!-width-two-thirds"						
 					} | decorateFormAttributes('registrationManualAddressTownCity')) }}
 				
@@ -92,6 +113,9 @@
 						label: {
 							text: "Postcode"
 						},
+						errorMessage: {
+							text: "Enter a full UK postcode"
+						  },
 						classes: "govuk-input--width-10"						
 					} | decorateFormAttributes('registrationManualAddressPostCode')) }}
 			
@@ -107,7 +131,7 @@
 					}
 				}) %}
 			
-				{{ govukInput({
+				<!-- {{ govukInput({
 					label: {
 						text: "Sub-building name"					
 					},
@@ -138,25 +162,34 @@
 					id: "address-line-1",
 					name: "addressLine1",
 					autocomplete: "address-line1"
-				}) }}
+				}) }} -->
 
 
 				{{ govukInput({
 					label: {
 						text: "Address line 1"
-					}					
+					},
+					errorMessage: {
+						text: "Enter address line 1"
+					  }			
 				} | decorateFormAttributes('registrationManualAddressLine1')) }}
 			
 				{{ govukInput({
 					label: {
 						text: "Address line 2 (optional)"
-					}					
+					},
+					errorMessage: {
+						text: "Enter address line 2"
+					  }					
 				} | decorateFormAttributes('registrationManualAddressLine2')) }}
 			
 				{{ govukInput({
 					label: {
 						text: "Town or city"
 					},
+					errorMessage: {
+						text: "Enter town or city"
+					  },			
 					classes: "govuk-!-width-two-thirds"					
 				} | decorateFormAttributes('registrationManualAddressTownCity')) }}	
 			
@@ -164,13 +197,19 @@
 					label: {
 						text: "Zip or postal code"
 					},
+					errorMessage: {
+						text: "Enter zip or postal code"
+					  },
 					classes: "govuk-input--width-10"					
 				} | decorateFormAttributes('registrationManualAddressPostCode')) }}
 
-				<div class="govuk-form-group">
+				<div class="govuk-form-group govuk-form-group--error">
 					<label class="govuk-label" for="registrationManualAddressCountry">
 					  Country
 					</label>
+					<p id="registrationManualAddressCountry-error" class="govuk-error-message">
+						<span class="govuk-visually-hidden">Error:</span> Select a country
+					  </p>
 					<select class="govuk-select" id="registrationManualAddressCountry" name="registrationManualAddressCountry">
 					  <option value="Default">Select a country</option>
 					  <!-- country dropdowns -->
@@ -452,7 +491,7 @@
 				name: "addressLine1",
 				autocomplete: "address-line1"
 			}) }}
-
+			
 			{{ govukInput({
 				label: {
 					text: "Building number"
@@ -460,6 +499,9 @@
 				classes: "govuk-input--width-10",
 				id: "address-line-1",
 				name: "addressLine1",
+				errorMessage: {
+					text: "Enter a building number"
+				  },
 				autocomplete: "address-line1"
 			}) }}
 
@@ -470,6 +512,9 @@
 				classes: "govuk-input--width-10",
 				id: "address-line-1",
 				name: "addressLine1",
+				errorMessage: {
+					text: "Enter a building name"
+				  },
 				autocomplete: "address-line1"
 			}) }}
 		
@@ -789,6 +834,7 @@
 			{% else %}
 				<li><a href="/register/address/add-address-manual?status=review" class="govuk-link govuk-link--no-visited-state">Suggested page changes</a></li>        
 			{% endif %}
+				<li><a href="/register/address/add-address-manual?error=show" class="govuk-link govuk-link--no-visited-state">Error 1</a></li>        
 		</ul>          
 	</div>  
 </div>

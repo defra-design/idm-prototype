@@ -5,7 +5,7 @@
 
 
 {% if data['status'] == "review" %}
-    {% set pageHeading = "You’ve signed out" %}
+    {% set pageHeading = "You have signed out" %}
 {% else %}
     {% set pageHeading = "Your Defra account" %}
 {% endif %}
@@ -19,6 +19,9 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
+        {% if data['status'] == "review" %}
+        <p class="govuk-body"><a href="/gov-gateway/sign-in" class="govuk-link govuk-link--no-visited-state">Sign in again</a></p>
+        {% else %}
         <p class="govuk-body">To continue registering for online services from Defra and related organisations, select a service below:</p>
 
         <ul class="govuk-list govuk-list--bullet">
@@ -37,7 +40,7 @@
             <li><a class="govuk-link" href="/service-start-logged-out">Testing chemicals 1</a></li>
             <li><a class="govuk-link" href="/service-start-logged-out">Chemicals testing 1</a></li>
         </ul>
-
+    {% endif %}
         
     </div>
     <div class="govuk-grid-column-one-third review">      
