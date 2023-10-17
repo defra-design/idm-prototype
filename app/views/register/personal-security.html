@@ -31,12 +31,22 @@
 
 		{% if data['status'] == "review" %}
 
+		<p>For security purposes, you are required to create a memorable word. This helps us verify your identity if you need to contact us.</p>					
 		<div class="govuk-inset-text">
-			<p>A memorable word helps us to verify your identity if you need to contact us and must:</p>					
+			<p>This word must:</p>
 			<ul class="govuk-list govuk-list--bullet">
-				<li>be alphanumeric</li>
-				<li>contain between 6 and 12 characters (not case sensitive)</li>
-				<li>contain no spaces or special characters</li>
+				<li>be between 8 and 32 characters long and is not case-sensitive</li>								
+				<li>only contain a combination of letters (A-Z a-z) and numbers (0-9)</li>				
+				<!-- <li>not include special characters ( ‘at’ symbol (@), hyphen (-) ) </li>
+				<li>not include spaces</li>
+				<li>not include 3 repeating characters such as 111 or AAA</li> -->
+			</ul>
+
+			<p>This word must not contain:</p>
+			<ul class="govuk-list govuk-list--bullet">				
+				<li>spaces</li>
+				<li>special characters ( ‘at’ symbol (@), hyphen (-) ) </li>				
+				<li>more than 2 repeating characters such as 111 or AAA</li>
 			</ul>
 		</div>
 
@@ -56,7 +66,7 @@
 					text: "Hint question"
 				},
 				hint: {
-					text: "Provide something we can show you that will help you remember your memorable word."
+					text: "Provide a hint that will help you remember your memorable word."
 				}
 			} | decorateFormAttributes('registrationMemorableHint')) }}
 

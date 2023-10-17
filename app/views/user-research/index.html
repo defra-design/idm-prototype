@@ -62,6 +62,20 @@
                     text: "Version 3"
                 }) }}
             </form>
+
+
+            <form action="/service-start-page" method="post" >
+                <input type="hidden" id="flow" name="flow" value="Authentication" />
+                <input type="hidden" id="flowVersion" name="flowVersion" value="current" />
+                <input type="hidden" id="serviceFlow" name="serviceFlow" value="coreDefault" />
+                <input type="hidden" id="companySize" name="companySize" value="20" />
+                <input type="hidden" id="useOneLogin" name="useOneLogin" value="Yes" />
+                <input type="hidden" id="oneLoginVariation" name="oneLoginVariation" value="variationFour" />                
+                <input type="hidden" id="userResearch" name="userResearch" value="Yes" />   
+                {{ govukButton({
+                    text: "Version 4"
+                }) }}
+            </form>
         </div>        
 
     </div>
