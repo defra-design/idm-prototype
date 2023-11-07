@@ -62,9 +62,11 @@
                         fieldset: { legend: { text: "User has Government Gateway account", isPageHeading: false, classes: "govuk-visually-hidden" } },
                         classes: "govuk-checkboxes--small",  
                         items: [ 
-                            { value: "variationOne", text: "Buttons", checked: ("oneLoginVariation", "variationOne") },                        
+                            { value: "variationFour", text: "Current default solution", checked: ("oneLoginVariation", "variationFour") },    
+                            { value: "variationOne", text: "Buttons" },
                             { value: "variationTwo", text: "Radio buttons" },
-                            { value: "variationThree", text: "Listed" }                            
+                            { value: "variationThree", text: "Listed" }
+                            
                         ]
                     } | decorateFormAttributes('oneLoginVariation')) }}
                 
