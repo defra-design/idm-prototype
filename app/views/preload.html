@@ -92,7 +92,30 @@
             <!-- Old variation -->
             <!-- <form class="form" action="/archived/mfa/gov-gateway/login-v2" method="post" class=""> -->
 
-                <h3 class="govuk-heading-m">One Login</h3>
+                
+                <h3 class="govuk-heading-m">GOV.UK One Login</h3>                                        
+
+                    {{ govukCheckboxes({
+                        fieldset: { legend: { text: "OneLogin", isPageHeading: false, classes: "govuk-visually-hidden" } },                        
+                        items: [ { value: "Yes", text: "Allow users to register using the new GOV.UK One Login ( Experimental )" } ]
+                    } | decorateFormAttributes('useOneLogin')) }}
+
+                    <p>Various variations of this whilst we undertake discovery and research about how best to implement.</p>
+                    {{ govukRadios({
+                        fieldset: { legend: { text: "User has Government Gateway account", isPageHeading: false, classes: "govuk-visually-hidden" } },
+                        classes: "govuk-checkboxes--small",  
+                        items: [ 
+                            { value: "variationFour", text: "Current default solution", checked: ("oneLoginVariation", "variationFour") },    
+                            { value: "variationOne", text: "Buttons" },
+                            { value: "variationTwo", text: "Radio buttons" },
+                            { value: "variationThree", text: "Listed" }
+                            
+                        ]
+                    } | decorateFormAttributes('oneLoginVariation')) }}
+                
+                
+                
+                <!-- <h3 class="govuk-heading-m">One Login</h3>
                 <p>Let your users sign in to your service with One Login.</p>        
 
                 <div class="mspace">
@@ -113,7 +136,7 @@
                         fieldset: { legend: { text: "Version", isPageHeading: false, classes: "govuk-visually-hidden" } },
                         classes: "govuk-checkboxes--small",  
                         items: [ { value: "version3", text: "Use version 3" } ]
-                    } | decorateFormAttributes('oneLoginVersion')) }}
+                    } | decorateFormAttributes('oneLoginVersion')) }} -->
                 
                 <!-- // Service Specific // -->
                 <!-- // Annual Health and Welfare Review of livestock // -->

@@ -17,7 +17,39 @@
         <p>It might take a few minutes to arrive. The code will expire after 2 hours.</p>        
 
 
+        {% if data['userFlow'] == "Registration" %}        
+
         <form method="post" action="/authentication/select-your-business" >
+
+        {% elif data['userFlow'] == "Authentication" %}        
+
+                {% if data['mfaDisabled'] == "Yes" %}
+                <form action="/unavailable" method="post">        
+                {% elif data['mfaEmailDisabled'] == "Yes" %}
+                    {% if data['multiplePhoneNumber'] == "Yes" %}
+                    <form action="/authentication/verify-multiple-numbers" method="post">
+                        <input type="hidden" id="verify-your-identity" name="verify-your-identity" value="send-sms" />
+                    {% else %}
+                    <form action="/authentication/verify" method="post">
+                        <input type="hidden" id="verify-your-identity" name="verify-your-identity" value="send-sms" />            
+                    {% endif %}
+                {% elif data['mfaSmsDisabled'] == "Yes" %}
+                <form action="/authentication/security-word" method="post">
+                    <input type="hidden" id="verify-your-identity" name="verify-your-identity" value="send-email" />
+                {% else %}
+
+                    {% if data['userResearch'] == "Yes" %}
+                    <form action="/authentication/select-your-business" method="post">
+                    {% elif data['companySize'] == "Single" %}            
+                    <form action="/authentication/verify-single-number" method="post">
+                    {% elif data['companySize'] == "20" %}
+                    <form action="/authentication/verify-single-number" method="post">
+                    {% elif data['companySize'] == "45" %}
+                    <form action="/authentication/verify-single-number" method="post">
+                    {% endif %}
+                {% endif %}
+
+        {% endif %}
 
             {{ govukInput({
                 label: {
