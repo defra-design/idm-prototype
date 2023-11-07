@@ -87,7 +87,7 @@
             {% if data['serviceFlow'] == "vetsVisit" %}      
             <form class="form" action="/authentication/vets/start" method="post" >            
             {% else %}
-            <form class="form" action="/start" method="post" >            
+            <form class="form" action="/service-start-page" method="post" >            
             {% endif %}        
             <!-- Old variation -->
             <!-- <form class="form" action="/archived/mfa/gov-gateway/login-v2" method="post" class=""> -->
@@ -190,7 +190,7 @@
                     },
                     items: [
                         { value: "Single", text: "Single" },
-                        { value: "20", text: "Up to 20" },
+                        { value: "20", text: "Up to 20", checked: checked },
                         { value: "45", text: "More than 20" }
                     ]
                 } | decorateFormAttributes('companySize')) }}
