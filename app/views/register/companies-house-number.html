@@ -16,7 +16,28 @@
     <div class="govuk-grid-column-two-thirds">
 
 		{% if data['status'] == "review" %}
-        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   
+
+
+			{% if data['errorMessage'] == "errorOne" %}
+				
+			{{ govukErrorSummary({
+				titleText: "There is a problem",
+				errorList: [ { text: "Enter your company registration number", href: "#" }	]
+			}) }}
+
+			{% elif data['errorMessage'] == "errorTwo" %}
+
+			{{ govukErrorSummary({
+				titleText: "There is a problem",
+				errorList: [ { text: "Enter your company registration number in the correct format", href: "#" }	]
+			}) }}			
+			
+			{% endif %}
+			
+				{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   
+
+
+
 		{% else %}
 		<h1 class="govuk-heading-l">{{pageHeading}}</h1>
 		{% endif %}
@@ -27,16 +48,55 @@
 
 			<form method="post" action="/register/companies-house-confirm">
 
-				{{ govukInput({
-					label: {
-						text: "Companies house number",
-						classes: "govuk-visually-hidden"
-					},
-					hint: {
-						text: "It is 8 characters. For example, 01234567 or AC012345."
-					},
-					classes: "govuk-input--width-10"        
-				} | decorateFormAttributes('registrationCompanyNumber')) }}          				
+
+				{% if data['errorMessage'] == "errorOne" %}
+
+					{{ govukInput({
+						label: {
+							text: "Companies house number",
+							classes: "govuk-visually-hidden"
+						},
+						hint: {
+							text: "It is 8 characters. For example, 01234567 or AC012345."
+						},
+						errorMessage: {
+							text: "Enter your company registration number"
+						},
+						classes: "govuk-input--width-10"        
+					} | decorateFormAttributes('registrationCompanyNumber')) }}          				
+
+
+				{% elif data['errorMessage'] == "errorTwo" %}
+
+					{{ govukInput({
+						label: {
+							text: "Companies house number",
+							classes: "govuk-visually-hidden"
+						},
+						hint: {
+							text: "It is 8 characters. For example, 01234567 or AC012345."
+						},
+						errorMessage: {
+							text: "Enter your company registration number in the correct format"
+						},
+						classes: "govuk-input--width-10"        
+					} | decorateFormAttributes('registrationCompanyNumber')) }}    
+
+
+				{% else %}
+
+					{{ govukInput({
+						label: {
+							text: "Companies house number",
+							classes: "govuk-visually-hidden"
+						},
+						hint: {
+							text: "It is 8 characters. For example, 01234567 or AC012345."
+						},
+						classes: "govuk-input--width-10"        
+					} | decorateFormAttributes('registrationCompanyNumber')) }}          				
+
+				{% endif %}
 
 		{% else %}
 
@@ -74,9 +134,13 @@
         <ul class="govuk-list govuk-body-s govuk-!-text-align-right">                
             {% if data['status'] == "review" %}
                 <li><a href="/register/companies-house-number?status=" class="govuk-link govuk-link--no-visited-state">Current page</a></li>        
+				<li><a href="/register/companies-house-number?errorMessage=errorOne" class="govuk-link govuk-link--no-visited-state">Error message 1</a></li>        
+				<li><a href="/register/companies-house-number?errorMessage=errorTwo" class="govuk-link govuk-link--no-visited-state">Error message 2</a></li>        				 
+				<li><a href="/register/companies-house-number?errorMessage=" class="govuk-link govuk-link--no-visited-state">Remove errors</a></li>        				 
             {% else %}
                 <li><a href="/register/companies-house-number?status=review" class="govuk-link govuk-link--no-visited-state">Suggested page changes</a></li>        
             {% endif %}
+				
         </ul>          
     </div>
 </div>
