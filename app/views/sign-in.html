@@ -3,15 +3,19 @@
 {% set serviceName = "" %}
 
 
-{% if data['oneLoginVariation'] == "variationOne" %}
-    {% set pageHeading = "How do you want to sign in?" %}
-{% elif data['oneLoginVariation'] == "variationTwo" %}
-    {% set pageHeading = "How do you want to sign in?" %}
-{% elif data['oneLoginVariation'] == "variationFour" %}    
-    {% set pageHeading = "We are changing the way you can sign in to Defra services" %}
+{% if data['useOneLogin'] == "Yes" %}
+    {% if data['oneLoginVariation'] == "variationOne" %}
+        {% set pageHeading = "How do you want to sign in?" %}
+    {% elif data['oneLoginVariation'] == "variationTwo" %}
+        {% set pageHeading = "How do you want to sign in?" %}
+    {% elif data['oneLoginVariation'] == "variationFour" %}    
+        {% set pageHeading = "We are changing the way you can sign in to Defra services" %}
+    {% else %}
+        {% set pageHeading = "Sign in using GOV.UK One Login or Government Gateway" %}
+    {% endif  %}
 {% else %}
-    {% set pageHeading = "Sign in using GOV.UK One Login or Government Gateway" %}
-{% endif  %}
+    {% set pageHeading = "How do you want to sign in?" %}
+{% endif %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -21,117 +25,164 @@
     <div class="govuk-grid-column-two-thirds">
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-        
-        {% if data['oneLoginVariation'] == "variationOne" %}
-        
-            <p>GOV.UK One Login is new.</p>
-            <p>At the moment you can only use it to access some government services. In the future, you’ll be able to use it to sign in to most services on GOV.UK.</p>
-            <p>You can also sign in using a Government Gateway account if you have one.</p>            
 
-            <div class="govuk-button-group govuk-!-margin-top-7">
-                {{ govukButton({
-                    text: "Use GOV.UK One Login",
-                    href: "/oneLogin/"
-                }) }}  
-    
-                {{ govukButton({
-                    text: "Sign in using Government Gateway",
-                    classes: "govuk-button--secondary",
-                    href: "/gov-gateway/sign-in"
-                }) }}
-            </div>
-                
-            {% if data['defraAccount'] != "No"  %}
-            <div class="govuk-inset-text govuk-!-margin-top-7">
-                <h2 class="govuk-heading-m">Need help signing in </h2>                        
-                <p>If you <a href="/email-address">tell us your email address</a> we can check to see if you have an existing Defra account and how you sign in to Defra services.</p>
-            </div>
-            {% endif %}
 
-        {% elif data['oneLoginVariation'] == "variationTwo" %}
+        <!-- <p>You can now use GOV.UK One Login, a new government service to sign in. At the moment you can only use it to access some government services. In the future, you’ll be able to use it to sign in to most services on GOV.UK.</p>
+        <p>You can also sign in using a Government Gateway account if you have one.</p>             -->
 
-            <p>This service allows you to sign in using GOV.UK One Login, or Government Gateway.</p>        
+        <h2 class="govuk-heading-m">Already have an existing Defra account</h2>
+        <form method="post" action="/gov-gateway/sign-in" >
 
-            <form method="post" action="/gov-gateway/sign-in" >
-
-                {{ govukRadios({
-                    name: "sign-in",
-                    fieldset: {
-                        legend: {
-                            text: "How do you want to sign in?",
-                            isPageHeading: false,
-                            classes: "govuk-visually-hidden"
-                        }
-                    },            
-                    items: [
-                        { value: "govuk-one-login, redirect(/oneLogin/)", text: "Sign in with GOV.UK One Login", hint: { text: "If you don’t have a GOV.UK One Login, you can create one." } }, 
-                        { value: "government-gateway", text: "Sign in with Government Gateway", hint: { text: "You’ll have a user ID if you’ve registered for Self Assessment or filed a tax return online before." } }              
-                    ]
-                }) }}
-
-                <p>If you <a href="/email-address">tell us your email address</a> we can check to see if you have an existing Defra account and how you sign in to Defra services.</p>
-
-                {{ govukButton({
-                    text: "Continue"
-                }) }}  
-
-            </form>                   
+            {{ govukRadios({
+                name: "sign-in",
+                fieldset: {
+                    legend: {
+                        text: "How do you want to sign in?",
+                        isPageHeading: false,
+                        classes: "govuk-visually-hidden"
+                    }
+                },            
+                items: [                                                            
+                    { value: "trusted-authority, redirect(/trusted-authority/)", text: "Sign in as a Trusted Authority", hint: { text: "Use your email address to obtain a one-time password." } },
+                    { value: "government-gateway", text: "Sign in with Government Gateway", hint: { text: "You’ll have a user ID if you’ve registered for Self Assessment or filed a tax return online before." } }
                     
-        {% elif data['oneLoginVariation'] == "variationThree" %}
+                ]
+            }) }}
+
             
-            <p>GOV.UK One Login is new.</p>
-            <p>At the moment you can only use it to access some government services. In the future, you’ll be able to use it to sign in to most services on GOV.UK.</p>
-            <p>You can also sign in using a Government Gateway account if you have one.</p>            
-
-            <!-- <h2 class="govuk-heading-m">Sign in options</h2> -->
-            <ul class="govuk-list">
-                <li><a href="/oneLogin/email-address" class="govuk-link govuk-link--no-visited-state">Sign in using GOV.UK One Login</a></li>
-                <!-- <li><a href="/oneLogin/" class="govuk-link govuk-link--no-visited-state">Create a GOV.UK One Login account</a></li> -->
-                <li><a href="/gov-gateway/sign-in" class="govuk-link govuk-link--no-visited-state">Sign in using Government Gateway</a></li>
-                <li><a href="/oneLogin/" class="govuk-link govuk-link--no-visited-state">Create a GOV.UK One Login account</a></li>
-            </ul>
-
-            <div class="govuk-inset-text govuk-!-margin-top-7">
-                <h2 class="govuk-heading-m">Need help signing in </h2>                    
-                <p>If you <a href="/email-address">tell us your email address</a> we can check to see if you have an existing Defra account and how you sign in to Defra services.</p>
-            </div> 
-            
-        {% elif data['oneLoginVariation'] == "variationFour" %}
 
 
+            {% if data['defraAccount'] != "No"  %}
+        <div class="govuk-!-margin-top-7 govuk-!-margin-bottom-7">
+            <h2 class="govuk-heading-m">Register a new Defra account or get help signing in</h2>                        
+            <p>If you <a href="/email-address">tell us your email address</a> we can check to see if you have an existing Defra account and how you sign in to Defra services.</p>
+            <p><a class="govuk-link" href="#">Register for a new Defra account</a></p>
+        </div>
+        {% endif %}
+        
+        
+                {% if data['useOneLogin'] == "Yes" %}
+        
+                    {% if data['oneLoginVariation'] == "variationOne" %}
+                    
+                        <p>GOV.UK One Login is new.</p>
+                        <p>At the moment you can only use it to access some government services. In the future, you’ll be able to use it to sign in to most services on GOV.UK.</p>
+                        <p>You can also sign in using a Government Gateway account if you have one.</p>            
 
-            <!-- <p>Defra services will allow you to sign in using GOV.UK One Login, or Government Gateway.</p>    -->
-            
-            <p>You can now use GOV.UK One Login, a new government service to sign in. At the moment you can only use it to access some government services. In the future, you’ll be able to use it to sign in to most services on GOV.UK.</p>
-            <p>You can also sign in using a Government Gateway account if you have one.</p>            
-
-            <h2 class="govuk-heading-m">Already have an existing Defra account</h2>
-            <form method="post" action="/gov-gateway/sign-in" >
-
-                {{ govukRadios({
-                    name: "sign-in",
-                    fieldset: {
-                        legend: {
-                            text: "How do you want to sign in?",
-                            isPageHeading: false,
-                            classes: "govuk-visually-hidden"
-                        }
-                    },            
-                    items: [
-                        { value: "govuk-one-login, redirect(/oneLogin/)", text: "Sign in with GOV.UK One Login", hint: { text: "Use your email address and password. If you don’t have a GOV.UK One Login, you can create one." } }, 
-                        { value: "government-gateway", text: "Sign in with Government Gateway", hint: { text: "You’ll have a user ID if you’ve registered for Self Assessment or filed a tax return online before." } }              
-                    ]
-                }) }}
-
+                        <div class="govuk-button-group govuk-!-margin-top-7">
+                            {{ govukButton({
+                                text: "Use GOV.UK One Login",
+                                href: "/oneLogin/"
+                            }) }}  
                 
+                            {{ govukButton({
+                                text: "Sign in using Government Gateway",
+                                classes: "govuk-button--secondary",
+                                href: "/gov-gateway/sign-in"
+                            }) }}
+                        </div>
+                            
+                        {% if data['defraAccount'] != "No"  %}
+                        <div class="govuk-inset-text govuk-!-margin-top-7">
+                            <h2 class="govuk-heading-m">Need help signing in </h2>                        
+                            <p>If you <a href="/email-address">tell us your email address</a> we can check to see if you have an existing Defra account and how you sign in to Defra services.</p>
+                        </div>
+                        {% endif %}
+
+                    {% elif data['oneLoginVariation'] == "variationTwo" %}
+
+                        <p>This service allows you to sign in using GOV.UK One Login, or Government Gateway.</p>        
+
+                        <form method="post" action="/gov-gateway/sign-in" >
+
+                            {{ govukRadios({
+                                name: "sign-in",
+                                fieldset: {
+                                    legend: {
+                                        text: "How do you want to sign in?",
+                                        isPageHeading: false,
+                                        classes: "govuk-visually-hidden"
+                                    }
+                                },            
+                                items: [
+                                    { value: "govuk-one-login, redirect(/oneLogin/)", text: "Sign in with GOV.UK One Login", hint: { text: "If you don’t have a GOV.UK One Login, you can create one." } }, 
+                                    { value: "government-gateway", text: "Sign in with Government Gateway", hint: { text: "You’ll have a user ID if you’ve registered for Self Assessment or filed a tax return online before." } }              
+                                ]
+                            }) }}
+
+                            <p>If you <a href="/email-address">tell us your email address</a> we can check to see if you have an existing Defra account and how you sign in to Defra services.</p>
+
+                            {{ govukButton({
+                                text: "Continue"
+                            }) }}  
+
+                        </form>                   
+                                
+                    {% elif data['oneLoginVariation'] == "variationThree" %}
+                        
+                        <p>GOV.UK One Login is new.</p>
+                        <p>At the moment you can only use it to access some government services. In the future, you’ll be able to use it to sign in to most services on GOV.UK.</p>
+                        <p>You can also sign in using a Government Gateway account if you have one.</p>            
+
+                        <!-- <h2 class="govuk-heading-m">Sign in options</h2> -->
+                        <ul class="govuk-list">
+                            <li><a href="/oneLogin/email-address" class="govuk-link govuk-link--no-visited-state">Sign in using GOV.UK One Login</a></li>
+                            <!-- <li><a href="/oneLogin/" class="govuk-link govuk-link--no-visited-state">Create a GOV.UK One Login account</a></li> -->
+                            <li><a href="/gov-gateway/sign-in" class="govuk-link govuk-link--no-visited-state">Sign in using Government Gateway</a></li>
+                            <li><a href="/oneLogin/" class="govuk-link govuk-link--no-visited-state">Create a GOV.UK One Login account</a></li>
+                        </ul>
+
+                        <div class="govuk-inset-text govuk-!-margin-top-7">
+                            <h2 class="govuk-heading-m">Need help signing in </h2>                    
+                            <p>If you <a href="/email-address">tell us your email address</a> we can check to see if you have an existing Defra account and how you sign in to Defra services.</p>
+                        </div> 
+                        
+                    {% elif data['oneLoginVariation'] == "variationFour" %}
 
 
-                {% if data['defraAccount'] != "No"  %}
-            <div class="govuk-!-margin-top-7 govuk-!-margin-bottom-7">
-                <h2 class="govuk-heading-m">Register a new Defra account or get help signing in</h2>                        
-                <p>If you <a href="/email-address">tell us your email address</a> we can check to see if you have an existing Defra account and how you sign in to Defra services.</p>
-                <p><a class="govuk-link" href="#">Register for a new Defra account</a></p>
-            </div>
+
+                        <!-- <p>Defra services will allow you to sign in using GOV.UK One Login, or Government Gateway.</p>    -->
+                        
+                        <p>You can now use GOV.UK One Login, a new government service to sign in. At the moment you can only use it to access some government services. In the future, you’ll be able to use it to sign in to most services on GOV.UK.</p>
+                        <p>You can also sign in using a Government Gateway account if you have one.</p>            
+
+                        <h2 class="govuk-heading-m">Already have an existing Defra account</h2>
+                        <form method="post" action="/gov-gateway/sign-in" >
+
+                            {{ govukRadios({
+                                name: "sign-in",
+                                fieldset: {
+                                    legend: {
+                                        text: "How do you want to sign in?",
+                                        isPageHeading: false,
+                                        classes: "govuk-visually-hidden"
+                                    }
+                                },            
+                                items: [
+                                    { value: "govuk-one-login, redirect(/oneLogin/)", text: "Sign in with GOV.UK One Login", hint: { text: "Use your email address and password. If you don’t have a GOV.UK One Login, you can create one." } }, 
+                                    { value: "government-gateway", text: "Sign in with Government Gateway", hint: { text: "You’ll have a user ID if you’ve registered for Self Assessment or filed a tax return online before." } }              
+                                ]
+                            }) }}
+
+                            
+
+
+                            {% if data['defraAccount'] != "No"  %}
+                        <div class="govuk-!-margin-top-7 govuk-!-margin-bottom-7">
+                            <h2 class="govuk-heading-m">Register a new Defra account or get help signing in</h2>                        
+                            <p>If you <a href="/email-address">tell us your email address</a> we can check to see if you have an existing Defra account and how you sign in to Defra services.</p>
+                            <p><a class="govuk-link" href="#">Register for a new Defra account</a></p>
+                        </div>
+                        {% endif %}
+
+
+                    {% endif %}
+
+
+            {% else %}
+
+
+
             {% endif %}
             
                 <!-- <p>If you <a href="/email-address">tell us your email address</a> we can check to see if you have an existing Defra account and how you sign in to Defra services.</p> -->
@@ -169,7 +220,7 @@
 
             
         
-        {% endif %}       
+        
     </div>
 </div>
 

@@ -22,10 +22,17 @@
 		
 		<p class="govuk-!-margin-bottom-7">Aliquam euismod ut leo et tristique. Maecenas eleifend odio elit, id vehicula elit laoreet et.</p>
 
+		
+		
 		{% if data['useOneLogin'] == "Yes" %}
 			<form class="form" action="/sign-in" method="post" >				
 		{% else %}
-			<form class="form" action="/gov-gateway/sign-in" method="post" >
+
+			{% if data['trustedThirdParties'] == "Yes" %}	
+				<form class="form" action="/sign-in" method="post" >
+			{% else %}
+				<form class="form" action="/gov-gateway/sign-in" method="post" >
+			{% endif %}
 		{% endif %}
 
 		{{ govukButton({

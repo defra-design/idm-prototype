@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+{% set showBackLink = false %}
+{% set serviceName = "" %}
+
+{% set pageHeading = "Check your email" %}    
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+            <div class="govuk-inset-text">
+                <p>We have sent a 6 digit code to: <span class="govuk-!-font-weight-bold"> {% if data['trustedAuthorityEmail'] %} {{ data.trustedAuthorityEmail }} {% else %}********123{% endif %}</span></p>
+            </div>
+    
+            <p>The email might take a few minutes to arrive. If you do not get an email, check your spam folder. The code will expire after 2 hours.</p>
+            
+    
+    
+            {% if data['companySize'] == "Single" %}
+                <form action="/authentication/new-enrolment" method="post">
+            {% else %}
+                <form action="/authentication/select-your-business" method="post">
+            {% endif %}
+    
+                {{ govukInput({
+                    label: {
+                        text: "Enter the 6 digit passcode",
+                        classes: "",
+                        isPageHeading: false
+                    },                
+                    classes: "govuk-input--width-10"
+                } | decorateFormAttributes(govOneLoginCode)) }}
+                
+                
+                
+                {{ govukButton({
+                    text: "Continue"
+                }) }}                                
+
+                {{ govukDetails({
+                    summaryText: "Problems with the code?",
+                    html: '<p>We can <a href="#">send the code again</a> or you can <a href="/trusted-authority/">use a different email address</a>.</p>'
+                  }) }}
+    
+    
+            </form>
+
+    </div>
+    <!-- <div class="govuk-grid-column-one-third review">      
+        <ul class="govuk-list govuk-body-s govuk-!-text-align-right"> 
+            {% if data['status'] == "review" %}                   
+            <li><a href="/authentication/get-code?status=" class="govuk-link govuk-link--no-visited-state">Current page</a></li>        
+            {% else %}
+            <li><a href="/authentication/get-code?status=review" class="govuk-link govuk-link--no-visited-state">Suggested page changes</a></li>        
+            
+            {% endif %}
+        </ul>      
+    </div> -->
+</div>
+{% endblock %}

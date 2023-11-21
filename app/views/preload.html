@@ -46,9 +46,21 @@
                     <h3 class="govuk-heading-m">Service feature options</h3>
                     {{ govukCheckboxes({
                         fieldset: { legend: { text: "Service does not allow NON-uk business", isPageHeading: false, classes: "govuk-visually-hidden" } },
-                        items: [ { value: "No", text: "Business must be registered to trade in UK or individual must have UK address" } ]
+                        items: [ 
+                            { value: "No", text: "Business must be registered to trade in UK or individual must have UK address" }                            
+                        ]
                     } | decorateFormAttributes('regNonUk')) }}
 
+
+                    <h3 class="govuk-heading-m">Trusted 3rd Parties</h3>
+                    {{ govukCheckboxes({
+                        fieldset: { legend: { text: "Service does not allow NON-uk business", isPageHeading: false, classes: "govuk-visually-hidden" } },
+                        items: [                             
+                            { value: "Yes", text: "Service allows Trusted third parties to use its service." } 
+                        ]
+                    } | decorateFormAttributes('trustedThirdParties')) }}
+
+                   
 
                     <h3 class="govuk-heading-m">GOV.UK One Login</h3>                                        
 
@@ -92,7 +104,15 @@
             <!-- Old variation -->
             <!-- <form class="form" action="/archived/mfa/gov-gateway/login-v2" method="post" class=""> -->
 
-                
+                <h3 class="govuk-heading-m">Trusted 3rd Parties</h3>
+                    {{ govukCheckboxes({
+                        fieldset: { legend: { text: "Service does not allow NON-uk business", isPageHeading: false, classes: "govuk-visually-hidden" } },
+                        items: [                             
+                            { value: "Yes", text: "Service allows Trusted third parties to use its service." } 
+                        ]
+                    } | decorateFormAttributes('trustedThirdParties')) }}
+
+                    
                 <h3 class="govuk-heading-m">GOV.UK One Login</h3>                                        
 
                     {{ govukCheckboxes({
