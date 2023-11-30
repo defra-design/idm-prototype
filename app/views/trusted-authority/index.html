@@ -2,7 +2,11 @@
 {% set showBackLink = false %}
 {% set serviceName = "" %}
 
-{% set pageHeading = "What’s your email address?" %}
+{% set pageHeading = "What’s your trusted third party email address?" %}
+{% set pageHeading = "What’s the email address you use with the local authority?" %}
+{% set pageHeading = "What’s your local authority email address?" %}
+
+
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -13,7 +17,8 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
         
-        <p>We will use this email address to send you a one-time passcode.</p>
+        <!-- <p>This is the work email address you use with the local authority. </p> -->
+        <p>We will send a one-time passcode to this email address.</p>
                 
         <form method="post" action="/trusted-authority/enter-code" >        
 

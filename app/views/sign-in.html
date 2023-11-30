@@ -27,41 +27,8 @@
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
 
-        <!-- <p>You can now use GOV.UK One Login, a new government service to sign in. At the moment you can only use it to access some government services. In the future, you’ll be able to use it to sign in to most services on GOV.UK.</p>
-        <p>You can also sign in using a Government Gateway account if you have one.</p>             -->
 
-        <h2 class="govuk-heading-m">Already have an existing Defra account</h2>
-        <form method="post" action="/gov-gateway/sign-in" >
-
-            {{ govukRadios({
-                name: "sign-in",
-                fieldset: {
-                    legend: {
-                        text: "How do you want to sign in?",
-                        isPageHeading: false,
-                        classes: "govuk-visually-hidden"
-                    }
-                },            
-                items: [                                                            
-                    { value: "trusted-authority, redirect(/trusted-authority/)", text: "Sign in as a Trusted Authority", hint: { text: "Use your email address to obtain a one-time password." } },
-                    { value: "government-gateway", text: "Sign in with Government Gateway", hint: { text: "You’ll have a user ID if you’ve registered for Self Assessment or filed a tax return online before." } }
-                    
-                ]
-            }) }}
-
-            
-
-
-            {% if data['defraAccount'] != "No"  %}
-        <div class="govuk-!-margin-top-7 govuk-!-margin-bottom-7">
-            <h2 class="govuk-heading-m">Register a new Defra account or get help signing in</h2>                        
-            <p>If you <a href="/email-address">tell us your email address</a> we can check to see if you have an existing Defra account and how you sign in to Defra services.</p>
-            <p><a class="govuk-link" href="#">Register for a new Defra account</a></p>
-        </div>
-        {% endif %}
-        
-        
-                {% if data['useOneLogin'] == "Yes" %}
+        {% if data['useOneLogin'] == "Yes" %}
         
                     {% if data['oneLoginVariation'] == "variationOne" %}
                     
@@ -182,6 +149,24 @@
             {% else %}
 
 
+                <!-- <h2 class="govuk-heading-m">Already have an existing Defra account</h2> -->
+                <form method="post" action="/gov-gateway/sign-in" >
+
+                    {{ govukRadios({
+                        name: "sign-in",
+                        fieldset: {
+                            legend: {
+                                text: "How do you want to sign in?",
+                                isPageHeading: false,
+                                classes: "govuk-visually-hidden"
+                            }
+                        },            
+                        items: [                                                            
+                            { value: "government-gateway", text: "Sign in with Government Gateway", hint: { text: "You’ll have a user ID if you’ve registered for Self Assessment or filed a tax return online before." } },
+                            { value: "trusted-authority, redirect(/trusted-authority/)", text: "Sign in as a Local Authority", hint: { text: "Use your email address to obtain a one-time password." } }
+                            
+                        ]
+                    }) }}                    
 
             {% endif %}
             
