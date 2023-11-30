@@ -3,7 +3,7 @@
 {% set serviceName = "" %}
 
 {% if data['status'] == "review" %}
-    {% set pageHeading = "Register for a Defra account" %}
+    {% set pageHeading = "You need to register for a Defra account" %}
 {% else %}
     {% set pageHeading = "Your Defra account" %}
 {% endif %}
@@ -20,16 +20,17 @@
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
             
             <p>To access Defra services you need to have a Defra account.</p>            
-            <p>Once you have registered for a Defra account you can access and manage Defra services:
+            <p>Once you have registered you can access and manage Defra services:
             <ul class="govuk-list govuk-list--bullet">
                 <li>for yourself as a business or individual</li>
                 <li>on behalf of businesses that you represent</li>
             </ul>                                                
             <div class="govuk-inset-text">
-            <p>You’ll use your Government Gateway details to sign in to this and other Defra services each time you visit.</p>
+                <p>You’ll sign in to Defra services using your Government Gateway details each time you visit.</p>
             </div>
 
             <p>To find out how we use, process and store your personal information, read our <a href="/privacy-notice" target="_blank" >Privacy notice (opens in new tab)</a>.</p>
+            
             <form method="post" action="/terms-and-conditions">
                 
                 {{ govukButton({
