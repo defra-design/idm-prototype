@@ -21,6 +21,7 @@
 		<h1 class="govuk-heading-l">{{pageHeading}}</h1>
 		{% endif %}
 
+
     	<form method="post" action="/register/charity-name">      
 
         	{% set englandAndWales %}
@@ -28,10 +29,10 @@
 				{{ govukInput({
 					label: {
 						text: "Enter the registered charity number",
-						classes: "govuk-!-font-weight-bold"				
+						classes: "govuk-label"				
 					},
 					hint: {
-						text: "For example 1004005."
+						text: "For example, 1004005."
 					},
 					classes: "govuk-!-width-one-third",
 					type: "number"      
@@ -44,7 +45,7 @@
 				{{ govukInput({
 					label: {
 						text: "Enter the registered charity number",
-						classes: "govuk-!-font-weight-bold"				
+						classes: "govuk-label"			
 					},
 					hint: {
 						text: "For example, SC000022."
@@ -60,10 +61,10 @@
 				{{ govukInput({
 					label: {
 						text: "Enter the registered charity number",
-						classes: "govuk-!-font-weight-bold"				
+						classes: "govuk-label"			
 					},
 					hint: {
-						text: "For example NIC100002."
+						text: "For example, NIC100002."
 					},
 					classes: "govuk-!-width-one-third",
 					type: "number"      
