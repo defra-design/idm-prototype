@@ -3,7 +3,7 @@
 {% set serviceName = "" %}
 
 {% if data['trustedThirdParties'] == "Yes" %}
-    {% set pageHeading = "Changing the email address used for identity verification" %}
+    {% set pageHeading = "Changing the email address used for local authority verification" %}
 {% else %}
 
     {% if data['verify-your-identity'] == "send-email" %}
@@ -26,7 +26,7 @@
         
         
         {% if data['trustedThirdParties'] == "Yes" %}
-            <p>If you do not have access to the email address associated with your Trusted Authority account, you’ll need to contact us to make a change to it.</p>
+            <p>If you do not have access to the email address associated with your Local Authority account, you’ll need to contact us to make a change to it.</p>
 
         {% else %}
 
