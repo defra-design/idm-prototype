@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+{% set showBackLink = true %}
+{% set serviceName = "" %}
+
+{% set pageHeading = "Is this address also your billing address?" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}    
+        
+        <p>This must be the address associated to your payment card/bank details.</p>
+
+    	<form method="post" action="/account/address/billing/email">
+			
+			<div class="govuk-inset-text">
+				<p class="govuk-body">Hutton Yeat Farm
+                <br>Old Hutton
+                <br>Kendal
+                <br>South Lakeland
+                <br>LA8 0NL</p>
+			</div>
+
+			<div class="govuk-button-group">
+
+                <input type="hidden" name="billingAddress" id="billingAddress" value="Yes" />
+
+                {{govukButton({
+                    text: "Confirm billing address"
+                })}}
+                <a href="/account/address/billing/postcode?billingAddress=No">Our billing address is different</a>
+            </div>
+            
+            
+        
+      	</form>
+
+    </div>
+    <div class="govuk-grid-column-one-third review">          
+    </div>
+</div>
+
+{% endblock %}

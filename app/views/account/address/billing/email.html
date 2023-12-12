@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% set showBackLink = true %}
+{% set serviceName = "" %}
+
+{% set pageHeading = "What email address do you want to use for billing?" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   
+
+    	<p class="govuk-body">We will send payment confirmation’s to this email address.</p>
+    
+    	<form action="/account/address/billing/telephone" method="post">			
+
+			{{ govukInput({
+                label: {
+                    text: "Email address",
+                    classes: "govuk-visually-hidden"				
+                },                
+                classes: "govuk-!-width-two-thirds",
+				type: "email",
+                spellcheck: "false"       
+            } | decorateFormAttributes('billingEmail')) }}      
+
+      		{{ govukButton({
+        		text: "Continue"
+      		}) }}
+
+    	</form>
+
+  	</div>
+</div>
+
+{% endblock %}

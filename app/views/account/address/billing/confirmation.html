@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% set showBackLink = false %}
+{% set serviceName = "" %}
+
+{% set pageHeading = "Billing details added" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukPanel({
+            titleText: pageHeading,
+            classes: "govuk-!-margin-bottom-7"
+        }) }}
+
+
+        
+        <p>You have added billing details to your account.</p>
+        <p><a href="/account/">Return to your account</a></p>
+        
+
+
+  	</div>
+</div>
+
+{% endblock %}
