@@ -1,142 +1,122 @@
 {% extends "layout.html" %}
-{% set serviceName = "Defra account" %}
+{% set showBackLink = true %}
+{% set serviceName = "" %}
 
-{% set title = "Big Company Ltd" %}
-
-{% block pageTitle %}
-  {{title}} - GOV.UK
-{% endblock %}
+{% set pageHeading = "Big Company Ltd" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block beforeContent %}
-<!-- Determines the navigation -->
-  <div id="profile">
-    {% include "includes/account-nav-admin-individual.html" %}
-  </div>
 
-  <div class="govuk-breadcrumbs">
-    <ol class="govuk-breadcrumbs__list">
-      <li class="govuk-breadcrumbs__list-item">
-        <a class="govuk-breadcrumbs__link" href="account">Home</a>
-      </li>
-      <li class="govuk-breadcrumbs__list-item">
-        <a class="govuk-breadcrumbs__link" href="dashboard">
-          Big Company Ltd
-        </a>
-      </li>
-      <li class="govuk-breadcrumbs__list-item">
-        <!-- <a class="govuk-breadcrumbs__link" href="#"> -->
-          Organisation details
-        <!-- </a> -->
-      </li>
+<div id="profile">
+	{% include "includes/account-nav-admin-individual.html" %}
+</div>
+
+<div class="govuk-breadcrumbs">
+	<ol class="govuk-breadcrumbs__list">
+    	<li class="govuk-breadcrumbs__list-item"><a class="govuk-breadcrumbs__link" href="account">Home</a></li>
+      	<li class="govuk-breadcrumbs__list-item"><a class="govuk-breadcrumbs__link" href="dashboard">Big Company Ltd</a></li>
+      	<li class="govuk-breadcrumbs__list-item"><!-- <a class="govuk-breadcrumbs__link" href="#"> -->Organisation details<!-- </a> --></li>
     </ol>
-  </div>
+</div>
 {% endblock %}
 
 {% block content %}
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full">
 
-      <h1 class="govuk-heading-xl">
-        {{title}}
-      </h1>
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   
+
     </div>
-  </div>
+    
+	<div class="govuk-grid-column-full">
 
-  <div class="govuk-tabs" data-module="govuk-tabs">
-    <h2 class="govuk-tabs__title">
-      Contents
-    </h2>
-    <ul class="govuk-tabs__list">
-      <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
-        <a class="govuk-tabs__tab" href="#organisation">
-          Organisation details
-        </a>
-      </li>
-      <li class="govuk-tabs__list-item">
-        <a class="govuk-tabs__tab" href="#related-organisations">
-          Related organisations
-        </a>
-      </li>
-    </ul>
+  		<div class="govuk-tabs" data-module="govuk-tabs">
+    		<h2 class="govuk-tabs__title">Contents</h2>
+    		<ul class="govuk-tabs__list">
+      			<li class="govuk-tabs__list-item govuk-tabs__list-item--selected"><a class="govuk-tabs__tab" href="#organisation">Organisation address</a></li>
+      			
+            <li class="govuk-tabs__list-item"><a class="govuk-tabs__tab" href="#related-organisations">Related organisations</a></li>
+    		</ul>
 
-    <div class="govuk-tabs__panel" id="organisation">
-      <h2 class="govuk-heading-l">
-        Organisation details
-      </h2>
+    		<div class="govuk-tabs__panel" id="organisation">
+      			<h2 class="govuk-heading-l">Organisation address</h2>
 
-      <div class="govuk-card govuk-card--contained">
-        <div class="govuk-card__content">
+				<div class="govuk-card govuk-card--contained">
+					<div class="govuk-card__content">
+						<p class="govuk-body"><span class="govuk-!-font-weight-bold">Address:</span> Hutton Yeat Farm
+							Old Hutton
+							Kendal
+							South Lakeland
+							LA8 0NL<br></p>
+					  	<p class="govuk-body"><span class="govuk-!-font-weight-bold">Companies House number:</span> 11284691<br></p>
+					  	<p class="govuk-body"><span class="govuk-!-font-weight-bold">Telephone:</span> 07941161695
+						<br><span class="govuk-!-font-weight-bold">Email:</span> hugolast@test.com<br></p>
+					</div>
+					<div class="govuk-card__actions">
+						<ul class="govuk-list govuk-!-mb-r0">
+							<li><a id="link-update-details" href="/management/account-management/accounts/a30cad99-c198-ee11-be37-6045bd905186/details/update-details" class="govuk-link govuk-link--no-visited-state">Update details</a></li>
+					  	</ul>
+					</div>
+				</div>
+				
+				<!-- Change organisation -->
+				<!-- <details class="govuk-details" data-module="govuk-details">
+					<summary class="govuk-details__summary">
+					  <span class="govuk-details__summary-text">
+						Change your organisation address
+					  </span>
+					</summary>
+					<div class="govuk-details__text">
+					  You must update the organisation address with Companies House.<br>
+					  <a href="https://www.gov.uk/government/collections/companies-house-forms-file-a-change-of-address" class="govuk-link" rel="noreferrer noopener" target="_blank">File a change of address with Companies House (opens in a new tab)</a>
+					</div>
+				  </details> -->
 
-          <h3 class="govuk-heading-m">
-            Registered address
-          </h3>
+				<!-- Update contact information -->
+				<!-- <ul class="govuk-list">
+					<li><a href="update-organisation-contact-details" class="govuk-link govuk-link--no-visited-state">Update registered contact information</a></li>
+				</ul> -->
 
-          <dl class="govuk-summary-list govuk-summary-list--no-border govuk-!-margin-bottom-3">
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-                Companies House Number
-              </dt>
-              <dd class="govuk-summary-list__value">
-                01822786
-              </dd>
-            </div>
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-                Address
-              </dt>
-              <dd class="govuk-summary-list__value">
-                17 Gospell Road<br>
-                Taunton<br>
-                Somerset<br>
-                TA1 1JT
-              </dd>
-            </div>
-          </dl>
 
-          <details class="govuk-details" data-module="govuk-details">
-            <summary class="govuk-details__summary">
-              <span class="govuk-details__summary-text">
-                Change your organisation address
-              </span>
-            </summary>
-            <div class="govuk-details__text">
-              You must update the organisation address with Companies House.<br>
-              <a href="https://www.gov.uk/government/collections/companies-house-forms-file-a-change-of-address" class="govuk-link" rel="noreferrer noopener" target="_blank">File a change of address with Companies House (opens in a new tab)</a>
-            </div>
-          </details>
 
-          <h3 class="govuk-heading-m">
-            Main contact details
-          </h3>
 
-          <dl class="govuk-summary-list govuk-summary-list--no-border govuk-!-margin-bottom-3">
-
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-                Telephone
-              </dt>
-              <dd class="govuk-summary-list__value">
-                01625 376176
-              </dd>
-            </div>
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-                Email
-              </dt>
-              <dd class="govuk-summary-list__value">
-                sam.woods@bigcompany.co.uk
-              </dd>
-            </div>
-          </dl>
-
-          <ul class="govuk-list">
-            <li><a href="update-organisation-contact-details" class="govuk-link govuk-link--no-visited-state">
-              Update registered contact information
-            </a></li>
-          </ul>
-
-        </div>
-      </div>
+				  <div class="govuk-card govuk-card--contained">
+					<div class="govuk-card__content">
+		  
+					  <h3 class="govuk-heading-m">
+						Billing address
+					  </h3>
+		  
+					  <dl class="govuk-summary-list govuk-summary-list--no-border govuk-!-margin-bottom-3">
+						<div class="govuk-summary-list__row">
+						  <dt class="govuk-summary-list__key">
+							Address
+						  </dt>
+						  <dd class="govuk-summary-list__value">		  
+							  Clifton House<br>
+							  Clifton Road<br>
+							  London<br>
+							  SW19 5JA
+						  </dd>
+						</div>
+					  </dl>
+		  
+					  <p class="govuk-body">
+						<a href="update-address?address-type=billing">
+						  Update this address
+						</a>
+					  </p>
+		  
+					  <p class="govuk-body">
+						<a href="remove-address?address-type=billing">
+						  Remove this address
+						</a>
+					  </p>
+		  
+					</div>
+				  </div>
 
       {% if data['correspondence-address'] == "true" %}
         <div class="govuk-card govuk-card--contained">
@@ -195,63 +175,7 @@
         </div>
       {% endif %}
 
-      {% if data['billing-address'] == "true" %}
-        <div class="govuk-card govuk-card--contained">
-          <div class="govuk-card__content">
-
-            <h3 class="govuk-heading-m">
-              Billing address
-            </h3>
-
-            <dl class="govuk-summary-list govuk-summary-list--no-border govuk-!-margin-bottom-3">
-              <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                  Address
-                </dt>
-                <dd class="govuk-summary-list__value">
-
-                  {% if data['billing-address-type'] == "normal" %}
-
-                    Clifton House<br>
-                    Clifton Road<br>
-                    London<br>
-                    SW19 5JA
-
-                  {% elseif data['billing-address-type'] == "manual" %}
-
-                    Laurel Ho<br>
-                    Laurelhill Business Park<br>
-                    Stirling<br>
-                    FK7 9JQ
-
-                  {% elseif data['billing-address-type'] == "non-uk" %}
-
-                    LG. Do Município<br>
-                    6060-163 - Idanha-A-Nova<br>
-                    Portugal
-
-                  {% endif %}
-
-                </dd>
-              </div>
-            </dl>
-
-            <p class="govuk-body">
-              <a href="update-address?address-type=billing">
-                Update this address
-              </a>
-            </p>
-
-            <p class="govuk-body">
-              <a href="remove-address?address-type=billing">
-                Remove this address
-              </a>
-            </p>
-
-          </div>
-        </div>
-      {% endif %}
-
+      
 
       {% if data['operations-address'] == "true" %}
         <div class="govuk-card govuk-card--contained">
@@ -319,7 +243,8 @@
       {% if data['correspondence-address'] == "true" and data['billing-address'] == "true" and data['operations-address'] == "true" %}
 
       {% else %}
-        <form action="add-address-type">
+        <form action="/account/address/billing/">
+		<!-- <form action="add-address-type"> -->
           <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
             Add an address
           </button>
@@ -407,7 +332,16 @@
         </div>
       </div>
 
-    </div>
-  </div>
+  	</div>
+	  <div class="govuk-grid-column-one-third review">      
+        <ul class="govuk-list govuk-body-s govuk-!-text-align-right">                
+            {% if data['status'] == "review" %}
+                <li><a href="/register/charity-name?status=" class="govuk-link govuk-link--no-visited-state">Current page</a></li>        
+            {% else %}
+                <li><a href="/register/charity-name?status=review" class="govuk-link govuk-link--no-visited-state">Suggested page changes</a></li>        
+            {% endif %}
+        </ul>          
+    </div> 
+</div>
 
 {% endblock %}
