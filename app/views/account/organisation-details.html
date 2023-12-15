@@ -1,0 +1,156 @@
+{% extends "layout.html" %}
+{% set showBackLink = true %}
+{% set serviceName = "" %}
+
+{% set pageHeading = "Big Company Ltd" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block beforeContent %}
+
+<div id="profile">
+	{% include "includes/account-nav-admin-individual.html" %}
+</div>
+
+<div class="govuk-breadcrumbs">
+	<ol class="govuk-breadcrumbs__list">
+    	<li class="govuk-breadcrumbs__list-item"><a class="govuk-breadcrumbs__link" href="account">Home</a></li>
+      	<li class="govuk-breadcrumbs__list-item"><a class="govuk-breadcrumbs__link" href="dashboard">Big Company Ltd</a></li>
+      	<li class="govuk-breadcrumbs__list-item"><!-- <a class="govuk-breadcrumbs__link" href="#"> -->Organisation details<!-- </a> --></li>
+    </ol>
+</div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   
+    </div>
+    
+	<div class="govuk-grid-column-full">
+
+        {% set pastDayHtml %}
+            <h2 class="govuk-heading-l">Organisation address</h2>
+            <div class="govuk-card govuk-card--contained">
+                <div class="govuk-card__content">
+                    <p class="govuk-body"><span class="govuk-!-font-weight-bold">Address:</span> Hutton Yeat Farm
+                        Old Hutton
+                        Kendal
+                        South Lakeland
+                        LA8 0NL<br></p>
+                      <p class="govuk-body"><span class="govuk-!-font-weight-bold">Companies House number:</span> 11284691<br></p>
+                      <p class="govuk-body"><span class="govuk-!-font-weight-bold">Telephone:</span> 07941161695
+                    <br><span class="govuk-!-font-weight-bold">Email:</span> hugolast@test.com<br></p>
+                </div>
+                <div class="govuk-card__actions">
+                    <ul class="govuk-list govuk-!-mb-r0">
+                        <li><a id="link-update-details" href="/management/account-management/accounts/a30cad99-c198-ee11-be37-6045bd905186/details/update-details" class="govuk-link govuk-link--no-visited-state">Update details</a></li>
+                      </ul>
+                </div>
+            </div>
+            
+       
+
+        {% endset -%}
+
+        {% set pastWeekHtml %}
+            <h2 class="govuk-heading-l">Billing address</h2>
+
+            {% if data['billingDetailsAdded'] == "Yes" %}
+
+
+            <div class="govuk-card govuk-card--contained">
+                <div class="govuk-card__content">
+
+                    {% if data['billingAddress'] == "Yes" %}
+                        <p class="govuk-body">Hutton Yeat Farm
+                            <br>Old Hutton
+                            <br>Kendal
+                            <br>South Lakeland
+                            <br>LA8 0NL</p>
+                        {% else %}
+
+                        {% if data['billingAddressDetails'] %}
+                        <p class="govuk-body"><span class="govuk-!-font-weight-bold">Address:</span> {{ data['billingAddressDetails'] }} </p>
+                        {% else %}
+
+
+                            {% endif %}
+
+
+          				{{ data['registrationAccountType'] }}
+                        {% endif %}
+
+
+
+
+                    <!-- <p class="govuk-body"><span class="govuk-!-font-weight-bold">Address:</span> Hutton Yeat Farm
+                        Old Hutton
+                        Kendal
+                        South Lakeland
+                        LA8 0NL<br></p> -->
+                      
+                    <p class="govuk-body"><span class="govuk-!-font-weight-bold">Telephone:</span> {{ data['billingTelephone'] }}
+                    <br><span class="govuk-!-font-weight-bold">Email:</span> {{ data['billingEmail'] }}<br></p>
+                </div>
+                <div class="govuk-card__actions">
+                    <ul class="govuk-list govuk-!-mb-r0">
+                        <li><a id="link-update-details" href="/management/account-management/accounts/a30cad99-c198-ee11-be37-6045bd905186/details/update-details" class="govuk-link govuk-link--no-visited-state">Update details</a></li>
+                      </ul>
+                </div>
+            </div>
+
+
+            {% else %}
+            <p class="govuk-body govuk-!-margin-bottom-7">There is no billing address for this organisation.</p>
+            <form method="post" action="/account/address/billing/" >
+            {{ govukButton({
+                text: "Add address"
+              }) }}
+
+            </form>
+
+            {% endif %}
+
+        {% endset -%}
+
+        {% set pastMonthHtml %}
+            <h2 class="govuk-heading-l">Related organisations</h2>
+            <p class="govuk-body">You can add related organisations to this account and manage all team members from the account dashboard.</p>
+          <details class="govuk-details" role="group">
+            <summary class="govuk-details__summary" role="button" aria-controls="details-content-cb7f93ae-7e52-4034-b397-b0ad9c26fa56" aria-expanded="false">
+              <span class="govuk-details__summary-text">
+                What are related organisations?
+              </span>
+            </summary>
+            <div class="govuk-details__text" id="details-content-cb7f93ae-7e52-4034-b397-b0ad9c26fa56" aria-hidden="true">
+              <p>If your organisation is linked to another branch or division, you can add it to this account as a related organisation. This allows you to manage each part of your organisation individually, but under the same account.</p><p>If you're an <strong>Only Representative</strong>, you can add the non-EU manufacturers and importers that you represent.</p>
+            </div>
+          </details>
+        {% endset -%}
+        
+
+        {{ govukTabs({
+            items: [
+                { label: "Organisation address", id: "past-day", panel: {html: pastDayHtml} },
+                { label: "Billing details", id: "past-week", panel: {html: pastWeekHtml} },
+                { label: "Related organisations", id: "past-month", panel: {html: pastMonthHtml} }                
+            ]
+        }) }}
+
+
+
+  	</div>
+	<!-- <div class="govuk-grid-column-one-third review">      
+        <ul class="govuk-list govuk-body-s govuk-!-text-align-right">                
+            {% if data['status'] == "review" %}
+                <li><a href="/register/charity-name?status=" class="govuk-link govuk-link--no-visited-state">Current page</a></li>        
+            {% else %}
+                <li><a href="/register/charity-name?status=review" class="govuk-link govuk-link--no-visited-state">Suggested page changes</a></li>        
+            {% endif %}
+        </ul>          
+    </div>  -->
+</div>
+
+{% endblock %}
