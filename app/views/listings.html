@@ -14,20 +14,25 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }} 
 
-            <p class="govuk-body-s">Last updated 20 October 2023</p>
+            <p class="govuk-body-s">Last updated 15 January 2024</p>
             <p class="govuk-body govuk-!-margin-bottom-7">Some pages have dynamic content, so if using the links and not going through the flows that lead to each page, its not always possible to show the right content for all scenarios.</p>
 
+            
             {% set registrationHtml %}
             <!-- <h3 class="govuk-heading-m">Example heading</h3>
             <ul class="govuk-list govuk-list--bullet">
                 <li><a class="govuk-link govuk-link--no-visited-state" href="#" >Name of page</a></li>                
             </ul> -->
 
-            <p>Currently checking pages as lots of duplicates ( 10 May 2023 )</p>
+            
+            <div class="govuk-inset-text">
+                <p>Registration links all need amending as structure has been changed
+                <br>Currently checking pages as lots of duplicates ( 15 Janaury 2024 )</p>
+            </div>
 
             <h3 class="govuk-heading-m">Registration</h3>
             <ul class="govuk-list govuk-list--bullet">
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/about-data" >Your Defra account</a></li>
+                
                 <li><a class="govuk-link govuk-link--no-visited-state" href="/account/add-address-manual" >What is the address?</a></li>
                 <li><a class="govuk-link govuk-link--no-visited-state" href="/account/add-address-postcode" >What is the address?</a></li>
                 <li><a class="govuk-link govuk-link--no-visited-state" href="/account/add-address-region" >Is the new address in the UK?</a></li>
@@ -87,31 +92,30 @@
 
             <h3 class="govuk-heading-m">Account mangement</h3>
             <ul class="govuk-list govuk-list--bullet">
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/" >Defra account profile *</a></li>
                 
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/update-details" >Update your details</a></li>                
-                
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/dashboard" >Dashboard *</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/organisation-details" >Organisation details *</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/team-access" >Manage team access *</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/team-member" >Account profile - Nicky Bidbod *</a></li>
 
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/account" >Defra account profile</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/update-details" >Update your details *</a></li>                
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/reset-security-word" >Reset your security word *</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/update-company-email-address" >What is the email address for this registered company? *</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/update-company-phone-number" >What is the main telephone number for this registered company? *</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/update-organisation-contact-details" >Update registered contact information *</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/update-organisation-details" >Update organisation details *</a></li>
+                
                 <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/add-address-manual" >What is the address?</a></li>
                 <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/add-address-postcode" >What is the address?</a></li>
                 <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/add-address-region" >Is the new address in the UK?</a></li>
                 <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/add-address-type" >What kind of address do you want to add?</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/add-non-uk-address" >What is the non-UK address?</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/dashboard" >Dashboard - Big Company Ltd</a></li>
-                <!-- <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/index" >Text</a></li> -->
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/organisation-details" >Organisation details</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/remove-address" >Are you sure you want to remove this address?</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/reset-security-word" >Reset your security word</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/select-new-address" >What is the address?</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/team-member" >Profile - Nicky Bidbod</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/add-non-uk-address" >What is the non-UK address?</a></li>                
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/remove-address" >Are you sure you want to remove this address?</a></li>                
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/select-new-address" >What is the address?</a></li>                
                 <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/team" >Manage team access</a></li>
                 <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/update-address" >Do you want to replace this address?</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/update-company-email-address" >What is the email address for this registered company?</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/update-company-phone-number" >What is the main telephone number for this registered company?</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/update-details" >Update your details</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/update-organisation-contact-details" >Update registered contact information</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/update-organisation-details" >Update organisation details</a></li>
-                
+                      
             </ul>
 
             <h3 class="govuk-heading-m">Support pages</h3>
