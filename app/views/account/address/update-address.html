@@ -1,0 +1,181 @@
+{% extends "layout.html" %}
+{% set serviceName = "Defra account" %}
+
+{% set title = "Do you want to replace this address?" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+<!-- Determines the navigation -->
+  <div id="profile">
+    {% include "includes/account-nav.html" %}
+  </div>
+
+  <div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="account">Home</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="dashboard">
+          Big Company Ltd
+        </a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="organisation-details">
+          Organisation details
+        </a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <!-- <a class="govuk-breadcrumbs__link" href="#"> -->
+          Remove an address
+        <!-- </a> -->
+      </li>
+    </ol>
+  </div>
+{% endblock %}
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ title }}
+      </h1>
+
+      <div class="govuk-inset-text">
+        <h3 class="govuk-heading-m">
+          {% if data['address-type'] == "correspondence" %}
+            Correspondence address
+          {% elseif data['address-type'] == "billing" %}
+            Billing address
+          {% elseif data['address-type'] == "operations" %}
+            Operation address
+          {% else %}
+            {{ data['custom-address-label'] }}
+          {% endif %}
+          <!-- Operational address -->
+        </h3>
+
+        {% if data['address-type'] == "correspondence" %}
+
+          {% if data['correspondence-address-type'] == "normal" %}
+
+            <p class="govuk-body">
+              Clifton House<br>
+              Clifton Road<br>
+              London<br>
+              SW19 5JA
+            </p>
+
+          {% elseif data['correspondence-address-type'] == "manual" %}
+
+            <p class="govuk-body">
+              Laurel Ho<br>
+              Laurelhill Business Park<br>
+              Stirling<br>
+              FK7 9JQ
+            </p>
+
+          {% else %}
+
+            <p class="govuk-body">
+              LG. Do Município<br>
+              6060-163 - Idanha-A-Nova<br>
+              Portugal
+            </p>
+
+          {% endif %}
+
+        {% elseif data['address-type'] == "billing" %}
+
+          {% if data['billing-address-type'] == "normal" %}
+
+            <p class="govuk-body">
+              Clifton House<br>
+              Clifton Road<br>
+              London<br>
+              SW19 5JA
+            </p>
+
+          {% elseif data['billing-address-type'] == "manual" %}
+
+            <p class="govuk-body">
+              Laurel Ho<br>
+              Laurelhill Business Park<br>
+              Stirling<br>
+              FK7 9JQ
+            </p>
+
+          {% else %}
+
+            <p class="govuk-body">
+              LG. Do Município<br>
+              6060-163 - Idanha-A-Nova<br>
+              Portugal
+            </p>
+
+          {% endif %}
+
+        {% elseif data['address-type'] == "operations" %}
+
+          {% if data['operations-address-type'] == "normal" %}
+
+            <p class="govuk-body">
+              Clifton House<br>
+              Clifton Road<br>
+              London<br>
+              SW19 5JA
+            </p>
+
+          {% elseif data['operations-address-type'] == "manual" %}
+
+            <p class="govuk-body">
+              Laurel Ho<br>
+              Laurelhill Business Park<br>
+              Stirling<br>
+              FK7 9JQ
+            </p>
+
+          {% else %}
+
+            <p class="govuk-body">
+              LG. Do Município<br>
+              6060-163 - Idanha-A-Nova<br>
+              Portugal
+            </p>
+
+          {% endif %}
+
+        {% endif %}
+
+      </div>
+
+      {% if data['address-type'] == "correspondence" %}
+        <form action="add-address-region?new-address=correspondence" method="post" class="form">
+      {% elif data['address-type'] == "billing" %}
+        <form action="add-address-region?new-address=billing" method="post" class="form">
+      {% else %}
+        <form action="add-address-region?new-address=operations" method="post" class="form">
+      {% endif %}
+
+        <div class="govuk-button-group">
+          <button class="govuk-button" data-module="govuk-button">
+            Continue
+          </button>
+
+          <button class="govuk-button govuk-button--secondary" data-module="govuk-button" formaction="organisation-details">
+            Cancel
+          </button>
+
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}
