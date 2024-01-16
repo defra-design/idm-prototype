@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% set showBackLink = false %}
+{% set serviceName = "Preload - Defra identity management" %}
+
+{% set pageHeading = "Service flows" %}
+{% set pageSection = "Preload data" %}
+
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading, pageSection) }}                        
+
+        <p>User flows will default to core screens and content unless an overriding service is selected.</p>
+
+        
+        <form action="/preload" method="post" >
+
+            {{ govukRadios({                                        
+                items: [
+                    { value: "coreDefault", text: "Core default flow (MFA and Interswitch)", checked: checked("serviceFlow", "coreDefault") },   
+                    { value: "vetsVisit", text: "Annual Health and Welfare Review of livestock (No MFA or Interswitch)", checked: checked("serviceFlow", "vetsVisit") }
+                ]
+            } | decorateFormAttributes('serviceFlow')) }}
+ 
+            {{ govukButton({
+                text: "Continue to preload"
+            }) }}
+
+        </form>
+
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% set showBackLink = true %}
+{% set serviceName = "" %}
+
+{% set pageHeading = "Enter your email address" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+        
+        <form method="post" action="/oneLogin/create/check-your-email" >
+
+            {{ govukInput({
+                label: {
+                    text: "Email address",
+                    classes: "govuk-visually-hidden",
+                    isPageHeading: false
+                },                
+                classes: "govuk-!-width-two-thirds",
+                id: "emailOneLogin",
+                name: "emailOneLogin"  
+            }) }}
+            
+            
+            {{ govukButton({
+                text: "Continue"
+            }) }}                                
+
+
+        </form>
+       
+    </div>
+</div>
+
+
+{% endblock %}

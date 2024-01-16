@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% set showBackLink = true %}
+{% set serviceName = "" %}
+
+{% set pageHeading = "What is the name of the business?" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   
+
+    	<form method="post" action="/register/address/add-address-manual">
+
+			{{ govukInput({
+				label: {
+					text: pageHeading,
+					classes: "govuk-visually-hidden"						
+				},		
+				hint: {
+					text: "You may trade under your own name or a name you have given to the business."
+				  },		
+				classes: "govuk-!-width-two-thirds"
+			} | decorateFormAttributes('business-name')) }}      
+
+      		{{ govukButton({
+        		text: "Continue"
+      		}) }}      
+
+    	</form>
+
+  	</div>
+</div>
+
+{% endblock %}

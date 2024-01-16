@@ -1,12 +1,117 @@
 {% extends "layout.html" %}
+{% set showBackLink = true %}
+{% set serviceName = "Defra account" %}
+
+
+{% set fullname = "Hugo Furst" %}
+{% set business = "Soleheaven Ltd" %}
+{% set userEmail = "hugo.furst@soleheaven.com" %}
+{% set phoneNumber = "07711 223344" %}
+{% set business2 = "Trophy Room Ltd" %}
+
+
+{% if data['status'] == "review" %}
+	{% set pageHeading = "Defra account profile" %}
+{% else %}
+	{% set pageHeading = "Defra account profile" %}
+{% endif %}
+
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block beforeContent %}
+	<div id="profile">
+    	{% include "includes/account-nav-admin-individual-profile.html" %}
+  	</div>
+{% endblock %}
 
 {% block content %}
 
-<script>
-    window.onload = function() {
-        // similar behavior as an HTTP redirect
-        window.location.replace("../defra-id/login");
-    }
-</script>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   
+
+		{{ govukSummaryList({
+			classes: "govuk-summary-list--no-border",
+			rows: [
+			  { key: { text: "Full name" }, value: { text: fullname }, class: "govuk-summary-list__row--no-actions" },
+			  { key: { text: "Email address" }, value: { text: userEmail }, class: "govuk-summary-list__row--no-actions" },
+			  { key: { text: "Phone number" }, value: { text: phoneNumber }, class: "govuk-summary-list__row--no-actions" },
+			  { key: { text: "Security word" }, value: { text: "••••••••••" }, class: "govuk-summary-list__row--no-actions" }			 
+			]
+		  }) }}   
+
+    	<p class="govuk-body"><a href="update-details" class="govuk-link--no-visited-state">Update details</a></p>
+    </div>
+
+  	<div class="govuk-grid-column-full">
+    
+    	<h2 class="govuk-heading-l govuk-!-margin-top-7">Organisation accounts</h2>
+		<p>You have access to the following accounts and related services.</p>
+
+		{{ govukTable({
+			caption: "Month you apply",
+			captionClasses: "govuk-visually-hidden",			
+			firstCellIsHeader: true,
+			head: [
+			  { text: "Account", classes: "govuk-!-width-one-quarter" },
+			  { text: "Account role", classes: "" },
+			  { text: "Service", classes: "govuk-!-width-one-quarter" },
+			  { text: "Service role", classes: "govuk-!-width-one-quarter" },
+			  { text: "", classes: "" }
+			],
+			rows: [
+			  [
+				{ text: business },
+				{ text: "" },
+				{ text: "No registered service" },
+				{ text: "Admin" },
+				{ html: '<a href="dashboard" class="govuk-link--no-visited-state">Manage<span class="govuk-visually-hidden td-header"> {{ business }}</span></a>' }
+			  ],
+			  [
+				{ text: business2 },
+				{ text: "" },
+				{ text: "No registered service" },
+				{ text: "" },
+				{ text: "" }
+			  ]	
+			  
+			]
+		  }) }}      	
+
+      	<p class="govuk-body "><a class="govuk-link--no-visited-state" href="#">Add new account</a></p>
+
+	</div>  
+
+    <div class="govuk-grid-column-two-thirds">
+
+		<h2 class="govuk-heading-l govuk-!-margin-top-7">Services</h2>
+		<p class="govuk-body">You are not enrolled to any services.</p>
+        
+
+		<!-- <div class="govuk-card__content"> -->
+
+        <!-- waste services -->
+
+        <!-- <div class="govuk-grid-column-one-third">
+          <div class="govuk-card govuk-card--contained govuk-card--selectable">
+            <a href="../epr/home"></a>
+            <div class="govuk-card__content">
+              <h3 class="govuk-heading-m">Packaging producer responsibility</h3>
+            </div>
+          </div>
+        </div>
+        <div class="govuk-grid-column-one-third">
+          <div class="govuk-card govuk-card--contained govuk-card--selectable">
+            <a href="../drs/home"></a>
+            <div class="govuk-card__content">
+              <h3 class="govuk-heading-m">Deposit return scheme</h3>
+            </div>
+          </div>
+        </div> -->
+
+  	</div>
+</div>
 
 {% endblock %}

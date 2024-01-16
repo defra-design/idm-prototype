@@ -1,0 +1,76 @@
+{% extends "layout.html" %}
+{% set showBackLink = true %}
+{% set serviceName = "" %}
+
+{% if data['status'] == "review" %}
+    {% set pageHeading = "Is the business registered to trade in the UK?" %}
+{% else %}
+    {% set pageHeading = "Where is your organisation registered to trade?" %}
+{% endif %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {% if data['status'] == "review" %}
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   
+        {% else %}
+        <h1 class="govuk-heading-l">{{pageHeading}}</h1>
+        {% endif %}
+
+        {% if data['regNonUk'] == "No" %}
+        <form method="post" action="/register/cannot-register">
+        {% else %}
+    	<form method="post" action="/register/non-uk-business-name">
+        {% endif %}
+
+
+        {% if data['status'] == "review" %}
+
+            {{ govukRadios({
+                fieldset: {
+                    legend: { text: "Are you registering as a business or an individual?", isPageHeading: false, classes: "govuk-visually-hidden"  }
+                },
+                classes: "govuk-radios--inline",
+                items: [
+                    { value: "Yes, redirect(/register/companies-house)", text: 'Yes'   },
+                    { value: "No", text: 'No'   }                    
+                ]
+            } | decorateFormAttributes('registrationTradeUK')) }}
+
+        {% else %}
+
+            {{ govukRadios({
+                fieldset: {
+                    legend: { text: "Are you registering as a business or an individual?", isPageHeading: false, classes: "govuk-visually-hidden"  }
+                },
+                items: [
+                    { value: "Yes, redirect(/register/companies-house)", text: 'UK'   },
+                    { value: "No", text: 'Non-UK (Organisation that is not registered in the UK)'   }                    
+                ]
+            } | decorateFormAttributes('registrationTradeUK')) }}        
+
+        {% endif %}
+
+            {{govukButton({
+                text: "Continue"
+            })}}
+	
+    	</form>
+
+  	</div>
+    <div class="govuk-grid-column-one-third review">      
+        <ul class="govuk-list govuk-body-s govuk-!-text-align-right">                
+            {% if data['status'] == "review" %}
+                <li><a href="/register/uk-organisation?status=" class="govuk-link govuk-link--no-visited-state">Current page</a></li>        
+            {% else %}
+                <li><a href="/register/uk-organisation?status=review" class="govuk-link govuk-link--no-visited-state">Suggested page changes</a></li>        
+            {% endif %}
+        </ul>          
+    </div>
+</div>
+
+{% endblock %}

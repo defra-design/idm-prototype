@@ -1,18 +1,8 @@
 {% extends "layout.html" %}
-
-<!-- Review remove back link -->
-{% if data['status'] == "review" %}
-    {% set showBackLink = false %}
-{% else %}
-    {% set showBackLink = true %}
-{% endif %}
+{% set showBackLink = false %}
 {% set serviceName = "" %}
 
-{% if data['status'] == "review" %}
-    {% set pageHeading = "Sorry, there is a problem with the service" %}
-{% else %}
-    {% set pageHeading = "Sorry, there is a problem with this service" %}
-{% endif %}
+{% set pageHeading = "Sorry, there is a problem with the service" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -22,36 +12,32 @@
     <div class="govuk-grid-column-two-thirds">
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+        
+        <p>Try again later.</p>
+        <p>When the service is available, you will have to start again.</p>
 
-        {% if data['status'] == "review" %}
-            <p>Try again later.</p>
-            <p>When the service is available, you will have to start again.</p>
-            <p class="govuk-body">Contact <a class="govuk-link govuk-link--no-visited-state" href=“mailto:defra.helpline@defra.gov.uk”>defra.helpline@defra.gov.uk</a> if you need help or call our helpline.</p>
-            <p class="govuk-body">
-                Helpline:<br>
-                <strong class="govuk-!-font-weight-bold">03459 33 55 77</strong>
-            </p>
-            <p class="govuk-body">
-                Opening times:<br>
-                <strong class="govuk-!-font-weight-bold">Monday to Friday: 8:30am to 5pm</strong>
-            </p>
-            
-            <p><a href="https://www.gov.uk/call-charges" class="govuk-link govuk-link--no-visited-state" rel="noreferrer noopener" target="_blank" >Find out about call charges (opens in a new tab).</a></p>
+        {% if data['status'] != "noService" %}
+
+        <p class="govuk-body">Contact <a class="govuk-link govuk-link--no-visited-state" href=“mailto:{SERVICE EMAIL}”>{SERVICE email address}</a> if you need help or call our helpline.</p>
+        <p class="govuk-body">
+            Helpline:<br>
+            <strong class="govuk-!-font-weight-bold">{SERVICE helpline number}</strong>
+        </p>
+        <p class="govuk-body">
+            Opening times:<br>
+            <strong class="govuk-!-font-weight-bold">{SERVICE opening times}</strong>
+        </p>
         
-        {% else %}
+        <p><a href="https://www.gov.uk/call-charges" class="govuk-link govuk-link--no-visited-state" rel="noreferrer noopener" target="_blank" >Find out about call charges (opens in a new tab).</a></p>                
         
-            <p class="govuk-body"><a href=“mailto:defra.helpline@defra.gov.uk”>Contact defra.helpline@defra.gov.uk</a> if you want to get help with this.</p>
-            <p class="govuk-body">You can also contact us by calling our Helpline: 03459 33 55 77. The Helpline is open Monday to Friday 8:30am to 5pm. <a href="https://www.gov.uk/call-charges" target="_blank">Find out about call charges (opens in a new tab).</a></p>
-                
         {% endif %}
-    
     </div>
     <div class="govuk-grid-column-one-third review">      
         <ul class="govuk-list govuk-body-s govuk-!-text-align-right">        
-            {% if data['status'] == "review" %}                        
-                <li><a href="/403-status?status=" class="govuk-link govuk-link--no-visited-state">Current page</a></li>        
+            {% if data['status'] == "noService" %}                        
+                <li><a href="/403-status?status=" class="govuk-link govuk-link--no-visited-state">Service information available</a></li>        
             {% else %}
-                <li><a href="/403-status?status=review" class="govuk-link govuk-link--no-visited-state">Suggested page changes</a></li>        
+                <li><a href="/403-status?status=noService" class="govuk-link govuk-link--no-visited-state">Service information not available</a></li>        
             {% endif %}
         </ul>      
     </div>

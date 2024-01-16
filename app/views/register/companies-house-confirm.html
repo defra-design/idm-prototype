@@ -1,0 +1,86 @@
+{% extends "layout.html" %}
+{% set showBackLink = true %}
+{% set serviceName = "" %}
+
+{% if data['status'] == "review" %}
+	{% set pageHeading = "Is this your business?" %}
+{% else %}
+	{% set pageHeading = "Are these the correct registered company details?" %}
+{% endif %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+		{% if data['status'] == "review" %}
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   
+		{% else %}
+		<h1 class="govuk-heading-l">{{pageHeading}}</h1>
+		{% endif %}
+
+    	{% if data['status'] == "review" %}
+
+			<div class="govuk-inset-text">
+				<p class="govuk-body">Acme Org Ltd {{ data['orgName'] }}    		
+				<br>1 Francis Crick Avenue
+				<br>Cambridge Biomedical Campus
+				<br>Cambridge
+				<br>United Kingdom
+				<br>CB2 0AA</p>
+			</div>
+
+			<p class="govuk-!-margin-bottom-7"><a href="/register/business-no-match">The address is not correct</a></p>
+
+		{% else %}
+
+			<p class="govuk-body">We need to know the registered company details for verification purposes. It is typically the head office.</p>
+			<h2 class="govuk-heading-m">Acme Org Ltd {{ data['orgName'] }}</h2>
+    		<p><b>Limited Company</b></p>
+			<p>1 Francis Crick Avenue, Cambridge Biomedical Campus, Cambridge, United Kingdom, CB2 0AA</p>
+			<p>Company number {{ data['defraIdCompaniesHouseNumber'] or '01234567' }}.  <a href="companies-house-number">Enter a different number</a>.</p>
+
+			
+			{{ govukDetails({
+      			summaryText: "That is not our registered office address",
+      			html: '<p class="govuk-body">We must use the address that is registered with Companies House. If your address has changed then you must <a href="https://www.gov.uk/file-changes-to-a-company-with-companies-house" target="_blank">tell Companies House (opens in a new tab)</a>.</p>
+      				<p class="govuk-body">Once your details have been updated by Companies House you can return and continue your service registration providing it is within 3 days of your last login.</p>'
+    		}) }}
+		
+		{% endif %}
+
+    	<form method="post" action="/register/company-contact">
+      		<input type="text" class="govuk-visually-hidden" name="registrationCorrectDetails" id="registrationCorrectDetails" value="Yes" />
+			{% if data['status'] == "review" %}
+			<div class="govuk-button-group">
+					
+				{{ govukButton({
+					text: "Confirm"
+				}) }}
+
+				<p><a href="/register/companies-house-number">This is not the right business</a></p>
+
+			</div>
+			{% else %}
+
+				{{ govukButton({
+					text: "Confirm"
+				}) }}
+
+			{% endif %}    		
+		</form>
+  	</div>
+	<div class="govuk-grid-column-one-third review">      
+        <ul class="govuk-list govuk-body-s govuk-!-text-align-right">                
+            {% if data['status'] == "review" %}
+                <li><a href="/register/companies-house-confirm?status=" class="govuk-link govuk-link--no-visited-state">Current page</a></li>        
+            {% else %}
+                <li><a href="/register/companies-house-confirm?status=review" class="govuk-link govuk-link--no-visited-state">Suggested page changes</a></li>        
+            {% endif %}
+        </ul>          
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+{% set showBackLink = true %}
+{% set serviceName = "" %}
+
+{% set pageHeading = "What are the main contact details for the business?" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   
+
+        <p class="govuk-hint">These could be details included on the website, or contact details for the head office or management team.</p>
+
+    	<form action="/register/task-list-page-non-uk-details" method="post">
+
+			{{ govukInput({
+				label: {
+					text: "Telephone number including the country calling code"
+				},
+				hint: {
+					text: "For example, '+44 020 7946 0290'."
+				},
+				classes: "govuk-!-width-one-third",        
+				type: "tel"
+			} | decorateFormAttributes('defraIdCompanyPhone')) }}      
+
+			{{ govukInput({
+				label: {
+					text: "Email address"
+				},
+				classes: "govuk-input--width-20",        
+				type: "email"
+			} | decorateFormAttributes('defraIdCompanyEmail')) }}      
+
+			{{ govukButton({
+				text: "Continue"
+			}) }}
+
+    	</form>
+
+  	</div>
+</div>
+
+{% endblock %}

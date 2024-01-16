@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+{% set showBackLink = false %}
+{% set serviceName = "" %}
+
+{% set pageHeading = "Check your details" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+        {{ govukSummaryList({
+        	rows: [
+            	{ key: { text: "Farmer name" }, value: { text: "" } },
+            	{ key: { text: "Business name" }, value: { text: "" } },
+            	{ key: { text: "SBI number" }, value: { text: "" } },
+            	{ key: { text: "Address" }, value: { html: '<p class="govuk-body"></p>' } }
+          	]
+        }) }}
+
+		{{ govukRadios({
+  			idPrefix: "are-your-details-correct",
+  			name: "are-your-details-correct",
+  			fieldset: {
+    			legend: {
+      				text: "Are your details correct?",
+      				isPageHeading: false,
+      				classes: "govuk-fieldset__legend--l"
+    			}
+  			},
+  			items: [
+    			{ value: "yes", text: "Yes" },
+    			{ value: "no", text: "No" }
+  			]
+		}) }}
+
+		<!-- Temp fix to next page until i confirm whats actually happening -->
+		{{ govukButton({
+  			text: "Continue",
+  			href: "/authentication/wheretoo"
+		}) }}
+    
+  	</div>
+</div>
+
+{% endblock %}

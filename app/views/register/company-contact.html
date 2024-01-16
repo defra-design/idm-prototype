@@ -1,0 +1,111 @@
+{% extends "layout.html" %}
+{% set showBackLink = true %}
+{% set serviceName = "" %}
+
+{% if data['status'] == "review" %}
+    {% set pageHeading = "What’s {COMPANY NAME}’s main contact details?" %}
+{% else %}
+    {% set pageHeading = "What are the main contact details for this registered company?" %} 
+{% endif %}
+
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {% if data['status'] == "review" %}
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   
+        {% else %}
+        <h1 class="govuk-heading-l">{{pageHeading}}</h1>
+        {% endif %}
+
+        <form action="/register/personal-name" method="post">
+
+
+        {% if data['status'] == "review" %}
+
+        <p>These could be from your website, or for the head office or management team.</p>
+        <!-- <p>This could be the number for head office or management team.</p> -->
+    
+			{{ govukInput({
+                label: {
+                    text: "Telephone number",
+                    classes: "govuk-label"					
+                },                
+                classes: "govuk-!-width-two-thirds",
+				type: "tel"      
+            } | decorateFormAttributes('registrationPhone')) }}
+
+            <!-- {{ govukInput({
+                label: {
+                    text: "Telephone number",
+                    classes: "govuk-visually-hidden"					
+                },
+                hint: {
+                    text: "For international numbers include the country code."
+                },
+                classes: "govuk-!-width-two-thirds",
+				type: "tel"      
+            } | decorateFormAttributes('registrationPhone')) }} -->
+
+            {{ govukInput({
+                label: {
+                    text: "Email address",
+                    classes: "govuk-label"					
+                },                
+                classes: "govuk-!-width-two-thirds",
+				type: "tel"      
+            } | decorateFormAttributes('registrationEmail')) }}
+
+
+        {% else %}
+
+        <p class="govuk-hint">These could be details included on the website, or contact details for the head office or management team.</p>        
+        	
+
+			{{ govukInput({
+                label: {
+                    text: "Telephone number",
+                    classes: "govuk-label"					
+                },                
+                classes: "govuk-!-width-one-third",
+				type: "tel"      
+            } | decorateFormAttributes('registrationPhone')) }}
+
+            {{ govukInput({
+                label: {
+                    text: "Email address",
+                    classes: "govuk-label"					
+                },                
+                classes: "govuk-!-width-two-thirds",
+				type: "tel"      
+            } | decorateFormAttributes('registrationEmail')) }}
+
+
+        {% endif %}
+
+    	
+			
+
+      		{{ govukButton({
+        		text: "Continue"
+      		}) }}
+
+    	</form>
+
+  	</div>
+    <div class="govuk-grid-column-one-third review">      
+        <ul class="govuk-list govuk-body-s govuk-!-text-align-right">                
+            {% if data['status'] == "review" %}
+                <li><a href="/register/company-contact?status=" class="govuk-link govuk-link--no-visited-state">Current page</a></li>        
+            {% else %}
+                <li><a href="/register/company-contact?status=review" class="govuk-link govuk-link--no-visited-state">Suggested page changes</a></li>        
+            {% endif %}
+        </ul>          
+    </div>    
+</div>
+
+{% endblock %}

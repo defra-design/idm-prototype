@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+{% set showBackLink = true %}
+{% set serviceName = "" %}
+
+{% set pageHeading = "Account found" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+        
+        <p>We have found a Defra account registered to the email you provided.</p> 
+        
+        <div class="govuk-inset-text">
+            <p>{{ data['emailCheckAccount'] or "test@defraidentity.com" }}</p>
+        </div>
+                
+        {% if data['accountVerifyType'] == "oneLog" %}
+        <p>This email address is using GOV.UK One Login to sign in to Defra services.</p>                     
+        <form method="post" action="/oneLogin/email-address" >   
+            
+            {{ govukButton({
+                text: "Sign in with GOV.UK One Login"
+            }) }}                                
+
+
+        {% elif data['accountVerifyType'] == "GovGate" %}
+
+        <p>This email address is using GOV.UK One Login to sign in to Defra services.</p>                     
+        <form method="post" action="/gov-gateway/sign-in" >   
+
+            {{ govukButton({
+                text: "Sign in with Government Gateway"
+            }) }}     
+            
+        {% elif data['accountVerifyType'] == "both" %}
+
+        <p>This email address is used by GOV.UK One Login and Government Gateway.</p>                     
+            <!-- <p>We can also see that this email address is using both GOV.UK One Login and Government Gateway to sign in to Defra services.</p>                      -->
+
+            <div class="govuk-button-group govuk-!-margin-top-5">
+
+            {{ govukButton({
+                text: "Sign in with GOV.UK One Login",
+                href: "/oneLogin/email-address"
+            }) }}     
+
+            {{ govukButton({
+                text: "Sign in with Government Gateway",
+                classes: "govuk-button--secondary",
+                href: "/gov-gateway/sign-in"
+            }) }}    
+        </div> 
+
+
+        {% endif %}
+            
+
+
+        </form>
+
+
+        
+       
+    </div>
+</div>
+
+
+{% endblock %}

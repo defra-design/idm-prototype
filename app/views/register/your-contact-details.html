@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+{% set showBackLink = true %}
+{% set serviceName = "" %}
+
+{% set pageHeading = "What is your telephone number?" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+        <form method="post" action="task-list-page-about-you-details?contact-details=completed">
+
+            {{ govukInput({
+                label: {
+                    text: title,
+                    classes: "govuk-label--xl",
+                    isPageHeading: true
+                },
+                hint: {
+                    text: "We ask for this in case we need to call you directly with any queries about your registration."
+                },
+                classes: "govuk-!-width-one-third",        
+                type: "tel"
+            } | decorateFormAttributes('defraIdPersonalPhone')) }}
+
+            <div class="govuk-inset-text">
+                We may also contact you by email, using the address registered with your Government Gateway account:
+                <span class="govuk-!-font-weight-bold">{{ data['govGateEmail'] }}</span>
+            </div>
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}
