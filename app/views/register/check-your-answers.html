@@ -17,7 +17,6 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   
 
-    
 		{% if data['status'] == "review" %}
 
 			<h2 class="govuk-heading-m govuk-!-margin-bottom-2">Your account</h2>
@@ -32,17 +31,22 @@
 						<a class="govuk-link govuk-link--no-visited-state" href="/register/account-type?link=change">Change<span class="govuk-visually-hidden"> type of account</span></a>
         			</dd>
       			</div>
+
+				{% if data['registrationAccountType'] != "Individual" %}
 				  <div class="govuk-summary-list__row">
 					<dt class="govuk-summary-list__key">Organisation type</dt>
 					<dd class="govuk-summary-list__value">												
 						{% if data['registrationOrganisationType'] == "Charity" %}
 							Charity
+						{% elif data['registrationOrganisationType'] == "Sole trader" %}
+							Sole trader
 						{% else %}
 							Limited company
 						{% endif %}
 					</dd>
 					<dd class="govuk-summary-list__actions"></dd>
 				</div>	
+				{% endif %}
     		</dl>
 
 			{% if data['registrationAccountType'] != "Individual" %}
@@ -54,15 +58,22 @@
 					<dd class="govuk-summary-list__value">						
 						{% if data['registrationOrganisationType'] == "Charity" %}
 							{{ data['registrationCharityName'] }}
+						{% elif data['registrationOrganisationType'] == "Sole trader" %}
+							Soleheaven Sneakers
 						{% else %}
 							Soleheaven Ltd
 						{% endif %}
 					</dd>
 					<dd class="govuk-summary-list__actions">
-						<a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> registered company</span></a>
+						{% if data['registrationOrganisationType'] == "Charity" %}
+							<a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> the charity name</span></a>
+						{% elif data['registrationOrganisationType'] == "Sole trader" %}
+							<a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> the business name</span></a>
+						{% endif %}
 					</dd>
 				</div>
 				
+				{% if data['registrationOrganisationType'] != "Sole trader" %}
 				<div class="govuk-summary-list__row">
 					<dt class="govuk-summary-list__key">
 						{% if data['registrationOrganisationType'] == "Charity" %}
@@ -85,11 +96,23 @@
 						{% endif %}
 					</dd>
 					<dd class="govuk-summary-list__actions">
-						<a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> company number</span></a>
+
+						{% if data['registrationOrganisationType'] == "Charity" %}
+						<a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> the registered charity number</span></a>
+						{% endif %}
 					</dd>
 				</div>
+				{% endif %}
 				<div class="govuk-summary-list__row">
-					<dt class="govuk-summary-list__key">Registered address</dt>
+					<dt class="govuk-summary-list__key">
+						{% if data['registrationOrganisationType'] == "Charity" %}
+
+						{% elif data['registrationOrganisationType'] == "Sole trader" %}
+							Address
+						{% else %}						
+							Registered address
+						{% endif %}
+						</dt>
 					<dd class="govuk-summary-list__value">																									
 						1 Francis Crick Avenue<br>
 						Cambridge Biomedical Campus<br>
@@ -97,7 +120,11 @@
 						CB2 0AA
 					</dd>
 					<dd class="govuk-summary-list__actions">
-						<a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> registered address</span></a>
+						{% if data['registrationOrganisationType'] == "Charity" %}
+							<a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> the charity’s registered address</span></a>
+						{% elif data['registrationOrganisationType'] == "Sole trader" %}
+							<a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> the address</span></a>
+						{% endif %}
 					</dd>
 				</div>
 						
@@ -114,7 +141,7 @@
 						{% endif %}
 					</dd>
 					<dd class="govuk-summary-list__actions">
-						<a href="company-contact?flowType=check">Change<span class="govuk-visually-hidden"> company contact details</span></a>
+						<a href="company-contact?flowType=check">Change<span class="govuk-visually-hidden"> the charity’s contact details</span></a>
 					</dd>
 				</div>
 
@@ -237,13 +264,24 @@
         	<div class="govuk-summary-list__row">
           		<dt class="govuk-summary-list__key">Memorable word</dt>
           		<dd class="govuk-summary-list__value">
-            		{{ data['registrationMemorableWord'] or 'TheGoat23' }}
+            		{{ data['registrationMemorableWord'] or 'Jordan23' }}
             		<!-- {{ data['registrationMemorableHint'] or 'My favourite food' }} -->
           		</dd>
           		<dd class="govuk-summary-list__actions">
             		<a class="govuk-link govuk-link--no-visited-state" href="/register/individual-security?link=change">Change<span class="govuk-visually-hidden"> memorable word</span></a>
           		</dd>
         	</div>
+
+			<div class="govuk-summary-list__row">
+				<dt class="govuk-summary-list__key">Hint question</dt>
+				<dd class="govuk-summary-list__value">
+				  {{ data['registrationMemorableHint'] or 'The goat forever' }}
+				  <!-- {{ data['registrationMemorableHint'] or 'My favourite food' }} -->
+				</dd>
+				<dd class="govuk-summary-list__actions">
+				  <a class="govuk-link govuk-link--no-visited-state" href="/register/individual-security?link=change">Change<span class="govuk-visually-hidden"> memorable word</span></a>
+				</dd>
+		  </div>
       	</dl>
 
 		{% else %}
