@@ -2,25 +2,17 @@
 {% set serviceName = "Defra account" %}
 
 {% set title = "Is the new address in the UK?" %}
-{% set business = "Big Company Ltd" %}
 
+{% set business = "Big Company Ltd" %}
 
 {% block pageTitle %}
   {{title}} - GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
-
-  {{ govukBackLink({
-    text: "Back",
-    href: "javascript:history.back()"
-  }) }}
-{% endblock %}
-
-{% block content %}
 <!-- Determines the navigation -->
   <div id="profile">
-    {% include "includes/account-nav.html" %}
+    {% include "includes/account-nav-admin-individual.html" %}
   </div>
 
   <div class="govuk-breadcrumbs">
@@ -58,8 +50,7 @@
         <div class="govuk-form-group">
 
           <fieldset class="govuk-fieldset">
-
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
               <h1 class="govuk-fieldset__heading">
                 {{ title }}
               </h1>
