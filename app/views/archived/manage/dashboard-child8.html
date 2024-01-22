@@ -22,7 +22,7 @@
 
 {% block beforeContent %}
   <div id="account">
-    {% include "includes/account-nav-admin-corp.html" %}
+    {% include "includes/account-nav.html" %}
   </div>
 
   {% include "includes/breadcrumb-two-level.html" %}
@@ -64,12 +64,12 @@
         </summary>
         <div class="govuk-details__text">
           <ul class="govuk-list ">
-            <li><a href="/manage/dashboard-all?numUsers=5&numAgents=0&numServices=3&orgName=Acme Org Ltd&serviceLine=Comply with UK REACH&serviceRole=REACH Manager&multiOrg=yes&parentChild=parent" class="govuk-link--no-visited-state">Acme Org Ltd</a></li>
+            <li><a href="/archived/manage/dashboard-all?numUsers=5&numAgents=0&numServices=3&orgName=Acme Org Ltd&serviceLine=Comply with UK REACH&serviceRole=REACH Manager&multiOrg=yes&parentChild=parent" class="govuk-link--no-visited-state">Acme Org Ltd</a></li>
               <ul class="govuk-list govuk-list--indent">
-                <li><a href="/manage/dashboard-child?childName=Acme Org India&multiOrg=yes&parentChild=child" class="govuk-link--no-visited-state">Acme Org India</a></li>
+                <li><a href="/archived/manage/dashboard-child?childName=Acme Org India&multiOrg=yes&parentChild=child" class="govuk-link--no-visited-state">Acme Org India</a></li>
 
             {% if (data['numLocations'] == "3") %}
-                <li><a href="/manage/dashboard-child?childName=Acme Org Thailand&multiOrg=yes&parentChild=child" class="govuk-link--no-visited-state">Acme Org Thailand</a></li>
+                <li><a href="/archived/manage/dashboard-child?childName=Acme Org Thailand&multiOrg=yes&parentChild=child" class="govuk-link--no-visited-state">Acme Org Thailand</a></li>
             {% endif %}
               </ul>
           </ul>
@@ -162,7 +162,7 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-one-third">
         <div class="govuk-card govuk-card--contained govuk-card--selectable">
-          <a href="/Comply-with-REACH-IT"></a>
+          <a href="/archived/Comply-with-REACH-IT"></a>
           <div class="govuk-card__content">
             <h3 class="govuk-heading-m">{{ data['serviceLine'] }}</h3>
           </div>
@@ -176,7 +176,7 @@
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-one-third">
           <div class="govuk-card govuk-card--contained govuk-card--selectable">
-            <a href="/Comply-with-REACH-IT"></a>
+            <a href="/archived/Comply-with-REACH-IT"></a>
             <div class="govuk-card__content">
               <h3 class="govuk-heading-m">Comply with UK REACH</h3>
             </div>
@@ -199,7 +199,7 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-one-third">
         <div class="govuk-card govuk-card--contained govuk-card--selectable">
-          <a href="/Comply-with-REACH-IT"></a>
+          <a href="/archived/Comply-with-REACH-IT"></a>
           <div class="govuk-card__content">
             <h3 class="govuk-heading-m">Comply with UK REACH</h3>
           </div>

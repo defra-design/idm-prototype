@@ -8,7 +8,7 @@
 
 {% block beforeContent %}
 
-  {% include "includes/account-nav-admin-corp.html" %}
+  {% include "includes/account-nav.html" %}
   {% include "includes/breadcrumb-four-level-team.html" %}
 
 {% endblock %}
@@ -83,7 +83,7 @@
   {% if (data['accountAccess'] == "no") and (data['subscribeService'] == "no") %}
       {{ govukButton({
         text: "Give account access",
-        href: "/manage/team-members/invite-user/add-user-roles-system-roles?subscribeService=yes&serviceRole=Standard&userType=invited&name=Sara Chippers"
+        href: "/archived/manage/team-members/invite-user/add-user-roles-system-roles?subscribeService=yes&serviceRole=Standard&userType=invited&name=Sara Chippers"
       }) }}
   {% endif %}
 
@@ -91,7 +91,7 @@
 
     {{ govukButton({
       text: "Give service access",
-      href: "/manage/team-members/invite-user/add-user-service?subscribeService=yes&serviceRole=Standard&userType=invited&name=Sara Chippers"
+      href: "/archived/manage/team-members/invite-user/add-user-service?subscribeService=yes&serviceRole=Standard&userType=invited&name=Sara Chippers"
     }) }}
   {% endif %}
 

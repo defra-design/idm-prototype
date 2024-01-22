@@ -10,13 +10,7 @@
 {% set phoneNumber = "07711 223344" %}
 {% set business2 = "Trophy Room Ltd" %}
 
-
-{% if data['status'] == "review" %}
-	{% set pageHeading = "Defra account profile" %}
-{% else %}
-	{% set pageHeading = "Defra account profile" %}
-{% endif %}
-
+{% set pageHeading = "Your Defra account" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -29,7 +23,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   
+		<h1 class="govuk-heading-xl">{{ pageHeading }}</h1>        
 
 		{{ govukSummaryList({
 			classes: "govuk-summary-list--no-border",
@@ -41,8 +35,7 @@
 			]
 		  }) }}   
 
-    	<p class="govuk-body"><a href="/account/manage/update-details" class="govuk-link--no-visited-state">Update details</a></p>
-		<p class="govuk-body"><a href="/account/manage/reset-security-word" class="govuk-link--no-visited-state">Reset secuirty word</a></p>
+    	<p class="govuk-body"><a href="/account/manage/update-details" class="govuk-link--no-visited-state">Update details</a></p>		
     </div>
 
   	<div class="govuk-grid-column-full">

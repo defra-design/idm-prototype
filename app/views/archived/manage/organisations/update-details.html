@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block beforeContent %}
-  {% include "includes/account-nav-admin-corp.html" %}
+  {% include "includes/account-nav.html" %}
 
   {{ govukBackLink({
     text: "Back",
@@ -58,7 +58,7 @@
           {{data['addressList']}}
         </td>
         <td class="govuk-table__cell">
-          <a href="/manage/organisations/change-postcode" class="govuk-link--no-visited-state"> Change<span class="govuk-visually-hidden td-header"> company address</span></a>
+          <a href="/archived/manage/organisations/change-postcode" class="govuk-link--no-visited-state"> Change<span class="govuk-visually-hidden td-header"> company address</span></a>
         </td>
       </tr>
     </table>
@@ -141,7 +141,7 @@
           {{data['addressList']}}
         </td>
         <td class="govuk-table__cell">
-          <a href="/manage/organisations/company-address-manual?accountType=nonuk" class="govuk-link--no-visited-state"> Change<span class="govuk-visually-hidden td-header"> company address</span></a>
+          <a href="/archived/manage/organisations/company-address-manual?accountType=nonuk" class="govuk-link--no-visited-state"> Change<span class="govuk-visually-hidden td-header"> company address</span></a>
         </td>
       </tr>
     </table>
