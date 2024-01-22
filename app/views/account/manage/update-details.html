@@ -6,7 +6,7 @@
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block beforeContent %}
-  
+  {% include "includes/account-nav.html" %}
 
   {{ govukBackLink({
     text: "Back",

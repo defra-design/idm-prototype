@@ -89,35 +89,6 @@
                 
             </ul>
 
-
-            <h3 class="govuk-heading-m">Account mangement</h3>
-            <ul class="govuk-list govuk-list--bullet">
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/" >Defra account profile *</a></li>
-                
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/dashboard" >Dashboard *</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/organisation-details" >Organisation details *</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/team-access" >Manage team access *</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/team-member" >Account profile - Nicky Bidbod *</a></li>
-
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/update-details" >Update your details *</a></li>                
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/reset-security-word" >Reset your security word *</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/update-company-email-address" >What is the email address for this registered company? *</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/update-company-phone-number" >What is the main telephone number for this registered company? *</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/update-organisation-contact-details" >Update registered contact information *</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/update-organisation-details" >Update organisation details *</a></li>
-                
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/add-address-manual" >What is the address?</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/add-address-postcode" >What is the address?</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/add-address-region" >Is the new address in the UK?</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/add-address-type" >What kind of address do you want to add?</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/add-non-uk-address" >What is the non-UK address?</a></li>                
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/remove-address" >Are you sure you want to remove this address?</a></li>                
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/select-new-address" >What is the address?</a></li>                
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/team" >Manage team access</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/update-address" >Do you want to replace this address?</a></li>
-                      
-            </ul>
-
             <h3 class="govuk-heading-m">Support pages</h3>
             <ul class="govuk-list govuk-list--bullet">
                 <li><a class="govuk-link govuk-link--no-visited-state" href="/stay-signed-in" >You will be signed out soon</a></li>
@@ -140,6 +111,50 @@
                 <li><a class="govuk-link govuk-link--no-visited-state" href="/accessibility?flow=Registration">Accessibility</a></li>
             </ul>            
 
+
+            {% endset -%}
+
+
+            {% set accountHtml %}
+            <!-- <h3 class="govuk-heading-m">Example heading</h3>
+            <ul class="govuk-list govuk-list--bullet">
+                <li><a class="govuk-link govuk-link--no-visited-state" href="#" >Name of page</a></li>                
+            </ul> -->
+
+            
+            <div class="govuk-inset-text">
+                <p>Registration links all need amending as structure has been changed
+                <br>Currently checking pages as lots of duplicates ( 15 January 2024 )</p>
+            </div>
+
+            <h3 class="govuk-heading-m">Account mangement</h3>
+            <ul class="govuk-list govuk-list--bullet">
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/" >Defra account profile *</a></li>
+                
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/dashboard" >Dashboard (Manage)*</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/organisation-details" >Organisation details *</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/team-access" >Manage team access *</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/team-member" >Account profile - Nicky Bidbod *</a></li>
+
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/update-details" >Update your details *</a></li>                
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/reset-security-word" >Reset your security word *</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/confirmation" >Security word reset complete *</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/update-company-email-address" >What is the email address for this registered company? *</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/update-company-phone-number" >What is the main telephone number for this registered company? *</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/update-organisation-contact-details" >Update registered contact information *</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/update-organisation-details" >Update organisation details *</a></li>
+                
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/add-address-manual" >What is the address?</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/add-address-postcode" >What is the address?</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/add-address-region" >Is the new address in the UK?</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/add-address-type" >What kind of address do you want to add?</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/add-non-uk-address" >What is the non-UK address?</a></li>                
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/remove-address" >Are you sure you want to remove this address?</a></li>                
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/select-new-address" >What is the address?</a></li>                
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/team" >Manage team access</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/update-address" >Do you want to replace this address?</a></li>
+                      
+            </ul>            
 
             {% endset -%}
 
@@ -237,6 +252,7 @@
             {{ govukTabs({
                 items: [
                     { label: "Registration", id: "registration", panel: { html: registrationHtml } },    
+                    { label: "Account", id: "account", panel: { html: accountHtml } },    
                     { label: "Authentication", id: "authentication", panel: { html: authenticationHtml } },
                     { label: "Vets Visit", id: "vetsVisit", panel: { html: vetsVisitHtml } }
                     

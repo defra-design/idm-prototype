@@ -20,6 +20,9 @@
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
+{% block beforeContent %}
+  {% include "includes/account-nav.html" %}
+{% endblock %}
 
 {% block content %}
 
@@ -38,7 +41,8 @@
 			]
 		  }) }}   
 
-    	<p class="govuk-body"><a href="update-details" class="govuk-link--no-visited-state">Update details</a></p>
+    	<p class="govuk-body"><a href="/account/manage/update-details" class="govuk-link--no-visited-state">Update details</a></p>
+		<p class="govuk-body"><a href="/account/manage/reset-security-word" class="govuk-link--no-visited-state">Reset secuirty word</a></p>
     </div>
 
   	<div class="govuk-grid-column-full">
