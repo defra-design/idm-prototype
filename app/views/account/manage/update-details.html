@@ -6,12 +6,8 @@
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block beforeContent %}
-  {% include "includes/account-nav-admin-corp.html" %}
-
-  {{ govukBackLink({
-    text: "Back",
-    href: "services-on-team-member-admin-account_onlyrep"
-  }) }}
+  {% include "includes/account-nav.html" %}
+  
 {% endblock %}
 
 
@@ -24,28 +20,27 @@
 
         <p>Make updates to Your Defra account personal information.</p>
 
-
-		<h2 class="govuk-heading-m govuk-!-margin-bottom-2">Personal information</h2>
+			
 			<!-- Account Type -->
     		<dl class="govuk-summary-list govuk-!-margin-bottom-7">
       			<div class="govuk-summary-list__row">
-        			<dt class="govuk-summary-list__key">Personal information</dt>
+        			<dt class="govuk-summary-list__key">Personal Information</dt>
         			<dd class="govuk-summary-list__value">
                         Peter Moyles
         			</dd>
         			<dd class="govuk-summary-list__actions">
-						<a class="govuk-link govuk-link--no-visited-state" href="/register/account-type?link=change">Change<span class="govuk-visually-hidden"> type of account</span></a>
+						<a class="govuk-link govuk-link--no-visited-state" href="/account/manage/personal-information">Change<span class="govuk-visually-hidden"> type of account</span></a>
         			</dd>
       			</div>
 				  <div class="govuk-summary-list__row">
-					<dt class="govuk-summary-list__key">Personal address</dt>
+					<dt class="govuk-summary-list__key">Personal Address</dt>
 					<dd class="govuk-summary-list__value">												
 						
                         Hutton Yeat Farm<br>Old Hutton<br>Kendal<br>South Lakeland<br>LA8 0NL
 						
 					</dd>
 					<dd class="govuk-summary-list__actions">
-						<a class="govuk-link govuk-link--no-visited-state" href="/register/account-type?link=change">Change<span class="govuk-visually-hidden"> type of account</span></a>
+						<a class="govuk-link govuk-link--no-visited-state" href="/account/manage/personal-address">Change<span class="govuk-visually-hidden"> type of account</span></a>
         			</dd>
 				</div>	
                 
@@ -55,8 +50,8 @@
       	</dl>
 
 
-		  <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Billing information</h2>
-		  {% if data['billingDetailsAdded'] == "Yes" %}		  
+		  <!-- <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Billing information</h2>
+		  {% if data['billingDetailsAdded'] == "Yes" %}		   -->
 
 		  
 		  <!-- Account Type -->

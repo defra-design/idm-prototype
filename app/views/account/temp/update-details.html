@@ -1,0 +1,139 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Defra account" %}
+
+{% set title = "Update your details" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+<!-- Determines the navigation -->
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual-profile.html" %}
+  </div>
+
+  <div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="account">Home</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <!-- <a class="govuk-breadcrumbs__link" href="#"> -->
+          Update your details
+        <!-- </a> -->
+      </li>
+    </ol>
+  </div>
+
+
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-5">
+      {{title}}
+    </h1>
+
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <p class="govuk-body">
+
+    </p>
+
+    <table class="govuk-table {{ tableCSS }}">
+      <caption class="govuk-table__caption govuk-body govuk-!-font-weight-regular">
+        Make updates to Your Defra account personal information.
+      </caption>
+
+      <!-- <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th class="govuk-table__header column-full" scope="col">
+            Account
+          </th>
+          <th class="govuk-table__header column-full" scope="col">
+            Account role
+          </th>
+          <th class="govuk-table__header column-full" scope="col">
+            <span class="govuk-visually-hidden td-header">Action</span>
+          </th>
+        </tr>
+      </thead> -->
+
+        <tr class="govuk-table__row no-border">
+          <td class="govuk-table__cell">
+            Name
+          </td>
+          <td class="govuk-table__cell govuk-!-width-one-half">
+            Sam Woods
+          </td>
+          <td class="govuk-table__cell">
+            <a href="#">
+              Change
+            </a>
+          </td>
+        </tr>
+
+        <tr class="govuk-table__row no-border">
+          <td class="govuk-table__cell">
+            Phone number
+          </td>
+          <td class="govuk-table__cell">
+            07711 223344
+          </td>
+          <td class="govuk-table__cell">
+            <a href="#">
+              Change
+            </a>
+          </td>
+        </tr>
+
+        <tr class="govuk-table__row no-border">
+          <td class="govuk-table__cell">
+            Personal address
+          </td>
+          <td class="govuk-table__cell">
+            12a Phoebos Street<br>
+            Channington<br>
+            Sheffield<br>
+            S11 2PP
+          </td>
+          <td class="govuk-table__cell">
+            <a href="#">
+              Change
+            </a>
+          </td>
+        </tr>
+
+      </table>
+
+      <p class="govuk-body govuk-!-margin-bottom-9">
+        <a href="reset-security-word" class="govuk-link--no-visited-state">
+          Reset your security word
+        </a>
+      </p>
+
+      <details class="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Update your Government Gateway details (email and password)
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          To access Your Defra account and related services you use Government Gateway credentials to login.<br>
+          <a href="#">Change your Government Gateway password or update your email address</a>.
+        </div>
+      </details>
+
+    </div>
+  </div>
+
+{% endblock %}

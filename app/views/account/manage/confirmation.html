@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% set showBackLink = false %}
+{% set serviceName = "" %}
+
+
+{% set fullname = "Hugo Furst" %}
+{% set business = "Soleheaven Ltd" %}
+{% set userEmail = "hugo.furst@soleheaven.com" %}
+{% set phoneNumber = "07711 223344" %}
+{% set business2 = "Trophy Room Ltd" %}
+
+{% set pageHeading = "Security word reset complete" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+		{{ govukPanel({
+			titleText: pageHeading			
+		}) }}		    		
+
+    	<p class="govuk-body">Your security word and hint question have been reset.</p>
+    	<p class="govuk-body"> The new security word will be used to securely access your account if you need to contact us.</p>
+
+
+      	{{ govukButton({
+        	text: "Continue",
+        	href: "/account/"
+      	}) }}
+
+  </div>
+</div>
+
+
+{% endblock %}
