@@ -3,7 +3,7 @@
 {% set serviceName = "" %}
 
 {% if data['status'] == "review" %}
-    {% set pageHeading = "What’s {COMPANY NAME}’s main contact details?" %}
+    {% set pageHeading = "What is the company’s telephone number and email address?" %}
 {% else %}
     {% set pageHeading = "What are the main contact details for this registered company?" %} 
 {% endif %}
@@ -27,7 +27,7 @@
 
         {% if data['status'] == "review" %}
 
-        <p>These could be from your website, or for the head office or management team.</p>
+        <!-- <p>These could be from the website, or for the head office or management team.</p> -->
         <!-- <p>This could be the number for head office or management team.</p> -->
     
 			{{ govukInput({
