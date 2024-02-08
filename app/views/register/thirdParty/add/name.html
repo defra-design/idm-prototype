@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+{% set showBackLink = false %}
+{% set serviceName = "" %}
+
+{% set pageHeading = "What’s the first persons name?" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+        
+
+
+        <form method="post" action="/register/thirdParty/user/email" >
+
+       
+            
+            {{ govukInput({
+                label: {
+                    text: "First name"
+                },
+                classes: "govuk-!-width-three-quarters"        
+            } | decorateFormAttributes('regThirdPartyUserFirstName')) }}
+
+            {{ govukInput({
+                label: {
+                    text: "Last name"
+                },
+                classes: "govuk-!-width-three-quarters"        
+            } | decorateFormAttributes('regThirdPartyUserLastName')) }}            
+
+
+            
+                        
+
+
+                {{ govukButton({
+                    text: "Continue"
+                }) }}                                
+                
+
+
+            
+
+
+        </form>
+       
+    </div>
+</div>
+
+{% endblock %}
+
+
+
+
+
+
+
+

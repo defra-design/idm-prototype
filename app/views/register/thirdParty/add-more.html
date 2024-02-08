@@ -1,0 +1,86 @@
+{% extends "layout.html" %}
+{% set showBackLink = false %}
+{% set serviceName = "" %}
+
+
+{% if data['regThirdPartyUserTwo'] %}
+    {% set pageHeading = "You have added 2 people to {type/name of third party}" %}
+{% else %}
+{% set pageHeading = "You have added 1 person to {type/name of third party}" %}
+{% endif %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+        
+        {% if data['regThirdPartyUserOne'] %}
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        	<div class="govuk-summary-list__row">
+          		<dt class="govuk-summary-list__key">{{ data['regThirdPartyUserOneEmail'] or 'chrispee.bacon@ncl.local.authority.co.uk' }}</dt>          		
+          		<dd class="govuk-summary-list__actions">
+            		<a class="govuk-link govuk-link--no-visited-state" href="#">Remove<span class="govuk-visually-hidden"> this person</span></a>
+          		</dd>
+        	</div>
+
+            {% if data['regThirdPartyUserTwo'] %}
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">{{ data['regThirdPartyUserTwoEmail'] or 'Chrispee' }}</dt>          		
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link govuk-link--no-visited-state" href="#">Remove<span class="govuk-visually-hidden"> this person</span></a>
+                </dd>
+          </div>
+
+
+            {% endif %}
+
+        </dl>
+
+        {% endif %}
+
+
+
+
+        <form method="post" action="/register/thirdParty/add/responsibility" >
+            
+            {{ govukRadios({
+                classes: "govuk-radios--inline",
+                name: "regThirdPartyUserAddMore",
+                fieldset: {
+                    legend: {
+                        text: "Do you want to add another?",
+                        classes: "govuk-label--m",
+                        isPageHeading: false                                               
+                    }
+                },            
+                items: [
+                    { value: "Yes", text: "Yes" }, 
+                    { value: "No, redirect(/register/thirdParty/add/confirmation)", text: "No" }              
+                ]
+            }) }}
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}                                
+
+        </form>
+       
+    </div>
+</div>
+
+{% endblock %}
+
+
+
+
+
+
+
+
