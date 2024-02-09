@@ -1,0 +1,84 @@
+{% extends "layout.html" %}
+{% set showBackLink = false %}
+{% set serviceName = "" %}
+
+{% set pageHeading = "Do you want them to be an administrator for {name of third party}?" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+        <p>This means they can:</p>
+        <ul class="govuk-list govuk-list--bullet">
+            <li>view and edit information the service holds about {name of third party}</li>
+            <li>manage other users access and tasks on your behalf</li>
+            <li>add more people to your service</li>
+        </ul>
+
+        
+        <form method="post" action="/register/thirdParty/add/email" >
+            
+            {% if data['regThirdPartyUserOne'] %}
+
+            {{ govukRadios({
+                classes: "govuk-radios--inline",
+                name: "regThirdPartyUserTwoAdmin",
+                fieldset: {
+                    legend: {
+                        text: "Do you want this person to be an administrator for {type of third party}?",
+                        isPageHeading: false,
+                        classes: "govuk-visually-hidden"
+                    }
+                },            
+                items: [
+                    { value: "Yes", text: "Yes" }, 
+                    { value: "No", text: "No" }              
+                ]
+            }) }}
+
+
+            {% else %}
+            
+            {{ govukRadios({
+                classes: "govuk-radios--inline",
+                name: "regThirdPartyUserOneAdmin",
+                fieldset: {
+                    legend: {
+                        text: "Do you want this person to be an administrator for {type of third party}?",
+                        isPageHeading: false,
+                        classes: "govuk-visually-hidden"
+                    }
+                },            
+                items: [
+                    { value: "Yes", text: "Yes" }, 
+                    { value: "No", text: "No" }              
+                ]
+            }) }}
+
+            {% endif %}
+
+
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}                                
+
+        </form>
+       
+    </div>
+</div>
+
+{% endblock %}
+
+
+
+
+
+
+
+

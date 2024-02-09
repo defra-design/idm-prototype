@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+{% set showBackLink = false %}
+{% set serviceName = "" %}
+
+{% set pageHeading = "Enter the verification code" %}    
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+            <div class="govuk-inset-text">
+                <p>We have sent a 6-digit verification code to <span class="govuk-!-font-weight-bold"> h***.****t@newcastle.local.authority.co.uk</span></p>
+            </div>
+    
+            <p>It may take a few minutes to arrive and will expire in 15 minutes.</p>                            
+            
+            {{ govukDetails({
+                summaryText: "If the verification code has not arrived",
+                html: '<p>If you have not received the email and have checked your spam folder, you can <a href="#">resend the verification code</a>.</p>'
+            }) }}
+    
+            
+            <form action="/register/thirdParty/check" method="post">            
+    
+                {{ govukInput({
+                    label: {
+                        text: "Enter the 6-digit verifcation code",
+                        classes: "govuk-visually-hidden",
+                        isPageHeading: false
+                    },                
+                    classes: "govuk-input--width-10"
+                } | decorateFormAttributes(regThirdPartyVerificationCode)) }}                
+                
+                
+                {{ govukButton({
+                    text: "Continue"
+                }) }}                                
+
+    
+            </form>
+
+    </div>
+</div>
+{% endblock %}

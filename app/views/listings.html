@@ -21,6 +21,8 @@
 
     </div>
     <div class="govuk-grid-column-full">
+
+        
             {% set registrationHtml %}
             <!-- <h3 class="govuk-heading-m">Example heading</h3>
             <ul class="govuk-list govuk-list--bullet">
@@ -114,6 +116,33 @@
                 <li><a class="govuk-link govuk-link--no-visited-state" href="/accessibility?flow=Registration">Accessibility</a></li>
             </ul>            
 
+
+            {% endset -%}
+
+
+
+            {% set thirdPartyHtml %}
+            <!-- <h3 class="govuk-heading-m">Example heading</h3>
+            <ul class="govuk-list govuk-list--bullet">
+                <li><a class="govuk-link govuk-link--no-visited-state" href="#" >Name of page</a></li>                
+            </ul> -->
+
+            
+            <div class="govuk-inset-text">
+                <p>These pages are currently under design and user research.</p>
+                
+            </div>
+
+            <h3 class="govuk-heading-m">Registration</h3>
+            <ul class="govuk-list govuk-list--bullet">
+                
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/register/thirdParty/" >What’s your local authority email address?</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/register/thirdParty/enter-code" >Enter the verification code</a></li>
+
+
+
+                
+            </ul>
 
             {% endset -%}
 
@@ -270,6 +299,12 @@
             {{ govukTabs({
                 items: [
                     { label: "Registration", id: "registration", panel: { html: registrationHtml } },    
+                    { label: "Third party", id: "thirdParty", panel: { html: thirdPartyHtml } },    
+
+
+                    
+
+
                     { label: "Account", id: "account", panel: { html: accountHtml } },    
                     { label: "Authentication", id: "authentication", panel: { html: authenticationHtml } },
                     { label: "Vets Visit", id: "vetsVisit", panel: { html: vetsVisitHtml } }

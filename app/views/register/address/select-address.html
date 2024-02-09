@@ -33,7 +33,7 @@
         {% if data['status'] == "review" %}
 
             <div class="govuk-inset-text">
-            <p class="govuk-body">We found 3 addresses for postcode <span class="govuk-!-font-weight-bold">{{ data['registrationIndividualPostcode'] or "SW19 5JA" }}</span>.</p>
+            <p class="govuk-body">We found the following addresses for postcode <span class="govuk-!-font-weight-bold">{{ data['registrationIndividualPostcode'] or "SW19 5JA" }}</span>.</p>
             <p><a href="/register/address/postcode" class="govuk-link govuk-link--no-visited-state">Change postcode</a></p>
             </div>
 
@@ -41,11 +41,12 @@
 
             <form action="/register/task-list-page-about-you-details?individual-address=completed" method="post" class="form">
 
-                {{ govukRadios({                
+                {{ govukSelect({                
                     fieldset: {
                         legend: { text: "Select the address", isPageHeading: false, classes: "govuk-visually-hidden"  }
                     },
                     items: [                        
+                        { value: "", text: "", checked: checked("companySize", "Single") },    
                         { value: "Clifton House, Clifton Road, LONDON SW19 5JA", text: "Clifton House, Clifton Road, LONDON SW19 5JA", checked: checked("companySize", "Single") },
                         { value: "2a, Clifton House, Clifton Road, LONDON SW19 5JA", text: "2a, Clifton House, Clifton Road, LONDON SW19 5JA", checked: checked("companySize", "20") },
                         { value: "2b, Clifton House, Clifton Road, LONDON SW19 5JA", text: "2b, Clifton House, Clifton Road, LONDON SW19 5JA", checked: checked("companySize", "45") }
