@@ -2,11 +2,10 @@
 {% set showBackLink = false %}
 {% set serviceName = "" %}
 
-
-{% if data['verify-your-identity'] == "send-email" %}    
-    {% set pageHeading = "We will send the verification code to this email address" %}    
-{% else %}    
-    {% set pageHeading = "We will send the text message to this number" %}    
+{% if data['mfaSmsDisabled'] == "Yes" %}
+    {% set pageHeading = "There is a problem using text message to verify identity" %}
+{% elif data['mfaEmailDisabled'] == "Yes" %}
+    {% set pageHeading = "There is a problem using email to verify identity" %}
 {% endif %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -16,39 +15,49 @@
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}                
-
-        {% if data['verify-your-identity'] == "send-email" %}
-
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+        
+        {% if data['mfaSmsDisabled'] == "Yes" %}
+            <p>The option to verify your identity by text message is not available.</p>            
+            <!-- <p>We have automatically taken you to the option to verify your identity by sending the 6-digit code by email.</p> -->
+            <p>You can still verify your identity but we will automatically switch you to do this by sending the 6-digit code to your registered email address.</p>
             <div class="govuk-inset-text">
-                <span class="govuk-!-font-weight-bold">con****@************kit.net</span>
+                <p>The option to use text message will be available again later.</p>
+            </div>
+        {% elif data['mfaEmailDisabled'] == "Yes" %}
+            <p>The option to verify your identity by email is not available.</p>            
+            <p>You can still verify your identity but we will automatically switch you to do this by sending the 6-digit code as a text message to your registered number.</p>
+            <div class="govuk-inset-text">
+                <p>The option to use email will be available again later.</p>
             </div>            
-
-        {% else %}
-
-            <div class="govuk-inset-text">
-                <span class="govuk-!-font-weight-bold">********123</span>
-            </div>
-
         {% endif %}
-
-        <form action="/authentication/get-code" method="post">
-            <input type="hidden" id="status" name="status" value="" />    		
-
+            
+        {% if data['mfaSmsDisabled'] == "Yes" %}
+            <form action="/authentication/security-word" method="post">
+                <input type="hidden" id="verify-your-identity" name="verify-your-identity" value="send-email" />
+        {% elif data['mfaEmailDisabled'] == "Yes" %}
+                <form action="/authentication/verify" method="post">
+                    <input type="hidden" id="verify-your-identity" name="verify-your-identity" value="send-sms" />
+        {% endif %}
             <div class="govuk-button-group">
+            
+                <input type="hidden" id="status" name="status" value="" />    		
+                {% if data['mfaSmsDisabled'] == "Yes" %}
+
+                    {{ govukButton({
+                        text: "Continue to use email"
+                    }) }}
+                
+                {% elif data['mfaEmailDisabled'] == "Yes" %}
+                
+                    {{ govukButton({
+                        text: "Continue to use text message"
+                    }) }}
+                {% endif %}
+                <a class="govuk-link govuk-link--no-visited-state" href="/signed-out">Cancel and try again later</a>
 
 
-            {{ govukButton({
-                text: "Confirm and send code"
-            }) }}
-
-            {% if data['verify-your-identity'] == "send-email" %}
-                <a class="govuk-link" href="/authentication/no-access">I do not have access to this email address</a>
-            {% else %}
-                <a class="govuk-link" href="/authentication/no-access">I do not have access to this number</a>
-            {% endif %}
             </div>
-
         </form>
 
         <div class="govuk-grid-row">
