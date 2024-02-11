@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+{% set showBackLink = false %}
+{% set serviceName = "" %}
+
+{% set pageHeading = "Check your email" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+        
+        <div class="govuk-inset-text">
+            <p>We have sent an email to: <span class="govuk-!-font-weight-bold"> {{ data['emailOneLogin'] or "test@defraidentity.com"  }}</span></p>
+        </div>
+
+        <p>The email contains a 6 digit security code.</p>
+        <p>Your email might take a few minutes to arrive. If you do not get an email, check your spam folder.</p>
+        <p>The code will expire after 2 hours.</p>    
+
+
+        <form method="post" action="/oneLogin/create/create-password" >
+
+            {{ govukInput({
+                label: {
+                    text: "Enter the 6 digit security code",
+                    classes: "",
+                    isPageHeading: false
+                },                
+                classes: "govuk-input--width-10"
+            } | decorateFormAttributes(govOneLoginCode)) }}
+            
+            {{ govukDetails({
+                summaryText: "Problems with the code?",
+                html: '<p>We can <a href="#">send the code again</a> or you can <a href="#">use a different email address</a>.</p>'
+              }) }}
+            
+            {{ govukButton({
+                text: "Continue"
+            }) }}                                
+
+
+        </form>
+
+
+        
+       
+    </div>
+</div>
+
+
+{% endblock %}

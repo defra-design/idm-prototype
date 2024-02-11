@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% set serviceName = "Defra account" %}
 
-{% set title = "Update organisation details" %}
+{% set title = "Update your organisation details" %}
 
 {% block pageTitle %}
   {{title}} - GOV.UK
@@ -10,31 +10,8 @@
 {% block beforeContent %}
 <!-- Determines the navigation -->
   <div id="profile">
-    {% include "includes/account-nav-admin-individual.html" %}
-  </div>
-
-  <div class="govuk-breadcrumbs">
-    <ol class="govuk-breadcrumbs__list">
-      <li class="govuk-breadcrumbs__list-item">
-        <a class="govuk-breadcrumbs__link" href="account">Home</a>
-      </li>
-      <li class="govuk-breadcrumbs__list-item">
-        <a class="govuk-breadcrumbs__link" href="dashboard">
-          Big Company Ltd
-        </a>
-      </li>
-      <li class="govuk-breadcrumbs__list-item">
-        <a class="govuk-breadcrumbs__link" href="organisation-details">
-          Organisation details
-        </a>
-      </li>
-      <li class="govuk-breadcrumbs__list-item">
-        <!-- <a class="govuk-breadcrumbs__link" href="update-organisation-details"> -->
-          Update organisation details
-        <!-- </a> -->
-      </li>
-    </ol>
-  </div>
+    {% include "includes/account-nav.html" %}
+  </div>  
 {% endblock %}
 
 
@@ -49,9 +26,7 @@
     </div>
   </div>
 
-  <p class="govuk-body">
-    Make updates to registered contact information.
-  </p>
+  <p class="govuk-body">Make updates to Your Defra registered Organisation information.</p>
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds-from-desktop">
@@ -85,6 +60,17 @@
         </div>
 
       </dl>
+
+      <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Change your organisation address
+          </span>
+        </summary>
+        <div class="govuk-details__text">          
+          <a href="#" class="govuk-link" rel="noreferrer noopener" target="_blank">Contact your Defra service</a> to update your adress.
+        </div>
+      </details>
 
     </div>
   </div>

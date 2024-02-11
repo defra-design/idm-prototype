@@ -1,8 +1,12 @@
 {% extends "layout.html" %}
 {% set showBackLink = true %}
-{% set serviceName = "Service Name" %}
+{% set serviceName = "" %}
 
-{% set pageHeading = "Where is the charity registered?" %}
+{% if data['status'] == "review" %}
+	{% set pageHeading = "Where is the charity registered?" %}
+{% else %}
+	{% set pageHeading = "Where is the charity registered?" %}
+{% endif %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -11,57 +15,120 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
+		{% if data['status'] == "review" %}
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   
+		{% else %}
+		<h1 class="govuk-heading-l">{{pageHeading}}</h1>
+		{% endif %}
 
-    	<form method="post" action="/register/charity-name">      
+		<form method="post" action="/register/charity-name">  
+		{% if data['status'] == "review" %}
 
-        	{% set englandAndWales %}
+		{% set englandAndWales %}
 
-				{{ govukInput({
-					label: {
-						text: "Enter the registered charity number",
-						classes: "govuk-!-font-weight-bold"				
-					},
-					hint: {
-						text: "For example 1004005."
-					},
-					classes: "govuk-!-width-one-third",
-					type: "number"      
-				} | decorateFormAttributes('charity-number')) }}
+		{{ govukInput({
+			label: {
+				text: "What is your registered charity number?",
+				classes: "govuk-label"				
+			},
+			hint: {
+				text: "For example, 1004005."
+			},
+			classes: "govuk-!-width-one-third",
+			type: "number"      
+		} | decorateFormAttributes('registrationCharityNumber')) }}
 
-        	{% endset -%}
+	{% endset -%}
 
-        	{% set scotland %}
+	{% set scotland %}
 
-				{{ govukInput({
-					label: {
-						text: "Enter the registered charity number",
-						classes: "govuk-!-font-weight-bold"				
-					},
-					hint: {
-						text: "For example, SC000022."
-					},
-					classes: "govuk-!-width-one-third",
-					type: "number"      
-				} | decorateFormAttributes('charity-number')) }}				
+		{{ govukInput({
+			label: {
+				text: "What is your registered charity number?",
+				classes: "govuk-label"			
+			},
+			hint: {
+				text: "For example, SC000022."
+			},
+			classes: "govuk-!-width-one-third",
+			type: "number"      
+		} | decorateFormAttributes('registrationCharityNumberScotland')) }}				
+	
+	{% endset -%}
+
+	{% set northernIreland %}
+		
+		{{ govukInput({
+			label: {
+				text: "What is your registered charity number?",
+				classes: "govuk-label"			
+			},
+			hint: {
+				text: "For example, NIC100002."
+			},
+			classes: "govuk-!-width-one-third",
+			type: "number"      
+		} | decorateFormAttributes('registrationCharityNumberNI')) }}					
+
+	{% endset -%}
+
+
+		{% else %}
+
+		{% set englandAndWales %}
+
+		{{ govukInput({
+			label: {
+				text: "Enter the registered charity number",
+				classes: "govuk-!-font-weight-bold"				
+			},
+			hint: {
+				text: "For example 1004005."
+			},
+			classes: "govuk-!-width-one-third",
+			type: "number"      
+		} | decorateFormAttributes('registrationCharityNumber')) }}
+
+	{% endset -%}
+
+	{% set scotland %}
+
+		{{ govukInput({
+			label: {
+				text: "Enter the registered charity number",
+				classes: "govuk-!-font-weight-bold"				
+			},
+			hint: {
+				text: "For example, SC000022."
+			},
+			classes: "govuk-!-width-one-third",
+			type: "number"      
+		} | decorateFormAttributes('registrationCharityNumberScotland')) }}				
+	
+	{% endset -%}
+
+	{% set northernIreland %}
+		
+		{{ govukInput({
+			label: {
+				text: "Enter the registered charity number",
+				classes: "govuk-!-font-weight-bold"				
+			},
+			hint: {
+				text: "For example NIC100002."
+			},
+			classes: "govuk-!-width-one-third",
+			type: "number"      
+		} | decorateFormAttributes('registrationCharityNumberNI')) }}					
+
+	{% endset -%}
+
+		{% endif %}
+
+
+    	    
+
         	
-			{% endset -%}
-
-        	{% set northernIreland %}
-        		
-				{{ govukInput({
-					label: {
-						text: "Enter the registered charity number",
-						classes: "govuk-!-font-weight-bold"				
-					},
-					hint: {
-						text: "For example NIC100002."
-					},
-					classes: "govuk-!-width-one-third",
-					type: "number"      
-				} | decorateFormAttributes('charity-number')) }}					
-
-        	{% endset -%}
 
 
 
@@ -70,11 +137,11 @@
                     legend: { text: "Is this organisation a sole trader or a charity?", isPageHeading: false, classes: "govuk-visually-hidden"  }
                 },
                 items: [
-                    { value: "sole-trader", text: 'England and Wales', conditional: { html: englandAndWales } },
-					{ value: "charity, redirect(/register/sole-trader-or-charity)", text: 'Scotland', conditional: { html: scotland } },
-					{ value: "charity, redirect(/register/sole-trader-or-charity)", text: 'Northern Ireland', conditional: { html: northernIreland } }                    
+                    { value: "England and Wales", text: 'England and Wales', conditional: { html: englandAndWales } },
+					{ value: "Scotland", text: 'Scotland', conditional: { html: scotland } },
+					{ value: "Northern Ireland", text: 'Northern Ireland', conditional: { html: northernIreland } }                    
                 ]
-            } | decorateFormAttributes('charityLocation')) }}   
+            } | decorateFormAttributes('registrationCharityLocation')) }}   
        
 
         {{govukButton({
@@ -84,6 +151,15 @@
       </form>
 
     </div>
+	<div class="govuk-grid-column-one-third review">      
+        <ul class="govuk-list govuk-body-s govuk-!-text-align-right">                
+            {% if data['status'] == "review" %}
+                <li><a href="/register/charity-location?status=" class="govuk-link govuk-link--no-visited-state">Current page</a></li>        
+            {% else %}
+                <li><a href="/register/charity-location?status=review" class="govuk-link govuk-link--no-visited-state">Suggested page changes</a></li>        
+            {% endif %}
+        </ul>          
+    </div> 
 </div>
 
 {% endblock %}

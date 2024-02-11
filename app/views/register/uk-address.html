@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+{% set showBackLink = true %}
+{% set serviceName = "" %}
+
+{% set pageHeading = "Do you live in the UK?" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   
+
+
+        {% if data['regNonUk'] == "No" %}
+        <form method="post" action="/register/cannot-register">
+        {% else %}
+    	<form method="post" action="/register/personal-name">
+        {% endif %}
+
+
+        
+
+            {{ govukRadios({
+                fieldset: {
+                    legend: { text: "Are you registering as a business or an individual?", isPageHeading: false, classes: "govuk-visually-hidden"  }
+                },
+                classes: "govuk-radios--inline",
+                items: [
+                    { value: "Yes, redirect(/register/personal-name)", text: 'Yes'   },
+                    { value: "No", text: 'No'   }                    
+                ]
+            } | decorateFormAttributes('registrationIndividualAddressUK')) }}
+
+        
+            {{govukButton({
+                text: "Continue"
+            })}}
+	
+    	</form>
+
+  	</div>
+    <!-- <div class="govuk-grid-column-one-third review">      
+        <ul class="govuk-list govuk-body-s govuk-!-text-align-right">                
+            {% if data['status'] == "review" %}
+                <li><a href="/register/uk-address?status=" class="govuk-link govuk-link--no-visited-state">Current page</a></li>        
+            {% else %}
+                <li><a href="/register/uk-address?status=review" class="govuk-link govuk-link--no-visited-state">Suggested page changes</a></li>        
+            {% endif %}
+        </ul>          
+    </div> -->
+</div>
+
+{% endblock %}

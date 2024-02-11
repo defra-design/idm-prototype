@@ -1,0 +1,87 @@
+{% extends "layout.html" %}
+{% set showBackLink = true %}
+{% set serviceName = "" %}
+
+{% if data['status'] == "review" %}
+    {% set pageHeading = "What’s your telephone number?" %}
+{% else %}
+    {% set pageHeading = "What is your telephone number?" %}
+{% endif %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {% if data['status'] == "review" %}
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+        {% else %}
+        <h1 class="govuk-heading-xl">{{pageHeading}}</h1>
+        {% endif %}
+
+		{% if data['route'] == "charity" %}
+		<form method="post" action="task-list-page-charity-details?contact-details-completed=y">
+		{% else %}
+		<form method="post" action="task-list-page-company-details?contact-details-completed=y">
+		{% endif %}
+
+		{% if data['status'] == "review" %}
+
+			<p>We ask for this in case we need to call you directly with any queries about your registration.</p>
+
+			{{ govukInput({
+				label: {
+					text: title,
+					classes: "govuk-label--xl",
+					isPageHeading: true
+				},
+				hint: {
+					text: "For international numbers include the country code."
+				},		
+				classes: "govuk-!-width-two-thirds",			
+				type: "tel"
+			} | decorateFormAttributes('registrationContactPhone')) }}
+
+		{% else %}
+
+			{{ govukInput({
+				label: {
+					text: title,
+					classes: "govuk-label--xl",
+					isPageHeading: true
+				},
+				hint: {
+					text: "We ask for this in case we need to call you directly with any queries about your registration."
+				},		
+				classes: "govuk-!-width-one-half",				
+				type: "tel"
+			} | decorateFormAttributes('registrationContactPhone')) }}
+	
+		  	<div class="govuk-inset-text">
+				We may also contact you by email, using the address registered with your Government Gateway account:
+				<span class="govuk-!-font-weight-bold">{{data['govGateEmail'] or 'samwoods@company.co.uk'}}</span>
+		  	</div>
+
+		{% endif %}
+    
+			{{ govukButton({
+				text: "Continue"
+			}) }}
+
+    	</form>
+
+  	</div>
+  	<div class="govuk-grid-column-one-third review">      
+    	<ul class="govuk-list govuk-body-s govuk-!-text-align-right">                
+        	{% if data['status'] == "review" %}
+            	<li><a href="/register/personal-contact?status=" class="govuk-link govuk-link--no-visited-state">Current page</a></li>        
+        	{% else %}
+            	<li><a href="/register/personal-contact?status=review" class="govuk-link govuk-link--no-visited-state">Suggested page changes</a></li>        
+        	{% endif %}
+    	</ul>          
+	</div> 
+</div>
+
+{% endblock %}

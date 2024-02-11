@@ -1,0 +1,40 @@
+
+{% extends "layout.html" %}
+{% set showBackLink = true %}
+{% set serviceName = "" %}
+
+
+{% set pageHeading = "What is the postcode for your billing address?" %}		
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">        
+		
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}		
+
+        <form action="/account/address/billing/select-address" method="post">
+			
+
+			{{ govukInput({
+				label: { text: pageHeading, classes: "govuk-visually-hidden" },					
+				classes: "govuk-input--width-10"      
+			} | decorateFormAttributes('billingAddressPostcode')) }}			
+            
+            {{ govukButton({
+                text: "Find address"
+            }) }}
+            
+
+            <p class="govuk-body"><a class="govuk-link" href="/account/address/billing/add-address-manual">Enter your address manually</a></p>
+
+        </form>
+
+  </div>
+  <div class="govuk-grid-column-one-third review">          
+</div>  
+</div>
+
+{% endblock %}

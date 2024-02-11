@@ -1,0 +1,134 @@
+<div class="login-nav">
+  <ul class="login-nav__list">
+    <li class="login-nav__list-item">Hugo Furst |</li>
+    <li class="login-nav__list-item"><a href="/archived/manage/team-members/services-on-team-member-standard-account" class="govuk-link login-nav__link govuk-link--no-visited-state profile">Manage Account</a>|</li>
+    <li class="login-nav__list-item"><a href="/signed-out" class="govuk-link login-nav__link govuk-link--no-visited-state">Sign out</a></li>
+  </ul>
+</div>
+
+
+<!-- Individual -->
+<div class="login-nav">
+  <!-- <span class="login-nav__org-name"><strong>Big Company Ltd</strong></span> -->
+  <ul class="login-nav__list">
+    <li class="login-nav__list-item">Sam Woods |</li>
+    <!-- <li class="login-nav__list-item"><a href="/{{ data['protoVer'] }}/defra-id-manage/index" class="govuk-link login-nav__link govuk-link--no-visited-state account">Manage account</a>|</li> -->
+    <li class="login-nav__list-item"><a href="#" class="govuk-link login-nav__link govuk-link--no-visited-state">Sign out</a></li>
+  </ul>
+</div>
+
+<!-- Individual profile -->
+<div class="login-nav">
+  <span class="login-nav__org-name"><strong>Big Company Ltd</strong></span>
+  <ul class="login-nav__list">
+    <li class="login-nav__list-item">Sam Woods |</li>
+    <!-- <li class="login-nav__list-item"><a href="/{{ data['protoVer'] }}/defra-id-manage/index" class="govuk-link login-nav__link govuk-link--no-visited-state account">Manage account</a>|</li> -->
+    <li class="login-nav__list-item"><a href="#" class="govuk-link login-nav__link govuk-link--no-visited-state">Sign out</a></li>
+  </ul>
+</div>
+
+<!-- Individual profile target -->
+<div class="login-nav">
+  <span class="login-nav__org-name"><strong>Big Company Ltd</strong></span>
+  <ul class="login-nav__list">
+    <li class="login-nav__list-item">Sam Woods</li>
+    <!-- <li class="login-nav__list-item"><a href="/{{ data['protoVer'] }}/defra-id-manage/index" class="govuk-link login-nav__link govuk-link--no-visited-state account">Manage account</a>|</li> -->
+    <!-- <li class="login-nav__list-item"><a href="#" class="govuk-link login-nav__link govuk-link--no-visited-state">Sign out</a></li> -->
+  </ul>
+</div>
+
+
+<!-- agent -->
+{% if (data['numUsers'] == "1") %}
+  {% set dashboardURL = "/archived/manage/dashboard-all?numUsers=1" %}
+{% endif %}
+
+{% if (data['numUsers'] == "2") %}
+  {% set dashboardURL = "/archived/manage/dashboard-all?numUsers=2" %}
+{% endif %}
+
+{% if (data['numUsers'] == "3") %}
+  {% set dashboardURL = "/archived/manage/dashboard-all?numUsers=3" %}
+{% endif %}
+
+{% if (data['numUsers'] == "4") %}
+  {% set dashboardURL = "/archived/manage/dashboard-all?numUsers=4" %}
+{% endif %}
+
+{% if (data['numUsers'] == "5") %}
+  {% set dashboardURL = "/archived/manage/dashboard-all?numUsers=5" %}
+{% endif %}
+
+{% if (data['numUsers'] == "6") %}
+  {% set dashboardURL = "/archived/manage/dashboard-all?numUsers=6" %}
+{% endif %}
+
+<div class="login-nav">
+    <ul class="login-nav__list">
+      <li class="login-nav__list-item">Marcy Ponds |</li>
+      <li class="login-nav__list-item"><a href="/archived/manage/agent/services-on-team-member-admin-account_agent" class="govuk-link login-nav__link govuk-link--no-visited-state profile">Manage account</a>|</li>
+      <li class="login-nav__list-item"><a href="/signed-out" class="govuk-link login-nav__link govuk-link--no-visited-state">Sign out</a></li>
+    </ul>
+  </div>
+
+
+  <!-- Admin corporation -->
+  {% if (data['numUsers'] == "1") %}
+  {% set dashboardURL = "/archived/manage/dashboard-all?numUsers=1" %}
+{% endif %}
+
+{% if (data['numUsers'] == "2") %}
+  {% set dashboardURL = "/archived/manage/dashboard-all?numUsers=2" %}
+{% endif %}
+
+{% if (data['numUsers'] == "3") %}
+  {% set dashboardURL = "/archived/manage/dashboard-all?numUsers=3" %}
+{% endif %}
+
+{% if (data['numUsers'] == "4") %}
+  {% set dashboardURL = "/archived/manage/dashboard-all?numUsers=4" %}
+{% endif %}
+
+{% if (data['numUsers'] == "5") %}
+  {% set dashboardURL = "/archived/manage/dashboard-all?numUsers=5" %}
+{% endif %}
+
+{% if (data['numUsers'] == "6") %}
+  {% set dashboardURL = "/archived/manage/dashboard-all?numUsers=6" %}
+{% endif %}
+
+{% if (data['serviceLine'] == "Export Health Certificates") %}
+
+    <div class="login-nav">
+        <ul class="login-nav__list">
+          <li class="login-nav__list-item">Ann Cooper |</li>
+          <li class="login-nav__list-item"><a href="/archived/manage/team-members/services-on-team-member-admin-account_company-exports" class="govuk-link login-nav__link govuk-link--no-visited-state profile">Manage account</a>|</li>
+          <li class="login-nav__list-item"><a href="/signed-out" class="govuk-link login-nav__link govuk-link--no-visited-state">Sign out</a></li>
+        </ul>
+      </div>
+
+{% else %}
+
+    <div class="login-nav">
+      <ul class="login-nav__list">
+        <li class="login-nav__list-item">Ann Cooper |</li>
+      {% if (data['orgType'] == "onlyRep") %}
+        <li class="login-nav__list-item"><a href="/archived/manage/team-members/services-on-team-member-admin-account_onlyrep" class="govuk-link login-nav__link govuk-link--no-visited-state profile">Manage account</a>|</li>
+      {% else %}
+        <li class="login-nav__list-item"><a href="/archived/manage/team-members/services-on-team-member-admin-account_company" class="govuk-link login-nav__link govuk-link--no-visited-state profile">Manage account</a>|</li>
+      {% endif %}
+        <li class="login-nav__list-item"><a href="/signed-out" class="govuk-link login-nav__link govuk-link--no-visited-state">Sign out</a></li>
+      </ul>
+    </div>
+
+{% endif %}
+
+
+
+<!-- Admin reg service -->
+<div class="login-nav">
+  <ul class="login-nav__list">
+    <li class="login-nav__list-item">Ann Cooper</li>
+    <li class="login-nav__list-item"><a href="/signed-out" class="govuk-link login-nav__link govuk-link--no-visited-state">Sign out</a></li>
+  </ul>
+</div>

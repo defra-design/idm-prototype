@@ -1,0 +1,161 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Defra account" %}
+
+{% set title = "Manage team access" %}
+
+{% set fullname = "Sam Woods" %}
+{% set business = "Big Company Ltd" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+<!-- Determines the navigation -->
+  <div id="profile">
+    {% include "includes/account-nav.html" %}
+  </div>
+
+  <div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="account">Home</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="dashboard">
+          {{ business }}
+        </a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <!-- <a class="govuk-breadcrumbs__link" href="#"> -->
+          Manage team access
+        <!-- </a> -->
+      </li>
+    </ol>
+  </div>
+
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-xl">
+      {{title}}
+    </h1>
+  </div>
+</div>
+
+
+<div class="govuk-grid-row govuk-!-margin-bottom-6">
+  <div class="govuk-grid-column-full">
+
+    {{ govukButton({
+      text: "Add a team member",
+      classes: "govuk-button--secondary",
+      href: "/account/team/add-member"
+    }) }}
+
+    <table class="govuk-table {{ tableCSS }}">
+
+      <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th class="govuk-table__header column-full" scope="col">
+          Team member
+        </th>
+        <th class="govuk-table__header column-full" scope="col">
+          Email address
+        </th>
+        <th class="govuk-table__header column-full" scope="col">
+          Role
+        </th>
+        <th class="govuk-table__header column-full" scope="col">
+          Status
+        </th>
+      </tr>
+      </thead>
+
+      <tr class="govuk-table__row no-border">
+        <td class="govuk-table__cell">
+          <a href="/account/team-member?teamType=you">
+            Nicky Bidbod (you)
+          </a>
+        </td>
+        <td class="govuk-table__cell">
+          nickybodbod@bigcompany.co.uk
+        </td>
+        <td class="govuk-table__cell">
+          Admin
+        </td>
+        <td class="govuk-table__cell">
+          <strong class="govuk-tag govuk-tag">
+            Active
+          </strong>
+        </td>
+      </tr>
+
+      <tr class="govuk-table__row no-border">
+        <td class="govuk-table__cell">
+          <a href="/account/team-member?teamType=other">
+            Sam Woods
+          </a>
+        </td>
+        <td class="govuk-table__cell">
+          samwoods@bigcompany.co.uk
+        </td>
+        <td class="govuk-table__cell">
+          Standard user
+        </td>
+        <td class="govuk-table__cell">
+          <strong class="govuk-tag govuk-tag">
+            Active
+          </strong>
+        </td>
+      </tr>
+
+      <tr class="govuk-table__row no-border">
+        <td class="govuk-table__cell">
+
+        </td>
+        <td class="govuk-table__cell">
+          jendavies@bigcompany.co.uk
+        </td>
+        <td class="govuk-table__cell">
+          Standard user
+        </td>
+        <td class="govuk-table__cell">
+          <strong class="govuk-tag govuk-tag--grey">
+            Invited
+          </strong>
+        </td>
+      </tr>
+
+    </table>
+
+  </div>
+</div>
+
+<!-- <div class="govuk-grid-row govuk-!-margin-bottom-6">
+
+  <div class="govuk-card__content">
+
+    <h2 class="govuk-heading-l">Link to services</h2>
+
+    <div class="govuk-grid-row idm-grid-row__services">
+
+      <div class="govuk-grid-column-one-third">
+        <div class="govuk-card govuk-card--contained govuk-card--selectable">
+          <a id="link-ipaffs" href="#" aria-label="Manage service IPAFFS"></a>
+          <div class="govuk-card__content">
+            <h3 class="govuk-heading-m">IPAFFS</h3>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div> -->
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+{% set showBackLink = true %}
+{% set serviceName = "" %}
+
+{% set pageHeading = "What’s your email address?" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+        <!-- <p>Not sure if you have an existing Defra account and if you use a GOV.UK One Login or Government Gateway ID tell us your email address and we will check for you.</p> -->
+        <!-- <p>Not sure if you are using GOV.UK One Login or Government Gateway, you can tell us your email address and we can try to help you.</p> -->
+        
+
+        {% if data['oneLoginVersion'] == "" %}
+            <form method="post" action="/no-account" >
+        {% elif data['oneLoginVersion'] == "version2" %}
+            <form method="post" action="/account-found?accountVerifyType=both" >
+        {% elif data['oneLoginVersion'] == "version3" %}
+            <form method="post" action="/account-found?accountVerifyType=oneLog" >
+        {% endif %}
+
+            {{ govukInput({
+                label: {
+                    text: "Email address",
+                    classes: "govuk-visually-hidden",
+                    isPageHeading: false
+                },
+                classes: "govuk-!-width-two-thirds",
+                id: "emailCheckAccount",
+                name: "emailCheckAccount"            
+            }) }}
+            
+            
+            {{ govukButton({
+                text: "Continue"
+            }) }}                                
+
+
+        </form>
+
+
+        <!-- <ul class="govuk-list govuk-font-weight-s">
+            <li><a href="/account-found?accountVerifyType=oneLog">Account and using GOV.UK One Login</a></li>
+            <li><a href="/account-found?accountVerifyType=GovGate">Account and using Government Gateway</a></li>
+            <li><a href="/account-found?accountVerifyType=both">Account and both options</a></li>
+            <li><a href="/no-account">No account</a></li>
+
+        </ul> -->
+       
+    </div>
+</div>
+
+
+{% endblock %}

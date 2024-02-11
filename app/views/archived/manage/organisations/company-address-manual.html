@@ -27,7 +27,7 @@
     {% elseif data['addAddress'] == "reg-address" %}
       <form action="organisation-details#reg-address" method="post">
     {% else %}
-      <form action="/manage/organisations/update-details" method="post">
+      <form action="/archived/manage/organisations/update-details" method="post">
     {% endif %}
 
     {% call govukFieldset({

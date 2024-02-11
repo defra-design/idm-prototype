@@ -11,7 +11,7 @@
 {% block beforeContent %}
 <!-- Determines the navigation -->
   <div id="profile">
-    {% include "includes/account-nav-admin-individual-profile.html" %}
+    {% include "includes/account-nav.html" %}
   </div>
 
   <div class="govuk-breadcrumbs">
@@ -42,7 +42,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form action="update-details" method="post">
+    <form action="/account/manage/confirmation" method="post">
       <div class="govuk-form-group">
 
         <fieldset class="govuk-fieldset">

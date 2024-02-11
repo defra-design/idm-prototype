@@ -1,0 +1,183 @@
+{% extends "layout.html" %}
+
+{% set serviceName = "Defra account" %}
+
+{% set title = "Account profile" %}
+
+{% if data['teamType'] == 'other' %}
+  {% set fullname = "Sam Woods" %}
+  {% set business = "Big Company Ltd" %}
+  {% set userEmail = "sam.woods@bigcompany.co.uk" %}
+  {% set phoneNumber = "07711 223344" %}
+  {% set role = "Standard user" %}
+{% else %}
+  {% set fullname = "Nicky Bidbod (you)" %}
+  {% set business = "Big Company Ltd" %}
+  {% set userEmail = "nickybidbod@bigcompany.co.uk" %}
+  {% set phoneNumber = "07976 217721" %}
+  {% set role = "Admin" %}
+{% endif %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+<!-- Determines the navigation -->
+  <div id="profile">
+    {% include "includes/account-nav.html" %}
+  </div>
+
+  <div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="account">Home</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="dashboard">
+          {{ business }}
+        </a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="team">
+          Manage team access
+        </a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <!-- <a class="govuk-breadcrumbs__link" href="#"> -->
+          {{ fullname }}
+        <!-- </a> -->
+      </li>
+    </ol>
+  </div>
+
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row govuk-!-margin-bottom-6">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">
+      <span class="govuk-caption-xl">{{title}}</span><span class="govuk-visually-hidden">: </span>
+      {{ fullname }}
+    </h1>
+
+    <dl class="govuk-summary-list govuk-summary-list--no-border govuk-!-margin-bottom-6">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Full name
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ fullname }}{% if data['teamType'] == 'other' %}<br>
+          <a href="#">Remove<span class="govuk-visually-hidden"> this person</span></a>{% endif %}
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Email address
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ userEmail }}
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Phone number
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ phoneNumber }}
+        </dd>
+      </div>
+    </dl>
+
+    <dl class="govuk-summary-list govuk-summary-list--no-border govuk-!-margin-bottom-3">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Account
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ business }}
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Role
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ role }}{% if data['teamType'] == 'other' %}<br>
+          <a href="#">Change account role</a>{% endif %}
+        </dd>
+      </div>
+    </dl>
+
+  </div>
+</div>
+
+<div class="govuk-grid-row govuk-!-margin-bottom-6">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h2 class="govuk-heading-l">
+      Service access
+    </h2>
+
+    <table class="govuk-table {{ tableCSS }}">
+
+      <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th class="govuk-table__header column-full" scope="col">
+          Service
+        </th>
+        <th class="govuk-table__header column-full" scope="col">
+          Service role
+        </th>
+        <th class="govuk-table__header column-full" scope="col">
+          <span class="govuk-visually-hidden td-header">Action</span>
+        </th>
+      </tr>
+      </thead>
+
+      <tr class="govuk-table__row no-border">
+        <td class="govuk-table__cell">
+          IPAFFS
+        </td>
+        <td class="govuk-table__cell">
+          Notifier
+        </td>
+        {% if data['teamType'] == 'other' %}<br>
+        <td class="govuk-table__cell">
+          <a href="dashboard" class="govuk-link--no-visited-state">
+            Manage access
+          </a>
+        </td>
+        {% endif %}
+      </tr>
+
+    </table>
+
+  </div>
+</div>
+
+<!-- <div class="govuk-grid-row govuk-!-margin-bottom-6">
+
+  <div class="govuk-card__content">
+
+    <h2 class="govuk-heading-l">Link to services</h2>
+
+    <div class="govuk-grid-row idm-grid-row__services">
+
+      <div class="govuk-grid-column-one-third">
+        <div class="govuk-card govuk-card--contained govuk-card--selectable">
+          <a id="link-ipaffs" href="#" aria-label="Manage service IPAFFS"></a>
+          <div class="govuk-card__content">
+            <h3 class="govuk-heading-m">IPAFFS</h3>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div> -->
+{% endblock %}

@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% set showBackLink = false %}
-{% set serviceName = "Defra Identity Management " %}
+{% set serviceFlow = "Defra Identity Management " %}
 
 {% set pageHeading = "Page listings " %}
 {% set pageSection = "" %}
@@ -12,105 +12,85 @@
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
+    
+
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }} 
 
-            <p class="govuk-body-s">Last updated 15 June 2023</p>
+            <p class="govuk-body-s">Last updated 22 January 2024</p>
             <p class="govuk-body govuk-!-margin-bottom-7">Some pages have dynamic content, so if using the links and not going through the flows that lead to each page, its not always possible to show the right content for all scenarios.</p>
 
+    </div>
+    <div class="govuk-grid-column-full">
+
+        
             {% set registrationHtml %}
             <!-- <h3 class="govuk-heading-m">Example heading</h3>
             <ul class="govuk-list govuk-list--bullet">
                 <li><a class="govuk-link govuk-link--no-visited-state" href="#" >Name of page</a></li>                
             </ul> -->
 
-            <p>Currently checking pages as lots of duplicates ( 10 May 2023 )</p>
+            
+            <div class="govuk-inset-text">
+                <p>Registration links all need amending as structure has been changed
+                <br>Currently checking pages as lots of duplicates ( 22 January 2024 )</p>
+            </div>
 
             <h3 class="govuk-heading-m">Registration</h3>
             <ul class="govuk-list govuk-list--bullet">
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/about-data" >Your Defra account</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/add-address-manual" >What is the address?</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/add-address-postcode" >What is the address?</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/add-address-region" >Is the new address in the UK?</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/add-address-type" >What kind of address do you want to add?</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/add-charity-address-postcode" >What is the registered address?</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/add-non-uk-address" >What is the non-UK address?</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/add-organisation-addresses" >Would you like to add extra addresses to your organisation?</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/change-organisation-type" >Are you registering as a business or an individual?</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/charity-confirm" >Are these the correct charity details?</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/charity-contact" >What are the main contact details for the charity?</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/charity-name" >What is the registered charity name?</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/charity-region" >Where is the charity registered?</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/check-email" >Enter code to confirm your email address</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/check-your-answers" >Check your information</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/company-confirm" >Are these the correct registered company details?</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/company-contact" >What are the main contact details for this registered company?</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/company-lookup" >What is the Companies House number for the company you wish to register?</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/company-registered-question" >Is your organisation registered with Companies House?</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/confirmation" >Your Government Gateway user ID is</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/create-password" >Create a password</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/defra-help" >Help using Your Defra account</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/defra-redirect" >We are sending you to Defra to get help</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/email-address" >Enter your email address</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/email-confirmed" >Email address confirmed</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/extra-addresses" >Would you like to add extra addresses to your organisation?</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/index" >Sign in using Government Gateway</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/individual-address-postcode" >What is your address?</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/individual-check-your-answers" >Check your information</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/individual-contact" >What is your telephone number?</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/individual-name" >What is your name?</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/individual-security" >Create your security word</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/individual-select-new-address" >Select your address</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/login" >Sign in using Government Gateway</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/non-uk-address" >What is the non-UK address?</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/non-uk-business-name" >What is the name of your business?</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/non-uk-contact" >What are the main contact details for the business?</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/organisation-type" >Are you registering as a business or an individual?</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/organisation-UK-or-else" >Where is your organisation registered to trade?</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/personal-contact" >What is your telephone number?</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/personal-name" >What is your name?</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/personal-security" >Create your security word</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/recovery-word-1" >Set up recovery for your sign in details</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/recovery-word-2" >Set up a recovery word</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/select-charity-address" >Select the address</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/select-new-address" >What is the address?</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/sole-trader-or-charity" >Is this organisation a sole trader or a charity?</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/task-list-page-about-you-details" >Your information</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/task-list-page-charity-details" >About the organisation you represent</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/task-list-page-company-details" >About the organisation you represent</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/task-list-page-non-uk-details" >About the organisation you represent</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/your-name" >What is your full name?</a></li>
-                <!-- <li><a class="govuk-link govuk-link--no-visited-state" href="/account/" >Text</a></li> -->
                 
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/register/add-address-manual" >What is the address?</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/register/add-address-postcode" >What is the address?</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/register/add-address-region" >Is the new address in the UK?</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/register/add-address-type" >What kind of address do you want to add?</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/register/add-charity-address-postcode" >What is the registered address?</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/register/add-non-uk-address" >What is the non-UK address?</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/register/add-organisation-addresses" >Would you like to add extra addresses to your organisation?</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/register/change-organisation-type" >Are you registering as a business or an individual?</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/register/charity-confirm" >Are these the correct charity details?</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/register/charity-contact" >What are the main contact details for the charity?</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/register/charity-name" >What is the registered charity name?</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/register/charity-region" >Where is the charity registered?</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/register/check-email" >Enter code to confirm your email address</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/register/check-your-answers" >Check your information</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/register/company-confirm" >Are these the correct registered company details?</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/register/company-contact" >What are the main contact details for this registered company?</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/register/company-lookup" >What is the Companies House number for the company you wish to register?</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/register/company-registered-question" >Is your organisation registered with Companies House?</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/register/confirmation" >Your Government Gateway user ID is</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/register/create-password" >Create a password</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/register/defra-help" >Help using Your Defra register</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/register/defra-redirect" >We are sending you to Defra to get help</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/register/email-address" >Enter your email address</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/register/email-confirmed" >Email address confirmed</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/register/extra-addresses" >Would you like to add extra addresses to your organisation?</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/register/index" >Sign in using Government Gateway</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/register/individual-address-postcode" >What is your address?</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/register/individual-check-your-answers" >Check your information</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/register/individual-contact" >What is your telephone number?</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/register/individual-name" >What is your name?</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/register/individual-security" >Create your security word</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/register/individual-select-new-address" >Select your address</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/register/login" >Sign in using Government Gateway</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/register/non-uk-address" >What is the non-UK address?</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/register/non-uk-business-name" >What is the name of your business?</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/register/non-uk-contact" >What are the main contact details for the business?</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/register/organisation-type" >Are you registering as a business or an individual?</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/register/organisation-UK-or-else" >Where is your organisation registered to trade?</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/register/personal-contact" >What is your telephone number?</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/register/personal-name" >What is your name?</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/register/personal-security" >Create your security word</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/register/recovery-word-1" >Set up recovery for your sign in details</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/register/recovery-word-2" >Set up a recovery word</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/register/select-charity-address" >Select the address</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/register/select-new-address" >What is the address?</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/register/sole-trader-or-charity" >Is this organisation a sole trader or a charity?</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/register/task-list-page-about-you-details" >Your information</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/register/task-list-page-charity-details" >About the organisation you represent</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/register/task-list-page-company-details" >About the organisation you represent</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/register/task-list-page-non-uk-details" >About the organisation you represent</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/register/your-name" >What is your full name?</a></li>
+                <!-- <li><a class="govuk-link govuk-link--no-visited-state" href="/register/" >Text</a></li> -->
                 
-            </ul>
-
-
-            <h3 class="govuk-heading-m">Account mangement</h3>
-            <ul class="govuk-list govuk-list--bullet">
-                
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/update-details" >Update your details</a></li>                
-                
-
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/account" >Defra account profile</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/add-address-manual" >What is the address?</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/add-address-postcode" >What is the address?</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/add-address-region" >Is the new address in the UK?</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/add-address-type" >What kind of address do you want to add?</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/add-non-uk-address" >What is the non-UK address?</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/dashboard" >Dashboard - Big Company Ltd</a></li>
-                <!-- <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/index" >Text</a></li> -->
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/organisation-details" >Organisation details</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/remove-address" >Are you sure you want to remove this address?</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/reset-security-word" >Reset your security word</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/select-new-address" >What is the address?</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/team-member" >Profile - Nicky Bidbod</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/team" >Manage team access</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/update-address" >Do you want to replace this address?</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/update-company-email-address" >What is the email address for this registered company?</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/update-company-phone-number" >What is the main telephone number for this registered company?</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/update-details" >Update your details</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/update-organisation-contact-details" >Update registered contact information</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/update-organisation-details" >Update organisation details</a></li>
                 
             </ul>
 
@@ -121,6 +101,8 @@
                 <li><a class="govuk-link govuk-link--no-visited-state" href="/signed-out-time" >We've signed you out</a></li>
 
                 <li><a class="govuk-link govuk-link--no-visited-state" href="/signed-out-v2" >You have signed out</a></li>
+
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/invitation-expired" >Invitation expired</a></li>
             </ul>
 
 
@@ -137,6 +119,92 @@
 
             {% endset -%}
 
+
+
+            {% set thirdPartyHtml %}
+            <!-- <h3 class="govuk-heading-m">Example heading</h3>
+            <ul class="govuk-list govuk-list--bullet">
+                <li><a class="govuk-link govuk-link--no-visited-state" href="#" >Name of page</a></li>                
+            </ul> -->
+
+            
+            <div class="govuk-inset-text">
+                <p>These pages are currently under design and user research.</p>
+                
+            </div>
+
+            <h3 class="govuk-heading-m">Registration</h3>
+            <ul class="govuk-list govuk-list--bullet">
+                
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/register/thirdParty/" >What’s your local authority email address?</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/register/thirdParty/enter-code" >Enter the verification code</a></li>
+
+
+
+                
+            </ul>
+
+            {% endset -%}
+
+
+            {% set accountHtml %}
+            <!-- <h3 class="govuk-heading-m">Example heading</h3>
+            <ul class="govuk-list govuk-list--bullet">
+                <li><a class="govuk-link govuk-link--no-visited-state" href="#" >Name of page</a></li>                
+            </ul> -->
+
+            
+            <div class="govuk-inset-text">
+                <p>Registration links all need amending as structure has been changed
+                <br>Currently checking pages as lots of duplicates ( 22 January 2024 )</p>
+            </div>
+
+            <h3 class="govuk-heading-m">Account mangement</h3>
+            <ul class="govuk-list govuk-list--bullet">
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/" >Defra account profile *</a></li>
+                
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/dashboard" >Dashboard (Manage)*</a></li>
+                <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-2">
+                    <li><a class="govuk-link govuk-link--no-visited-state" href="/account/team-access" >Manage team access *</a></li>
+                    <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-2">
+                        <li><a class="govuk-link govuk-link--no-visited-state" href="/account/team-member" >Team member profile *</a></li>
+                    </ul>
+
+                    <li><a class="govuk-link govuk-link--no-visited-state" href="/account/agent/" >Manage intermediary access *</a></li>
+                    <li><a class="govuk-link govuk-link--no-visited-state" href="/account/organisation-details" >Organisation details *</a></li>
+                    <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-2">
+                        <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/update-organisation-details" >Update organisation details *</a></li>
+                        <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-2">
+                        <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/update-company-email-address" >What is the email address for this registered company? *</a></li>
+                        <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/update-company-phone-number" >What is the main telephone number for this registered company? *</a></li>
+                        </ul>
+                    </ul>
+                </ul>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/update-details" >Update your details *</a></li>                
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/reset-security-word" >Reset your security word *</a></li>
+                <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-2">
+                    <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/confirmation" >Security word reset complete *</a></li>
+                </ul>
+                
+                
+                
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/update-organisation-contact-details" >Update registered contact information *</a></li>
+                
+                
+                <!-- <li><a class="govuk-link govuk-link--no-visited-state" href="/account/archived/manage/add-address-manual" >What is the address?</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/archived/manage/add-address-postcode" >What is the address?</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/archived/manage/add-address-region" >Is the new address in the UK?</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/archived/manage/add-address-type" >What kind of address do you want to add?</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/archived/manage/add-non-uk-address" >What is the non-UK address?</a></li>                
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/archived/manage/remove-address" >Are you sure you want to remove this address?</a></li>                
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/archived/manage/select-new-address" >What is the address?</a></li>                
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/archived/manage/team" >Manage team access</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/account/archived/manage/update-address" >Do you want to replace this address?</a></li>
+                       -->
+            </ul>            
+
+            {% endset -%}
+
             {% set authenticationHtml %}
 
             <ul class="govuk-list govuk-list--bullet">
@@ -148,6 +216,7 @@
                                 <li><a class="govuk-link govuk-link--no-visited-state" href="/authentication/verify?status=&verify-your-identity=send-sms">We will send the text message to this number</a></li>
                                 <li><a class="govuk-link govuk-link--no-visited-state" href="/authentication/verify-multiple-numbers?status=&verify-your-identity=send-sms">Which number should we send the text message to?</a>
                                     <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-2">
+                                        <li><a class="govuk-link govuk-link--no-visited-state" href="/authentication/no-access?status=&verify-your-identity=send-sms">Changing the phone number used for identity verification</a></li>
                                         <li><a class="govuk-link govuk-link--no-visited-state" href="/authentication/failed-to-send?status=&verify-your-identity=send-sms">There was a problem sending the text message</a></li>
                                     </ul>                                    
                                 </li>
@@ -157,7 +226,10 @@
                             <h3 class="govuk-heading-s govuk-!-margin-bottom-1 govuk-!-margin-top-3">Email</h3>
                             <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-2">
                                 <li><a class="govuk-link govuk-link--no-visited-state" href="/authentication/security-word?status=">Enter the following three characters from your security word</a></li>
-                                <li><a class="govuk-link govuk-link--no-visited-state" href="/authentication/verify?status=&verify-your-identity=send-email">We will send the verification code to this email address</a>
+                                <li><a class="govuk-link govuk-link--no-visited-state" href="/authentication/verify?status=&mfaEmailDisabledy=Yes">We will send the verification code to this email address</a>
+                                <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-2">
+                                    <li><a class="govuk-link govuk-link--no-visited-state" href="/authentication/no-access?status=&verify-your-identity=send-email">Changing the email address used for identity verification</a></li>                                    
+                                </ul>                                    
                                 <li><a class="govuk-link govuk-link--no-visited-state" href="/authentication/get-code?status=&verify-your-identity=send-email">Enter the verification code</a></li>
                             </ul>                        
                         </li>                                        
@@ -169,8 +241,17 @@
             <h3 class="govuk-heading-m">Issues with service</h3>
             <ul class="govuk-list govuk-list--bullet">
                 <li><a class="govuk-link govuk-link--no-visited-state" href="/403-status?status=">Sorry, there is a problem with the service</a></li>                
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/unavailable?status=">Sorry, the service is unavailable</a></li>                                
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/unavailable?status=">Sorry, the service is unavailable</a></li>    
+                
+                
+                
+
             </ul>            
+
+            <h3 class="govuk-heading-m">MFA features disabled</h3>
+            <ul class="govuk-list govuk-list--bullet">
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/unavailable?status=&mfaDisabled=Yes">Sorry, the service is unavailable</a></li>                
+            </ul>
 
             <h3 class="govuk-heading-m">Footer</h3>
             <ul class="govuk-list govuk-list--bullet">
@@ -190,21 +271,25 @@
             {% set vetsVisitHtml %}
             
             <ul class="govuk-list govuk-list--bullet">
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/authentication/vets/start?serviceName=vetsVisit" >Apply for an annual health and welfare review of your livestock</a></li>                
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/authentication/vets/sign-in?serviceName=vetsVisit" >Sign in to annual health and welfare review of livestock</a>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/authentication/vets/start?serviceFlow=vetsVisit" >Apply for an annual health and welfare review of your livestock</a></li>                
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/authentication/vets/sign-in?serviceFlow=vetsVisit" >Sign in to annual health and welfare review of livestock</a>
                     <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-2">
-                        <li><a class="govuk-link govuk-link--no-visited-state" href="/authentication/password/reset?serviceName=vetsVisit" >Reset your password</a>
-                        <!-- <li><a class="govuk-link govuk-link--no-visited-state" href="/authentication/vets/sign-in?serviceName=vetsVisit" >There are no businesses registered to this account</a></li> -->
+                        <li><a class="govuk-link govuk-link--no-visited-state" href="/authentication/password/reset?serviceFlow=vetsVisit" >Reset your password</a>
+                        <!-- <li><a class="govuk-link govuk-link--no-visited-state" href="/authentication/vets/sign-in?serviceFlow=vetsVisit" >There are no businesses registered to this account</a></li> -->
                     </ul>                
                 </li>                
                 
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/authentication/select-your-business?companySize=20&serviceName=vetsVisit" >Choose a business</a></li>                
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/authentication/select-your-business?companySize=45&serviceName=vetsVisit" >Enter a business or its single business identifier (SBI)</a></li>                
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/authentication/select-your-business?companySize=20&serviceFlow=vetsVisit" >Choose a business</a></li>                
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/authentication/select-your-business?companySize=45&serviceFlow=vetsVisit" >Enter a business or its single business identifier (SBI)</a></li>                
+
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/authentication/vets/check-details?serviceFlow=vetsVisit" >Check your details</a></li>                
+                
+
                 
             </ul>            
 
 
-            <h3 class="govuk-heading-m">Support pages</h3>
+            <h3 class="govuk-heading-m">Support pages (need to check)</h3>
             <ul class="govuk-list govuk-list--bullet">                
                 <li><a class="govuk-link govuk-link--no-visited-state" href="/signed-out-vv" >You have signed out of Vets Visit services</a></li>
             </ul>
@@ -214,6 +299,13 @@
             {{ govukTabs({
                 items: [
                     { label: "Registration", id: "registration", panel: { html: registrationHtml } },    
+                    { label: "Third party", id: "thirdParty", panel: { html: thirdPartyHtml } },    
+
+
+                    
+
+
+                    { label: "Account", id: "account", panel: { html: accountHtml } },    
                     { label: "Authentication", id: "authentication", panel: { html: authenticationHtml } },
                     { label: "Vets Visit", id: "vetsVisit", panel: { html: vetsVisitHtml } }
                     

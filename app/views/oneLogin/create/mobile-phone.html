@@ -1,0 +1,84 @@
+{% extends "layout.html" %}
+{% set showBackLink = false %}
+{% set serviceName = "" %}
+
+{% set pageHeading = "Enter your mobile phone" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+        
+        <p>We will send a 6 digit security code to the number you give us.</p>
+
+        
+
+        <form method="post" action="/oneLogin/create/check-your-phone" >
+
+            {{ govukInput({
+                label: {
+                    text: "UK mobile phone number",
+                    classes: "",
+                    isPageHeading: false
+                },                
+                classes: "govuk-!-width-two-thirds",
+                name: "govOneLoginPhoneNumber",
+                id: "govOneLoginPhoneNumber"
+            }) }}
+
+
+            {% set emailHtml %}
+{{ govukInput({
+  id: "govOneLoginPhoneNumberNonUk",
+  name: "govOneLoginPhoneNumberNonUk",
+  type: "number",
+  autocomplete: "email",
+  spellcheck: false,
+  classes: "govuk-!-width-two-thirds",
+  label: {
+    text: "Mobile phone number"
+  },
+  hint: {
+    text: "Include the country code, for example +33 for France."
+  }
+
+}) }}
+{% endset -%}
+
+{{ govukCheckboxes({
+  name: "govOneLoginNoUKPhoneNumber",
+  fieldset: {
+    legend: {
+      text: "I do not have a UK mobile phone",
+      isPageHeading: false,
+      classes: "govuk-visually-hidden"
+    }
+  },  
+  items: [
+    {
+      value: "No",
+      text: "I do not have a UK mobile phone",
+      conditional: {
+        html: emailHtml
+      }
+    }    
+  ]
+}) }}
+            
+            
+            {{ govukButton({
+                text: "Continue"
+            }) }}                                
+
+
+        </form>        
+       
+    </div>
+</div>
+
+
+{% endblock %}

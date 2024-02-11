@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% set showBackLink = true %}
+{% set serviceName = "" %}
+
+{% set pageHeading = "We were unable to find an account with that email address" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {% set html %}
+  <p class="govuk-notification-banner__heading">
+    For security purposes, you need to update your memorable word.
+    <a class="govuk-notification-banner__link" href="#">Update your memorable word</a>.
+  </p>
+{% endset %}
+
+{{ govukNotificationBanner({
+  html: html
+}) }}
+
+        
+       
+    </div>
+</div>
+
+
+{% endblock %}

@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% set showBackLink = false %}
-{% set serviceName = "Service Name" %}
+{% set serviceName = "" %}
 
 {% set pageHeading = "Tell us your details" %}
 {% set pageSection = "" %}
@@ -67,7 +67,7 @@
             </li>
         </ol>
         
-        <form method="post" action="individual-check-your-answers">
+        <form method="post" action="check-your-answers">
             {{ govukButton({
                 text: "Check your answers"
             }) }}
