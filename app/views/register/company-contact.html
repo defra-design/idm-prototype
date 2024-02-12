@@ -36,8 +36,9 @@
                     classes: "govuk-label"					
                 },                
                 classes: "govuk-!-width-two-thirds",
-				type: "tel"      
-            } | decorateFormAttributes('registrationPhone')) }}
+				type: "tel",
+                name: "registrationPhone"
+            }) }}
 
             <!-- {{ govukInput({
                 label: {
@@ -49,7 +50,7 @@
                 },
                 classes: "govuk-!-width-two-thirds",
 				type: "tel"      
-            } | decorateFormAttributes('registrationPhone')) }} -->
+            }) }}('registrationPhone')) }} -->
 
             {{ govukInput({
                 label: {
@@ -57,8 +58,9 @@
                     classes: "govuk-label"					
                 },                
                 classes: "govuk-!-width-two-thirds",
-				type: "tel"      
-            } | decorateFormAttributes('registrationEmail')) }}
+				type: "tel",
+                name: "registrationEmail"
+            }) }}
 
 
         {% else %}
@@ -72,8 +74,9 @@
                     classes: "govuk-label"					
                 },                
                 classes: "govuk-!-width-one-third",
-				type: "tel"      
-            } | decorateFormAttributes('registrationPhone')) }}
+				type: "tel",
+                name: "registrationPhone"
+            }) }}
 
             {{ govukInput({
                 label: {
@@ -81,8 +84,9 @@
                     classes: "govuk-label"					
                 },                
                 classes: "govuk-!-width-two-thirds",
-				type: "tel"      
-            } | decorateFormAttributes('registrationEmail')) }}
+				type: "tel",
+                name: "registrationEmail"
+            }) }}
 
 
         {% endif %}

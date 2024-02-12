@@ -42,7 +42,7 @@
 				{{ govukInput({
 					label: { text: pageHeading, classes: "govuk-visually-hidden" },					
 					classes: "govuk-input--width-10"      
-				} | decorateFormAttributes('registrationIndividualPostcode')) }}
+				}) }}('registrationIndividualPostcode')) }}
 
 			{% else %}
 
@@ -53,7 +53,7 @@
 						text: "If you cannot find your address or if you need to add a non-UK address, you can add it manually below."
 					},
 					classes: "govuk-input--width-10"                
-				} | decorateFormAttributes('registrationIndividualPostcode')) }}
+				}) }}('registrationIndividualPostcode')) }}
 
 			{% endif %}
             

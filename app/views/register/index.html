@@ -53,8 +53,9 @@
 
                 {{ govukCheckboxes({
                   fieldset: { legend: { text: "Terms and conditions", isPageHeading: false, classes: "govuk-visually-hidden" } },
-                  items: [ { value: "Yes", html: 'I have read and agree to the <a href="/terms-and-conditions">Terms and conditions</a>. ' } ]
-                } | decorateFormAttributes('defraIdTerms')) }}
+                  items: [ { value: "Yes", html: 'I have read and agree to the <a href="/terms-and-conditions">Terms and conditions</a>. ' } ],
+                  name: "defraIdTerms"
+                }) }}
     
                 {{ govukButton({
                     text: "Continue"                    

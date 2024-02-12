@@ -41,8 +41,9 @@
                     text: "Your name",
                     classes: "govuk-visually-hidden"
                 },
-                classes: "govuk-!-width-three-quarters"        
-            } | decorateFormAttributes('registrationFullName')) }}
+                classes: "govuk-!-width-three-quarters",
+                name: "registrationFullName"
+            }) }}
 
         {% else %}
             
@@ -50,15 +51,17 @@
                 label: {
                     text: "First or given name"
                 },
-                classes: "govuk-!-width-three-quarters"        
-            } | decorateFormAttributes('registrationFullName')) }}
+                classes: "govuk-!-width-three-quarters",
+                name: "registrationFullName"
+            }) }}
 
             {{ govukInput({
                 label: {
                     text: "Surname or family name"
                 },
-                classes: "govuk-!-width-three-quarters"        
-            } | decorateFormAttributes('registrationSurname')) }}
+                classes: "govuk-!-width-three-quarters",
+                name: "registrationSurname"
+            }) }}
 
         {% endif %}
 

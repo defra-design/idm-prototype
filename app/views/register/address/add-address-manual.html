@@ -68,39 +68,43 @@
 					{{ govukInput({
 						label: {
 							text: "Address line 1"
-						}
+						},
+						name: "registrationManualAddressLine1"
 						
-					} | decorateFormAttributes('registrationManualAddressLine1')) }}
+					}) }}
 				
 					{{ govukInput({
 						label: {
 							text: "Address line 2 (optional)"
-						}
-						
-					} | decorateFormAttributes('registrationManualAddressLine2')) }}
+						},
+						name: "registrationManualAddressLine2"
+					}) }}
 				
 					{{ govukInput({
 						label: {
 							text: "Town or city"
 						},
 						
-						classes: "govuk-!-width-two-thirds"						
-					} | decorateFormAttributes('registrationManualAddressTownCity')) }}
+						classes: "govuk-!-width-two-thirds",
+						name: "registrationManualAddressTownCity"
+					}) }}
 				
 					{{ govukInput({
 						label: {
 							text: "County (optional)"
 						},
-						classes: "govuk-!-width-two-thirds"						
-					} | decorateFormAttributes('registrationManualAddressCounty')) }}
+						classes: "govuk-!-width-two-thirds",
+						name: "registrationManualAddressCounty"
+					}) }}
 				
 					{{ govukInput({
 						label: {
 							text: "Postcode"
 						},
 						
-						classes: "govuk-input--width-10"						
-					} | decorateFormAttributes('registrationManualAddressPostCode')) }}
+						classes: "govuk-input--width-10",
+						name: "registrationManualAddressPostCode"
+					}) }}
 			
 				{% endcall %}
 
@@ -151,31 +155,33 @@
 				{{ govukInput({
 					label: {
 						text: "Address line 1"
-					}
-					
-				} | decorateFormAttributes('registrationManualAddressLine1')) }}
+					},
+					name: "registrationManualAddressLine1"
+				}) }}
 			
 				{{ govukInput({
 					label: {
 						text: "Address line 2 (optional)"
-					}
-					
-				} | decorateFormAttributes('registrationManualAddressLine2')) }}
+					},
+					name: "registrationManualAddressLine2"
+				}) }}
 			
 				{{ govukInput({
 					label: {
 						text: "Town or city"
 					},
-					classes: "govuk-!-width-two-thirds"					
-				} | decorateFormAttributes('registrationManualAddressTownCity')) }}	
+					classes: "govuk-!-width-two-thirds",
+					name: "registrationManualAddressTownCity"
+				}) }}
 			
 				{{ govukInput({
 					label: {
 						text: "Zip or postal code"
 					},
 					
-					classes: "govuk-input--width-10"					
-				} | decorateFormAttributes('registrationManualAddressPostCode')) }}
+					classes: "govuk-input--width-10",
+					name: "registrationManualAddressPostCode"
+				}) }}
 
 				<div class="govuk-form-group">
 					<label class="govuk-label" for="registrationManualAddressCountry">

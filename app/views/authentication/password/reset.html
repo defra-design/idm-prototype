@@ -65,7 +65,7 @@
 				errorMessage: {
 					text: "Enter your 10-digit customer reference number (CRN)"
 				}
-			} | decorateFormAttributes('crnNumberReset')) }}
+			}) }}('crnNumberReset')) }}
 
 			{{ govukInput({
 				label: {
@@ -80,7 +80,7 @@
 					text: "Enter your email address"
 				}
 				
-			} | decorateFormAttributes('crnEmailReset')) }}
+			}) }}('crnEmailReset')) }}
 		
 		{% elif data['status'] == "error-messages-2" %}
 
@@ -96,7 +96,7 @@
 				errorMessage: {
 					text: "Check you have entered your 10-digit customer reference number (CRN) correctly"
 				}
-			} | decorateFormAttributes('crnNumberReset')) }}
+			}) }}('crnNumberReset')) }}
 
 			{{ govukInput({
 				label: {
@@ -108,7 +108,7 @@
 				},
 				classes: "govuk-!-width-two-thirds"                        
 				
-			} | decorateFormAttributes('crnEmailReset')) }}
+			}) }}('crnEmailReset')) }}
 
 		{% elif data['status'] == "error-messages-3" %}
 		
@@ -126,7 +126,7 @@
 				errorMessage: {
 					text: "Enter a valid 10-digit customer reference number (CRN) and email address"
 				}
-			} | decorateFormAttributes('crnNumberReset')) }}
+			}) }}('crnNumberReset')) }}
 
 			{{ govukInput({
 				label: {
@@ -141,7 +141,7 @@
 					text: ""
 				}
 				
-			} | decorateFormAttributes('crnEmailReset')) }}
+			}) }}('crnEmailReset')) }}
 
 		</div>
 
@@ -156,7 +156,7 @@
 					text: "This is the 10-digit number emailed to you when you registered with the Rural Payments service." 
 				},
 				classes: "govuk-!-width-two-thirds"                        
-			} | decorateFormAttributes('crnNumberReset')) }}
+			}) }}('crnNumberReset')) }}
 
 			{{ govukInput({
 				label: {
@@ -167,7 +167,7 @@
 					text: "This is the email you registered with the Rural Payments service." 
 				},
 				classes: "govuk-!-width-two-thirds"                                                
-			} | decorateFormAttributes('crnEmailReset')) }}
+			}) }}('crnEmailReset')) }}
 
 		{% endif %}
   

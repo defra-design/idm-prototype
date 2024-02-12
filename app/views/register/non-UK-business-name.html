@@ -24,8 +24,9 @@
 				hint: {
 					text: "You may trade under your own name or a name you have given to the business."
 				  },		
-				classes: "govuk-!-width-two-thirds"
-			} | decorateFormAttributes('business-name')) }}      
+				classes: "govuk-!-width-two-thirds",
+				name: "business-name"
+			}) }}
 
       		{{ govukButton({
         		text: "Continue"

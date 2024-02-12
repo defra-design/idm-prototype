@@ -26,12 +26,15 @@
                         classes: "govuk-fieldset__legend--m"
                     },
                     classes: "govuk-!-margin-top-7"                    
-                },                                                       
+                },  
+                name: "userFlow",                                                    
                 items: [
                     { value: "Registration", text: "Registration required", checked: checked("userFlow", "Registration") },   
                     { value: "Authentication", text: "Sign in and authentication (already registered)", checked: checked("userFlow", "Authentication") }
                 ]
-            } | decorateFormAttributes('userFlow')) }}
+            
+
+            }) }}
 
             <!-- // Service Flow // -->
             {{ govukRadios({   
@@ -46,11 +49,12 @@
                 hint: {
                     text: "There are bespoke pages and user journeys for some services."
                 },
+                name: "serviceFlow",
                 items: [
                     { value: "coreDefault", text: "Core service (default)", checked: checked("serviceFlow", "coreDefault") },   
                     { value: "vetsVisit", text: "Annual Health and Welfare Review of livestock", checked: checked("serviceFlow", "vetsVisit") }
-                ]
-            } | decorateFormAttributes('serviceFlow')) }}
+                ]            
+        }) }}
  
  
             {{ govukButton({

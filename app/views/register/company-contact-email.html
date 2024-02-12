@@ -27,8 +27,9 @@
                 },
                 classes: "govuk-!-width-two-thirds",
 				type: "email",
-                spellcheck: "false"       
-            } | decorateFormAttributes('defraIdCompanyEmail')) }}      
+                spellcheck: "false",
+                name: "defraIdCompanyEmail"
+            }) }}
 
       		{{ govukButton({
         		text: "Continue"

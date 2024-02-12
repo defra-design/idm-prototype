@@ -31,8 +31,9 @@
                 items: [
                     { value: "Charity", text: 'Charity' },
                     { value: "Sole trader, redirect(/register/sole-trader-name)", text: 'Sole trader'   }					
-                ]
-            } | decorateFormAttributes('registrationOrganisationType')) }}                            	
+                ],
+                name: "registrationOrganisationType"
+            }) }}
 
             {% if data['status'] == "review" %}
 

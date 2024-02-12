@@ -35,8 +35,9 @@
 				text: "For example, 1004005."
 			},
 			classes: "govuk-!-width-one-third",
-			type: "number"      
-		} | decorateFormAttributes('registrationCharityNumber')) }}
+			type: "number",
+			name: "registrationCharityNumber"
+		}) }}
 
 	{% endset -%}
 
@@ -51,8 +52,9 @@
 				text: "For example, SC000022."
 			},
 			classes: "govuk-!-width-one-third",
-			type: "number"      
-		} | decorateFormAttributes('registrationCharityNumberScotland')) }}				
+			type: "number",
+			name: "registrationCharityNumberScotland"
+		}) }}
 	
 	{% endset -%}
 
@@ -67,8 +69,9 @@
 				text: "For example, NIC100002."
 			},
 			classes: "govuk-!-width-one-third",
-			type: "number"      
-		} | decorateFormAttributes('registrationCharityNumberNI')) }}					
+			type: "number",
+			name: "registrationCharityNumberNI"
+		}) }}
 
 	{% endset -%}
 
@@ -86,8 +89,9 @@
 				text: "For example 1004005."
 			},
 			classes: "govuk-!-width-one-third",
-			type: "number"      
-		} | decorateFormAttributes('registrationCharityNumber')) }}
+			type: "number",
+			name: "registrationCharityNumber"
+		}) }}
 
 	{% endset -%}
 
@@ -102,8 +106,9 @@
 				text: "For example, SC000022."
 			},
 			classes: "govuk-!-width-one-third",
-			type: "number"      
-		} | decorateFormAttributes('registrationCharityNumberScotland')) }}				
+			type: "number",
+			name: "registrationCharityNumberScotland"
+		}) }}
 	
 	{% endset -%}
 
@@ -118,8 +123,9 @@
 				text: "For example NIC100002."
 			},
 			classes: "govuk-!-width-one-third",
-			type: "number"      
-		} | decorateFormAttributes('registrationCharityNumberNI')) }}					
+			type: "number",
+			name: "registrationCharityNumberNI"
+		}) }}
 
 	{% endset -%}
 
@@ -140,8 +146,9 @@
                     { value: "England and Wales", text: 'England and Wales', conditional: { html: englandAndWales } },
 					{ value: "Scotland", text: 'Scotland', conditional: { html: scotland } },
 					{ value: "Northern Ireland", text: 'Northern Ireland', conditional: { html: northernIreland } }                    
-                ]
-            } | decorateFormAttributes('registrationCharityLocation')) }}   
+                ],
+				name: "registrationCharityLocation"
+            }) }}
        
 
         {{govukButton({

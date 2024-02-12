@@ -56,8 +56,9 @@
 				label: {
 					text: "Memorable word",
 					classes: "govuk-visually-hidden"
-				}
-			} | decorateFormAttributes('registrationMemorableWord')) }}
+				},
+				name: "registrationMemorableWord"
+			}) }}
 
 			{{ govukCharacterCount({        	
 				classes: "govuk-!-width-two-thirds",
@@ -67,8 +68,9 @@
 				},
 				hint: {
 					text: "Tell us a hint question that does not contain your memorable word, but will help you remember what it is."
-				}
-			} | decorateFormAttributes('registrationMemorableHint')) }}
+				},
+				name: "registrationMemorableHint"
+			}) }}
 
 		{% else %}
 
@@ -85,8 +87,9 @@
 				classes: "govuk-!-width-one-third",
 				label: {
 					text: "Your security word"
-				}
-			} | decorateFormAttributes('registrationMemorableWord')) }}
+				},
+				name: "registrationMemorableWord"
+			}) }}
 
 			{{ govukCharacterCount({        	
 				classes: "govuk-!-width-two-thirds",
@@ -97,8 +100,9 @@
 				},
 				hint: {
 					text: "Provide a hint question that will help you remember your security word."
-				}
-			} | decorateFormAttributes('registrationContactPhone')) }}
+				},
+				name: "registrationContactPhone"
+			}) }}
 
 		{% endif %}
 

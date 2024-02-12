@@ -24,15 +24,17 @@
                 label: {
                     text: "First name"
                 },
-                classes: "govuk-!-width-three-quarters"        
-            } | decorateFormAttributes('regThirdPartyUserFirstName')) }}
+                classes: "govuk-!-width-three-quarters",
+                name: "regThirdPartyUserFirstName"
+            }) }}
 
             {{ govukInput({
                 label: {
                     text: "Last name"
                 },
-                classes: "govuk-!-width-three-quarters"        
-            } | decorateFormAttributes('regThirdPartyUserLastName')) }}            
+                classes: "govuk-!-width-three-quarters",
+                name: "regThirdPartyUserLastName"
+            }) }}
 
 
             

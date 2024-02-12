@@ -25,16 +25,18 @@
 					text: "For example, '+44 020 7946 0290'."
 				},
 				classes: "govuk-!-width-one-third",        
-				type: "tel"
-			} | decorateFormAttributes('defraIdCompanyPhone')) }}      
+				type: "tel",
+				name: "defraIdCompanyPhone"
+			}) }}
 
 			{{ govukInput({
 				label: {
 					text: "Email address"
 				},
 				classes: "govuk-input--width-20",        
-				type: "email"
-			} | decorateFormAttributes('defraIdCompanyEmail')) }}      
+				type: "email",
+				name: "defraIdCompanyEmail"
+			}) }}
 
 			{{ govukButton({
 				text: "Continue"

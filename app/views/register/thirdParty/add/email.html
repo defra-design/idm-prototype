@@ -26,8 +26,9 @@
                     text: "Email address",
                     classes: "govuk-visually-hidden"
                 },
-                classes: "govuk-!-width-three-quarters"        
-            } | decorateFormAttributes('regThirdPartyUserTwoEmail')) }}   
+                classes: "govuk-!-width-three-quarters",
+                name: "regThirdPartyUserTwoEmail"
+            }) }}
 
             {% else %}
             
@@ -36,8 +37,9 @@
                     text: "Email address",
                     classes: "govuk-visually-hidden"
                 },
-                classes: "govuk-!-width-three-quarters"        
-            } | decorateFormAttributes('regThirdPartyUserOneEmail')) }}   
+                classes: "govuk-!-width-three-quarters",
+                name: "regThirdPartyUserOneEmail"
+            }) }}
 
             {% endif %}
 

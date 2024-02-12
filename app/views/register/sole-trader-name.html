@@ -27,15 +27,17 @@
                 label: {
                     text: "First or given name"
                 },
-                classes: "govuk-!-width-three-quarters"        
-            } | decorateFormAttributes('defraIdFirstName')) }}
+                classes: "govuk-!-width-three-quarters",
+                name: "defraIdFirstName"
+            }) }}
 
             {{ govukInput({
                 label: {
                     text: "Surname or family name"
                 },
-                classes: "govuk-!-width-three-quarters"        
-            } | decorateFormAttributes('defraIdSurname')) }}
+                classes: "govuk-!-width-three-quarters",
+                name: "defraIdSurname"
+            }) }}
 
             {{ govukButton({
                 text: "Continue"

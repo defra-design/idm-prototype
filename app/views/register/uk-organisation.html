@@ -38,8 +38,9 @@
                 items: [
                     { value: "Yes, redirect(/register/companies-house)", text: 'Yes'   },
                     { value: "No", text: 'No'   }                    
-                ]
-            } | decorateFormAttributes('registrationTradeUK')) }}
+                ],
+                name: "registrationTradeUK"
+            }) }}
 
         {% else %}
 
@@ -50,8 +51,9 @@
                 items: [
                     { value: "Yes, redirect(/register/companies-house)", text: 'UK'   },
                     { value: "No", text: 'Non-UK (Organisation that is not registered in the UK)'   }                    
-                ]
-            } | decorateFormAttributes('registrationTradeUK')) }}        
+                ],
+                name: "registrationTradeUK"
+            }) }}
 
         {% endif %}
 

@@ -66,7 +66,7 @@
                         errorMessage: {
                             text: "Enter your 10-digit customer reference number (CRN)"
                         }
-                    } | decorateFormAttributes('crnNumber')) }}
+                    }) }}('crnNumber')) }}
 
                     {{ govukInput({
                         label: {
@@ -81,7 +81,7 @@
                             text: "Enter your password"
                         }
                         
-                    } | decorateFormAttributes('crnPassword')) }}
+                    }) }}('crnPassword')) }}
                 
                 {% elif data['status'] == "error-messages-2" %}
 
@@ -97,7 +97,7 @@
                         errorMessage: {
                             text: "Check you have entered your 10-digit customer reference number (CRN) correctly"
                         }
-                    } | decorateFormAttributes('crnNumber')) }}
+                    }) }}('crnNumber')) }}
 
                     {{ govukInput({
                         label: {
@@ -109,7 +109,7 @@
                         },
                         classes: "govuk-!-width-two-thirds"                        
                         
-                    } | decorateFormAttributes('crnPassword')) }}
+                    }) }}('crnPassword')) }}
 
                 {% elif data['status'] == "error-messages-3" %}
                 
@@ -127,7 +127,7 @@
                         errorMessage: {
                             text: "Enter a valid 10-digit customer reference number (CRN) and password"
                         }
-                    } | decorateFormAttributes('crnNumber')) }}
+                    }) }}('crnNumber')) }}
 
                     {{ govukInput({
                         label: {
@@ -142,7 +142,7 @@
                             text: ""
                         }
                         
-                    } | decorateFormAttributes('crnPassword')) }}
+                    }) }}('crnPassword')) }}
 
                 </div>
 
@@ -157,7 +157,7 @@
                             text: "This is the 10-digit number emailed to you when you registered with the Rural Payments service." 
                         },
                         classes: "govuk-!-width-two-thirds"                        
-                    } | decorateFormAttributes('crnNumber')) }}
+                    }) }}('crnNumber')) }}
 
                     {{ govukInput({
                         label: {
@@ -168,7 +168,7 @@
                             text: "This is your Rural Payments service password." 
                         },
                         classes: "govuk-!-width-two-thirds"                                                
-                    } | decorateFormAttributes('crnPassword')) }}
+                    }) }}('crnPassword')) }}
 
                 {% endif %}
                 

@@ -62,15 +62,17 @@
                 hint: {
                     text: "This could be up to 12 characters."
                 },
-                classes: "govuk-!-width-one-half"                    
-            } | decorateFormAttributes('govGateUserId')) }}
+                classes: "govuk-!-width-one-half",
+                name: "govGateUserId"
+            }) }}
 
             {{ govukInput({
                 label: {
                     text: "Password"
                 },
-                classes: "govuk-!-width-three-quarters"                    
-            } | decorateFormAttributes('govGatePassword')) }}
+                classes: "govuk-!-width-three-quarters",
+                name: "govGatePassword"
+            }) }}
 
             {{ govukButton({
                 text: "Sign in"

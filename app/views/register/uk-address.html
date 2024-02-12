@@ -32,8 +32,9 @@
                 items: [
                     { value: "Yes, redirect(/register/personal-name)", text: 'Yes'   },
                     { value: "No", text: 'No'   }                    
-                ]
-            } | decorateFormAttributes('registrationIndividualAddressUK')) }}
+                ],
+                name: "registrationIndividualAddressUK"
+            }) }}
 
         
             {{govukButton({

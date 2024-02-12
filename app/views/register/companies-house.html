@@ -35,8 +35,9 @@
                 items: [
                     { value: "Yes", text: 'Yes'   },
 					{ value: "No, redirect(/register/sole-trader-or-charity)", text: 'No'   }                    
-                ]
-            } | decorateFormAttributes('registrationCompanyRegistrationNumber')) }}                            	        	
+                ],
+                name: "registrationCompanyRegistrationNumber"
+            }) }}
 
         {% else %}
 
@@ -49,8 +50,9 @@
                 items: [
                     { value: "Yes", text: 'Yes'   },
 					{ value: "No, redirect(/register/sole-trader-or-charity)", text: 'No'   }                    
-                ]
-            } | decorateFormAttributes('registrationCompanyRegistrationNumber')) }}                    
+                ],
+                name: "registrationCompanyRegistrationNumber"
+            }) }}
 
         	{{govukDetails({
           		summaryText: "How can I find out?",

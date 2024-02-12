@@ -62,8 +62,9 @@
 						errorMessage: {
 							text: "Enter your company registration number"
 						},
-						classes: "govuk-input--width-10"        
-					} | decorateFormAttributes('registrationCompanyNumber')) }}          				
+						classes: "govuk-input--width-10",
+						name: "registrationCompanyNumber"
+					}) }}
 
 
 				{% elif data['errorMessage'] == "errorTwo" %}
@@ -79,8 +80,9 @@
 						errorMessage: {
 							text: "Enter your company registration number in the correct format"
 						},
-						classes: "govuk-input--width-10"        
-					} | decorateFormAttributes('registrationCompanyNumber')) }}    
+						classes: "govuk-input--width-10",
+						name: "registrationCompanyNumber"
+					}) }}
 
 
 				{% else %}
@@ -93,8 +95,9 @@
 						hint: {
 							text: "It is 8 characters. For example, 01234567 or AC012345."
 						},
-						classes: "govuk-input--width-10"        
-					} | decorateFormAttributes('registrationCompanyNumber')) }}          				
+						classes: "govuk-input--width-10",
+						name: "registrationCompanyNumber"
+					}) }}
 
 				{% endif %}
 
@@ -107,8 +110,9 @@
 						text: "Companies house number",
 						classes: "govuk-visually-hidden"
 					},				
-					classes: "govuk-input--width-10"        
-				} | decorateFormAttributes('registrationCompanyNumber')) }}
+					classes: "govuk-input--width-10",
+					name: "registrationCompanyNumber"
+				}) }}
 			
 				{{ govukDetails({
 					summaryText: "Where can I find the number?",
