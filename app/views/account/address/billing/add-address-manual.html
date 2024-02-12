@@ -36,35 +36,56 @@
 					{{ govukInput({
 						label: {
 							text: "Address line 1"
-						}						
-					}) }}('registrationManualAddressLine1')) }}
+						},
+						name: "registrationManualAddressLine1"
+
+					}) }}
 				
 					{{ govukInput({
 						label: {
 							text: "Address line 2 (optional)"
-						}						
-					}) }}('registrationManualAddressLine2')) }}
+						},
+						name: "registrationManualAddressLine2"										
+					}) }}
+
+					{{ govukInput({
+						label: {
+							text: "Address line 3 (optional)"
+						},
+						name: "registrationManualAddressLine3"											
+					}) }}
+
+
+					{{ govukInput({
+						label: {
+							text: "Address line 4 (optional)"
+						},
+						name: "registrationManualAddressLine4"											
+					}) }}
 				
 					{{ govukInput({
 						label: {
 							text: "Town or city"
 						},						
-						classes: "govuk-!-width-two-thirds"						
-					}) }}('registrationManualAddressTownCity')) }}
+						classes: "govuk-!-width-two-thirds",
+						name: "registrationManualAddressTownCity"
+				}) }}
 				
 					{{ govukInput({
 						label: {
 							text: "County (optional)"
 						},
-						classes: "govuk-!-width-two-thirds"						
-					}) }}('registrationManualAddressCounty')) }}
+						classes: "govuk-!-width-two-thirds",						
+						name: "registrationManualAddressCounty"
+				}) }}
 				
 					{{ govukInput({
 						label: {
 							text: "Postcode"
 						},						
-						classes: "govuk-input--width-10"						
-					}) }}('registrationManualAddressPostCode')) }}
+						classes: "govuk-input--width-10",
+						name: "registrationManualAddressPostCode"
+				}) }}
 			
 				{% endcall %}
 

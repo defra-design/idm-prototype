@@ -20,8 +20,9 @@
 
 			{{ govukInput({
 				label: { text: pageHeading, classes: "govuk-visually-hidden" },					
-				classes: "govuk-input--width-10"      
-			}) }}('billingAddressPostcode')) }}			
+				classes: "govuk-input--width-10",      
+                name: "billingAddressPostcode"
+			}) }}
             
             {{ govukButton({
                 text: "Find address"
