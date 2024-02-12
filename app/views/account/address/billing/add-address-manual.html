@@ -36,7 +36,9 @@
 					{{ govukInput({
 						label: {
 							text: "Address line 1"
-						}						
+						}
+						
+
 					} | decorateFormAttributes('registrationManualAddressLine1')) }}
 				
 					{{ govukInput({
@@ -44,6 +46,19 @@
 							text: "Address line 2 (optional)"
 						}						
 					} | decorateFormAttributes('registrationManualAddressLine2')) }}
+
+					{{ govukInput({
+						label: {
+							text: "Address line 3 (optional)"
+						}						
+					} | decorateFormAttributes('registrationManualAddressLine3')) }}
+
+
+					{{ govukInput({
+						label: {
+							text: "Address line 4 (optional)"
+						}						
+					} | decorateFormAttributes('registrationManualAddressLine4')) }}
 				
 					{{ govukInput({
 						label: {
