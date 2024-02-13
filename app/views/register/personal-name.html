@@ -2,11 +2,7 @@
 {% set showBackLink = true %}
 {% set serviceName = "" %}
 
-{% if data['status'] == "review" %}
-    {% set pageHeading = "What’s your full name?" %}
-{% else %}
-    {% set pageHeading = "What is your name?" %}
-{% endif %}
+{% set pageHeading = "What’s your name?" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -15,12 +11,9 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-        {% if data['status'] == "review" %}
+        
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-        {% else %}
-        <h1 class="govuk-heading-l">{{pageHeading}}</h1>
-        {% endif %}
-
+        
         {% if data['registrationAccountType'] == "Individual" %}
             {% if data['registrationIndividualAddressUK'] == "No" %}
                 <form method="post" action="/register/address/add-address-manual">
@@ -34,25 +27,16 @@
         {% endif %}
 
 
-        {% if data['status'] == "review" %}
-
-            {{ govukInput({
-                label: {
-                    text: "Your name",
-                    classes: "govuk-visually-hidden"
-                },
-                classes: "govuk-!-width-three-quarters",
-                name: "registrationFullName"
-            }) }}
-
-        {% else %}
+        
             
             {{ govukInput({
                 label: {
                     text: "First or given name"
                 },
                 classes: "govuk-!-width-three-quarters",
-                name: "registrationFullName"
+                name: "defraIdFirstName",
+                id: "defraIdFirstName",
+                value: data['defraIdFirstName']
             }) }}
 
             {{ govukInput({
@@ -60,10 +44,12 @@
                     text: "Surname or family name"
                 },
                 classes: "govuk-!-width-three-quarters",
-                name: "registrationSurname"
+                name: "defraIdSurname",
+                id: "defraIdSurname",
+                value: data['defraIdSurname']
             }) }}
 
-        {% endif %}
+       
 
             {{ govukButton({
                 text: "Continue"
@@ -71,16 +57,7 @@
 
         </form>
 
-    </div>
-    <div class="govuk-grid-column-one-third review">      
-        <ul class="govuk-list govuk-body-s govuk-!-text-align-right">                
-            {% if data['status'] == "review" %}
-                <li><a href="/register/personal-name?status=" class="govuk-link govuk-link--no-visited-state">Current page</a></li>        
-            {% else %}
-                <li><a href="/register/personal-name?status=review" class="govuk-link govuk-link--no-visited-state">Suggested page changes</a></li>        
-            {% endif %}
-        </ul>          
-    </div>      
+    </div>     
 </div>
 
 {% endblock %}
