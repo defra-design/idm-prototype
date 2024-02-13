@@ -2,7 +2,7 @@
 {% set showBackLink = true %}
 {% set serviceName = "" %}
 
-{% set pageHeading = "Are you sure you wish to change your account type?" %}
+{% set pageHeading = "Confirm you want to change your account type" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -13,11 +13,13 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   
 
-        <p class="govuk-hint">Changing your account type means that any information you have previously entered will be deleted</p>
+        <div class="govuk-inset-text">
+        	<p class="govuk-body">Any information you have entered as an <span class="govuk-!-font-weight-bold">{{ data.registrationAccountType }} </span> will be deleted.</p>
+        </div>
 
         <form method="post" action="/register/account-type" />
 
-        {{ govukRadios({
+        <!-- {{ govukRadios({
             fieldset: {
                 legend: { text: "Are you registering as a business or an individual?", isPageHeading: false, classes: "govuk-visually-hidden"  }
             },
@@ -26,11 +28,20 @@
                 { value: "No, redirect(/register/task-list-page-non-uk-details)", html: ' <span class="govuk-body govuk-!-font-weight-bold">No</span> - do not change my account type'   }                    
             ],
             name: "cancelAccount"
-        }) }}
+        }) }} -->
 
-        {{ govukButton({
-          text: "Continue"
-        }) }}
+        <div class="govuk-button-group">
+
+          <input type="hidden" id="registrationAccountType" name="registrationAccountType" value="" />
+
+          {{ govukButton({
+            text: "Confirm and continue"
+          }) }}
+
+
+        <a href="/register/task-list-page-non-uk-details" class="govuk-link">Do not change my account type</a>
+
+      </div>
 
 
       </form>
