@@ -85,9 +85,9 @@
 					<dd class="govuk-summary-list__value">						
 						{% if data['registrationOrganisationType'] == "Charity" %}
 							{% if data['registrationCharityLocation'] == "Scotland" %}
-								{{ data['registrationCharityNumberScotland'] }}
+								{{ data['registrationCharityNumber'] }}
 							{% elif data['registrationCharityLocation'] == "Scotland" %}
-								{{ data['registrationCharityNumberNI'] }}
+								{{ data['registrationCharityNumber'] }}
 							{% else %}
 								{{ data['registrationCharityNumber'] }}
 							{% endif %}							

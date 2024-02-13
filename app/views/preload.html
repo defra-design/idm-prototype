@@ -1,92 +1,75 @@
 {% extends "layout.html" %}
 {% set showBackLink = false %}
-{% set serviceName = "" %}
-
-{% if data['serviceFlow'] == "vetsVisit" %}  
-    {% set pageHeading = "Annual Health and Welfare Review of livestock" %}
-{% else %}
-    {% set pageHeading = "Core service (default)" %}
-{% endif %}
+{% set serviceName = "Customer Identity" %}
 
 {% if data['userFlow'] == "Registration" %}
-    {% set pageSection = "Preload registration data" %}
+    {% set pageHeading = "Preload registration data" %}
 {% elif data['userFlow'] == "Authentication" %}
-    {% set pageSection = "Preload authentication data" %}
+    {% set pageHeading = "Preload authentication data" %}
 {% endif %}
 
+{% if data['serviceFlow'] == "vetsVisit" %}  
+    {% set pageSection = "Annual Health and Welfare Review of livestock" %}
+{% else %}
+    {% set pageSection = "Core service (default)" %}
+{% endif %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 {% block content %}
 
 <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full">
+    <div class="govuk-grid-column-two-thirds">
 
         {{ macroPageHeader.pageHeader(pageHeading, pageSection) }}
         
         <!-- // Registration flow // -->
         {% if data['userFlow'] == "Registration" %}
-
+            <!-- // Vets visit // -->
             {% if data['serviceFlow'] == "vetsVisit" %}      
-            <form class="form" action="/authentication/vets/start" method="post" >            
+                <form class="form" action="/authentication/vets/start" method="post" >                        
+            <!-- // Core journey // -->
             {% else %}        
-            <form class="form" action="/service-start-page" method="post" class="">
-            {% endif %}
+                <form class="form" action="/service-start-page" method="post" class="">
+            {% endif %}                 
 
-                <!-- {{ govukCheckboxes({
-                    fieldset: { legend: { text: "User has Government Gateway account", isPageHeading: false, classes: "govuk-visually-hidden" } },
-                    items: [ { value: "Available", text: "User can choose One Login for authentication" } ]
-                }) }}('oneLogin')) }} -->        
-
+                <!-- Vets visit -->
                 {% if data['serviceFlow'] == "vetsVisit" %}      
-
-                    <p>There are no override options available for this service as part of registration.</p>
-
+                    <p class="govuk-body">There are no override options available for this non core service as part of registration.</p>
+                <!-- // Core journey // -->
                 {% else %}
-
-                    <h3 class="govuk-heading-m">Service feature options</h3>
-                    {{ govukCheckboxes({
+                    <h3 class="govuk-heading-m">Toggle service features</h3>
+                    {{ govukCheckboxes({                        
                         fieldset: { legend: { text: "Service does not allow NON-uk business", isPageHeading: false, classes: "govuk-visually-hidden" } },
-                        items: [ 
-                            { value: "No", text: "Business must be registered to trade in UK or individual must have UK address" }                            
-                        ],
+                        items: [ { value: "No", text: "Service requires users must be registered to trade in UK or individual must have UK address" } ],
+                        id: "regNonUk",
                         name: "regNonUk"
+                    }) }}                    
                     
-                    }) }}
-
-
-                    <h3 class="govuk-heading-m">Trusted 3rd Parties</h3>
-                    {{ govukCheckboxes({
+                    {{ govukCheckboxes({                        
                         fieldset: { legend: { text: "Service does not allow NON-uk business", isPageHeading: false, classes: "govuk-visually-hidden" } },
-                        items: [                             
-                            { value: "Yes", text: "Service allows Trusted third parties to use its service." } 
-                        ],
+                        items: [ { value: "Yes", text: "Trusted third parties use the service." } ],
                         name: "trustedThirdParties"
                     }) }}
 
-                   
-
-                    <h3 class="govuk-heading-m">GOV.UK One Login</h3>                                        
-
-                    {{ govukCheckboxes({
-                        fieldset: { legend: { text: "OneLogin", isPageHeading: false, classes: "govuk-visually-hidden" } },                        
-                        items: [ { value: "Yes", text: "Allow users to register using the new GOV.UK One Login ( Experimental )" } ],
+                    <h3 class="govuk-heading-m">GOV.UK OneLogin</h3>
+                    {{ govukCheckboxes({                        
+                        fieldset: { legend: { text: "OneLogin", isPageHeading: false, classes: "govuk-visually-hidden" } },
+                        items: [ { value: "Yes", text: "Show GOV.UK OneLogin as option ( Experimental )" } ],
                         name: "useOneLogin"
                     }) }}
 
-                    <p>Various variations of this whilst we undertake discovery and research about how best to implement.</p>
+                    <p class="govuk-body">Various variations of this whilst we undertake discovery and research about how best to implement GOV.UK OneLogin.</p>
                     {{ govukRadios({
                         fieldset: { legend: { text: "User has Government Gateway account", isPageHeading: false, classes: "govuk-visually-hidden" } },
                         classes: "govuk-checkboxes--small",  
                         items: [ 
-                            { value: "variationFour", text: "Current default solution", checked: ("oneLoginVariation", "variationFour") },    
-                            { value: "variationOne", text: "Buttons" },
+                            { value: "variationFour", text: "Default current solution" },    
+                            { value: "variationOne", text: "Green buttons" },
                             { value: "variationTwo", text: "Radio buttons" },
-                            { value: "variationThree", text: "Listed" }
-                            
+                            { value: "variationThree", text: "Listed links" }                            
                         ],
                         name: "oneLoginVariation"
-                    }) }}
-                
+                    }) }}                
                 
                     <!-- {{ govukCheckboxes({
                         fieldset: { legend: { text: "User has Government Gateway account", isPageHeading: false, classes: "govuk-visually-hidden" } },
@@ -94,18 +77,18 @@
                     }) }}('GovernmentGatewayAccount')) }} -->
                 
                 {% endif %}                
-                <!-- // End of Registration flow // -->
-        
+                <!-- // End of service flow // -->        
         
         <!-- // Authentication flow // -->        
         {% elif data['userFlow'] == "Authentication" %}
-
-            <!-- Start page flow depending on service -->            
+            <!-- // Registration flow // -->            
             {% if data['serviceFlow'] == "vetsVisit" %}      
-            <form class="form" action="/authentication/vets/start" method="post" >            
+                <form class="form" action="/authentication/vets/start" method="post" >            
+            <!-- // Core journey // -->
             {% else %}
-            <form class="form" action="/service-start-page" method="post" >            
+                <form class="form" action="/service-start-page" method="post" >            
             {% endif %}        
+            
             <!-- Old variation -->
             <!-- <form class="form" action="/archived/mfa/gov-gateway/login-v2" method="post" class=""> -->
 
@@ -126,7 +109,7 @@
                         items: [ { value: "Yes", text: "Allow users to register using the new GOV.UK One Login ( Experimental )" } ]
                     }) }}('useOneLogin')) }}
 
-                    <p>Various variations of this whilst we undertake discovery and research about how best to implement.</p>
+                    <p class="govuk-body">Various variations of this whilst we undertake discovery and research about how best to implement.</p>
                     {{ govukRadios({
                         fieldset: { legend: { text: "User has Government Gateway account", isPageHeading: false, classes: "govuk-visually-hidden" } },
                         classes: "govuk-checkboxes--small",  
@@ -143,7 +126,7 @@
                 
                 
                 <!-- <h3 class="govuk-heading-m">One Login</h3>
-                <p>Let your users sign in to your service with One Login.</p>        
+                <p class="govuk-body">Let your users sign in to your service with One Login.</p>        
 
                 <div class="mspace">
                     {{ govukCheckboxes({
