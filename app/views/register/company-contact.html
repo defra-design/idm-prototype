@@ -2,7 +2,12 @@
 {% set showBackLink = true %}
 {% set serviceName = "" %}
 
-{% set pageHeading = "What is the company’s telephone number and email address?" %}
+
+{% if data['registrationOrganisationType'] == "Sole trader" %}
+    {% set pageHeading = "What’s your business’s telephone number and email address?" %}
+{% else %}
+    {% set pageHeading = "What is the company’s telephone number and email address?" %}
+{% endif %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -13,11 +18,45 @@
         
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   
         
-        <form action="/register/task-list-page-company-details" method="post">
+
+        {% if data['registrationOrganisationType'] == "Sole trader" %}
+            <form action="/register/personal-security" method="post">
+        {% else %}
+            <form action="/register/personal-name" method="post">
+        {% endif %}
 
         <!-- <p>These could be from the website, or for the head office or management team.</p> -->
         <!-- <p>This could be the number for head office or management team.</p> -->
-    
+                
+
+        {% if data['registrationOrganisationType'] == "Sole trader" %}
+
+            {{ govukInput({
+                label: {
+                    text: "Telephone number",
+                    classes: "govuk-label"					
+                },                
+                classes: "govuk-!-width-two-thirds",
+                type: "tel",
+                name: "registrationSoleTraderPhone",
+                id: "registrationSoleTraderPhone",
+                value: data['registrationSoleTraderPhone']
+            }) }}           
+
+            {{ govukInput({
+                label: {
+                    text: "Email address",
+                    classes: "govuk-label"					
+                },                
+                classes: "govuk-!-width-two-thirds",
+                type: "email",
+                name: "registrationSoleTraderEmail",
+                id: "registrationSoleTraderEmail",
+                value: data['registrationSoleTraderEmail']
+            }) }}
+
+        {% else %}
+
 			{{ govukInput({
                 label: {
                     text: "Telephone number",
@@ -41,6 +80,8 @@
                 id: "registrationEmail",
                 value: data['registrationEmail']
             }) }}
+            
+        {% endif %}
 
       		{{ govukButton({
         		text: "Continue"

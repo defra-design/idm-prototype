@@ -23,7 +23,7 @@
         {% elif data['registrationOrganisationType'] == "Charity" %}
             <form method="post" action="/register/task-list-page-charity-details?personal-name-completed=y">
         {% else %}                        
-            <form method="post" action="/register/task-list-page-company-details?personal-name-completed=y">
+            <form method="post" action="/register/personal-contact">
         {% endif %}
 
 
@@ -31,7 +31,7 @@
             
             {{ govukInput({
                 label: {
-                    text: "First or given name"
+                    text: "First name"
                 },
                 classes: "govuk-!-width-three-quarters",
                 name: "defraIdFirstName",
@@ -41,7 +41,7 @@
 
             {{ govukInput({
                 label: {
-                    text: "Surname or family name"
+                    text: "Last name"
                 },
                 classes: "govuk-!-width-three-quarters",
                 name: "defraIdSurname",

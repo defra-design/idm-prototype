@@ -2,12 +2,8 @@
 {% set showBackLink = true %}
 {% set serviceName = "" %}
 
-{% if data['status'] == "review" %}
-    {% set pageHeading = "Create a memorable word" %}
-{% else %}
-    {% set pageHeading = "Create your security word" %} 
-{% endif %}
 
+{% set pageHeading = "Create a memorable word" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -16,20 +12,18 @@
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-        {% if data['status'] == "review" %}
+        
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   
-        {% else %}
-        <h1 class="govuk-heading-l">{{pageHeading}}</h1>
-        {% endif %}
+        
 
     	{% if data['route'] == "charity" %}
       	<form method="post" action="task-list-page-charity-details?personal-security-completed=y">
     	{% else %}
-      	<form method="post" action="task-list-page-company-details?personal-security-completed=y">
+      	<form method="post" action="check-your-answers">
     	{% endif %}
 
 
-		{% if data['status'] == "review" %}
+		
 
 		<p>For security purposes, you are required to create a memorable word. This helps us verify your identity if you need to contact us.</p>					
 		<div class="govuk-inset-text">
@@ -57,7 +51,9 @@
 					text: "Memorable word",
 					classes: "govuk-visually-hidden"
 				},
-				name: "registrationMemorableWord"
+				name: "registrationMemorableWord",
+				id: "registrationMemorableWord",
+				value: data['registrationMemorableWord']
 			}) }}
 
 			{{ govukCharacterCount({        	
@@ -69,42 +65,12 @@
 				hint: {
 					text: "Tell us a hint question that does not contain your memorable word, but will help you remember what it is."
 				},
-				name: "registrationMemorableHint"
+				name: "registrationMemorableHint",
+				id: "registrationMemorableHint",
+				value: data['registrationMemorableHint']
 			}) }}
 
-		{% else %}
-
-			<p>Your security word helps us to verify your identity if you need to contact us.</p>
-			<p>The word must:</p>
-			<ul class="govuk-list govuk-list--bullet">
-				<li>be alphanumeric</li>
-				<li>contain between 6 and 12 characters (not case sensitive)</li>
-				<li>contain no spaces or special characters</li>
-			</ul>
-
-			{{ govukInput({        
-				type: "text",
-				classes: "govuk-!-width-one-third",
-				label: {
-					text: "Your security word"
-				},
-				name: "registrationMemorableWord"
-			}) }}
-
-			{{ govukCharacterCount({        	
-				classes: "govuk-!-width-two-thirds",
-				maxlength: 100,
-				rows: 2,
-				label: {
-					text: "Your hint question"
-				},
-				hint: {
-					text: "Provide a hint question that will help you remember your security word."
-				},
-				name: "registrationContactPhone"
-			}) }}
-
-		{% endif %}
+		
 
 
 
@@ -114,16 +80,7 @@
 
     </form>
 
-  </div>
-  <div class="govuk-grid-column-one-third review">      
-    <ul class="govuk-list govuk-body-s govuk-!-text-align-right">                
-        {% if data['status'] == "review" %}
-            <li><a href="/register/personal-security?status=" class="govuk-link govuk-link--no-visited-state">Current page</a></li>        
-        {% else %}
-            <li><a href="/register/personal-security?status=review" class="govuk-link govuk-link--no-visited-state">Suggested page changes</a></li>        
-        {% endif %}
-    </ul>          
-</div> 
+  </div>  
 </div>
 
 {% endblock %}
