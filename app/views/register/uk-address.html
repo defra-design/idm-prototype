@@ -30,10 +30,11 @@
                 },
                 classes: "govuk-radios--inline",
                 items: [
-                    { value: "Yes, redirect(/register/personal-name)", text: 'Yes'   },
-                    { value: "No", text: 'No'   }                    
+                    { value: "Yes~/register/personal-name", text: 'Yes', checked: checked ('registrationAddressUK','Yes') },
+                    { value: "No", text: 'No', checked: checked ('registrationAddressUK','No') }                    
                 ],
-                name: "registrationIndividualAddressUK"
+                name: "registrationAddressUK",
+                id: "registrationAddressUK"
             }) }}
 
         

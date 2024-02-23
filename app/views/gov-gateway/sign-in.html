@@ -22,11 +22,13 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-
+        
+        <!-- // Registration Flow // -->
         {% if data['userFlow'] == "Registration" %}            
 
             <form action="/register/" method="post">                
-
+        
+        <!-- // Authentication Flow // -->
         {% elif data['userFlow'] == "Authentication" %}            
 
             {% if data['mfaDisabled'] == "Yes" %}
@@ -63,15 +65,18 @@
                     text: "This could be up to 12 characters."
                 },
                 classes: "govuk-!-width-one-half",
-                name: "govGateUserId"
+                name: "govGateUserId",
+                id: "govGateUserId"
             }) }}
 
             {{ govukInput({
                 label: {
                     text: "Password"
                 },
+                type: "password",
                 classes: "govuk-!-width-three-quarters",
-                name: "govGatePassword"
+                name: "govGatePassword",
+                id: "govGatePassword"
             }) }}
 
             {{ govukButton({
