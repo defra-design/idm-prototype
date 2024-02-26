@@ -16,9 +16,6 @@
         {% if data['route'] == "charity" %}
             <form method="post" action="task-list-page-charity-details?personal-name-completed=y">
         {% else %}
-
-            
-
             <form method="post" action="/register/task-list-page-about-you-details">
                 <!-- <form method="post" action="/register/task-list-page-company-details?personal-name-completed=y"></form> -->
         {% endif %}
@@ -28,7 +25,9 @@
                     text: "First or given name"
                 },
                 classes: "govuk-!-width-three-quarters",
-                name: "defraIdFirstName"
+                name: "defraIdFirstName",
+                id: "defraIdFirstName",
+                value: data['defraIdFirstName']
             }) }}
 
             {{ govukInput({
@@ -36,7 +35,9 @@
                     text: "Surname or family name"
                 },
                 classes: "govuk-!-width-three-quarters",
-                name: "defraIdSurname"
+                name: "defraIdSurname",
+                id: "defraIdSurname",
+                value: data['defraIdSurname']
             }) }}
 
             {{ govukButton({

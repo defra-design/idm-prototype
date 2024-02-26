@@ -14,18 +14,19 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   
 
+		<p class="govuk-body">You may trade under your own name or a name you have given to the business.</p>
+
     	<form method="post" action="/register/address/add-address-manual">
 
 			{{ govukInput({
 				label: {
 					text: pageHeading,
 					classes: "govuk-visually-hidden"						
-				},		
-				hint: {
-					text: "You may trade under your own name or a name you have given to the business."
-				  },		
+				},						
 				classes: "govuk-!-width-two-thirds",
-				name: "business-name"
+				name: "registrationBusinessName",
+				id: "registrationBusinessName",
+				value: data['registrationBusinessName']
 			}) }}
 
       		{{ govukButton({

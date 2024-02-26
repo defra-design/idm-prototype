@@ -2,12 +2,7 @@
 {% set showBackLink = true %}
 {% set serviceName = "" %}
 
-{% if data['status'] == "review" %}
-	{% set pageHeading = "What’s the registered name of the charity?" %}
-{% else %}
-	{% set pageHeading = "What is the registered charity name?" %}
-{% endif %}
-
+{% set pageHeading = "What’s the registered name of the charity?" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -18,15 +13,13 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   
 
-
-		{% if data['status'] == "review" %}
-
+			<p>This is the name registered with 
 			{% if data['registrationCharityLocation'] == "Scotland" %}
-				<p>This is the name registered with <a href="https://www.oscr.org.uk/search" target="_blank">the Scottish Charity Regulator (opens in new tab)</a>.</p>
+				<a href="https://www.oscr.org.uk/search" target="_blank">the Scottish Charity Regulator (opens in new tab)</a>.</p>
 			{% elif data['registrationCharityLocation'] == "Northern Ireland" %}
-				<p>This is the name registered with <a href="https://www.charitycommissionni.org.uk/charity-search/?pageNumber=1" target="_blank">the Charity Commission for Northern Ireland (opens in new tab)</a>.</p>
+				<a href="https://www.charitycommissionni.org.uk/charity-search/?pageNumber=1" target="_blank">the Charity Commission for Northern Ireland (opens in new tab)</a>.</p>
 			{% else %}
-				<p>This is the name registered with <a href="https://www.gov.uk/find-charity-information" target="_blank">the Charity Commission Service (opens in new tab)</a>.</p>
+				<a href="https://www.gov.uk/find-charity-information" target="_blank">the Charity Commission Service (opens in new tab)</a>.</p>
 			{% endif %}
 		
     	<form action="/register/task-list-page-company-details" method="post">
@@ -37,42 +30,18 @@
 					classes: "govuk-visually-hidden"						
 				},				
 				classes: "govuk-!-width-two-thirds",
-				name: "registrationCharityName"
-			}) }}
-
-		{% else %}
-
-		<form action="/register/task-list-page-company-details" method="post">
-
-			{{ govukInput({
-				label: {
-					text: pageHeading,
-					classes: "govuk-visually-hidden"						
-				},				
-				classes: "govuk-input--width-20",
-				name: "registrationCharityName"
-			}) }}
-		
-		{% endif %}	
+				name: "registrationCharityName",
+				id: "registrationCharityName",
+				value: data['registrationCharityName']
+			}) }}		
 
       		{{ govukButton({
         		text: "Continue"
       		}) }}
 
-		
-
     	</form>
 
-  	</div>
-	  <div class="govuk-grid-column-one-third review">      
-        <ul class="govuk-list govuk-body-s govuk-!-text-align-right">                
-            {% if data['status'] == "review" %}
-                <li><a href="/register/charity-name?status=" class="govuk-link govuk-link--no-visited-state">Current page</a></li>        
-            {% else %}
-                <li><a href="/register/charity-name?status=review" class="govuk-link govuk-link--no-visited-state">Suggested page changes</a></li>        
-            {% endif %}
-        </ul>          
-    </div> 
+  	</div>	 
 </div>
 
 {% endblock %}

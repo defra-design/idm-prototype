@@ -13,11 +13,12 @@
 
         {{ macroPageHeader.pageHeader(pageHeading, pageSection) }}                        
         
-        <p>The flow defaults to "Registration" and "Core service" unless alternative options override that selection.</p>
+        <p class="govuk-body">The flow defaults to "Registration" and "Core service" unless alternative options override that selection.</p>
                 
         <form action="/preload" method="post" >
 
             <!-- // User Journey // -->
+            <!-- ///////////////////////////////// -->
             {{ govukRadios({   
                 fieldset: {
                     legend: {
@@ -25,18 +26,17 @@
                         isPageHeading: true,
                         classes: "govuk-fieldset__legend--m"
                     },
-                    classes: "govuk-!-margin-top-7"                    
-                },  
-                name: "userFlow",                                                    
+                    classes: "govuk-!-margin-top-7"
+                },
+                name: "userFlow",
                 items: [
-                    { value: "Registration", text: "Registration required", checked: checked("userFlow", "Registration") },   
+                    { value: "Registration", text: "Registration", checked: checked("userFlow", "Registration") },
                     { value: "Authentication", text: "Sign in and authentication (already registered)", checked: checked("userFlow", "Authentication") }
                 ]
-            
-
             }) }}
 
             <!-- // Service Flow // -->
+            <!-- ///////////////////////////////// -->
             {{ govukRadios({   
                 fieldset: {
                     legend: {
@@ -51,10 +51,10 @@
                 },
                 name: "serviceFlow",
                 items: [
-                    { value: "coreDefault", text: "Core service (default)", checked: checked("serviceFlow", "coreDefault") },   
+                    { value: "coreDefault", text: "Core service", checked: checked("serviceFlow", "coreDefault") },   
                     { value: "vetsVisit", text: "Annual Health and Welfare Review of livestock", checked: checked("serviceFlow", "vetsVisit") }
                 ]            
-        }) }}
+            }) }}
  
  
             {{ govukButton({

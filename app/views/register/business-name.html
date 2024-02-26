@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+{% set showBackLink = true %}
+{% set serviceName = "" %}
+
+
+{% if data['registrationOrganisationType'] == "Sole trader" %}
+	{% set pageHeading = "What is the name of your business?" %}
+{% else %}
+	{% set pageHeading = "What is the name of the business?" %}
+{% endif %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   
+
+		<p class="govuk-body">Your business may be trading under your own name or a name you have chosen.</p>
+
+		{% if data['registrationOrganisationType'] == "Sole trader" %}
+			<form method="post" action="/register/address/postcode">
+		{% else %}
+    		<form method="post" action="/register/address/add-address-manual">
+		{% endif %}
+
+
+			{% if data['registrationOrganisationType'] == "Sole trader" %}
+
+				{{ govukInput({
+					label: {
+						text: pageHeading,
+						classes: "govuk-visually-hidden"						
+					},						
+					classes: "govuk-!-width-two-thirds",
+					name: "registrationBusinessName",
+					id: "registrationBusinessName",
+					value: data['registrationBusinessName']
+				}) }}
+
+			{% else %}
+
+
+			{% endif %}
+
+      		{{ govukButton({
+        		text: "Continue"
+      		}) }}      
+
+    	</form>
+
+  	</div>
+</div>
+
+{% endblock %}

@@ -2,12 +2,7 @@
 {% set showBackLink = true %}
 {% set serviceName = "" %}
 
-{% if data['status'] == "review" %}
-    {% set pageHeading = "What type of business or organisation are you?" %}
-{% else %}
-    {% set pageHeading = "Is this organisation a sole trader or a charity?" %}
-{% endif %}
-
+{% set pageHeading = "What type of business or organisation are you?" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -16,53 +11,33 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-        {% if data['status'] == "review" %}
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   
-        {% else %}
-        <h1 class="govuk-heading-l">{{pageHeading}}</h1>
-        {% endif %}
 
     	<form method="post" action="/register/charity-location">
 
 			{{ govukRadios({
                 fieldset: {
-                    legend: { text: "Is this organisation a sole trader or a charity?", isPageHeading: false, classes: "govuk-visually-hidden"  }
+                    legend: { text: pageHeading, isPageHeading: false, classes: "govuk-visually-hidden"  }
                 },
                 items: [
-                    { value: "Charity", text: 'Charity' },
-                    { value: "Sole trader, redirect(/register/sole-trader-name)", text: 'Sole trader'   }					
+                    { value: "Charity", text: 'Charity', checked: checked ('registrationOrganisationType','Charity') },
+                    { value: "Sole trader~/register/personal-name", text: 'Sole trader', checked: checked ('registrationOrganisationType','Sole trader')   }					
                 ],
-                name: "registrationOrganisationType"
+                name: "registrationOrganisationType",
+                id: "registrationOrganisationType"
+                
             }) }}
 
-            {% if data['status'] == "review" %}
+            <div class="govuk-button-group">
+                
+                {{govukButton({
+                    text: "Continue"
+                })}}
+                <a class="govuk-link" href="#">We are not a charity or sole trader</a>
+            </div>        
+        </form>
 
-                <div class="govuk-button-group">
-                    {{govukButton({
-                        text: "Continue"
-                    })}}
-                    <a class="govuk-link" href="#">We are not a charity or sole trader</a>
-                </div>
-            {% else %}
-
-        	{{govukButton({
-                text: "Continue"
-            })}}
-
-            {% endif %}
-
-      </form>
-
-    </div>
-    <div class="govuk-grid-column-one-third review">      
-        <ul class="govuk-list govuk-body-s govuk-!-text-align-right">                
-            {% if data['status'] == "review" %}
-                <li><a href="/register/sole-trader-or-charity?status=" class="govuk-link govuk-link--no-visited-state">Current page</a></li>        
-            {% else %}
-                <li><a href="/register/sole-trader-or-charity?status=review" class="govuk-link govuk-link--no-visited-state">Suggested page changes</a></li>        
-            {% endif %}
-        </ul>          
-    </div> 
+    </div>    
 </div>
 
 {% endblock %}

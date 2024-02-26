@@ -1,40 +1,10 @@
-{% extends "layout.html" %}
-{% set showBackLink = false %}
+<div class="govuk-inset-text">
+    <p>Registration links all need amending as structure has been changed
+    <br>Currently checking pages as lots of duplicates ( 22 January 2024 )</p>
+</div>
 
-{% set pageHeading = "Page listings" %}
-{% set pageSection = "" %}
-{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
-{% block content %}
-
-<div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">    
-
-        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }} 
-
-        <p class="govuk-body-s">Last updated 22 January 2024</p>
-        <p class="govuk-body govuk-!-margin-bottom-7">Some pages have dynamic content, so if using the links and not going through the flows that lead to each page, its not always possible to show the right content for all scenarios.</p>
-
-    </div>
-    <div class="govuk-grid-column-full">
-
-            <!-- Register for an account -->
-            {% set registerHtml %}                            
-                {% include "includes/listings/register.html" %}
-        
-            {% set registrationHtml %}
-            <!-- <h3 class="govuk-heading-m">Example heading</h3>
-            <ul class="govuk-list govuk-list--bullet">
-                <li><a class="govuk-link govuk-link--no-visited-state" href="#" >Name of page</a></li>                
-            </ul> -->
-
-            
-            <div class="govuk-inset-text">
-                <p>Registration links all need amending as structure has been changed
-                <br>Currently checking pages as lots of duplicates ( 22 January 2024 )</p>
-            </div>
-
-            <h3 class="govuk-heading-m">Registration</h3>
+<h3 class="govuk-heading-m">Register</h3>
             <ul class="govuk-list govuk-list--bullet">
                 
                 <li><a class="govuk-link govuk-link--no-visited-state" href="/register/add-address-manual" >What is the address?</a></li>
@@ -71,7 +41,7 @@
                 <li><a class="govuk-link govuk-link--no-visited-state" href="/register/individual-select-new-address" >Select your address</a></li>
                 <li><a class="govuk-link govuk-link--no-visited-state" href="/register/login" >Sign in using Government Gateway</a></li>
                 <li><a class="govuk-link govuk-link--no-visited-state" href="/register/non-uk-address" >What is the non-UK address?</a></li>
-                <li><a class="govuk-link govuk-link--no-visited-state" href="/register/non-uk-registrationBusinessName" >What is the name of your business?</a></li>
+                <li><a class="govuk-link govuk-link--no-visited-state" href="/register/non-uk-business-name" >What is the name of your business?</a></li>
                 <li><a class="govuk-link govuk-link--no-visited-state" href="/register/non-uk-contact" >What are the main contact details for the business?</a></li>
                 <li><a class="govuk-link govuk-link--no-visited-state" href="/register/organisation-type" >Are you registering as a business or an individual?</a></li>
                 <li><a class="govuk-link govuk-link--no-visited-state" href="/register/organisation-UK-or-else" >Where is your organisation registered to trade?</a></li>
@@ -113,44 +83,4 @@
                 <li><a class="govuk-link govuk-link--no-visited-state" href="/terms-and-conditions?flow=Registration" >Terms and conditions</a></li>
                 <li><a class="govuk-link govuk-link--no-visited-state" href="/cookies?flow=Registration">Cookies</a></li>
                 <li><a class="govuk-link govuk-link--no-visited-state" href="/accessibility?flow=Registration">Accessibility</a></li>
-            </ul>            
-
-
-            {% endset -%}
-
-            <!-- Third party registration and log in -->
-            {% set thirdPartyHtml %}            
-                {% include "includes/listings/thirdparty.html" %}
-            {% endset -%}
-
-            <!-- Account pages -->
-            {% set accountHtml %}
-                {% include "includes/listings/account.html" %}
-            {% endset -%}
-
-            {% set authenticationHtml %}
-                {% include "includes/listings/authentication.html" %}
-            {% endset -%}
-
-            {% set servicesHtml %}
-                {% include "includes/listings/iterations.html" %}            
-            {% endset -%}
-
-            <!-- Tabs -->
-            {{ govukTabs({
-                items: [
-                    { label: "Register", id: "register", panel: { html: registerHtml } },    
-                    { label: "Third party", id: "thirdParty", panel: { html: thirdPartyHtml } },    
-                    { label: "Account", id: "account", panel: { html: accountHtml } },    
-                    { label: "Authentication", id: "authentication", panel: { html: authenticationHtml } },
-                    { label: "Services", id: "vetsVisit", panel: { html: servicesHtml } }                    
-                ]
-            }) }}
-
-            <p><a class="govuk-link govuk-link--no-visited-state" href="/data">Data been stored as part of current session</a></p>
-
-
-    </div>
-</div>
-
-{% endblock %}
+            </ul>  
