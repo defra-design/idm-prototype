@@ -2,7 +2,7 @@
 {% set showBackLink = true %}
 {% set serviceName = "" %}
 
-{% set pageHeading = "Who are you registering as?" %}
+{% set pageHeading = "Are you registering as a business or organisation?" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -12,16 +12,20 @@
     <div class="govuk-grid-column-two-thirds">
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}     
+
+        <!-- <p>You represent a business or organisation (including sole traders and charities) and have permission to register an account.</p> -->
+        <p>This includes if you are a sole trader or registered charity.</p>
         
         <form method="post" action="/register/uk-organisation">
             
             {{ govukRadios({
+                classes: "govuk-radios--inline",
                 fieldset: {
                     legend: { text: pageHeading, isPageHeading: false, classes: "govuk-visually-hidden"  }
                 },
                 items: [
-                    { value: "Business", html: '<strong>Business or organisation</strong>', hint: { text: "You represent a business or organisation that wants to use this service (including sole traders and charities) and you have permission to create an account for them." }, checked: checked('registrationAccountType', 'Business')  },
-                    { value: "Individual~/register/uk-address", html: '<strong>Individual</strong>', hint: { text: "You want to use this service for your own personal use." }, checked: checked('registrationAccountType', 'Individual')  }
+                    { value: "Business", text: "Yes",  checked: checked('registrationAccountType', 'Business')  },
+                    { value: "Individual~/register/uk-address", text: "No, I am registering for personal use", checked: checked('registrationAccountType', 'Individual')  }
                 ],
                 name: "registrationAccountType"
             }) }}

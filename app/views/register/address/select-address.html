@@ -25,13 +25,15 @@
         
 
             <div class="govuk-inset-text">
-            <p class="govuk-body">We found the following addresses for postcode <span class="govuk-!-font-weight-bold">{{ data['registrationIndividualPostcode'] or "SW19 5JA" }}</span>.</p>
+            <p class="govuk-body">We found the following addresses for postcode <span class="govuk-!-font-weight-bold">{{ data['registrationIndividualPostcode'] or data['registrationCharityPostcode'] or "SW19 5JA" }}</span>.</p>
             <p><a href="/register/address/postcode" class="govuk-link govuk-link--no-visited-state">Change postcode</a></p>
             </div>
-
-            
-
+                        
+            {% if data['registrationAccountType'] == "Individual" %}
+                <form action="/register/personal-security" method="post" class="form">
+            {% else %}
             <form action="/register/company-contact" method="post" class="form">
+            {% endif %}
 
 
                 {% if data['registrationOrganisationType'] == "Sole trader" %}
@@ -48,6 +50,22 @@
                         { value: "2b, Clifton House, Clifton Road, LONDON SW19 5JA", text: "2b, Clifton House, Clifton Road, LONDON SW19 5JA", checked: checked("registrationSoleTraderAddress", "45") }
                     ],
                     name: "registrationSoleTraderAddress"
+                }) }}
+
+                {% elif data['registrationOrganisationType'] == "Charity" %}
+
+
+                {{ govukSelect({                
+                    fieldset: {
+                        legend: { text: "Select the address", isPageHeading: false, classes: "govuk-visually-hidden"  }
+                    },
+                    items: [                        
+                        { value: "", text: "3 addresses found", checked: checked("registrationSoleTraderAddress", "") },    
+                        { value: "Clifton House, Clifton Road, LONDON SW19 5JA", text: "Clifton House, Clifton Road, LONDON SW19 5JA", checked: checked("registrationSoleTraderAddress", "Single") },
+                        { value: "2a, Clifton House, Clifton Road, LONDON SW19 5JA", text: "2a, Clifton House, Clifton Road, LONDON SW19 5JA", checked: checked("registrationSoleTraderAddress", "20") },
+                        { value: "2b, Clifton House, Clifton Road, LONDON SW19 5JA", text: "2b, Clifton House, Clifton Road, LONDON SW19 5JA", checked: checked("registrationSoleTraderAddress", "45") }
+                    ],
+                    name: "registrationCharityAddress"
                 }) }}
 
 

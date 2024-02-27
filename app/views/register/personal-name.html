@@ -2,7 +2,7 @@
 {% set showBackLink = true %}
 {% set serviceName = "" %}
 
-{% set pageHeading = "What is your name?" %}
+{% set pageHeading = "What’s your name?" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -16,12 +16,12 @@
         
         {% if data['registrationAccountType'] == "Individual" %}
             {% if data['registrationAddressUK'] == "No" %}
-                <form method="post" action="/register/address/add-address-manual">
+                <form method="post" action="/register/personal-contact">
             {% else %}
-                <form method="post" action="/register/task-list-page-company-details">
+                <form method="post" action="/register/personal-contact">
             {% endif %}
         {% elif data['registrationOrganisationType'] == "Charity" %}
-            <form method="post" action="/register/task-list-page-charity-details?personal-name-completed=y">
+            <form method="post" action="/register/personal-contact">
         {% else %}                        
             <form method="post" action="/register/personal-contact">
         {% endif %}
