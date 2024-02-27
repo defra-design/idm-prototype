@@ -1,19 +1,19 @@
 {% extends "layout.html" %}
 {% set showBackLink = false %}
 
-{% set pageHeading = "Defra Customer Identity" %}
+{% set pageHeading = "Defra customer identity" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
 
     <div class="govuk-grid-row">
-        <div class="govuk-grid-column-two-thirds">
+        <div class="govuk-grid-column-two-thirds govuk-!-margin-bottom-5">
 
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
             <ul class="govuk-list govuk-body-s">
-          	    <li>Last updated: 27 February 2024</li>
+          	    <li>Last updated: <span class="govuk-!-font-weight-bold">27 February 2024</span></li>
                 <li>Prototype version: {{releaseVersion}}</li>
             </ul>
 
@@ -22,11 +22,12 @@
 
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-            <p class="govuk-body">This service will help users:</p>
+            <p class="govuk-body">Customer identity will help users:</p>
             <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
-                <li class="govuk-body">create a single set of sign-in credentials that can be used to access one or more Defra services.</li>
-                <li class="govuk-body">store information about the user (and their business, if relevant).</li>
-                <li class="govuk-body">give other people (for example colleagues or agents) access to one or more of the online services they use.</li>
+                <li>create a single set of sign-in credentials that can be used to access one or more Defra services.</li>
+                <!-- <li>store information about the user (and their business, if relevant).</li> -->
+                <li>by storing information about the user (and their business, if relevant) so that they do not have to re-enter it each time they want to use a new online service at Defra.</li>
+                <li>give other people (for example colleagues or agents) access to one or more of the online services they use.</li>
             </ul>
 
             <h2 class="govuk-heading-m">User flows</h2>      
@@ -36,17 +37,17 @@
                     <input type="hidden" name="userFlow" id="userFlow" value="Registration" />                    
                     <input type="hidden" name="serviceFlow" id="serviceFlow" value="coreDefault" />
                     {{ govukButton({
-                        text: "Register or Sign in to Defra Identity"
+                        text: "Register or Sign in using Defra Identity"
                     }) }}
                 </form>
-                <form action="/preload" method="post" >
+                <!-- <form action="/preload" method="post" >
                     <input type="hidden" name="userFlow" id="userFlow" value="Registration" />
                     <input type="hidden" name="flowVersion" id="flowVersion" value="version_1" />
                     {{ govukButton({
                         text: "Archived V1.0",
                         classes: "govuk-button--secondary govuk-!-margin-left-1"
                     }) }}
-                </form>                
+                </form>                 -->
             </div>            
 
 
@@ -103,27 +104,27 @@
                 <ul class="govuk-list">
                     <li><a href="/listings" class="govuk-link govuk-link--no-visited-state" >Page listings</a></li>
                     <li><a href="https://github.com/defra-design/idm-prototype" class="govuk-link govuk-link--no-visited-state" rel="noreferrer noopener" target="_blank" >Github repository <span class="govuk-visually-hidden">(opens in new tab)</span></a></li>
-                    <li><a href="https://app.mural.co/t/defraidmanagement4828/m/defraidmanagement4828/1651757057405/8de389e360d3ece2fb5b5adb455eb3fd376c13d5?sender=uc4759e9563ebe5260dd56933" class="govuk-link govuk-link--no-visited-state" rel="noreferrer noopener" target="_blank">Mural - user journeys <span class="govuk-visually-hidden">(opens in new tab)</span></a></li>
-                    <li><a href="https://www.figma.com/file/XRzsdo5usIj3oUBfQEinLJ/Identity-management-flows-'To-Be'?node-id=4%3A2804" rel="noreferrer noopener" class="govuk-link govuk-link--no-visited-state" target="_blank">Figma assets <span class="govuk-visually-hidden">(opens in new tab)</span></a></li>
+                    <!-- <li><a href="https://app.mural.co/t/defraidmanagement4828/m/defraidmanagement4828/1651757057405/8de389e360d3ece2fb5b5adb455eb3fd376c13d5?sender=uc4759e9563ebe5260dd56933" class="govuk-link govuk-link--no-visited-state" rel="noreferrer noopener" target="_blank">Mural - user journeys <span class="govuk-visually-hidden">(opens in new tab)</span></a></li>
+                    <li><a href="https://www.figma.com/file/XRzsdo5usIj3oUBfQEinLJ/Identity-management-flows-'To-Be'?node-id=4%3A2804" rel="noreferrer noopener" class="govuk-link govuk-link--no-visited-state" target="_blank">Figma assets <span class="govuk-visually-hidden">(opens in new tab)</span></a></li> -->
                 </ul>
             </nav>
 
-            <h2 class="govuk-heading-s govuk-!-margin-bottom-1" id="subsection-title">Error messages</h2>
+            <!-- <h2 class="govuk-heading-s govuk-!-margin-bottom-1" id="subsection-title">Error messages</h2>
             <nav class="govuk-!-margin-bottom-7">
                 <ul class="govuk-list">
                     <li><a href="/errors/error-pages" class="govuk-link govuk-link--no-visited-state">Version 2.0 <span class="govuk-visually-hidden">(opens in new tab)</span></a></li>
                     
                 </ul>
-            </nav>
+            </nav> -->
             <!-- Check these still exist and work -->
-            <h2 class="govuk-heading-s govuk-!-margin-bottom-1" id="subsection-title">Archives</h2>
+            <!-- <h2 class="govuk-heading-s govuk-!-margin-bottom-1" id="subsection-title">Archives</h2>
             <nav class="govuk-!-margin-bottom-7">
                 <ul class="govuk-list">
                     <li><a href="index_archived" class="govuk-link govuk-link--no-visited-state">All prototypes from 2021</a></li>
                     <li><a href="/archived/index-old" class="govuk-link govuk-link--no-visited-state">Older archived prototypes</a></li>
                     <li><a href="/archived/errors/error-pages-v1" class="govuk-link govuk-link--no-visited-state">Error messages V1.0 <span class="govuk-visually-hidden">(opens in new tab)</span></a></li>
                 </ul>
-            </nav>
+            </nav> -->
 
 
             <!-- <h2 class="govuk-heading-s govuk-!-margin-bottom-1" id="subsection-title">Other items</h2>
