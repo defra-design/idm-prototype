@@ -14,6 +14,8 @@
         
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}           
 
+
+        <!-- <p>A business wishing to trade as a UK company must be registered at Companies House. This process includes choosing and registering a company name.</p> -->
         <!-- /// If a Service does not allow non uk //// -->
         {% if data['regNonUk'] == "No" %}
             <form method="post" action="/register/cannot-register">
@@ -29,7 +31,7 @@
                     classes: "govuk-radios--inline",
                     items: [
                         { value: "Yes", text: 'Yes', checked: checked( 'registrationTradeUK','Yes' ) },
-                        { value: "No~/register/non-uk-registrationBusinessName", text: 'No', checked: checked( 'registrationTradeUK','No' ) }                    
+                        { value: "No~/register/business-name", text: 'No', checked: checked( 'registrationTradeUK','No' ) }                    
                     ],
                     name: "registrationTradeUK"
                 }) }}

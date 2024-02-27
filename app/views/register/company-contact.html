@@ -5,8 +5,10 @@
 
 {% if data['registrationOrganisationType'] == "Sole trader" %}
     {% set pageHeading = "What’s your business’s telephone number and email address?" %}
+{% elif data['registrationOrganisationType'] == "Charity" %}
+    {% set pageHeading = "What’s the charity’s telephone number and email address?" %}
 {% else %}
-    {% set pageHeading = "What is the company’s telephone number and email address?" %}
+    {% set pageHeading = "What’s the business’s telephone number and email address?" %}
 {% endif %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -29,11 +31,43 @@
         <!-- <p>This could be the number for head office or management team.</p> -->
                 
 
-        {% if data['registrationOrganisationType'] == "Sole trader" %}
+        
+        {% if data['registrationTradeUK'] == "No" %}
 
             {{ govukInput({
                 label: {
                     text: "Telephone number",
+                    classes: "govuk-label"					
+                },                
+                classes: "govuk-!-width-two-thirds",
+                hint: {
+                    text: "For international numbers include the country code."
+                },
+                type: "tel",
+                name: "registrationNonUkPhone",
+                id: "registrationNonUkPhone",
+                value: data['registrationNonUkPhone']
+            }) }}           
+
+            {{ govukInput({
+                label: {
+                    text: "Email address",
+                    classes: "govuk-label"					
+                },                
+                classes: "govuk-!-width-two-thirds",
+                type: "email",
+                name: "registrationNonUkEmail",
+                id: "registrationNonUkEmail",
+                value: data['registrationNonUkEmail']
+            }) }}
+        
+        
+        
+        {% elif data['registrationOrganisationType'] == "Sole trader" %}
+
+            {{ govukInput({
+                label: {
+                    text: "UK telephone number",
                     classes: "govuk-label"					
                 },                
                 classes: "govuk-!-width-two-thirds",
@@ -55,6 +89,34 @@
                 value: data['registrationSoleTraderEmail']
             }) }}
 
+        {% elif data['registrationOrganisationType'] == "Charity" %}
+
+            {{ govukInput({
+                label: {
+                    text: "UK telephone number",
+                    classes: "govuk-label"					
+                },                
+                classes: "govuk-!-width-two-thirds",
+                type: "tel",
+                name: "registrationCharityPhone",
+                id: "registrationCharityPhone",
+                value: data['registrationCharityPhone']
+            }) }}           
+
+            {{ govukInput({
+                label: {
+                    text: "Email address",
+                    classes: "govuk-label"					
+                },                
+                classes: "govuk-!-width-two-thirds",
+                type: "email",
+                name: "registrationCharityEmail",
+                id: "registrationCharityEmail",
+                value: data['registrationCharityEmail']
+            }) }}
+
+
+
         {% else %}
 
 			{{ govukInput({
@@ -64,7 +126,7 @@
                 },                
                 classes: "govuk-!-width-two-thirds",
 				type: "tel",
-                name: "registrationPhone",
+                name: "registrationPhone",                
                 id: "registrationPhone",
                 value: data['registrationPhone']
             }) }}           
