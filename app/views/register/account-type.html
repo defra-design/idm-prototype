@@ -19,13 +19,13 @@
         <form method="post" action="/register/uk-organisation">
             
             {{ govukRadios({
-                classes: "govuk-radios--inline",
+                
                 fieldset: {
                     legend: { text: pageHeading, isPageHeading: false, classes: "govuk-visually-hidden"  }
                 },
                 items: [
                     { value: "Business", text: "Yes",  checked: checked('registrationAccountType', 'Business')  },
-                    { value: "Individual~/register/uk-address", text: "No, I am registering for personal use", checked: checked('registrationAccountType', 'Individual')  }
+                    { value: "Individual~/register/uk-address", text: "No, as an individual for personal use", checked: checked('registrationAccountType', 'Individual')  }
                 ],
                 name: "registrationAccountType"
             }) }}
