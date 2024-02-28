@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "/layouts/main.html" %}
 {% set showBackLink = false %}
 
 {% set pageHeading = "Page listings" %}
@@ -21,9 +21,8 @@
             <!-- Register for an account -->
             {% set registerHtml %}                            
                 {% include "includes/listings/register.html" %}
-            {% endset -%}
-        
-        
+            {% endset -%}                   
+
             <!-- Third party registration and log in -->
             {% set thirdPartyHtml %}            
                 {% include "includes/listings/thirdparty.html" %}
@@ -49,7 +48,7 @@
                     { label: "Third party", id: "thirdParty", panel: { html: thirdPartyHtml } },    
                     { label: "Account", id: "account", panel: { html: accountHtml } },    
                     { label: "Authentication", id: "authentication", panel: { html: authenticationHtml } },
-                    { label: "Services", id: "services", panel: { html: servicesHtml } }                    
+                    { label: "Services", id: "vetsVisit", panel: { html: servicesHtml } }                    
                 ]
             }) }}
 
