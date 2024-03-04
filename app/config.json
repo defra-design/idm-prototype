@@ -1,1 +1,4 @@
-{"serviceName":"Defra Identity Management"}
+{"serviceName":"Defra Identity Management",
+"useAuth": "false"
+
+}
