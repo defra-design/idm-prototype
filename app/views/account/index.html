@@ -1,8 +1,7 @@
 {% extends "/layouts/main.html" %}
 
-{% set showBackLink = true %}
-{% set serviceName = "Defra account" %}
 
+{% set serviceName = "Defra account" %}
 
 {% set fullname = "Hugo Furst" %}
 {% set business = "Soleheaven Ltd" %}
@@ -16,6 +15,7 @@
 
 {% block beforeContent %}
   {% include "includes/account-nav.html" %}
+
 {% endblock %}
 
 {% block content %}
@@ -23,30 +23,40 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-		<h1 class="govuk-heading-xl">{{ pageHeading }}</h1>        
+		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}      
 
-		{{ govukSummaryList({
+
+		<p><span class="govuk-!-font-weight-bold">Full name:</span> {{fullname}}
+			<br><span class="govuk-!-font-weight-bold">Email address:</span> {{userEmail}}
+			<br><span class="govuk-!-font-weight-bold">Telephone number:</span> {{phoneNumber}}
+
+
+		</p>
+		<!-- {{ govukSummaryList({
 			classes: "govuk-summary-list--no-border",
 			rows: [
 			  { key: { text: "Full name" }, value: { text: fullname }, class: "govuk-summary-list__row--no-actions" },
 			  { key: { text: "Email address" }, value: { text: userEmail }, class: "govuk-summary-list__row--no-actions" },
-			  { key: { text: "Phone number" }, value: { text: phoneNumber }, class: "govuk-summary-list__row--no-actions" },
-			  { key: { text: "Security word" }, value: { text: "••••••••••" }, class: "govuk-summary-list__row--no-actions" }			 
+			  { key: { text: "Telephone number" }, value: { text: phoneNumber }, class: "govuk-summary-list__row--no-actions" }			  		 
 			]
-		  }) }}   
+		  }) }}    -->
 
     	<p class="govuk-body"><a href="/account/manage/update-details" class="govuk-link--no-visited-state">Update details</a></p>		
+		<p class="govuk-body"><a href="/account/manage/reset-security-word" class="govuk-link--no-visited-state">Reset security word</a></p>		
+		{{ govukDetails({
+			summaryText: "Contact support ID",
+			text: "If you contact us, you will need your contact support ID, BA202452-V0-4703-P5-0409"
+		}) }}
     </div>
 
   	<div class="govuk-grid-column-full">
     
-    	<h2 class="govuk-heading-l govuk-!-margin-top-7">Organisation accounts</h2>
+    	<h2 class="govuk-heading-l govuk-!-margin-top-7">Your accounts</h2>
 		<p>You have access to the following accounts and related services.</p>
 
 		{{ govukTable({
-			caption: "Month you apply",
-			captionClasses: "govuk-visually-hidden",			
-			firstCellIsHeader: true,
+			caption: "Accounts",
+			captionClasses: "govuk-visually-hidden",						
 			head: [
 			  { text: "Account", classes: "govuk-!-width-one-quarter" },
 			  { text: "Account role", classes: "" },
@@ -56,54 +66,53 @@
 			],
 			rows: [
 			  [
-				{ text: business },
-				{ text: "" },
-				{ text: "No registered service" },
+				{ text: "Chrispee Bacon (you)" },
 				{ text: "Admin" },
-				{ html: '<a href="dashboard" class="govuk-link--no-visited-state">Manage<span class="govuk-visually-hidden td-header"> {{ business }}</span></a>' }
-			  ],
-			  [
-				{ text: business2 },
-				{ text: "" },
-				{ text: "No registered service" },
-				{ text: "" },
-				{ text: "" }
-			  ]	
+				{ text: "Comply with UK REACH" },
+				{ text: "REACH Manager" },
+				{ html: '<a href="/account/manage/enrol-list" class="govuk-link--no-visited-state">Add a service<span class="govuk-visually-hidden td-header"> {{ business }}</span></a>' }
+			  ]			  
 			  
 			]
 		  }) }}      	
 
+
+		  <!-- { html: '<a href="dashboard" class="govuk-link--no-visited-state">Add a service<span class="govuk-visually-hidden td-header"> {{ business }}</span></a>' } -->
+
       	<p class="govuk-body "><a class="govuk-link--no-visited-state" href="#">Add new account</a></p>
+	
+		<h2 class="govuk-heading-l govuk-!-margin-top-7">Your services</h2>
 
-	</div>  
-
-    <div class="govuk-grid-column-two-thirds">
-
-		<h2 class="govuk-heading-l govuk-!-margin-top-7">Services</h2>
 		<p class="govuk-body">You are not enrolled to any services.</p>
         
-
-		<!-- <div class="govuk-card__content"> -->
-
-
-        <!-- waste services -->
-
-        <!-- <div class="govuk-grid-column-one-third">
-          <div class="govuk-card govuk-card--contained govuk-card--selectable">
-            <a href="../epr/home"></a>
-            <div class="govuk-card__content">
-              <h3 class="govuk-heading-m">Packaging producer responsibility</h3>
-            </div>
-          </div>
-        </div>
-        <div class="govuk-grid-column-one-third">
-          <div class="govuk-card govuk-card--contained govuk-card--selectable">
-            <a href="../drs/home"></a>
-            <div class="govuk-card__content">
-              <h3 class="govuk-heading-m">Deposit return scheme</h3>
-            </div>
-          </div>
-        </div> -->
+		<div class="govuk-grid-row">
+			<div class="govuk-card__content">
+				<div class="govuk-grid-column-one-third">
+					<div class="govuk-card govuk-card--contained govuk-card--selectable">
+						<a href="../epr/home"></a>
+						<div class="govuk-card__content">
+							<h3 class="govuk-heading-m">IPAFFS</h3>
+						</div>
+					</div>
+				</div>
+				<div class="govuk-grid-column-one-third">
+					<div class="govuk-card govuk-card--contained govuk-card--selectable">
+						<a href="../drs/home"></a>
+						<div class="govuk-card__content">
+							<h3 class="govuk-heading-m">Comply with UK Reach</h3>
+						</div>
+					</div>
+				</div>
+				<div class="govuk-grid-column-one-third">
+					<div class="govuk-card govuk-card--contained govuk-card--selectable">
+					<a href="../drs/home"></a>
+					<div class="govuk-card__content">
+							<h3 class="govuk-heading-m">Waste Tracking Service</h3>
+					</div>
+					</div>
+			</div>
+			</div>
+		</div>
 
 
       </div>

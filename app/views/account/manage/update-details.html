@@ -1,14 +1,11 @@
 {% extends "/layouts/main.html" %}
-{% set showBackLink = false %}
+
+
+{% set showBackLink = true %}
 
 {% set pageHeading = "Update your details" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
-
-{% block beforeContent %}
-  {% include "includes/account-nav.html" %}
-  
-{% endblock %}
 
 
 {% block content %}
@@ -26,7 +23,8 @@
       			<div class="govuk-summary-list__row">
         			<dt class="govuk-summary-list__key">Personal Information</dt>
         			<dd class="govuk-summary-list__value">
-                        Peter Moyles
+                        {{ data.defraIdFirstName}} {{ data.defraIdSurname}}
+						<br>{{ data.registrationContactPhonePersonal}}
         			</dd>
         			<dd class="govuk-summary-list__actions">
 						<a class="govuk-link govuk-link--no-visited-state" href="/account/manage/personal-information">Change<span class="govuk-visually-hidden"> type of account</span></a>
@@ -35,8 +33,8 @@
 				  <div class="govuk-summary-list__row">
 					<dt class="govuk-summary-list__key">Personal Address</dt>
 					<dd class="govuk-summary-list__value">												
-						
-                        Hutton Yeat Farm<br>Old Hutton<br>Kendal<br>South Lakeland<br>LA8 0NL
+						{{ data.registrationIndividualAddress}}
+                        
 						
 					</dd>
 					<dd class="govuk-summary-list__actions">

@@ -1,79 +1,70 @@
 {% extends "/layouts/main.html" %}
 
-{% set title = "Change your personal information" %}
 
-{% block pageTitle %}
-    {{title}} - GOV.UK
-{% endblock %}
+{% set showBackLink = true %}
 
-{% block beforeContent %}
-
-  {{ govukBackLink({
-    text: "Back",
-    href: "javascript:history.back()"
-  }) }}
-
-{% endblock %}
+{% set pageHeading = "Change your personal information" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 
 {% block content %}
 
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
+	<div class="govuk-grid-column-two-thirds">
 
-      <form action="/account/manage/update-details" method="post">
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+      
+      
+
+        <form action="/account/manage/update-details" method="post">
 
 
-        {% call govukFieldset({
-          legend: {
-            text: title,
-            classes: "govuk-fieldset__legend--xl",
-            isPageHeading: true
-          }
-        }) %}
+            {% call govukFieldset({
+                legend: {
+                    text: title,
+                    classes: "govuk-fieldset__legend--xl",
+                    isPageHeading: true
+                }
+            }) %}
 
-        {{ govukInput({
-          label: {
-            text: "First or given name"
-          },
-          classes: "govuk-input--width-20",
-          id: "personalFirstName",
-          name: "personalFirstName",
-          value: data['personalFirstName']
-        }) }}
+            {{ govukInput({
+                label: { text: "First or given name" },
+                classes: "govuk-input--width-20",
+                id: "defraIdFirstName",
+                name: "defraIdFirstName",
+                value: data['defraIdFirstName']
+            }) }}
 
-        {{ govukInput({
-          label: {
-            text: "Surname or family name"
-          },
-          classes: "govuk-input--width-20",
-          id: "personalSurname",
-          name: "personalSurname",
-          value: data['personalSurname']
-        }) }}
+            {{ govukInput({
+                label: { text: "Surname or family name" },
+                classes: "govuk-input--width-20",
+                id: "defraIdSurname",
+                name: "defraIdSurname",
+                value: data['defraIdSurname']
+            }) }}
 
-        {{ govukInput({
-          label: {
-            text: "Telephone number",
-            isPageHeading: false
-          },
-          classes: "govuk-input--width-10",
-          id: "personalTelephone",
-          name: "personalTelephone",
-          value: data['personalTelephone'],
-          type: "tel",
-          value: data['personalTelephone']
-        }) }}
+            {{ govukInput({
+                label: {
+                    text: "Telephone number",
+                    isPageHeading: false
+                },
+                classes: "govuk-input--width-10",
+                id: "registrationContactPhonePersonal",
+                name: "registrationContactPhonePersonal",
+                value: data['registrationContactPhonePersonal'],
+                type: "tel"                
+            }) }}
 
-        {% endcall %}
+            {% endcall %}
 
-        {{ govukButton({
-          text: "Continue"
-        }) }}
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+        
+        </form>
 
-      </form>
-
-  </div>
+    </div>
 </div>
 
 {% endblock %}

@@ -1,103 +1,70 @@
 {% extends "/layouts/main.html" %}
 
-{% set serviceName = "Defra account" %}
+{% set showBackLink = true %}
 
-{% set title = "Reset your security word" %}
+{% set pageHeading = "Change your security word" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
-{% block pageTitle %}
-  {{title}} - GOV.UK
-{% endblock %}
-
-{% block beforeContent %}
-<!-- Determines the navigation -->
-  <div id="profile">
-    {% include "includes/account-nav.html" %}
-  </div>
-
-  <div class="govuk-breadcrumbs">
-    <ol class="govuk-breadcrumbs__list">
-      <li class="govuk-breadcrumbs__list-item">
-        <a class="govuk-breadcrumbs__link" href="account">Home</a>
-      </li>
-      <li class="govuk-breadcrumbs__list-item">
-        <a class="govuk-breadcrumbs__link" href="update-details">
-          Update your details
-        </a>
-      </li>
-
-      <li class="govuk-breadcrumbs__list-item">
-        <!-- <a class="govuk-breadcrumbs__link" href="#"> -->
-          Security word
-        <!-- </a> -->
-      </li>
-    </ol>
-  </div>
-
-
-
-{% endblock %}
 
 {% block content %}
 
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
+	<div class="govuk-grid-column-two-thirds">
 
-    <form action="/account/manage/confirmation" method="post">
-      <div class="govuk-form-group">
-
-        <fieldset class="govuk-fieldset">
-          <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
-            <h1 class="govuk-fieldset__heading">
-              {{title}}
-            </h1>
-          </legend>
-
-          <p class="govuk-body">
-            The word must:
-          </p>
-
-          <ul class="govuk-list govuk-list--bullet">
-            <li>be alphanumeric</li>
-            <li>contain between 6 and 12 characters (not case sensitive)</li>
-            <li>contain no spaces or special characters</li>
-          </ul>
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
 
-          {{ govukInput({
-            id: "securityNum",
-            name: "securityNum",
-            value: data['securityNum'],
-            type: "text",
-            classes: "govuk-!-width-one-third",
-            label: {
-              text: "Your security word"
-            }
-          }) }}
+		
+		<div class="govuk-inset-text">
+			<p>This word must:</p>
+			<ul class="govuk-list govuk-list--bullet">
+				<li>be between 8 and 32 characters long and is not case-sensitive</li>								
+				<li>only contain a combination of letters (A-Z a-z) and numbers (0-9)</li>				
+				<!-- <li>not include special characters ( ‘at’ symbol (@), hyphen (-) ) </li>
+				<li>not include spaces</li>
+				<li>not include 3 repeating characters such as 111 or AAA</li> -->
+			</ul>
 
-          {{ govukCharacterCount({
-            id: "securityHint",
-            name: "securityHint",
-            value: data['securityHint'],
-            classes: "govuk-!-width-two-thirds",
-            maxlength: 100,
-            rows: 2,
-            label: {
-              text: "Your hint question"
-            },
-            hint: {
-              text: "Provide a hint question that will help you remember your security word."
-            }
-          }) }}
+			<p>This word must not contain:</p>
+			<ul class="govuk-list govuk-list--bullet">				
+				<li>spaces</li>
+				<li>special characters ( ‘at’ symbol (@), hyphen (-) ) </li>				
+				<li>more than 2 repeating characters such as 111 or AAA</li>
+			</ul>
+		</div>
 
+		<form action="/account/manage/confirmation" method="post">
+			{{ govukInput({        
+				type: "text",
+				classes: "govuk-!-width-two-thirds",
+				label: {
+					text: "New security word"
+					
+				},
+				name: "registrationMemorableWord",
+				id: "registrationMemorableWord"
+				
+			}) }}
 
-        </fieldset>
-      </div>
+			{{ govukCharacterCount({        	
+				classes: "govuk-!-width-two-thirds",
+				maxlength: 100,				
+				label: {
+					text: "Hint question"
+				},
+				hint: {
+					text: "Tell us a hint question that does not contain your memorable word, but will help you remember what it is."
+				},
+				name: "registrationMemorableHint",
+				id: "registrationMemorableHint"				
+			}) }}
 
-      {{ govukButton({
-        text: "Continue"
-      }) }}
+      		{{ govukButton({
+        		text: "Continue"
+      		}) }}
 
-    </form>
+    	</form>
 
   </div>
 </div>

@@ -26,30 +26,36 @@
                 { href: "/sign-out", text: "Sign out" }
             ] if schoolSignedIn or isAdmin
         }) }}
-{% endblock %}
+    {% endblock %}
 
-{% block beforeContent %}
+    {% block beforeContent %}
     
-    {% if showPhaseBanner != false %}
-        {{ govukPhaseBanner({
-            tag: { text: "Prototype" },
-            html: "This is a prototype. It is not a real service."
-        }) }}
-    {% endif %}
+        {% if showPhaseBanner != false %}
+            {{ govukPhaseBanner({
+                tag: { text: "Prototype" },
+                html: "This is a prototype. It is not a real service."
+            }) }}
+        {% endif %}
 
-    {% if showBackLink != false %}
-        {{ govukBackLink({
-            text: "Back",
-            href: "javascript:history.go(-1)"
-        }) }}
-    {% endif %}
+        {% if showBackLink != false %}
+            {{ govukBackLink({
+                text: "Back",
+                href: "javascript:history.go(-1)"
+            }) }}
+        {% endif %}
 
-    {% block pageNavigation %}{% endblock %}
-    {% block pageBanner %}{% endblock %}
+      
 
-    {% if showProfile == true %}
-        <div id="profile">{% include "includes/account-nav-admin-individual-profile-target.html" %}</div>
-    {% endif %}
+        {% block pageNavigation %}
+
+        {% if showNav == true %}
+        {% include "includes/account-nav.html" %}            
+        {% endif %}
+        
+        {% endblock %}
+        {% block pageBanner %}{% endblock %}
+
+    
 {% endblock %}
 
 
