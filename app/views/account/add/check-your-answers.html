@@ -31,7 +31,52 @@
 
 		{% if data['addSiblingAccountType'] == "Individual" %}
 
+		<h2 class="govuk-heading-m govuk-!-margin-bottom-2">Your details</h2>
+		<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+			<div class="govuk-summary-list__row">
+				<dt class="govuk-summary-list__key">Name</dt>
+				<dd class="govuk-summary-list__value">
+					{{ data['defraIdFirstName'] or 'Chrispee' }} {{ data['defraIdSurname'] or 'Bacon' }}
+				</dd>
+				<dd class="govuk-summary-list__actions">
+					<a class="govuk-link govuk-link--no-visited-state" href="/account/add/personal-name?link=change">Change<span class="govuk-visually-hidden"> your name</span></a>
+				</dd>
+			</div>			
+			
+			{% if data['addSiblingAccountType'] == "Individual" %}
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">Address</dt>
+					<dd class="govuk-summary-list__value">
+						{% if data['addSiblingAddressUK'] == "No" %}
+								{{ data.addSiblingManualAddressLine1 }}
+								<br>{{ data.addSiblingNonUKAddressLine2 }}
+								<br>{{ data.addSiblingNonUKAddressLine3 }}
+								<br>{{ data.addSiblingNonUKAddressLine4 }}
+								<br>{{ data.addSiblingNonUKAddressTownCity }}
+								<br>{{ data.addSiblingNonUKAddressZipCode }}
+								<br>{{ data.addSiblingNonUKAddressCountry }}
+						{% else %}
+							{% if data['addSiblingIndividualAddress'] != "" %}
+								{{ data['addSiblingIndividualAddress'] or 'Top Gun, Mirimar, San Diego' }}					
+							{% else %}
+								{{ data.addSiblingManualAddressLine1 }}
+								<br>{{ data.addSiblingManualAddressLine2 }}
+								<br>{{ data.addSiblingManualAddressLine3 }}
+								<br>{{ data.addSiblingManualAddressLine4 }}
+								<br>{{ data.addSiblingManualAddressTownCity }}
+								<br>{{ data.addSiblingManualAddressZipCode }}
+								<br>{{ data.addSiblingManualAddressCountry }}
+							{% endif %}
+						{% endif %}
+					</dd>
+					<dd class="govuk-summary-list__actions">
+						<a class="govuk-link govuk-link--no-visited-state" href="/account/add/address/postcode?link=change">Change<span class="govuk-visually-hidden"> your address</span></a>
+					</dd>
+				</div>
+			{% endif %}
 
+     
+      	</dl>
 
 		{% else %}
 
