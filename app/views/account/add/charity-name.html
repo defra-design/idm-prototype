@@ -14,15 +14,15 @@
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   
 
 			<p>This is the name registered with 
-			{% if data['registrationCharityLocation'] == "Scotland" %}
+			{% if data['addSiblingCharityLocation'] == "Scotland" %}
 				<a href="https://www.oscr.org.uk/search" target="_blank">the Scottish Charity Regulator (opens in new tab)</a>.</p>
-			{% elif data['registrationCharityLocation'] == "Northern Ireland" %}
+			{% elif data['addSiblingCharityLocation'] == "Northern Ireland" %}
 				<a href="https://www.charitycommissionni.org.uk/charity-search/?pageNumber=1" target="_blank">the Charity Commission for Northern Ireland (opens in new tab)</a>.</p>
 			{% else %}
 				<a href="https://www.gov.uk/find-charity-information" target="_blank">the Charity Commission Service (opens in new tab)</a>.</p>
 			{% endif %}
 		
-    	<form action="/register/address/postcode" method="post">
+    	<form action="/account/add/address/postcode" method="post">
 
 			{{ govukInput({
 				label: {
@@ -30,9 +30,9 @@
 					classes: "govuk-visually-hidden"						
 				},				
 				classes: "govuk-!-width-two-thirds",
-				name: "registrationCharityName",
-				id: "registrationCharityName",
-				value: data['registrationCharityName']
+				name: "addSiblingCharityName",
+				id: "addSiblingCharityName",
+				value: data['addSiblingCharityName']
 			}) }}		
 
       		{{ govukButton({

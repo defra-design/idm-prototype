@@ -4,12 +4,12 @@
 {% set serviceName = "" %}
 
 
-{% if data['registrationAccountType'] == "Individual" %}
+{% if data['addSiblingAccountType'] == "Individual" %}
 	{% set pageHeading = "What’s your postcode?" %}
-{% elif data['registrationOrganisationType'] == "Charity" %}
+{% elif data['addSiblingOrganisationType'] == "Charity" %}
 	{% set pageHeading = "What’s the postcode for the charity’s registered address?" %}
-{% elif data['registrationOrganisationType'] == "Sole trader" %}	
-	{% set pageHeading = "What’s the postcode for your business?" %}
+{% elif data['addSiblingOrganisationType'] == "Sole trader" %}	
+	{% set pageHeading = "What’s the postcode for the business?" %}
 {% else %}
 	{% set pageHeading = "What’s your business’s postcode?" %}
 {% endif %}
@@ -25,30 +25,30 @@
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 		
 		
-		{% if data['registrationAccountType'] != "Individual" %}
-			{% if data['registrationOrganisationType'] != "Charity" %}		
-				<p>This might be your home postcode if you do not have commerical premises.</p>
+		{% if data['addSiblingAccountType'] != "Individual" %}
+			{% if data['addSiblingOrganisationType'] != "Charity" %}		
+				<p>This might be their home postcode if they do not have commerical premises.</p>
 			{% endif %}		
 		{% endif %}		
 		
-        <form action="/register/address/select-address" method="post">
+        <form action="/account/add/address/select-address" method="post">
 
-			{% if data['registrationAccountType'] == "Individual" %}
+			{% if data['addSiblingAccountType'] == "Individual" %}
 
 				{{ govukInput({
 					label: { text: pageHeading, classes: "govuk-visually-hidden" },					
 					classes: "govuk-input--width-10",
-					name: "registrationIndividualPostcode"
+					name: "addSiblingIndividualPostcode"
 				}) }}
 
-			{% elif data['registrationOrganisationType'] == "Charity" %}
+			{% elif data['addSiblingOrganisationType'] == "Charity" %}
 
 				{{ govukInput({
 					label: { text: pageHeading, classes: "govuk-visually-hidden" },					
 					classes: "govuk-input--width-10",
-					name: "registrationCharityPostcode",
-					id: "registrationCharityPostcode",
-					value: data['registrationCharityPostcode']
+					name: "addSiblingCharityPostcode",
+					id: "addSiblingCharityPostcode",
+					value: data['addSiblingCharityPostcode']
 				}) }}
 
 
@@ -57,9 +57,9 @@
 				{{ govukInput({
 					label: { text: pageHeading, classes: "govuk-visually-hidden" },					
 					classes: "govuk-input--width-10",
-					name: "registrationSoleTraderPostcode",
-					id: "registrationSoleTraderPostcode",
-					value: data['registrationSoleTraderPostcode']
+					name: "addSiblingSoleTraderPostcode",
+					id: "addSiblingSoleTraderPostcode",
+					value: data['addSiblingSoleTraderPostcode']
 				}) }}
 
 			{% endif %}
@@ -70,7 +70,7 @@
             }) }}
             
 
-            <a class="govuk-link" href="/register/address/add-address-manual">Enter your address manually</a>
+            <a class="govuk-link" href="/account/add/address/add-address-manual">Enter the address manually</a>
 
 		</div>
 

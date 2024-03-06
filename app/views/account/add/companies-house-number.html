@@ -1,0 +1,47 @@
+{% extends "/layouts/main.html" %}
+{% set showBackLink = true %}
+{% set serviceName = "" %}
+
+{% set pageHeading = "What’s their company registration number?" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+	
+
+			
+		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   
+
+		<p>You can <a class="govuk-link" href="https://find-and-update.company-information.service.gov.uk/" target="_blank">search Companies House for their company registration number (opens in new tab)</a>.</p>
+
+		<form method="post" action="/account/add/companies-house-confirm">				
+
+			{{ govukInput({
+				label: {
+					text: pageHeading,
+					classes: "govuk-visually-hidden"
+				},
+				hint: {
+					text: "It is 8 characters. For example, 01234567 or AC012345."
+				},
+				classes: "govuk-input--width-10",
+				name: "addSiblingCompanyNumber",
+				id: "addSiblingCompanyNumber",
+				value: data['addSiblingCompanyNumber']
+			}) }}
+
+
+      		{{ govukButton({
+        		text: "Continue"
+      		}) }}
+
+    	</form>
+
+  	</div>	
+</div>
+
+{% endblock %}

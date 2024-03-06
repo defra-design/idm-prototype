@@ -3,9 +3,9 @@
 {% set serviceName = "" %}
 
 
-{% if data['registrationAccountType'] == "Individual" %}
+{% if data['addSiblingAccountType'] == "Individual" %}
 	{% set pageHeading = "What’s your address?" %} 
-{% elif data['registrationTradeUK'] == "No" %}
+{% elif data['addSiblingTradeUK'] == "No" %}
 	{% set pageHeading = "What’s the business’s address?" %}
 {% else %}
 	{% set pageHeading = "What’s {Charity Name}’s telephone and email address?" %}
@@ -31,21 +31,21 @@
 
 		{% else %}
 
-      		{% if data['registrationTradeUK'] == "No" %}
-	  		<form action="/register/company-contact" method="post" class="form">
+      		{% if data['addSiblingTradeUK'] == "No" %}
+	  		<form action="/account/add/company-contact" method="post" class="form">
 
-			{% elif data['registrationAddressUK'] == "No" %}
-				<form action="/register/personal-security" method="post" class="form">
+			{% elif data['addSiblingAddressUK'] == "No" %}
+				<form action="/account/add/personal-security" method="post" class="form">
 
       		{% else %}
-        	<form action="/register/personal-security" method="post" class="form">
+        	<form action="/account/add/personal-security" method="post" class="form">
       		{% endif %}
 
     	{% endif %}
 
 
 		
-			{% if ((data['registrationTradeUK'] == "No") or (data['registrationAddressUK'] == "No")) %}
+			{% if ((data['addSiblingTradeUK'] == "No") or (data['addSiblingAddressUK'] == "No")) %}
 
 			
 				{% call govukFieldset({
@@ -63,9 +63,9 @@
 						hint: {
 							text: "For example, building name or sub-building name"
 						},
-						name: "registrationNonUKAddressLine1",
-						id: "registrationNonUKAddressLine1",
-						value: data['registrationNonUKAddressLine1']
+						name: "addSiblingNonUKAddressLine1",
+						id: "addSiblingNonUKAddressLine1",
+						value: data['addSiblingNonUKAddressLine1']
 
 					}) }}
 				
@@ -73,18 +73,18 @@
 						label: {
 							text: "Address line 2 (optional)"
 						},
-						name: "registrationNonUKAddressLine2",
-						id: "registrationNonUKAddressLine2",
-						value: data['registrationNonUKAddressLine2']									
+						name: "addSiblingNonUKAddressLine2",
+						id: "addSiblingNonUKAddressLine2",
+						value: data['addSiblingNonUKAddressLine2']									
 					}) }}
 
 					{{ govukInput({
 						label: {
 							text: "Address line 3 (optional)"
 						},
-						name: "registrationNonUKAddressLine3",
-						id: "registrationNonUKAddressLine3",
-						value: data['registrationNonUKAddressLine3']									
+						name: "addSiblingNonUKAddressLine3",
+						id: "addSiblingNonUKAddressLine3",
+						value: data['addSiblingNonUKAddressLine3']									
 					}) }}
 
 
@@ -92,9 +92,9 @@
 						label: {
 							text: "Address line 4 (optional)"
 						},
-						name: "registrationNonUKAddressLine4",
-						id: "registrationNonUKAddressLine4",
-						value: data['registrationNonUKAddressLine4']										
+						name: "addSiblingNonUKAddressLine4",
+						id: "addSiblingNonUKAddressLine4",
+						value: data['addSiblingNonUKAddressLine4']										
 					}) }}
 				
 					{{ govukInput({
@@ -102,9 +102,9 @@
 							text: "Town or city"
 						},						
 						classes: "govuk-!-width-two-thirds",
-						name: "registrationNonUKAddressTownCity",
-						id: "registrationNonUKAddressTownCity",
-						value: data['registrationNonUKAddressTownCity']
+						name: "addSiblingNonUKAddressTownCity",
+						id: "addSiblingNonUKAddressTownCity",
+						value: data['addSiblingNonUKAddressTownCity']
 					}) }}
 								
 				
@@ -113,17 +113,17 @@
 							text: "Zip or postal code"
 						},						
 						classes: "govuk-input--width-10",
-						name: "registrationNonUKAddressZipCode",
-						id: "registrationNonUKAddressZipCode",
-						value: data['registrationNonUKAddressZipCode']
+						name: "addSiblingNonUKAddressZipCode",
+						id: "addSiblingNonUKAddressZipCode",
+						value: data['addSiblingNonUKAddressZipCode']
 					}) }}				
 
 					<div class="govuk-form-group">
-						<label class="govuk-label" for="registrationNonUKAddressCountry">
+						<label class="govuk-label" for="addSiblingNonUKAddressCountry">
 						Country
 						</label>
 						
-						<select class="govuk-select" id="registrationNonUKAddressCountry" name="registrationNonUKAddressCountry">
+						<select class="govuk-select" id="addSiblingNonUKAddressCountry" name="addSiblingNonUKAddressCountry">
 						<option value="Default">Select a country</option>
 						<!-- country dropdowns -->
 						<option value="AFG">Afghanistan</option>
@@ -380,7 +380,7 @@
 		
 				{% endcall %}
 
-			{% elif data['registrationAddressUK'] == "Yes" %}
+			{% elif data['addSiblingAddressUK'] == "Yes" %}
 				
 
 				{% call govukFieldset({
@@ -395,7 +395,7 @@
 						label: {
 							text: "Address line 1"
 						},
-						name: "registrationManualAddressLine1"
+						name: "addSiblingManualAddressLine1"
 						
 					}) }}
 				
@@ -403,14 +403,14 @@
 						label: {
 							text: "Address line 2 (optional)"
 						},
-						name: "registrationManualAddressLine2"
+						name: "addSiblingManualAddressLine2"
 					}) }}
 
 					{{ govukInput({
 						label: {
 							text: "Address line 3 (optional)"
 						},
-						name: "registrationManualAddressLine3"
+						name: "addSiblingManualAddressLine3"
 					}) }}
 
 
@@ -418,7 +418,7 @@
 						label: {
 							text: "Address line 4 (optional)"
 						},
-						name: "registrationManualAddressLine4"
+						name: "addSiblingManualAddressLine4"
 					}) }}
 				
 					{{ govukInput({
@@ -427,7 +427,7 @@
 						},
 						
 						classes: "govuk-!-width-two-thirds",
-						name: "registrationManualAddressTownCity"
+						name: "addSiblingManualAddressTownCity"
 					}) }}
 				
 					{{ govukInput({
@@ -435,7 +435,7 @@
 							text: "County (optional)"
 						},
 						classes: "govuk-!-width-two-thirds",
-						name: "registrationManualAddressCounty"
+						name: "addSiblingManualAddressCounty"
 					}) }}
 				
 					{{ govukInput({
@@ -444,7 +444,7 @@
 						},
 						
 						classes: "govuk-input--width-10",
-						name: "registrationManualAddressPostCode"
+						name: "addSiblingManualAddressPostCode"
 					}) }}
 			
 				{% endcall %}
@@ -497,14 +497,14 @@
 					label: {
 						text: "Address line 1"
 					},
-					name: "registrationManualAddressLine1"
+					name: "addSiblingManualAddressLine1"
 				}) }}
 			
 				{{ govukInput({
 					label: {
 						text: "Address line 2 (optional)"
 					},
-					name: "registrationManualAddressLine2"
+					name: "addSiblingManualAddressLine2"
 				}) }}
 			
 				{{ govukInput({
@@ -512,7 +512,7 @@
 						text: "Town or city"
 					},
 					classes: "govuk-!-width-two-thirds",
-					name: "registrationManualAddressTownCity"
+					name: "addSiblingManualAddressTownCity"
 				}) }}
 			
 				{{ govukInput({
@@ -521,15 +521,15 @@
 					},
 					
 					classes: "govuk-input--width-10",
-					name: "registrationManualAddressPostCode"
+					name: "addSiblingManualAddressPostCode"
 				}) }}
 
 				<div class="govuk-form-group">
-					<label class="govuk-label" for="registrationManualAddressCountry">
+					<label class="govuk-label" for="addSiblingManualAddressCountry">
 					  Country
 					</label>
 					
-					<select class="govuk-select" id="registrationManualAddressCountry" name="registrationManualAddressCountry">
+					<select class="govuk-select" id="addSiblingManualAddressCountry" name="addSiblingManualAddressCountry">
 					  <option value="Default">Select a country</option>
 					  <!-- country dropdowns -->
 					  <option value="AFG">Afghanistan</option>

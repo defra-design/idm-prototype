@@ -2,7 +2,7 @@
 {% set showBackLink = true %}
 {% set serviceName = "" %}
 
-{% set pageHeading = "What kind of business or organisation are you?" %}
+{% set pageHeading = "What kind of business or organisation are they?" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -13,18 +13,18 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   
 
-    	<form method="post" action="/register/charity-location">
+    	<form method="post" action="/account/add/charity-location">
 
 			{{ govukRadios({
                 fieldset: {
                     legend: { text: pageHeading, isPageHeading: false, classes: "govuk-visually-hidden"  }
                 },
                 items: [
-                    { value: "Charity", text: 'Charity', checked: checked ('registrationOrganisationType','Charity') },
-                    { value: "Sole trader~/register/personal-name", text: 'Sole trader', checked: checked ('registrationOrganisationType','Sole trader')   }					
+                    { value: "Charity", text: 'Charity', checked: checked ('addSiblingOrganisationType','Charity') },
+                    { value: "Sole trader~/account/add/business-name", text: 'Sole trader', checked: checked ('addSiblingOrganisationType','Sole trader')   }					
                 ],
-                name: "registrationOrganisationType",
-                id: "registrationOrganisationType"
+                name: "addSiblingOrganisationType",
+                id: "addSiblingOrganisationType"
                 
             }) }}
 
@@ -33,7 +33,7 @@
                 {{govukButton({
                     text: "Continue"
                 })}}
-                <a class="govuk-link" href="#">We are not a charity or sole trader</a>
+                <a class="govuk-link" href="#">They are not a charity or sole trader</a>
             </div>        
         </form>
 

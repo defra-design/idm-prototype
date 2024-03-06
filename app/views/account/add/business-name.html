@@ -3,8 +3,8 @@
 {% set serviceName = "" %}
 
 
-{% if data['registrationOrganisationType'] == "Sole trader" %}
-	{% set pageHeading = "What is the name of your business?" %}
+{% if data['addSiblingOrganisationType'] == "Sole trader" %}
+	{% set pageHeading = "What is the name of the business?" %}
 {% else %}
 	{% set pageHeading = "What is the name of the business?" %}
 {% endif %}
@@ -20,20 +20,20 @@
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   
 
 
-		{% if data['registrationOrganisationType'] == "Sole trader" %}
-		<p class="govuk-body">Your business may be trading under your own name or a name you have chosen.</p>
+		{% if data['addSiblingOrganisationType'] == "Sole trader" %}
+		<p class="govuk-body">The business may be trading under a personal name or a name you have chosen.</p>
 		{% else %}
-		<p class="govuk-body">Your business may be trading under your own name or a name you have chosen.</p>
+		<p class="govuk-body">The business may be trading under a personal name or a name you have chosen.</p>
 		{% endif %}
 
-		{% if data['registrationOrganisationType'] == "Sole trader" %}
-			<form method="post" action="/register/address/postcode">
+		{% if data['addSiblingOrganisationType'] == "Sole trader" %}
+			<form method="post" action="/account/add/address/postcode">
 		{% else %}
-    		<form method="post" action="/register/address/add-address-manual">
+    		<form method="post" action="/account/add/address/add-address-manual">
 		{% endif %}
 
 
-			{% if data['registrationTradeUK'] == "No" %}
+			{% if data['addSiblingTradeUK'] == "No" %}
 
 				{{ govukInput({
 					label: {
@@ -41,13 +41,13 @@
 						classes: "govuk-visually-hidden"						
 					},						
 					classes: "govuk-!-width-two-thirds",
-					name: "registrationNonUkName",
-					id: "registrationNonUkName",
-					value: data['registrationNonUkName']
+					name: "addSiblingNonUkName",
+					id: "addSiblingNonUkName",
+					value: data['addSiblingNonUkName']
 				}) }}
 
 
-			{% elif data['registrationOrganisationType'] == "Sole trader" %}
+			{% elif data['addSiblingOrganisationType'] == "Sole trader" %}
 
 				{{ govukInput({
 					label: {
@@ -55,9 +55,9 @@
 						classes: "govuk-visually-hidden"						
 					},						
 					classes: "govuk-!-width-two-thirds",
-					name: "registrationSoleTraderName",
-					id: "registrationSoleTraderName",
-					value: data['registrationSoleTraderName']
+					name: "addSiblingSoleTraderName",
+					id: "addSiblingSoleTraderName",
+					value: data['addSiblingSoleTraderName']
 				}) }}
 
 			{% else %}
@@ -68,9 +68,9 @@
 						classes: "govuk-visually-hidden"						
 					},						
 					classes: "govuk-!-width-two-thirds",
-					name: "registrationBusinessName",
-					id: "registrationBusinessName",
-					value: data['registrationBusinessName']
+					name: "addSiblingBusinessName",
+					id: "addSiblingBusinessName",
+					value: data['addSiblingBusinessName']
 				}) }}
 
 			{% endif %}

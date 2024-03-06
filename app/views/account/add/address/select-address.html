@@ -1,0 +1,103 @@
+{% extends "/layouts/main.html" %}
+{% set showBackLink = true %}
+{% set serviceName = "" %}
+
+{% if data['addSiblingAccountType'] == "Individual" %}
+    {% set pageHeading = "Select your address" %}
+{% elif data['addSiblingOrganisationType'] == "Sole trader" %}
+    {% set pageHeading = "Select your address" %}
+{% else %}
+    {% set pageHeading = "Select their address" %}
+{% endif %}
+
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">        
+
+        
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+
+        
+
+            <div class="govuk-inset-text">
+            <p class="govuk-body">We found the following addresses for postcode <span class="govuk-!-font-weight-bold">{{ data['addSiblingIndividualPostcode'] or data['addSiblingCharityPostcode'] or "SW19 5JA" }}</span>.</p>
+            <p><a href="/account/add/address/postcode" class="govuk-link govuk-link--no-visited-state">Change postcode</a></p>
+            </div>
+                        
+            {% if data['addSiblingAccountType'] == "Individual" %}
+                <form action="/account/add/personal-security" method="post" class="form">
+            {% else %}
+            <form action="/account/add/company-contact" method="post" class="form">
+            {% endif %}
+
+
+                {% if data['addSiblingOrganisationType'] == "Sole trader" %}
+
+
+                {{ govukSelect({                
+                    fieldset: {
+                        legend: { text: "Select the address", isPageHeading: false, classes: "govuk-visually-hidden"  }
+                    },
+                    items: [                        
+                        { value: "", text: "3 addresses found", checked: checked("addSiblingSoleTraderAddress", "") },    
+                        { value: "Clifton House, Clifton Road, LONDON SW19 5JA", text: "Clifton House, Clifton Road, LONDON SW19 5JA", checked: checked("addSiblingSoleTraderAddress", "Single") },
+                        { value: "2a, Clifton House, Clifton Road, LONDON SW19 5JA", text: "2a, Clifton House, Clifton Road, LONDON SW19 5JA", checked: checked("addSiblingSoleTraderAddress", "20") },
+                        { value: "2b, Clifton House, Clifton Road, LONDON SW19 5JA", text: "2b, Clifton House, Clifton Road, LONDON SW19 5JA", checked: checked("addSiblingSoleTraderAddress", "45") }
+                    ],
+                    name: "addSiblingSoleTraderAddress"
+                }) }}
+
+                {% elif data['addSiblingOrganisationType'] == "Charity" %}
+
+
+                {{ govukSelect({                
+                    fieldset: {
+                        legend: { text: "Select the address", isPageHeading: false, classes: "govuk-visually-hidden"  }
+                    },
+                    items: [                        
+                        { value: "", text: "3 addresses found", checked: checked("addSiblingSoleTraderAddress", "") },    
+                        { value: "Clifton House, Clifton Road, LONDON SW19 5JA", text: "Clifton House, Clifton Road, LONDON SW19 5JA", checked: checked("addSiblingSoleTraderAddress", "Single") },
+                        { value: "2a, Clifton House, Clifton Road, LONDON SW19 5JA", text: "2a, Clifton House, Clifton Road, LONDON SW19 5JA", checked: checked("addSiblingSoleTraderAddress", "20") },
+                        { value: "2b, Clifton House, Clifton Road, LONDON SW19 5JA", text: "2b, Clifton House, Clifton Road, LONDON SW19 5JA", checked: checked("addSiblingSoleTraderAddress", "45") }
+                    ],
+                    name: "addSiblingCharityAddress"
+                }) }}
+
+
+                {% else %}
+
+                {{ govukSelect({                
+                    fieldset: {
+                        legend: { text: "Select the address", isPageHeading: false, classes: "govuk-visually-hidden"  }
+                    },
+                    items: [                        
+                        { value: "", text: "", checked: checked("companySize", "Single") },    
+                        { value: "Clifton House, Clifton Road, LONDON SW19 5JA", text: "Clifton House, Clifton Road, LONDON SW19 5JA", checked: checked("companySize", "Single") },
+                        { value: "2a, Clifton House, Clifton Road, LONDON SW19 5JA", text: "2a, Clifton House, Clifton Road, LONDON SW19 5JA", checked: checked("companySize", "20") },
+                        { value: "2b, Clifton House, Clifton Road, LONDON SW19 5JA", text: "2b, Clifton House, Clifton Road, LONDON SW19 5JA", checked: checked("companySize", "45") }
+                    ],
+                    name: "addSiblingIndividualAddress"
+                }) }}
+                
+                {% endif %}
+
+                <div class="govuk-button-group">
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+
+                <a href="/account/add/address/add-address-manual" class="govuk-link govuk-link--no-visited-state">The address is not in the list</a>
+
+                </div>
+
+        
+        </form>
+    </div>    
+</div>
+
+{% endblock %}

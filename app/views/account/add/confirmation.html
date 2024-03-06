@@ -1,0 +1,59 @@
+{% extends "/layouts/main.html" %}
+{% set showBackLink = false %}
+{% set serviceName = "" %}
+
+
+{% set pageHeading = "Account has been added" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">        
+
+        {{ govukPanel({
+            titleText: pageHeading
+        }) }}
+
+        <p class="govuk-body">The account [account name] has been added and will now be shown on Your Defra account page.</p>
+
+        <h3 class="govuk-heading-m">What you can do next</h3>
+
+        <p class="govuk-body">The following services are available for you to register this account with.</p>
+        <ul class="govuk-list">
+            <li><a class="govuk-link" href="/service-start-logged-out-VMD?userType=existing&serviceLine=VMD Secure Messaging">VMD Secure Messaging</a></li>
+            <li><a class="govuk-link" href="/service-start-logged-out-imports?userType=existing&serviceLine=Notification service">Notification service</a></li>
+            <li><a class="govuk-link" href="/service-start-logged-out?userType=existing&serviceLine=Comply with UK REACH">Comply with UK REACH</a></li>
+            <li><a class="govuk-link" href="#">An Other Service</a></li>
+        </ul>
+
+        <p class="govuk-body"><a href="/account/" class="govuk-link">Continue without registering a service</a></p>
+
+        <!-- {% if data['addSiblingAccountType'] == "Individual" %}
+            {{ govukButton({
+                text: "Continue",
+                href: "/archived/manage/team-members/services-on-team-member-admin-account_onlyrep?orgName=Ann Cooper (you)"
+            }) }}
+        
+        {% else %}
+
+            {% if data['addAccount'] == "account" %}
+                {{ govukButton({
+                    text: "Continue to account",
+                    href: "/archived/manage/dashboard-all?orgName=Chemicals R Us&numUsers=1&numAgents=0&numServices=0&numLocations=1&multiOrg=no&parentChild=parent"
+                }) }}
+            {% endif %}
+            {% if data['addAccount'] == "related" %}
+                {{ govukButton({
+                    text: "Continue to account",
+                    href: "/archived/manage/dashboard-child?childName=Acme Org China &numUsers=1&numAgents=0&numServices=1&multiOrg=yes&parentChild=child#rel-org"
+                }) }}
+            {% endif %}
+
+        {% endif %} -->
+
+  </div>
+</div>
+
+{% endblock %}

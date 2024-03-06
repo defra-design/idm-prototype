@@ -3,9 +3,9 @@
 {% set serviceName = "" %}
 
 
-{% if data['registrationOrganisationType'] == "Sole trader" %}
-    {% set pageHeading = "What’s your business’s telephone number and email address?" %}
-{% elif data['registrationOrganisationType'] == "Charity" %}
+{% if data['addSiblingOrganisationType'] == "Sole trader" %}
+    {% set pageHeading = "What’s the business’s telephone number and email address?" %}
+{% elif data['addSiblingOrganisationType'] == "Charity" %}
     {% set pageHeading = "What’s the charity’s telephone number and email address?" %}
 {% else %}
     {% set pageHeading = "What’s the business’s telephone number and email address?" %}
@@ -21,10 +21,10 @@
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   
         
 
-        {% if data['registrationOrganisationType'] == "Sole trader" %}
-            <form action="/register/personal-security" method="post">
+        {% if data['addSiblingOrganisationType'] == "Sole trader" %}
+            <form action="/account/add/check-your-answers" method="post">
         {% else %}
-            <form action="/register/personal-name" method="post">
+            <form action="/account/add/check-your-answers" method="post">
         {% endif %}
 
         <!-- <p>These could be from the website, or for the head office or management team.</p> -->
@@ -32,7 +32,7 @@
                 
 
         
-        {% if data['registrationTradeUK'] == "No" %}
+        {% if data['addSiblingTradeUK'] == "No" %}
 
             {{ govukInput({
                 label: {
@@ -44,9 +44,9 @@
                     text: "For international numbers include the country code."
                 },
                 type: "tel",
-                name: "registrationNonUkPhone",
-                id: "registrationNonUkPhone",
-                value: data['registrationNonUkPhone']
+                name: "addSiblingNonUkPhone",
+                id: "addSiblingNonUkPhone",
+                value: data['addSiblingNonUkPhone']
             }) }}           
 
             {{ govukInput({
@@ -56,14 +56,14 @@
                 },                
                 classes: "govuk-!-width-two-thirds",
                 type: "email",
-                name: "registrationNonUkEmail",
-                id: "registrationNonUkEmail",
-                value: data['registrationNonUkEmail']
+                name: "addSiblingNonUkEmail",
+                id: "addSiblingNonUkEmail",
+                value: data['addSiblingNonUkEmail']
             }) }}
         
         
         
-        {% elif data['registrationOrganisationType'] == "Sole trader" %}
+        {% elif data['addSiblingOrganisationType'] == "Sole trader" %}
 
             {{ govukInput({
                 label: {
@@ -72,9 +72,9 @@
                 },                
                 classes: "govuk-!-width-two-thirds",
                 type: "tel",
-                name: "registrationSoleTraderPhone",
-                id: "registrationSoleTraderPhone",
-                value: data['registrationSoleTraderPhone']
+                name: "addSiblingSoleTraderPhone",
+                id: "addSiblingSoleTraderPhone",
+                value: data['addSiblingSoleTraderPhone']
             }) }}           
 
             {{ govukInput({
@@ -84,12 +84,12 @@
                 },                
                 classes: "govuk-!-width-two-thirds",
                 type: "email",
-                name: "registrationSoleTraderEmail",
-                id: "registrationSoleTraderEmail",
-                value: data['registrationSoleTraderEmail']
+                name: "addSiblingSoleTraderEmail",
+                id: "addSiblingSoleTraderEmail",
+                value: data['addSiblingSoleTraderEmail']
             }) }}
 
-        {% elif data['registrationOrganisationType'] == "Charity" %}
+        {% elif data['addSiblingOrganisationType'] == "Charity" %}
 
             {{ govukInput({
                 label: {
@@ -98,9 +98,9 @@
                 },                
                 classes: "govuk-!-width-two-thirds",
                 type: "tel",
-                name: "registrationCharityPhone",
-                id: "registrationCharityPhone",
-                value: data['registrationCharityPhone']
+                name: "addSiblingCharityPhone",
+                id: "addSiblingCharityPhone",
+                value: data['addSiblingCharityPhone']
             }) }}           
 
             {{ govukInput({
@@ -110,9 +110,9 @@
                 },                
                 classes: "govuk-!-width-two-thirds",
                 type: "email",
-                name: "registrationCharityEmail",
-                id: "registrationCharityEmail",
-                value: data['registrationCharityEmail']
+                name: "addSiblingCharityEmail",
+                id: "addSiblingCharityEmail",
+                value: data['addSiblingCharityEmail']
             }) }}
 
 
@@ -126,9 +126,9 @@
                 },                
                 classes: "govuk-!-width-two-thirds",
 				type: "tel",
-                name: "registrationPhone",                
-                id: "registrationPhone",
-                value: data['registrationPhone']
+                name: "addSiblingPhone",                
+                id: "addSiblingPhone",
+                value: data['addSiblingPhone']
             }) }}           
 
             {{ govukInput({
@@ -138,9 +138,9 @@
                 },                
                 classes: "govuk-!-width-two-thirds",
 				type: "email",
-                name: "registrationEmail",
-                id: "registrationEmail",
-                value: data['registrationEmail']
+                name: "addSiblingEmail",
+                id: "addSiblingEmail",
+                value: data['addSiblingEmail']
             }) }}
             
         {% endif %}

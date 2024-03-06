@@ -13,7 +13,7 @@
 		
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   		
 
-		<form method="post" action="/register/charity-name">  		
+		<form method="post" action="/account/add/charity-name">  		
 
 			{% set englandAndWalesHtml %}
 
@@ -27,9 +27,9 @@
 					},
 					classes: "govuk-!-width-one-third",
 					type: "number",
-					name: "registrationCharityNumber",
-					id: "registrationCharityNumber",
-					value: data['registrationCharityNumber']
+					name: "addSiblingCharityNumber",
+					id: "addSiblingCharityNumber",
+					value: data['addSiblingCharityNumber']
 				}) }}
 				
 			{% endset -%}
@@ -46,9 +46,9 @@
 					},
 					classes: "govuk-!-width-one-third",
 					type: "number",
-					name: "registrationCharityNumber",
-					id: "registrationCharityNumber",
-					value: data['registrationCharityNumber']
+					name: "addSiblingCharityNumber",
+					id: "addSiblingCharityNumber",
+					value: data['addSiblingCharityNumber']
 				}) }}
 
 			{% endset -%}
@@ -65,9 +65,9 @@
 					},
 					classes: "govuk-!-width-one-third",
 					type: "number",
-					name: "registrationCharityNumber",
-					id: "registrationCharityNumber",
-					value: data['registrationCharityNumber']
+					name: "addSiblingCharityNumber",
+					id: "addSiblingCharityNumber",
+					value: data['addSiblingCharityNumber']
 				}) }}
 
 			{% endset -%}
@@ -77,12 +77,12 @@
                     legend: { text: pageHeading, isPageHeading: false, classes: "govuk-visually-hidden"  }
                 },
                 items: [
-                    { value: "England and Wales", text: 'England and Wales', conditional: { html: englandAndWalesHtml }, checked: checked ('registrationCharityLocation' , 'England and Wales') },
-					{ value: "Scotland", text: 'Scotland', conditional: { html: scotlandHtml }, checked: checked ('registrationCharityLocation' , 'Scotland') },
-					{ value: "Northern Ireland", text: 'Northern Ireland', conditional: { html: northernIrelandHtml }, checked: checked ('registrationCharityLocation' , 'Northern Ireland') }                    
+                    { value: "England and Wales", text: 'England and Wales', conditional: { html: englandAndWalesHtml }, checked: checked ('addSiblingCharityLocation' , 'England and Wales') },
+					{ value: "Scotland", text: 'Scotland', conditional: { html: scotlandHtml }, checked: checked ('addSiblingCharityLocation' , 'Scotland') },
+					{ value: "Northern Ireland", text: 'Northern Ireland', conditional: { html: northernIrelandHtml }, checked: checked ('addSiblingCharityLocation' , 'Northern Ireland') }                    
                 ],
-				name: "registrationCharityLocation",
-				id: "registrationCharityLocation"
+				name: "addSiblingCharityLocation",
+				id: "addSiblingCharityLocation"
             }) }}
        
 
