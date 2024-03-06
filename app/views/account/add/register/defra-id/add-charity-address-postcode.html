@@ -1,0 +1,61 @@
+{% extends "/layouts/main.html" %}
+{% set serviceName = "Defra account" %}
+
+{% set title = "What is the registered address?" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+      <form action="select-charity-address" method="post">
+
+        <h1 class="govuk-heading-xl govuk-!-margin-bottom-3">{{title}}</h1>
+
+        <!-- <div class="govuk-form-group">
+          <label class="govuk-label" for="width-20">
+            Building number or name
+            <span class="govuk-hint">
+              For example, Flat 20A
+             </span>
+          </label>
+          <input class="govuk-input govuk-input--width-20" id="building-number" name="building-number" type="text">
+        </div> -->
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="width-20">
+            Enter the UK postcode
+            <span class="govuk-hint">
+              This should be the postcode of the registered charity’s address
+             </span>
+          </label>
+          <input class="govuk-input govuk-input--width-20" id="postcode" name="postcode" type="text">
+        </div>
+
+        <button class="govuk-button" data-module="govuk-button">
+          Find address
+        </button>
+
+        <p class="govuk-body">
+          <a class="govuk-link" href="add-address-manual">
+            Enter the address manually
+          </a>
+        </p>
+
+      </form>
+
+  </div>
+</div>
+
+{% endblock %}

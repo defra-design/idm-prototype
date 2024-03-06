@@ -1,0 +1,26 @@
+{% extends "/layouts/main.html" %}
+{% set showBackLink = false %}
+{% set serviceName = "" %}
+
+{% set pageHeading = "You cannot continue" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   
+		
+		<div class="govuk-inset-text">
+			<p class="govuk-body">We must use the address that is registered with Companies House.</p>
+		</div>
+		<p>If your registered address has changed then you must<a href="https://www.gov.uk/file-changes-to-a-company-with-companies-house" target="_blank"> tell Companies House (opens in new tab)</a>.</p>
+	
+      	<p class="govuk-body">Once Companies House have updated your details you can return and continue your registration providing it is within 3 days of your last login.</p>
+			
+  </div>
+</div>
+
+{% endblock %}

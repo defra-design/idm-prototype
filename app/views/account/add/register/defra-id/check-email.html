@@ -1,0 +1,70 @@
+{% extends "/layouts/main.html" %}
+
+{% set serviceName = "Government Gateway" %}
+
+{% set title = "Enter code to confirm your email address" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<!-- If the user hasn't typed an email, make one up.
+{% if data['govGateEmail'] %}
+  {% set govGateEmail = data['govGateEmail'] %}
+{% else %}
+  {% set govGateEmail = 'samwoods@company.co.uk' %}
+{% endif %}
+-->
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">{{ title }}</h1>
+    <p>We have sent a code to: <strong>{{ data['govGateEmail'] or 'samwoods@company.co.uk' }}</strong></p>
+
+    {{ govukWarningText({
+      text: "If you use a browser to access your email, you may need to open a new window or tab to see the code.",
+      iconFallbackText: "Warning"
+    }) }}
+
+    <form action="email-confirmed" method="post">
+
+      {{ govukInput({
+        label: {
+          text: "Confirmation code"
+        },
+        hint: {
+          html: "For example, DNCLRK"
+        },
+        classes: "govuk-!-width-one-half",
+        id: "govGateEmailCode",
+        name: "govGateEmailCode"
+      }) }}
+
+      {{ govukDetails({
+        summaryText: "I have not received the email",
+        html: '<p>The email may take a few minutes to arrive. Its subject line is: ‘Confirm your email address - Government Gateway’.</p>
+        <p>Check your spam or junk folder – if it still has not arrived, you can <a href="#">request a new code</a> or <a href="#">provide another email address</a>.</p>'
+      }) }}
+
+      {{ govukButton({
+        text: "Confirm"
+      }) }}
+
+    </form>
+
+    {% include "includes/get-help.html" %}
+
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,82 @@
+{% extends "/layouts/main.html" %}
+{% set showBackLink = true %}
+{% set serviceName = "" %}
+
+{% set pageHeading = "What’s your telephone number?" %}
+
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}        
+
+		{% if data['registrationOrganisationType'] == "charity" %}
+		<form method="post" action="task-list-page-charity-details?contact-details-completed=y">
+		{% elif data['registrationOrganisationType'] == "Sole trader" %}
+		<form method="post" action="/register/business-name">
+		{% else %}
+			{% if data['registrationAccountType'] == "Individual" %}
+
+				{% if data['registrationAddressUK'] == "Yes" %}	
+					<form method="post" action="/register/address/postcode">
+				{% else %}
+					<form method="post" action="/register/address/add-address-manual">
+				{% endif %}
+			{% else %}	
+				<form method="post" action="/register/personal-security">
+			{% endif %}
+		{% endif %}
+
+		<p>We ask for this in case we need to call you directly with any queries about your registration.</p>
+
+			{% if data['registrationAddressUK'] == "Yes" %}
+			
+				{{ govukInput({
+					label: {
+						text: title,
+						classes: "govuk-label--xl",
+						isPageHeading: true
+					},				
+					classes: "govuk-!-width-two-thirds",			
+					type: "tel",
+					name: "registrationContactPhonePersonal",
+					id: "registrationContactPhonePersonal",
+					value: data['registrationContactPhonePersonal']
+				}) }}
+
+			{% else %}
+
+				{{ govukInput({
+					label: {
+						text: title,
+						classes: "govuk-label--xl",
+						isPageHeading: true
+					},
+					hint: {
+						text: "For international numbers include the country code."
+					},		
+					classes: "govuk-!-width-two-thirds",			
+					type: "tel",
+					name: "registrationContactPhonePersonal",
+					id: "registrationContactPhonePersonal",
+					value: data['registrationContactPhonePersonal']
+				}) }}
+
+			{% endif %}
+		
+    
+			{{ govukButton({
+				text: "Continue"
+			}) }}
+
+    	</form>
+
+  	</div>  	
+</div>
+
+{% endblock %}

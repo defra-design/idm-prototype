@@ -1,0 +1,61 @@
+{% extends "/layouts/main.html" %}
+{% set showBackLink = true %}
+{% set serviceName = "" %}
+
+{% set pageHeading = "Create your security word" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">        
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+        <form method="post" action="/register/task-list-page-about-you-details?personal-security=completed">
+
+           
+
+            <p>Your security word helps us to verify your identity if you need to contact us.</p>
+            <p>The word must:</p>
+            <ul class="govuk-list govuk-list--bullet">
+                <li>be alphanumeric</li>
+                <li>contain between 6 and 12 characters (not case sensitive)</li>
+                <li>contain no spaces or special characters</li>
+            </ul>
+
+            {{ govukInput({                
+                label: {
+                    text: "Your security word"
+                },
+                type: "text",
+                classes: "govuk-!-width-one-third",                
+                name: "defraIdSecurityWord"
+            }) }}
+
+            {{ govukCharacterCount({                
+                label: {
+                    text: "Your hint question"
+                },
+                hint: {
+                    text: "Provide a hint question that will help you remember your security word."
+                },
+                classes: "govuk-!-width-two-thirds",
+                maxlength: 100,
+                rows: 2,
+                name: "defraIdSecurityHint"
+            }) }}
+
+            
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends "/layouts/main.html" %}
+{% set showBackLink = true %}
+{% set serviceName = "" %}
+
+{% set pageHeading = "Are they registered to trade in the UK?" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}           
+
+
+        <!-- <p>A business wishing to trade as a UK company must be registered at Companies House. This process includes choosing and registering a company name.</p> -->
+        <!-- /// If a Service does not allow non uk //// -->
+        {% if data['regNonUk'] == "No" %}
+            <form method="post" action="/account/add/cannot-register">
+        <!-- //// Can register outside the uk /// -->
+        {% else %}
+    	    <form method="post" action="/account/add/companies-house">
+        {% endif %}
+
+                {{ govukRadios({
+                    fieldset: {
+                        legend: { text: "Are you registering as a business or an individual?", isPageHeading: false, classes: "govuk-visually-hidden"  }
+                    },
+                    classes: "govuk-radios--inline",
+                    items: [
+                        { value: "Yes", text: 'Yes', checked: checked( 'addSiblingTradeUK','Yes' ) },
+                        { value: "No~/register/business-name", text: 'No', checked: checked( 'addSiblingTradeUK','No' ) }                    
+                    ],
+                    name: "addSiblingTradeUK"
+                }) }}
+        
+                {{govukButton({
+                    text: "Continue"
+                })}}
+	
+    	    </form>
+
+  	</div>    
+</div>
+
+{% endblock %}

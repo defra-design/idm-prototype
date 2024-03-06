@@ -1,0 +1,64 @@
+{% extends "/layouts/main.html" %}
+{% set showBackLink = false %}
+{% set serviceName = "" %}
+
+{% set pageHeading = "What is their {type of third party} email address?" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+        <div class="govuk-inset-text">
+            <p>For security and access it’s important this is the email address they use at {name of third party}.</p>
+        </div>
+        <form method="post" action="/register/thirdParty/add/check-your-answers" >
+
+
+            {% if data['regThirdPartyUserOne'] %}
+
+            {{ govukInput({
+                label: {
+                    text: "Email address",
+                    classes: "govuk-visually-hidden"
+                },
+                classes: "govuk-!-width-three-quarters",
+                name: "regThirdPartyUserTwoEmail"
+            }) }}
+
+            {% else %}
+            
+            {{ govukInput({
+                label: {
+                    text: "Email address",
+                    classes: "govuk-visually-hidden"
+                },
+                classes: "govuk-!-width-three-quarters",
+                name: "regThirdPartyUserOneEmail"
+            }) }}
+
+            {% endif %}
+
+
+                {{ govukButton({
+                    text: "Continue"
+                }) }}                                
+
+        </form>
+       
+    </div>
+</div>
+
+{% endblock %}
+
+
+
+
+
+
+
+

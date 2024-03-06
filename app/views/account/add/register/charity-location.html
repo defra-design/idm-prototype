@@ -1,0 +1,98 @@
+{% extends "/layouts/main.html" %}
+{% set showBackLink = true %}
+{% set serviceName = "" %}
+
+{% set pageHeading = "Where is the charity registered?" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+		
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   		
+
+		<form method="post" action="/register/charity-name">  		
+
+			{% set englandAndWalesHtml %}
+
+				{{ govukInput({
+					label: {
+						text: "What is your registered charity number?",
+						classes: "govuk-label"				
+					},
+					hint: {
+						text: "For example, 1004005."
+					},
+					classes: "govuk-!-width-one-third",
+					type: "number",
+					name: "registrationCharityNumber",
+					id: "registrationCharityNumber",
+					value: data['registrationCharityNumber']
+				}) }}
+				
+			{% endset -%}
+
+			{% set scotlandHtml %}
+
+				{{ govukInput({
+					label: {
+						text: "What is your registered charity number?",
+						classes: "govuk-label"			
+					},
+					hint: {
+						text: "For example, SC000022."
+					},
+					classes: "govuk-!-width-one-third",
+					type: "number",
+					name: "registrationCharityNumber",
+					id: "registrationCharityNumber",
+					value: data['registrationCharityNumber']
+				}) }}
+
+			{% endset -%}
+
+			{% set northernIrelandHtml %}		
+
+				{{ govukInput({
+					label: {
+						text: "What is your registered charity number?",
+						classes: "govuk-label"			
+					},
+					hint: {
+						text: "For example, NIC100002."
+					},
+					classes: "govuk-!-width-one-third",
+					type: "number",
+					name: "registrationCharityNumber",
+					id: "registrationCharityNumber",
+					value: data['registrationCharityNumber']
+				}) }}
+
+			{% endset -%}
+
+			{{ govukRadios({
+                fieldset: {
+                    legend: { text: pageHeading, isPageHeading: false, classes: "govuk-visually-hidden"  }
+                },
+                items: [
+                    { value: "England and Wales", text: 'England and Wales', conditional: { html: englandAndWalesHtml }, checked: checked ('registrationCharityLocation' , 'England and Wales') },
+					{ value: "Scotland", text: 'Scotland', conditional: { html: scotlandHtml }, checked: checked ('registrationCharityLocation' , 'Scotland') },
+					{ value: "Northern Ireland", text: 'Northern Ireland', conditional: { html: northernIrelandHtml }, checked: checked ('registrationCharityLocation' , 'Northern Ireland') }                    
+                ],
+				name: "registrationCharityLocation",
+				id: "registrationCharityLocation"
+            }) }}
+       
+
+        {{govukButton({
+          text: "Continue"
+        })}}
+
+      </form>
+
+    </div>	
+</div>
+
+{% endblock %}

@@ -1,0 +1,125 @@
+{% extends "/layouts/main.html" %}
+{% set serviceName = "Defra account" %}
+
+{% set title = "What is the address?" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {% if data['new-address'] == "billing" %}
+      <form action="extra-addresses?billing-address=true&billing-address-type=normal&new-address=no" method="post" class="form">
+    {% elseif data['new-address'] == "correspondence" %}
+      <form action="extra-addresses?correspondence-address=true&correspondence-address-type=normal&new-address=no" method="post" class="form">
+    {% elseif data['new-address'] == "operations" %}
+      <form action="extra-addresses?operations-address=true&operations-address-type=normal&new-address=no" method="post" class="form">
+    {% endif %}
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+            <h1 class="govuk-fieldset__heading">
+              {{ title }}
+            </h1>
+          </legend>
+
+          {{ govukSelect({
+            id: "address",
+            name: "address",
+            label: {
+              text: "Select an address"
+            },
+            items: [
+              {
+                value: "9 addresses found",
+                text: "9 addresses found",
+                selected: "true"
+              },
+              {
+                value: "address-check?address1=Forbes%20Lane&city=West%20Crudwell&postcode=SN16%209EW",
+                text: "Forbes Lane, West Crudwell, SN16 9EW"
+              },
+              {
+                value: "address-check?address1=1%20Doogal%20Road&city=West%20Crudwell&postcode=SN16%209EW",
+                text: "1 Doogal Road, West Crudwell, SN16 9EW"
+              },
+              {
+                value: "address-check?address1=1%20Doogal%20Road&city=West%20Crudwell&postcode=SN16%209EW",
+                text: "2 Doogal Road, West Crudwell, SN16 9EW"
+              },
+              {
+                value: "address-check?address1=1%20Doogal%20Road&city=West%20Crudwell&postcode=SN16%209EW",
+                text: "3 Doogal Road, West Crudwell, SN16 9EW"
+              },
+              {
+                value: "address-check?address1=1%20Doogal%20Road&city=West%20Crudwell&postcode=SN16%209EW",
+                text: "4 Doogal Road, West Crudwell, SN16 9EW"
+              },
+              {
+                value: "address-check?address1=1%20Doogal%20Road&city=West%20Crudwell&postcode=SN16%209EW",
+                text: "5 Doogal Road, West Crudwell, SN16 9EW"
+              },
+              {
+                value: "address-check?address1=1%20Doogal%20Road&city=West%20Crudwell&postcode=SN16%209EW",
+                text: "6 Doogal Road, West Crudwell, SN16 9EW"
+              },
+              {
+                value: "address-check?address1=1%20Doogal%20Road&city=West%20Crudwell&postcode=SN16%209EW",
+                text: "7 Doogal Road, West Crudwell, SN16 9EW"
+              },
+              {
+                value: "address-check?address1=1%20Doogal%20Road&city=West%20Crudwell&postcode=SN16%209EW",
+                text: "8 Doogal Road, West Crudwell, SN16 9EW"
+              }
+            ]
+          }) }}
+
+          <!-- <p class="govuk-body">
+            3 addresses found for Clifton House and SW19 5JA. <a href="" class="govuk-link">Change</a>
+          </p>
+
+          <div class="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="found-address" name="found-address" type="radio" value="2A BAILEY HOUSE, BAILEY ROAD, BS2 1PP">
+              <label class="govuk-label govuk-radios__label" for="found-address">
+                Clifton House, Clifton Road, LONDON SW19 5JA
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="found-address-2" name="found-address" type="radio" value="1A BAILEY HOUSE, BAILEY ROAD, BS2 1PP">
+              <label class="govuk-label govuk-radios__label" for="found-address-2">
+                2a, Clifton House, Clifton Road, LONDON SW19 5JA
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="found-address-3" name="found-address" type="radio" value="3A BAILEY HOUSE, BAILEY ROAD, BS2 1PP">
+              <label class="govuk-label govuk-radios__label" for="found-address-3">
+                2b, Clifton House, Clifton Road, LONDON SW19 5JA
+              </label>
+            </div>
+          </div> -->
+
+        </fieldset>
+      </div>
+
+      <button class="govuk-button" data-module="govuk-button">
+        Add this address
+      </button>
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "/layouts/main.html" %}
+{% set showBackLink = false %}
+{% set serviceName = "" %}
+
+{% set pageHeading = "Sorry, there was a problem with enrolment" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+
+        <p>Content to be confirmed</p>
+
+
+
+
+
+    </div>
+    <div class="govuk-grid-column-one-third review">      
+        <ul class="govuk-list govuk-body-s govuk-!-text-align-right">        
+            <li><a href="/errors" class="govuk-link govuk-link--no-visited-state">Error page</a></li>        
+            <li><a href="/mfa-V2/defra-id/about-data?status=review" class="govuk-link govuk-link--no-visited-state">Suggested page review</a></li>        
+        </ul>      
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "/layouts/main.html" %}
+{% set showBackLink = true %}
+{% set serviceName = "" %}
+
+{% set pageHeading = "What kind of business or organisation are you?" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   
+
+    	<form method="post" action="/register/charity-location">
+
+			{{ govukRadios({
+                fieldset: {
+                    legend: { text: pageHeading, isPageHeading: false, classes: "govuk-visually-hidden"  }
+                },
+                items: [
+                    { value: "Charity", text: 'Charity', checked: checked ('registrationOrganisationType','Charity') },
+                    { value: "Sole trader~/register/personal-name", text: 'Sole trader', checked: checked ('registrationOrganisationType','Sole trader')   }					
+                ],
+                name: "registrationOrganisationType",
+                id: "registrationOrganisationType"
+                
+            }) }}
+
+            <div class="govuk-button-group">
+                
+                {{govukButton({
+                    text: "Continue"
+                })}}
+                <a class="govuk-link" href="#">We are not a charity or sole trader</a>
+            </div>        
+        </form>
+
+    </div>    
+</div>
+
+{% endblock %}

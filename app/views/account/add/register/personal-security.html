@@ -1,0 +1,86 @@
+{% extends "/layouts/main.html" %}
+{% set showBackLink = true %}
+{% set serviceName = "" %}
+
+
+{% set pageHeading = "Create a memorable word" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   
+        
+
+    	{% if data['route'] == "charity" %}
+      	<form method="post" action="task-list-page-charity-details?personal-security-completed=y">
+    	{% else %}
+      	<form method="post" action="check-your-answers">
+    	{% endif %}
+
+
+		
+
+		<p>For security purposes, you are required to create a memorable word. This helps us verify your identity if you need to contact us.</p>					
+		<div class="govuk-inset-text">
+			<p>This word must:</p>
+			<ul class="govuk-list govuk-list--bullet">
+				<li>be between 8 and 32 characters long and is not case-sensitive</li>								
+				<li>only contain a combination of letters (A-Z a-z) and numbers (0-9)</li>				
+				<!-- <li>not include special characters ( ‘at’ symbol (@), hyphen (-) ) </li>
+				<li>not include spaces</li>
+				<li>not include 3 repeating characters such as 111 or AAA</li> -->
+			</ul>
+
+			<p>This word must not contain:</p>
+			<ul class="govuk-list govuk-list--bullet">				
+				<li>spaces</li>
+				<li>special characters ( ‘at’ symbol (@), hyphen (-) ) </li>				
+				<li>more than 2 repeating characters such as 111 or AAA</li>
+			</ul>
+		</div>
+
+			{{ govukInput({        
+				type: "text",
+				classes: "govuk-!-width-two-thirds",
+				label: {
+					text: "Memorable word",
+					classes: "govuk-visually-hidden"
+				},
+				name: "registrationMemorableWord",
+				id: "registrationMemorableWord",
+				value: data['registrationMemorableWord']
+			}) }}
+
+			{{ govukCharacterCount({        	
+				classes: "govuk-!-width-two-thirds",
+				maxlength: 100,				
+				label: {
+					text: "Hint question"
+				},
+				hint: {
+					text: "Tell us a hint question that does not contain your memorable word, but will help you remember what it is."
+				},
+				name: "registrationMemorableHint",
+				id: "registrationMemorableHint",
+				value: data['registrationMemorableHint']
+			}) }}
+
+		
+
+
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+
+  </div>  
+</div>
+
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "/layouts/main.html" %}
+{% set showBackLink = true %}
+{% set serviceName = "" %}
+
+{% set pageHeading = "What is the business’s email address?" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   
+
+    	<!-- <p class="govuk-hint">These could be details included on the website, or contact details for the head office or management team.</p> -->
+    
+    	<form action="/register/task-list-page-company-details" method="post">			
+
+			{{ govukInput({
+                label: {
+                    text: "Email address",
+                    classes: "govuk-visually-hidden"				
+                },
+                hint: {
+                    text: "We will only use this for ...... "
+                },
+                classes: "govuk-!-width-two-thirds",
+				type: "email",
+                spellcheck: "false",
+                name: "defraIdCompanyEmail"
+            }) }}
+
+      		{{ govukButton({
+        		text: "Continue"
+      		}) }}
+
+    	</form>
+
+  	</div>
+</div>
+
+{% endblock %}

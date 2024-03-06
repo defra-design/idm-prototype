@@ -1,0 +1,68 @@
+{% extends "/layouts/main.html" %}
+{% set showBackLink = false %}
+{% set serviceName = "Defra account" %}
+
+{% set pageHeading = "Check your information" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+        <h2 class="govuk-heading-m">Your account</h2>
+
+        {{ govukSummaryList({
+            classes: "govuk-!-margin-bottom-9",
+            rows: [
+                {
+                    key: { text: "Account type" },
+                    value: { text: "Individual" },
+                    actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: " type of account" } ] }
+                }              
+            ]
+        }) }}
+
+        <h2 class="govuk-heading-m">About you</h2>       
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          	<div class="govuk-summary-list__row">
+              	<dt class="govuk-summary-list__key">Your name</dt>
+              	<dd class="govuk-summary-list__value">{{ data['defraIdFirstName'] or 'Sam' }} {{ data['defraIdSurname'] or 'Woods' }}</dd>
+              	<dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> your name</span></a></dd>
+          	</div>
+          	<div class="govuk-summary-list__row">
+              	<dt class="govuk-summary-list__key">Your contact details</dt>
+              	<dd class="govuk-summary-list__value">
+                  	{{ data['defraIdPersonalPhone'] or '07711 223344' }}<br />
+                  	{{ data['govGateEmail'] or 'sam.woods@home.co.uk' }}
+              	</dd>
+              	<dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> your contact details</span></a></dd>
+          	</div>
+          	<div class="govuk-summary-list__row">
+              	<dt class="govuk-summary-list__key">Your address</dt>
+              	<dd class="govuk-summary-list__value">{{ data['defraIdAddress'] or 'Clifton House, Clifton Road, LONDON SW19 5JA' }}</dd>
+              	<dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> your address</span></a></dd>
+          	</div>
+          	<div class="govuk-summary-list__row">
+              	<dt class="govuk-summary-list__key">Your security word</dt>
+              	<dd class="govuk-summary-list__value">
+                  	{{ data['defraIdSecurityWord'] or 'Marmite' }}<br />
+                  	{{ data['defraIdSecurityHint'] or 'On toast' }}
+              	</dd>
+              	<dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> your security word</span></a></dd>
+          	</div>
+        </dl>
+
+    	<form method="post" action="/account/new/">      
+			{{ govukButton({
+                text: "Continue"
+            }) }}			
+    	</form>
+
+  </div>
+</div>
+
+{% endblock %}
