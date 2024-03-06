@@ -9,49 +9,23 @@
 {% set phoneNumber = "07711 223344" %}
 {% set business2 = "Trophy Room Ltd" %}
 
-
-{% if data['status'] == "review" %}
-	{% set pageHeading = "Defra account profile" %}
-{% else %}
-	{% set pageHeading = "Defra account profile" %}
-{% endif %}
-
-{% set pageSection = "" %}
+{% set pageHeading = "Rascals" %}
+{% set pageSection = "Account for" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block beforeContent %}
 	<div id="profile">    	
         {% include "includes/account-nav.html" %}
-  	</div>
-    <div class="govuk-breadcrumbs">
-        <ol class="govuk-breadcrumbs__list">
-            <li class="govuk-breadcrumbs__list-item"><a class="govuk-breadcrumbs__link" href="account">Home</a></li>
-            <li class="govuk-breadcrumbs__list-item">Big Company Ltd</li>
-        </ol>
-    </div>  
+  	</div>    
 {% endblock %}
 
 
 
 {% block content %}
 
-  <div class="govuk-grid-row">
+<div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
-        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   
-
-        <details class="govuk-details">
-            <summary class="govuk-details__summary">
-                <span class="govuk-details__summary-text">Change account</span>
-            </summary>
-            <div class="govuk-details__text">
-                <ul class="govuk-list ">
-                    <li>Big Company Ltd</li>
-                    <li class="govuk-list govuk-list--indent"><a href="#" class="govuk-link--no-visited-state">Small Company Ltd</a></li>
-                </ul>
-            </div>
-        </details>
-
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}           
     </div>
 
     
@@ -64,7 +38,7 @@
                     <a href="{{ teamMemberURL }}"></a>
                     <div class="govuk-card__content">
                         <h3 class="govuk-heading-m"><a href="/account/team-access" class="govuk-link--no-visited-state">Manage team access</a></h3>
-                        <p class="govuk-!-font-weight-bold govuk-!-font-size-48 govuk-!-font-weight-bold">{{ data['numUsers'] }}</p>
+                        <p class="govuk-!-font-weight-bold govuk-!-font-size-48 govuk-!-font-weight-bold">1</p>
                     </div>
                     <div class="govuk-card__actions">
                         <ul class="govuk-list govuk-!-mb-r0">
@@ -79,7 +53,7 @@
                     <a href="{{ agentURL }}"></a>
                     <div class="govuk-card__content">
                         <h3 class="govuk-heading-m"><a href="/account/agent/" class="govuk-link--no-visited-state">Manage intermediary access</a></h3>
-                        <p class="govuk-!-font-weight-bold govuk-!-font-size-48 govuk-!-font-weight-bold">{{ data['numAgents'] }}</p>
+                        <p class="govuk-!-font-weight-bold govuk-!-font-size-48 govuk-!-font-weight-bold">0</p>
                     </div>
                     <div class="govuk-card__actions">
                         <ul class="govuk-list govuk-!-mb-r0">
@@ -97,7 +71,7 @@
                         {% if (data['parentChild'] == "child") %}
                         
                         {% else %}
-                            <p class="govuk-!-font-weight-bold govuk-!-font-size-48 govuk-!-font-weight-bold">{{ data['numLocations'] }}</p>
+                            <p class="govuk-!-font-weight-bold govuk-!-font-size-48 govuk-!-font-weight-bold">1</p>
                         {% endif %}
                     </div>
 
@@ -117,34 +91,24 @@
             </div>
 
         </div>
-    </div>
-
-    <div class="govuk-grid-column-two-thirds">        
+    
         
-        <h2 class="govuk-heading-l govuk-!-margin-top-7">Services</h2>     
-        {{ govukButton({
-            text: "Register for a service"
-          }) }}        
-                
+        <h2 class="govuk-heading-l govuk-!-margin-top-7">Your registered services</h2>                             
 
-        <!-- waste services -->
-
-        <!-- <div class="govuk-grid-column-one-third">
+        <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-third">
           <div class="govuk-card govuk-card--contained govuk-card--selectable">
             <a href="../epr/home"></a>
             <div class="govuk-card__content">
-              <h3 class="govuk-heading-m">Packaging producer responsibility</h3>
+              <h3 class="govuk-heading-m">IPAFFS</h3>
             </div>
           </div>
-        </div>
-        <div class="govuk-grid-column-one-third">
-          <div class="govuk-card govuk-card--contained govuk-card--selectable">
-            <a href="../drs/home"></a>
-            <div class="govuk-card__content">
-              <h3 class="govuk-heading-m">Deposit return scheme</h3>
-            </div>
-          </div>
-        </div> -->
+        </div>        
+    </div>
+
+        {{ govukButton({
+            text: "Register for more services"
+          }) }}        
 
       </div>
   </div>

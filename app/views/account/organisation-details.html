@@ -2,7 +2,7 @@
 {% set showBackLink = true %}
 {% set serviceName = "" %}
 
-{% set pageHeading = "Big Company Ltd" %}
+{% set pageHeading = "Rascals" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -12,13 +12,6 @@
 	{% include "includes/account-nav.html" %}
 </div>
 
-<div class="govuk-breadcrumbs">
-	<ol class="govuk-breadcrumbs__list">
-    	<li class="govuk-breadcrumbs__list-item"><a class="govuk-breadcrumbs__link" href="account">Home</a></li>
-      	<li class="govuk-breadcrumbs__list-item"><a class="govuk-breadcrumbs__link" href="dashboard">Big Company Ltd</a></li>
-      	<li class="govuk-breadcrumbs__list-item"><!-- <a class="govuk-breadcrumbs__link" href="#"> -->Organisation details<!-- </a> --></li>
-    </ol>
-</div>
 {% endblock %}
 
 {% block content %}
