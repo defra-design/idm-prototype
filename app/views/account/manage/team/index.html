@@ -1,0 +1,68 @@
+{% extends "/layouts/main.html" %}
+{% set showBackLink = true %}
+{% set serviceName = "Soleheaven Ltd" %}
+
+{% set fullname = "Sam Woods" %}
+{% set business = "Big Company Ltd" %}
+
+{% set pageHeading = "Manage team access" %}
+{% set pageSection = "Rascals" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block beforeContent %}
+	<div id="profile">    	
+        {% include "includes/account-nav.html" %}
+  	</div>    
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   
+
+    	{{ govukButton({
+      		text: "Add a team member",
+      		href: "/account/manage/team/add-member"
+    	}) }}
+
+    	<table class="govuk-table {{ tableCSS }}">
+
+			<!-- Table header -->
+      		<thead class="govuk-table__head">
+      			<tr class="govuk-table__row">
+        			<th class="govuk-table__header column-full" scope="col">Team member</th>
+        			<th class="govuk-table__header column-full" scope="col">Email address</th>
+        			<th class="govuk-table__header column-full" scope="col">Account role</th>
+        			<th class="govuk-table__header column-full" scope="col">Account status</th>
+      			</tr>
+      		</thead>
+
+			  <tr class="govuk-table__row no-border">
+        		<td class="govuk-table__cell">Name to be confirmed</td>
+        		<td class="govuk-table__cell">unamed@rascals.co.uk</td>
+        		<td class="govuk-table__cell">None</td>
+        		<td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey">Invitation email sent</strong></td>
+      		</tr>
+
+
+      		<tr class="govuk-table__row no-border">
+        		<td class="govuk-table__cell"><a href="/account/manage/team/member?teamType=you">Chrispee Bacon (you)</a></td>
+        		<td class="govuk-table__cell">chrispee.bacon@rascals.co.uk</td>
+        		<td class="govuk-table__cell">Admin</td>
+        		<td class="govuk-table__cell"><strong class="govuk-tag govuk-tag">Live</strong></td>
+      		</tr>
+
+      		<!-- <tr class="govuk-table__row no-border">
+        		<td class="govuk-table__cell"><a href="/account/manage/team/member?teamType=other">Sammuel Van Vurren</a></td>
+        		<td class="govuk-table__cell">svv@rascals.co.uk</td>
+        		<td class="govuk-table__cell">Standard user</td>
+        		<td class="govuk-table__cell"><strong class="govuk-tag govuk-tag">Active</strong></td>
+      		</tr> -->
+      		
+    	</table>
+
+  	</div>
+</div>
+
+{% endblock %}

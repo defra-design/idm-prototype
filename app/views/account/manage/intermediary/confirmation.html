@@ -1,0 +1,38 @@
+{% extends "/layouts/main.html" %}
+{% set showBackLink = true %}
+{% set serviceName = "" %}
+
+{% set pageHeading = "An invitation email has been sent" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+    	{{ govukPanel({
+        	titleText: pageHeading        	
+      	}) }}
+
+    	<h2 class="govuk-heading-m">What happens next</h2>
+
+    	<p class="govuk-body">When <span class="govuk-!-font-weight-bold">{ EMAIL ADDRESS }</span> has registered to use Defra online services, you can choose which information they can see and which tasks they can do on behalf of {COMPANY NAME}.</p>
+    	<p class="govuk-body">If they do not respond to the invitation email within 30 days, you'll need to send another invitation.</p>
+
+    	{{ govukButton({
+      		text: "Done",
+      		href: "/account/manage/intermediary/"
+    	}) }}
+
+    	{{ govukButton({
+      		text: "Add an intermediary",
+      		classes: "govuk-button--secondary",
+      		href: "/account/manage/intermediary/add"
+    	}) }}
+
+  </div>
+</div>
+
+
+{% endblock %}
