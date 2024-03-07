@@ -1,0 +1,45 @@
+{% extends "/layouts/main.html" %}
+{% set showBackLink = true %}
+
+
+{% set pageHeading = "What is the name of the organisation?" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block beforeContent %}
+	<div id="profile">    	
+        {% include "includes/account-nav.html" %}
+  	</div>    
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        
+		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}  
+
+      	<form action="/account/company-address-question" method="post">
+        	
+        	{{ govukInput({
+          		label: {
+            		text: title,
+            		isPageHeading: true,
+            		classes: "govuk-label--xl"
+          		},
+          		classes: "govuk-!-width-two-thirds",
+          		id: "relatedOrganisationName",
+          		name: "relatedOrganisationName",
+          		value: data['relatedOrganisationName']
+        	}) }}
+
+        	{{ govukButton({
+          		text: "Continue"
+        	}) }}
+
+      	</form>
+
+  	</div>
+</div>
+
+{% endblock %}

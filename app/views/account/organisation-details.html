@@ -38,7 +38,7 @@
                 </div>
                 <div class="govuk-card__actions">
                     <ul class="govuk-list govuk-!-mb-r0">
-                        <li><a id="link-update-details" href="/management/account-management/accounts/a30cad99-c198-ee11-be37-6045bd905186/details/update-details" class="govuk-link govuk-link--no-visited-state">Update details</a></li>
+                        <li><a id="link-update-details" href="/account/update-details" class="govuk-link govuk-link--no-visited-state">Update details</a></li>
                       </ul>
                 </div>
             </div>
@@ -121,6 +121,13 @@
               <p>If your organisation is linked to another branch or division, you can add it to this account as a related organisation. This allows you to manage each part of your organisation individually, but under the same account.</p><p>If you're an <strong>Only Representative</strong>, you can add the non-EU manufacturers and importers that you represent.</p>
             </div>
           </details>
+
+          {{ govukButton({
+            text: "Add a related organisation",
+            href: "/account/company-name"
+          }) }}
+
+
         {% endset -%}
         
 

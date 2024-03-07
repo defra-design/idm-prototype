@@ -1,0 +1,76 @@
+{% extends "/layouts/main.html" %}
+{% set showBackLink = true %}
+
+
+{% set pageHeading = "Check your information" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block beforeContent %}
+	<div id="profile">    	
+        {% include "includes/account-nav.html" %}
+  	</div>    
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        
+		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}  
+
+		<h2 class="govuk-heading-m">About your related organisation</h2>
+		<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+			<div class="govuk-summary-list__row">
+				<dt class="govuk-summary-list__key">Organisation's name</dt>
+				<dd class="govuk-summary-list__value">					
+					{{ data['relatedOrganisationName'] }}				
+				</dd>
+				<dd class="govuk-summary-list__actions">
+					<a class="govuk-link govuk-link--no-visited-state" href="/register/change-account-type">Change<span class="govuk-visually-hidden"> organisation name</span></a>
+				</dd>
+			</div>		
+			
+			<div class="govuk-summary-list__row">
+				<dt class="govuk-summary-list__key">Organisation's address</dt>
+				<dd class="govuk-summary-list__value">					
+					1 Francis Crick Avenue, Cambridge Biomedical Campus, Cambridge, United Kingdom, CB2 0AA
+				</dd>
+				<dd class="govuk-summary-list__actions">
+					<a class="govuk-link govuk-link--no-visited-state" href="/register/change-account-type">Change<span class="govuk-visually-hidden"> address</span></a>
+				</dd>
+			</div>		
+
+
+			<div class="govuk-summary-list__row">
+				<dt class="govuk-summary-list__key">Organisation's contact details</dt>
+				<dd class="govuk-summary-list__value">					
+					0171 444555666<br>
+          simone@org.com				
+				</dd>
+				<dd class="govuk-summary-list__actions">
+					<a class="govuk-link govuk-link--no-visited-state" href="/register/change-account-type">Change<span class="govuk-visually-hidden"> contact details</span></a>
+				</dd>
+			</div>		
+		
+		
+		
+		
+		
+		</dl>
+
+
+
+    
+
+    {{ govukButton({
+        text: "Continue",
+        href: "/account/add/confirmation"
+    }) }}
+
+
+
+  </div>
+</div>
+
+{% endblock %}
