@@ -18,6 +18,46 @@ Example usage:
 */
 
 module.exports = {
+  
+
+  govGateEmail: "hugo.furst@govgateway.test",
+  registrationStatus: "Enrolled",
+  termsAndConditions: "Viewed",
+  
+  // Ltd Company
+  registrationAccountType: "Business",
+  registrationTradeUK: "Yes",
+  registrationCompanyRegistrationNumber: "Yes",
+  registrationCompanyNumber: "01234567",
+  registrationCompanyAddress: "19 Hoults Yard, Walker Road, Newcastle upon Tyne NE6 2HL",
+  registrationConfirmedAddress: "Yes",
+  registrationPhone: "07985439576",
+  registrationEmail: "hugo.furst@hauntedhouse.com",
+  defraIdFirstName: "Hugo",
+  defraIdSurname: "Furst",
+  registrationContactPhonePersonal: "00700700788",
+  registrationMemorableWord: "Jordan23",
+  registrationMemorableHint: "The one and only goat",
+  defaultCompanyName: "Soleheaven Ltd",
+  defaultServiceEnrolment: "IPAFFS",
+  defaultServiceRole: "Notifier"
+
+  // Individual
+  // registrationAccountType: "Individual",
+  // defraIdFirstName: "Hugo",
+  // defraIdSurname: "Furst",
+  // registrationContactPhonePersonal: "00700700788",
+  // registrationIndividualAddress: "2a, Clifton House, Clifton Road, LONDON SW19 5JA"
+  // registrationMemorableWord: "Jordan23",
+  // registrationMemorableHint: "The one and only goat",  
+  // defaultServiceEnrolment: "IPAFFS",
+  // defaultServiceRole: "Notifier",
+  
+
+
+
+
+
 
   //"businessType": "Limited company",
   // "govGateName": "Sam Woods",

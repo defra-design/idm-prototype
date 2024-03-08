@@ -1,15 +1,9 @@
 {% extends "/layouts/main.html" %}
 {% set showBackLink = true %}
+
 {% set serviceName = "Your Defra account" %}
 
-
-{% set fullname = "Hugo Furst" %}
-{% set business = "Soleheaven Ltd" %}
-{% set userEmail = "hugo.furst@soleheaven.com" %}
-{% set phoneNumber = "07711 223344" %}
-{% set business2 = "Trophy Room Ltd" %}
-
-{% set pageHeading = "Rascals" %}
+{% set pageHeading = data.defaultCompanyName | titleCase %}
 {% set pageSection = "Account for" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -53,7 +47,7 @@
                     <a href="{{ agentURL }}"></a>
                     <div class="govuk-card__content">
                         <h3 class="govuk-heading-m"><a href="/account/manage/intermediary/" class="govuk-link--no-visited-state">Manage intermediary access</a></h3>
-                        <p class="govuk-!-font-weight-bold govuk-!-font-size-48 govuk-!-font-weight-bold">0</p>
+                        <p class="govuk-!-font-weight-bold govuk-!-font-size-48 govuk-!-font-weight-bold">{% if data['intermediaryEmail'] %}1{% else %}0{% endif %}</p>
                     </div>
                     <div class="govuk-card__actions">
                         <ul class="govuk-list govuk-!-mb-r0">

@@ -334,9 +334,7 @@
 		
 
 
-		<div class="govuk-inset-text">
-			Some info here.
-		</div>
+		
 
 		{% if data['serviceHook'] == "WasteTracking" %}
 			<form method="post" action="https://wts-prototype.herokuapp.com/v18/index-homepage">
@@ -344,11 +342,12 @@
 			<form method="post" action="https://forest-risk-commodities.herokuapp.com/Dashboard_v5_newuser">
 		{% else %}
         	<form method="post" action="/account/">
+				<input type="hidden" id="registrationStatus" name="registrationStatus" value="Enrolled" />
 		{% endif %}
 
 
 				{{ govukButton({
-					text: "Accept and continue"				
+					text: "Confirm and continue"				
 				}) }}			
           
         	</form>

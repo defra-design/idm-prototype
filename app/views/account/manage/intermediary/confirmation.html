@@ -17,19 +17,23 @@
 
     	<h2 class="govuk-heading-m">What happens next</h2>
 
-    	<p class="govuk-body">When <span class="govuk-!-font-weight-bold">{ EMAIL ADDRESS }</span> has registered to use Defra online services, you can choose which information they can see and which tasks they can do on behalf of {COMPANY NAME}.</p>
+    	<p class="govuk-body">When <span class="govuk-!-font-weight-bold">{{ data.intermediaryEmail }}</span> has registered to use Defra online services, you can choose which information they can see and which tasks they can do on behalf of {{ data.defaultCompanyName | titleCase }}.</p>
     	<p class="govuk-body">If they do not respond to the invitation email within 30 days, you'll need to send another invitation.</p>
 
-    	{{ govukButton({
-      		text: "Done",
-      		href: "/account/manage/intermediary/"
-    	}) }}
+		<form method="post" action="/account/manage/intermediary" >
+    		<input type="hidden" id="" name="" value="" />
 
-    	{{ govukButton({
-      		text: "Add an intermediary",
-      		classes: "govuk-button--secondary",
-      		href: "/account/manage/intermediary/add"
-    	}) }}
+			{{ govukButton({
+      			text: "Done"      	
+    		}) }}
+
+			{{ govukButton({
+				text: "Add an intermediary",
+				classes: "govuk-button--secondary",
+				href: "/account/manage/intermediary/add"
+			}) }}
+
+		</form>
 
   </div>
 </div>

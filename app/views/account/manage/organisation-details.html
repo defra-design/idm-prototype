@@ -2,7 +2,7 @@
 {% set showBackLink = true %}
 {% set serviceName = "" %}
 
-{% set pageHeading = "Rascals" %}
+{% set pageHeading = data.defaultCompanyName | titleCase %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -27,14 +27,10 @@
             <h2 class="govuk-heading-l">Organisation address</h2>
             <div class="govuk-card govuk-card--contained">
                 <div class="govuk-card__content">
-                    <p class="govuk-body"><span class="govuk-!-font-weight-bold">Address:</span> Hutton Yeat Farm
-                        Old Hutton
-                        Kendal
-                        South Lakeland
-                        LA8 0NL<br></p>
-                      <p class="govuk-body"><span class="govuk-!-font-weight-bold">Companies House number:</span> 11284691<br></p>
-                      <p class="govuk-body"><span class="govuk-!-font-weight-bold">Telephone:</span> 07941161695
-                    <br><span class="govuk-!-font-weight-bold">Email:</span> hugolast@test.com<br></p>
+                    <p class="govuk-body"><span class="govuk-!-font-weight-bold">Address:</span> {{ data.registrationCompanyAddress }}</p>
+                      <p class="govuk-body"><span class="govuk-!-font-weight-bold">Companies House number:</span> {{ data.registrationCompanyNumber }}<br></p>
+                      <p class="govuk-body"><span class="govuk-!-font-weight-bold">Telephone:</span> {{ data.registrationPhone }}
+                    <br><span class="govuk-!-font-weight-bold">Email:</span> {{ data.registrationEmail }}<br></p>
                 </div>
                 <div class="govuk-card__actions">
                     <ul class="govuk-list govuk-!-mb-r0">

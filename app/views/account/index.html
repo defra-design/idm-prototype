@@ -1,12 +1,26 @@
 {% extends "/layouts/main.html" %}
-
 {% set serviceName = "Your Defra account" %}
 
-{% set fullname = "Hugo Furst" %}
-{% set business = "Soleheaven Ltd" %}
-{% set userEmail = "hugo.furst@soleheaven.com" %}
-{% set phoneNumber = "07711 223344" %}
-{% set business2 = "Trophy Room Ltd" %}
+<!-- Sets type of action link -->
+{% set accountLink %}
+  {% if data['registrationAccountType'] == "Individual" %}
+  	<a href="/account/manage/enrol-list" class="govuk-link govuk-link--no-visited-state">Add a service<span class="govuk-visually-hidden td-header"> {{ business }}</span></a>
+  {% else %}
+  	<a href="/account/manage/dashboard" class="govuk-link govuk-link--no-visited-state">Manage<span class="govuk-visually-hidden td-header"> {{ business }}</span></a>
+  {% endif %}
+{% endset -%}
+
+{% set accountName %}
+	{% if data['registrationAccountType'] == "Individual" %}
+		{{ data.defraIdFirstName }} {{ data.defraIdSurname }}
+	{% else %}
+		{{ data.defaultCompanyName }}
+	{% endif %}
+{% endset -%}
+
+
+
+
 
 {% set pageHeading = "Your Defra account" %}
 {% set pageSection = "" %}
@@ -24,32 +38,22 @@
 
 		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}      
 
-
-		<p><span class="govuk-!-font-weight-bold">Full name:</span> {{fullname}}
-			<br><span class="govuk-!-font-weight-bold">Email address:</span> {{userEmail}}
-			<br><span class="govuk-!-font-weight-bold">Telephone number:</span> {{phoneNumber}}
-
-
-		</p>
-		<!-- {{ govukSummaryList({
-			classes: "govuk-summary-list--no-border",
-			rows: [
-			  { key: { text: "Full name" }, value: { text: fullname }, class: "govuk-summary-list__row--no-actions" },
-			  { key: { text: "Email address" }, value: { text: userEmail }, class: "govuk-summary-list__row--no-actions" },
-			  { key: { text: "Telephone number" }, value: { text: phoneNumber }, class: "govuk-summary-list__row--no-actions" }			  		 
-			]
-		  }) }}    -->
-
-    	<p class="govuk-body"><a href="/account/manage/update/individual/" class="govuk-link--no-visited-state">Update details</a></p>		
-		<p class="govuk-body"><a href="/account/manage/reset-security-word/" class="govuk-link--no-visited-state">Reset security word</a></p>		
+		<p><span class="govuk-!-font-weight-bold">Full name:</span> {{ data.defraIdFirstName | titleCase }} {{ data.defraIdSurname | titleCase }}
+		<br><span class="govuk-!-font-weight-bold">Email address:</span> {{ data.govGateEmail }}
+		<br><span class="govuk-!-font-weight-bold">Telephone number:</span> {{ data.registrationContactPhonePersonal }}</p>
+		
+		
+    	<p class="govuk-body"><a href="/account/manage/update/individual/" class="govuk-link govuk-link--no-visited-state">Update details</a></p>				
+		<p class="govuk-body"><a href="/account/manage/reset-security-word/" class="govuk-link govuk-link--no-visited-state">Reset security word</a></p>		
 		{{ govukDetails({
 			summaryText: "Contact support ID",
 			text: "If you contact us, you will need your contact support ID, BA202452-V0-4703-P5-0409"
 		}) }}
+
     </div>
 
   	<div class="govuk-grid-column-full">
-    
+
     	<h2 class="govuk-heading-l govuk-!-margin-top-7">Your accounts</h2>
 		<p>You have access to the following accounts and related services.</p>
 
@@ -65,27 +69,36 @@
 			],
 			rows: [
 			  [
-				{ text: "Chrispee Bacon (you)" },
+				{ text: accountName | titleCase },
 				{ text: "Admin" },
-				{ text: "Comply with UK REACH" },
-				{ text: "REACH Manager" },
-				{ html: '<a href="/account/manage/enrol-list" class="govuk-link--no-visited-state">Add a service<span class="govuk-visually-hidden td-header"> {{ business }}</span></a>' }
-			  ],
-			  [
-				{ text: "Rascals" },
-				{ text: "Admin" },
-				{ text: "IPAFFS" },
-				{ text: "" },
-				{ html: '<a href="/account/manage/dashboard" class="govuk-link--no-visited-state">Manage<span class="govuk-visually-hidden td-header"> {{ business }}</span></a>' }
+				{ text: data.defaultServiceEnrolment },
+				{ text: data.defaultServiceRole },
+				{ html: accountLink }				
 			  ]			  
-			  
 			]
 		  }) }}      	
 
 
-		  <!-- { html: '<a href="dashboard" class="govuk-link--no-visited-state">Add a service<span class="govuk-visually-hidden td-header"> {{ business }}</span></a>' } -->
+		  <!-- 
+			[
+				{ text: "Chrispee Bacon (you)" },
+				{ text: "Admin" },
+				{ text: "Comply with UK REACH" },
+				{ text: "REACH Manager" },
+				{ html: '<a href="/account/manage/enrol-list" class="govuk-link govuk-link--no-visited-state">Add a service<span class="govuk-visually-hidden td-header"> {{ business }}</span></a>' }
+			  ]
+			
+			[
+				{ text: "Rascals" },
+				{ text: "Admin" },
+				{ text: "IPAFFS" },
+				{ text: "" },
+				{ html: '<a href="/account/manage/dashboard" class="govuk-link govuk-link--no-visited-state">Manage<span class="govuk-visually-hidden td-header"> {{ business }}</span></a>' }
+			  ]			   -->
 
-      	<p class="govuk-body"><a class="govuk-link--no-visited-state" href="/account/add/account-type">Add new account</a></p>
+		  <!-- { html: '<a href="dashboard" class="govuk-link govuk-link--no-visited-state">Add a service<span class="govuk-visually-hidden td-header"> {{ business }}</span></a>' } -->
+
+      	<p class="govuk-body"><a class="govuk-link govuk-link--no-visited-state" href="/account/add/account-type">Add new account</a></p>
 	
 		<h2 class="govuk-heading-l govuk-!-margin-top-7">Your services</h2>
 
@@ -101,22 +114,22 @@
 						</div>
 					</div>
 				</div>
-				<div class="govuk-grid-column-one-third">
+				<!-- <div class="govuk-grid-column-one-third">
 					<div class="govuk-card govuk-card--contained govuk-card--selectable">
 						<a href="../drs/home"></a>
 						<div class="govuk-card__content">
 							<h3 class="govuk-heading-m">Comply with UK Reach</h3>
 						</div>
 					</div>
-				</div>
-				<div class="govuk-grid-column-one-third">
+				</div> -->
+				<!-- <div class="govuk-grid-column-one-third">
 					<div class="govuk-card govuk-card--contained govuk-card--selectable">
 					<a href="../drs/home"></a>
 					<div class="govuk-card__content">
 							<h3 class="govuk-heading-m">Waste Tracking Service</h3>
 					</div>
 					</div>
-			</div>
+			</div> -->
 			</div>
 		</div>
 

@@ -1,7 +1,10 @@
 {% extends "/layouts/main.html" %}
 
-
 {% set showBackLink = true %}
+
+{% set accountName %}	
+		{{ data.defraIdFirstName }} {{ data.defraIdSurname }}	
+{% endset -%}
 
 {% set pageHeading = "Register for more services" %}
 {% set pageSection = "" %}
@@ -15,7 +18,7 @@
 
     	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-      	<p class="govuk-body">The following services are available for you to register Chrispee Bacon (You) with. To register click the links below.</p>
+      	<p class="govuk-body">The following services are available for you to register {{ accountName }} (You) with. To register click the links below.</p>
 
       	<ul class="govuk-list govuk-list--bullet">
         <li><a class="govuk-link" href="#">IPAFFS</a></li>
