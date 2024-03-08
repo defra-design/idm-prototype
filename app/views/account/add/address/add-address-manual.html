@@ -5,9 +5,12 @@
 
 {% if data['addSiblingAccountType'] == "Individual" %}
 	{% set pageHeading = "What’s your address?" %} 
-{% elif data['addSiblingTradeUK'] == "No" %}
+{% elif ((data['addSiblingTradeUK'] == "No") or (data['addSiblingOrganisationType'] == "Sole trader" )) %}
 	{% set pageHeading = "What’s the business’s address?" %}
 {% else %}
+
+
+
 	{% set pageHeading = "What’s {Charity Name}’s telephone and email address?" %}
 {% endif %}
 
@@ -23,20 +26,18 @@
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   		
 
 		{% if data['new-address'] == "billing" %}
-		<form action="extra-addresses?billing-address=true&billing-address-type=normal&new-address=no" method="post" class="form">
+			<form action="extra-addresses?billing-address=true&billing-address-type=normal&new-address=no" method="post" class="form">
 		{% elseif data['new-address'] == "correspondence" %}
-		<form action="extra-addresses?correspondence-address=true&correspondence-address-type=normal&new-address=no" method="post" class="form">
+			<form action="extra-addresses?correspondence-address=true&correspondence-address-type=normal&new-address=no" method="post" class="form">
 		{% elseif data['new-address'] == "operations" %}
-		<form action="extra-addresses?operations-address=true&operations-address-type=normal&new-address=no" method="post" class="form">
-
+			<form action="extra-addresses?operations-address=true&operations-address-type=normal&new-address=no" method="post" class="form">
 		{% else %}
-
       		{% if data['addSiblingTradeUK'] == "No" %}
-	  		<form action="/account/add/company-contact" method="post" class="form">
-
+	  			<form action="/account/add/company-contact" method="post" class="form">
+			{% elif ((data['addSiblingAddressUK'] == "Yes") or (data['addSiblingOrganisationType'] == "Sole trader" )) %}	
+				<form action="/account/add/company-contact" method="post" class="form">
 			{% elif data['addSiblingAddressUK'] == "No" %}
 				<form action="/account/add/personal-security" method="post" class="form">
-
       		{% else %}
         	<form action="/account/add/personal-security" method="post" class="form">
       		{% endif %}
@@ -380,7 +381,7 @@
 		
 				{% endcall %}
 
-			{% elif data['addSiblingAddressUK'] == "Yes" %}
+			{% elif ((data['addSiblingAddressUK'] == "Yes") or (data['addSiblingOrganisationType'] == "Sole trader" )) %}
 				
 
 				{% call govukFieldset({
