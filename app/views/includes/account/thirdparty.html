@@ -1,0 +1,120 @@
+
+{{ govukSummaryList({
+	card: {
+    	title: { text: data.defraIdFirstName | titleCase },
+		actions: {
+			items: [
+			  { href: "#", text: "Reset security word", visuallyHiddenText: "of University of Gloucestershire" }			  
+			]
+	  }  	
+  	},
+  	rows: [    	
+    	{ key: { text: "Email address" }, value: { text: data.govGateEmail } },
+		{ key: { text: "Phone number" }, value: { text: data.registrationContactPhonePersonal }, actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "phone number" } ] } }
+  	]
+}) }}
+
+
+<h2 class="govuk-heading-l govuk-!-margin-top-7">Your accounts</h2>
+<p>You have access to the following accounts and related services.</p>
+
+{{ govukSummaryList({
+	card: {
+    	title: { text: accountName | titleCase }    	
+  	},
+  	rows: [
+    	{ key: { text: "Role" }, value: { html: "English (3DMD)<br>PGCE with QTS full time" }, actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "age" } ] } },
+    	{ key: { text: "Services" }, value: { html: "School name<br>Road, City, SW1 1AA" } },
+		{ key: { text: "Service role" }, value: { html: "School name<br>Road, City, SW1 1AA" } }
+  	]
+}) }}
+
+{{ govukSummaryList({
+	card: {
+    	title: { text: "University of Gloucestershire" },
+    	actions: {
+      		items: [
+        		{ href: "#", text: "Delete choice", visuallyHiddenText: "of University of Gloucestershire" },
+        		{ href: "#", text: "Withdraw", visuallyHiddenText: "from University of Gloucestershire" }
+      		]
+    	}
+  	},
+  	rows: [
+    	{ key: { text: "Course" }, value: { html: "English (3DMD)<br>PGCE with QTS full time" } },
+    	{ key: { text: "Location" }, value: { html: "School name<br>Road, City, SW1 1AA" } }
+  	]
+}) }}
+
+
+
+
+
+
+
+
+    
+    <p class="govuk-body"><a href="/account/manage/update/individual/" class="govuk-link govuk-link--no-visited-state">Update details</a></p>				
+    <p class="govuk-body"><a href="/account/manage/reset-security-word/" class="govuk-link govuk-link--no-visited-state">Reset security word</a></p>		
+    {{ govukDetails({
+        summaryText: "Contact support ID",
+        text: "If you contact us, you will need your contact support ID, BA202452-V0-4703-P5-0409"
+    }) }}
+
+</div>
+
+  <div class="govuk-grid-column-full">
+
+    <h2 class="govuk-heading-l govuk-!-margin-top-7">Your accounts</h2>
+    <p>You have access to the following accounts and related services.</p>
+
+    {{ govukTable({
+        caption: "Accounts",
+        captionClasses: "govuk-visually-hidden",						
+        head: [
+          { text: "Account", classes: "govuk-!-width-one-quarter" },
+          { text: "Account role", classes: "" },
+          { text: "Service", classes: "govuk-!-width-one-quarter" },
+          { text: "Service role", classes: "govuk-!-width-one-quarter" },
+          { text: "", classes: "" }
+        ],
+        rows: [
+          [
+            { text: accountName | titleCase },
+            { text: "Admin" },
+            { text: data.defaultServiceEnrolment },
+            { text: data.defaultServiceRole },
+            { html: accountLink }				
+          ]			  
+        ]
+      }) }}      	
+
+    <h2 class="govuk-heading-l govuk-!-margin-top-7">Your services</h2>
+    
+    <div class="govuk-grid-row">
+        <div class="govuk-card__content">
+            <div class="govuk-grid-column-one-third">
+                <div class="govuk-card govuk-card--contained govuk-card--selectable">
+                    <a href="../epr/home"></a>
+                    <div class="govuk-card__content">
+                        <h3 class="govuk-heading-m">IPAFFS</h3>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="govuk-grid-column-one-third">
+                <div class="govuk-card govuk-card--contained govuk-card--selectable">
+                    <a href="../drs/home"></a>
+                    <div class="govuk-card__content">
+                        <h3 class="govuk-heading-m">Comply with UK Reach</h3>
+                    </div>
+                </div>
+            </div> -->
+            <!-- <div class="govuk-grid-column-one-third">
+                <div class="govuk-card govuk-card--contained govuk-card--selectable">
+                <a href="../drs/home"></a>
+                <div class="govuk-card__content">
+                        <h3 class="govuk-heading-m">Waste Tracking Service</h3>
+                </div>
+                </div>
+        </div> -->
+        </div>
+    </div>

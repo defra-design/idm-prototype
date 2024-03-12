@@ -4,9 +4,9 @@
 
 
 {% if data['regThirdPartyUserTwo'] %}
-    {% set pageHeading = "You have added 2 people to {type/name of third party}" %}
+    {% set pageHeading = 'You have added 2 people to ' + data.defaultThirdPartyName | titleCase + '' %}
 {% else %}
-{% set pageHeading = "You have added 1 person to {type/name of third party}" %}
+{% set pageHeading = 'You have added 1 person to ' + data.defaultThirdPartyName | titleCase + '' %}
 {% endif %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -62,7 +62,7 @@
                 },            
                 items: [
                     { value: "Yes", text: "Yes" }, 
-                    { value: "No, redirect(/register/thirdParty/add/confirmation)", text: "No" }              
+                    { value: "No~/register/thirdParty/add/confirmation", text: "No" }              
                 ]
             }) }}
 

@@ -36,103 +36,23 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}      
-
-		<p><span class="govuk-!-font-weight-bold">Full name:</span> {{ data.defraIdFirstName | titleCase }} {{ data.defraIdSurname | titleCase }}
-		<br><span class="govuk-!-font-weight-bold">Email address:</span> {{ data.govGateEmail }}
-		<br><span class="govuk-!-font-weight-bold">Telephone number:</span> {{ data.registrationContactPhonePersonal }}</p>
+		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}     
 		
 		
-    	<p class="govuk-body"><a href="/account/manage/update/individual/" class="govuk-link govuk-link--no-visited-state">Update details</a></p>				
-		<p class="govuk-body"><a href="/account/manage/reset-security-word/" class="govuk-link govuk-link--no-visited-state">Reset security word</a></p>		
-		{{ govukDetails({
-			summaryText: "Contact support ID",
-			text: "If you contact us, you will need your contact support ID, BA202452-V0-4703-P5-0409"
-		}) }}
-
-    </div>
-
-  	<div class="govuk-grid-column-full">
-
-    	<h2 class="govuk-heading-l govuk-!-margin-top-7">Your accounts</h2>
-		<p>You have access to the following accounts and related services.</p>
-
-		{{ govukTable({
-			caption: "Accounts",
-			captionClasses: "govuk-visually-hidden",						
-			head: [
-			  { text: "Account", classes: "govuk-!-width-one-quarter" },
-			  { text: "Account role", classes: "" },
-			  { text: "Service", classes: "govuk-!-width-one-quarter" },
-			  { text: "Service role", classes: "govuk-!-width-one-quarter" },
-			  { text: "", classes: "" }
-			],
-			rows: [
-			  [
-				{ text: accountName | titleCase },
-				{ text: "Admin" },
-				{ text: data.defaultServiceEnrolment },
-				{ text: data.defaultServiceRole },
-				{ html: accountLink }				
-			  ]			  
-			]
-		  }) }}      	
+		{% if data['defaultAccount'] == "thirdParty" %}
 
 
-		  <!-- 
-			[
-				{ text: "Chrispee Bacon (you)" },
-				{ text: "Admin" },
-				{ text: "Comply with UK REACH" },
-				{ text: "REACH Manager" },
-				{ html: '<a href="/account/manage/enrol-list" class="govuk-link govuk-link--no-visited-state">Add a service<span class="govuk-visually-hidden td-header"> {{ business }}</span></a>' }
-			  ]
-			
-			[
-				{ text: "Rascals" },
-				{ text: "Admin" },
-				{ text: "IPAFFS" },
-				{ text: "" },
-				{ html: '<a href="/account/manage/dashboard" class="govuk-link govuk-link--no-visited-state">Manage<span class="govuk-visually-hidden td-header"> {{ business }}</span></a>' }
-			  ]			   -->
+			{% include "includes/account/thirdparty.html" %}
 
-		  <!-- { html: '<a href="dashboard" class="govuk-link govuk-link--no-visited-state">Add a service<span class="govuk-visually-hidden td-header"> {{ business }}</span></a>' } -->
 
-      	<p class="govuk-body"><a class="govuk-link govuk-link--no-visited-state" href="/account/add/account-type">Add new account</a></p>
-	
-		<h2 class="govuk-heading-l govuk-!-margin-top-7">Your services</h2>
+		{% else %}
 
-		<p class="govuk-body">You are not enrolled to any services.</p>
-        
-		<div class="govuk-grid-row">
-			<div class="govuk-card__content">
-				<div class="govuk-grid-column-one-third">
-					<div class="govuk-card govuk-card--contained govuk-card--selectable">
-						<a href="../epr/home"></a>
-						<div class="govuk-card__content">
-							<h3 class="govuk-heading-m">IPAFFS</h3>
-						</div>
-					</div>
-				</div>
-				<!-- <div class="govuk-grid-column-one-third">
-					<div class="govuk-card govuk-card--contained govuk-card--selectable">
-						<a href="../drs/home"></a>
-						<div class="govuk-card__content">
-							<h3 class="govuk-heading-m">Comply with UK Reach</h3>
-						</div>
-					</div>
-				</div> -->
-				<!-- <div class="govuk-grid-column-one-third">
-					<div class="govuk-card govuk-card--contained govuk-card--selectable">
-					<a href="../drs/home"></a>
-					<div class="govuk-card__content">
-							<h3 class="govuk-heading-m">Waste Tracking Service</h3>
-					</div>
-					</div>
-			</div> -->
-			</div>
-		</div>
 
+
+		{% include "includes/account/business.html" %}
+
+
+		{% endif %}
 
       </div>
     </div>

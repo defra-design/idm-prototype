@@ -19,6 +19,7 @@ Example usage:
 
 module.exports = {
   
+  defaultAccount: "thirdParty",
 
   govGateEmail: "hugo.furst@govgateway.test",
   registrationStatus: "Enrolled",
@@ -40,7 +41,8 @@ module.exports = {
   registrationMemorableHint: "The one and only goat",
   defaultCompanyName: "Soleheaven Ltd",
   defaultServiceEnrolment: "IPAFFS",
-  defaultServiceRole: "Notifier"
+  defaultServiceRole: "Notifier",
+
 
   // Individual
   // registrationAccountType: "Individual",
@@ -91,5 +93,10 @@ module.exports = {
   // "defraIdFirstName": "",
   // "defraIdSurname": "",
   // "IVRes": "success"
+
+
+  //Local authority
+  defaultThirdParty: "Local authority",
+  defaultThirdPartyName: "Newcastle City Council"
 
 }

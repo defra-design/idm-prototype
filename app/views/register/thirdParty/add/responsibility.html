@@ -4,7 +4,7 @@
 
 {% set pageHeading = "What are they responsible for at the local authority?" %}
 
-{% set pageHeading = "What will their role be at the {type of third party}?" %}
+{% set pageHeading = 'What will their role be for ' + data.defaultThirdPartyName | titleCase + '?' %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -31,7 +31,11 @@
                 },            
                 items: [
                     { value: "Adding and amending bank details", text: "Adding and amending bank details", hint: { text: "They must be employed as an S151 Officer, Chief Financial Officer, or another senior finance role." } }, 
-                    { value: "Managing waste data", text: "Managing waste data", hint: { text: "For example, head of waste, waste manager, or waste accountant." } }              
+                    { value: "Managing waste data", text: "Managing waste data", hint: { text: "For example, head of waste, waste manager, or waste accountant." } },
+                    {
+                        divider: "or"
+                      },
+                    { value: "Do not assign role", text: "Do not assign role" }              
                 ]
             }) }}
 
