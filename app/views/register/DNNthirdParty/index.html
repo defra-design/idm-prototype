@@ -2,7 +2,7 @@
 {% set showBackLink = false %}
 {% set serviceName = "" %}
 
-{% set pageHeading = "What’s your {type of third party} email address?" %}
+{% set pageHeading = 'What’s your ' +  data.defaultThirdParty | lowerCase + ' email address?' %}
 
 
 {% set pageSection = "" %}
@@ -27,8 +27,8 @@
                     isPageHeading: false
                 },
                 classes: "govuk-!-width-two-thirds",
-                id: "regThirdPartyEmail",
-                name: "regThirdPartyEmail",
+                id: "regCEOThirdPartyEmail",
+                name: "regCEOThirdPartyEmail",
                 type: "email",
                 value: data['regCEOThirdPartyEmail']    
             }) }}

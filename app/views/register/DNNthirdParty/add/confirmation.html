@@ -1,0 +1,73 @@
+{% extends "/layouts/main.html" %}
+{% set showBackLink = false %}
+{% set serviceName = "" %}
+
+{% if data['addTeamMemberThirdParty'] == "Yes" %}
+    {% set pageHeading = "Team member added to your account" %}
+{% else %}
+    {% set pageHeading = "Added to your account" %}
+{% endif %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukPanel({
+            titleText: pageHeading,
+            classes: "govuk-!-margin-bottom-7"
+        }) }}
+
+        {% if data['addTeamMemberThirdParty'] == "Yes" %}
+
+        <h2 class="govuk-heading-m">What happens next</h2>
+        <p>We will send an email to {email address} with instructions inviting them to complete the registration of their account.</p>                    
+        
+        <p>As you have added them as an administrator they will be able to:</p>                
+        <ul class="govuk-list govuk-list--bullet">
+            <li>view and edit information the service holds about {{ data.defaultThirdPartyName }}</li>
+            <li>manage other users access and tasks on your behalf</li>
+            <li>add more users to your service</li>
+        </ul>
+
+        <h2 class="govuk-heading-m">What you can do next</h2>
+        <p>We may contact you if we need to clarify something, but you do not have to do anything else now.</p>
+        <ul class="govuk-list">
+            <li><a href="/account/manage/team/" class="govuk-link govuk-link--no-visited-state">Return to your team</a></li>
+            
+
+        </ul>
+        
+
+        {% else %}
+
+        <p>We have sent you a confirmation email. </p>        
+            
+        <h2 class="govuk-heading-m">What happens next</h2>
+        <p>We will send an email to those you have told us about with instructions inviting them to complete the registration of their account.</p>                    
+        
+        <p>Any user you have added as an administrator will be able to:</p>                
+        <ul class="govuk-list govuk-list--bullet">
+            <li>view and edit information the service holds about {{ data.defaultThirdPartyName }}</li>
+            <li>manage other users access and tasks on your behalf</li>
+            <li>add more users to your service</li>
+        </ul>
+
+        <h2 class="govuk-heading-m">What you can do next</h2>
+        <p>We may contact you if we need to clarify something, but you do not have to do anything else now.</p>
+        <ul class="govuk-list">
+            <li><a href="/account/?thirdPartyUser=Yes" class="govuk-link govuk-link--no-visited-state">Go to to your account</a></li>
+            <li><a href="#" class="govuk-link govuk-link--no-visited-state">Sign out</a></li>
+
+        </ul>
+        
+
+        {% endif %}
+
+
+  	</div>
+</div>
+
+{% endblock %}

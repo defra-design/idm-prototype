@@ -18,10 +18,12 @@ Example usage:
 */
 
 module.exports = {
-  
+  // Third Party Account
   defaultAccount: "thirdParty",
+  
 
   govGateEmail: "hugo.furst@govgateway.test",
+  govGateThirdPartyEmail: "hugo.furst@thirdparty.co.uk",
   registrationStatus: "Enrolled",
   termsAndConditions: "Viewed",
   
@@ -97,6 +99,16 @@ module.exports = {
 
   //Local authority
   defaultThirdParty: "Local authority",
-  defaultThirdPartyName: "Newcastle City Council"
+  defaultThirdPartyName: "Newcastle City Council",
+  defaultThirdPartyAddress: "Civic Centre, 2nd Floor, Newcastle upon Tyne, NE1 8QH",
+  defaultThirdPartyCEO: "Chrispee Bacon",
+  defaultThirdPartyCEORole: "Chief Executive Officer (CEO)",
+  defaultThirdPartyCEOPhone: "00700700788",
+  defaultThirdPartyCEOEmail: "chrisp@localauthority.co.uk",
+  defaultThirdPartyCEOServiceRole: "Managing waste data",
+  // defaultThirdPartyCeoRegistered: "Yes",
+  // defaultThirdPartyUserOneResponsibility: "Adding and amending bank details",
+  // defaultThirdPartyUserOneAdmin: "Yes",
+  // defaultThirdPartyUserOneEmail: "hugo.furst@localauthority.co.uk"
 
 }

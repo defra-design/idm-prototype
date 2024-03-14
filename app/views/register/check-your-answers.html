@@ -341,7 +341,7 @@
 		{% elif data['serviceHook'] == "Forest" %}
 			<form method="post" action="https://forest-risk-commodities.herokuapp.com/Dashboard_v5_newuser">
 		{% else %}
-        	<form method="post" action="/account/">
+        	<form method="post" action="/account/?notification_banner=">
 				<input type="hidden" id="registrationStatus" name="registrationStatus" value="Enrolled" />
 		{% endif %}
 

@@ -1,6 +1,7 @@
 {% extends "/layouts/main.html" %}
 {% set serviceName = "Your Defra account" %}
 
+
 <!-- Sets type of action link -->
 {% set accountLink %}
   {% if data['registrationAccountType'] == "Individual" %}
@@ -10,20 +11,26 @@
   {% endif %}
 {% endset -%}
 
-{% set accountName %}
-	{% if data['registrationAccountType'] == "Individual" %}
-		{{ data.defraIdFirstName }} {{ data.defraIdSurname }}
-	{% else %}
-		{{ data.defaultCompanyName }}
-	{% endif %}
+{% set accountName %}	
+	{{ data.defaultCompanyName }}	
+{% endset -%}
+
+{% set accountUserName %}	
+	{{ data.defraIdFirstName }} {{ data.defraIdSurname }}	
 {% endset -%}
 
 
 
 
 
-{% set pageHeading = "Your Defra account" %}
-{% set pageSection = "" %}
+{% if data['defaultAccount'] == "thirdParty" %}
+	{% set pageHeading = "Manage account" %}
+	{% set pageSection = "Defra online services" %}
+{% else %}
+	{% set pageHeading = "Your Defra account" %}
+	{% set pageSection = "" %}
+{% endif %}
+
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block beforeContent %}
@@ -36,22 +43,19 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
+		<!-- Notification banner -->
+		{% if data['notification_banner'] != "" %}
+			{% include "includes/notification/banner.html" %}
+		{% endif %}
+
 		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}     
 		
-		
-		{% if data['defaultAccount'] == "thirdParty" %}
-
-
+		<!-- Third party layout -->
+		{% if ((data['defaultAccount'] == "thirdParty") or ( data['defaultAccount'] == "thirdPartyCEO")) %}
 			{% include "includes/account/thirdparty.html" %}
-
-
+		<!-- Business and Individual -->
 		{% else %}
-
-
-
-		{% include "includes/account/business.html" %}
-
-
+			{% include "includes/account/business.html" %}
 		{% endif %}
 
       </div>
