@@ -2,7 +2,7 @@
 {% set showBackLink = false %}
 {% set serviceName = "" %}
 
-{% set pageHeading = "What is their {type of third party} email address?" %}
+{% set pageHeading = "What is their job title for the local authority?" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -13,13 +13,10 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-        <div class="govuk-inset-text">
-            <p>For security and access it’s important this is the email address they use at {name of third party}.</p>
-        </div>
-        <form method="post" action="/register/thirdParty/add/check-your-answers" >
+        
 
 
-            {% if data['regThirdPartyUserOne'] %}
+        <form method="post" action="/account/thirdParty/user/responsibility" >
 
             {{ govukInput({
                 label: {
@@ -27,26 +24,18 @@
                     classes: "govuk-visually-hidden"
                 },
                 classes: "govuk-!-width-three-quarters",
-                name: "regThirdPartyUserTwoEmail"
+                name: "regThirdPartyUserJobTitle"
             }) }}
-
-            {% else %}
-            
-            {{ govukInput({
-                label: {
-                    text: "Email address",
-                    classes: "govuk-visually-hidden"
-                },
-                classes: "govuk-!-width-three-quarters",
-                name: "regThirdPartyUserOneEmail"
-            }) }}
-
-            {% endif %}
 
 
                 {{ govukButton({
                     text: "Continue"
                 }) }}                                
+                
+
+
+            
+
 
         </form>
        

@@ -1,0 +1,60 @@
+{% extends "/layouts/main.html" %}
+{% set showBackLink = false %}
+{% set serviceName = "" %}
+
+{% set pageHeading = 'Registration for Defra account complete' %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukPanel({
+            titleText: pageHeading,
+
+            html: '' + data.defaultThirdPartyName + '',
+ 
+            
+            classes: "govuk-!-margin-bottom-7"
+        }) }}
+
+        <p>We’ve sent a confirmation email to <span class="govuk-!-font-weight-bold">{{ data.regThirdPartyCeoEmail }}</span>. </p>
+            
+        <h2 class="govuk-heading-m">What you can do next</h2>
+
+
+        <!-- <h3 class="govuk-heading-s">Add a team member</h3> -->
+        <p>You can add team members to this account, giving them access to Defra online services on behalf of {{ data.defaultThirdPartyName }}. You will need to tell us:</p>            
+        <!-- to tell us who will be responsible for the various roles at {{ data.defaultThirdPartyName }}. </p> -->        
+        <ul class="govuk-list govuk-list--bullet">
+            <li>what their role will be</li>
+            <li>their email address</li>            
+            <li>if they will be an administator for the account</li>
+        </ul>        
+        <p><a href="/account/thirdParty/add/responsibility?ceoRegistered=Yes">Add a team member</a></p>
+
+        <p>If you do not want to add any other team members now, you can go to your Defra account, where you will be able to manage your online services.</p>
+        <p class="govuk-!-margin-bottom-7">You can add new team members later.</p>
+        <!-- <p>We can then send them instruction by email on how to register so they can access {{ data.defaultThirdPartyName }}’s services.</p> -->
+        <form method="post" action="/account/?defaultAccount=thirdParty&defaultAccountUser=CEO&notification_banner=" >
+
+            <input type="hidden" id="ceoRegistered" name="ceoRegistered" value="Yes" />
+            
+            <div class="govuk-button-group">
+            {{ govukButton({
+                text: "Continue to your account"                
+            }) }}    
+
+            <!-- {{ govukButton({
+                text: "Add team member",
+                classes: "govuk-button--secondary"
+            }) }} -->
+            </div>
+
+            </form>
+  	</div>
+</div>
+
+{% endblock %}

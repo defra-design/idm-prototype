@@ -1,0 +1,26 @@
+{% extends "/layouts/main.html" %}
+{% set showBackLink = false %}
+{% set serviceName = "" %}
+
+{% set pageHeading = "You cannot continue registration" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+        
+        <p>Needs content to explain that the CEO cannot continue with registering, then guidance on what they need to do to fix the issue.</p>
+        </form>
+       
+    </div>
+</div>
+
+{% endblock %}
+
+
+
+

@@ -15,7 +15,35 @@
 
         
 
+		{% if data['thirdPartyInvite'] == "Yes" %}
 
+			<dl class="govuk-summary-list govuk-!-margin-bottom-9">        	
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">Role</dt>
+					<dd class="govuk-summary-list__value">{{ data['inviteThirdPartyOneResponsibility'] or 'TheGoat23' }}</dd>
+					<dd class="govuk-summary-list__actions">
+				  		<a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> what responsibility they have</span></a>
+					</dd>
+		  		</div>
+
+		  		<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">Administrator</dt>
+					<dd class="govuk-summary-list__value">{{ data['inviteThirdPartyOneAdmin'] or 'TheGoat23' }}</dd>
+					<dd class="govuk-summary-list__actions">
+			  			<a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> what access they have</span></a>
+					</dd>
+	  			</div>
+
+        		<div class="govuk-summary-list__row">
+          			<dt class="govuk-summary-list__key">Email address</dt>
+          			<dd class="govuk-summary-list__value">{{ data['inviteThirdPartyOneEmail'] or '07711223344' }}</dd>
+          			<dd class="govuk-summary-list__actions">
+            			<a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> their email address</span></a>
+          			</dd>
+        		</div>        	
+      		</dl>
+
+		{% else %}
 
 
 
@@ -26,6 +54,10 @@
 			<div class="govuk-summary-list__row">
 				<dt class="govuk-summary-list__key">Role</dt>
 				<dd class="govuk-summary-list__value">
+
+					
+
+
 
 					{% if data['regThirdPartyUserOne'] %}
 						{{ data['regThirdPartyUserTwoResponsibility'] or 'TheGoat23' }}
@@ -76,7 +108,17 @@
         	
       	</dl>
 
-        <form method="post" action="/register/thirdParty/add-more" >    
+		{% endif %}
+
+		  
+		
+			{% if data['thirdPartyInvite'] == "Yes" %}
+				<form method="post" action="/account/thirdParty/add/confirmation" >    
+			{% else %}
+        		<form method="post" action="/account/thirdParty/add-more" >    
+			{% endif %}
+		
+		
 
 			{% if data['regThirdPartyUserOne'] %}
 			<input type="hidden" id="regThirdPartyUserTwo" name="regThirdPartyUserTwo" value="Yes" />

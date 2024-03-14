@@ -19,18 +19,18 @@
         <p>We have sent you a confirmation email for this registration. </p>
             
         <h2 class="govuk-heading-m">What happens next</h2>
-        <p>You now need to tell us who will be responsible for the various roles at {name of third party}. We will then send them an email with instructions inviting them to create/register their account.</p>
+        <p>You now need to tell us who will be responsible for the various roles at {{ data.defaultThirdPartyName }}. We will then send them an email with instructions inviting them to create/register their account.</p>
 
         
         
         <p>We need to know:</p>
         <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
-            <li>their {name of third party} email address</li>
+            <li>their {{ data.defaultThirdPartyName }} email address</li>
             <li>what role and responsibilities they will have</li>
             <li>if they will be an administator for the account</li>
         </ul>
         
-        <form method="post" action="/register/thirdParty/add/responsibility" >
+        <form method="post" action="/b2c/thirdParty/add/responsibility" >
 
             <input type="hidden" id="ceoRegistered" name="ceoRegistered" value="Yes" />
             {{ govukButton({

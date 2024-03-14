@@ -1,6 +1,7 @@
 {% extends "/layouts/main.html" %}
 {% set serviceName = "Your Defra account" %}
 
+
 <!-- Sets type of action link -->
 {% set accountLink %}
   {% if data['registrationAccountType'] == "Individual" %}
@@ -10,20 +11,26 @@
   {% endif %}
 {% endset -%}
 
-{% set accountName %}
-	{% if data['registrationAccountType'] == "Individual" %}
-		{{ data.defraIdFirstName }} {{ data.defraIdSurname }}
-	{% else %}
-		{{ data.defaultCompanyName }}
-	{% endif %}
+{% set accountName %}	
+	{{ data.defaultCompanyName }}	
+{% endset -%}
+
+{% set accountUserName %}	
+	{{ data.defraIdFirstName }} {{ data.defraIdSurname }}	
 {% endset -%}
 
 
 
 
 
-{% set pageHeading = "Your Defra account" %}
-{% set pageSection = "" %}
+{% if data['defaultAccount'] == "thirdParty" %}
+	{% set pageHeading = "Manage account" %}
+	{% set pageSection = "Defra online services" %}
+{% else %}
+	{% set pageHeading = "Your Defra account" %}
+	{% set pageSection = "" %}
+{% endif %}
+
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block beforeContent %}
@@ -36,103 +43,20 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}      
+		<!-- Notification banner -->
+		{% if data['notification_banner'] != "" %}
+			{% include "includes/notification/banner.html" %}
+		{% endif %}
 
-		<p><span class="govuk-!-font-weight-bold">Full name:</span> {{ data.defraIdFirstName | titleCase }} {{ data.defraIdSurname | titleCase }}
-		<br><span class="govuk-!-font-weight-bold">Email address:</span> {{ data.govGateEmail }}
-		<br><span class="govuk-!-font-weight-bold">Telephone number:</span> {{ data.registrationContactPhonePersonal }}</p>
+		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}     
 		
-		
-    	<p class="govuk-body"><a href="/account/manage/update/individual/" class="govuk-link govuk-link--no-visited-state">Update details</a></p>				
-		<p class="govuk-body"><a href="/account/manage/reset-security-word/" class="govuk-link govuk-link--no-visited-state">Reset security word</a></p>		
-		{{ govukDetails({
-			summaryText: "Contact support ID",
-			text: "If you contact us, you will need your contact support ID, BA202452-V0-4703-P5-0409"
-		}) }}
-
-    </div>
-
-  	<div class="govuk-grid-column-full">
-
-    	<h2 class="govuk-heading-l govuk-!-margin-top-7">Your accounts</h2>
-		<p>You have access to the following accounts and related services.</p>
-
-		{{ govukTable({
-			caption: "Accounts",
-			captionClasses: "govuk-visually-hidden",						
-			head: [
-			  { text: "Account", classes: "govuk-!-width-one-quarter" },
-			  { text: "Account role", classes: "" },
-			  { text: "Service", classes: "govuk-!-width-one-quarter" },
-			  { text: "Service role", classes: "govuk-!-width-one-quarter" },
-			  { text: "", classes: "" }
-			],
-			rows: [
-			  [
-				{ text: accountName | titleCase },
-				{ text: "Admin" },
-				{ text: data.defaultServiceEnrolment },
-				{ text: data.defaultServiceRole },
-				{ html: accountLink }				
-			  ]			  
-			]
-		  }) }}      	
-
-
-		  <!-- 
-			[
-				{ text: "Chrispee Bacon (you)" },
-				{ text: "Admin" },
-				{ text: "Comply with UK REACH" },
-				{ text: "REACH Manager" },
-				{ html: '<a href="/account/manage/enrol-list" class="govuk-link govuk-link--no-visited-state">Add a service<span class="govuk-visually-hidden td-header"> {{ business }}</span></a>' }
-			  ]
-			
-			[
-				{ text: "Rascals" },
-				{ text: "Admin" },
-				{ text: "IPAFFS" },
-				{ text: "" },
-				{ html: '<a href="/account/manage/dashboard" class="govuk-link govuk-link--no-visited-state">Manage<span class="govuk-visually-hidden td-header"> {{ business }}</span></a>' }
-			  ]			   -->
-
-		  <!-- { html: '<a href="dashboard" class="govuk-link govuk-link--no-visited-state">Add a service<span class="govuk-visually-hidden td-header"> {{ business }}</span></a>' } -->
-
-      	<p class="govuk-body"><a class="govuk-link govuk-link--no-visited-state" href="/account/add/account-type">Add new account</a></p>
-	
-		<h2 class="govuk-heading-l govuk-!-margin-top-7">Your services</h2>
-
-		<p class="govuk-body">You are not enrolled to any services.</p>
-        
-		<div class="govuk-grid-row">
-			<div class="govuk-card__content">
-				<div class="govuk-grid-column-one-third">
-					<div class="govuk-card govuk-card--contained govuk-card--selectable">
-						<a href="../epr/home"></a>
-						<div class="govuk-card__content">
-							<h3 class="govuk-heading-m">IPAFFS</h3>
-						</div>
-					</div>
-				</div>
-				<!-- <div class="govuk-grid-column-one-third">
-					<div class="govuk-card govuk-card--contained govuk-card--selectable">
-						<a href="../drs/home"></a>
-						<div class="govuk-card__content">
-							<h3 class="govuk-heading-m">Comply with UK Reach</h3>
-						</div>
-					</div>
-				</div> -->
-				<!-- <div class="govuk-grid-column-one-third">
-					<div class="govuk-card govuk-card--contained govuk-card--selectable">
-					<a href="../drs/home"></a>
-					<div class="govuk-card__content">
-							<h3 class="govuk-heading-m">Waste Tracking Service</h3>
-					</div>
-					</div>
-			</div> -->
-			</div>
-		</div>
-
+		<!-- Third party layout -->
+		{% if ((data['defaultAccount'] == "thirdParty") or ( data['defaultAccount'] == "thirdPartyCEO")) %}
+			{% include "includes/account/thirdparty.html" %}
+		<!-- Business and Individual -->
+		{% else %}
+			{% include "includes/account/business.html" %}
+		{% endif %}
 
       </div>
     </div>
