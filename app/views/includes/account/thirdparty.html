@@ -6,8 +6,8 @@
     	rows: [    	
         	{ key: { text: "Your name" }, value: { text: data.defaultThirdPartyCEO } },
         	{ key: { text: "Email address" }, value: { text: data['regThirdPartyCEOEmail'] or data.defaultThirdPartyCEOEmail } },
-        	{ key: { text: "Phone number" }, value: { text: data.defaultThirdPartyCEOPhone } },
-        	{ key: { text: "Memorable word" }, value: { text: "********" } }
+        	{ key: { text: "Phone number" }, value: { text: data.defaultThirdPartyCEOPhone } }
+        	
       	]
   	}) }}
 
@@ -38,12 +38,8 @@
 
 	{{ govukSummaryList({
 		card: {
-			title: { html: data.defaultThirdPartyName | titleCase  },
-			actions: {
-				items: [
-					{ href: "#", text: "Register with new service", visuallyHiddenText: "name", classes: "govuk-link--no-visited-state" }        
-				]
-			}  	
+			title: { html: data.defaultThirdPartyName | titleCase  }
+			
 		},
 		rows: [		
 			{ key: { text: "Address" }, value: { text: data.defaultThirdPartyAddress } },    	
