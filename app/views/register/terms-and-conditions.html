@@ -104,7 +104,7 @@
         </div>
 
         
-        {% if data['thirdPartyUser'] == "Yes" %}
+        {% if data['userType'] == "Invited" %}
             <form method="post" action="/register/personal-name" >    
         {% else %}            
         <form method="post" action="/register/what-we-need" >    

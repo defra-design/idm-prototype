@@ -15,7 +15,7 @@
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   
 
 		
-		{% if not data['thirdPartyUser'] %}
+		{% if not data['userType'] %}
 		<!-- Account Type -->
 		<dl class="govuk-summary-list govuk-!-margin-bottom-9">
 			<div class="govuk-summary-list__row">
@@ -31,7 +31,7 @@
 		{% endif %}
 
 
-		{% if data['thirdPartyUser'] == "Yes" %}
+		{% if data['userType'] == "Invited" %}
 
 
 
@@ -315,6 +315,8 @@
 				</div>
 			{% endif %}
 
+
+			{% if data['userType'] != "Invited" %}
         	<div class="govuk-summary-list__row">
           		<dt class="govuk-summary-list__key">Memorable word</dt>
           		<dd class="govuk-summary-list__value">
@@ -336,6 +338,7 @@
 				  <a class="govuk-link govuk-link--no-visited-state" href="/register/individual-security?link=change">Change<span class="govuk-visually-hidden"> memorable word</span></a>
 				</dd>
 		  </div>
+		  {% endif %}
       	</dl>
 
 		

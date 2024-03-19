@@ -3,7 +3,7 @@
 </div>
 <h3 class="govuk-heading-m">CEO initial registration</h3>
 
-<form method="post" action="/b2c/thirdParty/" >
+<form method="post" action="/b2c/thirdParty/userType=CEO" >
 
     {{ govukButton({
         text: "CEO registration flow"
@@ -11,7 +11,7 @@
 </form>
 
 <ul class="govuk-list govuk-list--bullet">
-    <li><a class="govuk-link govuk-link--no-visited-state" href="/b2c/thirdParty/" >What’s your local authority email address?</a> ( May still skip this)</li>
+    <li><a class="govuk-link govuk-link--no-visited-state" href="/b2c/thirdParty/?userType=CEO" >What’s your local authority email address?</a> ( May still skip this)</li>
     <li><a class="govuk-link govuk-link--no-visited-state" href="/b2c/thirdParty/enter-code" >Enter the verification code</a></li>
     <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-2">
         <li><a class="govuk-link govuk-link--no-visited-state" href="/b2c/thirdParty/failed-to-send" >There was a problem sending the one-time passcode</a></li>
@@ -47,7 +47,7 @@
 
 
 <h3 class="govuk-heading-m">Invitation journey</h3>
-<form method="post" action="/gov-gateway/sign-in?userFlow=Registration" >
+<form method="post" action="/b2c/thirdParty/?userType=Invited" >
     {{ govukButton({
         text: "Register from invitation"
     }) }}
@@ -55,7 +55,12 @@
 
 
 <ul class="govuk-list govuk-list--bullet">
-    <li><a class="govuk-link govuk-link--no-visited-state" href="/register/" >You need to register for a Defra account</a></li>
+
+
+    
+    <li><a class="govuk-link govuk-link--no-visited-state" href="/b2c/thirdParty/?userType=Invited" >What’s your local authority email address?</a></li>
+    <li><a class="govuk-link govuk-link--no-visited-state" href="/b2c/thirdParty/enter-code?userType=Invited" >Enter the verification code</a></li>
+    <!-- <li><a class="govuk-link govuk-link--no-visited-state" href="/register/" >You need to register for a Defra account</a></li> -->
     <li><a class="govuk-link govuk-link--no-visited-state" href="/register/terms-and-conditions" >Your Defra account terms and conditions</a></li>
     <li><a class="govuk-link govuk-link--no-visited-state" href="/register/personal-name" >What’s your name?</a></li>
     <li><a class="govuk-link govuk-link--no-visited-state" href="/register/personal-contact" >What’s your telephone number?</a></li>

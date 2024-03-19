@@ -25,7 +25,11 @@
             }) }}
     
             
-            <form action="/b2c/thirdParty/check-details" method="post">            
+            {% if data['userType'] == "Invited" %}
+                <form action="/register/terms-and-conditions" method="post">            
+            {% elif data['userType'] == "CEO" %}
+                <form action="/b2c/thirdParty/check-details" method="post">            
+            {% endif %}
     
                 {{ govukInput({
                     label: {
