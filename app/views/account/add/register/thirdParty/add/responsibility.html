@@ -21,7 +21,7 @@
             {% if data['regThirdPartyUserOne'] %}
 
             {{ govukRadios({
-                name: "regThirdPartyUserTwoResponsibility",
+                name: "regThirdPartyUserTwoServiceRole",
                 fieldset: {
                     legend: {
                         text: "What will this persons role be at the {type of third party}?",
@@ -31,14 +31,14 @@
                 },            
                 items: [
                     { value: "Adding and amending bank details", text: "Adding and amending bank details", hint: { text: "They must be employed as an S151 Officer, Chief Financial Officer, or another senior finance role." } }, 
-                    { value: "Managing waste data", text: "Managing waste data", hint: { text: "For example, head of waste, waste manager, or waste accountant." } }              
+                    { value: "Managing waste data", text: "Managing waste data", hint: { text: "May be employed as head of waste, waste manager, or waste accountant." } }              
                 ]
             }) }}
 
             {% else %}
             
             {{ govukRadios({
-                name: "regThirdPartyUserOneResponsibility",
+                name: "regThirdPartyUserOneServiceRole",
                 fieldset: {
                     legend: {
                         text: "What will this persons role be at the {type of third party}?",
@@ -48,7 +48,7 @@
                 },            
                 items: [
                     { value: "Adding and amending bank details", text: "Adding and amending bank details", hint: { text: "They must be employed as an S151 Officer, Chief Financial Officer, or another senior finance role." } }, 
-                    { value: "Managing waste data", text: "Managing waste data", hint: { text: "For example, head of waste, waste manager, or waste accountant." } }  ,            
+                    { value: "Managing waste data", text: "Managing waste data", hint: { text: "May be employed as head of waste, waste manager, or waste accountant." } }  ,            
                     {
                         divider: "or"
                       },

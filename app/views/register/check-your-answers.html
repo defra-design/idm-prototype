@@ -15,7 +15,7 @@
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   
 
 		
-		
+		{% if not data['thirdPartyUser'] %}
 		<!-- Account Type -->
 		<dl class="govuk-summary-list govuk-!-margin-bottom-9">
 			<div class="govuk-summary-list__row">
@@ -28,8 +28,15 @@
 				</dd>
 			</div>			
 		</dl>
+		{% endif %}
 
-		{% if data['registrationAccountType'] == "Individual" %}
+
+		{% if data['thirdPartyUser'] == "Yes" %}
+
+
+
+
+		{% elif data['registrationAccountType'] == "Individual" %}
 
 
 
@@ -333,7 +340,7 @@
 
 		
 
-
+		
 		
 
 		{% if data['serviceHook'] == "WasteTracking" %}
@@ -341,8 +348,15 @@
 		{% elif data['serviceHook'] == "Forest" %}
 			<form method="post" action="https://forest-risk-commodities.herokuapp.com/Dashboard_v5_newuser">
 		{% else %}
+
+			{% if data['thirdPartyUser'] == "Yes" %}
+				<form method="post" action="/register/confirmation">
+					<input type="hidden" id="regThirdPartyUserOne" name="regThirdPartyUserOne" value="Enrolled" />	
+			{% else %}
+
         	<form method="post" action="/account/?notification_banner=">
 				<input type="hidden" id="registrationStatus" name="registrationStatus" value="Enrolled" />
+			{% endif %}
 		{% endif %}
 
 

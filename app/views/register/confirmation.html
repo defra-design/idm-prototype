@@ -1,0 +1,31 @@
+{% extends "/layouts/main.html" %}
+{% set showBackLink = false %}
+{% set serviceName = "" %}
+
+
+{% set pageHeading = "Registration complete" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">        
+
+        {{ govukPanel({
+          titleText: pageHeading,
+          classes: "govuk-!-margin-bottom-7"            
+        }) }}
+
+    	<h2 class="govuk-heading-m">What happens next</h2>
+
+    	<p class="govuk-body"><span class="govuk-!-font-weight-bold">{{ data['regThirdPartyCEOEmail'] or data.defaultThirdPartyCEOEmail }}</span> will choose which information you can see and which tasks you can do on behalf of {{ data.defaultThirdPartyName }}.</p>
+    	<p class="govuk-body"> We'll email you when everything's ready.</p>		
+
+		<p><a href="/account/?defaultAccount=thirdPartyUser">Continue to your Defra account</a></p>      	
+
+  </div>
+</div>
+
+
+{% endblock %}

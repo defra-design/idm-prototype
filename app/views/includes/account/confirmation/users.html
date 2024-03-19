@@ -1,0 +1,21 @@
+<!-- <p class="govuk-body">We have sent you a confirmation email. </p>         -->
+            
+        <h2 class="govuk-heading-m">What happens next</h2>
+
+        {% if data['regThirdPartyUserAddMore'] == "Yes" %}
+            <p class="govuk-body">We have sent emails to the team members you have told us about with instructions inviting them to complete their registration within 30 days.</p>
+        {% elif data['regThirdPartyUserAddMore'] == "No" %}
+            <p class="govuk-body">We have sent them an email with instructions inviting them to complete their registration within 30 days.</p>
+        {% endif %}                
+        
+        <p class="govuk-body">Any team member you have added as an administrator will be able to:</p>                
+        <ul class="govuk-list govuk-list--bullet">
+            <li>add and manage your team members</li>
+            <li>view and edit information the Defra service holds about {{ data.defaultThirdPartyName }}</li>
+            <li>manage tasks on your behalf</li>
+        </ul>
+
+        <h2 class="govuk-heading-m">What you need to do next</h2>
+        <p class="govuk-body">We may contact you if we need to clarify something, but you do not have to do anything else now.</p>        
+        <p class="govuk-body"><a href="/account/?thirdPartyUser=Yes&defaultAccount=thirdPartyCEO&notification_banner=" class="govuk-link govuk-link--no-visited-state">Go to to your account</a></p>
+        

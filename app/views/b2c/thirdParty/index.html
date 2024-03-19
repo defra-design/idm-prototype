@@ -4,7 +4,6 @@
 
 {% set pageHeading = 'What’s your ' +  data.defaultThirdParty | lowerCase + ' email address?' %}
 
-
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -14,9 +13,8 @@
     <div class="govuk-grid-column-two-thirds">
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-        
-        <!-- <p>This is the work email address you use with the local authority. </p> -->
-        <p>We will send a one-time passcode to this email address.</p>
+                
+        <p class="govuk-body">We will send a one-time passcode to this email address.</p>
                 
         <form method="post" action="/b2c/thirdParty/enter-code" >        
 
@@ -27,39 +25,18 @@
                     isPageHeading: false
                 },
                 classes: "govuk-!-width-two-thirds",
-                id: "regThirdPartyCeoEmail",
-                name: "regThirdPartyCeoEmail",
+                id: "regThirdPartyCEOEmail",
+                name: "regThirdPartyCEOEmail",
                 type: "email",
-                value: data['regThirdPartyCeoEmail']    
+                value: data['regThirdPartyCEOEmail']    
             }) }}
             
-            
-            <div class="govuk-button-group">
             {{ govukButton({
                 text: "Continue"
-            }) }}               
-            
-            <!-- <a class="govuk-link" href="/authentication/no-access">I do not have access to this email address</a> -->
-
-            </div>
-
-
-
-            
-
+            }) }}
         </form>
-
-
-        <!-- <ul class="govuk-list govuk-font-weight-s">
-            <li><a href="/account-found?accountVerifyType=oneLog">Account and using GOV.UK One Login</a></li>
-            <li><a href="/account-found?accountVerifyType=GovGate">Account and using Government Gateway</a></li>
-            <li><a href="/account-found?accountVerifyType=both">Account and both options</a></li>
-            <li><a href="/no-account">No account</a></li>
-
-        </ul> -->
        
     </div>
 </div>
-
 
 {% endblock %}

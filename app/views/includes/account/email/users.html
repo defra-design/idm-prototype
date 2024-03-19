@@ -1,0 +1,26 @@
+{% if data['regThirdPartyUserOne'] %}
+
+    {{ govukInput({
+        label: {
+            text: "Email address",
+            classes: "govuk-visually-hidden"
+        },
+        classes: "govuk-!-width-three-quarters",
+        name: "regThirdPartyUserTwoEmail",
+        id: "regThirdPartyUserTwoEmail"
+    }) }}
+
+{% else %}
+    
+    {{ govukInput({
+        label: {
+            text: "Email address",
+            classes: "govuk-visually-hidden"
+        },
+        classes: "govuk-!-width-three-quarters",
+        name: "regThirdPartyUserOneEmail",
+        id: "regThirdPartyUserOneEmail",
+        value: data['regThirdPartyUserOneEmail']   
+    }) }}
+
+{% endif %}

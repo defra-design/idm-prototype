@@ -15,9 +15,10 @@
 
         <p>This means they can:</p>
         <ul class="govuk-list govuk-list--bullet">
-            <li>view and edit information the service holds about {{ data.defaultThirdPartyName }}</li>
-            <li>manage other users access and tasks on your behalf</li>
-            <li>add more users to your service</li>
+            <li>add and manage your team members</li>
+            <li>view and edit information the Defra service holds about {{ data.defaultThirdPartyName }}</li>
+            <li>manage tasks on your behalf</li>
+            
         </ul>
 
         
@@ -25,68 +26,13 @@
             
             {% if data['thirdPartyInvite'] == "Yes" %}
 
-
-                {{ govukRadios({
-                    classes: "govuk-radios--inline",
-                    name: "inviteThirdPartyOneAdmin",                    
-                    fieldset: {
-                        legend: {
-                            text: "Do you want this person to be an administrator for {type of third party}?",
-                            isPageHeading: false,
-                            classes: "govuk-visually-hidden"
-                        }
-                    },            
-                    items: [
-                        { value: "Yes", text: "Yes" }, 
-                        { value: "No", text: "No" }              
-                    ]
-                }) }}
-
+                {% include "includes/account/admin/invite.html" %}
 
             {% else %}
 
-                    {% if data['regThirdPartyUserOne'] %}
-
-                    {{ govukRadios({
-                        classes: "govuk-radios--inline",
-                        name: "regThirdPartyUserTwoAdmin",
-                        fieldset: {
-                            legend: {
-                                text: "Do you want this person to be an administrator for {type of third party}?",
-                                isPageHeading: false,
-                                classes: "govuk-visually-hidden"
-                            }
-                        },            
-                        items: [
-                            { value: "Yes", text: "Yes" }, 
-                            { value: "No", text: "No" }              
-                        ]
-                    }) }}
-
-
-                    {% else %}
-                    
-                    {{ govukRadios({
-                        classes: "govuk-radios--inline",
-                        name: "regThirdPartyUserOneAdmin",
-                        fieldset: {
-                            legend: {
-                                text: "Do you want this person to be an administrator for {type of third party}?",
-                                isPageHeading: false,
-                                classes: "govuk-visually-hidden"
-                            }
-                        },            
-                        items: [
-                            { value: "Yes", text: "Yes" }, 
-                            { value: "No", text: "No" }              
-                        ]
-                    }) }}
-
-                    {% endif %}
+                {% include "includes/account/admin/users.html" %}
 
             {% endif %}
-
-
 
             {{ govukButton({
                 text: "Continue"

@@ -1,0 +1,66 @@
+{% extends "/layouts/main.html" %}
+{% set showBackLink = false %}
+{% set serviceName = "" %}
+
+
+{% if data['changeLink'] == "CEO" %}
+    {% set pageHeading = 'What’s your new service role for ' + data.defaultThirdPartyName | titleCase + '?' %}
+{% elif data['thirdPartyInvite'] == "Yes" %}
+    {% set pageHeading = 'What will their service role be for ' + data.defaultThirdPartyName | titleCase + '?' %}
+{% else %}
+    {% set pageHeading = 'What will their service role be for ' + data.defaultThirdPartyName | titleCase + '?' %}
+{% endif %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+        <!-- Dynamic line depending on sevice -->
+        <div class="govuk-inset-text">
+            <p class="govuk-body">This is the role they will do for for you on the Local Authority Payment Service.</p>
+        </div>
+
+        {% if data['changeLink'] == "CEO" %}
+            <form method="post" action="/account/?notification_banner=ceoServiceRole" >
+                <input type="hidden" id="changeLink" name="changeLink" value="" />                
+        {% else %}
+            <form method="post" action="/account/thirdParty/add/administrative" >
+        {% endif %}
+                    
+            {% if data['changeLink'] == "CEO" %}
+
+                {% include "includes/account/service-role/change-ceo.html" %}
+                    
+            {% elif data['thirdPartyInvite'] == "Yes" %}
+
+                {% include "includes/account/service-role/invite.html" %}
+
+            {% else %}
+
+                {% include "includes/account/service-role/users.html" %}
+
+            {% endif %}
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}                                
+                
+        </form>
+       
+    </div>
+</div>
+
+{% endblock %}
+
+
+
+
+
+
+
+

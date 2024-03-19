@@ -14,49 +14,18 @@
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
         <div class="govuk-inset-text">
-            <p>For security and access it’s important this is the email address they use at {{ data.defaultThirdPartyName }}.</p>
+            <p>For security it’s important this is the email address they use at {{ data.defaultThirdPartyName }}.</p>
         </div>
         <form method="post" action="/account/thirdParty/add/check-your-answers" >
 
             {% if data['thirdPartyInvite'] == "Yes" %}
 
-                {{ govukInput({
-                    label: {
-                        text: "Email address",
-                        classes: "govuk-visually-hidden"
-                    },
-                    classes: "govuk-!-width-three-quarters",
-                    name: "inviteThirdPartyOneEmail",
-                    id: "inviteThirdPartyOneEmail"
-                }) }}
+                {% include "includes/account/email/invite.html" %}
 
             {% else %}
-                {% if data['regThirdPartyUserOne'] %}
-
-                {{ govukInput({
-                    label: {
-                        text: "Email address",
-                        classes: "govuk-visually-hidden"
-                    },
-                    classes: "govuk-!-width-three-quarters",
-                    name: "regThirdPartyUserTwoEmail",
-                    id: "regThirdPartyUserTwoEmail"
-                }) }}
-
-                {% else %}
                 
-                {{ govukInput({
-                    label: {
-                        text: "Email address",
-                        classes: "govuk-visually-hidden"
-                    },
-                    classes: "govuk-!-width-three-quarters",
-                    name: "regThirdPartyUserOneEmail",
-                    id: "regThirdPartyUserOneEmail",
-                    value: data['regThirdPartyUserOneEmail']   
-                }) }}
+                {% include "includes/account/email/users.html" %}
 
-                {% endif %}
             {% endif %}
 
 

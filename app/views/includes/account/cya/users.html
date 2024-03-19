@@ -1,0 +1,50 @@
+<dl class="govuk-summary-list govuk-!-margin-bottom-9">        	
+    <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">Service role</dt>
+        <dd class="govuk-summary-list__value">
+            {% if data['regThirdPartyUserOne'] %}
+                {{ data['regThirdPartyUserTwoServiceRole'] or 'Managing waste data' }}
+            {% else %}
+                  {{ data['regThirdPartyUserOneServiceRole'] or 'Adding and amending bank details' }}
+            {% endif %}
+          <!-- {{ data['registrationMemorableHint'] or 'My favourite food' }} -->
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> what responsibility they have</span></a>
+        </dd>
+  </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Administrator</dt>
+    <dd class="govuk-summary-list__value">
+        {% if data['regThirdPartyUserOne'] %}
+            {{ data['regThirdPartyUserTwoAdmin'] or 'Managing waste data' }}
+        {% else %}
+              {{ data['regThirdPartyUserOneAdmin'] or 'Adding and amending bank details' }}
+        {% endif %}
+      <!-- {{ data['registrationMemorableHint'] or 'My favourite food' }} -->
+    </dd>
+    <dd class="govuk-summary-list__actions">
+      <a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> what access they have</span></a>
+    </dd>
+</div>
+
+    <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Email address</dt>
+          <dd class="govuk-summary-list__value">
+
+            {% if data['regThirdPartyUserOne'] %}
+                {{ data['regThirdPartyUserTwoEmail'] or '07711223344' }}
+            {% else %}
+                {{ data['regThirdPartyUserOneEmail'] or '07711223344' }}
+            {% endif %}
+            
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> their email address</span></a>
+          </dd>
+    </div>
+            
+
+    
+  </dl>

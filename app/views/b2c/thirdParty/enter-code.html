@@ -14,18 +14,18 @@
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
             <div class="govuk-inset-text">
-                <p>We have sent a 6-digit verification code to <span class="govuk-!-font-weight-bold"> {{ data.regCEOThirdPartyEmail }}</span></p>
+                <p class="govuk-body">We have sent a 6-digit verification code to <span class="govuk-!-font-weight-bold"> {{ data.regThirdPartyCEOEmail }}</span></p>
             </div>
     
-            <p>It may take a few minutes to arrive and will expire in 15 minutes.</p>                            
+            <p class="govuk-body">It may take a few minutes to arrive and will expire in 15 minutes.</p>                            
             
             {{ govukDetails({
                 summaryText: "If the verification code has not arrived",
-                html: '<p>If you have not received the email and have checked your spam folder, you can <a href="#">resend the verification code</a>.</p>'
+                html: '<p class="govuk-body">If you have not received the email and have checked your spam folder, you can <a href="#">resend the verification code</a>.</p>'
             }) }}
     
             
-            <form action="/b2c/thirdParty/check" method="post">            
+            <form action="/b2c/thirdParty/check-details" method="post">            
     
                 {{ govukInput({
                     label: {
@@ -34,8 +34,8 @@
                         isPageHeading: false
                     },                
                     classes: "govuk-input--width-10",
-                    name: "regThirdPartyCode",
-                    id: "regThirdPartyCode"
+                    name: "regThirdPartyCEOCode",
+                    id: "regThirdPartyCEOCode"
                 }) }}
                 
                 

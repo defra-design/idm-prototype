@@ -103,7 +103,12 @@
             <p class="govuk-body govuk-body-s">This was last updated on 21 April 2023</p>
         </div>
 
+        
+        {% if data['thirdPartyUser'] == "Yes" %}
+            <form method="post" action="/register/personal-name" >    
+        {% else %}            
         <form method="post" action="/register/what-we-need" >    
+        {% endif %}
             
             <input type="hidden" id="termsAndConditions" name="termsAndConditions" value="Viewed" />
             {{ govukButton({

@@ -16,28 +16,50 @@
     <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-2">
         <li><a class="govuk-link govuk-link--no-visited-state" href="/b2c/thirdParty/failed-to-send" >There was a problem sending the one-time passcode</a></li>
     </ul>
-    <li><a class="govuk-link govuk-link--no-visited-state" href="/b2c/thirdParty/enter-code" >Confirm your information</a></li>
-    <li><a class="govuk-link govuk-link--no-visited-state" href="/b2c/thirdParty/confirmation" >Registration complete</a></li>
+    <li><a class="govuk-link govuk-link--no-visited-state" href="/b2c/thirdParty/check-details" >Confirm your details</a></li>
+    <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-2">
+        <li><a class="govuk-link govuk-link--no-visited-state" href="/b2c/thirdParty/cannot-continue">You cannot continue registration</a></li>
+    </ul>
+    <li><a class="govuk-link govuk-link--no-visited-state" href="/account/thirdParty/confirmation" >Registration complete</a></li>
+
+</ul>
 
 
-    <li><a class="govuk-link govuk-link--no-visited-state" href="/b2c/thirdParty/add/responsibility" >What will their role be at the {type of third party}?</a></li>
-    <li><a class="govuk-link govuk-link--no-visited-state" href="/b2c/thirdParty/add/administrative" >Do you want them to be an administrator for {name of third party}?</a></li>
-
-    <li><a class="govuk-link govuk-link--no-visited-state" href="/b2c/thirdParty/add/check-your-answers" >Check your answers</a></li>
-    <li><a class="govuk-link govuk-link--no-visited-state" href="/b2c/thirdParty/add-more" >You have invited {Number} person to {name of third party}</a></li>
-    <li><a class="govuk-link govuk-link--no-visited-state" href="/b2c/thirdParty/add/confirmation" >Added to your account</a></li>
-    
-
-    
+<h3 class="govuk-heading-m">Add team member</h3>
+<form method="post" action="/account/thirdParty/add/service-role?ceoRegistered=Yes" >
+    {{ govukButton({
+        text: "Invite team member"
+    }) }}
+</form>
 
 
-    
-    
+<ul class="govuk-list govuk-list--bullet">
+    <li><a class="govuk-link govuk-link--no-visited-state" href="/account/thirdParty/add/service-role" >What will their service role be for {name of third party}?</a></li>
+    <li><a class="govuk-link govuk-link--no-visited-state" href="/account/thirdParty/add/administrative" >Do you want them to be an administrator for {name of third party}?</a></li>
+    <li><a class="govuk-link govuk-link--no-visited-state" href="/account/thirdParty/add/email" >What is their {type of third party} email address?</a></li>
+    <li><a class="govuk-link govuk-link--no-visited-state" href="/account/thirdParty/add/check-your-answers" >Check your answers</a></li>
+    <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-2">
+        <li><a class="govuk-link govuk-link--no-visited-state" href="/account/thirdParty/add-more" >Do you want to add another team member?</a></li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="/account/thirdParty/add-more" >You have invited {Number} person to {name of third party}</a></li>
+    </ul>
+    <li><a class="govuk-link govuk-link--no-visited-state" href="/account/thirdParty/add/confirmation" >Team member(s) added to your account</a></li>
+</ul>
 
 
+<h3 class="govuk-heading-m">Invitation journey</h3>
+<form method="post" action="/gov-gateway/sign-in?userFlow=Registration" >
+    {{ govukButton({
+        text: "Register from invitation"
+    }) }}
+</form>
 
-    
 
-    
-
+<ul class="govuk-list govuk-list--bullet">
+    <li><a class="govuk-link govuk-link--no-visited-state" href="/register/" >You need to register for a Defra account</a></li>
+    <li><a class="govuk-link govuk-link--no-visited-state" href="/register/terms-and-conditions" >Your Defra account terms and conditions</a></li>
+    <li><a class="govuk-link govuk-link--no-visited-state" href="/register/personal-name" >What’s your name?</a></li>
+    <li><a class="govuk-link govuk-link--no-visited-state" href="/register/personal-contact" >What’s your telephone number?</a></li>
+    <li><a class="govuk-link govuk-link--no-visited-state" href="/register/personal-security" >Create a memorable word</a></li>
+    <li><a class="govuk-link govuk-link--no-visited-state" href="/register/check-your-answers" >Check your answers</a></li>    
+    <li><a class="govuk-link govuk-link--no-visited-state" href="/register/confirmation" >Registration complete</a></li>
 </ul>

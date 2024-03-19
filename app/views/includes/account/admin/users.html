@@ -1,0 +1,38 @@
+{% if data['regThirdPartyUserOne'] %}
+
+    {{ govukRadios({
+        classes: "govuk-radios--inline",
+        name: "regThirdPartyUserTwoAdmin",
+        fieldset: {
+            legend: {
+                text: "Do you want this person to be an administrator for {type of third party}?",
+                isPageHeading: false,
+                classes: "govuk-visually-hidden"
+            }
+        },            
+        items: [
+            { value: "Yes", text: "Yes" }, 
+            { value: "No", text: "No" }              
+        ]
+    }) }}
+
+
+{% else %}
+    
+    {{ govukRadios({
+        classes: "govuk-radios--inline",
+        name: "regThirdPartyUserOneAdmin",
+        fieldset: {
+            legend: {
+                text: "Do you want this person to be an administrator for {type of third party}?",
+                isPageHeading: false,
+                classes: "govuk-visually-hidden"
+            }
+        },            
+        items: [
+            { value: "Yes", text: "Yes" }, 
+            { value: "No", text: "No" }              
+        ]
+    }) }}
+
+{% endif %}

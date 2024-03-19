@@ -2,7 +2,7 @@
 {% set showBackLink = false %}
 {% set serviceName = "" %}
 
-{% set pageHeading = 'Registration for Defra account complete' %}
+{% set pageHeading = 'Registration complete' %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -13,48 +13,51 @@
 
         {{ govukPanel({
             titleText: pageHeading,
-
-            html: '' + data.defaultThirdPartyName + '',
- 
-            
+            html: '' + data.defaultThirdPartyName + '',            
             classes: "govuk-!-margin-bottom-7"
         }) }}
 
-        <p>We’ve sent a confirmation email to <span class="govuk-!-font-weight-bold">{{ data.regThirdPartyCeoEmail }}</span>. </p>
+        <p class="govuk-body">We have sent a confirmation email to <span class="govuk-!-font-weight-bold">{{ data.regThirdPartyCEOEmail }}</span>. </p>
             
         <h2 class="govuk-heading-m">What you can do next</h2>
 
 
         <!-- <h3 class="govuk-heading-s">Add a team member</h3> -->
-        <p>You can add team members to this account, giving them access to Defra online services on behalf of {{ data.defaultThirdPartyName }}.</p>
-        <p>You will need to tell us:</p>            
+        <p class="govuk-body">You can add team members to this account, giving them access to Defra online services on behalf of {{ data.defaultThirdPartyName }}.</p>
+        <p class="govuk-body">You will need to tell us:</p>            
         <!-- to tell us who will be responsible for the various roles at {{ data.defaultThirdPartyName }}. </p> -->        
         <ul class="govuk-list govuk-list--bullet">
             <li>their email address</li>            
-            <li>what their role will be</li>            
+            <li>what their service role will be</li>            
             <li>if they will be an administator for the account</li>
         </ul>        
-        <p><a href="/account/thirdParty/add/responsibility?ceoRegistered=Yes">Add a team member</a></p>
 
-        <p>If you do not want to add any other team members now, you can continue to your Defra account, where you will be able to manage your online services.</p>
-        <p class="govuk-!-margin-bottom-7">You can add team members later.</p>
-        <!-- <p>We can then send them instruction by email on how to register so they can access {{ data.defaultThirdPartyName }}’s services.</p> -->
-        <form method="post" action="/account/?defaultAccount=thirdParty&defaultAccountUser=CEO&notification_banner=" >
+        
 
-            <input type="hidden" id="ceoRegistered" name="ceoRegistered" value="Yes" />
+        <p class="govuk-body">If you do not want to invite any other team members now, you can continue to your Defra account, where you can manage:
+        <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-5">
+            <li>which Defra online services you are registered with</li>
+            <li>team members, including their service and account roles</li>
             
+            
+        </ul>
+        <!-- <p class="govuk-body">We can then send them instruction by email on how to register so they can access {{ data.defaultThirdPartyName }}’s services.</p> -->
+
+
+        <form method="post" action="/account/thirdParty/add/service-role?ceoRegistered=Yes" >
+        
             <div class="govuk-button-group">
-            {{ govukButton({
-                text: "Continue to your account"                
-            }) }}    
+            
+                {{ govukButton({
+                    text: "Add team members"
+                }) }}
 
-            <!-- {{ govukButton({
-                text: "Add team member",
-                classes: "govuk-button--secondary"
-            }) }} -->
+                <a class="govuk-link" href="/account/?defaultAccount=thirdParty&defaultAccountUser=CEO&notification_banner=">Continue to your Defra account</a>
             </div>
+        </form>
+        
 
-            </form>
+
   	</div>
 </div>
 
