@@ -4,62 +4,11 @@
         
     },
     rows: [		
-        { key: { text: "Name" }, value: { text: data.registrationCharityName } },    	
+        { key: { text: "Name" }, value: { text: data.registrationCharityName or data.defaultCharityName }, actions: { items: [ { href: "/register/?changeLink=CEO", text: "Change", visuallyHiddenText: "the name of the charity", classes: "govuk-link--no-visited-state" } ] } },
         { key: { text: "Type" }, value: { text: "Charity" } },      
-        { key: { text: "Charity number" }, value: { html: data.registrationCharityNumber }, actions: { items: [ { href: "/account/thirdParty/add/service-role?changeLink=CEO", text: "Change", visuallyHiddenText: "age", classes: "govuk-link--no-visited-state" } ] } },
-        { key: { text: "Registered address" }, value: { html: data.registrationCharityAddress } },
-        { key: { text: "Telephone" }, value: { text: data.registrationCharityPhone }, actions: { items: [ { href: "/account/thirdParty/add/service-role?thirdPartyInvite=Yes", text: "Add", visuallyHiddenText: "age", classes: "govuk-link--no-visited-state" }, { href: "/account/manage/team/", text: "Manage", visuallyHiddenText: "age", classes: "govuk-link--no-visited-state" } ] } },
-        { key: { text: "Email address" }, value: { text: data.registrationCharityEmail }, actions: { items: [ { href: "/account/thirdParty/add/service-role?thirdPartyInvite=Yes", text: "Add", visuallyHiddenText: "age", classes: "govuk-link--no-visited-state" }, { href: "/account/manage/team/", text: "Manage", visuallyHiddenText: "age", classes: "govuk-link--no-visited-state" } ] } }
+        { key: { text: "Charity number" }, value: { html: data.registrationCharityNumber or data.defaultCharityNumber }, actions: { items: [ { href: "/register/?changeLink=CEO", text: "Change", visuallyHiddenText: "the registered charity number", classes: "govuk-link--no-visited-state" } ] } },
+        { key: { text: "Registered address" }, value: { html: data.registrationCharityAddress or data.defaultCharityAddress }, actions: { items: [ { href: "/register/?changeLink=CEO", text: "Change", visuallyHiddenText: "the charity’s registered address", classes: "govuk-link--no-visited-state" } ] } },
+        { key: { text: "Telephone" }, value: { text: data.registrationCharityPhone or data.defaultCharityPhone }, actions: { items: [ { href: "/register/?changeLink=CEO", text: "Change", visuallyHiddenText: "the charity’s telephone number", classes: "govuk-link--no-visited-state" } ] } },
+        { key: { text: "Email address" }, value: { text: data.registrationCharityEmail or data.defaultCharityEmail }, actions: { items: [ { href: "/register/?changeLink=CEO", text: "Change", visuallyHiddenText: "the charity’s email address", classes: "govuk-link--no-visited-state" } ] } }
     ]
 }) }}
-
-
-
-
-
-<h2 class="govuk-heading-m govuk-!-margin-bottom-2">Charity details</h2>
-				<dl class="govuk-summary-list govuk-!-margin-bottom-9">
-					<div class="govuk-summary-list__row">
-						<dt class="govuk-summary-list__key">Name</dt>
-						<dd class="govuk-summary-list__value">{{ data['registrationCharityName'] }}</dd>
-						<dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> the name of the charity</span></a></dd>
-					</div>
-									
-					<div class="govuk-summary-list__row">
-						<dt class="govuk-summary-list__key">Type</dt>
-						<dd class="govuk-summary-list__value">Charity</dd>
-						<dd class="govuk-summary-list__actions"></dd>
-					</div>	
-									
-					<div class="govuk-summary-list__row">
-						<dt class="govuk-summary-list__key">Charity number</dt>
-						<dd class="govuk-summary-list__value">{{ data['registrationCharityNumber'] }}</dd>
-						<dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> the registered charity number</span></a></dd>
-					</div>
-					
-					<div class="govuk-summary-list__row">
-						<dt class="govuk-summary-list__key">Registered address</dt>
-						<dd class="govuk-summary-list__value">																									
-							1 Francis Crick Avenue<br>
-							Cambridge Biomedical Campus<br>
-							Cambridge, United Kingdom<br>
-							CB2 0AA
-						</dd>
-						<dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> the charity’s registered address</span></a></dd>
-					</div>
-					
-					<div class="govuk-summary-list__row">
-						<dt class="govuk-summary-list__key">Telephone number</dt>
-						<dd class="govuk-summary-list__value">{{ data['registrationCharityPhone'] or '01234 567899' }}</dd>
-						<dd class="govuk-summary-list__actions">
-							<a href="company-contact?flowType=check">Change<span class="govuk-visually-hidden"> the charity’s telephone number</span></a>
-						</dd>
-					</div>
-
-					<div class="govuk-summary-list__row">
-						<dt class="govuk-summary-list__key">Email address</dt>
-						<dd class="govuk-summary-list__value">{{ data['registrationCharityEmail'] or 'info@charityname.co.uk' }}</dd>
-						<dd class="govuk-summary-list__actions">
-							<a href="company-contact?flowType=check">Change<span class="govuk-visually-hidden"> the organisation’s email address</span></a>
-						</dd>
-					</div>	

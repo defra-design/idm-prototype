@@ -50,19 +50,22 @@ module.exports = {
   // registrationAccountType: "Individual",
   // defraIdFirstName: "Hugo",
   // defraIdSurname: "Furst",
-  // registrationContactPhonePersonal: "00700700788",
-  // registrationIndividualAddress: "2a, Clifton House, Clifton Road, LONDON SW19 5JA"
-  // registrationMemorableWord: "Jordan23",
-  // registrationMemorableHint: "The one and only goat",  
+  defaultIndividualName: "Hugo Last",
+  defaultIndividualPhone: "00700700788",
+  defaultIndividualAddress: "15B Kensington Palace Gardens,<br> London,<br> W8",
+  defaultIndividualWord: "Jordan23",
+  defaultIndividualHint: "The one and only goat",  
   // defaultServiceEnrolment: "IPAFFS",
   // defaultServiceRole: "Notifier",
   
 
-
-
-
-
-
+  // Charity
+  defaultCharityAddress: "Ouseburn Parks Visitor Centre,<br>Red Walk,<br>Jesmond Dene,<br>NEWCASTLE UPON TYNE, <br>NE7 7BQ",
+  defaultCharityName: "Urban Green Newcastle",
+  defaultCharityNumber: "1182534",
+  defaultCharityPhone: "01918144574",
+  defaultCharityEmail: "info@urbangreennewcastle.org",
+  
   //"businessType": "Limited company",
   // "govGateName": "Sam Woods",
   // "orgName": "Antillo Fujam Gardens",

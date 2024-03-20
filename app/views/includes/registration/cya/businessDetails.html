@@ -4,10 +4,123 @@
         
     },
     rows: [		
-        { key: { text: "Address" }, value: { text: data.defaultThirdPartyAddress } },    	
-        { key: { text: "Registered services" }, value: { html: '<a href="#" class="govuk-link govuk-link--no-visited-state">Local Authority Payment Service (LAPS)</a>' } },      
-        { key: { text: "Service role" }, value: { html: data.defaultThirdPartyCEOServiceRole }, actions: { items: [ { href: "/account/thirdParty/add/service-role?changeLink=CEO", text: "Change", visuallyHiddenText: "age", classes: "govuk-link--no-visited-state" } ] } },
-        { key: { text: "Account role" }, value: { html: "Owner" } },
-        { key: { text: "Team members" }, value: { text: "1" }, actions: { items: [ { href: "/account/thirdParty/add/service-role?thirdPartyInvite=Yes", text: "Add", visuallyHiddenText: "age", classes: "govuk-link--no-visited-state" }, { href: "/account/manage/team/", text: "Manage", visuallyHiddenText: "age", classes: "govuk-link--no-visited-state" } ] } }
+        { key: { text: "Name" }, value: { text: data.registrationCharityName } },    	
+        { key: { text: "Type" }, value: { text: "Charity" } },      
+        { key: { text: "Charity number" }, value: { html: data.registrationCharityNumber }, actions: { items: [ { href: "/account/thirdParty/add/service-role?changeLink=CEO", text: "Change", visuallyHiddenText: "age", classes: "govuk-link--no-visited-state" } ] } },
+        { key: { text: "Registered address" }, value: { html: data.registrationCharityAddress } },
+        { key: { text: "Telephone" }, value: { text: data.registrationCharityPhone }, actions: { items: [ { href: "/account/thirdParty/add/service-role?thirdPartyInvite=Yes", text: "Add", visuallyHiddenText: "age", classes: "govuk-link--no-visited-state" }, { href: "/account/manage/team/", text: "Manage", visuallyHiddenText: "age", classes: "govuk-link--no-visited-state" } ] } },
+        { key: { text: "Email address" }, value: { text: data.registrationCharityEmail }, actions: { items: [ { href: "/account/thirdParty/add/service-role?thirdPartyInvite=Yes", text: "Add", visuallyHiddenText: "age", classes: "govuk-link--no-visited-state" }, { href: "/account/manage/team/", text: "Manage", visuallyHiddenText: "age", classes: "govuk-link--no-visited-state" } ] } }
     ]
 }) }}
+
+
+
+
+<!-- About the organisation -->
+<h2 class="govuk-heading-m govuk-!-margin-bottom-2">Business details</h2>
+<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+    <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">Name</dt>
+        <dd class="govuk-summary-list__value">							
+            {% if data['registrationTradeUK'] == "No" %}
+                {{ data.registrationNonUkName }}
+            {% else %}
+                Soleheaven Ltd
+            {% endif %}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+            {% if data['registrationTradeUK'] == "No" %}
+                <a href="company-contact?flowType=check">Change<span class="govuk-visually-hidden"> the organisation’s telephone number</span></a>
+            {% else %}							
+            {% endif %}
+        </dd>
+    </div>
+                    
+    <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">Type</dt>
+        <dd class="govuk-summary-list__value">
+            {% if data['registrationTradeUK'] == "No" %}
+                Non-UK
+            {% else %}
+                Limited company
+            {% endif %}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+            {% if data['registrationTradeUK'] == "No" %}
+                <a href="company-contact?flowType=check">Change<span class="govuk-visually-hidden"> the organisation’s telephone number</span></a>
+            {% else %}							
+            {% endif %}
+        </dd>
+    </div>	
+    
+    {% if data['registrationTradeUK'] != "No" %}
+    <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">Company number</dt>
+        <dd class="govuk-summary-list__value">{{ data['registrationCompanyNumber'] or '01234567' }}</dd>
+        <dd class="govuk-summary-list__actions"></dd>
+    </div>
+    {% endif %}
+    
+    <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+            {% if data['registrationTradeUK'] == "No" %}
+                Address
+            {% else %}
+                Registered address
+            {% endif %}
+        </dt>
+        <dd class="govuk-summary-list__value">		
+            
+            {% if data['registrationTradeUK'] == "No" %}
+                {{ data.registrationManualAddressLine1 }}
+                <br>{{ data.registrationManualAddressLine2 }}
+                <br>{{ data.registrationManualAddressLine3 }}
+                <br>{{ data.registrationManualAddressLine4 }}
+                <br>{{ data.registrationManualAddressTownCity }}
+                <br>{{ data.registrationManualAddressZipCode }}
+                <br>{{ data.registrationManualAddressCountry }}
+            {% else %}														
+                1 Francis Crick Avenue<br>
+                Cambridge Biomedical Campus<br>
+                Cambridge, United Kingdom<br>
+                CB2 0AA
+            {% endif %}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+            {% if data['registrationTradeUK'] == "No" %}
+                <a href="company-contact?flowType=check">Change<span class="govuk-visually-hidden"> the organisation’s telephone number</span></a>
+            {% else %}							
+            {% endif %}
+        </dd>
+    </div>
+    
+    <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">Telephone number</dt>
+        <dd class="govuk-summary-list__value">
+            {% if data['registrationTradeUK'] == "No" %}
+                {{ data['registrationNonUkPhone'] or '001 25648 78459' }}
+            {% else %}							
+                {{ data['registrationPhone'] or '01234 567899' }}
+            {% endif %}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+            <a href="company-contact?flowType=check">Change<span class="govuk-visually-hidden"> the organisation’s telephone number</span></a>
+        </dd>
+    </div>
+    
+    <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">Email address</dt>
+        <dd class="govuk-summary-list__value">
+            {% if data['registrationTradeUK'] == "No" %}
+                {{ data['registrationNonUkEmail'] or 'nonuk@test.com' }}
+            {% else %}							
+                {{ data['registrationEmail'] or 'info@soleheaven.com' }}
+            {% endif %}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+            <a href="company-contact?flowType=check">Change<span class="govuk-visually-hidden"> the organisation’s email address</span></a>
+        </dd>
+    </div>
+
+{% endif %}			
+{% endif %}	
