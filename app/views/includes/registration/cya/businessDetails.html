@@ -1,0 +1,13 @@
+{{ govukSummaryList({
+    card: {
+        title: { text: "Business details"  }
+        
+    },
+    rows: [		
+        { key: { text: "Address" }, value: { text: data.defaultThirdPartyAddress } },    	
+        { key: { text: "Registered services" }, value: { html: '<a href="#" class="govuk-link govuk-link--no-visited-state">Local Authority Payment Service (LAPS)</a>' } },      
+        { key: { text: "Service role" }, value: { html: data.defaultThirdPartyCEOServiceRole }, actions: { items: [ { href: "/account/thirdParty/add/service-role?changeLink=CEO", text: "Change", visuallyHiddenText: "age", classes: "govuk-link--no-visited-state" } ] } },
+        { key: { text: "Account role" }, value: { html: "Owner" } },
+        { key: { text: "Team members" }, value: { text: "1" }, actions: { items: [ { href: "/account/thirdParty/add/service-role?thirdPartyInvite=Yes", text: "Add", visuallyHiddenText: "age", classes: "govuk-link--no-visited-state" }, { href: "/account/manage/team/", text: "Manage", visuallyHiddenText: "age", classes: "govuk-link--no-visited-state" } ] } }
+    ]
+}) }}

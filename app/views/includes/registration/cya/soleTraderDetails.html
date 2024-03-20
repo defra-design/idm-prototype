@@ -1,0 +1,58 @@
+{{ govukSummaryList({
+    card: {
+        title: { text: "Sole trader details"  }
+        
+    },
+    rows: [		        
+        { key: { text: "Type" }, value: { text: "Sole trader"}, actions: { items: [ { href: "/register/sole-trader-or-charity?link=change", text: "Change", visuallyHiddenText: "age", classes: "govuk-link--no-visited-state" } ] } },    
+        { key: { text: "Trading name" }, value: { html: registrationSoleTraderName}, actions: { items: [ { href: "/register/business-name?link=change", text: "Change", visuallyHiddenText: "age", classes: "govuk-link--no-visited-state" } ] } },
+        { key: { text: "Trading address" }, value: { html: data.registrationSoleTraderAddress }, actions: { items: [ { href: "/register/address/postcode?link=change", text: "Change", visuallyHiddenText: "age", classes: "govuk-link--no-visited-state" } ] } },
+        { key: { text: "Telephone" }, value: { html: data.registrationSoleTraderPhone }, actions: { items: [ { href: "/register/company-contact?link=change", text: "Change", visuallyHiddenText: "age", classes: "govuk-link--no-visited-state" } ] } },
+        { key: { text: "Email" }, value: { html: data.registrationSoleTraderEmail }, actions: { items: [ { href: "/register/company-contact?link=change", text: "Change", visuallyHiddenText: "age", classes: "govuk-link--no-visited-state" } ] } }
+    ]
+}) }}
+
+
+
+<!-- <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Sole trader details</h2>
+				<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">Type</dt>
+						<dd class="govuk-summary-list__value"></dd>
+						<dd class="govuk-summary-list__actions">
+							<a class="govuk-link govuk-link--no-visited-state" href="/register/sole-trader-or-charity?link=change">Change<span class="govuk-visually-hidden"> your type of organisation</span></a>
+						</dd>
+					</div>	
+
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">Trading name</dt>
+						<dd class="govuk-summary-list__value">{{ data.registrationSoleTraderName }}</dd>
+						<dd class="govuk-summary-list__actions">
+							<a class="govuk-link govuk-link--no-visited-state" href="/register/business-name?link=change">Change<span class="govuk-visually-hidden"> the name of the business</span></a>
+						</dd>
+					</div>
+
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">Trading address</dt>
+						<dd class="govuk-summary-list__value">{{ data.registrationSoleTraderAddress }}</dd>
+						<dd class="govuk-summary-list__actions">
+							<a class="govuk-link govuk-link--no-visited-state" href="/register/address/postcode?link=change">Change<span class="govuk-visually-hidden"> the business address</span></a>
+						</dd>
+					</div>	
+
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">Telephone number</dt>
+						<dd class="govuk-summary-list__value">{{ data.registrationSoleTraderPhone }}</dd>
+						<dd class="govuk-summary-list__actions">
+							<a class="govuk-link govuk-link--no-visited-state" href="/register/company-contact?link=change">Change<span class="govuk-visually-hidden"> the business telephone number</span></a>
+						</dd>
+					</div>	
+
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">Email address</dt>
+						<dd class="govuk-summary-list__value">{{ data.registrationSoleTraderEmail }}</dd>
+						<dd class="govuk-summary-list__actions">
+							<a class="govuk-link govuk-link--no-visited-state" href="/register/company-contact?link=change">Change<span class="govuk-visually-hidden"> the business email address</span></a>
+						</dd>
+					</div>	
+				</dl> -->

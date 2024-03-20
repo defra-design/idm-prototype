@@ -42,7 +42,7 @@ module.exports = {
   // registrationMemorableWord: "Jordan23",
   // registrationMemorableHint: "The one and only goat",
   // defaultCompanyName: "Soleheaven Ltd",
-  // defaultServiceEnrolment: "IPAFFS",
+  defaultServiceEnrolment: "IPAFFS",
   // defaultServiceRole: "Notifier",
 
 

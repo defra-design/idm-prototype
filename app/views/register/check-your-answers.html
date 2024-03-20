@@ -3,8 +3,12 @@
 {% set serviceName = "" %}
 
 
-{% set pageHeading = "Check your answers" %}
-{% set pageSection = "" %}
+{% if data['registering'] == "Incomplete" %}
+	{% set pageHeading = "Registration incomplete" %}
+{% else %}
+	{% set pageHeading = "Check your answers" %}
+{% endif %}
+{% set pageSection = "Register for a Defra account" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
@@ -13,6 +17,23 @@
     <div class="govuk-grid-column-two-thirds">
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   
+
+
+		{% if data['registering'] == "Incomplete" %}
+		<div class="govuk-inset-text">
+			<p>You need to complete the registration of your Defra account before you can use the <span class="govuk-!-font-weight-bold">{{ data.defaultServiceEnrolment }}</span> service.</p>		
+		</div>
+		
+		<!-- <p class="govuk-body govuk-!-margin-bottom-7">You’ve told us the following information, which you can change if it is not correct or accept and continue with your registration.</p>		
+		You’ve previously given us the following information, which you can accept and continue with your registration or make changes to the answers you have given.</p>		 -->
+		<p class="govuk-body govuk-!-margin-bottom-7">You have previously told us the following information. You can either accept and continue with your registration or make changes to these answers first.</p>
+
+		
+		{% endif %}
+
+	</div>
+	<div class="govuk-grid-column-full">
+
 
 		
 		{% if not data['userType'] %}
@@ -31,6 +52,19 @@
 		{% endif %}
 
 
+
+		{% include "includes/registration/cya/businessDetails.html" %}
+	
+		
+
+		{% include "includes/registration/cya/charityDetails.html" %}
+		
+		{% include "includes/registration/cya/personalDetails.html" %}
+
+
+
+
+
 		{% if data['userType'] == "Invited" %}
 
 
@@ -44,49 +78,9 @@
 
 
 			{% if data['registrationOrganisationType'] == "Sole trader"  %}
-
-				<h2 class="govuk-heading-m govuk-!-margin-bottom-2">Sole trader details</h2>
-				<dl class="govuk-summary-list govuk-!-margin-bottom-9">
-					<div class="govuk-summary-list__row">
-						<dt class="govuk-summary-list__key">Type</dt>
-						<dd class="govuk-summary-list__value">Sole trader</dd>
-						<dd class="govuk-summary-list__actions">
-							<a class="govuk-link govuk-link--no-visited-state" href="/register/sole-trader-or-charity?link=change">Change<span class="govuk-visually-hidden"> your type of organisation</span></a>
-						</dd>
-					</div>	
-
-					<div class="govuk-summary-list__row">
-						<dt class="govuk-summary-list__key">Trading name</dt>
-						<dd class="govuk-summary-list__value">{{ data.registrationSoleTraderName }}</dd>
-						<dd class="govuk-summary-list__actions">
-							<a class="govuk-link govuk-link--no-visited-state" href="/register/business-name?link=change">Change<span class="govuk-visually-hidden"> the name of the business</span></a>
-						</dd>
-					</div>
-
-					<div class="govuk-summary-list__row">
-						<dt class="govuk-summary-list__key">Trading address</dt>
-						<dd class="govuk-summary-list__value">{{ data.registrationSoleTraderAddress }}</dd>
-						<dd class="govuk-summary-list__actions">
-							<a class="govuk-link govuk-link--no-visited-state" href="/register/address/postcode?link=change">Change<span class="govuk-visually-hidden"> the business address</span></a>
-						</dd>
-					</div>	
-
-					<div class="govuk-summary-list__row">
-						<dt class="govuk-summary-list__key">Telephone number</dt>
-						<dd class="govuk-summary-list__value">{{ data.registrationSoleTraderPhone }}</dd>
-						<dd class="govuk-summary-list__actions">
-							<a class="govuk-link govuk-link--no-visited-state" href="/register/company-contact?link=change">Change<span class="govuk-visually-hidden"> the business telephone number</span></a>
-						</dd>
-					</div>	
-
-					<div class="govuk-summary-list__row">
-						<dt class="govuk-summary-list__key">Email address</dt>
-						<dd class="govuk-summary-list__value">{{ data.registrationSoleTraderEmail }}</dd>
-						<dd class="govuk-summary-list__actions">
-							<a class="govuk-link govuk-link--no-visited-state" href="/register/company-contact?link=change">Change<span class="govuk-visually-hidden"> the business email address</span></a>
-						</dd>
-					</div>	
-				</dl>
+				
+				<!-- Sole Trader include file -->
+				{% include "includes/registration/cya/soleTraderDetails.html" %}
 
 			{% elif data['registrationOrganisationType'] == "Charity"  %}	
 
@@ -249,6 +243,10 @@
 			{% endif %}							
 		</dl>		
 
+
+		{% if data['registering'] != "Incomplete" %}
+
+
 		<h2 class="govuk-heading-m govuk-!-margin-bottom-2">Your details</h2>
 		<dl class="govuk-summary-list govuk-!-margin-bottom-9">
 			<div class="govuk-summary-list__row">
@@ -338,6 +336,11 @@
 				  <a class="govuk-link govuk-link--no-visited-state" href="/register/individual-security?link=change">Change<span class="govuk-visually-hidden"> memorable word</span></a>
 				</dd>
 		  </div>
+
+
+		  {% endif %}
+
+
 		  {% endif %}
       	</dl>
 
@@ -363,9 +366,17 @@
 		{% endif %}
 
 
+		{% if data['registering'] == "Incomplete" %}
+			
+			{{ govukButton({
+				text: "Accept and continue with registration"				
+			}) }}			
+
+		{% else %}
 				{{ govukButton({
 					text: "Confirm and continue"				
 				}) }}			
+		{% endif %}
           
         	</form>
 
