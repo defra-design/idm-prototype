@@ -1,0 +1,9 @@
+{{ govukSummaryList({
+    card: {
+        title: { text: "Defra account"  },
+        classes: "govuk-!-margin-bottom-7"
+    },				
+    rows: [		
+        { key: { text: "Registration type" }, value: { text: data.registrationAccountType }, actions: { items: [ { href: "/register/change-account-type", text: "Change", visuallyHiddenText: "type of account", classes: "govuk-link--no-visited-state" } ] } }				
+    ]
+}) }}

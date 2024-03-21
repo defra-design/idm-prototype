@@ -35,66 +35,69 @@
             <form action="/register/company-contact" method="post" class="form">
             {% endif %}
 
+            <!-- Business Account -->
+            {% if data['registrationAccountType'] == "Business" %}
 
                 {% if data['registrationOrganisationType'] == "Sole trader" %}
-
-
-                {{ govukSelect({                
-                    fieldset: {
-                        legend: { text: "Select the address", isPageHeading: false, classes: "govuk-visually-hidden"  }
-                    },
-                    items: [                        
-                        { value: "", text: "3 addresses found", checked: checked("registrationSoleTraderAddress", "") },    
-                        { value: "Clifton House, Clifton Road, LONDON SW19 5JA", text: "Clifton House, Clifton Road, LONDON SW19 5JA", checked: checked("registrationSoleTraderAddress", "Single") },
-                        { value: "2a, Clifton House, Clifton Road, LONDON SW19 5JA", text: "2a, Clifton House, Clifton Road, LONDON SW19 5JA", checked: checked("registrationSoleTraderAddress", "20") },
-                        { value: "2b, Clifton House, Clifton Road, LONDON SW19 5JA", text: "2b, Clifton House, Clifton Road, LONDON SW19 5JA", checked: checked("registrationSoleTraderAddress", "45") }
-                    ],
-                    name: "registrationSoleTraderAddress"
-                }) }}
+                    <!-- Sole Trader -->
+                    {{ govukSelect({                
+                        fieldset: {
+                            legend: { text: "Select the address", isPageHeading: false, classes: "govuk-visually-hidden"  }
+                        },
+                        items: [                        
+                            { value: "", text: "3 addresses found", checked: checked("registrationOrganisationType", "") },    
+                            { value: "15 Kensington Palace Gardens,<br>London,<br>W8 4QG", text: "15 Kensington Palace Gardens, London, W8 4QG", checked: checked("registrationOrganisationType", "15 Kensington Palace Gardens,<br>London,<br>W8 4QG") },
+                            { value: "15A Kensington Palace Gardens,<br>London,<br>W8 4QG", text: "15A Kensington Palace Gardens, London, W8 4QG", checked: checked("registrationOrganisationType", "15A Kensington Palace Gardens,<br>London,<br>W8 4QG") },
+                            { value: "15B Kensington Palace Gardens,<br>London,<br>W8 4QG", text: "15B Kensington Palace Gardens, London, W8 4QG", checked: checked("registrationOrganisationType", "15B Kensington Palace Gardens,<br>London,<br>W8 4QG") }
+                        ],
+                        name: "registrationSoleTraderAddress"
+                    }) }}
 
                 {% elif data['registrationOrganisationType'] == "Charity" %}
-
-
-                {{ govukSelect({                
-                    fieldset: {
-                        legend: { text: "Select the address", isPageHeading: false, classes: "govuk-visually-hidden"  }
-                    },
-                    items: [                        
-                        { value: "", text: "3 addresses found", checked: checked("registrationSoleTraderAddress", "") },    
-                        { value: "Clifton House, Clifton Road, LONDON SW19 5JA", text: "Clifton House, Clifton Road, LONDON SW19 5JA", checked: checked("registrationSoleTraderAddress", "Single") },
-                        { value: "2a, Clifton House, Clifton Road, LONDON SW19 5JA", text: "2a, Clifton House, Clifton Road, LONDON SW19 5JA", checked: checked("registrationSoleTraderAddress", "20") },
-                        { value: "2b, Clifton House, Clifton Road, LONDON SW19 5JA", text: "2b, Clifton House, Clifton Road, LONDON SW19 5JA", checked: checked("registrationSoleTraderAddress", "45") }
-                    ],
-                    name: "registrationCharityAddress"
-                }) }}
-
+                    <!-- Charity -->
+                    {{ govukSelect({                
+                        fieldset: {
+                            legend: { text: "Select the address", isPageHeading: false, classes: "govuk-visually-hidden"  }
+                        },
+                        items: [                        
+                            { value: "", text: "3 addresses found", checked: checked("registrationCharityAddress", "") },    
+                            { value: "15 Kensington Palace Gardens,<br>London,<br>W8 4QG", text: "15 Kensington Palace Gardens, London, W8 4QG", checked: checked("registrationCharityAddress", "15 Kensington Palace Gardens,<br>London,<br>W8 4QG") },
+                            { value: "15A Kensington Palace Gardens,<br>London,<br>W8 4QG", text: "15A Kensington Palace Gardens, London, W8 4QG", checked: checked("registrationCharityAddress", "15A Kensington Palace Gardens,<br>London,<br>W8 4QG") },
+                            { value: "15B Kensington Palace Gardens,<br>London,<br>W8 4QG", text: "15B Kensington Palace Gardens, London, W8 4QG", checked: checked("registrationCharityAddress", "15B Kensington Palace Gardens,<br>London,<br>W8 4QG") }
+                        ],
+                        name: "registrationCharityAddress"
+                    }) }}                
 
                 {% else %}
-
-                {{ govukSelect({                
-                    fieldset: {
-                        legend: { text: "Select the address", isPageHeading: false, classes: "govuk-visually-hidden"  }
-                    },
-                    items: [                        
-                        { value: "", text: "", checked: checked("companySize", "Single") },    
-                        { value: "Clifton House, Clifton Road, LONDON SW19 5JA", text: "Clifton House, Clifton Road, LONDON SW19 5JA", checked: checked("companySize", "Single") },
-                        { value: "2a, Clifton House, Clifton Road, LONDON SW19 5JA", text: "2a, Clifton House, Clifton Road, LONDON SW19 5JA", checked: checked("companySize", "20") },
-                        { value: "2b, Clifton House, Clifton Road, LONDON SW19 5JA", text: "2b, Clifton House, Clifton Road, LONDON SW19 5JA", checked: checked("companySize", "45") }
-                    ],
-                    name: "registrationIndividualAddress"
-                }) }}
+                    <!-- Non UK Trading Business -->
                 
                 {% endif %}
 
-                <div class="govuk-button-group">
+            <!-- Individual Account -->
+            {% elif data['registrationAccountType'] == "Individual" %}                
+
+                {{ govukSelect({                
+                    fieldset: {
+                        legend: { text: "Select the address", isPageHeading: false, classes: "govuk-visually-hidden"  }
+                    },
+                    items: [                        
+                        { value: "", text: "3 addresses found", checked: checked("registrationIndividualAddress", "") },    
+                        { value: "15 Kensington Palace Gardens,<br>London,<br>W8 4QG", text: "15 Kensington Palace Gardens, London, W8 4QG", checked: checked("registrationIndividualAddress", "15 Kensington Palace Gardens,<br>London,<br>W8 4QG") },
+                        { value: "15A Kensington Palace Gardens,<br>London,<br>W8 4QG", text: "15A Kensington Palace Gardens, London, W8 4QG", checked: checked("registrationIndividualAddress", "15A Kensington Palace Gardens,<br>London,<br>W8 4QG") },
+                        { value: "15B Kensington Palace Gardens,<br>London,<br>W8 4QG", text: "15B Kensington Palace Gardens, London, W8 4QG", checked: checked("registrationIndividualAddress", "15B Kensington Palace Gardens,<br>London,<br>W8 4QG") }
+                    ],
+                    name: "registrationIndividualAddress"
+                
+                }) }}
+
+            {% endif %}
+
+            <div class="govuk-button-group">
                 {{ govukButton({
                     text: "Continue"
                 }) }}
-
                 <a href="/register/address/add-address-manual" class="govuk-link govuk-link--no-visited-state">My address is not in the list</a>
-
-                </div>
-
+            </div>
         
         </form>
     </div>    

@@ -20,12 +20,8 @@ Example usage:
 module.exports = {
   // Third Party Account
   // defaultAccount: "thirdParty",
-  
-
-  govGateEmail: "hugo.furst@govgateway.test",
-  govGateThirdPartyEmail: "hugo.furst@thirdparty.co.uk",
+  govGateEmail: "hugo.furst@govgateway.default",
   registrationStatus: "Enrolled",
-  termsAndConditions: "Viewed",
   
   // Ltd Company
   // registrationAccountType: "Business",
@@ -50,9 +46,9 @@ module.exports = {
   // registrationAccountType: "Individual",
   // defraIdFirstName: "Hugo",
   // defraIdSurname: "Furst",
-  defaultIndividualName: "Hugo Last",
+  defaultIndividualName: "Hugo Furst",
   defaultIndividualPhone: "00700700788",
-  defaultIndividualAddress: "15B Kensington Palace Gardens,<br> London,<br> W8",
+  defaultIndividualAddress: "15B Kensington Palace Gardens,<br> London,<br> W8 4QG",
   defaultIndividualWord: "Jordan23",
   defaultIndividualHint: "The one and only goat",  
   // defaultServiceEnrolment: "IPAFFS",
@@ -104,10 +100,10 @@ module.exports = {
   defaultThirdParty: "Local authority",
   defaultThirdPartyName: "Newcastle City Council",
   defaultThirdPartyAddress: "Civic Centre, 2nd Floor, Newcastle upon Tyne, NE1 8QH",
-  defaultThirdPartyCEO: "Chrispee Bacon",
+  defaultThirdPartyCEO: "Cris P Bacon",
   defaultThirdPartyCEORole: "Chief Executive Officer (CEO)",
   defaultThirdPartyCEOPhone: "00700700788",
-  defaultThirdPartyCEOEmail: "chrisp@localauthority.co.uk",
+  defaultThirdPartyCEOEmail: "chris.p.bacon@localauthority.default",
   defaultThirdPartyCEOServiceRole: "Managing waste data",
   // defaultThirdPartyCeoRegistered: "Yes",
   // defaultThirdPartyUserOneResponsibility: "Adding and amending bank details",

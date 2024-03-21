@@ -1,5 +1,8 @@
 {% extends "/layouts/main.html" %}
-{% set showBackLink = true %}
+
+{% if data['backButtonHide'] == "Yes" %}
+    {% set showBackLink = false %}
+{% endif %}
 {% set serviceName = "" %}
 
 {% set pageHeading = "Are you registering as a business or organisation?" %}
@@ -29,6 +32,10 @@
                 ],
                 name: "registrationAccountType"
             }) }}
+            
+            <!-- Removes the temp link if changing account type to hide backbutton -->
+            <input type="hidden" id="backButtonHide" name="backButtonHide" value="" />
+            <!-- // -->
             
             {{govukButton({
                 text: "Continue"

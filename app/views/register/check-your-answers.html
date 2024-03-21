@@ -8,7 +8,7 @@
 
 
 
-{% if data['registering'] == "Incomplete" %}
+{% if data['registrationStatus'] == "Incomplete" %}
 	{% set pageHeading = "Registration incomplete" %}
 {% else %}
 	{% set pageHeading = "Check your answers" %}
@@ -24,117 +24,103 @@
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   
 
 		<!-- Show when a user returns to an incomplete registration -->
-		{% if data['registering'] == "Incomplete" %}
+		{% if data['registrationStatus'] == "Incomplete" %}
 			<div class="govuk-inset-text">
 				<p>You need to complete the registration of your Defra account before you can use the <span class="govuk-!-font-weight-bold">{{ data.defaultServiceEnrolment }}</span> service.</p>		
 			</div>					
 			<p class="govuk-body govuk-!-margin-bottom-7">You have previously told us the following information. You can either accept and continue with your registration or make changes to these answers first.</p>
 		{% endif %}
 
-	</div>
+	<!-- </div>
 
-	<div class="govuk-grid-column-full">
+	<div class="govuk-grid-column-full"> -->	
 		
-		{% if not data['userType'] %}
-		<!-- Account Type -->
-		<dl class="govuk-summary-list govuk-!-margin-bottom-9">
-			<div class="govuk-summary-list__row">
-				<dt class="govuk-summary-list__key">Type of account</dt>
-				<dd class="govuk-summary-list__value">					
-					{{ data['registrationAccountType'] }}				
-				</dd>
-				<dd class="govuk-summary-list__actions">
-					<a class="govuk-link govuk-link--no-visited-state" href="/register/change-account-type">Change<span class="govuk-visually-hidden"> type of account</span></a>
-				</dd>
-			</div>			
-		</dl>
-		{% endif %}
+		<!-- Started registration but stopped -->
+		{% if data['registrationStatus'] == "Incomplete" %}
 
 
-		
-
-		
-		
-		
-
-
-
-
-
-		{% if data['userType'] == "Invited" %}
-
-
-
-
-		{% elif data['registrationAccountType'] == "Individual" %}
-
-
-
+		<!-- Registration journey current -->
 		{% else %}
-
-
-			{% if data['registrationOrganisationType'] == "Sole trader"  %}
-				
-				<!-- Sole Trader include file -->
-				{% include "includes/registration/cya/soleTraderDetails.html" %}
-
-			{% elif data['registrationOrganisationType'] == "Charity"  %}	
-
-				{% include "includes/registration/cya/charityDetails.html" %}							
-
-			{% else %}
-
-				{% include "includes/registration/cya/businessDetails.html" %}
-
-			{% endif %}							
-		{% endif %}
-
-		</dl>		
-
-
-		{% if data['registering'] != "Incomplete" %}
-
-			{% include "includes/registration/cya/personalDetails.html" %}		
-
-		  {% endif %}
-      	</dl>
-
 		
-
-		
-		
-
-		{% if data['serviceHook'] == "WasteTracking" %}
-			<form method="post" action="https://wts-prototype.herokuapp.com/v18/index-homepage">
-		{% elif data['serviceHook'] == "Forest" %}
-			<form method="post" action="https://forest-risk-commodities.herokuapp.com/Dashboard_v5_newuser">
-		{% else %}
-
-			{% if data['thirdPartyUser'] == "Yes" %}
-				<form method="post" action="/register/confirmation">
-					<input type="hidden" id="regThirdPartyUserOne" name="regThirdPartyUserOne" value="Enrolled" />	
-			{% else %}
-
-        	<form method="post" action="/account/?notification_banner=">
-				<input type="hidden" id="registrationStatus" name="registrationStatus" value="Enrolled" />
+			{% if not data['userType'] %}
+				<!-- Account Type -->
+				{% include "includes/registration/cya/accountType.html" %}
 			{% endif %}
-		{% endif %}
+
+			<!-- Defra account - Business -->
+			{% if data['registrationAccountType'] == "Business" %}
+				<!-- UK business -->
+				{% if data['registrationTradeUK'] == "Yes" %}
+					<!-- Sole Trader-->
+					{% if data['registrationOrganisationType'] == "Sole trader"  %}									
+						{% include "includes/registration/cya/soleTraderDetails.html" %}
+					<!-- Charity -->
+					{% elif data['registrationOrganisationType'] == "Charity"  %}	
+						{% include "includes/registration/cya/charityDetails.html" %}							
+					<!-- Limited Company -->
+					{% else %}
+						{% include "includes/registration/cya/businessDetails.html" %}
+						{% include "includes/registration/cya/personalDetailsMin.html" %}
+					{% endif %}				
+				<!-- NON UK Business -->
+				{% else %}
 
 
-		{% if data['registering'] == "Incomplete" %}
+				{% endif %}
+			<!-- //// End of Business -->
 			
-			{{ govukButton({
-				text: "Accept and continue with registration"				
-			}) }}			
+			{% elif data['registrationAccountType'] == "Individual" %}
+				{% include "includes/registration/cya/personalDetails.html" %}
+			{% endif %}
+
+		{% endif %}
+      	
+
+		
+
+		<!-- Form exit points -->				
+		<!-- Registration incomplete, returning user -->
+		{% if data['registrationStatus'] == "Incomplete" %}
+			
+			<form method="post" action="" >
+				{{ govukButton({
+					text: "Accept and continue with registration"
+				}) }}
+			</form>
 
 		{% else %}
-				{{ govukButton({
-					text: "Confirm and continue"				
-				}) }}			
-		{% endif %}
-          
-        	</form>
 
+			<!-- Another prototype hooking out of our prototype -->
+			{% if data['serviceHook'] %}
+
+				{% if data['serviceHook'] == "WasteTracking" %}
+					<form method="post" action="https://wts-prototype.herokuapp.com/v18/index-homepage">
+				{% elif data['serviceHook'] == "Forest" %}
+					<form method="post" action="https://forest-risk-commodities.herokuapp.com/Dashboard_v5_newuser">
+				{% endif %}
+			
+			<!-- No hook out from another service -->
+			{% else %}
+				<!-- Invited user from account -->
+				{% if data['thirdPartyUser'] == "Yes" %}
+					<form method="post" action="/register/confirmation">
+						<input type="hidden" id="regThirdPartyUserOne" name="regThirdPartyUserOne" value="Invited" />
+				{% else %}
+					<!-- Normal route for registration -->
+					<form method="post" action="/account/?notification_banner=">
+						<input type="hidden" id="registrationStatus" name="registrationStatus" value="Enrolled" />
+				{% endif %}
+			{% endif %}
+
+			{{ govukButton({
+				text: "Confirm and complete registration"
+			}) }}
+
+			</form>
+
+		{% endif %}
+		<!-- ///////////////////////////////////////////////////// -->
+		
     </div>	  
 </div>
 

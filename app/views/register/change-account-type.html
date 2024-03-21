@@ -2,8 +2,8 @@
 {% set showBackLink = true %}
 {% set serviceName = "" %}
 
-{% set pageHeading = "Confirm you want to change your account type" %}
-{% set pageSection = "" %}
+{% set pageHeading = "Confirm you want to change the type of Defra account you are registering for" %}
+{% set pageSection = "Register for a Defra account" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
@@ -13,9 +13,14 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   
 
-        <div class="govuk-inset-text">
-        	<p class="govuk-body">Any information you have entered will be deleted.</p>
+
+
+        <div class="govuk-inset-text govuk-!-margin-bottom-7">
+        	<p class="govuk-body">Any information you have already entered as part of your current registration will be deleted.</p>
         </div>
+
+
+		
 
         <form method="post" action="/register/account-type" />
 
@@ -93,15 +98,16 @@
 
           <input type="hidden" id="status" name="status" value="" />
           <input type="hidden" id="error" name="error" value="" />          
+          <input type="hidden" id="link" name="link" value="" />          
 
           <input type="hidden" id="registrationOrganisationType" name="registrationOrganisationType" value="" />
-
+		  <input type="hidden" id="backButtonHide" name="backButtonHide" value="Yes" />
           {{ govukButton({
-            text: "Confirm and continue"
+            text: "Confirm and change account type"
           }) }}
 
 
-        <a href="/register/task-list-page-non-uk-details" class="govuk-link">Do not change my account type</a>
+        <a href="/register/check-your-answers?link=" class="govuk-link govuk-link--no-visited-state">Do not change my Defra account</a>
 
       </div>
 
