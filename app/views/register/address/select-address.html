@@ -6,6 +6,8 @@
     {% set pageHeading = "Select your address" %}
 {% elif data['registrationOrganisationType'] == "Sole trader" %}
     {% set pageHeading = "Select your address" %}
+{% elif data['registrationOrganisationType'] == "Charity" %}
+    {% set pageHeading = "Select your address" %}
 {% else %}
     {% set pageHeading = "Select your address" %}
 {% endif %}
@@ -25,7 +27,7 @@
         
 
             <div class="govuk-inset-text">
-            <p class="govuk-body">We found the following addresses for postcode <span class="govuk-!-font-weight-bold">{{ data['registrationIndividualPostcode'] or data['registrationCharityPostcode'] or "SW19 5JA" }}</span>.</p>
+            <p class="govuk-body">We found the following addresses for postcode <span class="govuk-!-font-weight-bold">{{ data['registrationIndividualPostcode'] or data['registrationCharityPostcode'] or  data['registrationSoleTraderPostcode'] or "SW19 5JA" }}</span>.</p>
             <p><a href="/register/address/postcode" class="govuk-link govuk-link--no-visited-state">Change postcode</a></p>
             </div>
                         
@@ -35,66 +37,73 @@
             <form action="/register/company-contact" method="post" class="form">
             {% endif %}
 
+            <!-- Business Account -->
+            {% if data['registrationAccountType'] == "Business" %}
 
                 {% if data['registrationOrganisationType'] == "Sole trader" %}
-
-
-                {{ govukSelect({                
-                    fieldset: {
-                        legend: { text: "Select the address", isPageHeading: false, classes: "govuk-visually-hidden"  }
-                    },
-                    items: [                        
-                        { value: "", text: "3 addresses found", checked: checked("registrationSoleTraderAddress", "") },    
-                        { value: "Clifton House, Clifton Road, LONDON SW19 5JA", text: "Clifton House, Clifton Road, LONDON SW19 5JA", checked: checked("registrationSoleTraderAddress", "Single") },
-                        { value: "2a, Clifton House, Clifton Road, LONDON SW19 5JA", text: "2a, Clifton House, Clifton Road, LONDON SW19 5JA", checked: checked("registrationSoleTraderAddress", "20") },
-                        { value: "2b, Clifton House, Clifton Road, LONDON SW19 5JA", text: "2b, Clifton House, Clifton Road, LONDON SW19 5JA", checked: checked("registrationSoleTraderAddress", "45") }
-                    ],
-                    name: "registrationSoleTraderAddress"
-                }) }}
+                    <!-- Sole Trader -->
+                    {{ govukSelect({                
+                        fieldset: {
+                            legend: { text: "Select the address", isPageHeading: false, classes: "govuk-visually-hidden"  }
+                        },
+                        items: [                        
+                            { value: "", text: "7 addresses found", checked: checked("registrationOrganisationType", "") },    
+                            { value: "1 Barley Way,<br>Newcastle Upon Tyne,<br>NE12 7BN", text: "1 Barley Way, Newcastle Upon Tyne, NE12 7BN", checked: checked("registrationOrganisationType", "1 Barley Way,<br>Newcastle Upon Tyne,<br>NE12 7BN") },
+                            { value: "2 Barley Way,<br>Newcastle Upon Tyne,<br>NE12 7BN", text: "2 Barley Way, Newcastle Upon Tyne, NE12 7BN", checked: checked("registrationOrganisationType", "2 Barley Way,<br>Newcastle Upon Tyne,<br>NE12 7BN") },
+                            { value: "3 Barley Way,<br>Newcastle Upon Tyne,<br>NE12 7BN", text: "3 Barley Way, Newcastle Upon Tyne, NE12 7BN", checked: checked("registrationOrganisationType", "3 Barley Way,<br>Newcastle Upon Tyne,<br>NE12 7BN") },
+                            { value: "4 Barley Way,<br>Newcastle Upon Tyne,<br>NE12 7BN", text: "4 Barley Way, Newcastle Upon Tyne, NE12 7BN", checked: checked("registrationOrganisationType", "4 Barley Way,<br>Newcastle Upon Tyne,<br>NE12 7BN") },
+                            { value: "5 Barley Way,<br>Newcastle Upon Tyne,<br>NE12 7BN", text: "5 Barley Way, Newcastle Upon Tyne, NE12 7BN", checked: checked("registrationOrganisationType", "5 Barley Way,<br>Newcastle Upon Tyne,<br>NE12 7BN") },
+                            { value: "6 Barley Way,<br>Newcastle Upon Tyne,<br>NE12 7BN", text: "6 Barley Way, Newcastle Upon Tyne, NE12 7BN", checked: checked("registrationOrganisationType", "6 Barley Way,<br>Newcastle Upon Tyne,<br>NE12 7BN") },
+                            { value: "7 Barley Way,<br>Newcastle Upon Tyne,<br>NE12 7BN", text: "7 Barley Way, Newcastle Upon Tyne, NE12 7BN", checked: checked("registrationOrganisationType", "7 Barley Way,<br>Newcastle Upon Tyne,<br>NE12 7BN") }
+                        ],
+                        name: "registrationSoleTraderAddress"
+                    }) }}
 
                 {% elif data['registrationOrganisationType'] == "Charity" %}
-
-
-                {{ govukSelect({                
-                    fieldset: {
-                        legend: { text: "Select the address", isPageHeading: false, classes: "govuk-visually-hidden"  }
-                    },
-                    items: [                        
-                        { value: "", text: "3 addresses found", checked: checked("registrationSoleTraderAddress", "") },    
-                        { value: "Clifton House, Clifton Road, LONDON SW19 5JA", text: "Clifton House, Clifton Road, LONDON SW19 5JA", checked: checked("registrationSoleTraderAddress", "Single") },
-                        { value: "2a, Clifton House, Clifton Road, LONDON SW19 5JA", text: "2a, Clifton House, Clifton Road, LONDON SW19 5JA", checked: checked("registrationSoleTraderAddress", "20") },
-                        { value: "2b, Clifton House, Clifton Road, LONDON SW19 5JA", text: "2b, Clifton House, Clifton Road, LONDON SW19 5JA", checked: checked("registrationSoleTraderAddress", "45") }
-                    ],
-                    name: "registrationCharityAddress"
-                }) }}
-
+                    <!-- Charity -->
+                    {{ govukSelect({                
+                        fieldset: {
+                            legend: { text: "Select the address", isPageHeading: false, classes: "govuk-visually-hidden"  }
+                        },
+                        items: [                        
+                            { value: "", text: "3 addresses found", checked: checked("registrationCharityAddress", "") },    
+                            { value: "1 Busy Cottages,<br> Jesmond Dene,<br>Newcastle Upon Tyne,<br>NE7 7BQ", text: "1 Busy Cottages, Jesmond Dene, Newcastle Upon Tyne, NE7 7BQ", checked: checked("registrationCharityAddress", "1 Busy Cottages,<br> Jesmond Dene,<br>Newcastle Upon Tyne,<br>NE7 7BQ") },
+                            { value: "2 Busy Cottages,<br> Jesmond Dene,<br>Newcastle Upon Tyne,<br>NE7 7BQ", text: "2 Busy Cottages, Jesmond Dene, Newcastle Upon Tyne, NE7 7BQ", checked: checked("registrationCharityAddress", "2 Busy Cottages,<br> Jesmond Dene,<br>Newcastle Upon Tyne,<br>NE7 7BQ") },
+                            { value: "Millfield House,<br> Jesmond Dene,<br>Newcastle Upon Tyne,<br>NE7 7BQ", text: "Millfield House, Jesmond Dene, Newcastle Upon Tyne, NE7 7BQ", checked: checked("registrationCharityAddress", "Millfield House,<br> Jesmond Dene,<br>Newcastle Upon Tyne,<br>NE7 7BQ") }
+                        ],
+                        name: "registrationCharityAddress"
+                    }) }}                
 
                 {% else %}
-
-                {{ govukSelect({                
-                    fieldset: {
-                        legend: { text: "Select the address", isPageHeading: false, classes: "govuk-visually-hidden"  }
-                    },
-                    items: [                        
-                        { value: "", text: "", checked: checked("companySize", "Single") },    
-                        { value: "Clifton House, Clifton Road, LONDON SW19 5JA", text: "Clifton House, Clifton Road, LONDON SW19 5JA", checked: checked("companySize", "Single") },
-                        { value: "2a, Clifton House, Clifton Road, LONDON SW19 5JA", text: "2a, Clifton House, Clifton Road, LONDON SW19 5JA", checked: checked("companySize", "20") },
-                        { value: "2b, Clifton House, Clifton Road, LONDON SW19 5JA", text: "2b, Clifton House, Clifton Road, LONDON SW19 5JA", checked: checked("companySize", "45") }
-                    ],
-                    name: "registrationIndividualAddress"
-                }) }}
+                    <!-- Non UK Trading Business -->
                 
                 {% endif %}
 
-                <div class="govuk-button-group">
+            <!-- Individual Account -->
+            {% elif data['registrationAccountType'] == "Individual" %}                
+
+                {{ govukSelect({                
+                    fieldset: {
+                        legend: { text: "Select the address", isPageHeading: false, classes: "govuk-visually-hidden"  }
+                    },
+                    items: [                        
+                        { value: "", text: "3 addresses found", checked: checked("registrationIndividualAddress", "") },    
+                        { value: "15 Kensington Palace Gardens,<br>London,<br>W8 4QG", text: "15 Kensington Palace Gardens, London, W8 4QG", checked: checked("registrationIndividualAddress", "15 Kensington Palace Gardens,<br>London,<br>W8 4QG") },
+                        { value: "15A Kensington Palace Gardens,<br>London,<br>W8 4QG", text: "15A Kensington Palace Gardens, London, W8 4QG", checked: checked("registrationIndividualAddress", "15A Kensington Palace Gardens,<br>London,<br>W8 4QG") },
+                        { value: "15B Kensington Palace Gardens,<br>London,<br>W8 4QG", text: "15B Kensington Palace Gardens, London, W8 4QG", checked: checked("registrationIndividualAddress", "15B Kensington Palace Gardens,<br>London,<br>W8 4QG") }
+                    ],
+                    name: "registrationIndividualAddress"
+                
+                }) }}
+
+            {% endif %}
+
+            <div class="govuk-button-group">
                 {{ govukButton({
                     text: "Continue"
                 }) }}
-
                 <a href="/register/address/add-address-manual" class="govuk-link govuk-link--no-visited-state">My address is not in the list</a>
-
-                </div>
-
+            </div>
         
         </form>
     </div>    

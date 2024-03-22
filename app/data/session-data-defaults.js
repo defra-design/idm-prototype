@@ -20,49 +20,50 @@ Example usage:
 module.exports = {
   // Third Party Account
   // defaultAccount: "thirdParty",
-  
-
-  govGateEmail: "hugo.furst@govgateway.test",
-  govGateThirdPartyEmail: "hugo.furst@thirdparty.co.uk",
+  govGateEmail: "hugo.furst@govgateway.default",
   registrationStatus: "Enrolled",
-  termsAndConditions: "Viewed",
   
-  // Ltd Company
+  // UK Business
   // registrationAccountType: "Business",
   // registrationTradeUK: "Yes",
   // registrationCompanyRegistrationNumber: "Yes",
-  // registrationCompanyNumber: "01234567",
-  // registrationCompanyAddress: "19 Hoults Yard, Walker Road, Newcastle upon Tyne NE6 2HL",
+  defaultFirstName: "Hugo",
+  defaultSurname: "Furst",
+  defaultCompanyNumber: "01234567",
+  defaultCompanyAddress: "19 Hoults Yard, Walker Road, Newcastle upon Tyne NE6 2HL",
+  defaultCompanyName: "Soleheaven Ltd",
+  defaultServiceEnrolment: "IPAFFS",
   // registrationConfirmedAddress: "Yes",
   // registrationPhone: "07985439576",
-  // registrationEmail: "hugo.furst@hauntedhouse.com",
-  // defraIdFirstName: "Hugo",
-  // defraIdSurname: "Furst",
+  // registrationEmail: "hugo.furst@soleheaven.com",
+  
   // registrationContactPhonePersonal: "00700700788",
   // registrationMemorableWord: "Jordan23",
-  // registrationMemorableHint: "The one and only goat",
-  // defaultCompanyName: "Soleheaven Ltd",
-  // defaultServiceEnrolment: "IPAFFS",
+  // registrationMemorableHint: "The goat",
+  
   // defaultServiceRole: "Notifier",
 
 
   // Individual
   // registrationAccountType: "Individual",
-  // defraIdFirstName: "Hugo",
-  // defraIdSurname: "Furst",
-  // registrationContactPhonePersonal: "00700700788",
-  // registrationIndividualAddress: "2a, Clifton House, Clifton Road, LONDON SW19 5JA"
-  // registrationMemorableWord: "Jordan23",
-  // registrationMemorableHint: "The one and only goat",  
+  // defaultFirstName: "Hugo",
+  // defaultSurname: "Furst",
+  defaultIndividualName: "Hugo Furst",
+  defaultIndividualPhone: "00700700788",
+  defaultIndividualAddress: "15B Kensington Palace Gardens,<br> London,<br> W8 4QG",
+  defaultIndividualWord: "Jordan23",
+  defaultIndividualHint: "The one and only goat",  
   // defaultServiceEnrolment: "IPAFFS",
   // defaultServiceRole: "Notifier",
   
 
-
-
-
-
-
+  // Charity
+  defaultCharityName: "Urban Green Newcastle",
+  defaultCharityNumber: "1182534",
+  defaultCharityAddress: "Ouseburn Parks Visitor Centre,<br>Red Walk,<br>Jesmond Dene,<br>NEWCASTLE UPON TYNE, <br>NE7 7BQ",
+  defaultCharityPhone: "01918144574",
+  defaultCharityEmail: "info@urbangreennewcastle.org",
+  
   //"businessType": "Limited company",
   // "govGateName": "Sam Woods",
   // "orgName": "Antillo Fujam Gardens",
@@ -92,8 +93,8 @@ module.exports = {
   // "address-country": "UK",
   // "IV": "off",
   // "clientService": "UK Reach",
-  // "defraIdFirstName": "",
-  // "defraIdSurname": "",
+  // "defaultFirstName": "",
+  // "defaultSurname": "",
   // "IVRes": "success"
 
 
@@ -101,10 +102,10 @@ module.exports = {
   defaultThirdParty: "Local authority",
   defaultThirdPartyName: "Newcastle City Council",
   defaultThirdPartyAddress: "Civic Centre, 2nd Floor, Newcastle upon Tyne, NE1 8QH",
-  defaultThirdPartyCEO: "Chrispee Bacon",
+  defaultThirdPartyCEO: "Cris P Bacon",
   defaultThirdPartyCEORole: "Chief Executive Officer (CEO)",
   defaultThirdPartyCEOPhone: "00700700788",
-  defaultThirdPartyCEOEmail: "chrisp@localauthority.co.uk",
+  defaultThirdPartyCEOEmail: "chris.p.bacon@localauthority.default",
   defaultThirdPartyCEOServiceRole: "Managing waste data",
   // defaultThirdPartyCeoRegistered: "Yes",
   // defaultThirdPartyUserOneResponsibility: "Adding and amending bank details",
