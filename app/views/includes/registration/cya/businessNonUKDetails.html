@@ -57,7 +57,7 @@
     {% if data['registrationTradeUK'] != "No" %}
     <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">Company number</dt>
-        <dd class="govuk-summary-list__value">{{ data['registrationCompanyNumber'] or '01234567' }}</dd>
+        <dd class="govuk-summary-list__value">{{ data['defaultCompanyNumber'] or '01234567' }}</dd>
         <dd class="govuk-summary-list__actions"></dd>
     </div>
     {% endif %}

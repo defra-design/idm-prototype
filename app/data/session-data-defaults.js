@@ -23,29 +23,31 @@ module.exports = {
   govGateEmail: "hugo.furst@govgateway.default",
   registrationStatus: "Enrolled",
   
-  // Ltd Company
+  // UK Business
   // registrationAccountType: "Business",
   // registrationTradeUK: "Yes",
   // registrationCompanyRegistrationNumber: "Yes",
-  // registrationCompanyNumber: "01234567",
-  // registrationCompanyAddress: "19 Hoults Yard, Walker Road, Newcastle upon Tyne NE6 2HL",
+  defaultFirstName: "Hugo",
+  defaultSurname: "Furst",
+  defaultCompanyNumber: "01234567",
+  defaultCompanyAddress: "19 Hoults Yard, Walker Road, Newcastle upon Tyne NE6 2HL",
+  defaultCompanyName: "Soleheaven Ltd",
+  defaultServiceEnrolment: "IPAFFS",
   // registrationConfirmedAddress: "Yes",
   // registrationPhone: "07985439576",
-  // registrationEmail: "hugo.furst@hauntedhouse.com",
-  // defraIdFirstName: "Hugo",
-  // defraIdSurname: "Furst",
+  // registrationEmail: "hugo.furst@soleheaven.com",
+  
   // registrationContactPhonePersonal: "00700700788",
   // registrationMemorableWord: "Jordan23",
-  // registrationMemorableHint: "The one and only goat",
-  // defaultCompanyName: "Soleheaven Ltd",
-  defaultServiceEnrolment: "IPAFFS",
+  // registrationMemorableHint: "The goat",
+  
   // defaultServiceRole: "Notifier",
 
 
   // Individual
   // registrationAccountType: "Individual",
-  // defraIdFirstName: "Hugo",
-  // defraIdSurname: "Furst",
+  // defaultFirstName: "Hugo",
+  // defaultSurname: "Furst",
   defaultIndividualName: "Hugo Furst",
   defaultIndividualPhone: "00700700788",
   defaultIndividualAddress: "15B Kensington Palace Gardens,<br> London,<br> W8 4QG",
@@ -56,9 +58,9 @@ module.exports = {
   
 
   // Charity
-  defaultCharityAddress: "Ouseburn Parks Visitor Centre,<br>Red Walk,<br>Jesmond Dene,<br>NEWCASTLE UPON TYNE, <br>NE7 7BQ",
   defaultCharityName: "Urban Green Newcastle",
   defaultCharityNumber: "1182534",
+  defaultCharityAddress: "Ouseburn Parks Visitor Centre,<br>Red Walk,<br>Jesmond Dene,<br>NEWCASTLE UPON TYNE, <br>NE7 7BQ",
   defaultCharityPhone: "01918144574",
   defaultCharityEmail: "info@urbangreennewcastle.org",
   
@@ -91,8 +93,8 @@ module.exports = {
   // "address-country": "UK",
   // "IV": "off",
   // "clientService": "UK Reach",
-  // "defraIdFirstName": "",
-  // "defraIdSurname": "",
+  // "defaultFirstName": "",
+  // "defaultSurname": "",
   // "IVRes": "success"
 
 

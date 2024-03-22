@@ -4,9 +4,9 @@
 
 
 {% if data['registrationOrganisationType'] == "Sole trader" %}
-	{% set pageHeading = "What is the name of your business?" %}
+	{% set pageHeading = "What’s the name of your business?" %}
 {% else %}
-	{% set pageHeading = "What is the name of the business?" %}
+	{% set pageHeading = "What’s the name of the business?" %}
 {% endif %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}

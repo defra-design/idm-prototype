@@ -3,7 +3,7 @@
 {% set serviceName = "" %}
 
 {% set accountUserName %}	
-	{{ data.defraIdFirstName }} {{ data.defraIdSurname }}	
+	{{ data.defaultFirstName }} {{ data.defaultSurname }}	
 {% endset -%}
 
 
@@ -54,9 +54,11 @@
 					<!-- Sole Trader-->
 					{% if data['registrationOrganisationType'] == "Sole trader"  %}									
 						{% include "includes/registration/cya/soleTraderDetails.html" %}
+						{% include "includes/registration/cya/personalDetailsMin.html" %}
 					<!-- Charity -->
 					{% elif data['registrationOrganisationType'] == "Charity"  %}	
 						{% include "includes/registration/cya/charityDetails.html" %}							
+						{% include "includes/registration/cya/personalDetailsMin.html" %}
 					<!-- Limited Company -->
 					{% else %}
 						{% include "includes/registration/cya/businessDetails.html" %}

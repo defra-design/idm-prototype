@@ -6,6 +6,8 @@
     {% set pageHeading = "Select your address" %}
 {% elif data['registrationOrganisationType'] == "Sole trader" %}
     {% set pageHeading = "Select your address" %}
+{% elif data['registrationOrganisationType'] == "Charity" %}
+    {% set pageHeading = "Select your address" %}
 {% else %}
     {% set pageHeading = "Select your address" %}
 {% endif %}
@@ -25,7 +27,7 @@
         
 
             <div class="govuk-inset-text">
-            <p class="govuk-body">We found the following addresses for postcode <span class="govuk-!-font-weight-bold">{{ data['registrationIndividualPostcode'] or data['registrationCharityPostcode'] or "SW19 5JA" }}</span>.</p>
+            <p class="govuk-body">We found the following addresses for postcode <span class="govuk-!-font-weight-bold">{{ data['registrationIndividualPostcode'] or data['registrationCharityPostcode'] or  data['registrationSoleTraderPostcode'] or "SW19 5JA" }}</span>.</p>
             <p><a href="/register/address/postcode" class="govuk-link govuk-link--no-visited-state">Change postcode</a></p>
             </div>
                         
@@ -45,10 +47,14 @@
                             legend: { text: "Select the address", isPageHeading: false, classes: "govuk-visually-hidden"  }
                         },
                         items: [                        
-                            { value: "", text: "3 addresses found", checked: checked("registrationOrganisationType", "") },    
-                            { value: "15 Kensington Palace Gardens,<br>London,<br>W8 4QG", text: "15 Kensington Palace Gardens, London, W8 4QG", checked: checked("registrationOrganisationType", "15 Kensington Palace Gardens,<br>London,<br>W8 4QG") },
-                            { value: "15A Kensington Palace Gardens,<br>London,<br>W8 4QG", text: "15A Kensington Palace Gardens, London, W8 4QG", checked: checked("registrationOrganisationType", "15A Kensington Palace Gardens,<br>London,<br>W8 4QG") },
-                            { value: "15B Kensington Palace Gardens,<br>London,<br>W8 4QG", text: "15B Kensington Palace Gardens, London, W8 4QG", checked: checked("registrationOrganisationType", "15B Kensington Palace Gardens,<br>London,<br>W8 4QG") }
+                            { value: "", text: "7 addresses found", checked: checked("registrationOrganisationType", "") },    
+                            { value: "1 Barley Way,<br>Newcastle Upon Tyne,<br>NE12 7BN", text: "1 Barley Way, Newcastle Upon Tyne, NE12 7BN", checked: checked("registrationOrganisationType", "1 Barley Way,<br>Newcastle Upon Tyne,<br>NE12 7BN") },
+                            { value: "2 Barley Way,<br>Newcastle Upon Tyne,<br>NE12 7BN", text: "2 Barley Way, Newcastle Upon Tyne, NE12 7BN", checked: checked("registrationOrganisationType", "2 Barley Way,<br>Newcastle Upon Tyne,<br>NE12 7BN") },
+                            { value: "3 Barley Way,<br>Newcastle Upon Tyne,<br>NE12 7BN", text: "3 Barley Way, Newcastle Upon Tyne, NE12 7BN", checked: checked("registrationOrganisationType", "3 Barley Way,<br>Newcastle Upon Tyne,<br>NE12 7BN") },
+                            { value: "4 Barley Way,<br>Newcastle Upon Tyne,<br>NE12 7BN", text: "4 Barley Way, Newcastle Upon Tyne, NE12 7BN", checked: checked("registrationOrganisationType", "4 Barley Way,<br>Newcastle Upon Tyne,<br>NE12 7BN") },
+                            { value: "5 Barley Way,<br>Newcastle Upon Tyne,<br>NE12 7BN", text: "5 Barley Way, Newcastle Upon Tyne, NE12 7BN", checked: checked("registrationOrganisationType", "5 Barley Way,<br>Newcastle Upon Tyne,<br>NE12 7BN") },
+                            { value: "6 Barley Way,<br>Newcastle Upon Tyne,<br>NE12 7BN", text: "6 Barley Way, Newcastle Upon Tyne, NE12 7BN", checked: checked("registrationOrganisationType", "6 Barley Way,<br>Newcastle Upon Tyne,<br>NE12 7BN") },
+                            { value: "7 Barley Way,<br>Newcastle Upon Tyne,<br>NE12 7BN", text: "7 Barley Way, Newcastle Upon Tyne, NE12 7BN", checked: checked("registrationOrganisationType", "7 Barley Way,<br>Newcastle Upon Tyne,<br>NE12 7BN") }
                         ],
                         name: "registrationSoleTraderAddress"
                     }) }}
@@ -61,9 +67,9 @@
                         },
                         items: [                        
                             { value: "", text: "3 addresses found", checked: checked("registrationCharityAddress", "") },    
-                            { value: "15 Kensington Palace Gardens,<br>London,<br>W8 4QG", text: "15 Kensington Palace Gardens, London, W8 4QG", checked: checked("registrationCharityAddress", "15 Kensington Palace Gardens,<br>London,<br>W8 4QG") },
-                            { value: "15A Kensington Palace Gardens,<br>London,<br>W8 4QG", text: "15A Kensington Palace Gardens, London, W8 4QG", checked: checked("registrationCharityAddress", "15A Kensington Palace Gardens,<br>London,<br>W8 4QG") },
-                            { value: "15B Kensington Palace Gardens,<br>London,<br>W8 4QG", text: "15B Kensington Palace Gardens, London, W8 4QG", checked: checked("registrationCharityAddress", "15B Kensington Palace Gardens,<br>London,<br>W8 4QG") }
+                            { value: "1 Busy Cottages,<br> Jesmond Dene,<br>Newcastle Upon Tyne,<br>NE7 7BQ", text: "1 Busy Cottages, Jesmond Dene, Newcastle Upon Tyne, NE7 7BQ", checked: checked("registrationCharityAddress", "1 Busy Cottages,<br> Jesmond Dene,<br>Newcastle Upon Tyne,<br>NE7 7BQ") },
+                            { value: "2 Busy Cottages,<br> Jesmond Dene,<br>Newcastle Upon Tyne,<br>NE7 7BQ", text: "2 Busy Cottages, Jesmond Dene, Newcastle Upon Tyne, NE7 7BQ", checked: checked("registrationCharityAddress", "2 Busy Cottages,<br> Jesmond Dene,<br>Newcastle Upon Tyne,<br>NE7 7BQ") },
+                            { value: "Millfield House,<br> Jesmond Dene,<br>Newcastle Upon Tyne,<br>NE7 7BQ", text: "Millfield House, Jesmond Dene, Newcastle Upon Tyne, NE7 7BQ", checked: checked("registrationCharityAddress", "Millfield House,<br> Jesmond Dene,<br>Newcastle Upon Tyne,<br>NE7 7BQ") }
                         ],
                         name: "registrationCharityAddress"
                     }) }}                
