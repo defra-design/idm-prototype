@@ -1,5 +1,7 @@
 {% extends "/layouts/main.html" %}
-{% set showBackLink = true %}
+{% if data['backButtonHide'] == "Yes" %}
+    {% set showBackLink = false %}
+{% endif %}
 {% set serviceName = "" %}
 
 {% set accountUserName %}	
@@ -24,11 +26,11 @@
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   
 
 		<!-- Show when a user returns to an incomplete registration -->
-		{% if data['registrationStatus'] == "Incomplete" %}
+		{% if data['registrationStatus'] == "incomplete" %}
 			<div class="govuk-inset-text">
 				<p>You need to complete the registration of your Defra account before you can use the <span class="govuk-!-font-weight-bold">{{ data.defaultServiceEnrolment }}</span> service.</p>		
-			</div>					
-			<p class="govuk-body govuk-!-margin-bottom-7">You have previously told us the following information. You can either accept and continue with your registration or make changes to these answers first.</p>
+			</div>								
+			<p class="govuk-body govuk-!-margin-bottom-7">You can accept and continue with your registration or make changes to any of the information you have already told us.</p>
 		{% endif %}
 
 	<!-- </div>
@@ -36,9 +38,23 @@
 	<div class="govuk-grid-column-full"> -->	
 		
 		<!-- Started registration but stopped -->
-		{% if data['registrationStatus'] == "Incomplete" %}
+		{% if data['registrationStatus'] == "incomplete" %}			
+
+			{% include "includes/registration/cya/accountType.html" %}
 
 
+			{% if data['registrationAccountType'] == "Individual" %}
+				{% include "includes/registration/cya/personalDetailsIncomplete.html" %}
+			{% elif data['registrationOrganisationType'] == "Sole trader"  %}
+				{% include "includes/registration/cya/soleTraderDetailsIncomplete.html" %}
+			{% elif data['registrationOrganisationType'] == "Charity"  %}
+				{% include "includes/registration/cya/charityDetailsIncomplete.html" %}	
+			{% elif data['registrationTradeUK'] == "No"  %}			
+				{% include "includes/registration/cya/businessNonUKDetailsIncomplete.html" %}	
+			{% elif data['registrationAccountType'] == "Business" %}
+				{% include "includes/registration/cya/businessDetailsIncomplete.html" %}			
+			{% endif %}
+			
 		<!-- Registration journey current -->
 		{% else %}
 		
@@ -66,7 +82,8 @@
 					{% endif %}				
 				<!-- NON UK Business -->
 				{% else %}
-
+					{% include "includes/registration/cya/businessNonUKDetails.html" %}
+					{% include "includes/registration/cya/personalDetailsMin.html" %}
 
 				{% endif %}
 			<!-- //// End of Business -->
@@ -82,7 +99,7 @@
 
 		<!-- Form exit points -->				
 		<!-- Registration incomplete, returning user -->
-		{% if data['registrationStatus'] == "Incomplete" %}
+		{% if data['registrationStatus'] == "incomplete" %}
 			
 			<form method="post" action="" >
 				{{ govukButton({

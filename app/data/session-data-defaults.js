@@ -18,6 +18,9 @@ Example usage:
 */
 
 module.exports = {
+
+
+  registrationStatus: "incomplete",
   // Third Party Account
   // defaultAccount: "thirdParty",
   govGateEmail: "hugo.furst@govgateway.default",
@@ -29,14 +32,20 @@ module.exports = {
   // registrationCompanyRegistrationNumber: "Yes",
   defaultFirstName: "Hugo",
   defaultSurname: "Furst",
-  defaultCompanyNumber: "01234567",
+  defaultCompanyNumber: "01234568",
   defaultCompanyAddress: "19 Hoults Yard, Walker Road, Newcastle upon Tyne NE6 2HL",
   defaultCompanyName: "Soleheaven Ltd",
   defaultServiceEnrolment: "IPAFFS",
+  defaultPhone: "07985439576",
+  defaultEmail: "hugo.furst@soleheaven.com",
   // registrationConfirmedAddress: "Yes",
-  // registrationPhone: "07985439576",
-  // registrationEmail: "hugo.furst@soleheaven.com",
   
+  // NON Uk business
+  defaultBusinessNonUkName: "Sneakerium",
+  defaultBusinessNonUkAddress: "116 Rue d'Antibes, 06400 Cannes, France",
+  defaultBusinessNonUKPhone: "0033 483 4425 76",
+  defaultBusinessNonUKEmail: "nonuk@sneakerium.fr",
+
   // registrationContactPhonePersonal: "00700700788",
   // registrationMemorableWord: "Jordan23",
   // registrationMemorableHint: "The goat",
@@ -56,6 +65,11 @@ module.exports = {
   // defaultServiceEnrolment: "IPAFFS",
   // defaultServiceRole: "Notifier",
   
+  // Sole
+  registrationSoleTraderName: "Soleheaven",
+  registrationSoleTraderAddress: "19 Hoults Yard, Walker Road, Newcastle upon Tyne NE6 2HL",
+  registrationSoleTraderPhone: "0191 468 2009",
+  registrationSoleTraderEmail: "soletrader@soleheaven.com",
 
   // Charity
   defaultCharityName: "Urban Green Newcastle",
