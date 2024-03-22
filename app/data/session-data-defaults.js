@@ -20,7 +20,7 @@ Example usage:
 module.exports = {
 
 
-  registrationStatus: "incomplete",
+  // registrationStatus: "incomplete",
   // Third Party Account
   // defaultAccount: "thirdParty",
   govGateEmail: "hugo.furst@govgateway.default",
