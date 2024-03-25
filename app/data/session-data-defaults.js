@@ -19,6 +19,7 @@ Example usage:
 
 module.exports = {
 
+  userFlow: "Registration",
 
   // registrationStatus: "incomplete",
   // Third Party Account
