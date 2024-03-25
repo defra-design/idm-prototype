@@ -1,0 +1,22 @@
+<!-- Account Navigation -->
+<div class="login-nav">
+	<ul class="login-nav__list">
+    	<li class="login-nav__list-item">
+			
+			{% if data['defaultAccount'] == "thirdParty" %}
+				
+				{% if data['defaultAccountUser'] == "CEO" %}		
+					{{ data['defaultThirdPartyCEO'] }} |</li>
+				{% else %}
+
+
+				{% endif %}
+			
+
+			{% else %}			
+				{{ data['defaultFirstName'] or 'Hugo' }} {{ data['defaultSurname'] or 'Furst' }} |</li>
+			{% endif %}
+    	<li class="login-nav__list-item"><a href="/account/?notification_banner=" class="govuk-link login-nav__link govuk-link--no-visited-state profile">Manage Account</a>|</li>
+    	<li class="login-nav__list-item"><a href="/signed-out?status=signedOut" class="govuk-link login-nav__link govuk-link--no-visited-state">Sign out</a></li>
+  	</ul>
+</div>

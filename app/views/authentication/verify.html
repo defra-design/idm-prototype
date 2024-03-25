@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "/layouts/main.html" %}
 {% set showBackLink = false %}
 {% set serviceName = "" %}
 
@@ -16,12 +16,7 @@
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-        
-        {% if data['mfaEmailDisabled'] == "Yes" %}
-            <p>The option to verify your identity by email is not available.</p>            
-            <p>We have switched you to verify your identity by sending the 6-digit code using a text message.</p>
-        {% endif %}
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}                
 
         {% if data['verify-your-identity'] == "send-email" %}
 

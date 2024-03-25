@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "/layouts/main.html" %}
 {% set showBackLink = false %}
 {% set serviceName = "" %}
 
@@ -15,6 +15,9 @@
         
         <p>You will be able to use the service later.</p>
         <p>When the service is available, you will have to start again.</p>
+
+        {% if data['status'] != "noService" %}
+
         <p class="govuk-body">Contact <a class="govuk-link govuk-link--no-visited-state" href=“mailto:{SERVICE email address}”>{email address}</a> if you need help or call our helpline.</p>
         <p class="govuk-body">
             Helpline:<br>
@@ -26,16 +29,17 @@
         </p>        
         <p><a href="https://www.gov.uk/call-charges" class="govuk-link govuk-link--no-visited-state" rel="noreferrer noopener" target="_blank" >Find out about call charges (opens in a new tab).</a></p>                
 
+        {% endif %}
     </div>
-    <!-- <div class="govuk-grid-column-one-third review">      
+    <div class="govuk-grid-column-one-third review">      
         <ul class="govuk-list govuk-body-s govuk-!-text-align-right">        
-            {% if data['status'] == "review" %}                        
-                <li><a href="/unavailable?status=" class="govuk-link govuk-link--no-visited-state">Current page</a></li>        
+            {% if data['status'] == "noService" %}                        
+                <li><a href="/unavailable?status=" class="govuk-link govuk-link--no-visited-state">Service information available</a></li>        
             {% else %}
-                <li><a href="/unavailable?status=review" class="govuk-link govuk-link--no-visited-state">Suggested page changes</a></li>        
+                <li><a href="/unavailable?status=noService" class="govuk-link govuk-link--no-visited-state">Service information not available</a></li>        
             {% endif %}
         </ul>      
-    </div> -->
+    </div>
 </div>
 
 

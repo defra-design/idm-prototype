@@ -1,5 +1,5 @@
 
-{% extends "layout.html" %}
+{% extends "/layouts/main.html" %}
 {% set showBackLink = true %}
 {% set serviceName = "Government Gateway" %}
 
@@ -22,8 +22,9 @@
             <!-- <input type="hidden" name="returnUrl" value="{{data['returnUrl']}}"> -->
             {{ govukInput({
                 label: { text: "Email address" },
-                classes: "govuk-!-width-three-quarters"                
-            } | decorateFormAttributes('govGateEmail')) }}
+                classes: "govuk-!-width-three-quarters",
+                name: "govGateEmail"
+            }) }}
 
             {{ govukButton({
                 text: "Continue"

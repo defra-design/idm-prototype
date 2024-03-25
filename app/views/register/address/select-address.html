@@ -1,22 +1,16 @@
-{% extends "layout.html" %}
+{% extends "/layouts/main.html" %}
 {% set showBackLink = true %}
 {% set serviceName = "" %}
 
-
-{% if data['status'] == "review" %}
-	{% if data['registrationAccountType'] == "Individual" %}
-        {% set pageHeading = "Select your address" %}
-	{% else %}
-        {% set pageHeading = "Select your address" %}
-	{% endif %}
+{% if data['registrationAccountType'] == "Individual" %}
+    {% set pageHeading = "Select your address" %}
+{% elif data['registrationOrganisationType'] == "Sole trader" %}
+    {% set pageHeading = "Select your address" %}
+{% elif data['registrationOrganisationType'] == "Charity" %}
+    {% set pageHeading = "Select your address" %}
 {% else %}
-	{% if data['registrationAccountType'] == "Individual" %}
-        {% set pageHeading = "Select the address" %}
-	{% else %}
-        {% set pageHeading = "Select the address" %}
-	{% endif %}
+    {% set pageHeading = "Select your address" %}
 {% endif %}
-
 
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -30,78 +24,83 @@
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
 
-        {% if data['status'] == "review" %}
+        
 
             <div class="govuk-inset-text">
-            <p class="govuk-body">We found 3 addresses for postcode <span class="govuk-!-font-weight-bold">{{ data['registrationIndividualPostcode'] or "SW19 5JA" }}</span>.</p>
+            <p class="govuk-body">We found the following addresses for postcode <span class="govuk-!-font-weight-bold">{{ data['registrationIndividualPostcode'] or data['registrationCharityPostcode'] or  data['registrationSoleTraderPostcode'] or "SW19 5JA" }}</span>.</p>
             <p><a href="/register/address/postcode" class="govuk-link govuk-link--no-visited-state">Change postcode</a></p>
             </div>
+                        
+            {% if data['registrationAccountType'] == "Individual" %}
+                <form action="/register/personal-security" method="post" class="form">
+            {% else %}
+            <form action="/register/company-contact" method="post" class="form">
+            {% endif %}
 
-            
+            <!-- Business Account -->
+            {% if data['registrationAccountType'] == "Business" %}
 
-            <form action="/register/task-list-page-about-you-details?individual-address=completed" method="post" class="form">
+                {% if data['registrationOrganisationType'] == "Sole trader" %}
+                    <!-- Sole Trader -->
+                    {{ govukSelect({                
+                        fieldset: {
+                            legend: { text: "Select the address", isPageHeading: false, classes: "govuk-visually-hidden"  }
+                        },
+                        items: [                        
+                            { value: "", text: "1 addresses found", checked: checked("registrationOrganisationType", "") },    
+                            { value: "Hoults Yard,<br> Walker Road,<br> Newcastle upon Tyne,<br> NE6 2HL", text: "Hoults Yard, Walker Road, Newcastle upon Tyne NE6 2HL", checked: checked("registrationOrganisationType", "Hoults Yard,<br> Walker Road,<br> Newcastle upon Tyne,<br> NE6 2HL") }                            
+                        ],
+                        name: "registrationSoleTraderAddress"
+                    }) }}
 
-                {{ govukRadios({                
-                    fieldset: {
-                        legend: { text: "Select the address", isPageHeading: false, classes: "govuk-visually-hidden"  }
-                    },
-                    items: [                        
-                        { value: "Clifton House, Clifton Road, LONDON SW19 5JA", text: "Clifton House, Clifton Road, LONDON SW19 5JA", checked: checked("companySize", "Single") },
-                        { value: "2a, Clifton House, Clifton Road, LONDON SW19 5JA", text: "2a, Clifton House, Clifton Road, LONDON SW19 5JA", checked: checked("companySize", "20") },
-                        { value: "2b, Clifton House, Clifton Road, LONDON SW19 5JA", text: "2b, Clifton House, Clifton Road, LONDON SW19 5JA", checked: checked("companySize", "45") }
-                    ]
-                } | decorateFormAttributes('registrationIndividualAddress')) }}          
+                {% elif data['registrationOrganisationType'] == "Charity" %}
+                    <!-- Charity -->
+                    {{ govukSelect({                
+                        fieldset: {
+                            legend: { text: "Select the address", isPageHeading: false, classes: "govuk-visually-hidden"  }
+                        },
+                        items: [                        
+                            { value: "", text: "3 addresses found", checked: checked("registrationCharityAddress", "") },    
+                            { value: "1 Busy Cottages,<br> Jesmond Dene,<br>Newcastle Upon Tyne,<br>NE7 7BQ", text: "1 Busy Cottages, Jesmond Dene, Newcastle Upon Tyne, NE7 7BQ", checked: checked("registrationCharityAddress", "1 Busy Cottages,<br> Jesmond Dene,<br>Newcastle Upon Tyne,<br>NE7 7BQ") },
+                            { value: "2 Busy Cottages,<br> Jesmond Dene,<br>Newcastle Upon Tyne,<br>NE7 7BQ", text: "2 Busy Cottages, Jesmond Dene, Newcastle Upon Tyne, NE7 7BQ", checked: checked("registrationCharityAddress", "2 Busy Cottages,<br> Jesmond Dene,<br>Newcastle Upon Tyne,<br>NE7 7BQ") },
+                            { value: "Millfield House,<br> Jesmond Dene,<br>Newcastle Upon Tyne,<br>NE7 7BQ", text: "Millfield House, Jesmond Dene, Newcastle Upon Tyne, NE7 7BQ", checked: checked("registrationCharityAddress", "Millfield House,<br> Jesmond Dene,<br>Newcastle Upon Tyne,<br>NE7 7BQ") }
+                        ],
+                        name: "registrationCharityAddress"
+                    }) }}                
+
+                {% else %}
+                    <!-- Non UK Trading Business -->
                 
-                {{ govukButton({
-                    text: "Continue"
-                }) }}
+                {% endif %}
 
-                <p class="govuk-body"><a href="/register/address/add-address-manual" class="govuk-link govuk-link--no-visited-state">My address is not in the list</a></p>
-
-
-
-        {% else %}
-
-            <p class="govuk-body">Postcode: <span class="govuk-!-font-weight-bold">{{ data['registrationIndividualPostcode'] or "SW19 5JA" }}</span> <a href="/register/address/postcode" class="govuk-link">Change</a></p>
-            <!-- <p class="govuk-body">3 addresses found for Clifton House and SW19 5JA. <a href="" class="govuk-link">Change</a></p> -->
-
-            <form action="/register/task-list-page-about-you-details?individual-address=completed" method="post" class="form">
+            <!-- Individual Account -->
+            {% elif data['registrationAccountType'] == "Individual" %}                
 
                 {{ govukSelect({                
                     fieldset: {
                         legend: { text: "Select the address", isPageHeading: false, classes: "govuk-visually-hidden"  }
                     },
-                    items: [
-                        { value: "Not selected", text: "3 addresses found", checked: checked("companySize", "Single") },    
-                        { value: "Clifton House, Clifton Road, LONDON SW19 5JA", text: "Clifton House, Clifton Road, LONDON SW19 5JA", checked: checked("companySize", "Single") },
-                        { value: "2a, Clifton House, Clifton Road, LONDON SW19 5JA", text: "2a, Clifton House, Clifton Road, LONDON SW19 5JA", checked: checked("companySize", "20") },
-                        { value: "2b, Clifton House, Clifton Road, LONDON SW19 5JA", text: "2b, Clifton House, Clifton Road, LONDON SW19 5JA", checked: checked("companySize", "45") }
-                    ]
-                } | decorateFormAttributes('registrationIndividualAddress')) }}          
+                    items: [                        
+                        { value: "", text: "3 addresses found", checked: checked("registrationIndividualAddress", "") },    
+                        { value: "15 Kensington Palace Gardens,<br>London,<br>W8 4QG", text: "15 Kensington Palace Gardens, London, W8 4QG", checked: checked("registrationIndividualAddress", "15 Kensington Palace Gardens,<br>London,<br>W8 4QG") },
+                        { value: "15A Kensington Palace Gardens,<br>London,<br>W8 4QG", text: "15A Kensington Palace Gardens, London, W8 4QG", checked: checked("registrationIndividualAddress", "15A Kensington Palace Gardens,<br>London,<br>W8 4QG") },
+                        { value: "15B Kensington Palace Gardens,<br>London,<br>W8 4QG", text: "15B Kensington Palace Gardens, London, W8 4QG", checked: checked("registrationIndividualAddress", "15B Kensington Palace Gardens,<br>London,<br>W8 4QG") }
+                    ],
+                    name: "registrationIndividualAddress"
+                
+                }) }}
 
-                <p><a href="/register/address/add-address-manual" class="govuk-link">I cannot find the address in the list</a></p>
+            {% endif %}
 
+            <div class="govuk-button-group">
                 {{ govukButton({
                     text: "Continue"
                 }) }}
-
-        {% endif %}
-
+                <a href="/register/address/add-address-manual" class="govuk-link govuk-link--no-visited-state">My address is not in the list</a>
+            </div>
         
-       
-            
-      
         </form>
-    </div>
-    <div class="govuk-grid-column-one-third review">      
-		<ul class="govuk-list govuk-body-s govuk-!-text-align-right">                
-			{% if data['status'] == "review" %}
-				<li><a href="/register/address/select-address?status=" class="govuk-link govuk-link--no-visited-state">Current page</a></li>        
-			{% else %}
-				<li><a href="/register/address/select-address?status=review" class="govuk-link govuk-link--no-visited-state">Suggested page changes</a></li>        
-			{% endif %}
-		</ul>          
-	</div> 
+    </div>    
 </div>
 
 {% endblock %}

@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "/layouts/main.html" %}
 {% set showBackLink = false %}
 {% set serviceName = "Preload - Defra identity management" %}
 
@@ -22,8 +22,9 @@
                 items: [
                     { value: "coreDefault", text: "Core default flow (MFA and Interswitch)", checked: checked("serviceFlow", "coreDefault") },   
                     { value: "vetsVisit", text: "Annual Health and Welfare Review of livestock (No MFA or Interswitch)", checked: checked("serviceFlow", "vetsVisit") }
-                ]
-            } | decorateFormAttributes('serviceFlow')) }}
+                ],
+                name: "serviceFlow"
+            }) }}
  
             {{ govukButton({
                 text: "Continue to preload"

@@ -1,0 +1,55 @@
+{% extends "/layouts/main.html" %}
+{% set showBackLink = true %}
+{% set serviceName = "" %}
+
+{% set pageHeading = "Is this the correct business?" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+		
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   		
+
+		<div class="govuk-inset-text">
+			<p class="govuk-body">Acme Org Ltd {{ data['orgName'] }}    		
+			<br>1 Francis Crick Avenue
+			<br>Cambridge Biomedical Campus
+			<br>Cambridge
+			<br>United Kingdom
+			<br>CB2 0AA</p>
+		</div>
+
+		<details class="govuk-details">
+			<summary class="govuk-details__summary">
+				<span class="govuk-details__summary-text">The address is not correct</span>
+			</summary>
+			<div class="govuk-details__text">
+				<p class="govuk-body">We must use the address that is registered with Companies House.</p>    
+				<p class="govuk-body">If the registered address has changed then you must <a class="govuk-link" rel="noreferrer noopener" href="https://www.gov.uk/file-changes-to-a-company-with-companies-house" target="_blank">tell Companies House (opens in new tab)</a>.</p>            
+				<p class="govuk-body">Once Companies House have updated the details you can return and continue their registration providing it is within 3 days of your last login.</p>
+			</div>
+		</details>					
+
+    	<form method="post" action="/account/add/company-contact">
+      		
+			<input type="text" class="govuk-visually-hidden" name="addSiblingConfirmedAddress" id="addSiblingConfirmedAddress" value="Yes" />
+			
+			<div class="govuk-button-group">
+					
+				{{ govukButton({
+					text: "Confirm and continue"
+				}) }}
+
+				<a href="/account/add/companies-house-number" class="govuk-link">This is not the right business</a>
+
+			</div>
+		
+		</form>
+  	</div>	
+</div>
+
+{% endblock %}

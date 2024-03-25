@@ -1,0 +1,116 @@
+{% extends "/layouts/main.html" %}
+{% set showBackLink = true %}
+{% set serviceName = "" %}
+
+
+{% set pageHeading = "What’s your billing address?" %} 
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+		
+		
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   
+				
+		
+		
+      		
+	  		<form action="/account/manage/billing/email" method="post" class="form">      		
+
+    	
+
+			
+				
+
+				{% call govukFieldset({
+					legend: {
+						text: "What is your address?",
+						classes: "govuk-fieldset__legend--l govuk-visually-hidden",
+						isPageHeading: false
+					}
+					}) %}
+			
+					{{ govukInput({
+						label: {
+							text: "Address line 1"
+						},
+						hint: {
+							text: "For example, building name or sub-building name"
+						},
+						name: "registrationManualAddressLine1"
+
+					}) }}
+				
+					{{ govukInput({
+						label: {
+							text: "Address line 2 (optional)"
+						},
+						name: "registrationManualAddressLine2"										
+					}) }}
+
+					{{ govukInput({
+						label: {
+							text: "Address line 3 (optional)"
+						},
+						name: "registrationManualAddressLine3"											
+					}) }}
+
+
+					{{ govukInput({
+						label: {
+							text: "Address line 4 (optional)"
+						},
+						name: "registrationManualAddressLine4"											
+					}) }}
+				
+					{{ govukInput({
+						label: {
+							text: "Town or city"
+						},						
+						classes: "govuk-!-width-two-thirds",
+						name: "registrationManualAddressTownCity"
+				}) }}
+				
+					{{ govukInput({
+						label: {
+							text: "County (optional)"
+						},
+						classes: "govuk-!-width-two-thirds",						
+						name: "registrationManualAddressCounty"
+				}) }}
+				
+					{{ govukInput({
+						label: {
+							text: "Postcode"
+						},						
+						classes: "govuk-input--width-10",
+						name: "registrationManualAddressPostCode"
+				}) }}
+			
+				{% endcall %}
+
+			
+
+		
+
+			
+
+
+
+
+      	{{ govukButton({
+			text: "Continue"
+		}) }}
+
+    </form>
+
+  	</div>
+	  <div class="govuk-grid-column-one-third review">      
+		
+	</div>  
+</div>
+
+{% endblock %}

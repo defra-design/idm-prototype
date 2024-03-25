@@ -1,0 +1,52 @@
+
+{% extends "/layouts/main.html" %}
+{% set showBackLink = true %}
+{% set serviceName = "" %}
+
+{% set pageHeading = "Manage intermediary access" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-full">
+
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}  
+
+    	{{ govukButton({
+      		text: "Add an intermediary",
+      		href: "/account/manage/intermediary/add"
+    	}) }}
+
+		{% if not data['intermediaryEmail'] %}
+    	<p class="govuk-body {{ introCSS }}">An intermediary is a third party (such as an agent or consultant) who you authorise to interact with Defra and related agencies and public bodies on your behalf.</p>
+		{% endif %}
+
+
+    	<table class="govuk-table">
+      		<caption class="govuk-table__caption govuk-visually-hidden">All Intermediaries</caption>
+      		<thead class="govuk-table__head">
+      			<tr class="govuk-table__row">
+        			<th class="govuk-table__header govuk-table__header--column-quarter" scope="col">Intermediary</th>
+        			<th class="govuk-table__header govuk-table__header--column-third" scope="col">Email address</th>
+					<th class="govuk-table__header" scope="col">Account role</th>
+        			<th class="govuk-table__header" scope="col">Account status</th>
+      			</tr>
+      		</thead>
+
+
+			{% if data['intermediaryEmail'] %}
+          	<tr class="govuk-table__row">
+            	<td class="govuk-table__cell"><span class="govuk-body govuk-body--grey">Name to be confirmed</span></td>
+            	<td class="govuk-table__cell">{{ data['intermediaryEmail'] }}</td>
+				<td class="govuk-table__cell">None</td>
+            	<td class="govuk-table__cell">Invitation email sent</td>
+          	</tr>
+			{% endif %}
+
+    	</table>
+
+  	</div>
+</div>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "/layouts/main.html" %}
+{% set showBackLink = true %}
+{% set serviceName = "" %}
+
+{% set pageHeading = "What telephone number is used for billing?" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   
+
+        <p>We will only use this to get in touch if there are any problems with payments.</p>
+        
+        <form action="/account/manage/billing/check-your-answers" method="post">
+        
+    
+			{{ govukInput({
+                label: {
+                    text: "Telephone number",
+                    classes: "govuk-label govuk-visually-hidden"					
+                },                
+                classes: "govuk-!-width-two-thirds",
+				type: "tel",
+                name: "billingTelephone"
+            }) }}
+
+      		{{ govukButton({
+        		text: "Continue"
+      		}) }}
+
+    	</form>
+
+  	</div>
+    <div class="govuk-grid-column-one-third review">              
+    </div>    
+</div>
+
+{% endblock %}

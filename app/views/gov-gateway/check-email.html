@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "/layouts/main.html" %}
 {% set showBackLink = true %}
 {% set serviceName = "Government Gateway" %}
 
@@ -29,8 +29,9 @@
                 hint: {
                     html: "For example, DNCLRK"
                 },
-                classes: "govuk-!-width-one-half"                
-            } | decorateFormAttributes('govGateEmailCode')) }}
+                classes: "govuk-!-width-one-half",
+                name: "govGateEmailCode"
+            }) }}
 
             {{ govukDetails({
                 summaryText: "I have not received the email",

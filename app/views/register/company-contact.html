@@ -1,13 +1,15 @@
-{% extends "layout.html" %}
+{% extends "/layouts/main.html" %}
 {% set showBackLink = true %}
 {% set serviceName = "" %}
 
-{% if data['status'] == "review" %}
-    {% set pageHeading = "What’s the main contact details for {COMPANY NAME}?" %}
-{% else %}
-    {% set pageHeading = "What are the main contact details for this registered company?" %} 
-{% endif %}
 
+{% if data['registrationOrganisationType'] == "Sole trader" %}
+    {% set pageHeading = "What’s your business’s telephone number and email address?" %}
+{% elif data['registrationOrganisationType'] == "Charity" %}
+    {% set pageHeading = "What’s the charity’s telephone number and email address?" %}
+{% else %}
+    {% set pageHeading = "What’s the business’s telephone number and email address?" %}
+{% endif %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -15,41 +17,37 @@
 
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
-        {% if data['status'] == "review" %}
+        
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   
+        
+
+        {% if data['registrationOrganisationType'] == "Sole trader" %}
+            <form action="/register/personal-security" method="post">
         {% else %}
-        <h1 class="govuk-heading-l">{{pageHeading}}</h1>
+            <form action="/register/personal-name" method="post">
         {% endif %}
 
-        <form action="/register/task-list-page-company-details" method="post">
-
-
-        {% if data['status'] == "review" %}
-
-        <p>These could be from your website, or for the head office or management team.</p>
+        <!-- <p>These could be from the website, or for the head office or management team.</p> -->
         <!-- <p>This could be the number for head office or management team.</p> -->
-    
-			{{ govukInput({
+                
+
+        
+        {% if data['registrationTradeUK'] == "No" %}
+
+            {{ govukInput({
                 label: {
                     text: "Telephone number",
                     classes: "govuk-label"					
                 },                
                 classes: "govuk-!-width-two-thirds",
-				type: "tel"      
-            } | decorateFormAttributes('registrationPhone')) }}
-
-            <!-- {{ govukInput({
-                label: {
-                    text: "Telephone number",
-                    classes: "govuk-visually-hidden"					
-                },
                 hint: {
-                    text: "For international numbers include the country code."
+                    html: "Include the country code. For example, 0044 020 7946 0290."
                 },
-                classes: "govuk-!-width-two-thirds",
-				type: "tel"      
-            } | decorateFormAttributes('registrationPhone')) }} -->
+                type: "tel",
+                name: "registrationNonUkPhone",
+                id: "registrationNonUkPhone",
+                value: data['registrationNonUkPhone']
+            }) }}           
 
             {{ govukInput({
                 label: {
@@ -57,23 +55,81 @@
                     classes: "govuk-label"					
                 },                
                 classes: "govuk-!-width-two-thirds",
-				type: "tel"      
-            } | decorateFormAttributes('registrationEmail')) }}
+                type: "email",
+                name: "registrationNonUkEmail",
+                id: "registrationNonUkEmail",
+                value: data['registrationNonUkEmail']
+            }) }}
+        
+        
+        
+        {% elif data['registrationOrganisationType'] == "Sole trader" %}
+
+            {{ govukInput({
+                label: {
+                    text: "UK telephone number",
+                    classes: "govuk-label"					
+                },                
+                classes: "govuk-!-width-two-thirds",
+                type: "tel",
+                name: "registrationSoleTraderPhone",
+                id: "registrationSoleTraderPhone",
+                value: data['registrationSoleTraderPhone']
+            }) }}           
+
+            {{ govukInput({
+                label: {
+                    text: "Email address",
+                    classes: "govuk-label"					
+                },                
+                classes: "govuk-!-width-two-thirds",
+                type: "email",
+                name: "registrationSoleTraderEmail",
+                id: "registrationSoleTraderEmail",
+                value: data['registrationSoleTraderEmail']
+            }) }}
+
+        {% elif data['registrationOrganisationType'] == "Charity" %}
+
+            {{ govukInput({
+                label: {
+                    text: "UK telephone number",
+                    classes: "govuk-label"					
+                },                
+                classes: "govuk-!-width-two-thirds",
+                type: "tel",
+                name: "registrationCharityPhone",
+                id: "registrationCharityPhone",
+                value: data['registrationCharityPhone']
+            }) }}           
+
+            {{ govukInput({
+                label: {
+                    text: "Email address",
+                    classes: "govuk-label"					
+                },                
+                classes: "govuk-!-width-two-thirds",
+                type: "email",
+                name: "registrationCharityEmail",
+                id: "registrationCharityEmail",
+                value: data['registrationCharityEmail']
+            }) }}
+
 
 
         {% else %}
 
-        <p class="govuk-hint">These could be details included on the website, or contact details for the head office or management team.</p>        
-        	
-
 			{{ govukInput({
                 label: {
                     text: "Telephone number",
                     classes: "govuk-label"					
                 },                
-                classes: "govuk-!-width-one-third",
-				type: "tel"      
-            } | decorateFormAttributes('registrationPhone')) }}
+                classes: "govuk-!-width-two-thirds",
+				type: "tel",
+                name: "registrationPhone",                
+                id: "registrationPhone",
+                value: data['registrationPhone']
+            }) }}           
 
             {{ govukInput({
                 label: {
@@ -81,14 +137,13 @@
                     classes: "govuk-label"					
                 },                
                 classes: "govuk-!-width-two-thirds",
-				type: "tel"      
-            } | decorateFormAttributes('registrationEmail')) }}
-
-
+				type: "email",
+                name: "registrationEmail",
+                id: "registrationEmail",
+                value: data['registrationEmail']
+            }) }}
+            
         {% endif %}
-
-    	
-			
 
       		{{ govukButton({
         		text: "Continue"
@@ -96,16 +151,7 @@
 
     	</form>
 
-  	</div>
-    <div class="govuk-grid-column-one-third review">      
-        <ul class="govuk-list govuk-body-s govuk-!-text-align-right">                
-            {% if data['status'] == "review" %}
-                <li><a href="/register/company-contact?status=" class="govuk-link govuk-link--no-visited-state">Current page</a></li>        
-            {% else %}
-                <li><a href="/register/company-contact?status=review" class="govuk-link govuk-link--no-visited-state">Suggested page changes</a></li>        
-            {% endif %}
-        </ul>          
-    </div>    
+  	</div>    
 </div>
 
 {% endblock %}

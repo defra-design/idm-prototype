@@ -1,0 +1,54 @@
+{% extends "/layouts/main.html" %}
+{% set showBackLink = false %}
+{% set serviceName = "" %}
+
+{% set pageHeading = 'Do you want them to be an administrator for ' + data.defaultThirdPartyName | titleCase + '?' %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+        <p>This means they can:</p>
+        <ul class="govuk-list govuk-list--bullet">
+            <li>add and manage your team members</li>
+            <li>view and edit information the Defra service holds about {{ data.defaultThirdPartyName }}</li>
+            <li>manage tasks on your behalf</li>
+            
+        </ul>
+
+        
+        <form method="post" action="/account/thirdParty/add/email" >
+            
+            {% if data['thirdPartyInvite'] == "Yes" %}
+
+                {% include "includes/account/admin/invite.html" %}
+
+            {% else %}
+
+                {% include "includes/account/admin/users.html" %}
+
+            {% endif %}
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}                                
+
+        </form>
+       
+    </div>
+</div>
+
+{% endblock %}
+
+
+
+
+
+
+
+

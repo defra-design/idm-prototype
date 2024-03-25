@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "/layouts/main.html" %}
 
 {% set title = "Intermediary profile" %}
 
@@ -8,7 +8,7 @@
 
 {% block beforeContent %}
 <div id="profile">
-  {% include "includes/account-nav-admin-corp.html" %}
+  {% include "includes/account-nav.html" %}
   {% include "includes/breadcrumb-four-level-agent.html" %}
 </div>
 {% endblock %}
@@ -52,7 +52,7 @@
                 <p class="govuk-body">You can now give {{ data['name'] }} account access for {{ data['orgName'] }}.</p>
                 {{ govukButton({
                   text: "Give account access",
-                  href: "/manage/agent/account-access-confirm?subscribeService=no"
+                  href: "/archived/manage/agent/account-access-confirm?subscribeService=no"
                 }) }}
               </div>
             </div>
@@ -121,7 +121,7 @@
 
     {{ govukButton({
       text: "Give service access",
-      href: "/manage/team-members/invite-user/add-user-service"
+      href: "/archived/manage/team-members/invite-user/add-user-service"
     }) }}
   {% endif %}
 {% endif %}

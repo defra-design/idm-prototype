@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "/layouts/main.html" %}
 
 {% set title = "Your reference" %}
 
@@ -57,7 +57,7 @@
 {% if data['service'] == "Chemicals" %}
     {{ govukButton({
         text: "Continue",
-        href: "/Comply-with-REACH-IT"
+        href: "/archived/Comply-with-REACH-IT"
     }) }}
 {% endif %}
 

@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "/layouts/main.html" %}
 
 {% set title = "This person's request was declined by another administrator" %}
 
@@ -25,11 +25,11 @@
         0784839396936
       </p>
 
-      <p class="govuk-body">If this was a mistake, you can <a class="govuk-link" href="/manage/team-members/invite-user/add-user-details">invite the user again</a>.</p>
+      <p class="govuk-body">If this was a mistake, you can <a class="govuk-link" href="/archived/manage/team-members/invite-user/add-user-details">invite the user again</a>.</p>
 
       {{ govukButton({
         text: "Continue",
-        href: "/manage/team-members/team-members?verifiedUser=no"
+        href: "/archived/manage/team-members/team-members?verifiedUser=no"
       }) }}
 
   </div>

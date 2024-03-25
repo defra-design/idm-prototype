@@ -1,5 +1,5 @@
-{# {% extends "layout.html" %} #}
-{% extends "layout.html" %}
+{# {% extends "/layouts/main.html" %} #}
+{% extends "/layouts/main.html" %}
 {% set showBackLink = true %}
 {% set serviceName = "Defra account" %}
 
@@ -17,7 +17,7 @@
         <p class="govuk-body">We ask for this in case we need to call you directly with any queries about your registration.</p>
 
         {% if data['route'] == "sole-trader" %}
-            <form action="sole-trader-name" method="post">
+            <form action="sole-trader-personal-name" method="post">
         {% else %}
             <form action="individual-security" method="post">
         {% endif %}
@@ -28,7 +28,7 @@
         		    },
                     classes: "govuk-input--width-10",
                     type: "tel"
-                } | decorateFormAttributes('defraIdPersonalPhone')) }}
+                }) }}('defraIdPersonalPhone')) }}
 
                 <div class="govuk-inset-text">
                     We may also contact you by email, using the address registered with your Government Gateway account:

@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "/layouts/main.html" %}
 
 {% set title = "Service name" %}
 
@@ -31,7 +31,7 @@
     {% if (data['orgType'] == "Individual")%}
       {% include "includes/account-nav-admin-individual.html" %}
     {% else %}
-      {% include "includes/account-nav-admin-corp.html" %}
+      {% include "includes/account-nav.html" %}
     {% endif %}
   {% endif %}
 
@@ -88,7 +88,7 @@
         <ul class="govuk-list govuk-list--indent">
           {% if (data['addAccount'] == "related") %}
             <li>
-              <a href="/manage/dashboard-child?childName=Acme Org China&multiOrg=yes&parentChild=child&numServices=0" class="govuk-link--no-visited-state">
+              <a href="/archived/manage/dashboard-child?childName=Acme Org China&multiOrg=yes&parentChild=child&numServices=0" class="govuk-link--no-visited-state">
                 Acme Org China
               </a>
             </li>

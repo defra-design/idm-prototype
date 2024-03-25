@@ -1,0 +1,15 @@
+{{ govukRadios({
+    classes: "govuk-radios--inline",
+    name: "inviteThirdPartyOneAdmin",                    
+    fieldset: {
+        legend: {
+            text: "Do you want this person to be an administrator for {type of third party}?",
+            isPageHeading: false,
+            classes: "govuk-visually-hidden"
+        }
+    },            
+    items: [
+        { value: "Yes", text: "Yes" }, 
+        { value: "No", text: "No" }              
+    ]
+}) }}

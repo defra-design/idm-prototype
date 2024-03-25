@@ -1,0 +1,53 @@
+{% extends "/layouts/main.html" %}
+{% set showBackLink = false %}
+{% set serviceName = "" %}
+
+{% set pageHeading = "Check your details" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+        
+        <form method="post" action="/account/thirdParty/confirmation" >
+            
+            <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Name</dt>
+                    <dd class="govuk-summary-list__value">{{ data.defaultThirdPartyCEO }}</dd>                  
+                </div>
+                <div class="govuk-summary-list__row">
+                	<dt class="govuk-summary-list__key">{{ data.defaultThirdParty }}</dt>
+                  	<dd class="govuk-summary-list__value">{{ data.defaultThirdPartyName }}</dd>                  
+            	</div>                
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Position</dt>
+                    <dd class="govuk-summary-list__value">{{ data.defaultThirdPartyCEORole }}</dd>                    
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Email address</dt>
+                    <dd class="govuk-summary-list__value">{{ data['regThirdPartyCEOEmail'] or data.defaultThirdPartyCEOEmail }}</dd>                    
+                </div>
+            </dl>             
+
+            <div class="govuk-button-group">
+
+                <input type="hidden" id="defaultThirdPartyCEORegistered" name="defaultThirdPartyCEORegistered" value="Yes" />
+
+            	{{ govukButton({
+                	text: "Confirm and continue"
+            	}) }}
+            
+                <a href="/b2c/thirdParty/cannot-continue" class="govuk-link govuk-link--no-visited-state" >These details are not correct</a>
+        	</div>
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

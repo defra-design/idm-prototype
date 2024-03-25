@@ -1,0 +1,59 @@
+{% extends "/layouts/main.html" %}
+{% set showBackLink = false %}
+{% set serviceName = "" %}
+
+{% set pageHeading = "Choose 1 or 2 colleagues to manage Newcastle's pEPR payments and data" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+        <p>Invite senior colleagues to manage Newcastle's account on your behalf. They will perform specific tasks in this early part of the service.</p>
+        <p>This senior colleague must be either:</p>
+        <ul class="govuk-list govuk-list--bullet">
+            <li>an S151 Officer</li>
+            <li>a Chief Financial Officer</li>
+            <li>in another other senior finance role</li>        
+        </ul>
+        
+
+        <p>This senior colleague may be employed, for example as:</p>
+        <ul class="govuk-list govuk-list--bullet">
+            <li>head of waste</li>
+            <li>waste manager</li>
+            <li>waste accountant</li>
+        </ul>
+
+
+        <form method="post" action="/register/thirdParty/user/email" >
+
+
+            
+                        
+            <div class="govuk-button-group">
+
+                {{ govukButton({
+                    text: "Continue"
+                }) }}                                
+
+                <a href="#">Not ready to add</a>
+            </div>
+
+            
+
+
+        </form>
+       
+    </div>
+</div>
+
+{% endblock %}
+
+
+
+

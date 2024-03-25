@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "/layouts/main.html" %}
 
 {% set title = "Account added" %}
 
@@ -44,7 +44,7 @@
 {% if data['orgType'] == "Individual" %}
     {{ govukButton({
         text: "Continue",
-        href: "/manage/team-members/services-on-team-member-admin-account_onlyrep?orgName=Ann Cooper (you)"
+        href: "/archived/manage/team-members/services-on-team-member-admin-account_onlyrep?orgName=Ann Cooper (you)"
     }) }}
 {% else %}
 
@@ -53,13 +53,13 @@
     {% if data['addAccount'] == "account" %}
         {{ govukButton({
             text: "Continue to account",
-            href: "/manage/dashboard-all?orgName=Chemicals R Us&numUsers=1&numAgents=0&numServices=0&numLocations=1&multiOrg=no&parentChild=parent"
+            href: "/archived/manage/dashboard-all?orgName=Chemicals R Us&numUsers=1&numAgents=0&numServices=0&numLocations=1&multiOrg=no&parentChild=parent"
         }) }}
     {% endif %}
     {% if data['addAccount'] == "related" %}
         {{ govukButton({
             text: "Continue to account",
-            href: "/manage/dashboard-child?childName=Acme Org China &numUsers=1&numAgents=0&numServices=1&multiOrg=yes&parentChild=child#rel-org"
+            href: "/archived/manage/dashboard-child?childName=Acme Org China &numUsers=1&numAgents=0&numServices=1&multiOrg=yes&parentChild=child#rel-org"
         }) }}
 
     {% endif %}

@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "/layouts/main.html" %}
 
 {% set title = "What is your telephone number?" %}
 
@@ -21,7 +21,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form action="/manage/team-members/services-on-team-member-update-details" method="post">
+    <form action="/archived/manage/team-members/services-on-team-member-update-details" method="post">
 
       {{ govukInput({
         label: {

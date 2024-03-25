@@ -1,5 +1,5 @@
-{# {% extends "layout.html" %} #}
-{% extends "layout.html" %}
+{# {% extends "/layouts/main.html" %} #}
+{% extends "/layouts/main.html" %}
 {% set showBackLink = true %}
 {% set serviceName = "Defra account" %}
 
@@ -39,7 +39,7 @@
                 label: {
                     text: "Your security word"
                 }
-            } | decorateFormAttributes('defraIdSecurityWord')) }}
+            }) }}('defraIdSecurityWord')) }}
 
             {{ govukCharacterCount({
                 classes: "govuk-!-width-two-thirds",
@@ -51,7 +51,7 @@
                 hint: {
                     text: "Provide a hint question that will help you remember your security word."
                 }
-            } | decorateFormAttributes('defraIdSecurityHint')) }}
+            }) }}('defraIdSecurityHint')) }}
 
             {% endcall %}
 

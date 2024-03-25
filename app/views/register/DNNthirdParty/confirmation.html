@@ -1,0 +1,44 @@
+{% extends "/layouts/main.html" %}
+{% set showBackLink = false %}
+{% set serviceName = "" %}
+
+{% set pageHeading = "Registration complete" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukPanel({
+            titleText: pageHeading,
+            classes: "govuk-!-margin-bottom-7"
+        }) }}
+
+        <p>We have sent you a confirmation email for this registration. </p>
+            
+        <h2 class="govuk-heading-m">What happens next</h2>
+        <p>You now need to tell us who will be responsible for the various roles at {{ data.defaultThirdPartyName }}. We will then send them an email with instructions inviting them to create/register their account.</p>
+
+        
+        
+        <p>We need to know:</p>
+        <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
+            <li>their {{ data.defaultThirdPartyName }} email address</li>
+            <li>what role and responsibilities they will have</li>
+            <li>if they will be an administator for the account</li>
+        </ul>
+        
+        <form method="post" action="/register/thirdParty/add/service-role" >
+
+            <input type="hidden" id="ceoRegistered" name="ceoRegistered" value="Yes" />
+            {{ govukButton({
+                text: "Continue and add first person"                
+            }) }}    
+
+            </form>
+  	</div>
+</div>
+
+{% endblock %}

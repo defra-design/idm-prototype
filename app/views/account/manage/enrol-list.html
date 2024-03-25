@@ -1,0 +1,35 @@
+{% extends "/layouts/main.html" %}
+
+{% set showBackLink = true %}
+
+{% set accountName %}	
+		{{ data.defaultFirstName }} {{ data.defaultSurname }}	
+{% endset -%}
+
+{% set pageHeading = "Register for more services" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+      	<p class="govuk-body">The following services are available for you to register {{ accountName }} (You) with. To register click the links below.</p>
+
+      	<ul class="govuk-list govuk-list--bullet">
+        <li><a class="govuk-link" href="#">IPAFFS</a></li>
+        <li><a class="govuk-link" href="#">Exporter Service</a></li>
+        <li><a class="govuk-link" href="#">Fish Exports Service</a></li>
+        <li><a class="govuk-link" href="#">Comply with UK REACH</a></li>
+        <li><a class="govuk-link" href="#">Apply for a Phytosanitary Certificate</a></li>
+        <li><a class="govuk-link" href="#">Certifier Service</a></li>
+      </ul>
+
+    </div>
+  </div>
+
+{% endblock %}

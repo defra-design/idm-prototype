@@ -1,0 +1,149 @@
+{% extends "/layouts/main.html" %}
+
+{% set serviceName = "Your Defra account" %}
+
+{% set accountName %}	
+	{{ data.defaultFirstName }} {{ data.defaultSurname }}	
+{% endset -%}
+
+
+{% if data['defaultAccount'] == "thirdParty" %}
+	{% set pageHeading = "Manage team access" %}
+	{% set pageSection = "Defra online services" %}
+{% else %}
+	{% set pageHeading = "Manage team access" %}
+	{% set pageSection = "" %}
+{% endif %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block beforeContent %}
+	<div id="profile">    	
+        {% include "includes/account-nav.html" %}
+  	</div>    
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   
+
+
+		{% if ((data['defaultAccount'] == "thirdParty") or ( data['defaultAccount'] == "thirdPartyCEO")) %}
+
+
+
+			<form method="post" action="/account/thirdParty/add/service-role?thirdPartyInvite=Yes" >
+				<input type="hidden" id="addTeamMemberThirdParty" name="addTeamMemberThirdParty" value="Yes" />
+				{{ govukButton({
+					text: "Add a team member"			
+	  			}) }}
+			</form>
+
+
+
+
+			<table class="govuk-table {{ tableCSS }}">
+				<!-- Table header -->
+				<thead class="govuk-table__head">
+					<tr class="govuk-table__row">
+						<th class="govuk-table__header column-full" scope="col">Team member</th>
+						<th class="govuk-table__header column-full" scope="col">Email address</th>
+						<th class="govuk-table__header column-full" scope="col">Account role</th>
+						<th class="govuk-table__header column-full" scope="col">Account status</th>
+					</tr>
+				</thead>
+				
+				{% if ((data['inviteThirdPartyOneResponsibility']) or (data['regThirdPartyUserOne'])) %}
+				<tr class="govuk-table__row no-border">
+					<td class="govuk-table__cell">
+						{% if data['regThirdPartyUserOne'] == "Enrolled" %}
+
+							<a href="#">{{ accountName or 'Name to be confirmed' }}</a>
+
+						{% else %}
+							Name to be confirmed
+
+						{% endif %}
+						
+						
+						</td>
+					<td class="govuk-table__cell">{{ data.teamMemberEmail or data.regThirdPartyUserOneEmail }}</td>
+					<td class="govuk-table__cell">
+						{% if data['regThirdPartyUserOne'] == "Enrolled" %}
+							{% if data['regThirdPartyUserOneAdmin'] == "Yes" %}
+								Admin
+							{% else %}
+								No
+							{% endif %}
+						{% endif %}
+
+					</td>
+					<td class="govuk-table__cell">
+						{% if data['regThirdPartyUserOne'] == "Enrolled" %}
+							<strong class="govuk-tag govuk-tag">Live</strong>
+						{% else %}						
+							<strong class="govuk-tag govuk-tag--grey">Invitation email sent</strong></td>
+						{% endif %}
+				</tr>
+				{% endif %}
+	
+				<!-- CEO -->
+				<tr class="govuk-table__row no-border">
+					<td class="govuk-table__cell"><a href="/account/manage/team/member?teamType=you" class="govuk-link govuk-link--no-visited-state">{{ data.defaultThirdPartyCEO }} (you)</a></td>
+					<td class="govuk-table__cell">{{ data['regThirdPartyCEOEmail'] or data.defaultThirdPartyCEOEmail }}</td>
+					<td class="govuk-table__cell">Admin</td>
+					<td class="govuk-table__cell"><strong class="govuk-tag govuk-tag">Live</strong></td>
+				</tr>				  				  
+			</table>
+
+		{% else %}
+    	
+			{{ govukButton({
+      			text: "Add a team member",
+      			href: "/account/manage/team/add-member"
+    		}) }}
+		
+
+    	<table class="govuk-table {{ tableCSS }}">
+
+			<!-- Table header -->
+      		<thead class="govuk-table__head">
+      			<tr class="govuk-table__row">
+        			<th class="govuk-table__header column-full" scope="col">Team member</th>
+        			<th class="govuk-table__header column-full" scope="col">Email address</th>
+        			<th class="govuk-table__header column-full" scope="col">Account role</th>
+        			<th class="govuk-table__header column-full" scope="col">Account status</th>
+      			</tr>
+      		</thead>
+
+			<tr class="govuk-table__row no-border">
+        		<td class="govuk-table__cell">Name to be confirmed</td>
+        		<td class="govuk-table__cell">{{ data.teamMemberEmail }}</td>
+        		<td class="govuk-table__cell">None</td>
+        		<td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey">Invitation email sent</strong></td>
+      		</tr>
+
+
+      		<tr class="govuk-table__row no-border">
+        		<td class="govuk-table__cell"><a href="/account/manage/team/member?teamType=you">{{ accountName }} (you)</a></td>
+        		<td class="govuk-table__cell">{{ data.govGateEmail }}</td>
+        		<td class="govuk-table__cell">Admin</td>
+        		<td class="govuk-table__cell"><strong class="govuk-tag govuk-tag">Live</strong></td>
+      		</tr>
+
+      		<!-- <tr class="govuk-table__row no-border">
+        		<td class="govuk-table__cell"><a href="/account/manage/team/member?teamType=other">Sammuel Van Vurren</a></td>
+        		<td class="govuk-table__cell">svv@rascals.co.uk</td>
+        		<td class="govuk-table__cell">Standard user</td>
+        		<td class="govuk-table__cell"><strong class="govuk-tag govuk-tag">Active</strong></td>
+      		</tr> -->
+      		
+    	</table>
+
+		{% endif %}
+
+  	</div>
+</div>
+
+{% endblock %}

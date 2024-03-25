@@ -103,7 +103,7 @@
             <a class="app-task-list__task-name" href="personal-name">
               Your name
             </a>
-            {% if data['defraIdFirstName'] %}
+            {% if data['defaultFirstName'] %}
               <strong class="govuk-tag app-task-list__task-completed">
                 Completed
               </strong>
@@ -123,7 +123,7 @@
 
           {% if data['orgType'] == "sole-trader" %}
             <li class="app-task-list__item">
-              <a class="app-task-list__task-name" href="sole-trader-name">
+              <a class="app-task-list__task-name" href="sole-trader-personal-name">
                 Your business details
               </a>
               {% if data['companyName'] %}
@@ -163,7 +163,7 @@
         <ul class="app-task-list__items">
           <li>
 
-            {% if data['defraIdFirstName'] %}
+            {% if data['defaultFirstName'] %}
 
               <!-- AND -->
               {% if data['defraIdPersonalPhone'] %}

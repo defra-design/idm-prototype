@@ -1,5 +1,5 @@
-{# {% extends "layout.html" %} #}
-{% extends "layout.html" %}
+{# {% extends "/layouts/main.html" %} #}
+{% extends "/layouts/main.html" %}
 {% set showBackLink = true %}
 {% set serviceName = "Defra account" %}
 
@@ -25,7 +25,7 @@
                 { value: "sole-trader, redirect(personal-name?orgType=sole-trader)", text: "Sole trader" },
                 { value: "charity, redirect(charity-region?orgType=charity)", text: "Charity" }
             ]
-          } | decorateFormAttributes('defraIdSoleTraderOrCharity')) }}
+          }) }}('defraIdSoleTraderOrCharity')) }}
 
           {{govukButton({
             text: "Continue"

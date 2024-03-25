@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "/layouts/main.html" %}
 
 {% set title = "You do not have admin access to this organisation" %}
 
@@ -8,7 +8,7 @@
 
 {% block beforeContent %}
 
-  {% include "includes/account-nav-admin-corp.html" %}
+  {% include "includes/account-nav.html" %}
 
   {{ govukBackLink({
     text: "Back",

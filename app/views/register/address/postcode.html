@@ -1,25 +1,19 @@
 
-{% extends "layout.html" %}
+{% extends "/layouts/main.html" %}
 {% set showBackLink = true %}
 {% set serviceName = "" %}
 
-{% if data['status'] == "review" %}
-	{% if data['registrationAccountType'] == "Individual" %}
-		{% set pageHeading = "What’s your postcode?" %}
-	{% else %}
 
-	{% endif %}
-		
+{% if data['registrationAccountType'] == "Individual" %}
+	{% set pageHeading = "What’s your postcode?" %}
+{% elif data['registrationOrganisationType'] == "Charity" %}
+	{% set pageHeading = "What’s the postcode for the charity’s registered address?" %}
+{% elif data['registrationOrganisationType'] == "Sole trader" %}	
+	{% set pageHeading = "What’s the postcode for your business?" %}
 {% else %}
-	
-	{% if data['registrationAccountType'] == "Individual" %}
-		{% set pageHeading = "What is your address?" %}
-	{% else %}
-		{% set pageHeading = "What is your business address?" %}
-	{% endif %}
-
-	
+	{% set pageHeading = "What’s your business’s postcode?" %}
 {% endif %}
+		
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -27,56 +21,62 @@
 
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">        
-
-		{% if data['status'] == "review" %}
+		
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-		{% else %}
-		<h1 class="govuk-heading-l">{{pageHeading}}</h1>
-		{% endif %}
-
+		
+		
+		{% if data['registrationAccountType'] != "Individual" %}
+			{% if data['registrationOrganisationType'] != "Charity" %}		
+				<p>This might be your home postcode if you do not have commerical premises.</p>
+			{% endif %}		
+		{% endif %}		
+		
         <form action="/register/address/select-address" method="post">
 
-
-			{% if data['status'] == "review" %}
+			{% if data['registrationAccountType'] == "Individual" %}
 
 				{{ govukInput({
 					label: { text: pageHeading, classes: "govuk-visually-hidden" },					
-					classes: "govuk-input--width-10"      
-				} | decorateFormAttributes('registrationIndividualPostcode')) }}
+					classes: "govuk-input--width-10",
+					name: "registrationIndividualPostcode"
+				}) }}
+
+			{% elif data['registrationOrganisationType'] == "Charity" %}
+
+				{{ govukInput({
+					label: { text: pageHeading, classes: "govuk-visually-hidden" },					
+					classes: "govuk-input--width-10",
+					name: "registrationCharityPostcode",
+					id: "registrationCharityPostcode",
+					value: data['registrationCharityPostcode']
+				}) }}
+
 
 			{% else %}
 
 				{{ govukInput({
-					label: { text: "Enter your postcode", classes: "govuk-label--s"
-				},
-					hint: {
-						text: "If you cannot find your address or if you need to add a non-UK address, you can add it manually below."
-					},
-					classes: "govuk-input--width-10"                
-				} | decorateFormAttributes('registrationIndividualPostcode')) }}
+					label: { text: pageHeading, classes: "govuk-visually-hidden" },					
+					classes: "govuk-input--width-10",
+					name: "registrationSoleTraderPostcode",
+					id: "registrationSoleTraderPostcode",
+					value: data['registrationSoleTraderPostcode']
+				}) }}
 
 			{% endif %}
-            
-            
+			
+			<div class="govuk-button-group">
             {{ govukButton({
                 text: "Find address"
             }) }}
             
 
-            <p class="govuk-body"><a class="govuk-link" href="/register/address/add-address-manual">Enter your address manually</a></p>
+            <a class="govuk-link govuk-link--no-visited-state" href="/register/address/add-address-manual">Enter your address manually</a>
+
+		</div>
 
         </form>
 
-  </div>
-  <div class="govuk-grid-column-one-third review">      
-    <ul class="govuk-list govuk-body-s govuk-!-text-align-right">                
-        {% if data['status'] == "review" %}
-            <li><a href="/register/address/postcode?status=" class="govuk-link govuk-link--no-visited-state">Current page</a></li>        
-        {% else %}
-            <li><a href="/register/address/postcode?status=review" class="govuk-link govuk-link--no-visited-state">Suggested page changes</a></li>        
-        {% endif %}
-    </ul>          
-</div>  
+  </div>  
 </div>
 
 {% endblock %}

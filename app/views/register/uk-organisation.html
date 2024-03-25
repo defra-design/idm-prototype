@@ -1,12 +1,8 @@
-{% extends "layout.html" %}
+{% extends "/layouts/main.html" %}
 {% set showBackLink = true %}
 {% set serviceName = "" %}
 
-{% if data['status'] == "review" %}
-    {% set pageHeading = "Is the business registered to trade in the UK?" %}
-{% else %}
-    {% set pageHeading = "Where is your organisation registered to trade?" %}
-{% endif %}
+{% set pageHeading = "Is the business registered to trade in the UK?" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -15,62 +11,38 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-        {% if data['status'] == "review" %}
-        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   
-        {% else %}
-        <h1 class="govuk-heading-l">{{pageHeading}}</h1>
-        {% endif %}
+        
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}           
 
+
+        <!-- <p>A business wishing to trade as a UK company must be registered at Companies House. This process includes choosing and registering a company name.</p> -->
+        <!-- /// If a Service does not allow non uk //// -->
         {% if data['regNonUk'] == "No" %}
-        <form method="post" action="/register/cannot-register">
+            <form method="post" action="/register/cannot-register">
+        <!-- //// Can register outside the uk /// -->
         {% else %}
-    	<form method="post" action="/register/non-uk-business-name">
+    	    <form method="post" action="/register/companies-house">
         {% endif %}
 
-
-        {% if data['status'] == "review" %}
-
-            {{ govukRadios({
-                fieldset: {
-                    legend: { text: "Are you registering as a business or an individual?", isPageHeading: false, classes: "govuk-visually-hidden"  }
-                },
-                classes: "govuk-radios--inline",
-                items: [
-                    { value: "Yes, redirect(/register/companies-house)", text: 'Yes'   },
-                    { value: "No", text: 'No'   }                    
-                ]
-            } | decorateFormAttributes('registrationTradeUK')) }}
-
-        {% else %}
-
-            {{ govukRadios({
-                fieldset: {
-                    legend: { text: "Are you registering as a business or an individual?", isPageHeading: false, classes: "govuk-visually-hidden"  }
-                },
-                items: [
-                    { value: "Yes, redirect(/register/companies-house)", text: 'UK'   },
-                    { value: "No", text: 'Non-UK (Organisation that is not registered in the UK)'   }                    
-                ]
-            } | decorateFormAttributes('registrationTradeUK')) }}        
-
-        {% endif %}
-
-            {{govukButton({
-                text: "Continue"
-            })}}
+                {{ govukRadios({
+                    fieldset: {
+                        legend: { text: "Are you registering as a business or an individual?", isPageHeading: false, classes: "govuk-visually-hidden"  }
+                    },
+                    classes: "govuk-radios--inline",
+                    items: [
+                        { value: "Yes", text: 'Yes', checked: checked( 'registrationTradeUK','Yes' ) },
+                        { value: "No~/register/business-name", text: 'No', checked: checked( 'registrationTradeUK','No' ) }                    
+                    ],
+                    name: "registrationTradeUK"
+                }) }}
+        
+                {{govukButton({
+                    text: "Continue"
+                })}}
 	
-    	</form>
+    	    </form>
 
-  	</div>
-    <div class="govuk-grid-column-one-third review">      
-        <ul class="govuk-list govuk-body-s govuk-!-text-align-right">                
-            {% if data['status'] == "review" %}
-                <li><a href="/register/uk-organisation?status=" class="govuk-link govuk-link--no-visited-state">Current page</a></li>        
-            {% else %}
-                <li><a href="/register/uk-organisation?status=review" class="govuk-link govuk-link--no-visited-state">Suggested page changes</a></li>        
-            {% endif %}
-        </ul>          
-    </div>
+  	</div>    
 </div>
 
 {% endblock %}

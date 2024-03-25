@@ -1,5 +1,5 @@
-{# {% extends "layout.html" %} #}
-{% extends "layout.html" %}
+{# {% extends "/layouts/main.html" %} #}
+{% extends "/layouts/main.html" %}
 {% set showBackLink = true %}
 {% set serviceName = "Defra account" %}
 
@@ -26,7 +26,7 @@
                 { value: "organisation", html: '<strong>A business or organisation</strong>', hint: { text: "You represent a business or organisation that wants to use this service (including sole traders and charities) and you have permission to create an account for them" }  },
                 { value: "individual, redirect(personal-name?orgType=individual)", html: '<strong>An individual</strong>', hint: { text: "You want to use this service for your own personal use" } }
             ]
-          } | decorateFormAttributes('defraIdType')) }}
+          }) }}('defraIdType')) }}
 
           {{govukButton({
             text: "Continue"

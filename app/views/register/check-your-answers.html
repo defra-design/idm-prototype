@@ -1,476 +1,150 @@
-{% extends "layout.html" %}
-{% set showBackLink = true %}
+{% extends "/layouts/main.html" %}
+{% if data['backButtonHide'] == "Yes" %}
+    {% set showBackLink = false %}
+{% endif %}
 {% set serviceName = "" %}
 
-{% if data['status'] == "review" %}
-	{% set pageHeading = "Check your answers" %}
+{% set accountUserName %}	
+	{{ data.defaultFirstName }} {{ data.defaultSurname }}	
+{% endset -%}
+
+
+
+{% if data['registrationStatus'] == "Incomplete" %}
+	{% set pageHeading = "Registration incomplete" %}
 {% else %}
-	{% set pageHeading = "Check your information" %}
+	{% set pageHeading = "Check your answers" %}
 {% endif %}
-{% set pageSection = "" %}
+{% set pageSection = "Register for a Defra account" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
 
-  <div class="govuk-grid-row">
+<div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   
 
-    
-		{% if data['status'] == "review" %}
-
-			<h2 class="govuk-heading-m govuk-!-margin-bottom-2">Your account</h2>
-			<!-- Account Type -->
-    		<dl class="govuk-summary-list govuk-!-margin-bottom-9">
-      			<div class="govuk-summary-list__row">
-        			<dt class="govuk-summary-list__key">Type</dt>
-        			<dd class="govuk-summary-list__value">
-          				{{ data['registrationAccountType'] }}
-        			</dd>
-        			<dd class="govuk-summary-list__actions">
-						<a class="govuk-link govuk-link--no-visited-state" href="/register/account-type?link=change">Change<span class="govuk-visually-hidden"> type of account</span></a>
-        			</dd>
-      			</div>
-				  <div class="govuk-summary-list__row">
-					<dt class="govuk-summary-list__key">Organisation type</dt>
-					<dd class="govuk-summary-list__value">												
-						{% if data['registrationOrganisationType'] == "Charity" %}
-							Charity
-						{% else %}
-							Limited company
-						{% endif %}
-					</dd>
-					<dd class="govuk-summary-list__actions"></dd>
-				</div>	
-    		</dl>
-
-			{% if data['registrationAccountType'] != "Individual" %}
-			<!-- About the organisation -->
-			<h2 class="govuk-heading-m govuk-!-margin-bottom-2">{% if data['registrationOrganisationType'] == "Charity" %}Charity details{% else %}Organisation details{% endif %}</h2>
-			<dl class="govuk-summary-list govuk-!-margin-bottom-9">
-				<div class="govuk-summary-list__row">
-					<dt class="govuk-summary-list__key">Name</dt>
-					<dd class="govuk-summary-list__value">						
-						{% if data['registrationOrganisationType'] == "Charity" %}
-							{{ data['registrationCharityName'] }}
-						{% else %}
-							Soleheaven Ltd
-						{% endif %}
-					</dd>
-					<dd class="govuk-summary-list__actions">
-						<a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> registered company</span></a>
-					</dd>
-				</div>
-				
-				<div class="govuk-summary-list__row">
-					<dt class="govuk-summary-list__key">
-						{% if data['registrationOrganisationType'] == "Charity" %}
-						Charity number
-						{% else %}
-						Company number
-						{% endif %}
-					</dt>
-					<dd class="govuk-summary-list__value">						
-						{% if data['registrationOrganisationType'] == "Charity" %}
-							{% if data['registrationCharityLocation'] == "Scotland" %}
-								{{ data['registrationCharityNumberScotland'] }}
-							{% elif data['registrationCharityLocation'] == "Scotland" %}
-								{{ data['registrationCharityNumberNI'] }}
-							{% else %}
-								{{ data['registrationCharityNumber'] }}
-							{% endif %}							
-						{% else %}
-							{{ data['registrationCompanyNumber'] or '01234567' }}<br />
-						{% endif %}
-					</dd>
-					<dd class="govuk-summary-list__actions">
-						<a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> company number</span></a>
-					</dd>
-				</div>
-				<div class="govuk-summary-list__row">
-					<dt class="govuk-summary-list__key">Registered address</dt>
-					<dd class="govuk-summary-list__value">																									
-						1 Francis Crick Avenue<br>
-						Cambridge Biomedical Campus<br>
-						Cambridge, United Kingdom<br>
-						CB2 0AA
-					</dd>
-					<dd class="govuk-summary-list__actions">
-						<a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> registered address</span></a>
-					</dd>
-				</div>
-						
-				<div class="govuk-summary-list__row">
-					<dt class="govuk-summary-list__key">Contact details</dt>
-					<dd class="govuk-summary-list__value">
-
-						{% if data['registrationOrganisationType'] == "Charity" %}
-						{{ data['registrationCharityPhone'] or '01234 567899' }}<br>
-						{{ data['registrationCharityEmail'] or 'info@planUK.com' }}
-						{% else %}
-						{{ data['registrationPhone'] or '01234 567899' }}<br>
-						{{ data['registrationEmail'] or 'info@soleheaven.com' }}
-						{% endif %}
-					</dd>
-					<dd class="govuk-summary-list__actions">
-						<a href="company-contact?flowType=check">Change<span class="govuk-visually-hidden"> company contact details</span></a>
-					</dd>
-				</div>
-
-			
-				<!-- {% if data['correspondence-address'] == "true" %}          		
-				<div class="govuk-summary-list__row">
-					<dt class="govuk-summary-list__key">Correspondence address</dt>
-					<dd class="govuk-summary-list__value">
-						{% if data['correspondence-address-type'] == "normal" %}
-							Clifton House<br>
-							Clifton Road<br>
-							London<br>
-							SW19 5JA
-						{% elseif data['correspondence-address-type'] == "manual" %}
-							Laurel Ho<br>
-							Laurelhill Business Park<br>
-							Stirling<br>
-							FK7 9JQ
-						{% elseif data['correspondence-address-type'] == "non-uk" %}
-							LG. Do Município<br>
-							6060-163 - Idanha-A-Nova<br>
-							Portugal
-						{% endif %}
-					</dd>
-					<dd class="govuk-summary-list__actions">
-						<a href="#">Change<span class="govuk-visually-hidden"> correspondence address</span></a>
-					</dd>
-				</div>
-				{% endif %}
-
-				{% if data['billing-address'] == "true" %}
-				<div class="govuk-summary-list__row">
-					<dt class="govuk-summary-list__key">Billing address</dt>
-					<dd class="govuk-summary-list__value">              		
-						{% if data['billing-address-type'] == "normal" %}
-							Clifton House<br>
-							Clifton Road<br>
-							London<br>
-							SW19 5JA
-						{% elseif data['billing-address-type'] == "manual" %}
-							Laurel Ho<br>
-							Laurelhill Business Park<br>
-							Stirling<br>
-							FK7 9JQ
-						{% elseif data['Billing-address-type'] == "non-uk" %}
-							LG. Do Município<br>
-							6060-163 - Idanha-A-Nova<br>
-							Portugal
-						{% endif %}
-					</dd>
-					<dd class="govuk-summary-list__actions">
-						<a href="#">Change<span class="govuk-visually-hidden"> billing address</span></a>
-					</dd>
-				</div>
-				{% endif %}
-
-				{% if data['operations-address'] == "true" %}
-				<div class="govuk-summary-list__row">
-					<dt class="govuk-summary-list__key">Operations address</dt>
-					<dd class="govuk-summary-list__value">
-						{% if data['operations-address-type'] == "normal" %}
-							Clifton House<br>
-							Clifton Road<br>
-							London<br>
-							SW19 5JA
-						{% elseif data['operations-address-type'] == "manual" %}
-							Laurel Ho<br>
-							Laurelhill Business Park<br>
-							Stirling<br>
-							FK7 9JQ
-						{% elseif data['operations-address-type'] == "non-uk" %}
-							LG. Do Município<br>
-							6060-163 - Idanha-A-Nova<br>
-							Portugal
-						{% endif %}
-					</dd>
-					<dd class="govuk-summary-list__actions">
-						<a href="#">Change<span class="govuk-visually-hidden"> correspondence address</span></a>
-					</dd>
-				</div>
-				{% endif %} -->
-			</dl>
-			{% endif %}
-
-			<h2 class="govuk-heading-m govuk-!-margin-bottom-2">Your personal details</h2>
-      		<dl class="govuk-summary-list govuk-!-margin-bottom-9">
-        		<div class="govuk-summary-list__row">
-				<dt class="govuk-summary-list__key">Name</dt>
-					<dd class="govuk-summary-list__value">
-						{{ data['registrationFullName'] or 'Hugo' }} {{ data['registrationSurname'] or 'Furst' }}
-					</dd>
-					<dd class="govuk-summary-list__actions">
-						<a class="govuk-link govuk-link--no-visited-state" href="/register/personal-name?link=change">Change<span class="govuk-visually-hidden"> your name</span></a>
-					</dd>
-        		</div>
-        		<div class="govuk-summary-list__row">
-          			<dt class="govuk-summary-list__key">Contact details</dt>
-					<dd class="govuk-summary-list__value">
-						{{ data['defraIdPersonalPhone'] or '07711223344' }}<br />
-						{{ data['govGateEmail'] or 'hugofurst@soleheaven.co.uk' }}
-					</dd>
-					<dd class="govuk-summary-list__actions">
-						<a class="govuk-link govuk-link--no-visited-state" href="/register/your-contact-details?link=change">Change<span class="govuk-visually-hidden"> your contact details</span></a>
-					</dd>
-        		</div>
-
-				{% if data['registrationAccountType'] == "Individual" %}
-				<div class="govuk-summary-list__row">
-					<dt class="govuk-summary-list__key">Your address</dt>
-					<dd class="govuk-summary-list__value">
-						{{ data['address'] or 'Top Gun, Mirimar, San Diego' }}					
-					</dd>
-					<dd class="govuk-summary-list__actions">
-						<a class="govuk-link govuk-link--no-visited-state" href="/register/address/postcode?link=change">Change<span class="govuk-visually-hidden"> your address</span></a>
-					</dd>
-		  		</div>
-				{% endif %}
-
-
-        	<div class="govuk-summary-list__row">
-          		<dt class="govuk-summary-list__key">Memorable word</dt>
-          		<dd class="govuk-summary-list__value">
-            		{{ data['registrationMemorableWord'] or 'TheGoat23' }}
-            		<!-- {{ data['registrationMemorableHint'] or 'My favourite food' }} -->
-          		</dd>
-          		<dd class="govuk-summary-list__actions">
-            		<a class="govuk-link govuk-link--no-visited-state" href="/register/individual-security?link=change">Change<span class="govuk-visually-hidden"> memorable word</span></a>
-          		</dd>
-        	</div>
-      	</dl>
-
-		{% else %}
-
-		
-		<h2 class="govuk-heading-m">Your account</h2>
-		<!-- Account Type -->
-    	<dl class="govuk-summary-list govuk-!-margin-bottom-9">
-      		<div class="govuk-summary-list__row">
-        		<dt class="govuk-summary-list__key">Account Type</dt>
-        		<dd class="govuk-summary-list__value">
-          			{{ data['registrationAccountType'] }}
-        		</dd>
-        		<dd class="govuk-summary-list__actions">
-					<a class="govuk-link govuk-link--no-visited-state" href="/register/account-type?link=change">Change<span class="govuk-visually-hidden"> account type</span></a>
-        		</dd>
-      		</div>
-    	</dl>
-
-		{% if data['registrationAccountType'] != "Individual" %}
-
-			<!-- About the organisation -->
-			<h2 class="govuk-heading-m">About your organisation</h2>
-			<dl class="govuk-summary-list govuk-!-margin-bottom-9">
-				<div class="govuk-summary-list__row">
-					<dt class="govuk-summary-list__key">Your organisation’s details</dt>
-					<dd class="govuk-summary-list__value">
-						{% if data['route'] == "company" %}
-							Acme Org Ltd ({{ data['registrationCompanyNumber'] or '01234567' }})<br />
-						{% elseif data['route'] == "charity" %}
-							Good Hands (NIC100007)
-						{% endif %}
-						
-						1 Francis Crick Avenue<br>
-						Cambridge Biomedical Campus<br>
-						Cambridge, United Kingdom<br>
-						CB2 0AA
-					</dd>
-					<dd class="govuk-summary-list__actions">
-						<a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> registered company</span></a>
-					</dd>
-				</div>
-				<div class="govuk-summary-list__row">
-					<dt class="govuk-summary-list__key">Organisation type</dt>
-					<dd class="govuk-summary-list__value">
-						{% if data['route'] == "company" %}
-							Limited company
-						{% elseif data['route'] == "charity" %}
-							Charity
-						{% endif %}
-					</dd>
-					<dd class="govuk-summary-list__actions"></dd>
-				</div>			
-				<div class="govuk-summary-list__row">
-					<dt class="govuk-summary-list__key">Main contact details</dt>
-					<dd class="govuk-summary-list__value">
-						{{ data['registrationPhone'] or '01234 567899' }}<br>
-						{{ data['registrationEmail'] or 'info@company.co.uk' }}
-					</dd>
-					<dd class="govuk-summary-list__actions">
-						<a href="company-contact?flowType=check">Change<span class="govuk-visually-hidden"> company contact details</span></a>
-					</dd>
-				</div>
-
-			
-				{% if data['correspondence-address'] == "true" %}          		
-				<div class="govuk-summary-list__row">
-					<dt class="govuk-summary-list__key">Correspondence address</dt>
-					<dd class="govuk-summary-list__value">
-						{% if data['correspondence-address-type'] == "normal" %}
-							Clifton House<br>
-							Clifton Road<br>
-							London<br>
-							SW19 5JA
-						{% elseif data['correspondence-address-type'] == "manual" %}
-							Laurel Ho<br>
-							Laurelhill Business Park<br>
-							Stirling<br>
-							FK7 9JQ
-						{% elseif data['correspondence-address-type'] == "non-uk" %}
-							LG. Do Município<br>
-							6060-163 - Idanha-A-Nova<br>
-							Portugal
-						{% endif %}
-					</dd>
-					<dd class="govuk-summary-list__actions">
-						<a href="#">Change<span class="govuk-visually-hidden"> correspondence address</span></a>
-					</dd>
-				</div>
-				{% endif %}
-
-				{% if data['billing-address'] == "true" %}
-				<div class="govuk-summary-list__row">
-					<dt class="govuk-summary-list__key">Billing address</dt>
-					<dd class="govuk-summary-list__value">              		
-						{% if data['billing-address-type'] == "normal" %}
-							Clifton House<br>
-							Clifton Road<br>
-							London<br>
-							SW19 5JA
-						{% elseif data['billing-address-type'] == "manual" %}
-							Laurel Ho<br>
-							Laurelhill Business Park<br>
-							Stirling<br>
-							FK7 9JQ
-						{% elseif data['Billing-address-type'] == "non-uk" %}
-							LG. Do Município<br>
-							6060-163 - Idanha-A-Nova<br>
-							Portugal
-						{% endif %}
-					</dd>
-					<dd class="govuk-summary-list__actions">
-						<a href="#">Change<span class="govuk-visually-hidden"> billing address</span></a>
-					</dd>
-				</div>
-				{% endif %}
-
-				{% if data['operations-address'] == "true" %}
-				<div class="govuk-summary-list__row">
-					<dt class="govuk-summary-list__key">Operations address</dt>
-					<dd class="govuk-summary-list__value">
-						{% if data['operations-address-type'] == "normal" %}
-							Clifton House<br>
-							Clifton Road<br>
-							London<br>
-							SW19 5JA
-						{% elseif data['operations-address-type'] == "manual" %}
-							Laurel Ho<br>
-							Laurelhill Business Park<br>
-							Stirling<br>
-							FK7 9JQ
-						{% elseif data['operations-address-type'] == "non-uk" %}
-							LG. Do Município<br>
-							6060-163 - Idanha-A-Nova<br>
-							Portugal
-						{% endif %}
-					</dd>
-					<dd class="govuk-summary-list__actions">
-						<a href="#">Change<span class="govuk-visually-hidden"> correspondence address</span></a>
-					</dd>
-				</div>
-				{% endif %}
-			</dl>
-
+		<!-- Show when a user returns to an incomplete registration -->
+		{% if data['registrationStatus'] == "incomplete" %}
+			<div class="govuk-inset-text">
+				<p>You need to complete the registration of your Defra account before you can use the <span class="govuk-!-font-weight-bold">{{ data.defaultServiceEnrolment }}</span> service.</p>		
+			</div>								
+			<p class="govuk-body govuk-!-margin-bottom-7">You can accept and continue with your registration or make changes to any of the information you have already told us.</p>
 		{% endif %}
 
+	<!-- </div>
 
-      	<h2 class="govuk-heading-m">About you</h2>
-      	<dl class="govuk-summary-list govuk-!-margin-bottom-9">
-        	<div class="govuk-summary-list__row">
-          		<dt class="govuk-summary-list__key">Your name</dt>
-          		<dd class="govuk-summary-list__value">
-            		{{ data['registrationFullName'] or 'Hugo' }} {{ data['registrsationSurname'] or 'Furst' }}
-          		</dd>
-          		<dd class="govuk-summary-list__actions">
-            		<a class="govuk-link govuk-link--no-visited-state" href="/register/personal-name?link=change">Change<span class="govuk-visually-hidden"> your name</span></a>
-          		</dd>
-        	</div>
-        	<div class="govuk-summary-list__row">
-          		<dt class="govuk-summary-list__key">Your contact details</dt>
-          		<dd class="govuk-summary-list__value">
-            		{{ data['defraIdPersonalPhone'] or '07711223344' }}<br />
-            		{{ data['govGateEmail'] or 'hugofurst@soleheaven.co.uk' }}
-          		</dd>
-          		<dd class="govuk-summary-list__actions">
-            		<a class="govuk-link govuk-link--no-visited-state" href="/register/your-contact-details?link=change">Change<span class="govuk-visually-hidden"> your contact details</span></a>
-          		</dd>
-        	</div>
+	<div class="govuk-grid-column-full"> -->	
+		
+		<!-- Started registration but stopped -->
+		{% if data['registrationStatus'] == "incomplete" %}			
+
+			{% include "includes/registration/cya/accountType.html" %}
+
 
 			{% if data['registrationAccountType'] == "Individual" %}
-			<div class="govuk-summary-list__row">
-				<dt class="govuk-summary-list__key">Your address</dt>
-				<dd class="govuk-summary-list__value">
-					{{ data['address'] or 'Top Gun, Mirimar, San Diego' }}					
-				</dd>
-				<dd class="govuk-summary-list__actions">
-				  <a class="govuk-link govuk-link--no-visited-state" href="/register/address/postcode?link=change">Change<span class="govuk-visually-hidden"> your contact details</span></a>
-				</dd>
-		  </div>
-		  {% endif %}
-
-
-        	<div class="govuk-summary-list__row">
-          		<dt class="govuk-summary-list__key">Your security word</dt>
-          		<dd class="govuk-summary-list__value">
-            		{{ data['registrationMemorableWord'] or 'TheGoat23' }}
-            		<!-- {{ data['registrationMemorableHint'] or 'My favourite food' }} -->
-          		</dd>
-          		<dd class="govuk-summary-list__actions">
-            		<a class="govuk-link govuk-link--no-visited-state" href="/register/individual-security?link=change">Change<span class="govuk-visually-hidden"> security word and hint</span></a>
-          		</dd>
-        	</div>
-      	</dl>
-
-		{% endif %}
-
-		{% if data['serviceHook'] == "WasteTracking" %}
-		  <form method="post" action="https://wts-prototype.herokuapp.com/v18/index-homepage">
-		{% elif data['serviceHook'] == "Forest" %}
-			<form method="post" action="https://forest-risk-commodities.herokuapp.com/Dashboard_v5_newuser">
-		{% else %}
-        <form method="post" action="/account/manage/">
-		{% endif %}
-
-
-			{% if data['status'] == "review" %}	
-				{{ govukButton({
-					text: "Accept and continue"				
-				}) }}
-			{% else %}		
-				{{ govukButton({
-					text: "Continue"				
-				}) }}
+				{% include "includes/registration/cya/personalDetailsIncomplete.html" %}
+			{% elif data['registrationOrganisationType'] == "Sole trader"  %}
+				{% include "includes/registration/cya/soleTraderDetailsIncomplete.html" %}
+			{% elif data['registrationOrganisationType'] == "Charity"  %}
+				{% include "includes/registration/cya/charityDetailsIncomplete.html" %}	
+			{% elif data['registrationTradeUK'] == "No"  %}			
+				{% include "includes/registration/cya/businessNonUKDetailsIncomplete.html" %}	
+			{% elif data['registrationAccountType'] == "Business" %}
+				{% include "includes/registration/cya/businessDetailsIncomplete.html" %}			
 			{% endif %}
-          
-        </form>
+			
+		<!-- Registration journey current -->
+		{% else %}
+		
+			{% if not data['userType'] %}
+				<!-- Account Type -->
+				{% include "includes/registration/cya/accountType.html" %}
+			{% endif %}
 
-      </div>
-	  <div class="govuk-grid-column-one-third review">      
-        <ul class="govuk-list govuk-body-s govuk-!-text-align-right">                
-            {% if data['status'] == "review" %}
-                <li><a href="/register/check-your-answers?status=" class="govuk-link govuk-link--no-visited-state">Current page</a></li>        
-            {% else %}
-                <li><a href="/register/check-your-answers?status=review" class="govuk-link govuk-link--no-visited-state">Suggested page changes</a></li>        
-            {% endif %}
-        </ul>          
-    </div>  
-    </div>
+			<!-- Defra account - Business -->
+			{% if data['registrationAccountType'] == "Business" %}
+				<!-- UK business -->
+				{% if data['registrationTradeUK'] == "Yes" %}
+					<!-- Sole Trader-->
+					{% if data['registrationOrganisationType'] == "Sole trader"  %}									
+						{% include "includes/registration/cya/soleTraderDetails.html" %}
+						{% include "includes/registration/cya/personalDetailsMin.html" %}
+					<!-- Charity -->
+					{% elif data['registrationOrganisationType'] == "Charity"  %}	
+						{% include "includes/registration/cya/charityDetails.html" %}							
+						{% include "includes/registration/cya/personalDetailsMin.html" %}
+					<!-- Limited Company -->
+					{% else %}
+						{% include "includes/registration/cya/businessDetails.html" %}
+						{% include "includes/registration/cya/personalDetailsMin.html" %}
+					{% endif %}				
+				<!-- NON UK Business -->
+				{% else %}
+					{% include "includes/registration/cya/businessNonUKDetails.html" %}
+					{% include "includes/registration/cya/personalDetailsMin.html" %}
+
+				{% endif %}
+			<!-- //// End of Business -->
+			
+			{% elif data['registrationAccountType'] == "Individual" %}
+				{% include "includes/registration/cya/personalDetails.html" %}
+			{% endif %}
+
+		{% endif %}
+      	
+
+		
+
+		<!-- Form exit points -->				
+		<!-- Registration incomplete, returning user -->
+		{% if data['registrationStatus'] == "incomplete" %}
+			
+			<form method="post" action="" >
+				{{ govukButton({
+					text: "Accept and continue with registration"
+				}) }}
+			</form>
+
+		{% else %}
+
+			<!-- Another prototype hooking out of our prototype -->
+			{% if data['serviceHook'] %}
+
+
+
+				{% if data['serviceHook'] == "WasteTracking" %}
+					<form method="post" action="https://wts-prototype.herokuapp.com/v18/index-homepage">
+				{% elif data['serviceHook'] == "Forest" %}
+					<form method="post" action="https://forest-risk-commodities.herokuapp.com/Dashboard_v5_newuser">
+				{% elif data['serviceHook'] == "PetTravel" %}
+					<form method="post" action="https://pet-travel-document-0f384e905d50.herokuapp.com/idm2-redirect">							
+				{% endif %}
+			
+			<!-- No hook out from another service -->
+			{% else %}
+				<!-- Invited user from account -->
+				{% if data['thirdPartyUser'] == "Yes" %}
+					<form method="post" action="/register/confirmation">
+						<input type="hidden" id="regThirdPartyUserOne" name="regThirdPartyUserOne" value="Invited" />
+				{% else %}
+					<!-- Normal route for registration -->
+					<form method="post" action="/account/?notification_banner=">
+						<input type="hidden" id="registrationStatus" name="registrationStatus" value="Enrolled" />
+				{% endif %}
+			{% endif %}
+
+			{{ govukButton({
+				text: "Confirm and complete registration"
+			}) }}
+
+			</form>
+
+		{% endif %}
+		<!-- ///////////////////////////////////////////////////// -->
+		
+    </div>	  
+</div>
 
 {% endblock %}

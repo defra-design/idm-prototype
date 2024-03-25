@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "/layouts/main.html" %}
 
 {% set title = "Check your information" %}
 {% set businessType = "Sole Trader" %}
@@ -96,7 +96,7 @@
           {{ data['companyName'] }}
         </dd>
         <dd class="app-check-your-answers__change">
-          <a href="sole-trader-name?flowType=check" class="govuk-link">
+          <a href="sole-trader-personal-name?flowType=check" class="govuk-link">
             Change<span class="govuk-visually-hidden"> trading name</span>
           </a>
         </dd>

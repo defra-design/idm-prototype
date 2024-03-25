@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "/layouts/main.html" %}
 
 {% set title = "What tasks do you want this person to do in the service?" %}
 
@@ -18,7 +18,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-      <form action="/manage/team-members/invite-user/enrollment-confirmation" method="post">
+      <form action="/archived/manage/team-members/invite-user/enrollment-confirmation" method="post">
 
         {{ govukRadios ({
           idPrefix: "serviceRole",

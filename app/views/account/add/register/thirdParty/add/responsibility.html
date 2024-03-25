@@ -1,0 +1,78 @@
+{% extends "/layouts/main.html" %}
+{% set showBackLink = false %}
+{% set serviceName = "" %}
+
+{% set pageHeading = "What are they responsible for at the local authority?" %}
+
+{% set pageHeading = "What will their role be at the {type of third party}?" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+        <form method="post" action="/register/thirdParty/add/administrative" >
+
+
+            {% if data['regThirdPartyUserOne'] %}
+
+            {{ govukRadios({
+                name: "regThirdPartyUserTwoServiceRole",
+                fieldset: {
+                    legend: {
+                        text: "What will this persons role be at the {type of third party}?",
+                        isPageHeading: false,
+                        classes: "govuk-visually-hidden"
+                    }
+                },            
+                items: [
+                    { value: "Adding and amending bank details", text: "Adding and amending bank details", hint: { text: "They must be employed as an S151 Officer, Chief Financial Officer, or another senior finance role." } }, 
+                    { value: "Managing waste data", text: "Managing waste data", hint: { text: "May be employed as head of waste, waste manager, or waste accountant." } }              
+                ]
+            }) }}
+
+            {% else %}
+            
+            {{ govukRadios({
+                name: "regThirdPartyUserOneServiceRole",
+                fieldset: {
+                    legend: {
+                        text: "What will this persons role be at the {type of third party}?",
+                        isPageHeading: false,
+                        classes: "govuk-visually-hidden"
+                    }
+                },            
+                items: [
+                    { value: "Adding and amending bank details", text: "Adding and amending bank details", hint: { text: "They must be employed as an S151 Officer, Chief Financial Officer, or another senior finance role." } }, 
+                    { value: "Managing waste data", text: "Managing waste data", hint: { text: "May be employed as head of waste, waste manager, or waste accountant." } }  ,            
+                    {
+                        divider: "or"
+                      },
+                    { value: "Do not assign role", text: "Do not assign role" }              
+                ]
+            }) }}
+
+            {% endif %}
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}                                
+                
+        </form>
+       
+    </div>
+</div>
+
+{% endblock %}
+
+
+
+
+
+
+
+

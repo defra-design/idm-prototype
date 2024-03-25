@@ -1,0 +1,58 @@
+{% extends "/layouts/main.html" %}
+{% set showBackLink = false %}
+{% set serviceName = "" %}
+
+{% set pageHeading = "Check your answers" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+		{% if data['thirdPartyInvite'] == "Yes" %}
+
+			{% include "includes/account/cya/invite.html" %}			
+
+		{% else %}
+        
+			{% include "includes/account/cya/users.html" %}
+
+		{% endif %}
+
+				
+			{% if data['thirdPartyInvite'] == "Yes" %}
+				<form method="post" action="/account/thirdParty/add/confirmation" >    
+			{% else %}
+				<!-- <form method="post" action="/account/thirdParty/add/confirmation" > -->
+        		<form method="post" action="/account/thirdParty/add-more" >    
+			{% endif %}
+				
+			<!-- Register data for user added TEMPORARY -->
+			{% if data['regThirdPartyUserOne'] %}
+			<input type="hidden" id="regThirdPartyUserTwo" name="regThirdPartyUserTwo" value="Yes" />
+			{% else %}
+			<input type="hidden" id="regThirdPartyUserOne" name="regThirdPartyUserOne" value="Yes" />
+			{% endif %}
+
+            {{ govukButton({
+                text: "Confirm and continue"
+            }) }}                                                
+
+        </form>
+       
+    </div>
+</div>
+
+{% endblock %}
+
+
+
+
+
+
+
+

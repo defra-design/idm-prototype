@@ -1,5 +1,5 @@
-{# {% extends "layout.html" %} #}
-{% extends "layout.html" %}
+{# {% extends "/layouts/main.html" %} #}
+{% extends "/layouts/main.html" %}
 {% set showBackLink = true %}
 {% set serviceName = "Defra account" %}
 
@@ -35,14 +35,14 @@
           			text: "First or given name"
         		},
                 classes: "govuk-!-width-three-quarters"
-            } | decorateFormAttributes('defraIdFirstName')) }}
+            }) }}('defaultFirstName')) }}
 
             {{ govukInput({
                 label: {
           			text: "Surname or family name"
         		},
                 classes: "govuk-!-width-three-quarters"
-            } | decorateFormAttributes('defraIdSurname')) }}
+            }) }}('defaultSurname')) }}
 
 
             {% endcall %}

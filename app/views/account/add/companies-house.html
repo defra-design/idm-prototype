@@ -1,0 +1,42 @@
+{% extends "/layouts/main.html" %}
+{% set showBackLink = true %}
+{% set serviceName = "" %}
+
+{% set pageHeading = "Do they have a company registration number?" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}           
+
+        <p>Companies House may have sent this to you if you registered as a limited company.</p>
+
+    	<form method="post" action="/account/add/companies-house-number">
+			
+			{{ govukRadios({
+                fieldset: {
+                    legend: { text: pageHeading, isPageHeading: false, classes: "govuk-visually-hidden"  }
+                },
+                classes: "govuk-radios--inline",
+                items: [
+                    { value: "Yes", text: 'Yes', checked: checked( 'addSiblingCompanyRegistrationNumber','Yes' )   },
+					{ value: "No~/account/add/sole-trader-or-charity", text: 'No', checked: checked( 'addSiblingCompanyRegistrationNumber','No' )   }                    
+                ],
+                name: "addSiblingCompanyRegistrationNumber"
+            }) }}       
+            
+            {{govukButton({
+                text: "Continue"
+            })}}
+        
+      	</form>
+
+    </div>    
+</div>
+
+{% endblock %}

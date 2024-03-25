@@ -1,0 +1,316 @@
+{% extends "/layouts/main.html" %}
+{% set showBackLink = true %}
+{% set serviceName = "" %}
+
+
+{% set pageHeading = "Check your answers" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   
+
+		
+		
+		<!-- Account Type -->
+		<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+			<div class="govuk-summary-list__row">
+				<dt class="govuk-summary-list__key">Type of account</dt>
+				<dd class="govuk-summary-list__value">					
+					{{ data['addSiblingAccountType'] }}				
+				</dd>
+				<dd class="govuk-summary-list__actions">
+					<a class="govuk-link govuk-link--no-visited-state" href="/account/add/change-account-type">Change<span class="govuk-visually-hidden"> type of account</span></a>
+				</dd>
+			</div>			
+		</dl>
+
+		{% if data['addSiblingAccountType'] == "Individual" %}
+
+		<h2 class="govuk-heading-m govuk-!-margin-bottom-2">Your details</h2>
+		<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+			<div class="govuk-summary-list__row">
+				<dt class="govuk-summary-list__key">Name</dt>
+				<dd class="govuk-summary-list__value">
+					{{ data['defaultFirstName'] or 'Chrispee' }} {{ data['defaultSurname'] or 'Bacon' }}
+				</dd>
+				<dd class="govuk-summary-list__actions">
+					<a class="govuk-link govuk-link--no-visited-state" href="/account/add/personal-name?link=change">Change<span class="govuk-visually-hidden"> your name</span></a>
+				</dd>
+			</div>			
+			
+			{% if data['addSiblingAccountType'] == "Individual" %}
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">Address</dt>
+					<dd class="govuk-summary-list__value">
+						{% if data['addSiblingAddressUK'] == "No" %}
+								{{ data.addSiblingManualAddressLine1 }}
+								<br>{{ data.addSiblingNonUKAddressLine2 }}
+								<br>{{ data.addSiblingNonUKAddressLine3 }}
+								<br>{{ data.addSiblingNonUKAddressLine4 }}
+								<br>{{ data.addSiblingNonUKAddressTownCity }}
+								<br>{{ data.addSiblingNonUKAddressZipCode }}
+								<br>{{ data.addSiblingNonUKAddressCountry }}
+						{% else %}
+							{% if data['addSiblingIndividualAddress'] != "" %}
+								{{ data['addSiblingIndividualAddress'] or 'Top Gun, Mirimar, San Diego' }}					
+							{% else %}
+								{{ data.addSiblingManualAddressLine1 }}
+								<br>{{ data.addSiblingManualAddressLine2 }}
+								<br>{{ data.addSiblingManualAddressLine3 }}
+								<br>{{ data.addSiblingManualAddressLine4 }}
+								<br>{{ data.addSiblingManualAddressTownCity }}
+								<br>{{ data.addSiblingManualAddressZipCode }}
+								<br>{{ data.addSiblingManualAddressCountry }}
+							{% endif %}
+						{% endif %}
+					</dd>
+					<dd class="govuk-summary-list__actions">
+						<a class="govuk-link govuk-link--no-visited-state" href="/account/add/address/postcode?link=change">Change<span class="govuk-visually-hidden"> your address</span></a>
+					</dd>
+				</div>
+			{% endif %}
+
+     
+      	</dl>
+
+		{% else %}
+
+
+			{% if data['addSiblingOrganisationType'] == "Sole trader"  %}
+
+				<h2 class="govuk-heading-m govuk-!-margin-bottom-2">Sole trader details</h2>
+				<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">Type</dt>
+						<dd class="govuk-summary-list__value">Sole trader</dd>
+						<dd class="govuk-summary-list__actions">
+							<a class="govuk-link govuk-link--no-visited-state" href="/account/add/sole-trader-or-charity?link=change">Change<span class="govuk-visually-hidden"> your type of organisation</span></a>
+						</dd>
+					</div>	
+
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">Trading name</dt>
+						<dd class="govuk-summary-list__value">{{ data.addSiblingSoleTraderName }}</dd>
+						<dd class="govuk-summary-list__actions">
+							<a class="govuk-link govuk-link--no-visited-state" href="/account/add/business-name?link=change">Change<span class="govuk-visually-hidden"> the name of the business</span></a>
+						</dd>
+					</div>
+
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">Trading address</dt>
+						<dd class="govuk-summary-list__value">{{ data.addSiblingSoleTraderAddress }}</dd>
+						<dd class="govuk-summary-list__actions">
+							<a class="govuk-link govuk-link--no-visited-state" href="/account/add/address/postcode?link=change">Change<span class="govuk-visually-hidden"> the business address</span></a>
+						</dd>
+					</div>	
+
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">Telephone number</dt>
+						<dd class="govuk-summary-list__value">{{ data.addSiblingSoleTraderPhone }}</dd>
+						<dd class="govuk-summary-list__actions">
+							<a class="govuk-link govuk-link--no-visited-state" href="/account/add/company-contact?link=change">Change<span class="govuk-visually-hidden"> the business telephone number</span></a>
+						</dd>
+					</div>	
+
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">Email address</dt>
+						<dd class="govuk-summary-list__value">{{ data.addSiblingSoleTraderEmail }}</dd>
+						<dd class="govuk-summary-list__actions">
+							<a class="govuk-link govuk-link--no-visited-state" href="/account/add/company-contact?link=change">Change<span class="govuk-visually-hidden"> the business email address</span></a>
+						</dd>
+					</div>	
+				</dl>
+
+			{% elif data['addSiblingOrganisationType'] == "Charity"  %}	
+
+				<h2 class="govuk-heading-m govuk-!-margin-bottom-2">Charity details</h2>
+				<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">Name</dt>
+						<dd class="govuk-summary-list__value">{{ data['addSiblingCharityName'] }}</dd>
+						<dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> the name of the charity</span></a></dd>
+					</div>
+									
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">Type</dt>
+						<dd class="govuk-summary-list__value">Charity</dd>
+						<dd class="govuk-summary-list__actions"></dd>
+					</div>	
+									
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">Charity number</dt>
+						<dd class="govuk-summary-list__value">{{ data['addSiblingCharityNumber'] }}</dd>
+						<dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> the registered charity number</span></a></dd>
+					</div>
+					
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">Registered address</dt>
+						<dd class="govuk-summary-list__value">																									
+							1 Francis Crick Avenue<br>
+							Cambridge Biomedical Campus<br>
+							Cambridge, United Kingdom<br>
+							CB2 0AA
+						</dd>
+						<dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> the charity’s registered address</span></a></dd>
+					</div>
+					
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">Telephone number</dt>
+						<dd class="govuk-summary-list__value">{{ data['addSiblingCharityPhone'] or '01234 567899' }}</dd>
+						<dd class="govuk-summary-list__actions">
+							<a href="company-contact?flowType=check">Change<span class="govuk-visually-hidden"> the charity’s telephone number</span></a>
+						</dd>
+					</div>
+
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">Email address</dt>
+						<dd class="govuk-summary-list__value">{{ data['addSiblingCharityEmail'] or 'info@charityname.co.uk' }}</dd>
+						<dd class="govuk-summary-list__actions">
+							<a href="company-contact?flowType=check">Change<span class="govuk-visually-hidden"> the organisation’s email address</span></a>
+						</dd>
+					</div>				
+
+			{% else %}
+
+				<!-- About the organisation -->
+				<h2 class="govuk-heading-m govuk-!-margin-bottom-2">Business details</h2>
+				<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">Name</dt>
+						<dd class="govuk-summary-list__value">							
+							{% if data['addSiblingTradeUK'] == "No" %}
+								{{ data.addSiblingNonUkName }}
+							{% else %}
+								Soleheaven Ltd
+							{% endif %}
+						</dd>
+						<dd class="govuk-summary-list__actions">
+							{% if data['addSiblingTradeUK'] == "No" %}
+								<a href="company-contact?flowType=check">Change<span class="govuk-visually-hidden"> the organisation’s telephone number</span></a>
+							{% else %}							
+							{% endif %}
+						</dd>
+					</div>
+									
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">Type</dt>
+						<dd class="govuk-summary-list__value">
+							{% if data['addSiblingTradeUK'] == "No" %}
+								Non-UK
+							{% else %}
+								Limited company
+							{% endif %}
+						</dd>
+						<dd class="govuk-summary-list__actions">
+							{% if data['addSiblingTradeUK'] == "No" %}
+								<a href="company-contact?flowType=check">Change<span class="govuk-visually-hidden"> the organisation’s telephone number</span></a>
+							{% else %}							
+							{% endif %}
+						</dd>
+					</div>	
+					
+					{% if data['addSiblingTradeUK'] != "No" %}
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">Company number</dt>
+						<dd class="govuk-summary-list__value">{{ data['addSiblingCompanyNumber'] or '01234567' }}</dd>
+						<dd class="govuk-summary-list__actions"></dd>
+					</div>
+					{% endif %}
+					
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">
+							{% if data['addSiblingTradeUK'] == "No" %}
+								Address
+							{% else %}
+								Registered address
+							{% endif %}
+						</dt>
+						<dd class="govuk-summary-list__value">		
+							
+							{% if data['addSiblingTradeUK'] == "No" %}
+								{{ data.addSiblingManualAddressLine1 }}
+								<br>{{ data.addSiblingManualAddressLine2 }}
+								<br>{{ data.addSiblingManualAddressLine3 }}
+								<br>{{ data.addSiblingManualAddressLine4 }}
+								<br>{{ data.addSiblingManualAddressTownCity }}
+								<br>{{ data.addSiblingManualAddressZipCode }}
+								<br>{{ data.addSiblingManualAddressCountry }}
+							{% else %}														
+								1 Francis Crick Avenue<br>
+								Cambridge Biomedical Campus<br>
+								Cambridge, United Kingdom<br>
+								CB2 0AA
+							{% endif %}
+						</dd>
+						<dd class="govuk-summary-list__actions">
+							{% if data['addSiblingTradeUK'] == "No" %}
+								<a href="company-contact?flowType=check">Change<span class="govuk-visually-hidden"> the organisation’s telephone number</span></a>
+							{% else %}							
+							{% endif %}
+						</dd>
+					</div>
+					
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">Telephone number</dt>
+						<dd class="govuk-summary-list__value">
+							{% if data['addSiblingTradeUK'] == "No" %}
+								{{ data['addSiblingNonUkPhone'] or '001 25648 78459' }}
+							{% else %}							
+								{{ data['addSiblingPhone'] or '01234 567899' }}
+							{% endif %}
+						</dd>
+						<dd class="govuk-summary-list__actions">
+							<a href="company-contact?flowType=check">Change<span class="govuk-visually-hidden"> the organisation’s telephone number</span></a>
+						</dd>
+					</div>
+					
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">Email address</dt>
+						<dd class="govuk-summary-list__value">
+							{% if data['addSiblingTradeUK'] == "No" %}
+								{{ data['addSiblingNonUkEmail'] or 'nonuk@test.com' }}
+							{% else %}							
+								{{ data['addSiblingEmail'] or 'info@soleheaven.com' }}
+							{% endif %}
+						</dd>
+						<dd class="govuk-summary-list__actions">
+							<a href="company-contact?flowType=check">Change<span class="govuk-visually-hidden"> the organisation’s email address</span></a>
+						</dd>
+					</div>
+
+				{% endif %}			
+			{% endif %}							
+		</dl>		
+		
+
+		
+
+
+		<div class="govuk-inset-text">
+			Some info here.
+		</div>
+
+		{% if data['serviceHook'] == "WasteTracking" %}
+			<form method="post" action="https://wts-prototype.herokuapp.com/v18/index-homepage">
+		{% elif data['serviceHook'] == "Forest" %}
+			<form method="post" action="https://forest-risk-commodities.herokuapp.com/Dashboard_v5_newuser">
+		{% else %}
+        	<form method="post" action="/account/confirmation">
+		{% endif %}
+
+
+				{{ govukButton({
+					text: "Accept and continue"				
+				}) }}			
+          
+        	</form>
+
+    </div>	  
+</div>
+
+{% endblock %}

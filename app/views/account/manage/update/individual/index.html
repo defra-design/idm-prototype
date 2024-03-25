@@ -1,0 +1,59 @@
+{% extends "/layouts/main.html" %}
+
+{% set showBackLink = true %}
+
+{% set pageHeading = "Update your details" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+        <p>Make updates to Your Defra account personal information.</p>
+					
+		<dl class="govuk-summary-list govuk-!-margin-bottom-7">
+			<div class="govuk-summary-list__row">
+				<dt class="govuk-summary-list__key">Personal Information</dt>
+				<dd class="govuk-summary-list__value">
+					{{ data.defaultFirstName}} {{ data.defaultSurname}}
+					<br>{{ data.registrationContactPhonePersonal}}
+				</dd>
+				<dd class="govuk-summary-list__actions">
+					<a class="govuk-link govuk-link--no-visited-state" href="/account/manage/update/individual/personal-information">Change<span class="govuk-visually-hidden"> type of account</span></a>
+				</dd>
+			</div>
+
+			{% if data['registrationAccountType'] == "Individual" %}
+			<div class="govuk-summary-list__row">
+				<dt class="govuk-summary-list__key">Personal Address</dt>
+				<dd class="govuk-summary-list__value">{{ data.registrationIndividualAddress }}</dd>
+				<dd class="govuk-summary-list__actions">
+					<a class="govuk-link govuk-link--no-visited-state" href="/account/manage/update/individual/address">Change<span class="govuk-visually-hidden"> type of account</span></a>
+				</dd>
+			</div>		
+			{% endif %}		
+		</dl>
+            
+        <h2 class="govuk-heading-m govuk-!-margin-top-9">Need to update your email or password</h2>
+        <p class="govuk_body">Defra account uses your Government Gateway credentials to log in, so you will need to go to your Government Gateway profile to:</p>
+        <ul class="govuk-list govuk-list--bullet">
+            <li>update your email address</li>
+            <li>change your password</li>
+        </ul>        
+        
+        <div class="govuk-inset-text">
+        <p>You will be signed out of your Defra account if you <a href="#" class="govuk-link" target="_blank">go to your Government Gateway profile (opens in new tab)</a>.</p>
+    </div>
+
+        
+  </div>
+</div>
+
+
+
+
+{% endblock %}

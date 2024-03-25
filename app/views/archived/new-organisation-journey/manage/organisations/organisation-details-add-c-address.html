@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "/layouts/main.html" %}
 
 {% set title = "Organisation details : Acme Org Ltd" %}
 
@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block beforeContent %}
-  {% include "includes/account-nav-admin-corp.html" %}
+  {% include "includes/account-nav.html" %}
   {% include "includes/breadcrumb-three-level.html" %}
 {% endblock %}
 
@@ -46,7 +46,7 @@
             </div>
             <div class="govuk-card__actions">
                 <ul class="govuk-list govuk-!-mb-r0">
-                    <li><a href="/new-organisation-journey/manage/organisations/update-details" class="govuk-link govuk-link--no-visited-state">Update details</a></li>
+                    <li><a href="/new-organisation-journey/archived/manage/organisations/update-details" class="govuk-link govuk-link--no-visited-state">Update details</a></li>
                 </ul>
             </div>
         </div>
@@ -96,7 +96,7 @@
 {{
  govukButton({
       text: "Add a correspondence address",
-      href: "/new-organisation-journey/manage/organisations/company-postcode"
+      href: "/new-organisation-journey/archived/manage/organisations/company-postcode"
     })
 }}
   {% endset %}

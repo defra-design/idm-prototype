@@ -1,0 +1,95 @@
+{{ govukSummaryList({
+    card: {
+        title: { text: "Business details"  },
+        classes: "govuk-!-margin-bottom-7"
+        
+    },
+    rows: [		
+        { key: { text: "Type" }, value: { text: " Limited company" } },    
+        { key: { text: "Name" }, value: { text: data.defaultCompanyName } },    	        
+        { key: { text: "Company number" }, value: { html: data.registrationCompanyNumber or data.defaultCompanyNumber }, actions: { items: [ { href: "/register/company-contact?flowType=check", text: "Change", visuallyHiddenText: "age", classes: "govuk-link--no-visited-state" } ] } },
+        { key: { text: "Registered address" }, value: { html: data.defaultCompanyAddress } }
+        
+    ]
+}) }}
+
+
+
+
+<!-- About the organisation -->
+
+<!-- <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+    <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">Name</dt>
+        <dd class="govuk-summary-list__value">							
+            {% if data['registrationTradeUK'] == "No" %}
+                {{ data.registrationNonUkName }}
+            {% else %}
+                Soleheaven Ltd
+            {% endif %}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+            {% if data['registrationTradeUK'] == "No" %}
+                <a href="company-contact?flowType=check">Change<span class="govuk-visually-hidden"> the organisation’s telephone number</span></a>
+            {% else %}							
+            {% endif %}
+        </dd>
+    </div>
+                    
+    <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">Type</dt>
+        <dd class="govuk-summary-list__value">
+            {% if data['registrationTradeUK'] == "No" %}
+                Non-UK
+            {% else %}
+                Limited company
+            {% endif %}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+            {% if data['registrationTradeUK'] == "No" %}
+                <a href="company-contact?flowType=check">Change<span class="govuk-visually-hidden"> the organisation’s telephone number</span></a>
+            {% else %}							
+            {% endif %}
+        </dd>
+    </div>	
+    
+
+    
+    <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+            {% if data['registrationTradeUK'] == "No" %}
+                Address
+            {% else %}
+                Registered address
+            {% endif %}
+        </dt>
+        <dd class="govuk-summary-list__value">		
+            
+            {% if data['registrationTradeUK'] == "No" %}
+                {{ data.registrationManualAddressLine1 }}
+                <br>{{ data.registrationManualAddressLine2 }}
+                <br>{{ data.registrationManualAddressLine3 }}
+                <br>{{ data.registrationManualAddressLine4 }}
+                <br>{{ data.registrationManualAddressTownCity }}
+                <br>{{ data.registrationManualAddressZipCode }}
+                <br>{{ data.registrationManualAddressCountry }}
+            {% else %}														
+                1 Francis Crick Avenue<br>
+                Cambridge Biomedical Campus<br>
+                Cambridge, United Kingdom<br>
+                CB2 0AA
+            {% endif %}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+            {% if data['registrationTradeUK'] == "No" %}
+                <a href="company-contact?flowType=check">Change<span class="govuk-visually-hidden"> the organisation’s telephone number</span></a>
+            {% else %}							
+            {% endif %}
+        </dd>
+    </div>
+    
+    </dl>
+     -->
+
+
+

@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "/layouts/main.html" %}
 
 {% set title = "This person can now access this service" %}
 
@@ -30,15 +30,15 @@
     <p class="govuk-body">You can change or remove this access at any time.</p>
 
     {% if data['userType'] == "invited" %}
-          {% set backURL = "/manage/team-members/services-on-team-member-invited?subscribeService=yes" %}
+          {% set backURL = "/archived/manage/team-members/services-on-team-member-invited?subscribeService=yes" %}
     {% endif %}
 
     {% if data['userType'] == "verified" %}
-          {% set backURL = "/manage/team-members/services-on-team-member-verify?subscribeService=yes" %}
+          {% set backURL = "/archived/manage/team-members/services-on-team-member-verify?subscribeService=yes" %}
     {% endif %}
 
     {% if data['userType'] == "invitedAgent" %}
-          {% set backURL = "/manage/agent/services-on-team-member-agent-invited?subscribeService=yes" %}
+          {% set backURL = "/archived/manage/agent/services-on-team-member-agent-invited?subscribeService=yes" %}
     {% endif %}
 
 

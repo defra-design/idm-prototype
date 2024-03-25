@@ -1,9 +1,9 @@
-{% extends "layout.html" %}
+{% extends "/layouts/main.html" %}
 {% set showBackLink = true %}
 {% set serviceName = "" %}
 
-{% set pageHeading = "Are you sure you wish to change your account type?" %}
-{% set pageSection = "" %}
+{% set pageHeading = "Confirm you want to change the type of Defra account you are registering for" %}
+{% set pageSection = "Register for a Defra account" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
@@ -13,23 +13,103 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   
 
-        <p class="govuk-hint">Changing your account type means that any information you have previously entered will be deleted</p>
+
+
+        <div class="govuk-inset-text govuk-!-margin-bottom-7">
+        	<p class="govuk-body">Any information you have already entered as part of your current registration will be deleted.</p>
+        </div>
+
+
+		
 
         <form method="post" action="/register/account-type" />
 
-        {{ govukRadios({
+        <!-- {{ govukRadios({
             fieldset: {
                 legend: { text: "Are you registering as a business or an individual?", isPageHeading: false, classes: "govuk-visually-hidden"  }
             },
             items: [
                 { value: "Yes", html: ' <span class="govuk-body govuk-!-font-weight-bold">Yes</span> - change my account type and delete any information I have entered'   },
                 { value: "No, redirect(/register/task-list-page-non-uk-details)", html: ' <span class="govuk-body govuk-!-font-weight-bold">No</span> - do not change my account type'   }                    
-            ]
-        } | decorateFormAttributes('cancelAccount')) }}                
+            ],
+            name: "cancelAccount"
+        }) }} -->
 
-        {{ govukButton({
-          text: "Continue"
-        }) }}
+        <div class="govuk-button-group">
+
+          <input type="hidden" id="registrationAccountType" name="registrationAccountType" value="" />
+
+          <input type="hidden" id="registrationTradeUK" name="registrationTradeUK" value="" />
+          <input type="hidden" id="registrationCompanyRegistrationNumber" name="registrationCompanyRegistrationNumber" value="" />
+          <input type="hidden" id="registrationCompanyNumber" name="registrationCompanyNumber" value="" />
+          <input type="hidden" id="registrationConfirmedAddress" name="registrationConfirmedAddress" value="" />
+          
+          <input type="hidden" id="registrationCharityLocation" name="registrationCharityLocation" value="" />
+          <input type="hidden" id="registrationCharityNumber" name="registrationCharityNumber" value="" />
+          <input type="hidden" id="registrationCharityName" name="registrationCharityName" value="" />
+
+          <input type="hidden" id="registrationCharityPostcode" name="registrationCharityPostcode" value="" />
+          <input type="hidden" id="registrationCharityAddress" name="registrationCharityAddress" value="" />
+          <input type="hidden" id="registrationCharityPhone" name="registrationCharityPhone" value="" />
+          <input type="hidden" id="registrationCharityEmail" name="registrationCharityEmail" value="" />
+
+          <input type="hidden" id="defaultFirstName" name="defaultFirstName" value="" />
+          <input type="hidden" id="defaultSurname" name="defaultSurname" value="" />
+          <input type="hidden" id="registrationContactPhonePersonal" name="registrationContactPhonePersonal" value="" />
+          <input type="hidden" id="registrationMemorableWord" name="registrationMemorableWord" value="" />
+          <input type="hidden" id="registrationMemorableHint" name="registrationMemorableHint" value="" />
+          <input type="hidden" id="registrationPhone" name="registrationPhone" value="" />
+          <input type="hidden" id="registrationEmail" name="registrationEmail" value="" />
+          <input type="hidden" id="registrationIndividualAddress" name="registrationIndividualAddress" value="" />
+          <input type="hidden" id="registrationManualAddressCounty" name="registrationManualAddressCounty" value="" />
+          <input type="hidden" id="registrationManualAddressPostCode" name="registrationManualAddressPostCode" value="" />
+
+          <input type="hidden" id="registrationManualAddressLine1" name="registrationManualAddressLine1" value="" />
+          <input type="hidden" id="registrationManualAddressLine2" name="registrationManualAddressLine2" value="" />
+          <input type="hidden" id="registrationManualAddressLine3" name="registrationManualAddressLine3" value="" />
+          <input type="hidden" id="registrationManualAddressLine4" name="registrationManualAddressLine4" value="" />
+          <input type="hidden" id="registrationManualAddressTownCity" name="registrationManualAddressTownCity" value="" />
+          <input type="hidden" id="registrationManualAddressZipCode" name="registrationManualAddressZipCode" value="" />
+          <input type="hidden" id="registrationManualAddressCountry" name="registrationManualAddressCountry" value="" />
+          
+          <input type="hidden" id="registrationBusinessName" name="registrationBusinessName" value="" />
+          <input type="hidden" id="registrationSoleTraderPostcode" name="registrationSoleTraderPostcode" value="" />
+          <input type="hidden" id="registrationSoleTraderAddress" name="registrationSoleTraderAddress" value="" />
+          <input type="hidden" id="registrationSoleTraderPhone" name="registrationSoleTraderPhone" value="" />
+          <input type="hidden" id="registrationSoleTraderEmail" name="registrationSoleTraderEmail" value="" />
+          <input type="hidden" id="registrationSoleTraderName" name="registrationSoleTraderName" value="" />
+          <input type="hidden" id="link" name="link" value="" />
+          
+          <input type="hidden" id="registrationNonUKAddressLine1" name="registrationNonUKAddressLine1" value="" />
+          <input type="hidden" id="registrationNonUKAddressLine2" name="registrationNonUKAddressLine2" value="" />
+          <input type="hidden" id="registrationNonUKAddressLine3" name="registrationNonUKAddressLine3" value="" />
+          <input type="hidden" id="registrationNonUKAddressLine4" name="registrationNonUKAddressLine4" value="" />
+          <input type="hidden" id="registrationNonUKAddressTownCity" name="registrationNonUKAddressTownCity" value="" />
+          <input type="hidden" id="registrationNonUKAddressZipCode" name="registrationNonUKAddressZipCode" value="" />
+          <input type="hidden" id="registrationNonUKAddressCountry" name="registrationNonUKAddressCountry" value="" />
+          <input type="hidden" id="individual-address" name="individual-address" value="" />
+          <input type="hidden" id="registrationNonUkName" name="registrationNonUkName" value="" />
+          <input type="hidden" id="registrationNonUkPhone" name="registrationNonUkPhone" value="" />
+          <input type="hidden" id="registrationNonUkEmail" name="registrationNonUkEmail" value="" />
+          <input type="hidden" id="registrationAddressUK" name="registrationAddressUK" value="" />
+          <input type="hidden" id="registrationIndividualPostcode" name="registrationIndividualPostcode" value="" />
+
+          
+
+          <input type="hidden" id="status" name="status" value="" />
+          <input type="hidden" id="error" name="error" value="" />          
+          <input type="hidden" id="link" name="link" value="" />          
+
+          <input type="hidden" id="registrationOrganisationType" name="registrationOrganisationType" value="" />
+		  <input type="hidden" id="backButtonHide" name="backButtonHide" value="Yes" />
+          {{ govukButton({
+            text: "Confirm and change account type"
+          }) }}
+
+
+        <a href="/register/check-your-answers?link=" class="govuk-link govuk-link--no-visited-state">Do not change my Defra account</a>
+
+      </div>
 
 
       </form>

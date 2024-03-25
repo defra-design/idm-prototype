@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "/layouts/main.html" %}
 
 {% set title = "Intermediaries" %}
 
@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block beforeContent %}
-  {% include "includes/account-nav-admin-corp.html" %}
+  {% include "includes/account-nav.html" %}
   {% include "includes/breadcrumb-three-level.html" %}
 {% endblock %}
 
@@ -63,7 +63,7 @@
 
     {{ govukButton({
       text: "Add an intermediary",
-      href: "/manage/agent/invite-user/add-user-details"
+      href: "/archived/manage/agent/invite-user/add-user-details"
     }) }}
 
     <p class="govuk-body {{ introCSS }}">An intermediary is a third party (such as an agent or consultant) who you authorise to interact with Defra and related agencies and public bodies on your behalf.</p>

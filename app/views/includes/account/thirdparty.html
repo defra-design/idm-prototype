@@ -1,0 +1,159 @@
+
+{% if data['defaultAccountUser'] == "CEO" %}
+
+	{{ govukSummaryList({
+		
+    	rows: [    	
+        	{ key: { text: "Your name" }, value: { text: data.defaultThirdPartyCEO } },
+        	{ key: { text: "Email address" }, value: { text: data['regThirdPartyCEOEmail'] or data.defaultThirdPartyCEOEmail } },
+        	{ key: { text: "Phone number" }, value: { text: data.defaultThirdPartyCEOPhone } }
+        	
+      	]
+  	}) }}
+
+	<!-- Third party admin -->
+{% else %}
+
+	{{ govukSummaryList({
+		rows: [    	
+	  		{ key: { text: "Name" }, value: { text: data.defaultThirdPartyCEO }, actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "name", classes: "govuk-link--no-visited-state" } ] } },
+	  		{ key: { text: "Email address" }, value: { text: data['regThirdPartyCEOEmail'] or data.defaultThirdPartyCEOEmail } },
+	  		{ key: { text: "Phone number" }, value: { text: data.defaultThirdPartyCEOPhone }, actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "phone number", classes: "govuk-link--no-visited-state" } ] } },
+	  		{ key: { text: "Memorable word" }, value: { text: "********" }, actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "memorable word", classes: "govuk-link--no-visited-state" } ] } }
+		]
+	}) }}
+
+{% endif %}
+</div>
+
+
+<div class="govuk-grid-column-full">
+
+    <h2 class="govuk-heading-l govuk-!-margin-top-7">Accounts available to you</h2>
+<!-- <p>You have access to the following accounts and Defra services.</p> -->
+<p>You have access to the following accounts and Defra online services.</p>
+
+<!-- Third Party CEO view -->
+{% if data['defaultAccountUser'] == "CEO" %}
+
+	{{ govukSummaryList({
+		card: {
+			title: { html: data.defaultThirdPartyName | titleCase  }
+			
+		},
+		rows: [		
+			{ key: { text: "Address" }, value: { text: data.defaultThirdPartyAddress } },    	
+			{ key: { text: "Registered services" }, value: { html: '<a href="#" class="govuk-link govuk-link--no-visited-state">Local Authority Payment Service (LAPS)</a>' } },      
+			{ key: { text: "Service role" }, value: { html: data.defaultThirdPartyCEOServiceRole }, actions: { items: [ { href: "/account/thirdParty/add/service-role?changeLink=CEO", text: "Change", visuallyHiddenText: "age", classes: "govuk-link--no-visited-state" } ] } },
+			{ key: { text: "Account role" }, value: { html: "Owner" } },
+			{ key: { text: "Team members" }, value: { text: "1" }, actions: { items: [ { href: "/account/thirdParty/add/service-role?thirdPartyInvite=Yes", text: "Add", visuallyHiddenText: "age", classes: "govuk-link--no-visited-state" }, { href: "/account/manage/team/", text: "Manage", visuallyHiddenText: "age", classes: "govuk-link--no-visited-state" } ] } }
+		]
+	}) }}
+
+
+
+	
+<!-- Third party admin -->
+{% else %}
+
+	{{ govukSummaryList({
+		card: {
+    		title: { html: data.defaultThirdPartyName | titleCase  },
+      		actions: {
+			  	items: [
+			    	{ href: "#", text: "Register with new service", visuallyHiddenText: "name", classes: "govuk-link--no-visited-state" }        
+			  	]
+	    	}  	
+  		},
+  		rows: [
+      		{ key: { text: "Address" }, value: { text: data.defaultThirdPartyAddress } },    	
+    		{ key: { text: "Registered services" }, value: { html: '<a href="#" class="govuk-link govuk-link--no-visited-state">Local Authority Payment Service (LAPS)</a>' } },      
+		  	{ key: { text: "Service role" }, value: { html: data.defaultThirdPartyCEOServiceRole }, actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "age", classes: "govuk-link--no-visited-state" } ] } },
+      		{ key: { text: "Account role" }, value: { html: "Admin" }, actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "age", classes: "govuk-link--no-visited-state" } ] } },
+      		{ key: { text: "Team members" }, value: { text: "1" }, actions: { items: [ { href: "/account/thirdParty/add/service-role?thirdPartyInvite=Yes", text: "Add", visuallyHiddenText: "age", classes: "govuk-link--no-visited-state" }, { href: "/account/manage/team/", text: "Manage", visuallyHiddenText: "age", classes: "govuk-link--no-visited-state" } ] } }
+  		]
+	}) }}
+
+
+{% endif %}
+
+
+
+
+<!-- { key: { text: "Team members" }, value: { text: "2" }, actions: { items: [ { href: "/account/manage/team/add-member", text: "Add", visuallyHiddenText: "age", classes: "govuk-link--no-visited-state" }, { href: "/account/manage/team/", text: "Manage", visuallyHiddenText: "age", classes: "govuk-link--no-visited-state" } ] } } -->
+
+<!-- {{ govukSummaryList({
+	card: {
+    	title: { html: data.defaultThirdPartyName | titleCase },
+      actions: {
+			  items: [
+			    { href: "/account/manage/update/organisation/", text: "Register for new service", visuallyHiddenText: "name", classes: "govuk-link--no-visited-state" }        
+			  ]
+	    }  	
+  	},
+  	rows: [
+    	{ key: { text: "Account role" }, value: { html: "Admin" }, actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "age", classes: "govuk-link--no-visited-state" } ] } },
+    	{ key: { text: "Registered services" }, value: { html: data.defaultServiceEnrolment }, actions: { items: [ { href: "#", text: "Visit", visuallyHiddenText: "age", classes: "govuk-link--no-visited-state" }, { href: "#", text: "Remove", visuallyHiddenText: "age", classes: "govuk-link--no-visited-state" } ] }  },
+      
+		  { key: { text: "Service role" }, value: { html: data.regThirdPartyUserOneServiceRole }, actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "age", classes: "govuk-link--no-visited-state" } ] } },
+      { key: { text: "Team members" }, value: { text: "1" }, actions: { items: [ { href: "/account/manage/team/add-member", text: "Add", visuallyHiddenText: "age", classes: "govuk-link--no-visited-state" }, { href: "/account/manage/team/", text: "Manage", visuallyHiddenText: "age", classes: "govuk-link--no-visited-state" } ] } }
+  	]
+}) }} -->
+
+
+<!-- { key: { text: "" }, value: { html: "Waste Tracking Service" }, actions: { items: [ { href: "#", text: "Visit", visuallyHiddenText: "age" }, { href: "#", text: "Remove", visuallyHiddenText: "age" } ] }  }, -->
+
+    <!-- <h2 class="govuk-heading-l govuk-!-margin-top-7">Your accounts</h2>
+    <p>You have access to the following accounts and related services.</p>
+
+    {{ govukTable({
+        caption: "Accounts",
+        captionClasses: "govuk-visually-hidden",						
+        head: [
+          { text: "Account", classes: "govuk-!-width-one-quarter" },
+          { text: "Account role", classes: "" },
+          { text: "Service", classes: "govuk-!-width-one-quarter" },
+          { text: "Service role", classes: "govuk-!-width-one-quarter" },
+          { text: "", classes: "" }
+        ],
+        rows: [
+          [
+            { text: accountName | titleCase },
+            { text: "Admin" },
+            { text: data.defaultServiceEnrolment },
+            { text: data.defaultServiceRole },
+            { html: accountLink }
+          ]			  
+        ]
+      }) }}      	 -->
+
+   <!-- <h2 class="govuk-heading-l govuk-!-margin-top-7">Your services</h2>
+    
+    <div class="govuk-grid-row">
+        <div class="govuk-card__content">
+            <div class="govuk-grid-column-one-third">
+                <div class="govuk-card govuk-card--contained govuk-card--selectable">
+                    <a href="../epr/home"></a>
+                    <div class="govuk-card__content">
+                        <h3 class="govuk-heading-m">IPAFFS</h3>
+                    </div>
+                </div>
+            </div>
+             <div class="govuk-grid-column-one-third">
+                <div class="govuk-card govuk-card--contained govuk-card--selectable">
+                    <a href="../drs/home"></a>
+                    <div class="govuk-card__content">
+                        <h3 class="govuk-heading-m">Comply with UK Reach</h3>
+                    </div>
+                </div>
+            </div> -->
+            <!-- <div class="govuk-grid-column-one-third">
+                <div class="govuk-card govuk-card--contained govuk-card--selectable">
+                <a href="../drs/home"></a>
+                <div class="govuk-card__content">
+                        <h3 class="govuk-heading-m">Waste Tracking Service</h3>
+                </div>
+                </div>
+        </div> -->
+        </div>
+    </div>

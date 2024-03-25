@@ -1,0 +1,64 @@
+{% extends "/layouts/main.html" %}
+{% set serviceName = "Your Defra account" %}
+
+<!-- Sets type of action link -->
+{% set accountLink %}
+  {% if data['registrationAccountType'] == "Individual" %}
+  	<a href="/account/manage/enrol-list" class="govuk-link govuk-link--no-visited-state">Add a service<span class="govuk-visually-hidden td-header"> {{ business }}</span></a>
+  {% else %}
+  	<a href="/account/manage/dashboard" class="govuk-link govuk-link--no-visited-state">Manage<span class="govuk-visually-hidden td-header"> {{ business }}</span></a>
+  {% endif %}
+{% endset -%}
+
+{% set accountName %}	
+	{{ data.defaultCompanyName }}	
+{% endset -%}
+
+{% set accountUserName %}	
+	{{ data.defaultFirstName }} {{ data.defaultSurname }}	
+{% endset -%}
+
+
+
+
+
+{% if data['defaultAccount'] == "thirdParty" %}
+	{% set pageHeading = "Manage account" %}
+	{% set pageSection = "Defra online services" %}
+{% else %}
+	{% set pageHeading = "Your Defra account" %}
+	{% set pageSection = "" %}
+{% endif %}
+
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/account-nav.html" %}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+		<!-- Notification banner -->
+		{% if data['notification_banner'] != "" %}
+			{% include "includes/notification/banner.html" %}
+		{% endif %}
+
+		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}     
+		
+		<!-- Third party layout -->
+		{% if ((data['defaultAccount'] == "thirdParty") or ( data['defaultAccount'] == "thirdPartyCEO")) %}
+			{% include "includes/account/thirdparty.html" %}
+		<!-- Business and Individual -->
+		{% else %}
+			{% include "includes/account/business.html" %}
+		{% endif %}
+
+      </div>
+    </div>
+
+{% endblock %}
+

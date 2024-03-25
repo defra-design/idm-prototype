@@ -1,0 +1,49 @@
+{% extends "/layouts/main.html" %}
+{% set showBackLink = false %}
+{% set serviceName = "" %}
+
+{% set pageHeading = 'What is their ' + data.defaultThirdParty | lowerCase + ' email address?' %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+        <div class="govuk-inset-text">
+            <p>For security it’s important this is the email address they use at {{ data.defaultThirdPartyName }}.</p>
+        </div>
+        <form method="post" action="/account/thirdParty/add/check-your-answers" >
+
+            {% if data['thirdPartyInvite'] == "Yes" %}
+
+                {% include "includes/account/email/invite.html" %}
+
+            {% else %}
+                
+                {% include "includes/account/email/users.html" %}
+
+            {% endif %}
+
+
+                {{ govukButton({
+                    text: "Continue"
+                }) }}                                
+
+        </form>
+       
+    </div>
+</div>
+
+{% endblock %}
+
+
+
+
+
+
+
+

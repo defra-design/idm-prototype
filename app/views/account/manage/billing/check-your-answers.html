@@ -1,0 +1,91 @@
+{% extends "/layouts/main.html" %}
+{% set showBackLink = true %}
+{% set serviceName = "" %}
+
+{% set pageHeading = "Check your answers" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   
+
+    
+		
+
+			<h2 class="govuk-heading-m govuk-!-margin-bottom-2">Billing information</h2>
+			<!-- Account Type -->
+    		<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+      			<div class="govuk-summary-list__row">
+        			<dt class="govuk-summary-list__key">Address</dt>
+        			<dd class="govuk-summary-list__value">
+                        {% if data['billingAddress'] == "Yes" %}
+                        <p class="govuk-body">Hutton Yeat Farm
+                            <br>Old Hutton
+                            <br>Kendal
+                            <br>South Lakeland
+                            <br>LA8 0NL</p>
+                        {% else %}
+
+                            {% if data['billingAddressDetails'] %}
+                                {{ data['billingAddressDetails'] }}
+                            {% else %}
+
+
+                            {% endif %}
+
+
+          				{{ data['registrationAccountType'] }}
+                        {% endif %}
+        			</dd>
+        			<dd class="govuk-summary-list__actions">
+						<a class="govuk-link govuk-link--no-visited-state" href="/register/account-type?link=change">Change<span class="govuk-visually-hidden"> type of account</span></a>
+        			</dd>
+      			</div>
+				  <div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">Email address</dt>
+					<dd class="govuk-summary-list__value">												
+						
+                        {{ data['billingEmail'] }}
+						
+					</dd>
+					<dd class="govuk-summary-list__actions">
+						<a class="govuk-link govuk-link--no-visited-state" href="/register/account-type?link=change">Change<span class="govuk-visually-hidden"> type of account</span></a>
+        			</dd>
+				</div>	
+                <div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">Telephone</dt>
+					<dd class="govuk-summary-list__value">												
+						{{ data['billingTelephone'] }}
+					</dd>
+					<dd class="govuk-summary-list__actions">
+						<a class="govuk-link govuk-link--no-visited-state" href="/register/account-type?link=change">Change<span class="govuk-visually-hidden"> type of account</span></a>
+        			</dd>
+				</div>
+    		</dl>
+
+			
+      	</dl>
+
+		
+        
+		
+        <form method="post" action="/account/manage/billing/confirmation">
+
+            <input type="hidden" name="billingDetailsAdded" id="billingDetailsAdded" value="Yes" />
+		
+				{{ govukButton({
+					text: "Confirm and add billing information"				
+				}) }}
+		  
+        </form>
+
+      </div>
+	  <div class="govuk-grid-column-one-third review">              
+        </div>  
+    </div>
+
+{% endblock %}

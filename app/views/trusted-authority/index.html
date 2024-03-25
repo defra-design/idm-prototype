@@ -1,0 +1,67 @@
+{% extends "/layouts/main.html" %}
+{% set showBackLink = false %}
+{% set serviceName = "" %}
+
+{% set pageHeading = "What’s your trusted third party email address?" %}
+{% set pageHeading = "What’s the email address you use with the local authority?" %}
+{% set pageHeading = "What’s your local authority email address?" %}
+
+
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+        
+        <!-- <p>This is the work email address you use with the local authority. </p> -->
+        <p>We will send a one-time passcode to this email address.</p>
+                
+        <form method="post" action="/trusted-authority/enter-code" >        
+
+            {{ govukInput({
+                label: {
+                    text: "Email address",
+                    classes: "govuk-visually-hidden",
+                    isPageHeading: false
+                },
+                classes: "govuk-!-width-two-thirds",
+                id: "trustedAuthorityEmail",
+                name: "trustedAuthorityEmail",
+                type: "email",
+                value: data['trustedAuthorityEmail']    
+            }) }}
+            
+            
+            <div class="govuk-button-group">
+            {{ govukButton({
+                text: "Continue"
+            }) }}               
+            
+            <a class="govuk-link" href="/authentication/no-access">I do not have access to this email address</a>
+
+            </div>
+
+
+
+            
+
+        </form>
+
+
+        <!-- <ul class="govuk-list govuk-font-weight-s">
+            <li><a href="/account-found?accountVerifyType=oneLog">Account and using GOV.UK One Login</a></li>
+            <li><a href="/account-found?accountVerifyType=GovGate">Account and using Government Gateway</a></li>
+            <li><a href="/account-found?accountVerifyType=both">Account and both options</a></li>
+            <li><a href="/no-account">No account</a></li>
+
+        </ul> -->
+       
+    </div>
+</div>
+
+
+{% endblock %}

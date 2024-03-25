@@ -1,0 +1,36 @@
+{% extends "/layouts/main.html" %}
+{% set showBackLink = false %}
+
+
+{% set pageHeading = "There was a problem sending the one-time passcode" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+            <p>This could be due to:</p>
+            <ul class="govuk-list govuk-list--bullet">
+                <li>a technical issue with the service</li>
+                <li>the email address not been registered with the local authority</li>
+            </ul>
+            <p class="govuk-body govuk-!-margin-bottom-7">We can <a href="/register/thirdParty/enter-code">send the code again</a> or you can <a href="/trusted-authority/">use a different email address</a> if you have not provided the correct one.</p>
+   
+        
+   
+
+
+
+            
+
+       
+    
+    </div>
+</div>
+
+{% endblock %}

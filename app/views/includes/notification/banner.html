@@ -1,0 +1,10 @@
+{% set html %}
+  			<h3 class="govuk-notification-banner__heading">Service role updated</h3>
+  			<p class="govuk-body">You have updated your service role for Local Authority Payment Service (LAPS).</p>
+		{% endset %}
+		
+
+		{{ govukNotificationBanner({
+  			html: html,
+  			type: "success"
+		}) }}

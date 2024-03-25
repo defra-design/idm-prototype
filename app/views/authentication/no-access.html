@@ -1,11 +1,16 @@
-{% extends "layout.html" %}
+{% extends "/layouts/main.html" %}
 {% set showBackLink = false %}
 {% set serviceName = "" %}
 
-{% if data['verify-your-identity'] == "send-email" %}
-    {% set pageHeading = "Changing the email address used for identity verification" %}
+{% if data['trustedThirdParties'] == "Yes" %}
+    {% set pageHeading = "Changing the email address used for local authority verification" %}
 {% else %}
-    {% set pageHeading = "Changing the phone number used for identity verification" %}
+
+    {% if data['verify-your-identity'] == "send-email" %}
+        {% set pageHeading = "Changing the email address used for identity verification" %}
+    {% else %}
+        {% set pageHeading = "Changing the phone number used for identity verification" %}
+    {% endif %}
 {% endif %}
 
 
@@ -20,10 +25,17 @@
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
         
         
-        {% if data['verify-your-identity'] == "send-email" %}
-        <p>If you do not have access to the email address associated with your account, you’ll need to contact us to make a change to it.</p>
+        {% if data['trustedThirdParties'] == "Yes" %}
+            <p>If you do not have access to the email address associated with your Local Authority account, you’ll need to contact us to make a change to it.</p>
+
         {% else %}
-        <p>If you do not have access to the phone number associated with your account, you’ll need to contact us to make a change to it.</p>
+
+            {% if data['verify-your-identity'] == "send-email" %}
+            <p>If you do not have access to the email address associated with your account, you’ll need to contact us to make a change to it.</p>
+            {% else %}
+            <p>If you do not have access to the phone number associated with your account, you’ll need to contact us to make a change to it.</p>
+            {% endif %}
+
         {% endif %}
 
         <p>It is not possible to change this online.</p>

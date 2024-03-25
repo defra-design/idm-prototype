@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "/layouts/main.html" %}
 {% set showBackLink = false %}
 {% set serviceName = "" %}
 
@@ -22,7 +22,7 @@
                     isPageHeading: false
                 },
                 classes: "govuk-!-width-two-thirds"
-            } | decorateFormAttributes(verificaationCode)) }}
+            }) }}(verificaationCode)) }}
             
             
             {{ govukButton({

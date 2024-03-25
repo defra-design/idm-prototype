@@ -1,0 +1,48 @@
+{% extends "/layouts/main.html" %}
+{% set showBackLink = true %}
+
+
+{% set pageHeading = "What is the email address for this registered company?" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block beforeContent %}
+	<div id="profile">    	
+        {% include "includes/account-nav.html" %}
+  	</div>    
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        
+		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}  
+
+		<p class="govuk-body">These could be details included on the website, or contact details for the head office or management team.</p>
+  
+		<form action="/account/manage/update/organisation/" method="post">
+
+
+			{{ govukInput({
+				label: {
+				  text: "Email address",
+				  classes: "govuk-label"
+				},          	
+				classes: "govuk-!-width-two-thirds",
+				id: "orgEmail",
+				name: "orgEmail",
+				value: data['orgEmail'],
+				type: email
+		  	}) }}
+
+		  	{{ govukButton({
+				text: "Continue"
+		  	}) }}
+
+      </form>
+
+  </div>
+</div>
+
+{% endblock %}

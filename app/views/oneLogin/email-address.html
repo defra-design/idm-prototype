@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "/layouts/main.html" %}
 {% set showBackLink = true %}
 {% set serviceName = "" %}
 
@@ -24,8 +24,11 @@
                     classes: "govuk-visually-hidden",
                     isPageHeading: false
                 },                
-                classes: "govuk-!-width-two-thirds"
-            } | decorateFormAttributes(govOneLoginEmail)) }}
+                classes: "govuk-!-width-two-thirds",
+                name: "govOneLoginEmail"
+            
+
+            }) }}
             
             
             {{ govukButton({

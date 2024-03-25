@@ -1,0 +1,53 @@
+{% extends "/layouts/main.html" %}
+{% set showBackLink = false %}
+{% set serviceName = "" %}
+
+{% set pageHeading = "What is their job title for the local authority?" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+        
+
+
+        <form method="post" action="/register/thirdParty/user/service-role" >
+
+            {{ govukInput({
+                label: {
+                    text: "Email address",
+                    classes: "govuk-visually-hidden"
+                },
+                classes: "govuk-!-width-three-quarters",
+                name: "regThirdPartyUserJobTitle"
+            }) }}
+
+
+                {{ govukButton({
+                    text: "Continue"
+                }) }}                                
+                
+
+
+            
+
+
+        </form>
+       
+    </div>
+</div>
+
+{% endblock %}
+
+
+
+
+
+
+
+

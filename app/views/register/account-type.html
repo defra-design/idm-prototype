@@ -1,55 +1,41 @@
-{% extends "layout.html" %}
-{% set showBackLink = true %}
+{% extends "/layouts/main.html" %}
+
+{% if data['backButtonHide'] == "Yes" %}
+    {% set showBackLink = false %}
+{% endif %}
 {% set serviceName = "" %}
 
-{% if data['status'] == "review" %}
-    {% set pageHeading = "Who are you registering as?" %}
-{% else %}
-    {% set pageHeading = "Are you registering as a business or an individual?" %}
-{% endif %}
-
+{% set pageHeading = "Are you registering as a business or organisation?" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
 
-  <div class="govuk-grid-row">
+<div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-        
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}     
 
-            {% if data['status'] == "review" %}
-
-            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}     
+        <!-- <p>You represent a business or organisation (including sole traders and charities) and have permission to register an account.</p> -->
+        <p>This includes if you are a sole trader or registered charity.</p>
         
-            <form method="post" action="/register/uk-organisation">
+        <form method="post" action="/register/uk-organisation">
             
-                {{ govukRadios({
-                    fieldset: {
-                        legend: { text: "Are you registering as a business or an individual?", isPageHeading: false, classes: "govuk-visually-hidden"  }
-                    },
-                    items: [
-                        { value: "Business", html: '<strong>Business or organisation</strong>', hint: { text: "You represent a business or organisation that wants to use this service (including sole traders and charities) and you have permission to create an account for them." }  },
-                        { value: "Individual, redirect(/register/uk-address)", html: '<strong>Individual</strong>', hint: { text: "You want to use this service for your own personal use." } }
-                    ]
-                } | decorateFormAttributes('registrationAccountType')) }}
-
-            {% else %}
-
-            <h1 class="govuk-heading-l">{{pageHeading}}</h1>
-            <form method="post" action="/register/uk-organisation">
-
-                {{ govukRadios({
-                    fieldset: {
-                        legend: { text: "Are you registering as a business or an individual?", isPageHeading: false, classes: "govuk-visually-hidden"  }
-                    },
-                    items: [
-                        { value: "Organisation", html: '<strong>A business or organisation</strong>', hint: { text: "You represent a business or organisation that wants to use this service (including sole traders and charities) and you have permission to create an account for them" }  },
-                        { value: "Individual, redirect(/register/personal-name)", html: '<strong>An individual</strong>', hint: { text: "You want to use this service for your own personal use" } }
-                    ]
-                } | decorateFormAttributes('registrationAccountType')) }}
-
-            {% endif %}
+            {{ govukRadios({
+                
+                fieldset: {
+                    legend: { text: pageHeading, isPageHeading: false, classes: "govuk-visually-hidden"  }
+                },
+                items: [
+                    { value: "Business", text: "Yes, and i have permission to create an account",  checked: checked('registrationAccountType', 'Business')  },
+                    { value: "Individual~/register/uk-address", text: "No, as an individual for personal use", checked: checked('registrationAccountType', 'Individual')  }
+                ],
+                name: "registrationAccountType"
+            }) }}
+            
+            <!-- Removes the temp link if changing account type to hide backbutton -->
+            <input type="hidden" id="backButtonHide" name="backButtonHide" value="" />
+            <!-- // -->
             
             {{govukButton({
                 text: "Continue"
@@ -57,16 +43,7 @@
 
         </form>          
 
-    </div>
-    <div class="govuk-grid-column-one-third review">      
-        <ul class="govuk-list govuk-body-s govuk-!-text-align-right">                
-            {% if data['status'] == "review" %}
-                <li><a href="/register/account-type?status=" class="govuk-link govuk-link--no-visited-state">Current page</a></li>        
-            {% else %}
-                <li><a href="/register/account-type?status=review" class="govuk-link govuk-link--no-visited-state">Suggested page changes</a></li>        
-            {% endif %}
-        </ul>          
-    </div>
+    </div>    
 </div>
 
 {% endblock %}

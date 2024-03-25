@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "/layouts/main.html" %}
 
 {% set serviceName = "Defra account" %}
 
@@ -47,7 +47,7 @@
           Your name
         </dt>
         <dd class="govuk-summary-list__value">
-          {{ data['defraIdFirstName'] or 'Sam' }} {{ data['defraIdSurname'] or 'Woods' }}
+          {{ data['defaultFirstName'] or 'Sam' }} {{ data['defaultSurname'] or 'Woods' }}
         </dd>
         <dd class="govuk-summary-list__actions">
           <a class="govuk-link" href="#">

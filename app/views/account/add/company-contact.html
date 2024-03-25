@@ -1,0 +1,157 @@
+{% extends "/layouts/main.html" %}
+{% set showBackLink = true %}
+{% set serviceName = "" %}
+
+
+{% if data['addSiblingOrganisationType'] == "Sole trader" %}
+    {% set pageHeading = "What’s the business’s telephone number and email address?" %}
+{% elif data['addSiblingOrganisationType'] == "Charity" %}
+    {% set pageHeading = "What’s the charity’s telephone number and email address?" %}
+{% else %}
+    {% set pageHeading = "What’s the business’s telephone number and email address?" %}
+{% endif %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   
+        
+
+        {% if data['addSiblingOrganisationType'] == "Sole trader" %}
+            <form action="/account/add/check-your-answers" method="post">
+        {% else %}
+            <form action="/account/add/check-your-answers" method="post">
+        {% endif %}
+
+        <!-- <p>These could be from the website, or for the head office or management team.</p> -->
+        <!-- <p>This could be the number for head office or management team.</p> -->
+                
+
+        
+        {% if data['addSiblingTradeUK'] == "No" %}
+
+            {{ govukInput({
+                label: {
+                    text: "Telephone number",
+                    classes: "govuk-label"					
+                },                
+                classes: "govuk-!-width-two-thirds",
+                hint: {
+                    text: "For international numbers include the country code."
+                },
+                type: "tel",
+                name: "addSiblingNonUkPhone",
+                id: "addSiblingNonUkPhone",
+                value: data['addSiblingNonUkPhone']
+            }) }}           
+
+            {{ govukInput({
+                label: {
+                    text: "Email address",
+                    classes: "govuk-label"					
+                },                
+                classes: "govuk-!-width-two-thirds",
+                type: "email",
+                name: "addSiblingNonUkEmail",
+                id: "addSiblingNonUkEmail",
+                value: data['addSiblingNonUkEmail']
+            }) }}
+        
+        
+        
+        {% elif data['addSiblingOrganisationType'] == "Sole trader" %}
+
+            {{ govukInput({
+                label: {
+                    text: "UK telephone number",
+                    classes: "govuk-label"					
+                },                
+                classes: "govuk-!-width-two-thirds",
+                type: "tel",
+                name: "addSiblingSoleTraderPhone",
+                id: "addSiblingSoleTraderPhone",
+                value: data['addSiblingSoleTraderPhone']
+            }) }}           
+
+            {{ govukInput({
+                label: {
+                    text: "Email address",
+                    classes: "govuk-label"					
+                },                
+                classes: "govuk-!-width-two-thirds",
+                type: "email",
+                name: "addSiblingSoleTraderEmail",
+                id: "addSiblingSoleTraderEmail",
+                value: data['addSiblingSoleTraderEmail']
+            }) }}
+
+        {% elif data['addSiblingOrganisationType'] == "Charity" %}
+
+            {{ govukInput({
+                label: {
+                    text: "UK telephone number",
+                    classes: "govuk-label"					
+                },                
+                classes: "govuk-!-width-two-thirds",
+                type: "tel",
+                name: "addSiblingCharityPhone",
+                id: "addSiblingCharityPhone",
+                value: data['addSiblingCharityPhone']
+            }) }}           
+
+            {{ govukInput({
+                label: {
+                    text: "Email address",
+                    classes: "govuk-label"					
+                },                
+                classes: "govuk-!-width-two-thirds",
+                type: "email",
+                name: "addSiblingCharityEmail",
+                id: "addSiblingCharityEmail",
+                value: data['addSiblingCharityEmail']
+            }) }}
+
+
+
+        {% else %}
+
+			{{ govukInput({
+                label: {
+                    text: "Telephone number",
+                    classes: "govuk-label"					
+                },                
+                classes: "govuk-!-width-two-thirds",
+				type: "tel",
+                name: "addSiblingPhone",                
+                id: "addSiblingPhone",
+                value: data['addSiblingPhone']
+            }) }}           
+
+            {{ govukInput({
+                label: {
+                    text: "Email address",
+                    classes: "govuk-label"					
+                },                
+                classes: "govuk-!-width-two-thirds",
+				type: "email",
+                name: "addSiblingEmail",
+                id: "addSiblingEmail",
+                value: data['addSiblingEmail']
+            }) }}
+            
+        {% endif %}
+
+      		{{ govukButton({
+        		text: "Continue"
+      		}) }}
+
+    	</form>
+
+  	</div>    
+</div>
+
+{% endblock %}

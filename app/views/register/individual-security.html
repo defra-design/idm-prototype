@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "/layouts/main.html" %}
 {% set showBackLink = true %}
 {% set serviceName = "" %}
 
@@ -30,8 +30,9 @@
                     text: "Your security word"
                 },
                 type: "text",
-                classes: "govuk-!-width-one-third"                
-            } | decorateFormAttributes('defraIdSecurityWord')) }}          
+                classes: "govuk-!-width-one-third",                
+                name: "defraIdSecurityWord"
+            }) }}
 
             {{ govukCharacterCount({                
                 label: {
@@ -42,8 +43,9 @@
                 },
                 classes: "govuk-!-width-two-thirds",
                 maxlength: 100,
-                rows: 2                
-            } | decorateFormAttributes('defraIdSecurityHint')) }}          
+                rows: 2,
+                name: "defraIdSecurityHint"
+            }) }}
 
             
 

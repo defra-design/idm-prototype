@@ -1,7 +1,7 @@
-{% extends "layout.html" %}
+{% extends "/layouts/main.html" %}
 
-{# {% extends "layout.html" %} #}
-{% extends "layout.html" %}
+{# {% extends "/layouts/main.html" %} #}
+{% extends "/layouts/main.html" %}
 {% set showBackLink = true %}
 {% set serviceName = "Defra account" %}
 
@@ -26,9 +26,9 @@
             },
             items: [
                 { value: "UK", text: "UK" },
-                { value: "Non-UK (Organisation that is not registered in the UK), redirect(non-uk-business-name?orgType=non-uk-org)", text: "Non-UK (Organisation that is not registered in the UK)" }
+                { value: "Non-UK (Organisation that is not registered in the UK), redirect(non-uk-registrationBusinessName?orgType=non-uk-org)", text: "Non-UK (Organisation that is not registered in the UK)" }
             ]
-          } | decorateFormAttributes('defraIdCompanyRegisteredLocation')) }}
+          }) }}('defraIdCompanyRegisteredLocation')) }}
 
           {{govukButton({
             text: "Continue"

@@ -1,0 +1,52 @@
+{% extends "/layouts/main.html" %}
+{% set showBackLink = true %}
+
+
+{% set pageHeading = "Update your organisation details" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block beforeContent %}
+	<div id="profile">    	
+        {% include "includes/account-nav.html" %}
+  	</div>    
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full govuk-!-margin-bottom-7">
+        
+		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   
+    
+    </div>
+  
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+		<p class="govuk-body">Make updates to Your Defra registered Organisation information.</p>
+
+      	<dl class="govuk-summary-list govuk-!-margin-bottom-7">
+        	<div class="govuk-summary-list__row">
+          		<dt class="govuk-summary-list__key">Telephone</dt>
+          		<dd class="govuk-summary-list__value">{{ data.registrationPhone }}</dd>
+          		<dd class="govuk-summary-list__actions"><a class="govuk-link" href="/account/manage/update/organisation/phone-number">Change<span class="govuk-visually-hidden"> phone number</span></a></dd>
+        	</div>
+        	<div class="govuk-summary-list__row">
+          		<dt class="govuk-summary-list__key">Email</dt>
+          		<dd class="govuk-summary-list__value">{{ data.registrationEmail }}</dd>
+          		<dd class="govuk-summary-list__actions"><a class="govuk-link" href="/account/manage/update/organisation/email">Change<span class="govuk-visually-hidden"> email address</span></a></dd>
+        	</div>
+      	</dl>
+
+      	<details class="govuk-details" data-module="govuk-details">
+        	<summary class="govuk-details__summary">
+          		<span class="govuk-details__summary-text">Change your organisation address</span>
+        	</summary>
+        	<div class="govuk-details__text">          
+				You must update the organisation address with Companies House. <a href="https://www.gov.uk/government/collections/companies-house-forms-file-a-change-of-address" class="govuk-link" rel="noreferrer noopener" target="_blank">File a change of address with Companies House (opens in a new tab)</a>.
+        	</div>
+      	</details>
+
+  	</div>
+</div>
+{% endblock %}

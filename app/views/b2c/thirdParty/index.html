@@ -1,0 +1,42 @@
+{% extends "/layouts/main.html" %}
+{% set showBackLink = false %}
+{% set serviceName = "" %}
+
+{% set pageHeading = 'What’s your ' +  data.defaultThirdParty | lowerCase + ' email address?' %}
+
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+                
+        <p class="govuk-body">We will send a one-time passcode to this email address.</p>
+                
+        <form method="post" action="/b2c/thirdParty/enter-code" >        
+
+            {{ govukInput({
+                label: {
+                    text: "Email address",
+                    classes: "govuk-visually-hidden",
+                    isPageHeading: false
+                },
+                classes: "govuk-!-width-two-thirds",
+                id: "regThirdPartyCEOEmail",
+                name: "regThirdPartyCEOEmail",
+                type: "email",
+                value: data['regThirdPartyCEOEmail']    
+            }) }}
+            
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+        </form>
+       
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends "/layouts/main.html" %}
+{% set showBackLink = true %}
+
+
+{% set pageHeading = "What is the address?" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block beforeContent %}
+	<div id="profile">    	
+        {% include "includes/account-nav.html" %}
+  	</div>    
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        
+		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }} 
+
+      	<form action="/account/manage/related/select-address" method="post">
+
+        	{{ govukInput({
+          		label: {
+            		text: "Enter your postcode",
+            		classes: "govuk-label--s"
+          		},
+          		hint: {
+            		text: "If you cannot find your address or you need to add a non-UK address you can add it manually below."
+          		},
+          		classes: "govuk-input--width-10",
+          		id: "relatedCompanyPostcode",
+          		name: "relatedCompanyPostcode",
+          		value: relatedCompanyPostcode
+        	}) }}
+
+        	{{ govukButton({
+          		text: "Find address"
+        	}) }}
+
+        	<p class="govuk-body"><a class="govuk-link" href="/account/manage/related/manual-address">Enter the address manually</a></p>
+
+      	</form>
+
+  	</div>
+</div>
+
+{% endblock %}

@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "/layouts/main.html" %}
 {% set showBackLink = false %}
 {% set serviceName = "" %}
 
@@ -11,16 +11,7 @@
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-
-
-        {% if data['mfaSmsDisabled'] == "Yes" %}
-        <div class="govuk-inset-text">
-            <p>The option to verify your identity by text message is not available.</p>            
-            <!-- <p>We have automatically taken you to the option to verify your identity by sending the 6-digit code by email.</p> -->
-            <p>We have switched you to verify your identity by sending the 6-digit code using email.</p>
-        </div>
-        {% endif %}
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}        
         
         <p>Your security word hint is: <span class="govuk-!-font-weight-bold">MemorableWord</span></p>
         

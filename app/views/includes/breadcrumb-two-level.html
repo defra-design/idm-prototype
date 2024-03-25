@@ -11,9 +11,9 @@
       <ol class="govuk-breadcrumbs__list">
         <li class="govuk-breadcrumbs__list-item">
       {% if (data['orgType'] == "onlyRep") %}
-          <a class="govuk-breadcrumbs__link" href="/manage/team-members/services-on-team-member-admin-account_onlyrep">Home</a>
+          <a class="govuk-breadcrumbs__link" href="/archived/manage/team-members/services-on-team-member-admin-account_onlyrep">Home</a>
       {% else %}
-          <a class="govuk-breadcrumbs__link" href="/manage/team-members/services-on-team-member-admin-account_company">Home</a>
+          <a class="govuk-breadcrumbs__link" href="/archived/manage/team-members/services-on-team-member-admin-account_company">Home</a>
       {% endif %}
         </li>
         <li class="govuk-breadcrumbs__list-item">
@@ -28,7 +28,7 @@
 {% if (data['numAgents'] == "3") %}
   {% set parentURL = "/errors/user-access-child-error" %}
 {% else %}
-  {% set parentURL = "/manage/dashboard-all?multiOrg=yes&parentChild=parent" %}
+  {% set parentURL = "/archived/manage/dashboard-all?multiOrg=yes&parentChild=parent" %}
 {% endif %}
 
 {% if (data['parentChild'] == "child") %}
@@ -37,9 +37,9 @@
       <ol class="govuk-breadcrumbs__list">
         <li class="govuk-breadcrumbs__list-item">
           {% if (data['orgType'] == "onlyRep") %}
-              <a class="govuk-breadcrumbs__link" href="/manage/team-members/services-on-team-member-admin-account_onlyrep">Home</a>
+              <a class="govuk-breadcrumbs__link" href="/archived/manage/team-members/services-on-team-member-admin-account_onlyrep">Home</a>
           {% else %}
-              <a class="govuk-breadcrumbs__link" href="/manage/team-members/services-on-team-member-admin-account_company">Home</a>
+              <a class="govuk-breadcrumbs__link" href="/archived/manage/team-members/services-on-team-member-admin-account_company">Home</a>
           {% endif %}
         </li>
         <li class="govuk-breadcrumbs__list-item">

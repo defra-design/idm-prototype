@@ -1,0 +1,51 @@
+{% extends "/layouts/main.html" %}
+{% set showBackLink = true %}
+{% set serviceName = "" %}
+
+{% set pageHeading = "You cannot continue registering" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}       	
+
+			<p class="govuk-body">According to Companies House records, this company is inactive. A company must hold an active status to register for a Defra account.</p>			
+
+			<div class="govuk-inset-text">
+				<p class="govuk-body">Company number: {{ data.registrationCompanyNumber or data.defaultCompanyNumber }}</p>				
+
+				<p class="govuk-body">Acme Org Ltd {{ data['orgName'] }}    		
+				<br>1 Francis Crick Avenue
+				<br>Cambridge Biomedical Campus
+				<br>Cambridge
+				<br>United Kingdom
+				<br>CB2 0AA</p>
+
+				
+			</div>
+
+			<p class="govuk-body"><a href="/register/companies-house-number" class="govuk-link">This is not the right business</a></p>
+			    		
+			
+			<h2 class="govuk-heading-m">What you can do next</h2>
+			<p class="govuk-body">If you think this information is incorrect or needs changing <a href="https://www.gov.uk/restart-a-non-trading-or-dormant-company" target="_blank">visit Companies House (opens in new tab)</a>.</p>		
+			<p class="govuk-body">Once Companies House have updated your details you can return and continue your registration providing it is within 3 days of your last login.</p>
+    		
+			<p class="govuk-body"><a href="#">Sign out</a></p>	    		
+			
+
+  </div>
+</div>
+
+{% endblock %}
+
+
+
+
+
+
+   

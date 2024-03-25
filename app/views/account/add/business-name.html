@@ -1,0 +1,87 @@
+{% extends "/layouts/main.html" %}
+{% set showBackLink = true %}
+{% set serviceName = "" %}
+
+
+{% if data['addSiblingOrganisationType'] == "Sole trader" %}
+	{% set pageHeading = "What is the name of the business?" %}
+{% else %}
+	{% set pageHeading = "What is the name of the business?" %}
+{% endif %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   
+
+
+		{% if data['addSiblingOrganisationType'] == "Sole trader" %}
+		<p class="govuk-body">The business may be trading under a personal name or a name you have chosen.</p>
+		{% else %}
+		<p class="govuk-body">The business may be trading under a personal name or a name you have chosen.</p>
+		{% endif %}
+
+		{% if data['addSiblingOrganisationType'] == "Sole trader" %}
+			<form method="post" action="/account/add/address/postcode">
+		{% else %}
+    		<form method="post" action="/account/add/address/add-address-manual">
+		{% endif %}
+
+
+			{% if data['addSiblingTradeUK'] == "No" %}
+
+				{{ govukInput({
+					label: {
+						text: pageHeading,
+						classes: "govuk-visually-hidden"						
+					},						
+					classes: "govuk-!-width-two-thirds",
+					name: "addSiblingNonUkName",
+					id: "addSiblingNonUkName",
+					value: data['addSiblingNonUkName']
+				}) }}
+
+
+			{% elif data['addSiblingOrganisationType'] == "Sole trader" %}
+
+				{{ govukInput({
+					label: {
+						text: pageHeading,
+						classes: "govuk-visually-hidden"						
+					},						
+					classes: "govuk-!-width-two-thirds",
+					name: "addSiblingSoleTraderName",
+					id: "addSiblingSoleTraderName",
+					value: data['addSiblingSoleTraderName']
+				}) }}
+
+			{% else %}
+
+				{{ govukInput({
+					label: {
+						text: pageHeading,
+						classes: "govuk-visually-hidden"						
+					},						
+					classes: "govuk-!-width-two-thirds",
+					name: "addSiblingBusinessName",
+					id: "addSiblingBusinessName",
+					value: data['addSiblingBusinessName']
+				}) }}
+
+			{% endif %}
+
+      		{{ govukButton({
+        		text: "Continue"
+      		}) }}      
+
+    	</form>
+
+  	</div>
+</div>
+
+{% endblock %}
