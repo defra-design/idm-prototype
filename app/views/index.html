@@ -30,9 +30,9 @@
                 <li>give other people (for example colleagues or agents) access to one or more of the online services they use.</li>
             </ul>
 
-            <h2 class="govuk-heading-m">User flows</h2>      
+            <h2 class="govuk-heading-m">User flows no prefilled data</h2>      
             <p>These are the core flows, but you can also select a service on the preload to show any service specific pages and content.</p>      
-            <div class="govuk-button-group">
+            <div class="govuk-button-group govuk-!-margin-bottom-7">
                 <form action="/flow" method="post" >
                     <input type="hidden" name="userFlow" id="userFlow" value="Registration" />                    
                     <input type="hidden" name="serviceFlow" id="serviceFlow" value="coreDefault" />
@@ -48,7 +48,56 @@
                         classes: "govuk-button--secondary govuk-!-margin-left-1"
                     }) }}
                 </form>                 -->
-            </div>            
+            </div>           
+            
+            
+
+            <h2 class="govuk-heading-m">Prefilled registration flows</h2>      
+            
+            <p>Flows that have prefilled information so that you can proceed to check your answers in registration and on to Defra account depending on account type.</p>      
+            <div class="govuk-button-group">
+                <form action="/register/check-your-answers" method="post" >
+                    <input type="hidden" name="registrationAccountType" id="registrationAccountType" value="Business" />                    
+                    <input type="hidden" name="registrationTradeUK" id="registrationTradeUK" value="Yes" />
+
+                    <input type="hidden" name="registrationCompanyRegistrationNumber" id="registrationCompanyRegistrationNumber" value="Yes" />
+                    <input type="hidden" name="registrationContactPhonePersonal" id="registrationContactPhonePersonal" value="00700700788" />
+                    <input type="hidden" name="defaultEmail" id="defaultEmail" value="hugo.furst@soleheaven.com" />
+                    <input type="hidden" name="defaultPhone" id="defaultPhone" value="07985439576" />
+                    <input type="hidden" name="defaultFirstName" id="defaultFirstName" value="Hugo" />
+                    <input type="hidden" name="defaultSurname" id="defaultSurname" value="Furst" />
+                    <input type="hidden" name="registrationMemorableWord" id="registrationMemorableWord" value="Jordan23" />
+                    <input type="hidden" name="registrationMemorableHint" id="registrationMemorableHint" value="The goat" />
+
+                    {{ govukButton({
+                        text: "Registering as Ltd Company",
+                        classes: "govuk-button--secondary"
+                    }) }}
+                </form>
+
+                <form action="/register/check-your-answers" method="post" >
+                    <input type="hidden" name="registrationAccountType" id="registrationAccountType" value="Individual" />                                        
+                    
+                    <input type="hidden" name="defaultIndividualAddress" id="defaultIndividualAddress" value="15B Kensington Palace Gardens,<br> London,<br> W8 4QG" />
+                    <input type="hidden" name="registrationIndividualPostcode" id="registrationIndividualPostcode" value="W8 4QG" />
+
+
+                    <input type="hidden" name="defaultFirstName" id="defaultFirstName" value="Hugo" />
+                    <input type="hidden" name="defaultSurname" id="defaultSurname" value="Furst" />
+                    <input type="hidden" name="registrationContactPhonePersonal" id="registrationContactPhonePersonal" value="00700700788" />                    
+                    <input type="hidden" name="registrationMemorableWord" id="registrationMemorableWord" value="Jordan23" />
+                    <input type="hidden" name="registrationMemorableHint" id="registrationMemorableHint" value="The goat" />
+
+  
+
+                    {{ govukButton({
+                        text: "Registering as Individual",
+                        classes: "govuk-button--secondary"
+                    }) }}
+                </form>
+
+                
+            </div>           
 
 
             <!-- <input type="hidden" name="flowVersion" id="flowVersion" value="" />                     -->

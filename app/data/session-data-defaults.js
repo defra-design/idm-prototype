@@ -19,8 +19,36 @@ Example usage:
 
 module.exports = {
 
-  // registrationAccountType: "Individual",
+  // Default always needed
+  userFlow: "Registration",
+  serviceFlow: "coreDefault",
+  companySize: "20",
+  mfaStatus: "disabled",
+  govGateUserId: "71 13 56 15 22 14",
+  govGatePassword: "letmein",
+
+  // Ltd Business
   // registrationAccountType: "Business",
+  defaultCompanyNumber: "01234568",
+  defaultCompanyAddress: "19 Hoults Yard, Walker Road, Newcastle upon Tyne NE6 2HL",
+  defaultCompanyName: "Soleheaven Ltd",
+
+  // Individual
+  // registrationAccountType: "Individual",
+  // defaultIndividualName: "Hugo Furst",
+  // defaultIndividualPhone: "00700700788",
+  // defaultFirstName: "Hugo",
+  // defaultSurname: "Furst",
+  // defaultIndividualAddress: "15B Kensington Palace Gardens,<br> London,<br> W8 4QG",
+  // registrationIndividualPostcode: "W8 4QG",
+  // defaultIndividualWord: "Jordan23",
+  // defaultIndividualHint: "The one and only goat",  
+  // defaultServiceEnrolment: "IPAFFS",
+  // defaultServiceRole: "Notifier",
+
+
+  
+  
   // defaultFirstName: "Hugo",
   // defaultSurname: "Furst",
   // govGateEmail: "hugo.furst@govgateway.default",
@@ -33,15 +61,22 @@ module.exports = {
   
   
   
-  // UK Business  
+  // IF UK Business prefilled
   // registrationTradeUK: "Yes",
   // registrationCompanyRegistrationNumber: "Yes",  
-  // defaultCompanyNumber: "01234568",
-  // defaultCompanyAddress: "19 Hoults Yard, Walker Road, Newcastle upon Tyne NE6 2HL",
-  // defaultCompanyName: "Soleheaven Ltd",
-  // defaultServiceEnrolment: "IPAFFS",
   // defaultPhone: "07985439576",
   // defaultEmail: "hugo.furst@soleheaven.com",
+  // defaultFirstName: "Hugo",
+  // defaultSurname: "Furst",
+  // registrationContactPhonePersonal: "00700700788",
+  // registrationMemorableWord: "Jordan23",
+  // registrationMemorableHint: "The goat",
+  
+
+  
+  
+  
+  // defaultServiceEnrolment: "IPAFFS",
   // registrationConfirmedAddress: "Yes",
   
   // NON Uk business
@@ -55,18 +90,11 @@ module.exports = {
   
   
   
-  
+  // Account variables  
   // defaultServiceRole: "Notifier",
 
 
-  // Individual  
-  // defaultIndividualName: "Hugo Furst",
-  // defaultIndividualPhone: "00700700788",
-  // defaultIndividualAddress: "15B Kensington Palace Gardens,<br> London,<br> W8 4QG",
-  // defaultIndividualWord: "Jordan23",
-  // defaultIndividualHint: "The one and only goat",  
-  // // defaultServiceEnrolment: "IPAFFS",
-  // defaultServiceRole: "Notifier",
+
   
   // Sole Trader
   // registrationSoleTraderName: "Soleheaven",

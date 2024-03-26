@@ -1,8 +1,8 @@
 {% extends "/layouts/main.html" %}
 {% set showBackLink = false %}
-{% set serviceName = "Service Name" %}
+{% set serviceName = "Defra account" %}
 
-{% set pageHeading = "Example service start page" %}
+{% set pageHeading = "Register for a Defra account" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
@@ -12,15 +12,15 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
         
-      	<p class="govuk-body">Use this service... lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-      	<ul class="govuk-list govuk-list--bullet">
-			<li>praesent non elit ac nibh eleifend lacinia.</li>
-			<li>quisque pellentesque enim ac finibus mattis.</li>
-			<li>nullam et dolor a lacus cursus egestas et ac ex.</li>
-			<li>nam accumsan ligula sed orci vehicula tincidunt.</li>        	
+      	<p class="govuk-body">To register for a Defra online service for the first time, you need to create a Defra account. Your Defra account lets you register with a range of online services from Defra and related organisations.</p>
+		<p class="govuk-body">You may need to tell us:</p>
+      	<ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
+			<li>your email address, phone number and postal address</li>
+			<li>your Government Gateway user ID and password. If you do not have a Government Gateway account, we’ll help you to create one</li>
+			<li>the main contact details for your business or organisation (for example, head office contact details)</li>
+			<li>the Companies House number if the business or organisation is a limited company</li>        	
       	</ul>
-		
-		<p class="govuk-body">Aliquam euismod ut leo et tristique. Maecenas eleifend odio elit, id vehicula elit laoreet et.</p>
+				
 			
 		{% if data['useOneLogin'] == "Yes" %}
 			<form class="form" action="/sign-in" method="post" >				
