@@ -58,23 +58,43 @@ module.exports = {
   // registrationMemorableHint: "The goat",
   
 
-   // Sole Trader
+  // Sole Trader
   // registrationSoleTraderName: "Soleheaven",
   // registrationSoleTraderAddress: "19 Hoults Yard, Walker Road, Newcastle upon Tyne NE6 2HL",
   // registrationSoleTraderPhone: "0191 468 2009",
   // registrationSoleTraderEmail: "soletrader@soleheaven.com",
   // registrationOrganisationType: "Sole trader",
+  // defaultFirstName: "Hugo",
+  // defaultSurname: "Furst",
 
-
-
-
+  // Charity
+  // registrationOrganisationType: "Charity",
+  // defaultCharityName: "Urban Green Newcastle",
+  // defaultCharityNumber: "1182534",
+  // defaultCharityAddress: "Ouseburn Parks Visitor Centre,<br>Red Walk,<br>Jesmond Dene,<br>NEWCASTLE UPON TYNE, <br>NE7 7BQ",
+  // defaultCharityPhone: "01918144574",
+  // defaultCharityEmail: "info@urbangreennewcastle.org",
+  // defaultFirstName: "Hugo",
+  // defaultSurname: "Furst",
+  // registrationContactPhonePersonal: "00700700788",
+  // registrationMemorableWord: "Jordan23",
+  // registrationMemorableHint: "The goat",
+  
+  // NON Uk business
+  // defaultBusinessNonUkName: "Sneakerium",
+  // defaultBusinessNonUkAddress: "116 Rue d'Antibes, 06400 Cannes, France",
+  // defaultBusinessNonUKPhone: "0033 483 4425 76",
+  // defaultBusinessNonUKEmail: "nonuk@sneakerium.fr",
+  // defaultFirstName: "Hugo",
+  // defaultSurname: "Furst",
+  // registrationContactPhonePersonal: "00700700788",
+  // registrationMemorableWord: "Jordan23",
+  // registrationMemorableHint: "The goat",
+  
 
 
   
-  // defaultFirstName: "Hugo",
-  // defaultSurname: "Furst",
   // govGateEmail: "hugo.furst@govgateway.default",
-
   // registrationStatus: "incomplete",
   // registrationStatus: "Enrolled",
   
@@ -90,14 +110,7 @@ module.exports = {
   // defaultServiceEnrolment: "IPAFFS",
   // registrationConfirmedAddress: "Yes",
   
-  // NON Uk business
-  // defaultBusinessNonUkName: "Sneakerium",
-  // defaultBusinessNonUkAddress: "116 Rue d'Antibes, 06400 Cannes, France",
-  // defaultBusinessNonUKPhone: "0033 483 4425 76",
-  // defaultBusinessNonUKEmail: "nonuk@sneakerium.fr",
-  // registrationContactPhonePersonal: "00700700788",
-  // registrationMemorableWord: "Jordan23",
-  // registrationMemorableHint: "The goat",
+  
   
   
   
@@ -109,13 +122,7 @@ module.exports = {
   
  
 
-  // Charity
-  // defaultCharityName: "Urban Green Newcastle",
-  // defaultCharityNumber: "1182534",
-  // defaultCharityAddress: "Ouseburn Parks Visitor Centre,<br>Red Walk,<br>Jesmond Dene,<br>NEWCASTLE UPON TYNE, <br>NE7 7BQ",
-  // defaultCharityPhone: "01918144574",
-  // defaultCharityEmail: "info@urbangreennewcastle.org",
-
+ 
 
    //Local authority
   //  defaultThirdParty: "Local authority",

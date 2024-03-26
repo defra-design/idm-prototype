@@ -70,33 +70,10 @@
                     <input type="hidden" name="registrationMemorableHint" id="registrationMemorableHint" value="The goat" />
 
                     {{ govukButton({
-                        text: "Ltd Company",
+                        text: "Registered Company",
                         classes: "govuk-button--secondary"
                     }) }}
-                </form>
-
-                <form action="/register/check-your-answers" method="post" >
-                    <input type="hidden" name="registrationAccountType" id="registrationAccountType" value="Individual" />                                        
-                    
-                    <input type="hidden" name="defaultIndividualAddress" id="defaultIndividualAddress" value="15B Kensington Palace Gardens,<br> London,<br> W8 4QG" />
-                    <input type="hidden" name="registrationIndividualPostcode" id="registrationIndividualPostcode" value="W8 4QG" />
-
-
-                    <input type="hidden" name="defaultFirstName" id="defaultFirstName" value="Hugo" />
-                    <input type="hidden" name="defaultSurname" id="defaultSurname" value="Furst" />
-                    <input type="hidden" name="registrationContactPhonePersonal" id="registrationContactPhonePersonal" value="00700700788" />                    
-                    <input type="hidden" name="registrationMemorableWord" id="registrationMemorableWord" value="Jordan23" />
-                    <input type="hidden" name="registrationMemorableHint" id="registrationMemorableHint" value="The goat" />
-
-  
-
-                    {{ govukButton({
-                        text: "Individual",
-                        classes: "govuk-button--secondary"
-                    }) }}
-                </form>
-
-                
+                </form>                                
             
                 <form action="/register/check-your-answers" method="post" >
                     <input type="hidden" name="registrationAccountType" id="registrationAccountType" value="Business" />                    
@@ -142,6 +119,50 @@
 
                     {{ govukButton({
                         text: "Charity",
+                        classes: "govuk-button--secondary"
+                    }) }}
+                </form>
+
+
+                <form action="/register/check-your-answers" method="post" >
+                    <input type="hidden" name="registrationAccountType" id="registrationAccountType" value="Business" />                    
+                    <input type="hidden" name="registrationTradeUK" id="registrationTradeUK" value="No" />                    
+
+                    <input type="hidden" name="defaultBusinessNonUkName" id="defaultBusinessNonUkName" value="Sneakerium" />
+                    <input type="hidden" name="defaultBusinessNonUkAddress" id="defaultBusinessNonUkAddress" value="116 Rue d'Antibes, 06400 Cannes, France" />                    
+                    <input type="hidden" name="defaultBusinessNonUKPhone" id="defaultBusinessNonUKPhone" value="0033 483 4425 76" />
+                    <input type="hidden" name="defaultBusinessNonUKEmail" id="defaultBusinessNonUKEmail" value="nonuk@sneakerium.fr" />
+                    
+                    <input type="hidden" name="defaultFirstName" id="defaultFirstName" value="Hugo" />
+                    <input type="hidden" name="defaultSurname" id="defaultSurname" value="Furst" />
+                    <input type="hidden" name="registrationContactPhonePersonal" id="registrationContactPhonePersonal" value="00700700788" />                    
+                    <input type="hidden" name="registrationMemorableWord" id="registrationMemorableWord" value="Jordan23" />
+                    <input type="hidden" name="registrationMemorableHint" id="registrationMemorableHint" value="The goat" />
+                
+                    {{ govukButton({
+                        text: "Non UK Business",
+                        classes: "govuk-button--secondary"
+                    }) }}
+                </form>
+
+
+                <form action="/register/check-your-answers" method="post" >
+                    <input type="hidden" name="registrationAccountType" id="registrationAccountType" value="Individual" />                                        
+                    
+                    <input type="hidden" name="defaultIndividualAddress" id="defaultIndividualAddress" value="15B Kensington Palace Gardens,<br> London,<br> W8 4QG" />
+                    <input type="hidden" name="registrationIndividualPostcode" id="registrationIndividualPostcode" value="W8 4QG" />
+
+
+                    <input type="hidden" name="defaultFirstName" id="defaultFirstName" value="Hugo" />
+                    <input type="hidden" name="defaultSurname" id="defaultSurname" value="Furst" />
+                    <input type="hidden" name="registrationContactPhonePersonal" id="registrationContactPhonePersonal" value="00700700788" />                    
+                    <input type="hidden" name="registrationMemorableWord" id="registrationMemorableWord" value="Jordan23" />
+                    <input type="hidden" name="registrationMemorableHint" id="registrationMemorableHint" value="The goat" />
+
+  
+
+                    {{ govukButton({
+                        text: "Individual for personal use",
                         classes: "govuk-button--secondary"
                     }) }}
                 </form>
