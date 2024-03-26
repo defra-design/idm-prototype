@@ -70,7 +70,7 @@
                     <input type="hidden" name="registrationMemorableHint" id="registrationMemorableHint" value="The goat" />
 
                     {{ govukButton({
-                        text: "Registering as Ltd Company",
+                        text: "Ltd Company",
                         classes: "govuk-button--secondary"
                     }) }}
                 </form>
@@ -91,13 +91,77 @@
   
 
                     {{ govukButton({
-                        text: "Registering as Individual",
+                        text: "Individual",
                         classes: "govuk-button--secondary"
                     }) }}
                 </form>
 
                 
-            </div>           
+            
+                <form action="/register/check-your-answers" method="post" >
+                    <input type="hidden" name="registrationAccountType" id="registrationAccountType" value="Business" />                    
+                    <input type="hidden" name="registrationTradeUK" id="registrationTradeUK" value="Yes" />
+                    <input type="hidden" name="registrationOrganisationType" id="registrationOrganisationType" value="Sole trader" />
+
+                    <input type="hidden" name="registrationSoleTraderName" id="registrationSoleTraderName" value="Soleheaven" />
+                    <input type="hidden" name="registrationSoleTraderAddress" id="registrationSoleTraderAddress" value="19 Hoults Yard, Walker Road, Newcastle upon Tyne NE6 2HL" />
+                    <input type="hidden" name="registrationSoleTraderPhone" id="registrationSoleTraderPhone" value="0191 468 2009" />
+                    <input type="hidden" name="registrationSoleTraderEmail" id="registrationSoleTraderEmail" value="soletrader@soleheaven.com" />
+                    <input type="hidden" name="registrationSoleTraderPostcode" id="registrationSoleTraderPostcode" value="Ne6 2HL" />
+                    
+                    <input type="hidden" name="defaultFirstName" id="defaultFirstName" value="Hugo" />
+                    <input type="hidden" name="defaultSurname" id="defaultSurname" value="Furst" />
+                    <input type="hidden" name="registrationContactPhonePersonal" id="registrationContactPhonePersonal" value="00700700788" />                    
+                    <input type="hidden" name="registrationMemorableWord" id="registrationMemorableWord" value="Jordan23" />
+                    <input type="hidden" name="registrationMemorableHint" id="registrationMemorableHint" value="The goat" />
+
+                    {{ govukButton({
+                        text: "Sole trader",
+                        classes: "govuk-button--secondary"
+                    }) }}
+                </form>
+
+
+
+                <form action="/register/check-your-answers" method="post" >
+                    <input type="hidden" name="registrationAccountType" id="registrationAccountType" value="Business" />                    
+                    <input type="hidden" name="registrationTradeUK" id="registrationTradeUK" value="Yes" />
+                    <input type="hidden" name="registrationOrganisationType" id="registrationOrganisationType" value="Charity" />
+
+                    <input type="hidden" name="defaultCharityName" id="defaultCharityName" value="Urban Sneakers Newcastle" />
+                    <input type="hidden" name="defaultCharityNumber" id="defaultCharityNumber" value="1182534" />
+                    <input type="hidden" name="defaultCharityAddress" id="defaultCharityAddress" value="Ouseburn Parks Visitor Centre,<br>Red Walk,<br>Jesmond Dene,<br>NEWCASTLE UPON TYNE, <br>NE7 7BQ" />
+                    <input type="hidden" name="defaultCharityPhone" id="defaultCharityPhone" value="01918144574" />
+                    <input type="hidden" name="defaultCharityEmail" id="defaultCharityEmail" value="info@urbansneakers.org" />
+                    
+                    <input type="hidden" name="defaultFirstName" id="defaultFirstName" value="Hugo" />
+                    <input type="hidden" name="defaultSurname" id="defaultSurname" value="Furst" />
+                    <input type="hidden" name="registrationContactPhonePersonal" id="registrationContactPhonePersonal" value="00700700788" />                    
+                    <input type="hidden" name="registrationMemorableWord" id="registrationMemorableWord" value="Jordan23" />
+                    <input type="hidden" name="registrationMemorableHint" id="registrationMemorableHint" value="The goat" />
+
+                    {{ govukButton({
+                        text: "Charity",
+                        classes: "govuk-button--secondary"
+                    }) }}
+                </form>
+
+
+                
+            </div>  
+
+
+
+
+
+            
+
+          
+
+
+
+
+
 
 
             <!-- <input type="hidden" name="flowVersion" id="flowVersion" value="" />                     -->

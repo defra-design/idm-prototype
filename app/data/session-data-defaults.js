@@ -26,7 +26,7 @@ module.exports = {
   mfaStatus: "disabled",
   govGateUserId: "71 13 56 15 22 14",
   govGatePassword: "letmein",
-
+  
   // Ltd Business
   // registrationAccountType: "Business",
   defaultCompanyNumber: "01234568",
@@ -35,10 +35,10 @@ module.exports = {
 
   // Individual
   // registrationAccountType: "Individual",
-  // defaultIndividualName: "Hugo Furst",
-  // defaultIndividualPhone: "00700700788",
   // defaultFirstName: "Hugo",
   // defaultSurname: "Furst",
+  // defaultIndividualName: "Hugo Furst",
+  // defaultIndividualPhone: "00700700788",
   // defaultIndividualAddress: "15B Kensington Palace Gardens,<br> London,<br> W8 4QG",
   // registrationIndividualPostcode: "W8 4QG",
   // defaultIndividualWord: "Jordan23",
@@ -46,8 +46,30 @@ module.exports = {
   // defaultServiceEnrolment: "IPAFFS",
   // defaultServiceRole: "Notifier",
 
-
+  // Business
+  // registrationTradeUK: "Yes",
+  // registrationCompanyRegistrationNumber: "Yes",  
+  // defaultPhone: "07985439576",
+  // defaultEmail: "hugo.furst@soleheaven.com",
+  // defaultFirstName: "Hugo",
+  // defaultSurname: "Furst",
+  // registrationContactPhonePersonal: "00700700788",
+  // registrationMemorableWord: "Jordan23",
+  // registrationMemorableHint: "The goat",
   
+
+   // Sole Trader
+  // registrationSoleTraderName: "Soleheaven",
+  // registrationSoleTraderAddress: "19 Hoults Yard, Walker Road, Newcastle upon Tyne NE6 2HL",
+  // registrationSoleTraderPhone: "0191 468 2009",
+  // registrationSoleTraderEmail: "soletrader@soleheaven.com",
+  // registrationOrganisationType: "Sole trader",
+
+
+
+
+
+
   
   // defaultFirstName: "Hugo",
   // defaultSurname: "Furst",
@@ -60,17 +82,6 @@ module.exports = {
   // defaultAccount: "thirdParty",
   
   
-  
-  // IF UK Business prefilled
-  // registrationTradeUK: "Yes",
-  // registrationCompanyRegistrationNumber: "Yes",  
-  // defaultPhone: "07985439576",
-  // defaultEmail: "hugo.furst@soleheaven.com",
-  // defaultFirstName: "Hugo",
-  // defaultSurname: "Furst",
-  // registrationContactPhonePersonal: "00700700788",
-  // registrationMemorableWord: "Jordan23",
-  // registrationMemorableHint: "The goat",
   
 
   
@@ -96,11 +107,7 @@ module.exports = {
 
 
   
-  // Sole Trader
-  // registrationSoleTraderName: "Soleheaven",
-  // registrationSoleTraderAddress: "19 Hoults Yard, Walker Road, Newcastle upon Tyne NE6 2HL",
-  // registrationSoleTraderPhone: "0191 468 2009",
-  // registrationSoleTraderEmail: "soletrader@soleheaven.com",
+ 
 
   // Charity
   // defaultCharityName: "Urban Green Newcastle",
