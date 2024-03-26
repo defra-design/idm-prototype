@@ -27,17 +27,17 @@ module.exports = {
   registrationStatus: "Enrolled",
   
   // UK Business
-  // registrationAccountType: "Business",
+  registrationAccountType: "Business",
   // registrationTradeUK: "Yes",
   // registrationCompanyRegistrationNumber: "Yes",
-  defaultFirstName: "Hugo",
-  defaultSurname: "Furst",
-  defaultCompanyNumber: "01234568",
-  defaultCompanyAddress: "19 Hoults Yard, Walker Road, Newcastle upon Tyne NE6 2HL",
-  defaultCompanyName: "Soleheaven Ltd",
-  defaultServiceEnrolment: "IPAFFS",
-  defaultPhone: "07985439576",
-  defaultEmail: "hugo.furst@soleheaven.com",
+  // defaultFirstName: "Hugo",
+  // defaultSurname: "Furst",
+  // defaultCompanyNumber: "01234568",
+  // defaultCompanyAddress: "19 Hoults Yard, Walker Road, Newcastle upon Tyne NE6 2HL",
+  // defaultCompanyName: "Soleheaven Ltd",
+  // defaultServiceEnrolment: "IPAFFS",
+  // defaultPhone: "07985439576",
+  // defaultEmail: "hugo.furst@soleheaven.com",
   // registrationConfirmedAddress: "Yes",
   
   // NON Uk business
@@ -55,8 +55,8 @@ module.exports = {
 
   // Individual
   // registrationAccountType: "Individual",
-  // defaultFirstName: "Hugo",
-  // defaultSurname: "Furst",
+  defaultFirstName: "Hugo",
+  defaultSurname: "Furst",
   defaultIndividualName: "Hugo Furst",
   defaultIndividualPhone: "00700700788",
   defaultIndividualAddress: "15B Kensington Palace Gardens,<br> London,<br> W8 4QG",
