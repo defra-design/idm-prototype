@@ -16,12 +16,13 @@
           	    <li>Last updated: <span class="govuk-!-font-weight-bold">26 March 2024</span></li>
                 <li>Prototype version: {{releaseVersion}}</li>
             </ul>
-
         </div>
     </div>
 
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
+
+            
             <p class="govuk-body">Customer identity will help users:</p>
             <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
                 <li>create a single set of sign-in credentials that can be used to access one or more Defra services.</li>
@@ -29,32 +30,147 @@
                 <li>by storing information about the user (and their business, if relevant) so that they do not have to re-enter it each time they want to use a new online service at Defra.</li>
                 <li>give other people (for example colleagues or agents) access to one or more of the online services they use.</li>
             </ul>
+            
+            <!-- <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible"> -->
 
-            <h2 class="govuk-heading-m">User flows no prefilled data</h2>      
-            <p>These are the core flows, but you can also select a service on the preload to show any service specific pages and content.</p>      
-            <div class="govuk-button-group govuk-!-margin-bottom-7">
-                <form action="/flow" method="post" >
-                    <input type="hidden" name="userFlow" id="userFlow" value="Registration" />                    
+        
+            <h2 class="govuk-heading-m">New work</h2>
+            
+            {{ govukSummaryList({
+                classes: "govuk-summary-list__row--no-actions",
+                card: {
+                    title: { text: "Trusted third party"  },
+                    classes: "govuk-!-margin-bottom-7"
+                },				
+                rows: [		
+                    { key: { text: "CEO registration" }, value: { html: '<span class="govuk-tag govuk-tag--orange">Awaiting sign off</span>'}, actions: { items: [ { href: "#", text: "View flow", classes: "govuk-link govuk-link--no-visited-state" } ] } },
+                    { key: { text: "Invite team member" }, value: { html: '<span class="govuk-tag govuk-tag--purple">Checking flows</span>'}, actions: { items: [ { href: "#", text: "View flow", classes: "govuk-link govuk-link--no-visited-state" } ] } },
+                    { key: { text: "Member registration" }, value: {html: '<span class="govuk-tag govuk-tag--purple">Checking flows</span>'}, actions: { items: [ { href: "#", text: "View flow", classes: "govuk-link govuk-link--no-visited-state" } ] } },
+                    { key: { text: "New account pages" }, value: {html: '<span class="govuk-tag govuk-tag--blue">In progress</span>'}, actions: { items: [ { href: "#", text: "View flow", classes: "govuk-link govuk-link--no-visited-state" } ] } }
+                ]
+            }) }}
+
+            {{ govukSummaryList({
+                classes: "govuk-summary-list__row--no-actions",
+                card: {
+                    title: { text: "Billing details"  },
+                    classes: "govuk-!-margin-bottom-7"
+                },				
+                rows: [		
+                    { key: { text: "Add billing details" }, value: { html: '<span class="govuk-tag govuk-tag--purple">Checking flows</span>'}, actions: { items: [ { href: "/account/manage/organisation-details#past-week", text: "View flow", classes: "govuk-link govuk-link--no-visited-state" } ] } }                                        
+                ]
+            }) }}
+            
+
+            {{ govukSummaryList({
+                classes: "govuk-summary-list__row--no-actions",
+                card: {
+                    title: { text: "GOV.UK OneLogin"  },
+                    classes: "govuk-!-margin-bottom-7"
+                },				
+                rows: [		
+                    { key: { text: "Registration" }, value: { html: '<span class="govuk-tag govuk-tag--blue">In progress</span>'}, actions: { items: [ { href: "#", text: "View flow", classes: "govuk-link govuk-link--no-visited-state" } ] } },
+                    { key: { text: "Sign in" }, value: { html: '<span class="govuk-tag govuk-tag--blue">In progress</span>'}, actions: { items: [ { href: "#", text: "View flow", classes: "govuk-link govuk-link--no-visited-state" } ] } }                                        
+                ]
+            }) }}
+            
+            
+
+
+            
+
+
+            
+
+          
+
+
+
+
+
+
+
+            <!-- <input type="hidden" name="flowVersion" id="flowVersion" value="" />                     -->
+            
+            
+            
+            <!-- <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
+                <li>MFA with phone number verification only</li>
+                <li>MFA via email</li>
+                <li>MFA switching (sms/email)</li>
+                <li>Exit pages</li>
+            </ul> -->
+
+            <!-- <h2 class="govuk-heading-m">Archived flows <span class="govuk-body-s">V1.0</span></h2>            
+            <p><a href="/archived/mfa/scenarios">Register for an account/authenticate</a>
+            <div class="govuk-button-group">
+                <!-- <form action="/flow" method="post" >
+                    <input type="hidden" name="userFlow" id="userFlow" value="Authentication" />
+                    <input type="hidden" name="flowVersion" id="flowVersion" value="current" />
                     <input type="hidden" name="serviceFlow" id="serviceFlow" value="coreDefault" />
+                    <input type="hidden" name="companySize" id="companySize" value="20" />                    
                     {{ govukButton({
-                        text: "Register or Sign in using Defra Identity"
+                        text: "Sign in and verfication"
                     }) }}
-                </form>
+                </form>                 -->
                 <!-- <form action="/preload" method="post" >
-                    <input type="hidden" name="userFlow" id="userFlow" value="Registration" />
-                    <input type="hidden" name="flowVersion" id="flowVersion" value="version_1" />
+                    <input type="hidden" name="flow" id="flow" value="Authentication" />
+                    <input type="hidden" name="flowVersion" id="flowVersion" value="" />
                     {{ govukButton({
                         text: "Archived V1.0",
                         classes: "govuk-button--secondary govuk-!-margin-left-1"
                     }) }}
-                </form>                 -->
-            </div>           
-            
+                </form>
+            </div> -->
+            <!-- <ul class="govuk-list govuk-list--bullet">
+                <li>Single number option</li>
+                <li>Error message implementation</li>
+                <li>Replaced 'links list' with radios component</li>
+                <li>Accessible autocomplete added to core journey</li>
+            </ul> -->
+                        
             
 
+
+        {% include "includes/old-mfav2.html" %}
+
+        </div>
+        <!-- End of two thirds column -->
+
+         <div class="govuk-grid-column-one-third">
+            
+            <span class="govuk-caption-m">Current baseline</span>
+            <h2 class="govuk-heading-m">Main flows and listings</h2>      
+            <p>These are the core flows, but you can also select a service on the preload to show any service specific pages and content.</p>      
+            
+            <div class="govuk-button-group">
+                <form action="/flow" method="post" >
+                    <input type="hidden" name="userFlow" id="userFlow" value="Registration" />                    
+                    <input type="hidden" name="serviceFlow" id="serviceFlow" value="coreDefault" />
+                    {{ govukButton({
+                        text: "Register and Sign in"
+                    }) }}
+                </form>            
+    
+    
+                <form action="/listings" method="post" >
+                    <input type="hidden" name="userFlow" id="userFlow" value="Registration" />                    
+                    <input type="hidden" name="serviceFlow" id="serviceFlow" value="coreDefault" />
+                    {{ govukButton({
+                        text: "Page listings",
+                        classes: "govuk-button--secondary"
+                    }) }}
+                </form>            
+            </div>
+
+            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+            <span class="govuk-caption-m">Current baseline</span>
             <h2 class="govuk-heading-m">Prefilled registration flows</h2>      
             
-            <p>Flows that have prefilled information so that you can proceed to check your answers in registration and on to Defra account depending on account type.</p>      
+            <p>Flows with prefilled data so that you can proceed to check your answers in the registration journey.</p>      
+
+            <div class="govuk-inset-text">
             <div class="govuk-button-group">
                 <form action="/register/check-your-answers" method="post" >
                     <input type="hidden" name="registrationAccountType" id="registrationAccountType" value="Business" />                    
@@ -73,7 +189,9 @@
                         text: "Registered Company",
                         classes: "govuk-button--secondary"
                     }) }}
-                </form>                                
+                </form>              
+                
+                
             
                 <form action="/register/check-your-answers" method="post" >
                     <input type="hidden" name="registrationAccountType" id="registrationAccountType" value="Business" />                    
@@ -168,80 +286,11 @@
                 </form>
 
 
-                
+            </div>
             </div>  
 
 
-
-
-
-            
-
-          
-
-
-
-
-
-
-
-            <!-- <input type="hidden" name="flowVersion" id="flowVersion" value="" />                     -->
-            
-            
-            
-            <!-- <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
-                <li>MFA with phone number verification only</li>
-                <li>MFA via email</li>
-                <li>MFA switching (sms/email)</li>
-                <li>Exit pages</li>
-            </ul> -->
-
-            <!-- <h2 class="govuk-heading-m">Archived flows <span class="govuk-body-s">V1.0</span></h2>            
-            <p><a href="/archived/mfa/scenarios">Register for an account/authenticate</a>
-            <div class="govuk-button-group">
-                <!-- <form action="/flow" method="post" >
-                    <input type="hidden" name="userFlow" id="userFlow" value="Authentication" />
-                    <input type="hidden" name="flowVersion" id="flowVersion" value="current" />
-                    <input type="hidden" name="serviceFlow" id="serviceFlow" value="coreDefault" />
-                    <input type="hidden" name="companySize" id="companySize" value="20" />                    
-                    {{ govukButton({
-                        text: "Sign in and verfication"
-                    }) }}
-                </form>                 -->
-                <!-- <form action="/preload" method="post" >
-                    <input type="hidden" name="flow" id="flow" value="Authentication" />
-                    <input type="hidden" name="flowVersion" id="flowVersion" value="" />
-                    {{ govukButton({
-                        text: "Archived V1.0",
-                        classes: "govuk-button--secondary govuk-!-margin-left-1"
-                    }) }}
-                </form>
-            </div> -->
-            <!-- <ul class="govuk-list govuk-list--bullet">
-                <li>Single number option</li>
-                <li>Error message implementation</li>
-                <li>Replaced 'links list' with radios component</li>
-                <li>Accessible autocomplete added to core journey</li>
-            </ul> -->
-                        
-            
-
-
-        {% include "includes/old-mfav2.html" %}
-
-        </div>
-        <!-- End of two thirds column -->
-
-         <div class="govuk-grid-column-one-third">
-            <h2 class="govuk-heading-s govuk-!-margin-bottom-1" id="subsection-title">Assets </h2>
-            <nav class="govuk-!-margin-bottom-7">
-                <ul class="govuk-list">
-                    <li><a href="/listings" class="govuk-link govuk-link--no-visited-state" >Page listings</a></li>
-                    <li><a href="https://github.com/defra-design/idm-prototype" class="govuk-link govuk-link--no-visited-state" rel="noreferrer noopener" target="_blank" >Github repository <span class="govuk-visually-hidden">(opens in new tab)</span></a></li>
-                    <!-- <li><a href="https://app.mural.co/t/defraidmanagement4828/m/defraidmanagement4828/1651757057405/8de389e360d3ece2fb5b5adb455eb3fd376c13d5?sender=uc4759e9563ebe5260dd56933" class="govuk-link govuk-link--no-visited-state" rel="noreferrer noopener" target="_blank">Mural - user journeys <span class="govuk-visually-hidden">(opens in new tab)</span></a></li>
-                    <li><a href="https://www.figma.com/file/XRzsdo5usIj3oUBfQEinLJ/Identity-management-flows-'To-Be'?node-id=4%3A2804" rel="noreferrer noopener" class="govuk-link govuk-link--no-visited-state" target="_blank">Figma assets <span class="govuk-visually-hidden">(opens in new tab)</span></a></li> -->
-                </ul>
-            </nav>
+           
 
             <!-- <h2 class="govuk-heading-s govuk-!-margin-bottom-1" id="subsection-title">Error messages</h2>
             <nav class="govuk-!-margin-bottom-7">
