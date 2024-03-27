@@ -28,6 +28,14 @@
         <form method="post" action="/register/terms-and-conditions">
             <input type="hidden" id="registrationStatus" name="registrationStatus" value="Started" />
 
+            {% if data['govGateUserId'] == "" %}
+            <input type="hidden" id="govGateUserId" name="govGateUserId" value="71 13 56 15 22 14" />
+            {% endif %}
+            {% if data['govGatePassword'] == "" %}
+            <input type="hidden" id="govGatePassword" name="govGatePassword" value="letmein" />
+            {% endif %}
+
+
             {{ govukButton({
                 text: "Continue",
                 classes: "govuk-!-margin-top-5"

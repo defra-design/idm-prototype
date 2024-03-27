@@ -19,65 +19,127 @@ Example usage:
 
 module.exports = {
 
+  // Default always needed
   userFlow: "Registration",
-
-  // registrationStatus: "incomplete",
-  // Third Party Account
-  // defaultAccount: "thirdParty",
-  govGateEmail: "hugo.furst@govgateway.default",
-  registrationStatus: "Enrolled",
+  serviceFlow: "coreDefault",
+  companySize: "20",
+  mfaStatus: "disabled",
+  govGateUserId: "71 13 56 15 22 14",
+  govGatePassword: "letmein",
   
-  // UK Business
+  // Ltd Business
   // registrationAccountType: "Business",
-  // registrationTradeUK: "Yes",
-  // registrationCompanyRegistrationNumber: "Yes",
-  defaultFirstName: "Hugo",
-  defaultSurname: "Furst",
   defaultCompanyNumber: "01234568",
   defaultCompanyAddress: "19 Hoults Yard, Walker Road, Newcastle upon Tyne NE6 2HL",
   defaultCompanyName: "Soleheaven Ltd",
-  defaultServiceEnrolment: "IPAFFS",
-  defaultPhone: "07985439576",
-  defaultEmail: "hugo.furst@soleheaven.com",
-  // registrationConfirmedAddress: "Yes",
-  
-  // NON Uk business
-  defaultBusinessNonUkName: "Sneakerium",
-  defaultBusinessNonUkAddress: "116 Rue d'Antibes, 06400 Cannes, France",
-  defaultBusinessNonUKPhone: "0033 483 4425 76",
-  defaultBusinessNonUKEmail: "nonuk@sneakerium.fr",
 
-  // registrationContactPhonePersonal: "00700700788",
-  // registrationMemorableWord: "Jordan23",
-  // registrationMemorableHint: "The goat",
-  
-  // defaultServiceRole: "Notifier",
-
+  //  Local authority
+  defaultThirdParty: "Local authority",
+  defaultThirdPartyName: "Newcastle City Council",
+  defaultThirdPartyAddress: "Civic Centre, 2nd Floor, Newcastle upon Tyne, NE1 8QH",
+  defaultThirdPartyCEO: "Cris P Bacon",
+  defaultThirdPartyCEORole: "Chief Executive Officer (CEO)",
+  defaultThirdPartyCEOPhone: "00700700788",
+  defaultThirdPartyCEOEmail: "chris.p.bacon@localauthority.default",
+  defaultThirdPartyCEOServiceRole: "Managing waste data",
+  // defaultThirdPartyCeoRegistered: "Yes",
+   // defaultThirdPartyUserOneResponsibility: "Adding and amending bank details",
+   // defaultThirdPartyUserOneAdmin: "Yes",
+   // defaultThirdPartyUserOneEmail: "hugo.furst@localauthority.co.uk"
+ 
 
   // Individual
   // registrationAccountType: "Individual",
   // defaultFirstName: "Hugo",
   // defaultSurname: "Furst",
-  defaultIndividualName: "Hugo Furst",
-  defaultIndividualPhone: "00700700788",
-  defaultIndividualAddress: "15B Kensington Palace Gardens,<br> London,<br> W8 4QG",
-  defaultIndividualWord: "Jordan23",
-  defaultIndividualHint: "The one and only goat",  
+  // defaultIndividualName: "Hugo Furst",
+  // defaultIndividualPhone: "00700700788",
+  // defaultIndividualAddress: "15B Kensington Palace Gardens,<br> London,<br> W8 4QG",
+  // registrationIndividualPostcode: "W8 4QG",
+  // defaultIndividualWord: "Jordan23",
+  // defaultIndividualHint: "The one and only goat",  
   // defaultServiceEnrolment: "IPAFFS",
   // defaultServiceRole: "Notifier",
+
+  // Business
+  // registrationTradeUK: "Yes",
+  // registrationCompanyRegistrationNumber: "Yes",  
+  // defaultPhone: "07985439576",
+  // defaultEmail: "hugo.furst@soleheaven.com",
+  // defaultFirstName: "Hugo",
+  // defaultSurname: "Furst",
+  // registrationContactPhonePersonal: "00700700788",
+  // registrationMemorableWord: "Jordan23",
+  // registrationMemorableHint: "The goat",
   
-  // Sole
-  registrationSoleTraderName: "Soleheaven",
-  registrationSoleTraderAddress: "19 Hoults Yard, Walker Road, Newcastle upon Tyne NE6 2HL",
-  registrationSoleTraderPhone: "0191 468 2009",
-  registrationSoleTraderEmail: "soletrader@soleheaven.com",
+
+  // Sole Trader
+  // registrationSoleTraderName: "Soleheaven",
+  // registrationSoleTraderAddress: "19 Hoults Yard, Walker Road, Newcastle upon Tyne NE6 2HL",
+  // registrationSoleTraderPhone: "0191 468 2009",
+  // registrationSoleTraderEmail: "soletrader@soleheaven.com",
+  // registrationOrganisationType: "Sole trader",
+  // defaultFirstName: "Hugo",
+  // defaultSurname: "Furst",
 
   // Charity
-  defaultCharityName: "Urban Green Newcastle",
-  defaultCharityNumber: "1182534",
-  defaultCharityAddress: "Ouseburn Parks Visitor Centre,<br>Red Walk,<br>Jesmond Dene,<br>NEWCASTLE UPON TYNE, <br>NE7 7BQ",
-  defaultCharityPhone: "01918144574",
-  defaultCharityEmail: "info@urbangreennewcastle.org",
+  // registrationOrganisationType: "Charity",
+  // defaultCharityName: "Urban Green Newcastle",
+  // defaultCharityNumber: "1182534",
+  // defaultCharityAddress: "Ouseburn Parks Visitor Centre,<br>Red Walk,<br>Jesmond Dene,<br>NEWCASTLE UPON TYNE, <br>NE7 7BQ",
+  // defaultCharityPhone: "01918144574",
+  // defaultCharityEmail: "info@urbangreennewcastle.org",
+  // defaultFirstName: "Hugo",
+  // defaultSurname: "Furst",
+  // registrationContactPhonePersonal: "00700700788",
+  // registrationMemorableWord: "Jordan23",
+  // registrationMemorableHint: "The goat",
+  
+  // NON Uk business
+  // defaultBusinessNonUkName: "Sneakerium",
+  // defaultBusinessNonUkAddress: "116 Rue d'Antibes, 06400 Cannes, France",
+  // defaultBusinessNonUKPhone: "0033 483 4425 76",
+  // defaultBusinessNonUKEmail: "nonuk@sneakerium.fr",
+  // defaultFirstName: "Hugo",
+  // defaultSurname: "Furst",
+  // registrationContactPhonePersonal: "00700700788",
+  // registrationMemorableWord: "Jordan23",
+  // registrationMemorableHint: "The goat",
+  
+
+
+  
+  // govGateEmail: "hugo.furst@govgateway.default",
+  // registrationStatus: "incomplete",
+  // registrationStatus: "Enrolled",
+  
+  // Third Party Account
+  // defaultAccount: "thirdParty",
+  
+  
+  
+
+  
+  
+  
+  // defaultServiceEnrolment: "IPAFFS",
+  // registrationConfirmedAddress: "Yes",
+  
+  
+  
+  
+  
+  // Account variables  
+  // defaultServiceRole: "Notifier",
+
+
+
+  
+ 
+
+ 
+
+  
   
   //"businessType": "Limited company",
   // "govGateName": "Sam Woods",
@@ -113,18 +175,5 @@ module.exports = {
   // "IVRes": "success"
 
 
-  //Local authority
-  defaultThirdParty: "Local authority",
-  defaultThirdPartyName: "Newcastle City Council",
-  defaultThirdPartyAddress: "Civic Centre, 2nd Floor, Newcastle upon Tyne, NE1 8QH",
-  defaultThirdPartyCEO: "Cris P Bacon",
-  defaultThirdPartyCEORole: "Chief Executive Officer (CEO)",
-  defaultThirdPartyCEOPhone: "00700700788",
-  defaultThirdPartyCEOEmail: "chris.p.bacon@localauthority.default",
-  defaultThirdPartyCEOServiceRole: "Managing waste data",
-  // defaultThirdPartyCeoRegistered: "Yes",
-  // defaultThirdPartyUserOneResponsibility: "Adding and amending bank details",
-  // defaultThirdPartyUserOneAdmin: "Yes",
-  // defaultThirdPartyUserOneEmail: "hugo.furst@localauthority.co.uk"
-
+ 
 }
