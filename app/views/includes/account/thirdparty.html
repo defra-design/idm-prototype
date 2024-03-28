@@ -5,11 +5,11 @@
 		
     	rows: [    	
         	{ key: { text: "Your name" }, value: { text: data.defaultThirdPartyCEO } },
-        	{ key: { text: "Email address" }, value: { text: data['regThirdPartyCEOEmail'] or data.defaultThirdPartyCEOEmail } },
-        	{ key: { text: "Phone number" }, value: { text: data.defaultThirdPartyCEOPhone } }
+        	{ key: { text: "Email address" }, value: { text: data['regThirdPartyCEOEmail'] or data.defaultThirdPartyCEOEmail } }
+        	
         	
       	]
-  	}) }}
+  	}) }}		
 
 	<!-- Third party admin -->
 {% else %}
@@ -18,7 +18,7 @@
 		rows: [    	
 	  		{ key: { text: "Name" }, value: { text: data.defaultThirdPartyCEO }, actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "name", classes: "govuk-link--no-visited-state" } ] } },
 	  		{ key: { text: "Email address" }, value: { text: data['regThirdPartyCEOEmail'] or data.defaultThirdPartyCEOEmail } },
-	  		{ key: { text: "Phone number" }, value: { text: data.defaultThirdPartyCEOPhone }, actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "phone number", classes: "govuk-link--no-visited-state" } ] } },
+	  		{ key: { text: "Phone number" }, value: { text: data.defaultThirdPartyPhone }, actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "phone number", classes: "govuk-link--no-visited-state" } ] } },
 	  		{ key: { text: "Memorable word" }, value: { text: "********" }, actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "memorable word", classes: "govuk-link--no-visited-state" } ] } }
 		]
 	}) }}
@@ -43,6 +43,7 @@
 		},
 		rows: [		
 			{ key: { text: "Address" }, value: { text: data.defaultThirdPartyAddress } },    	
+			{ key: { text: "Phone number" }, value: { text: data.defaultThirdPartyPhone } },
 			{ key: { text: "Registered services" }, value: { html: '<a href="#" class="govuk-link govuk-link--no-visited-state">Local Authority Payment Service (LAPS)</a>' } },      
 			{ key: { text: "Service role" }, value: { html: data.defaultThirdPartyCEOServiceRole }, actions: { items: [ { href: "/account/thirdParty/add/service-role?changeLink=CEO", text: "Change", visuallyHiddenText: "age", classes: "govuk-link--no-visited-state" } ] } },
 			{ key: { text: "Account role" }, value: { html: "Owner" } },

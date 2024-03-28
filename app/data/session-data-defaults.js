@@ -39,7 +39,7 @@ module.exports = {
   defaultThirdPartyAddress: "Civic Centre, 2nd Floor, Newcastle upon Tyne, NE1 8QH",
   defaultThirdPartyCEO: "Cris P Bacon",
   defaultThirdPartyCEORole: "Chief Executive Officer (CEO)",
-  defaultThirdPartyCEOPhone: "00700700788",
+  defaultThirdPartyPhone: "0191 268 4325",
   defaultThirdPartyCEOEmail: "chris.p.bacon@localauthority.default",
   defaultThirdPartyCEOServiceRole: "Managing waste data",
   // defaultThirdPartyCeoRegistered: "Yes",
