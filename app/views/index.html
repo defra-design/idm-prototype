@@ -13,7 +13,7 @@
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
             <ul class="govuk-list govuk-body-s">
-          	    <li>Last updated: <span class="govuk-!-font-weight-bold">26 March 2024</span></li>
+          	    <li>Last updated: <span class="govuk-!-font-weight-bold">28 March 2024</span></li>
                 <li>Prototype version: {{releaseVersion}}</li>
             </ul>
         </div>
@@ -43,10 +43,10 @@
                     classes: "govuk-!-margin-bottom-7"
                 },				
                 rows: [		
-                    { key: { text: "CEO registration" }, value: { html: '<span class="govuk-tag govuk-tag--orange">Awaiting sign off</span>'}, actions: { items: [ { href: "/b2c/thirdParty/?userType=CEO", text: "View flow", classes: "govuk-link govuk-link--no-visited-state" } ] } },
-                    { key: { text: "Invite team member" }, value: { html: '<span class="govuk-tag govuk-tag--orange">Awaiting sign off</span>'}, actions: { items: [ { href: "/account/thirdParty/add/service-role?ceoRegistered=Yes", text: "View flow", classes: "govuk-link govuk-link--no-visited-state" } ] } },
-                    { key: { text: "Member registration" }, value: {html: '<span class="govuk-tag govuk-tag--orange">Awaiting sign off</span>'}, actions: { items: [ { href: "/b2c/thirdParty/?userType=Invited", text: "View flow", classes: "govuk-link govuk-link--no-visited-state" } ] } },
-                    { key: { text: "New account pages" }, value: {html: '<span class="govuk-tag govuk-tag--blue">In progress</span>'}, actions: { items: [ { href: "/account/?defaultAccount=thirdParty&defaultAccountUser=CEO&notification_banner=", text: "View flow", classes: "govuk-link govuk-link--no-visited-state" } ] } }
+                    { key: { text: "CEO registration" }, value: { html: '<span class="govuk-tag govuk-tag--orange">Awaiting sign off</span>'}, actions: { items: [ { href: "/b2c/thirdParty/?userType=CEO", text: "View", classes: "govuk-link govuk-link--no-visited-state" }, { href: "#", text: "Mural", classes: "govuk-link govuk-link--no-visited-state" } ] } },
+                    { key: { text: "Invite team member" }, value: { html: '<span class="govuk-tag govuk-tag--orange">Awaiting sign off</span>'}, actions: { items: [ { href: "/account/thirdParty/add/service-role?ceoRegistered=Yes", text: "View", classes: "govuk-link govuk-link--no-visited-state" }, { href: "#", text: "Mural", classes: "govuk-link govuk-link--no-visited-state" } ] } },
+                    { key: { text: "Member registration" }, value: {html: '<span class="govuk-tag govuk-tag--orange">Awaiting sign off</span>'}, actions: { items: [ { href: "/b2c/thirdParty/?userType=Invited", text: "View", classes: "govuk-link govuk-link--no-visited-state" }, { href: "#", text: "Mural", classes: "govuk-link govuk-link--no-visited-state" } ] } },
+                    { key: { text: "New account pages" }, value: {html: '<span class="govuk-tag govuk-tag--blue">In progress</span>'}, actions: { items: [ { href: "/account/?defaultAccount=thirdParty&defaultAccountUser=CEO&notification_banner=", text: "View", classes: "govuk-link govuk-link--no-visited-state" }, { href: "#", text: "Mural", classes: "govuk-link govuk-link--no-visited-state" } ] } }
                 ]
             }) }}
 
@@ -57,7 +57,7 @@
                     classes: "govuk-!-margin-bottom-7"
                 },				
                 rows: [		
-                    { key: { text: "Add billing details" }, value: { html: '<span class="govuk-tag govuk-tag--purple">Checking flows</span>'}, actions: { items: [ { href: "/account/manage/organisation-details#past-week", text: "View flow", classes: "govuk-link govuk-link--no-visited-state" } ] } }                                        
+                    { key: { text: "Add billing details" }, value: { html: '<span class="govuk-tag govuk-tag--purple">Checking flows</span>'}, actions: { items: [ { href: "/account/manage/organisation-details#past-week", text: "View", classes: "govuk-link govuk-link--no-visited-state" }, { href: "#", text: "Mural", classes: "govuk-link govuk-link--no-visited-state" } ] } }                                        
                 ]
             }) }}
             
@@ -69,8 +69,8 @@
                     classes: "govuk-!-margin-bottom-7"
                 },				
                 rows: [		
-                    { key: { text: "Registration" }, value: { html: '<span class="govuk-tag govuk-tag--blue">In progress</span>'}, actions: { items: [ { href: "#", text: "View flow", classes: "govuk-link govuk-link--no-visited-state" } ] } },
-                    { key: { text: "Sign in" }, value: { html: '<span class="govuk-tag govuk-tag--blue">In progress</span>'}, actions: { items: [ { href: "#", text: "View flow", classes: "govuk-link govuk-link--no-visited-state" } ] } }                                        
+                    { key: { text: "Registration" }, value: { html: '<span class="govuk-tag govuk-tag--blue">In progress</span>'}, actions: { items: [ { href: "#", text: "View", classes: "govuk-link govuk-link--no-visited-state" }, { href: "#", text: "Mural", classes: "govuk-link govuk-link--no-visited-state" } ] } },
+                    { key: { text: "Sign in" }, value: { html: '<span class="govuk-tag govuk-tag--blue">In progress</span>'}, actions: { items: [ { href: "#", text: "View", classes: "govuk-link govuk-link--no-visited-state" }, { href: "#", text: "Mural", classes: "govuk-link govuk-link--no-visited-state" } ] } }                                        
                 ]
             }) }}
             
