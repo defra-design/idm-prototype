@@ -50,9 +50,9 @@ module.exports = {
 
   // Individual
   // registrationAccountType: "Individual",
-  // defaultFirstName: "Hugo",
-  // defaultSurname: "Furst",
-  // defaultIndividualName: "Hugo Furst",
+  defaultFirstName: "Hugo",
+  defaultSurname: "Furst",
+  defaultIndividualName: "Hugo Furst",
   // defaultIndividualPhone: "00700700788",
   // defaultIndividualAddress: "15B Kensington Palace Gardens,<br> London,<br> W8 4QG",
   // registrationIndividualPostcode: "W8 4QG",

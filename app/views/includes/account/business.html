@@ -1,8 +1,8 @@
 <p><span class="govuk-!-font-weight-bold">Full name:</span> {{ data.defaultFirstName | titleCase }} {{ data.defaultSurname | titleCase }}
-    <br><span class="govuk-!-font-weight-bold">Email address:</span> {{ data.govGateEmail }}
-    <br><span class="govuk-!-font-weight-bold">Telephone number:</span> {{ data.registrationContactPhonePersonal }}</p>
-    
-    
+  <br><span class="govuk-!-font-weight-bold">Email address:</span> {{ data.govGateEmail }}
+  <br><span class="govuk-!-font-weight-bold">Telephone number:</span> {{ data.registrationContactPhonePersonal }}</p>
+  
+  
     <p class="govuk-body"><a href="/account/manage/update/individual/" class="govuk-link govuk-link--no-visited-state">Update details</a></p>				
     <p class="govuk-body"><a href="/account/manage/reset-security-word/" class="govuk-link govuk-link--no-visited-state">Reset security word</a></p>		
     {{ govukDetails({
@@ -38,24 +38,7 @@
         ]
       }) }}      	
 
-
-      <!-- 
-        [
-            { text: "Chrispee Bacon (you)" },
-            { text: "Admin" },
-            { text: "Comply with UK REACH" },
-            { text: "REACH Manager" },
-            { html: '<a href="/account/manage/enrol-list" class="govuk-link govuk-link--no-visited-state">Add a service<span class="govuk-visually-hidden td-header"> {{ business }}</span></a>' }
-          ]
-        
-        [
-            { text: "Rascals" },
-            { text: "Admin" },
-            { text: "IPAFFS" },
-            { text: "" },
-            { html: '<a href="/account/manage/dashboard" class="govuk-link govuk-link--no-visited-state">Manage<span class="govuk-visually-hidden td-header"> {{ business }}</span></a>' }
-          ]			   -->
-
+      
       <!-- { html: '<a href="dashboard" class="govuk-link govuk-link--no-visited-state">Add a service<span class="govuk-visually-hidden td-header"> {{ business }}</span></a>' } -->
 
       <p class="govuk-body"><a class="govuk-link govuk-link--no-visited-state" href="/account/add/account-type">Add new account</a></p>
