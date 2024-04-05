@@ -44,7 +44,7 @@
         {% endset -%}
 
         {% set pastWeekHtml %}
-            <h2 class="govuk-heading-l">Billing address</h2>
+            <h2 class="govuk-heading-l">Billing details</h2>
 
             {% if data['billingDetailsAdded'] == "Yes" %}
 
@@ -80,22 +80,22 @@
                         South Lakeland
                         LA8 0NL<br></p> -->
                       
-                    <p class="govuk-body"><span class="govuk-!-font-weight-bold">Telephone:</span> {{ data['billingTelephone'] }}
-                    <br><span class="govuk-!-font-weight-bold">Email:</span> {{ data['billingEmail'] }}<br></p>
+                    <p class="govuk-body"><span class="govuk-!-font-weight-bold">Telephone<br></span> {{ data['billingTelephone'] }}</p>
+                    <p class="govuk-body"><span class="govuk-!-font-weight-bold">Email<br></span> {{ data['billingEmail'] }}<br></p>
                 </div>
                 <div class="govuk-card__actions">
                     <ul class="govuk-list govuk-!-mb-r0">
-                        <li><a id="link-update-details" href="/management/account-management/accounts/a30cad99-c198-ee11-be37-6045bd905186/details/update-details" class="govuk-link govuk-link--no-visited-state">Update details</a></li>
+                        <li><a id="link-update-details" href="#" class="govuk-link govuk-link--no-visited-state">Update</a></li>
                       </ul>
                 </div>
             </div>
 
 
             {% else %}
-            <p class="govuk-body govuk-!-margin-bottom-7">There is no billing address for this organisation.</p>
+            <p class="govuk-body govuk-!-margin-bottom-7">There are no billing details provided for this organisation.</p>            
             <form method="post" action="/account/manage/billing/" >
             {{ govukButton({
-                text: "Add address"
+                text: "Add details"
               }) }}
 
             </form>
