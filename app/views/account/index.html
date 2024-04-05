@@ -23,8 +23,8 @@
 
 
 {% if data['defaultAccount'] == "thirdParty" %}
-	{% set pageHeading = "Manage account" %}
-	{% set pageSection = "Defra online services" %}
+	{% set pageHeading = "Your accounts" %}
+	{% set pageSection = '' + data.defaultFirstName + '' + data.defaultSurname + '' %}
 {% else %}
 	{% set pageHeading = "Your Defra account" %}
 	{% set pageSection = "" %}
