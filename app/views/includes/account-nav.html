@@ -1,5 +1,5 @@
 <!-- Account Navigation -->
-<div class="login-nav">
+<!-- <div class="login-nav">
 	<ul class="login-nav__list">
     	<li class="login-nav__list-item">
 			
@@ -16,7 +16,40 @@
 			{% else %}			
 				{{ data['defaultFirstName'] or 'Hugo' }} {{ data['defaultSurname'] or 'Furst' }} |</li>
 			{% endif %}
-    	<li class="login-nav__list-item"><a href="/account/?notification_banner=" class="govuk-link login-nav__link govuk-link--no-visited-state profile">Manage Account</a>|</li>
+    	<li class="login-nav__list-item"><a href="/account/?notification_banner=" class="govuk-link login-nav__link govuk-link--no-visited-state profile">Defra <a href="http://" target="_blank" rel="noopener noreferrer"></a>ccount</a>|</li>
     	<li class="login-nav__list-item"><a href="/signed-out?status=signedOut" class="govuk-link login-nav__link govuk-link--no-visited-state">Sign out</a></li>
   	</ul>
-</div>
+</div> -->
+
+{% if data['defaultAccountUser'] == "CEO" %}
+<nav class="x-govuk-secondary-navigation" aria-label="Secondary menu">
+	<ul class="x-govuk-secondary-navigation__list ">
+	  <li class="x-govuk-secondary-navigation__list-item x-govuk-secondary-navigation__list-item--current ">
+		<a class="x-govuk-secondary-navigation__link" href="/account/?notification_banner=" aria-current=page>
+		  Home
+		</a>
+	  </li>
+	  <li class="x-govuk-secondary-navigation__list-item ">
+		<a class="x-govuk-secondary-navigation__link" href="/signed-out?status=signedOut">
+		  Your details
+		</a>
+	  </li>
+	  <li class="x-govuk-secondary-navigation__list-item ">
+		<a class="x-govuk-secondary-navigation__link" href="/signed-out?status=signedOut">
+		  Sign out
+		</a>
+	  </li>
+	</ul>
+</nav>
+{% endif %}
+	  <!-- <li class="x-govuk-secondary-navigation__list-item ">
+		<a class="x-govuk-secondary-navigation__link" href="#">
+		  Sign out
+		</a>
+	  </li> -->
+	  <!-- <li class="x-govuk-secondary-navigation__list-item ">
+		<a class="x-govuk-secondary-navigation__link" href="#">
+		  Settings
+		</a>
+	  </li> -->
+	

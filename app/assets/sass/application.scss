@@ -56,6 +56,15 @@
     border-left-color: #1d70b8;
 }
 
+.govuk-header__navigation-item:last-child {
+    float: right;
+}
+
+
+.x-govuk-secondary-navigation__list-item:last-child {
+    float: right;
+}
+
 
 // sidebar
 // .gem-c-related-navigation{

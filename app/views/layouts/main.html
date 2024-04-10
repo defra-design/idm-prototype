@@ -14,21 +14,68 @@
 
 {% block header %}
     {% include "includes/cookie-banner.html" %}
+    
+        {% if DefraAccount == true %}
 
-    {# Set serviceName in config.js. #}
-        {{ govukHeader({
-            homepageUrl: "/",
-            serviceName: serviceName,
-            serviceUrl: "/",
-            containerClasses: "govuk-width-container",
-            useTudorCrown: true,
-            navigation: [
-                { href: "/sign-out", text: "Sign out" }
-            ] if schoolSignedIn or isAdmin
-        }) }}
-    {% endblock %}
+            {% if data['defaultAccountUser'] != "CEO" %}
+                
+            {{ govukHeader({
+                homepageUrl: "/",
+                serviceName: "Defra account",
+                serviceUrl: "/",
+                containerClasses: "govuk-width-container",
+                useTudorCrown: true,
+                navigation: [                
+                {
+                    href: "/signed-out?status=signedOut",
+                    text: "Home"                  
+                },
+                {
+                    href: "/signed-out?status=signedOut",
+                    text: "Add new organisation"                  
+                },                
+                {
+                    href: "/signed-out?status=signedOut",
+                    text: "Your details"                  
+                },                
+                {
+                    href: "/signed-out?status=signedOut",
+                    text: "Sign out"                    
+                }
+            ]                              
+            }) }}
 
-    {% block beforeContent %}
+            {% else %}
+
+            {{ govukHeader({
+                homepageUrl: "/",
+                serviceName: "Defra account",
+                serviceUrl: "/",
+                containerClasses: "govuk-width-container",
+                useTudorCrown: true                
+                    
+            }) }}
+
+            {% endif %}
+        {% else %}
+            {{ govukHeader({
+                homepageUrl: "/",
+                serviceName: serviceName,
+                serviceUrl: "/",
+                containerClasses: "govuk-width-container",
+                useTudorCrown: true                
+            }) }}
+        {% endif %}
+              
+{% endblock %}
+
+{% block beforeContent %}
+            
+        {% if showNav == true %}
+            {% block pageNavigation %}
+                {% include "includes/account-nav.html" %}        
+            {% endblock %}
+        {% endif %}        
     
         {% if showPhaseBanner != false %}
             {{ govukPhaseBanner({
@@ -37,22 +84,16 @@
             }) }}
         {% endif %}
 
+        
+
         {% if showBackLink != false %}
             {{ govukBackLink({
                 text: "Back",
                 href: "javascript:history.go(-1)"
             }) }}
         {% endif %}
-
-      
-
-        {% block pageNavigation %}
-
-        {% if showNav == true %}
-        {% include "includes/account-nav.html" %}            
-        {% endif %}
+    
         
-        {% endblock %}
         {% block pageBanner %}{% endblock %}
 
     
