@@ -1,5 +1,8 @@
 {% extends "/layouts/main.html" %}
-{% set serviceName = "Your Defra account" %}
+{% set showPhaseBanner = false %}
+{% set DefraAccount = true %}
+{% set showNav = true %}
+{% set showBackLink = false %}
 
 <!-- Sets type of action link -->
 {% set accountLink %}
@@ -20,9 +23,10 @@
 
 
 
-
-
-{% if data['defaultAccount'] == "thirdParty" %}
+{% if data['defaultAccount'] == "thirdPartyCEO" %}
+	{% set pageHeading = "Your Defra account" %}
+	{% set pageSection = data.defaultThirdPartyCEO %}
+{% elif data['defaultAccount'] == "thirdPartyUser" %}
 	{% set pageHeading = "Your accounts" %}
 	{% set pageSection = '' + data.defaultFirstName + '' + data.defaultSurname + '' %}
 {% else %}
@@ -32,10 +36,7 @@
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
-{% block beforeContent %}
-  {% include "includes/account-nav.html" %}
 
-{% endblock %}
 
 {% block content %}
 
@@ -51,7 +52,10 @@
 		
 		<!-- Third party layout -->
 		{% if ((data['defaultAccount'] == "thirdParty") or ( data['defaultAccount'] == "thirdPartyCEO")) %}
-			{% include "includes/account/thirdparty.html" %}
+			{% include "includes/account/thirdpartyCEO.html" %}
+
+		{% elif data['defaultAccount'] == "thirdPartyUser" %}
+			<!-- {% include "includes/account/thirdpartyCEO.html" %} -->
 		<!-- Business and Individual -->
 		{% else %}
 			{% include "includes/account/business.html" %}
