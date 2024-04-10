@@ -20,26 +20,27 @@ Example usage:
 module.exports = {
 
   // Default always needed
-  userFlow: "Registration",
   serviceFlow: "coreDefault",
-  companySize: "20",
+  userFlow: "Registration",
   mfaStatus: "disabled",
-  govGateUserId: "71 13 56 15 22 14",
-  govGatePassword: "letmein",
+  companySize: "20",  
+  GovGateId: "71 13 56 15 22 14",
+  GovGatePassword: "letmein",
   
   // Ltd Business
   // registrationAccountType: "Business",
+  defaultCompanyName: "Soleheaven Ltd",
   defaultCompanyNumber: "01234568",
   defaultCompanyAddress: "19 Hoults Yard, Walker Road, Newcastle upon Tyne NE6 2HL",
-  defaultCompanyName: "Soleheaven Ltd",
+  
 
   //  Local authority
   defaultThirdParty: "Local authority",
   defaultThirdPartyName: "Newcastle City Council",
-  defaultThirdPartyAddress: "Civic Centre, 2nd Floor, Newcastle upon Tyne, NE1 8QH",
-  defaultThirdPartyCEO: "Chris P Bacon",
-  defaultThirdPartyCEORole: "Chief Executive Officer (CEO)",
+  defaultThirdPartyAddress: "Civic Centre<br>2nd Floor<br>Newcastle upon Tyne<br>NE1 8QH",
   defaultThirdPartyPhone: "0191 268 4325",
+  defaultThirdPartyCEO: "Chris P Bacon",
+  defaultThirdPartyCEORole: "Chief Executive Officer (CEO)",  
   defaultThirdPartyCEOEmail: "chris.p.bacon@localauthority.com",
   defaultThirdPartyCEOServiceRole: "Managing waste data",
   // defaultThirdPartyCeoRegistered: "Yes",

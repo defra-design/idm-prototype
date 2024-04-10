@@ -1,9 +1,9 @@
 {% extends "/layouts/main.html" %}
 {% set showBackLink = false %}
 {% set serviceName = "Government Gateway" %}
-{% set govGateUserId = "49 21 78 79 24 96"%}
+{% set GovGateId = "49 21 78 79 24 96"%}
 
-{% set pageHeading = "Your Government Gateway user ID is "+data['govGateUserId'] %}" %}
+{% set pageHeading = "Your Government Gateway user ID is "+data['GovGateId'] %}" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -15,7 +15,7 @@
         <div class="govuk-panel govuk-panel--confirmation">
             <h1 class="govuk-panel__title">Your Government Gateway user ID is</h1>
             <div class="govuk-panel__body">
-                {{govGateUserId}}
+                {{GovGateId}}
             </div>
         </div>
 

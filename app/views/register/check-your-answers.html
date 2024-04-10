@@ -39,7 +39,16 @@
 	<div class="govuk-grid-column-full"> -->	
 		
 		<!-- Started registration but stopped -->
+		
+		
+		
+		
 		{% if data['registrationStatus'] == "incomplete" %}			
+
+
+
+
+
 
 			{% include "includes/registration/cya/accountType.html" %}
 
@@ -65,7 +74,13 @@
 			{% endif %}
 
 			<!-- Defra account - Business -->
-			{% if data['registrationAccountType'] == "Business" %}
+
+			{% if data['userType'] == "ThirdParyInvite" %}
+
+				{% include "includes/registration/cya/ThirdPartyPersonalDetails.html" %}
+
+
+			{% elif data['registrationAccountType'] == "Business" %}
 				<!-- UK business -->
 				{% if data['registrationTradeUK'] == "Yes" %}
 					<!-- Sole Trader-->
@@ -108,12 +123,22 @@
 				}) }}
 			</form>
 
+		{% elif data['userType'] == "ThirdParyInvite" %}
+		
+			<form method="post" action="/account/?notification_banner=">
+				<input type="hidden" id="registrationStatus" name="registrationStatus" value="Enrolled" />
+				<input type="hidden" id="defaultAccount" name="defaultAccount" value="thirdPartyUser" />
+
+				
+
+				{{ govukButton({
+					text: "Confirm and complete registration"
+				}) }}
+
 		{% else %}
 
 			<!-- Another prototype hooking out of our prototype -->
 			{% if data['serviceHook'] %}
-
-
 
 				{% if data['serviceHook'] == "WasteTracking" %}
 					<form method="post" action="https://wts-prototype.herokuapp.com/v18/index-homepage">

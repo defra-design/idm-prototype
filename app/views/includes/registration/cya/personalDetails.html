@@ -1,8 +1,7 @@
 {{ govukSummaryList({
     card: {
         title: { text: "Your details" },
-		classes: "govuk-!-margin-bottom-7"
-        
+		classes: "govuk-!-margin-bottom-7"        
     },
     rows: [		
         { key: { text: "Name" }, value: { text: accountUserName or data.defaultIndividualName }, actions: { items: [ { href: "/register/personal-name?link=change", text: "Change", visuallyHiddenText: "your name", classes: "govuk-link--no-visited-state" } ] } },

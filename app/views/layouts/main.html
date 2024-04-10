@@ -17,7 +17,7 @@
     
         {% if DefraAccount == true %}
 
-            {% if data['defaultAccountUser'] != "CEO" %}
+            {% if ((data['defaultAccountUser'] == "CEO") or (data['defaultAccountUser'] == "thirdPartyUser")) %}
                 
             {{ govukHeader({
                 homepageUrl: "/",
@@ -36,7 +36,7 @@
                 },                
                 {
                     href: "/signed-out?status=signedOut",
-                    text: "Your details"                  
+                    text: "Update your details"                  
                 },                
                 {
                     href: "/signed-out?status=signedOut",

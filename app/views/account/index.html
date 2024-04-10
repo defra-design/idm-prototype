@@ -27,8 +27,8 @@
 	{% set pageHeading = "Your Defra account" %}
 	{% set pageSection = data.defaultThirdPartyCEO %}
 {% elif data['defaultAccount'] == "thirdPartyUser" %}
-	{% set pageHeading = "Your accounts" %}
-	{% set pageSection = '' + data.defaultFirstName + '' + data.defaultSurname + '' %}
+	{% set pageHeading = "Your Defra account" %}
+	{% set pageSection = '' + data.defaultFirstName + ' ' + data.defaultSurname + '' %}
 {% else %}
 	{% set pageHeading = "Your Defra account" %}
 	{% set pageSection = "" %}
@@ -48,14 +48,16 @@
 			{% include "includes/notification/banner.html" %}
 		{% endif %}
 
-		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}     
+		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}    
+		
+	
 		
 		<!-- Third party layout -->
-		{% if ((data['defaultAccount'] == "thirdParty") or ( data['defaultAccount'] == "thirdPartyCEO")) %}
-			{% include "includes/account/thirdpartyCEO.html" %}
-
-		{% elif data['defaultAccount'] == "thirdPartyUser" %}
-			<!-- {% include "includes/account/thirdpartyCEO.html" %} -->
+		{% if ((data['defaultAccount'] == "thirdPartyUser") or ( data['defaultAccount'] == "thirdPartyCEO")) %}
+		</div>
+		<div class="govuk-grid-column-full">
+			{% include "includes/account/thirdparty.html" %}
+		
 		<!-- Business and Individual -->
 		{% else %}
 			{% include "includes/account/business.html" %}

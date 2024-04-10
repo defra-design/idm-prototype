@@ -1,80 +1,47 @@
 
-{% if data['defaultAccountUser'] == "CEO" %}
-
-	{{ govukSummaryList({
-		
-    	rows: [    	
-        	{ key: { text: "Your name" }, value: { text: data.defaultThirdPartyCEO } },
-        	{ key: { text: "Email address" }, value: { text: data['regThirdPartyCEOEmail'] or data.defaultThirdPartyCEOEmail } }
-        	
-        	
-      	]
-  	}) }}		
-
-	<!-- Third party admin -->
-{% else %}
-
-	{{ govukSummaryList({
-		rows: [    	
-	  		{ key: { text: "Name" }, value: { text: data.defaultThirdPartyCEO }, actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "name", classes: "govuk-link--no-visited-state" } ] } },
-	  		{ key: { text: "Email address" }, value: { text: data['regThirdPartyCEOEmail'] or data.defaultThirdPartyCEOEmail } },
-	  		{ key: { text: "Phone number" }, value: { text: data.defaultThirdPartyPhone }, actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "phone number", classes: "govuk-link--no-visited-state" } ] } },
-	  		{ key: { text: "Memorable word" }, value: { text: "********" }, actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "memorable word", classes: "govuk-link--no-visited-state" } ] } }
-		]
-	}) }}
-
-{% endif %}
-</div>
 
 
-<div class="govuk-grid-column-full">
 
-    <!-- <h2 class="govuk-heading-l govuk-!-margin-top-7">Accounts available to you</h2> -->
+
+
+
+    <h2 class="govuk-heading-m govuk-!-margin-top-5">Organisations available to you</h2>
 <!-- <p>You have access to the following accounts and Defra services.</p> -->
-<p>You have access to the following accounts and Defra online services.</p>
+<p>You have access to the following organisations and their Defra online services.</p>
 
 <!-- Third Party CEO view -->
 {% if data['defaultAccountUser'] == "CEO" %}
 
 	{{ govukSummaryList({
 		card: {
-			title: { html: data.defaultThirdPartyName | titleCase  }
-			
+			title: { html: data.defaultThirdPartyName | titleCase  }      		
 		},
 		rows: [		
-			{ key: { text: "Address" }, value: { text: data.defaultThirdPartyAddress } },    	
+			{ key: { text: "Address" }, value: { html: data.defaultThirdPartyAddress } },    	
 			{ key: { text: "Phone number" }, value: { text: data.defaultThirdPartyPhone } },
-			{ key: { text: "Registered services" }, value: { html: '<a href="#" class="govuk-link govuk-link--no-visited-state">Local Authority Payment Service (LAPS)</a>' } },      
+			{ key: { text: "Registered services" }, value: { html: '<a href="https://laps-prototype-e21618a16725.herokuapp.com/laps/account/account-home-ceo" class="govuk-link govuk-link--no-visited-state">Local Authority Payment Service (LAPS)</a>' } },      
 			{ key: { text: "Service role" }, value: { html: data.defaultThirdPartyCEOServiceRole }, actions: { items: [ { href: "/account/thirdParty/add/service-role?changeLink=CEO", text: "Change", visuallyHiddenText: "age", classes: "govuk-link--no-visited-state" } ] } },
 			{ key: { text: "Account role" }, value: { html: "Owner" } },
 			{ key: { text: "Team members" }, value: { text: "1" }, actions: { items: [ { href: "/account/thirdParty/add/service-role?thirdPartyInvite=Yes", text: "Add", visuallyHiddenText: "age", classes: "govuk-link--no-visited-state" }, { href: "/account/manage/team/", text: "Manage", visuallyHiddenText: "age", classes: "govuk-link--no-visited-state" } ] } }
 		]
 	}) }}
 
-
-
-	
-<!-- Third party admin -->
+<!-- Third party NOT CEO -->
 {% else %}
 
-	{{ govukSummaryList({
-		card: {
-    		title: { html: data.defaultThirdPartyName | titleCase  },
-      		actions: {
-			  	items: [
-			    	{ href: "#", text: "Register with new service", visuallyHiddenText: "name", classes: "govuk-link--no-visited-state" }        
-			  	]
-	    	}  	
-  		},
-  		rows: [
-      		{ key: { text: "Address" }, value: { text: data.defaultThirdPartyAddress } },    	
-    		{ key: { text: "Registered services" }, value: { html: '<a href="#" class="govuk-link govuk-link--no-visited-state">Local Authority Payment Service (LAPS)</a>' } },      
-		  	{ key: { text: "Service role" }, value: { html: data.defaultThirdPartyCEOServiceRole }, actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "age", classes: "govuk-link--no-visited-state" } ] } },
-      		{ key: { text: "Account role" }, value: { html: "Admin" }, actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "age", classes: "govuk-link--no-visited-state" } ] } },
-      		{ key: { text: "Team members" }, value: { text: "1" }, actions: { items: [ { href: "/account/thirdParty/add/service-role?thirdPartyInvite=Yes", text: "Add", visuallyHiddenText: "age", classes: "govuk-link--no-visited-state" }, { href: "/account/manage/team/", text: "Manage", visuallyHiddenText: "age", classes: "govuk-link--no-visited-state" } ] } }
-  		]
-	}) }}
-
+  {{ govukSummaryList({ 
+    card: {
+      title: { html: data.defaultThirdPartyName | titleCase  }			
+    },
+    rows: [		
+      { key: { text: "Address" }, value: { html: data.defaultThirdPartyAddress } },    	
+      { key: { text: "Phone number" }, value: { text: data.defaultThirdPartyPhone } },
+      { key: { text: "Registered services" }, value: { html: '<a href="https://laps-prototype-e21618a16725.herokuapp.com/laps/account/account-home-ceo" class="govuk-link govuk-link--no-visited-state">Local Authority Payment Service (LAPS)</a>' } },      
+      { key: { text: "Service role" }, value: { html: data.defaultThirdPartyCEOServiceRole }, actions: { items: [ { href: "/account/thirdParty/add/service-role?changeLink=CEO", text: "Change", visuallyHiddenText: "age", classes: "govuk-link--no-visited-state" } ] } },
+      { key: { text: "Account role" }, value: { text: data.regThirdPartyUserOneAdmin } },
+      { key: { text: "Team members" }, value: { text: "1" }, actions: { items: [ { href: "/account/thirdParty/add/service-role?thirdPartyInvite=Yes", text: "Add", visuallyHiddenText: "age", classes: "govuk-link--no-visited-state" }, { href: "/account/manage/team/", text: "Manage", visuallyHiddenText: "age", classes: "govuk-link--no-visited-state" } ] } }
+    ]
+  }) }}
 
 {% endif %}
 
@@ -88,9 +55,9 @@
     	title: { html: data.defaultThirdPartyName | titleCase },
       actions: {
 			  items: [
-			    { href: "/account/manage/update/organisation/", text: "Register for new service", visuallyHiddenText: "name", classes: "govuk-link--no-visited-state" }        
+			    { href: "/account/manage/update/organisation/", text: "Register for a new Defra service", visuallyHiddenText: "name", classes: "govuk-link--no-visited-state" }        
 			  ]
-	    }  	
+	    }
   	},
   	rows: [
     	{ key: { text: "Account role" }, value: { html: "Admin" }, actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "age", classes: "govuk-link--no-visited-state" } ] } },

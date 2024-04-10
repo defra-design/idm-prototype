@@ -1,0 +1,36 @@
+{{ govukSummaryList({
+    card: {
+        title: { text: "Your details" },
+		classes: "govuk-!-margin-bottom-7"        
+    },
+    rows: [		
+    	{ key: { text: "Email" }, value: { text: data.regThirdPartyUserOneEmail } },
+		{ key: { text: "Name" }, value: { text: accountUserName or data.defaultIndividualName }, actions: { items: [ { href: "/register/personal-name?link=change", text: "Change", visuallyHiddenText: "your name", classes: "govuk-link--no-visited-state" } ] } }
+		
+    ]
+}) }}
+
+
+<!-- 
+						{% if data['registrationAddressUK'] == "No" %}
+								{{ data.registrationManualAddressLine1 }}
+								<br>{{ data.registrationNonUKAddressLine2 }}
+								<br>{{ data.registrationNonUKAddressLine3 }}
+								<br>{{ data.registrationNonUKAddressLine4 }}
+								<br>{{ data.registrationNonUKAddressTownCity }}
+								<br>{{ data.registrationNonUKAddressZipCode }}
+								<br>{{ data.registrationNonUKAddressCountry }}
+						{% else %}
+							{% if data['registrationIndividualAddress'] != "" %}
+								{{ data['registrationIndividualAddress'] or 'Top Gun, Mirimar, San Diego' }}					
+							{% else %}
+								{{ data.registrationManualAddressLine1 }}
+								<br>{{ data.registrationManualAddressLine2 }}
+								<br>{{ data.registrationManualAddressLine3 }}
+								<br>{{ data.registrationManualAddressLine4 }}
+								<br>{{ data.registrationManualAddressTownCity }}
+								<br>{{ data.registrationManualAddressZipCode }}
+								<br>{{ data.registrationManualAddressCountry }}
+							{% endif %}
+						{% endif %} -->
+		

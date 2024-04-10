@@ -21,7 +21,7 @@
   	</ul>
 </div> -->
 
-{% if data['defaultAccountUser'] == "CEO" %}
+{% if ((data['defaultAccountUser'] == "CEO") or (data['defaultAccountUser'] == "thirdPartyUser")) %}
 <nav class="x-govuk-secondary-navigation" aria-label="Secondary menu">
 	<ul class="x-govuk-secondary-navigation__list ">
 	  <li class="x-govuk-secondary-navigation__list-item x-govuk-secondary-navigation__list-item--current ">
@@ -31,7 +31,7 @@
 	  </li>
 	  <li class="x-govuk-secondary-navigation__list-item ">
 		<a class="x-govuk-secondary-navigation__link" href="/signed-out?status=signedOut">
-		  Your details
+		  Update your details
 		</a>
 	  </li>
 	  <li class="x-govuk-secondary-navigation__list-item ">
