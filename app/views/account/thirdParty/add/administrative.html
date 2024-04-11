@@ -15,19 +15,16 @@
 
         <p>This means they can:</p>
         <ul class="govuk-list govuk-list--bullet">
-            <li>add and manage team members for {{ data.defaultThirdPartyName }}</li>
-            <li>view and edit information Defra holds about {{ data.defaultThirdPartyName }}</li>
+            <li>add and manage team members</li>            
             <li>register {{ data.defaultThirdPartyName }} for other Defra online services</li>
             
         </ul>
-
         
         <form method="post" action="/account/thirdParty/add/check-your-answers" >
             
+            <!-- Invited Team Member -->
             {% if data['thirdPartyInvite'] == "Yes" %}
-
                 {% include "includes/account/admin/invite.html" %}
-
             {% else %}
 
                 {% include "includes/account/admin/users.html" %}

@@ -1,14 +1,13 @@
 <div class="govuk-inset-text">
     <p>These pages are currently under design and user research.</p>    
 </div>
-<h3 class="govuk-heading-m">CEO initial registration</h3>
+<h3 class="govuk-heading-m">CEO confirmation</h3>
 
-<form method="post" action="/b2c/thirdParty/?userType=CEO" >
-
+<!-- <form method="post" action="/b2c/thirdParty/?userType=CEO" >
     {{ govukButton({
         text: "CEO registration flow"
     }) }}
-</form>
+</form> -->
 
 <ul class="govuk-list govuk-list--bullet">
     <li><a class="govuk-link govuk-link--no-visited-state" href="/b2c/thirdParty/?userType=CEO" >What’s your local authority email address?</a> ( May still skip this)</li>
@@ -16,11 +15,12 @@
     <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-2">
         <li><a class="govuk-link govuk-link--no-visited-state" href="/b2c/thirdParty/failed-to-send" >There was a problem sending the one-time passcode</a></li>
     </ul>
-    <li><a class="govuk-link govuk-link--no-visited-state" href="/b2c/thirdParty/check-details" >Confirm your details</a></li>
+    <li><a class="govuk-link govuk-link--no-visited-state" href="/b2c/thirdParty/confirm-details" >Confirm your details</a></li>
     <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-2">
-        <li><a class="govuk-link govuk-link--no-visited-state" href="/b2c/thirdParty/cannot-continue">You cannot continue registration</a></li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="/b2c/thirdParty/cannot-continue">You cannot continue with registration</a></li>
     </ul>
-    <li><a class="govuk-link govuk-link--no-visited-state" href="/account/thirdParty/confirmation" >Registration complete</a></li>
+    <li><a class="govuk-link govuk-link--no-visited-state" href="/account/thirdParty/confirmation" >Registration of  NAME completed</a></li>
+    <li><a class="govuk-link govuk-link--no-visited-state" href="/account/?defaultAccount=thirdPartyCEO&defaultAccountUser=CEO&notification_banner=" >Your Defra account (CEO)</a></li>
 
 </ul>
 
@@ -34,10 +34,12 @@
 
 
 <ul class="govuk-list govuk-list--bullet">
-    <li><a class="govuk-link govuk-link--no-visited-state" href="/account/thirdParty/add/service-role" >What will their service role be for {name of third party}?</a></li>
-    <li><a class="govuk-link govuk-link--no-visited-state" href="/account/thirdParty/add/administrative" >Do you want them to be an administrator for {name of third party}?</a></li>
-    <li><a class="govuk-link govuk-link--no-visited-state" href="/account/thirdParty/add/email" >What is their {type of third party} email address?</a></li>
-    <li><a class="govuk-link govuk-link--no-visited-state" href="/account/thirdParty/add/check-your-answers" >Check your answers</a></li>
+    <li><a class="govuk-link govuk-link--no-visited-state" href="/account/thirdParty/add/email?ceoRegistered=Yes&thirdPartyInvite=Yes" >What is their {type of third party} email address?</a></li>
+    <li><a class="govuk-link govuk-link--no-visited-state" href="/account/thirdParty/add/service-role?ceoRegistered=Yes&thirdPartyInvite=Yes" >What role will they have on this service?</a></li>
+    <li><a class="govuk-link govuk-link--no-visited-state" href="/account/thirdParty/add/administrative?ceoRegistered=Yes&thirdPartyInvite=Yes" >Will they be an account administrator?</a></li>
+    <li><a class="govuk-link govuk-link--no-visited-state" href="/account/thirdParty/add/check-your-answers?ceoRegistered=Yes&thirdPartyInvite=Yes" >Check your answers</a></li>
+    
+    
     <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-2">
         <li><a class="govuk-link govuk-link--no-visited-state" href="/account/thirdParty/add-more" >Do you want to add another team member?</a></li>
         <li><a class="govuk-link govuk-link--no-visited-state" href="/account/thirdParty/add-more" >You have invited {Number} person to {name of third party}</a></li>

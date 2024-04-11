@@ -13,19 +13,18 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-		{% if data['thirdPartyInvite'] == "Yes" %}
-
+		<!-- Invited Team Member -->
+		{% if data['thirdPartyInvite'] == "Yes" %}			
 			{% include "includes/account/cya/invite.html" %}			
-
 		{% else %}
         
 			{% include "includes/account/cya/users.html" %}
 
 		{% endif %}
 
-				
+			<!-- Invited team member -->
 			{% if data['thirdPartyInvite'] == "Yes" %}
-				<form method="post" action="/account/thirdParty/add/confirmation" >    
+				<form method="post" action="/account/thirdParty/add-more" >    
 			{% else %}
 				<!-- <form method="post" action="/account/thirdParty/add/confirmation" > -->
         		<form method="post" action="/account/thirdParty/add-more" >    

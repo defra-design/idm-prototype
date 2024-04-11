@@ -2,7 +2,7 @@
 {% set showBackLink = false %}
 {% set serviceName = "" %}
 
-{% set pageHeading = "Check your details" %}
+{% set pageHeading = "Confirm your details" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -13,6 +13,7 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
         
+        <!-- CEO -->
         <form method="post" action="/account/thirdParty/confirmation" >
             
             <dl class="govuk-summary-list govuk-!-margin-bottom-9">

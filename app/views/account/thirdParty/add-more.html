@@ -42,12 +42,12 @@
 
 
 
-
-        <form method="post" action="/account/thirdParty/add/service-role" >
+        <!-- Team member invite -->
+        <form method="post" action="/account/thirdParty/add/email" >
             
             {{ govukRadios({
                 classes: "govuk-radios--inline",
-                name: "regThirdPartyUserAddMore",
+                name: "thirdPartyInviteAddMore",
                 fieldset: {
                     legend: {
                         text: "Do you want to add another team member?",

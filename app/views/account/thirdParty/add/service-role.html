@@ -6,7 +6,7 @@
 {% if data['changeLink'] == "CEO" %}
     {% set pageHeading = 'What’s your new service role for ' + data.defaultThirdPartyName | titleCase + '?' %}
 {% elif data['thirdPartyInvite'] == "Yes" %}
-    {% set pageHeading = 'What will their role be?' %}
+    {% set pageHeading = 'What role will they have on this service?' %}
 {% else %}
     {% set pageHeading = 'What will their service role be for ' + data.defaultThirdPartyName | titleCase + '?' %}
 {% endif %}
@@ -22,7 +22,7 @@
 
         <!-- Dynamic line depending on sevice -->
         <div class="govuk-inset-text">
-            <p class="govuk-body">This is their role on the Local Authority Payment Service (LAPS).</p>
+            <p class="govuk-body">Defra service: <span class="govuk-!-font-weight-bold">Local Authority Payment Service (LAPS)</span>.</p>
         </div>
 
         {% if data['changeLink'] == "CEO" %}
@@ -37,9 +37,8 @@
                 {% include "includes/account/service-role/change-ceo.html" %}
                     
             {% elif data['thirdPartyInvite'] == "Yes" %}
-
+                <!-- Invited team member -->
                 {% include "includes/account/service-role/invite.html" %}
-
             {% else %}
 
                 {% include "includes/account/service-role/users.html" %}

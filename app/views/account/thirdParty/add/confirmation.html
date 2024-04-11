@@ -3,15 +3,18 @@
 {% set serviceName = "" %}
 
 
-{% if data['regThirdPartyUserAddMore'] == "Yes" %}
-    {% set pageHeading = "Team members added to your account" %}
-{% elif data['regThirdPartyUserAddMore'] == "No" %}
+{% if data['thirdPartyInviteAddMore'] == "Yes" %}
+    {% set pageHeading = 'Team members added to ' + data.defaultThirdPartyName + ' ' %}
+{% elif data['thirdPartyInviteAddMore'] == "No" %}
     {% set pageHeading = 'Team member added to ' + data.defaultThirdPartyName + ' ' %}
+
+
 {% elif data['addTeamMemberThirdParty'] == "Yes" %}
     {% set pageHeading = "Team member added to your account" %}
 {% else %}
     {% set pageHeading = 'Team member added to ' + data.defaultThirdPartyName + ' ' %}
 {% endif %}
+
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -25,8 +28,8 @@
             classes: "govuk-!-margin-bottom-7"            
         }) }}
 
+        <!-- Team member invited -->
         {% if data['addTeamMemberThirdParty'] == "Yes" %}
-
             {% include "includes/account/confirmation/invite.html" %}        
 
         {% else %}

@@ -14,12 +14,12 @@
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
         <div class="govuk-inset-text">
-            <p>For security it’s important this is the email address they use at {{ data.defaultThirdPartyName }}.</p>
+            <p>This must be the email address they use at {{ data.defaultThirdPartyName }}.</p>
         </div>
         <form method="post" action="/account/thirdParty/add/service-role" >
 
             {% if data['thirdPartyInvite'] == "Yes" %}
-
+                <!-- Invited team member -->
                 {% include "includes/account/email/invite.html" %}
 
             {% else %}

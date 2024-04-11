@@ -63,7 +63,7 @@
 					</tr>
 				</thead>
 				
-				{% if ((data['inviteThirdPartyOneResponsibility']) or (data['regThirdPartyUserOne'])) %}
+				{% if ((data['thirdPartyInvitedRoleOne']) or (data['regThirdPartyUserOne'])) %}
 				<tr class="govuk-table__row no-border">
 					<td class="govuk-table__cell">
 						{% if data['regThirdPartyUserOne'] == "Enrolled" %}
@@ -121,7 +121,7 @@
 					</tr>
 				</thead>
 				
-				{% if ((data['inviteThirdPartyOneResponsibility']) or (data['regThirdPartyUserOne'])) %}
+				{% if ((data['thirdPartyInvitedRoleOne']) or (data['regThirdPartyUserOne'])) %}
 				<tr class="govuk-table__row no-border">
 					<td class="govuk-table__cell">
 						{% if data['regThirdPartyUserOne'] == "Enrolled" %}

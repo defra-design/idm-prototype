@@ -2,7 +2,7 @@
 {% set showBackLink = false %}
 {% set serviceName = "" %}
 
-{% set pageHeading = 'Registration for ' + data.defaultThirdPartyName + ' completed' %}
+{% set pageHeading = 'Registration of ' + data.defaultThirdPartyName + ' confirmed' %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -12,50 +12,30 @@
     <div class="govuk-grid-column-two-thirds">
 
         {{ govukPanel({
-            titleText: pageHeading,
-            
+            titleText: pageHeading,            
             classes: "govuk-!-margin-bottom-7"
-        }) }}
-        <!-- html: '' + data.defaultThirdPartyName + '',             -->
+        }) }}        
 
         <p class="govuk-body">We have sent an email confirmation to <span class="govuk-!-font-weight-bold">{{ data['regThirdPartyCEOEmail'] or data.defaultThirdPartyCEOEmail }}</span></p>
             
         <h2 class="govuk-heading-m">What you can do next</h2>
-
-
-        
-
         <!-- <h3 class="govuk-heading-s">Add a team member</h3> -->
-        <p class="govuk-body">You can add other team members, giving them access to the Local Authority Payment Service (LAPS) on behalf of {{ data.defaultThirdPartyName }}.</p>        
+        <p class="govuk-body">You can add team members to {{ data.defaultThirdPartyName }} giving them access to the Local Authority Payment Service (LAPS).</p>        
         <p class="govuk-body">You will need to tell us:</p>            
         <!-- to tell us who will be responsible for the various roles at {{ data.defaultThirdPartyName }}. </p> -->        
         <ul class="govuk-list govuk-list--bullet">
             <li>their {{ data.defaultThirdParty }} email address</li>            
-            <li>what their role will be for Local Authority Payment Service (LAPS)</li>            
+            <li>their role for Local Authority Payment Service (LAPS)</li>            
             <li>if they will be an account administrator</li>
         </ul>        
+        <p class="govuk-body">If you do not want to add team members right now, you can continue to your Defra account.</p>
 
-        
-
-        <p class="govuk-body">If you do not want to add other team members right now, you can continue to your Defra account, where you will be able to manage {{ data.defaultThirdPartyName }} including team members and which Defra services they are registered with.</p>
-        <!-- <p>You can add team members to this organisation when you are ready to do so.</p> -->
-        <!-- <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-5">
-            <li>which Defra online services {{ data.defaultThirdPartyName }} are registered with</li>
-            <li>add team members</li>
-            
-            
-        </ul> -->
-        <!-- <p class="govuk-body">We can then send them instruction by email on how to register so they can access {{ data.defaultThirdPartyName }}’s services.</p> -->
-
-
-        <form method="post" action="/account/thirdParty/add/email?ceoRegistered=Yes" >
-        
-            <div class="govuk-button-group govuk-!-margin-top-7">
-            
+        <!-- CEO -->
+        <form method="post" action="/account/thirdParty/add/email?ceoRegistered=Yes">        
+            <div class="govuk-button-group govuk-!-margin-top-7">            
                 {{ govukButton({
                     text: "Add team member"
                 }) }}
-
                 <a class="govuk-link" href="/account/?defaultAccount=thirdPartyCEO&defaultAccountUser=CEO&notification_banner=">Continue to your Defra account</a>
             </div>
         </form>
