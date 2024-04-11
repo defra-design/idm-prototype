@@ -1,6 +1,13 @@
-<dl class="govuk-summary-list govuk-!-margin-bottom-9">        	
+<dl class="govuk-summary-list govuk-!-margin-bottom-9">  
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Email address</dt>
+    <dd class="govuk-summary-list__value">{{ data['inviteThirdPartyOneEmail'] or '07711223344' }}</dd>
+    <dd class="govuk-summary-list__actions">
+      <a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> their email address</span></a>
+    </dd>
+</div>        	      	
     <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">Role</dt>
+        <dt class="govuk-summary-list__key">LAPS service role</dt>
         <dd class="govuk-summary-list__value">{{ data['inviteThirdPartyOneResponsibility'] or 'TheGoat23' }}</dd>
         <dd class="govuk-summary-list__actions">
               <a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> what responsibility they have</span></a>
@@ -15,11 +22,5 @@
         </dd>
       </div>
 
-    <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">Email address</dt>
-          <dd class="govuk-summary-list__value">{{ data['inviteThirdPartyOneEmail'] or '07711223344' }}</dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> their email address</span></a>
-          </dd>
-    </div>        	
+    
   </dl>

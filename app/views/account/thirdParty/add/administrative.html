@@ -2,7 +2,7 @@
 {% set showBackLink = false %}
 {% set serviceName = "" %}
 
-{% set pageHeading = 'Do you want them to be an administrator for ' + data.defaultThirdPartyName | titleCase + '?' %}
+{% set pageHeading = 'Will they be an account administrator for ' + data.defaultThirdPartyName | titleCase + '?' %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -15,9 +15,9 @@
 
         <p>This means they can:</p>
         <ul class="govuk-list govuk-list--bullet">
-            <li>add and manage your team members</li>
-            <li>view and edit information the Defra service holds about {{ data.defaultThirdPartyName }}</li>
-            <li>manage tasks on your behalf</li>
+            <li>add and manage team members</li>
+            <li>view and edit information Defra holds about {{ data.defaultThirdPartyName }}</li>
+            <li>register {{ data.defaultThirdPartyName }} for other Defra online services</li>
             
         </ul>
 

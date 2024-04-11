@@ -10,7 +10,7 @@
 {% elif data['addTeamMemberThirdParty'] == "Yes" %}
     {% set pageHeading = "Team member added to your account" %}
 {% else %}
-    {% set pageHeading = "Team members added to your account" %}
+    {% set pageHeading = 'Team member added to ' + data.defaultThirdPartyName + ' ' %}
 {% endif %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
