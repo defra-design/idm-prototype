@@ -22,11 +22,29 @@
 </div> -->
 
 {% if ((data['defaultAccountUser'] == "CEO") or (data['defaultAccountUser'] == "thirdPartyUser")) %}
+
+<!-- {{ xGovukPrimaryNavigation({
+	visuallyHiddenTitle: "Navigation",
+	items: [{
+	  text: "Home",
+	  href: "#",
+	  current: true
+	}, {
+	  text: "Update your details",
+	  href: "#"
+	}, {
+	  text: "Sign out",
+	  href: "#"
+	}
+	]
+  }) }} -->
+
+
 <nav class="x-govuk-secondary-navigation" aria-label="Secondary menu">
 	<ul class="x-govuk-secondary-navigation__list ">
 	  <li class="x-govuk-secondary-navigation__list-item x-govuk-secondary-navigation__list-item--current ">
 		<a class="x-govuk-secondary-navigation__link" href="/account/?notification_banner=" aria-current=page>
-		  Home
+		  Your Account
 		</a>
 	  </li>
 	  <li class="x-govuk-secondary-navigation__list-item ">
@@ -34,6 +52,7 @@
 		  Update your details
 		</a>
 	  </li>
+	  
 	  <li class="x-govuk-secondary-navigation__list-item ">
 		<a class="x-govuk-secondary-navigation__link" href="/signed-out?status=signedOut">
 		  Sign out
