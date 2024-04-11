@@ -27,13 +27,13 @@
         
 
         <!-- <h3 class="govuk-heading-s">Add a team member</h3> -->
-        <p class="govuk-body">You can add other team members to this {{ data.defaultThirdParty }}, giving them access to Defra online services on behalf of {{ data.defaultThirdPartyName }}.</p>        
+        <p class="govuk-body">You can add other team members, giving them access to the Local Authority Payment Service (LAPS) on behalf of {{ data.defaultThirdPartyName }}.</p>        
         <p class="govuk-body">You will need to tell us:</p>            
         <!-- to tell us who will be responsible for the various roles at {{ data.defaultThirdPartyName }}. </p> -->        
         <ul class="govuk-list govuk-list--bullet">
             <li>their {{ data.defaultThirdParty }} email address</li>            
-            <li>what their role will be for registered services</li>            
-            <li>if they will be an administrator for the account</li>
+            <li>what their role will be for Local Authority Payment Service (LAPS)</li>            
+            <li>if they will be an account administrator</li>
         </ul>        
 
         
@@ -49,12 +49,12 @@
         <!-- <p class="govuk-body">We can then send them instruction by email on how to register so they can access {{ data.defaultThirdPartyName }}’s services.</p> -->
 
 
-        <form method="post" action="/account/thirdParty/add/service-role?ceoRegistered=Yes" >
+        <form method="post" action="/account/thirdParty/add/email?ceoRegistered=Yes" >
         
             <div class="govuk-button-group govuk-!-margin-top-7">
             
                 {{ govukButton({
-                    text: "Add team members"
+                    text: "Add team member"
                 }) }}
 
                 <a class="govuk-link" href="/account/?defaultAccount=thirdPartyCEO&defaultAccountUser=CEO&notification_banner=">Continue to your Defra account</a>
