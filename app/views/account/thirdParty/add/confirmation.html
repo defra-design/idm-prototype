@@ -6,7 +6,7 @@
 {% if data['regThirdPartyUserAddMore'] == "Yes" %}
     {% set pageHeading = "Team members added to your account" %}
 {% elif data['regThirdPartyUserAddMore'] == "No" %}
-    {% set pageHeading = "Team member added to your account" %}
+    {% set pageHeading = 'Team member added to ' + data.defaultThirdPartyName + ' ' %}
 {% elif data['addTeamMemberThirdParty'] == "Yes" %}
     {% set pageHeading = "Team member added to your account" %}
 {% else %}
@@ -36,7 +36,7 @@
         {% endif %}
 
 
-  	</div>
+</div>
 </div>
 
 {% endblock %}

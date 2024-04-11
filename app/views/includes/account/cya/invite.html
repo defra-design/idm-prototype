@@ -16,7 +16,13 @@
 
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">Administrator</dt>
-        <dd class="govuk-summary-list__value">{{ data['inviteThirdPartyOneAdmin'] or 'TheGoat23' }}</dd>
+        <dd class="govuk-summary-list__value">
+          {% if data['inviteThirdPartyOneAdmin'] == "Admin" %}
+            Yes
+          {% else %}
+            No
+          {% endif %}
+          </dd>
         <dd class="govuk-summary-list__actions">
               <a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> what access they have</span></a>
         </dd>
