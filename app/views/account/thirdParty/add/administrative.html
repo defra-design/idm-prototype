@@ -3,7 +3,7 @@
 {% set serviceName = "" %}
 
 {% set pageHeading = 'Will they have an administrator role?' %}
-{% set pageSection = "" %}
+{% set pageSection = "Add team member" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
@@ -16,19 +16,55 @@
         <p>This means they can:</p>
         <ul class="govuk-list govuk-list--bullet">
             <li>add and manage team members</li>            
-            <li>register {{ data.defaultThirdPartyName }} for other Defra online services</li>
-            
+            <li>register {{ data.defaultThirdPartyName }} for other Defra online services</li>                        
         </ul>
         
         <form method="post" action="/account/thirdParty/add/check-your-answers" >
             
-            <!-- Invited Team Member -->
-            {% if data['thirdPartyInvite'] == "Yes" %}
-                {% include "includes/account/admin/invite.html" %}
+            <!-- Add team member flow Trusted Third Party -->
+            {% if data['addTeamThirdParty'] == "Yes" %}
+
+                {% if data['addTeamTP-One'] == "Added" %}
+
+                    {{ govukRadios({
+                        classes: "govuk-radios--inline",
+                        name: "addTeamTP-Admin-Two",                    
+                        fieldset: {
+                            legend: {
+                                text: pageHeading,
+                                isPageHeading: false,
+                                classes: "govuk-visually-hidden"
+                            }
+                        },            
+                        items: [
+                            { value: "Admin", text: "Yes" }, 
+                            { value: "Standard", text: "No" }              
+                        ]
+                    }) }}                
+
+
+                {% else %}
+
+                    {{ govukRadios({
+                        classes: "govuk-radios--inline",
+                        name: "addTeamTP-Admin-One",                    
+                        fieldset: {
+                            legend: {
+                                text: pageHeading,
+                                isPageHeading: false,
+                                classes: "govuk-visually-hidden"
+                            }
+                        },            
+                        items: [
+                            { value: "Admin", text: "Yes" }, 
+                            { value: "Standard", text: "No" }              
+                        ]
+                    }) }}
+
+                {% endif %}
+            <!-- ??? -->
             {% else %}
-
                 {% include "includes/account/admin/users.html" %}
-
             {% endif %}
 
             {{ govukButton({

@@ -23,7 +23,7 @@
 
 
 
-{% if data['defaultAccount'] == "thirdPartyCEO" %}
+{% if data['userType'] == "ThirdPartyCEO" %}
 	{% set pageHeading = "Your Defra account" %}
 	{% set pageSection = data.defaultThirdPartyCEO %}
 {% elif data['defaultAccount'] == "thirdPartyUser" %}
@@ -53,7 +53,7 @@
 	
 		
 		<!-- Third party layout -->
-		{% if ((data['defaultAccount'] == "thirdPartyUser") or ( data['defaultAccount'] == "thirdPartyCEO")) %}
+		{% if ((data['defaultAccount'] == "thirdPartyUser") or ( data['userType'] == "ThirdPartyCEO")) %}
 		</div>
 		<div class="govuk-grid-column-full">
 			{% include "includes/account/thirdparty.html" %}

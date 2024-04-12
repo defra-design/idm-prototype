@@ -2,8 +2,8 @@
 {% set showBackLink = false %}
 {% set serviceName = "" %}
 
-{% set pageHeading = "Add team member" %}
-{% set pageSection = "" %}
+{% set pageHeading = "What we need" %}
+{% set pageSection = "Add team member" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
@@ -14,16 +14,14 @@
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
                
 
-        <p class="govuk-body">Adding a team member will give them access to the Local Authority Payment Service (LAPS) on behalf of {{ data.defaultThirdPartyName }}.</p>        
-        <p class="govuk-body">You will need to tell us:</p>            
-        <!-- to tell us who will be responsible for the various roles at {{ data.defaultThirdPartyName }}. </p> -->        
+        <p class="govuk-body">Adding a team member will give them access to the Local Authority Payment Service (LAPS).</p>        
+        <!-- <p class="govuk-body">Adding a team member will give them access to the Local Authority Payment Service (LAPS) on behalf of {{ data.defaultThirdPartyName }}.</p>         -->
+        <p class="govuk-body">You will need to tell us:</p>                    
         <ul class="govuk-list govuk-list--bullet">
-            <li>their {{ data.defaultThirdParty }} email address</li>            
-            <li>what their role will be for Local Authority Payment Service (LAPS)</li>            
-            <li>if they will be an account administrator</li>
+            {% include "includes/thirdparty/add-team-list.html" %}
         </ul>          
             
-            <form method="post" action="/account/thirdParty/add/email?addTeamMemberThirdParty=Yes" class="govuk-!-margin-top-7">            
+            <form method="post" action="/account/thirdParty/add/email" class="govuk-!-margin-top-7">            
     
                 {{ govukButton({
                     text: "Continue"

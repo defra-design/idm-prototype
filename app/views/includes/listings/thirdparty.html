@@ -3,14 +3,14 @@
 </div>
 <h3 class="govuk-heading-m">CEO confirmation</h3>
 
-<!-- <form method="post" action="/b2c/thirdParty/?userType=CEO" >
+<!-- <form method="post" action="/b2c/thirdParty/?userType=ThirdPartyCEO" >
     {{ govukButton({
         text: "CEO registration flow"
     }) }}
 </form> -->
 
 <ul class="govuk-list govuk-list--bullet">
-    <li><a class="govuk-link govuk-link--no-visited-state" href="/b2c/thirdParty/?userType=CEO" >What’s your local authority email address?</a> ( May still skip this)</li>
+    <li><a class="govuk-link govuk-link--no-visited-state" href="/b2c/thirdParty/?userType=ThirdPartyCEO" >What’s your local authority email address?</a> ( May still skip this)</li>
     <li><a class="govuk-link govuk-link--no-visited-state" href="/b2c/thirdParty/enter-code" >Enter the verification code</a></li>
     <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-2">
         <li><a class="govuk-link govuk-link--no-visited-state" href="/b2c/thirdParty/failed-to-send" >There was a problem sending the one-time passcode</a></li>
@@ -20,7 +20,7 @@
         <li><a class="govuk-link govuk-link--no-visited-state" href="/b2c/thirdParty/cannot-continue">You cannot continue with registration</a></li>
     </ul>
     <li><a class="govuk-link govuk-link--no-visited-state" href="/account/thirdParty/confirmation" >Registration of  NAME completed</a></li>
-    <li><a class="govuk-link govuk-link--no-visited-state" href="/account/?defaultAccount=thirdPartyCEO&defaultAccountUser=CEO&notification_banner=" >Your Defra account (CEO)</a></li>
+    <li><a class="govuk-link govuk-link--no-visited-state" href="/account/?defaultAccount=ThirdPartyCEO&defaultAccountUser=CEO&notification_banner=" >Your Defra account (CEO)</a></li>
 
 </ul>
 
@@ -34,18 +34,18 @@
 
 
 <ul class="govuk-list govuk-list--bullet">
-    <li><a class="govuk-link govuk-link--no-visited-state" href="/account/thirdParty/add/what-we-need?ceoRegistered=Yes&thirdPartyInvite=Yes" >Add team member</a></li>
-    <li><a class="govuk-link govuk-link--no-visited-state" href="/account/thirdParty/add/email?ceoRegistered=Yes&thirdPartyInvite=Yes" >What’s their {type of third party} email address?</a></li>
-    <li><a class="govuk-link govuk-link--no-visited-state" href="/account/thirdParty/add/service-role?ceoRegistered=Yes&thirdPartyInvite=Yes" >What role will they have on this service?</a></li>
-    <li><a class="govuk-link govuk-link--no-visited-state" href="/account/thirdParty/add/administrative?ceoRegistered=Yes&thirdPartyInvite=Yes" >Will they have an administrator role?</a></li>
-    <li><a class="govuk-link govuk-link--no-visited-state" href="/account/thirdParty/add/check-your-answers?ceoRegistered=Yes&thirdPartyInvite=Yes" >Check your answers</a></li>
+    <li><a class="govuk-link govuk-link--no-visited-state" href="/account/thirdParty/add/what-we-need?ceoRegistered=Yes&addTeamThirdParty=Yes" >Add team member</a></li>
+    <li><a class="govuk-link govuk-link--no-visited-state" href="/account/thirdParty/add/email?ceoRegistered=Yes&addTeamThirdParty=Yes" >What’s their {type of third party} email address?</a></li>
+    <li><a class="govuk-link govuk-link--no-visited-state" href="/account/thirdParty/add/service-role?ceoRegistered=Yes&addTeamThirdParty=Yes" >What role will they have on this service?</a></li>
+    <li><a class="govuk-link govuk-link--no-visited-state" href="/account/thirdParty/add/administrative?ceoRegistered=Yes&addTeamThirdParty=Yes" >Will they have an administrator role?</a></li>
+    <li><a class="govuk-link govuk-link--no-visited-state" href="/account/thirdParty/add/check-your-answers?ceoRegistered=Yes&addTeamThirdParty=Yes" >Check your answers</a></li>
     
     
     <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-2">
-        <li><a class="govuk-link govuk-link--no-visited-state" href="/account/thirdParty/add-more?ceoRegistered=Yes&thirdPartyInvite=Yes" >Do you want to add another team member?</a></li>
-        <!-- <li><a class="govuk-link govuk-link--no-visited-state" href="/account/thirdParty/add-more" >You have invited {Number} person to {name of third party}</a></li> -->
+        <li><a class="govuk-link govuk-link--no-visited-state" href="/account/thirdParty/add/add-more?ceoRegistered=Yes&addTeamThirdParty=Yes" >Do you want to add another team member?</a></li>
+        <!-- <li><a class="govuk-link govuk-link--no-visited-state" href="/account/thirdParty/add/add-more" >You have invited {Number} person to {name of third party}</a></li> -->
     </ul>
-    <li><a class="govuk-link govuk-link--no-visited-state" href="/account/thirdParty/add/confirmation?ceoRegistered=Yes&thirdPartyInvite=Yes&addTeamMemberThirdParty=Yes" >Team member(s) added to {NAME}</a></li>
+    <li><a class="govuk-link govuk-link--no-visited-state" href="/account/thirdParty/add/confirmation?ceoRegistered=Yes&addTeamThirdParty=Yes&addTeamMemberThirdParty=Yes" >Team member(s) added to {NAME}</a></li>
 </ul>
 
 

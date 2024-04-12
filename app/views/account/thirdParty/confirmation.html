@@ -24,19 +24,19 @@
         <p class="govuk-body">You will need to tell us:</p>            
         <!-- to tell us who will be responsible for the various roles at {{ data.defaultThirdPartyName }}. </p> -->        
         <ul class="govuk-list govuk-list--bullet">
-            <li>their {{ data.defaultThirdParty }} email address</li>            
-            <li>their role for Local Authority Payment Service (LAPS)</li>            
-            <li>if they will be an account administrator</li>
+            {% include "includes/thirdparty/add-team-list.html" %}
         </ul>        
-        <p class="govuk-body">If you do not want to add team members right now, you can continue to your Defra account.</p>
+        <p class="govuk-body">If you do not want to add team members right now, you can continue to your Defra account, where you will be able to manage {{ data.defaultThirdPartyName }}.</p>
 
         <!-- CEO -->
-        <form method="post" action="/account/thirdParty/add/email?ceoRegistered=Yes">        
+        <form method="post" action="/account/thirdParty/add/email">        
             <div class="govuk-button-group govuk-!-margin-top-7">            
                 {{ govukButton({
                     text: "Add team member"
                 }) }}
-                <a class="govuk-link" href="/account/?defaultAccount=thirdPartyCEO&defaultAccountUser=CEO&notification_banner=">Continue to your Defra account</a>
+                <a class="govuk-link" href="/account/?notification_banner=">Continue to your Defra account</a>
+
+                <!-- <a class="govuk-link" href="/account/?defaultAccount=ThirdPartyCEO&defaultAccountUser=CEO&notification_banner=">Continue to your Defra account</a> -->
             </div>
         </form>
         

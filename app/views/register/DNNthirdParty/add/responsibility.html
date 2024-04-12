@@ -17,10 +17,10 @@
 
         <form method="post" action="/register/thirdParty/add/administrative" >
 
-            {% if data['thirdPartyInvite'] == "Yes" %}
+            {% if data['addTeamThirdParty'] == "Yes" %}
 
                 {{ govukRadios({
-                    name: "thirdPartyInvitedRoleOne",
+                    name: "addTeamTP-Role-One",
                     fieldset: {
                         legend: {
                             text: "What will this persons role be at the {type of third party}?",

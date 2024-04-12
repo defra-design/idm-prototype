@@ -43,9 +43,9 @@
                     classes: "govuk-!-margin-bottom-7"
                 },				
                 rows: [		
-                    { key: { text: "CEO registration" }, value: { html: '<span class="govuk-tag govuk-tag--green">Ready for dev</span>'}, actions: { items: [ { href: "/b2c/thirdParty/?userType=CEO", text: "View", classes: "govuk-link govuk-link--no-visited-state" }, { href: "https://app.mural.co/t/coredefra2548/m/coredefra2548/1712571045826/3103372da95d69739d0b578612522c2f80bebfad?sender=u132e2fc94c2a2a353db12149", text: "Mural", classes: "govuk-link govuk-link--no-visited-state" } ] } },
-                    { key: { text: "Invite team member" }, value: { html: '<span class="govuk-tag govuk-tag--orange">Awaiting sign off</span>'}, actions: { items: [ { href: "/account/thirdParty/add/service-role?ceoRegistered=Yes", text: "View", classes: "govuk-link govuk-link--no-visited-state" }, { href: "https://app.mural.co/t/coredefra2548/m/coredefra2548/1712571045826/3103372da95d69739d0b578612522c2f80bebfad?sender=u132e2fc94c2a2a353db12149", text: "Mural", classes: "govuk-link govuk-link--no-visited-state" } ] } },
-                    { key: { text: "Member registration" }, value: {html: '<span class="govuk-tag govuk-tag--orange">Awaiting sign off</span>'}, actions: { items: [ { href: "/b2c/thirdParty/?userType=ThirdParyInvite", text: "View", classes: "govuk-link govuk-link--no-visited-state" }, { href: "https://app.mural.co/t/coredefra2548/m/coredefra2548/1712571045826/3103372da95d69739d0b578612522c2f80bebfad?sender=u132e2fc94c2a2a353db12149", text: "Mural", classes: "govuk-link govuk-link--no-visited-state" } ] } },
+                    { key: { text: "CEO confirmation" }, value: { html: '<span class="govuk-tag govuk-tag--green">Ready for dev</span>'}, actions: { items: [ { href: "/b2c/thirdParty/?userType=ThirdPartyCEO", text: "View", classes: "govuk-link govuk-link--no-visited-state" }, { href: "https://app.mural.co/t/coredefra2548/m/coredefra2548/1712571045826/3103372da95d69739d0b578612522c2f80bebfad?sender=u132e2fc94c2a2a353db12149", text: "Mural", classes: "govuk-link govuk-link--no-visited-state" } ] } },
+                    { key: { text: "Invite team member" }, value: { html: '<span class="govuk-tag govuk-tag--green">Ready for dev</span>'}, actions: { items: [ { href: "/account/thirdParty/add/what-we-need?ceoRegistered=Yes", text: "View", classes: "govuk-link govuk-link--no-visited-state" }, { href: "https://app.mural.co/t/coredefra2548/m/coredefra2548/1712571045826/3103372da95d69739d0b578612522c2f80bebfad?sender=u132e2fc94c2a2a353db12149", text: "Mural", classes: "govuk-link govuk-link--no-visited-state" } ] } },
+                    { key: { text: "Member registration" }, value: {html: '<span class="govuk-tag govuk-tag--green">Ready for dev</span>'}, actions: { items: [ { href: "/b2c/thirdParty/?userType=ThirdParyInvite", text: "View", classes: "govuk-link govuk-link--no-visited-state" }, { href: "https://app.mural.co/t/coredefra2548/m/coredefra2548/1712571045826/3103372da95d69739d0b578612522c2f80bebfad?sender=u132e2fc94c2a2a353db12149", text: "Mural", classes: "govuk-link govuk-link--no-visited-state" } ] } },
                     { key: { text: "New account pages" }, value: {html: '<span class="govuk-tag govuk-tag--blue">In progress</span>'}, actions: { items: [ { href: "/account/?defaultAccount=thirdParty&defaultAccountUser=CEO&notification_banner=", text: "View", classes: "govuk-link govuk-link--no-visited-state" }, { href: "#", text: "Mural", classes: "govuk-link govuk-link--no-visited-state" } ] } }
                 ]
             }) }}
@@ -107,7 +107,7 @@
                 <!-- <form action="/flow" method="post" >
                     <input type="hidden" name="userFlow" id="userFlow" value="Authentication" />
                     <input type="hidden" name="flowVersion" id="flowVersion" value="current" />
-                    <input type="hidden" name="serviceFlow" id="serviceFlow" value="coreDefault" />
+                    <input type="hidden" name="serviceFlow" id="serviceFlow" value="coreService" />
                     <input type="hidden" name="companySize" id="companySize" value="20" />                    
                     {{ govukButton({
                         text: "Sign in and verfication"
@@ -146,7 +146,7 @@
             <div class="govuk-button-group">
                 <form action="/flow" method="post" >
                     <input type="hidden" name="userFlow" id="userFlow" value="Registration" />                    
-                    <input type="hidden" name="serviceFlow" id="serviceFlow" value="coreDefault" />
+                    <input type="hidden" name="serviceFlow" id="serviceFlow" value="coreService" />
                     {{ govukButton({
                         text: "Register and Sign in"
                     }) }}
@@ -155,7 +155,7 @@
     
                 <form action="/listings" method="post" >
                     <input type="hidden" name="userFlow" id="userFlow" value="Registration" />                    
-                    <input type="hidden" name="serviceFlow" id="serviceFlow" value="coreDefault" />
+                    <input type="hidden" name="serviceFlow" id="serviceFlow" value="coreService" />
                     {{ govukButton({
                         text: "Page listings",
                         classes: "govuk-button--secondary"

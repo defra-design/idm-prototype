@@ -13,8 +13,8 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
         
-        <!-- CEO -->
-        <form method="post" action="/account/thirdParty/confirmation" >
+        <!-- Third Party CEO only -->        
+        <form method="post" action="/account/thirdParty/confirmation?defaultThirdPartyCEORegistered=Yes" >
             
             <dl class="govuk-summary-list govuk-!-margin-bottom-9">
                 <div class="govuk-summary-list__row">
@@ -22,7 +22,7 @@
                     <dd class="govuk-summary-list__value">{{ data.defaultThirdPartyCEO }}</dd>                  
                 </div>
                 <div class="govuk-summary-list__row">
-                	<dt class="govuk-summary-list__key">{{ data.defaultThirdParty }}</dt>
+                	<dt class="govuk-summary-list__key">{{ data.defaultThirdParty | titleCase }}</dt>
                   	<dd class="govuk-summary-list__value">{{ data.defaultThirdPartyName }}</dd>                  
             	</div>                
                 <div class="govuk-summary-list__row">
@@ -35,9 +35,7 @@
                 </div>
             </dl>             
 
-            <div class="govuk-button-group">
-
-                <input type="hidden" id="defaultThirdPartyCEORegistered" name="defaultThirdPartyCEORegistered" value="Yes" />
+            <div class="govuk-button-group">                
 
             	{{ govukButton({
                 	text: "Confirm and continue"

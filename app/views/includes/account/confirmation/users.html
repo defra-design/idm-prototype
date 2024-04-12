@@ -1,9 +1,9 @@
 <!-- <p class="govuk-body">We have sent you a confirmation email. </p>         -->
             
         
-        {% if data['thirdPartyInviteAddMore'] == "Yes" %}
+        {% if data['addTeamTP-addMore'] == "Yes" %}
             <p class="govuk-body">We have sent emails to the team members you have told us about with instructions inviting them to complete their registration within 30 days.</p>
-        {% elif data['thirdPartyInviteAddMore'] == "No" %}
+        {% elif data['addTeamTP-addMore'] == "No" %}
             <p class="govuk-body">We have sent an email with instructions inviting them to complete their registration within 30 days.</p>
         {% endif %}                                
 

@@ -23,12 +23,12 @@
         
         <form method="post" action="/register/thirdParty/add/email" >
             
-            {% if data['thirdPartyInvite'] == "Yes" %}
+            {% if data['addTeamThirdParty'] == "Yes" %}
 
 
                 {{ govukRadios({
                     classes: "govuk-radios--inline",
-                    name: "thirdPartyInvitedAdminOne",                    
+                    name: "addTeamTP-Admin-One",                    
                     fieldset: {
                         legend: {
                             text: "Do you want this person to be an administrator for {type of third party}?",

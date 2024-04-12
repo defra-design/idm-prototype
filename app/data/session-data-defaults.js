@@ -20,11 +20,12 @@ Example usage:
 module.exports = {
 
   // Default always needed
-  serviceFlow: "coreDefault",
+  serviceFlow: "coreService",
   userFlow: "Registration",
-  mfaStatus: "disabled",
+  userType: "Standard"
+  // mfaStatus: "disabled",
   companySize: "20",  
-  GovGateId: "71 13 56 15 22 14",
+  GovGateId: "711356152214",
   GovGatePassword: "letmein",
   
   // Ltd Business
@@ -39,12 +40,18 @@ module.exports = {
   defaultThirdPartyName: "Newcastle City Council",
   defaultThirdPartyAddress: "Civic Centre<br>2nd Floor<br>Newcastle upon Tyne<br>NE1 8QH",
   defaultThirdPartyPhone: "0191 268 4325",
-  defaultThirdPartyCEO: "Chris P Bacon",
+  
+  defaultThirdPartyCEORegistered: "No",
+  defaultThirdPartyCEO: "Chrispee Bacon",
   defaultThirdPartyCEORole: "Chief Executive Officer (CEO)",  
-  defaultThirdPartyCEOEmail: "chris.p.bacon@localauthority.com",
+  defaultThirdPartyCEOEmail: "chrispee.bacon@authority.test.com",
   defaultThirdPartyCEOServiceRole: "Managing waste data",
-  // defaultThirdPartyCeoRegistered: "Yes",
-   // defaultThirdPartyUserOneResponsibility: "Adding and amending bank details",
+  defaultThirdPartyCEORegistered: "No"
+
+
+
+  // defaultThirdPartyCEORegistered: "Yes",
+  // defaultThirdPartyUserOneResponsibility: "Adding and amending bank details",
    // defaultThirdPartyUserOneAdmin: "Yes",
    // defaultThirdPartyUserOneEmail: "hugo.furst@localauthority.co.uk"
  
