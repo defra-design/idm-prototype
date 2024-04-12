@@ -22,7 +22,7 @@ module.exports = {
   // Default always needed
   serviceFlow: "coreService",
   userFlow: "Registration",
-  userType: "Standard"
+  userType: "Standard",
   // mfaStatus: "disabled",
   companySize: "20",  
   GovGateId: "711356152214",

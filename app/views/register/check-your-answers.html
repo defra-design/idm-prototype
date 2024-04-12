@@ -4,9 +4,17 @@
 {% endif %}
 {% set serviceName = "" %}
 
-{% set accountUserName %}	
-	{{ data.defaultFirstName }} {{ data.defaultSurname }}	
-{% endset -%}
+
+{% if data['userType'] == "TPmemberInvite" %}
+	{% set TPUserName %}	
+		{{ data.regTeamTPfirstName }} {{ data.regTeamTPlastName }}
+	{% endset -%}	
+{% else %}
+	{% set accountUserName %}	
+		{{ data.defaultFirstName }} {{ data.defaultSurname }}	
+	{% endset -%}
+{% endif %}
+
 
 
 
@@ -24,7 +32,7 @@
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   		
 
 		<!-- Show when a user returns to an incomplete registration -->
 		{% if data['registrationStatus'] == "incomplete" %}
@@ -45,13 +53,7 @@
 		
 		{% if data['registrationStatus'] == "incomplete" %}			
 
-
-
-
-
-
 			{% include "includes/registration/cya/accountType.html" %}
-
 
 			{% if data['registrationAccountType'] == "Individual" %}
 				{% include "includes/registration/cya/personalDetailsIncomplete.html" %}
@@ -75,10 +77,15 @@
 
 			<!-- Defra account - Business -->
 
-			{% if data['userType'] == "ThirdParyInvite" %}
-
-				{% include "includes/registration/cya/ThirdPartyPersonalDetails.html" %}
-
+			<!-- Invited team member Trusted Third Party -->
+			{% if data['userType'] == "TPmemberInvite" %}
+			
+				{{ govukSummaryList({					
+					rows: [		
+						{ key: { text: "Email" }, value: { text: data.regTeamTPemail } },
+						{ key: { text: "Name" }, value: { text: TPUserName }, actions: { items: [ { href: "/register/personal-name?link=change", text: "Change", visuallyHiddenText: "your name", classes: "govuk-link--no-visited-state" } ] } }						
+					]
+				}) }}			
 
 			{% elif data['registrationAccountType'] == "Business" %}
 				<!-- UK business -->
@@ -123,16 +130,16 @@
 				}) }}
 			</form>
 
-		{% elif data['userType'] == "ThirdParyInvite" %}
+		{% elif data['userType'] == "TPmemberInvite" %}
 		
-			<form method="post" action="/account/?notification_banner=">
+			<form method="post" action="/register/confirmation">
+				<input type="hidden" id="userType" name="userType" value="TP-member" />
 				<input type="hidden" id="registrationStatus" name="registrationStatus" value="Enrolled" />
-				<input type="hidden" id="defaultAccount" name="defaultAccount" value="thirdPartyUser" />
-
-				
+				<input type="hidden" id="defaultAccount" name="defaultAccount" value="thirdPartyUser" />				
 
 				{{ govukButton({
-					text: "Confirm and complete registration"
+					text: "Confirm and complete registration",
+					classes: "govuk-!-margin-top-5"
 				}) }}
 
 		{% else %}

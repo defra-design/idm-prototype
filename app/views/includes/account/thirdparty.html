@@ -20,7 +20,7 @@
 	}) }}
 
 <!-- Third party NOT CEO -->
-{% else %}
+{% elif data['userType'] == "TPuser" %}
 
   {{ govukSummaryList({ 
     card: {
@@ -31,8 +31,8 @@
       { key: { text: "Phone number" }, value: { text: data.defaultThirdPartyPhone } },
       { key: { text: "Registered services" }, value: { html: '<a href="https://laps-prototype-e21618a16725.herokuapp.com/laps/account/account-home-ceo" class="govuk-link govuk-link--no-visited-state">Local Authority Payment Service (LAPS)</a>' } },      
       { key: { text: "Service role" }, value: { html: data.defaultThirdPartyCEOServiceRole }, actions: { items: [ { href: "/account/thirdParty/add/service-role?changeLink=CEO", text: "Change", visuallyHiddenText: "age", classes: "govuk-link--no-visited-state" } ] } },
-      { key: { text: "Account role" }, value: { text: data.regThirdPartyUserOneAdmin } },
-      { key: { text: "Team members" }, value: { text: "1" }, actions: { items: [ { href: "/account/thirdParty/add/service-role?addTeamThirdParty=Yes", text: "Add", visuallyHiddenText: "age", classes: "govuk-link--no-visited-state" }, { href: "/account/manage/team/", text: "Manage", visuallyHiddenText: "age", classes: "govuk-link--no-visited-state" } ] } }
+      { key: { text: "Account role" }, value: { text: "Administrator" } },
+      { key: { text: "Team members" }, value: { text: "2" }, actions: { items: [ { href: "/account/thirdParty/add/service-role?addTeamThirdParty=Yes", text: "Add", visuallyHiddenText: "age", classes: "govuk-link--no-visited-state" }, { href: "/account/manage/team/", text: "Manage", visuallyHiddenText: "age", classes: "govuk-link--no-visited-state" } ] } }
     ]
   }) }}
 

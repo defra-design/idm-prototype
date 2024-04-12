@@ -26,7 +26,7 @@
 {% if data['userType'] == "ThirdPartyCEO" %}
 	{% set pageHeading = "Your Defra account" %}
 	{% set pageSection = data.defaultThirdPartyCEO %}
-{% elif data['defaultAccount'] == "thirdPartyUser" %}
+{% elif data['defaultAccount'] == "TPuser" %}
 	{% set pageHeading = "Your Defra account" %}
 	{% set pageSection = '' + data.defaultFirstName + ' ' + data.defaultSurname + '' %}
 {% else %}
@@ -53,11 +53,13 @@
 	
 		
 		<!-- Third party layout -->
-		{% if ((data['defaultAccount'] == "thirdPartyUser") or ( data['userType'] == "ThirdPartyCEO")) %}
+		{% if ((data['userType'] == "TPuser") or ( data['userType'] == "ThirdPartyCEO")) %}
 		</div>
 		<div class="govuk-grid-column-full">
 			{% include "includes/account/thirdparty.html" %}
 		
+		
+
 		<!-- Business and Individual -->
 		{% else %}
 			{% include "includes/account/business.html" %}

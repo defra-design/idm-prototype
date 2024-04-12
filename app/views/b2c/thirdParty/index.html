@@ -19,18 +19,37 @@
         <!-- CEO -->
         <form method="post" action="/b2c/thirdParty/enter-code" >        
 
-            {{ govukInput({
-                label: {
-                    text: "Email address",
-                    classes: "govuk-visually-hidden",
-                    isPageHeading: false
-                },
-                classes: "govuk-!-width-two-thirds",
-                id: "regThirdPartyCEOEmail",
-                name: "regThirdPartyCEOEmail",
-                type: "email",
-                value: data['regThirdPartyCEOEmail']    
-            }) }}
+            {% if data['userType'] == "TPmemberInvite" %}
+
+                {{ govukInput({
+                    label: {
+                        text: "Email address",
+                        classes: "govuk-visually-hidden",
+                        isPageHeading: false
+                    },
+                    classes: "govuk-!-width-two-thirds",
+                    id: "regTeamTPemail",
+                    name: "regTeamTPemail",
+                    type: "email",
+                    value: data['regTeamTPemail']    
+                }) }}
+
+            {% else %}
+
+                {{ govukInput({
+                    label: {
+                        text: "Email address",
+                        classes: "govuk-visually-hidden",
+                        isPageHeading: false
+                    },
+                    classes: "govuk-!-width-two-thirds",
+                    id: "regThirdPartyCEOEmail",
+                    name: "regThirdPartyCEOEmail",
+                    type: "email",
+                    value: data['regThirdPartyCEOEmail']    
+                }) }}
+
+            {% endif %}
             
             {{ govukButton({
                 text: "Continue"

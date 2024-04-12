@@ -9,7 +9,7 @@
 
 {% block content %}
 
-  <div class="govuk-grid-row">
+<div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">        
 
         {{ govukPanel({
@@ -17,12 +17,22 @@
           classes: "govuk-!-margin-bottom-7"            
         }) }}
 
-    	<h2 class="govuk-heading-m">What happens next</h2>
+		<p>We have sent you an email confirmation.</p>
 
-    	<p class="govuk-body"><span class="govuk-!-font-weight-bold">{{ data['regThirdPartyCEOEmail'] or data.defaultThirdPartyCEOEmail }}</span> will choose which information you can see and which tasks you can do on behalf of {{ data.defaultThirdPartyName }}.</p>
-    	<p class="govuk-body"> We'll email you when everything's ready.</p>		
 
-		<p><a href="/account/?defaultAccount=thirdPartyUser">Continue to your Defra account</a></p>      	
+    	<h2 class="govuk-heading-m">What happens next</h2>    	
+		<p>You now have access to the Local Authority Payment Service (LAPS) on behalf of {{ data.defaultThirdPartyName }}.</p>
+		<p>As an administrator you can also add and manage {{ data.defaultThirdPartyName }} team members.</p>        		
+				
+		<ul class="govuk-list">		
+			<!-- CEO or any Admin -->
+			<li><a href="/account/?notification_banner=&userType=TPuser" class="govuk-link govuk-link--no-visited-state">Go to your account</a></li>    
+			<li><a href="/account/manage/team/userType=TPuser" class="govuk-link govuk-link--no-visited-state">Go to your team members</a></li>    
+		<!--     
+			<li><a href="/account/?notification_banner=" class="govuk-link govuk-link--no-visited-state">Go to your account</a></li>    
+			-->
+			
+		</ul>		
 
   </div>
 </div>
