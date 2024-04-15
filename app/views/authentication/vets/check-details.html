@@ -1,6 +1,9 @@
 {% extends "/layouts/main.html" %}
 {% set showBackLink = false %}
-{% set serviceName = "" %}
+{% if data['serviceFlow'] == "vetsVisit" %}
+{% set serviceName = "Get funding to improve animal health and welfare" %}
+{% endif %}
+
 
 {% set pageHeading = "Check your details" %}
 {% set pageSection = "" %}
