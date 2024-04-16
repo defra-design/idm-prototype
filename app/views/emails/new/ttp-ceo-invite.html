@@ -1,0 +1,41 @@
+{% extends "layout_email.html" %}
+
+{% set serviceName = "" %}
+
+{% set title = "You have been invited to access Defra onlne services" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <p class="govuk-body">Hello {NAME},</p>
+        
+    <p class="govuk-body">Defra has invited you to confirm your registration for Local Authority Payment Service (LAPS) on behalf of {THIRD PARTY NAME}.</p>    
+    
+    <p>To access this service, you need to:</p>    
+    <ul class="govuk-list govuk-list--bullet">
+        <li>sign in with your {THIRD PARTY NAME} email address.</li>
+        <!-- <li>Read and accept our terms and conditions.</li> -->
+        <li>confirm pre existing details that we have for you</li>        
+        <li>add your team, by giving us details about their email address and role on the service so we can invite them to register</li>                    
+    </ul>
+
+    <div class="govuk-inset-text">
+        <p><a href="#">Confirm your registration on GOV.UK</a></p>
+    </div>
+
+    <p></p>
+
+  </div>
+</div>
+
+{% endblock %}

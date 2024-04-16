@@ -1,0 +1,42 @@
+{% extends "/layouts/main.html" %}
+{% set showBackLink = true %}
+{% set serviceName = "" %}
+
+{% set pageHeading = "Who is the contact name for billing?" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   
+
+    	<!-- <p class="govuk-body">We will send payment confirmation’s to this email address.</p> -->
+    
+    	<form action="/account/manage/billing/telephone" method="post">			
+
+			{{ govukInput({
+                label: {
+                    text: "Contact name",
+                    classes: "govuk-visually-hidden"				
+                },                
+                classes: "govuk-!-width-two-thirds",
+				type: "email",
+                spellcheck: "false",
+                name: "billingContact"
+            }) }}
+
+            
+
+      		{{ govukButton({
+        		text: "Continue"
+      		}) }}
+
+    	</form>
+
+  	</div>
+</div>
+
+{% endblock %}
