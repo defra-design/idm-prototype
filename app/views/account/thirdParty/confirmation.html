@@ -18,28 +18,28 @@
 
         <p class="govuk-body">We have sent an email confirmation to <span class="govuk-!-font-weight-bold">{{ data['regThirdPartyCEOEmail'] or data.defaultThirdPartyCEOEmail }}</span></p>
             
-        <h2 class="govuk-heading-m">What you can do next</h2>
+        <h2 class="govuk-heading-m">What you can do next</h2>        
         <!-- <h3 class="govuk-heading-s">Add a team member</h3> -->
-        <p class="govuk-body">You can add team members to {{ data.defaultThirdPartyName }} giving them access to the Local Authority Payment Service (LAPS).</p>        
+        <p class="govuk-body">You can <a href="/account/thirdParty/add/email">add other team members</a> to {{ data.defaultThirdPartyName }} giving them access to Local Authority Payment Service (LAPS).</p>        
         <p class="govuk-body">You will need to tell us:</p>            
         <!-- to tell us who will be responsible for the various roles at {{ data.defaultThirdPartyName }}. </p> -->        
         <ul class="govuk-list govuk-list--bullet">
             {% include "includes/thirdparty/add-team-list.html" %}
         </ul>        
-        <p class="govuk-body">If you do not want to add team members right now, you can continue to your Defra account, where you will be able to manage {{ data.defaultThirdPartyName }}.</p>
+        <p class="govuk-body">You can <a class="govuk-link" href="/account/?notification_banner=">continue to your Defra account</a> if you do not want to add team members right now.</p>
 
         <!-- CEO -->
-        <form method="post" action="/account/thirdParty/add/email">        
+        <!-- <form method="post" action="/account/thirdParty/add/email">        
             <div class="govuk-button-group govuk-!-margin-top-7">            
                 {{ govukButton({
                     text: "Add team member"
                 }) }}
-                <a class="govuk-link" href="/account/?notification_banner=">Continue to your Defra account</a>
-
-                <!-- <a class="govuk-link" href="/account/?defaultAccount=ThirdPartyCEO&defaultAccountUser=CEO&notification_banner=">Continue to your Defra account</a> -->
+                <a class="govuk-link" href="/account/?notification_banner=">Continue to your Defra account</a>                
             </div>
-        </form>
-        
+        </form> -->
+
+        <!-- <p>Continue to your Defra account</a></p> -->
+            
 
 
   	</div>
