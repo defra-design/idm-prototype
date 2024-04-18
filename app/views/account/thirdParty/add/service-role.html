@@ -9,8 +9,8 @@
 {% elif data['addTeamThirdParty'] == "Yes" %}
     {% set pageHeading = 'What role will they have on this service?' %}
 <!-- ???? -->
-{% else %}
-    {% set pageHeading = 'What will their service role be for ' + data.defaultThirdPartyName | titleCase + '?' %}
+{% else %}    
+    {% set pageHeading = 'What role will they have on this service?' %}
 {% endif %}
 {% set pageSection = "Add team member" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -24,7 +24,7 @@
 
         <!-- Dynamic line depending on sevice -->
         <div class="govuk-inset-text">
-            <p class="govuk-body">Defra service: <span class="govuk-!-font-weight-bold">Local Authority Payment Service (LAPS)</span>.</p>
+            <p class="govuk-body"><span class="govuk-!-font-weight-bold">Local Authority Payment Service (LAPS)</span>.</p>
         </div>
 
         <!-- CEO changing their role -->

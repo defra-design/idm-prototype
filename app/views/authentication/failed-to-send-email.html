@@ -1,0 +1,62 @@
+{% extends "/layouts/main.html" %}
+{% set showBackLink = false %}
+
+
+{% set pageHeading = "There was a problem sending the email" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+            <p>This could be due to:</p>
+            <ul class="govuk-list govuk-list--bullet">
+                <li>a technical issue with the service</li>
+                <li>the email address no longer works or has an issue</li>
+            </ul>
+            <p class="govuk-body govuk-!-margin-bottom-7">You can resend the 6-digit verification code.</p>            
+            <form action="get-code" method="post"></form>
+        
+            <div class="govuk-button-group">
+                
+                {{ govukButton({
+                    text: "Resend code"
+                }) }}
+                        
+              </div>
+
+            </form>
+
+
+
+
+            
+
+        <details class="govuk-details" data-module="govuk-details">
+            
+                <summary class="govuk-details__summary">
+                    <span class="govuk-details__summary-text">Need more help?</span>
+                </summary>
+                <div class="govuk-details__text">                    
+                    <p class="govuk-body">Contact [Service name] by phone or email.</p>                            
+                    <p class="govuk-body">Telephone:<br>
+                    [Service telephone number]</p>
+                    <p class="govuk-body">Email:<br>
+                    <a href="#" class="govuk-link govuk-link--no-visited-state">[Service email]</a></p>
+                    <p class="govuk-body">Service opening times:<br>
+                    [Service Opening Hours], except public holidays</p>       
+                    <p class="govuk-body"><a href="https://www.gov.uk/call-charges" class="govuk-link govuk-link--no-visited-state" rel="noreferrer noopener" target=”_blank”>Find out about call charges (opens in new tab)</p>                                                                    
+
+                </div>
+
+        </details>
+    
+    </div>
+</div>
+
+{% endblock %}
