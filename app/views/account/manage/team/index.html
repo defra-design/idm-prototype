@@ -10,10 +10,10 @@
 {% endset -%}
 
 
-{% if data['defaultAccount'] == "ThirdPartyCEO" %}
+{% if data['userType'] == "ThirdPartyCEO" %}
 	{% set pageHeading = "Team members" %}
 	{% set pageSection = data.defaultThirdPartyName %}
-{% elif data['defaultAccount'] == "thirdPartyUser" %}	
+{% elif data['userType'] == "thirdPartyUser" %}	
 	{% set pageHeading = "Team members" %}
 	{% set pageSection = data.defaultThirdPartyName %}
 {% else %}
@@ -33,7 +33,7 @@
 <div class="govuk-grid-row">
 
 
-	{% if ((data['defaultAccount'] == "thirdPartyUser") or ( data['defaultAccount'] == "ThirdPartyCEO")) %}
+	{% if ((data['userType'] == "thirdPartyUser") or ( data['userType'] == "ThirdPartyCEO")) %}
 
 		<div class="govuk-grid-column-two-thirds">
 			{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   

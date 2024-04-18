@@ -26,9 +26,9 @@
 {% if data['userType'] == "ThirdPartyCEO" %}
 	{% set pageHeading = "Your Defra account" %}
 	{% set pageSection = data.defaultThirdPartyCEO %}
-{% elif data['defaultAccount'] == "TPuser" %}
+{% elif data['userType'] == "TPuser" %}
 	{% set pageHeading = "Your Defra account" %}
-	{% set pageSection = '' + data.defaultFirstName + ' ' + data.defaultSurname + '' %}
+	{% set pageSection = '' + data.regTeamTPfirstName + ' ' + data.regTeamTPlastName + '' %}
 {% else %}
 	{% set pageHeading = "Your Defra account" %}
 	{% set pageSection = "" %}

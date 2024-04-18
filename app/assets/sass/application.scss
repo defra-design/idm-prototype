@@ -60,13 +60,25 @@
     float: right;
 }
 
+.x-govuk-secondary-navigation__list-item {
+    margin-left: 20px;
+    margin-right: 0;
+}
+
 .x-govuk-primary-navigation__item:last-child {
     float: right;
 }
 
-.x-govuk-secondary-navigation__list-item:last-child {
+.x-govuk-secondary-navigation__list-item {
     float: right;
 }
+
+.x-govuk-secondary-navigation__list-item:first-child {
+    float: left;
+    margin-left: 0;
+}
+
+
 
 
 // sidebar

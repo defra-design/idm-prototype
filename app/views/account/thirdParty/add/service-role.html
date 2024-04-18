@@ -4,15 +4,18 @@
 
 <!-- CEO changing their role -->
 {% if data['changeLink'] == "ThirdPartyCEO" %}
-    {% set pageHeading = 'What’s your new service role for ' + data.defaultThirdPartyName | titleCase + '?' %}
+    {% set pageHeading = 'What’s your new role on this service?' %}
+    {% set pageSection = "" %}
 <!-- Add team member flow Trusted Third Party -->
 {% elif data['addTeamThirdParty'] == "Yes" %}
     {% set pageHeading = 'What role will they have on this service?' %}
+    {% set pageSection = "Add team member" %}
 <!-- ???? -->
 {% else %}    
     {% set pageHeading = 'What role will they have on this service?' %}
+    {% set pageSection = "Add team member" %}
 {% endif %}
-{% set pageSection = "Add team member" %}
+
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}

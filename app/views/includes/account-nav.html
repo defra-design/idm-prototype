@@ -1,74 +1,46 @@
-<!-- Account Navigation -->
-<!-- <div class="login-nav">
-	<ul class="login-nav__list">
-    	<li class="login-nav__list-item">
-			
-			{% if data['defaultAccount'] == "thirdParty" %}
-				
-				{% if data['defaultAccountUser'] == "ThirdPartyCEO" %}		
-					{{ data['defaultThirdPartyCEO'] }} |</li>
-				{% else %}
 
 
-				{% endif %}
-			
-
-			{% else %}			
-				{{ data['defaultFirstName'] or 'Hugo' }} {{ data['defaultSurname'] or 'Furst' }} |</li>
-			{% endif %}
-    	<li class="login-nav__list-item"><a href="/account/?notification_banner=" class="govuk-link login-nav__link govuk-link--no-visited-state profile">Defra <a href="http://" target="_blank" rel="noopener noreferrer"></a>ccount</a>|</li>
-    	<li class="login-nav__list-item"><a href="/signed-out?status=signedOut" class="govuk-link login-nav__link govuk-link--no-visited-state">Sign out</a></li>
-  	</ul>
-</div> -->
-
-{% if ((data['defaultAccountUser'] == "ThirdPartyCEO") or (data['defaultAccountUser'] == "thirdPartyUser")) %}
-
-<!-- {{ xGovukPrimaryNavigation({
-	visuallyHiddenTitle: "Navigation",
-	items: [{
-	  text: "Home",
-	  href: "#",
-	  current: true
-	}, {
-	  text: "Update your details",
-	  href: "#"
-	}, {
-	  text: "Sign out",
-	  href: "#"
-	}
-	]
-  }) }} -->
-
-
+{% if ((data['userType'] == "ThirdPartyCEO") or (data['userType'] == "TPuser")) %}
 <nav class="x-govuk-secondary-navigation" aria-label="Secondary menu">
 	<ul class="x-govuk-secondary-navigation__list ">
 	  <li class="x-govuk-secondary-navigation__list-item x-govuk-secondary-navigation__list-item--current ">
 		<a class="x-govuk-secondary-navigation__link" href="/account/?notification_banner=" aria-current=page>
-		  Your Account
+		  Account home
 		</a>
 	  </li>
-	  <li class="x-govuk-secondary-navigation__list-item ">
-		<a class="x-govuk-secondary-navigation__link" href="/signed-out?status=signedOut">
-		  Update your details
-		</a>
-	  </li>
+	  
 	  
 	  <li class="x-govuk-secondary-navigation__list-item ">
 		<a class="x-govuk-secondary-navigation__link" href="/signed-out?status=signedOut">
 		  Sign out
 		</a>
 	  </li>
+
+	  <li class="x-govuk-secondary-navigation__list-item">
+		<a class="x-govuk-secondary-navigation__link" href="/signed-out?status=signedOut">
+		  Update your details
+		</a>
+	  </li>
 	</ul>
 </nav>
+
+{% else %}
+
+<!-- Account Navigation -->
+<div class="login-nav">
+	<ul class="login-nav__list">
+    	<li class="login-nav__list-item">
+			
+			{% if data['userType'] == "thirdParty" %}				
+				{% if data['userType'] == "ThirdPartyCEO" %}		
+					{{ data['defaultThirdPartyCEO'] }} |</li>
+				{% else %}
+				{% endif %}
+			{% else %}			
+				{{ data['defaultFirstName'] or 'Hugo' }} {{ data['defaultSurname'] or 'Furst' }} |</li>
+			{% endif %}
+    	<li class="login-nav__list-item"><a href="/account/?notification_banner=" class="govuk-link login-nav__link govuk-link--no-visited-state profile">Account home</a>|</li>
+    	<li class="login-nav__list-item"><a href="/signed-out?status=signedOut" class="govuk-link login-nav__link govuk-link--no-visited-state">Sign out</a></li>
+  	</ul>
+</div>
 {% endif %}
-	  <!-- <li class="x-govuk-secondary-navigation__list-item ">
-		<a class="x-govuk-secondary-navigation__link" href="#">
-		  Sign out
-		</a>
-	  </li> -->
-	  <!-- <li class="x-govuk-secondary-navigation__list-item ">
-		<a class="x-govuk-secondary-navigation__link" href="#">
-		  Settings
-		</a>
-	  </li> -->
-	

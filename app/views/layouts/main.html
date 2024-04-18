@@ -17,31 +17,7 @@
     
         {% if DefraAccount == true %}
 
-            {% if ((data['defaultAccountUser'] == "ThirdPartyCEO") or (data['defaultAccountUser'] == "thirdPartyUser")) %}
-                
-            {{ govukHeader({
-                homepageUrl: "/",
-                serviceName: "Defra account",
-                serviceUrl: "/",
-                containerClasses: "govuk-width-container",
-                useTudorCrown: true,
-                navigation: [                
-                {
-                    href: "/signed-out?status=signedOut",
-                    text: "Home"                  
-                },                
-                {
-                    href: "/signed-out?status=signedOut",
-                    text: "Update your details"                  
-                },                
-                {
-                    href: "/signed-out?status=signedOut",
-                    text: "Sign out"                    
-                }
-            ]                              
-            }) }}
-
-            {% else %}
+            
 
             {{ govukHeader({
                 homepageUrl: "/",
@@ -52,7 +28,7 @@
                     
             }) }}
 
-            {% endif %}
+            
         {% else %}
             {{ govukHeader({
                 homepageUrl: "/",
