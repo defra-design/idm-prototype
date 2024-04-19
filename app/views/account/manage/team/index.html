@@ -1,4 +1,5 @@
 {% extends "/layouts/main.html" %}
+{% set showPhaseBanner = false %}
 {% set DefraAccount = true %}
 {% set showNav = true %}
 {% set showBackLink = false %}
@@ -22,11 +23,7 @@
 {% endif %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
-{% block beforeContent %}
-	<div id="profile">    	
-        {% include "includes/account-nav.html" %}
-  	</div>    
-{% endblock %}
+
 
 {% block content %}
 
