@@ -1,0 +1,38 @@
+{% extends "/layouts/main.html" %}
+
+{% set serviceName = "Get funding to improve animal health and welfare" %}
+
+{% set title = "Your password has been reset" %}
+
+{% block pageTitle %}
+    {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-panel govuk-panel--confirmation">
+				<h1 class="govuk-panel__title">We've updated your password.</h1>
+			</div>
+        <p>You can now use this password to access the service in future.</p>
+
+        <form method="post" action="#">
+            <button class="govuk-button">Continue</button>
+
+
+
+        </form>
+
+
+</div>
+
+
+
+{% endblock %}
