@@ -20,8 +20,16 @@
 {% endif %}
 
 <!-- Page headings -->
-{% set pageHeading = "Chrispee Bacon" %}
-{% set pageSection = "Team member" %}
+{% if ((data['userType'] == "thirdPartyUser") or ( data['userType'] == "ThirdPartyCEO")) %}
+	{% set pageHeading = "Chrispee Bacon" %}
+	{% set pageSection = '' + data.defaultThirdPartyName + ' team member' %}
+{% else %}
+	{% set pageHeading = "Chrispee Bacon" %}
+	{% set pageSection = "" %}
+{% endif %}
+
+
+
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 <!-- ////// -->
 
@@ -46,15 +54,18 @@
 				rows: [
 					{ key: { text: "Name" }, value: { html: "Hugo Last" }, actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "age" } ] } },
 					{ key: { text: "Email address" }, value: { html: "hugolast@authrority.test.com" }, actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "nationality" } ] } },
-					{ key: { text: "Account role" }, value: { html: "Administrator" }, actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "working situation" } ] } },
-					{ key: { text: "Service role" }, value: { html: "Managing waste data" }, actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "working situation" } ] } },
-					{ key: { text: "Service access" }, value: { html: "Local Authority Payment Service (LAPS)" }, actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "working situation" } ] } }
+					{ key: { text: "Account role" }, value: { html: "Administrator" }, actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "working situation" } ] } }
+					
 				]
 			}) }}
 
 
+
+			<h2 class="govuk-heading-m">Service access</h2>
+			<p>They have access to the following Defra online services on behalf of {{ data.defaultThirdPartyName }}.</p>
+
 			{{ govukSummaryList({
-				card: { title: { text: "Services" }, actions: { items: [ { href: "#", text: "Add service", visuallyHiddenText: "from organisation" } ] } },
+				card: { title: { text: "Available services" }, actions: { items: [ { href: "#", text: "Add service", visuallyHiddenText: "from organisation" } ] } },
 				rows: [					
 					{ key: { text: "LAPS" }, value: { html: "Managing waste data" }, actions: { items: [ { href: "#", text: "Change service role", visuallyHiddenText: "working situation" }, { href: "#", text: "Remove access", visuallyHiddenText: "working situation" } ] } }
 				]
