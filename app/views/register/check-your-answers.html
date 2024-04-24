@@ -119,6 +119,8 @@
 					<form method="post" action="https://wts-prototype.herokuapp.com/v18/index-homepage">
 				{% elif data['serviceHook'] == "Forest" %}
 					<form method="post" action="https://forest-risk-commodities.herokuapp.com/Dashboard_v5_newuser">
+				{% elif data['serviceHook'] == "ForestTwo" %}
+					<form method="post" action="https://forest-risk-commodities.herokuapp.com/check-answers_v7_e">
 				{% elif data['serviceHook'] == "PetTravel" %}
 					<form method="post" action="https://pet-travel-document-0f384e905d50.herokuapp.com/idm2-redirect">							
 				{% endif %}
