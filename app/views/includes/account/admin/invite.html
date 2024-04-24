@@ -1,15 +1,15 @@
 {{ govukRadios({
     classes: "govuk-radios--inline",
-    name: "inviteThirdPartyOneAdmin",                    
+    name: "addTeamTP-Admin-One",                    
     fieldset: {
         legend: {
-            text: "Do you want this person to be an administrator for {type of third party}?",
+            text: "Will they be an account administrator?",
             isPageHeading: false,
             classes: "govuk-visually-hidden"
         }
     },            
     items: [
-        { value: "Yes", text: "Yes" }, 
-        { value: "No", text: "No" }              
+        { value: "Admin", text: "Yes" }, 
+        { value: "Standard", text: "No" }              
     ]
 }) }}

@@ -1,0 +1,81 @@
+{% extends "/layouts/main.html" %}
+{% set showBackLink = false %}
+{% set serviceName = "" %}
+
+{% set pageHeading = "Do you want to add another team member?" %}
+{% set pageSection = "Add team member" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+        
+        <!-- {% if data['regThirdPartyUserOne'] %}
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        	<div class="govuk-summary-list__row">
+          		<dt class="govuk-summary-list__key">{{ data['regThirdPartyUserOneEmail'] or 'chrispee.bacon@ncl.local.authority.co.uk' }}</dt>          		
+          		<dd class="govuk-summary-list__actions">
+            		<a class="govuk-link govuk-link--no-visited-state" href="#">Remove<span class="govuk-visually-hidden"> this person</span></a>
+          		</dd>
+        	</div>
+
+            {% if data['regThirdPartyUserTwo'] %}
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">{{ data['regThirdPartyUserTwoEmail'] or 'Chrispee' }}</dt>          		
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link govuk-link--no-visited-state" href="#">Remove<span class="govuk-visually-hidden"> this person</span></a>
+                </dd>
+          </div>
+
+
+            {% endif %}
+
+        </dl>
+
+        {% endif %} -->
+
+
+
+        <!-- Add team member flow Trusted Third Party -->
+        <form method="post" action="/account/thirdParty/add/email" >
+            
+            {{ govukRadios({
+                classes: "govuk-radios--inline",
+                name: "addTeamTP-addMore",
+                fieldset: {
+                    legend: {
+                        text: "Do you want to add another team member?",
+                        classes: "govuk-label govuk-visually-hidden",
+                        isPageHeading: false                                               
+                    }
+                },            
+                items: [
+                    { value: "Yes", text: "Yes" }, 
+                    { value: "No~/account/thirdParty/add/confirmation", text: "No" }              
+                ]
+            }) }}
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}                                
+
+        </form>
+       
+    </div>
+</div>
+
+{% endblock %}
+
+
+
+
+
+
+
+

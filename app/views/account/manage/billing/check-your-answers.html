@@ -16,7 +16,7 @@
     
 		
 
-			<h2 class="govuk-heading-m govuk-!-margin-bottom-2">Billing information</h2>
+			<h2 class="govuk-heading-m govuk-!-margin-bottom-2">Billing details</h2>
 			<!-- Account Type -->
     		<dl class="govuk-summary-list govuk-!-margin-bottom-9">
       			<div class="govuk-summary-list__row">
@@ -42,7 +42,7 @@
                         {% endif %}
         			</dd>
         			<dd class="govuk-summary-list__actions">
-						<a class="govuk-link govuk-link--no-visited-state" href="/register/account-type?link=change">Change<span class="govuk-visually-hidden"> type of account</span></a>
+						<a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> billing address</span></a>
         			</dd>
       			</div>
 				  <div class="govuk-summary-list__row">
@@ -53,16 +53,27 @@
 						
 					</dd>
 					<dd class="govuk-summary-list__actions">
-						<a class="govuk-link govuk-link--no-visited-state" href="/register/account-type?link=change">Change<span class="govuk-visually-hidden"> type of account</span></a>
+						<a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> email address</span></a>
         			</dd>
-				</div>	
+				</div>
+				<!-- <div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">Contact name</dt>
+					<dd class="govuk-summary-list__value">												
+						
+                        {{ data['billinContact'] }}
+						
+					</dd>
+					<dd class="govuk-summary-list__actions">
+						<a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> email address</span></a>
+        			</dd>
+				</div>	 -->
                 <div class="govuk-summary-list__row">
 					<dt class="govuk-summary-list__key">Telephone</dt>
 					<dd class="govuk-summary-list__value">												
 						{{ data['billingTelephone'] }}
 					</dd>
 					<dd class="govuk-summary-list__actions">
-						<a class="govuk-link govuk-link--no-visited-state" href="/register/account-type?link=change">Change<span class="govuk-visually-hidden"> type of account</span></a>
+						<a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> telephone number</span></a>
         			</dd>
 				</div>
     		</dl>
@@ -78,7 +89,7 @@
             <input type="hidden" name="billingDetailsAdded" id="billingDetailsAdded" value="Yes" />
 		
 				{{ govukButton({
-					text: "Confirm and add billing information"				
+					text: "Confirm and add billing details"				
 				}) }}
 		  
         </form>

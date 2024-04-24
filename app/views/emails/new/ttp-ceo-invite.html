@@ -1,0 +1,52 @@
+
+
+{% extends "layout_email.html" %}
+
+{% set serviceName = "" %}
+
+{% set title = "You have been invited to access Defra onlne services" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <p class="govuk-body">Hello {NAME},</p>
+        
+    <p class="govuk-body">Defra has invited you to confirm {THIRD PARTY NAME}’s registration for {SERVICE NAME}.</p>    
+
+    
+    <p>You will need to:</p>    
+    <ul class="govuk-list govuk-list--bullet">
+        <li>sign in using your {THIRD PARTY NAME} email address.</li>        
+        <li>confirm some pre existing information</li>     
+        <li>add any other team members you want to the organisation</li>           
+    </ul>
+
+<h3 class="govuk-heading-s">Adding team members</h3>
+    <p>When adding team members, you will need to tell us:</p>
+    <ul class="govuk-list govuk-list--bullet">
+        <li>their {THIRD PARTY NAME} email address.</li>
+        <li>what service role they will have on {SERVICE NAME}</li>        
+        <li>if they will be an administrator for the organisation</li>        
+    </ul>
+
+    <div class="govuk-inset-text">
+        <p><a href="/b2c/thirdParty/?userType=ThirdPartyCEO">Confirm your organisation’s registration on GOV.UK</a></p>
+    </div>
+
+    <p class="govuk-body">You must complete the registration within 30 days, or we will delete your information.</p>
+    <p class="govuk-body">View our <a href="#">privacy notice</a></p>
+
+  </div>
+</div>
+
+{% endblock %}

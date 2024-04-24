@@ -2,8 +2,8 @@
 {% set showBackLink = false %}
 {% set serviceName = "" %}
 
-{% set pageHeading = 'What is their ' + data.defaultThirdParty | lowerCase + ' email address?' %}
-{% set pageSection = "" %}
+{% set pageHeading = 'What’s their ' + data.defaultThirdParty | lowerCase + ' email address?' %}
+{% set pageSection = "Add team member" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
@@ -14,18 +14,42 @@
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
         <div class="govuk-inset-text">
-            <p>For security it’s important this is the email address they use at {{ data.defaultThirdPartyName }}.</p>
+            <p>This must be the email address they use at {{ data.defaultThirdPartyName }}.</p>
         </div>
-        <form method="post" action="/account/thirdParty/add/check-your-answers" >
 
-            {% if data['thirdPartyInvite'] == "Yes" %}
+        <form method="post" action="/account/thirdParty/add/service-role" >
 
-                {% include "includes/account/email/invite.html" %}
+            <!-- Add team member flow Trusted Third Party -->
+            {% if data['addTeamThirdParty'] == "Yes" %}   
+            
+                {% if data['addTeamTP-One'] == "Added" %}
 
-            {% else %}
+                {{ govukInput({
+                    label: {
+                        text: pageHeading,
+                        classes: "govuk-visually-hidden"
+                    },
+                    classes: "govuk-!-width-two-thirds",
+                    name: "addTeamTP-Email-Two",
+                    id: "addTeamTP-Email-Two"
+                }) }}
+
+                {% else %}
                 
-                {% include "includes/account/email/users.html" %}
+                    {{ govukInput({
+                        label: {
+                            text: pageHeading,
+                            classes: "govuk-visually-hidden"
+                        },
+                        classes: "govuk-!-width-two-thirds",
+                        name: "addTeamTP-Email-One",
+                        id: "addTeamTP-Email-One"
+                    }) }}
 
+                {% endif %}
+
+            {% else %}                
+                {% include "includes/account/email/users.html" %}
             {% endif %}
 
 

@@ -18,7 +18,7 @@
         </div>
         <form method="post" action="/register/thirdParty/add/check-your-answers" >
 
-            {% if data['thirdPartyInvite'] == "Yes" %}
+            {% if data['addTeamThirdParty'] == "Yes" %}
 
                 {{ govukInput({
                     label: {
@@ -26,8 +26,8 @@
                         classes: "govuk-visually-hidden"
                     },
                     classes: "govuk-!-width-three-quarters",
-                    name: "inviteThirdPartyOneEmail",
-                    id: "inviteThirdPartyOneEmail"
+                    name: "addTeamTP-Email-One",
+                    id: "addTeamTP-Email-One"
                 }) }}
 
             {% else %}

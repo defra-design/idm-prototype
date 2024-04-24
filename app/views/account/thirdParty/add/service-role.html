@@ -2,15 +2,20 @@
 {% set showBackLink = false %}
 {% set serviceName = "" %}
 
-
-{% if data['changeLink'] == "CEO" %}
-    {% set pageHeading = 'What’s your new service role for ' + data.defaultThirdPartyName | titleCase + '?' %}
-{% elif data['thirdPartyInvite'] == "Yes" %}
-    {% set pageHeading = 'What will their service role be for ' + data.defaultThirdPartyName | titleCase + '?' %}
-{% else %}
-    {% set pageHeading = 'What will their service role be for ' + data.defaultThirdPartyName | titleCase + '?' %}
+<!-- CEO changing their role -->
+{% if data['changeLink'] == "ThirdPartyCEO" %}
+    {% set pageHeading = 'What’s your new role on this service?' %}
+    {% set pageSection = "" %}
+<!-- Add team member flow Trusted Third Party -->
+{% elif data['addTeamThirdParty'] == "Yes" %}
+    {% set pageHeading = 'What role will they have on this service?' %}
+    {% set pageSection = "Add team member" %}
+<!-- ???? -->
+{% else %}    
+    {% set pageHeading = 'What role will they have on this service?' %}
+    {% set pageSection = "Add team member" %}
 {% endif %}
-{% set pageSection = "" %}
+
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
@@ -22,28 +27,67 @@
 
         <!-- Dynamic line depending on sevice -->
         <div class="govuk-inset-text">
-            <p class="govuk-body">This is the role they will do for for you on the Local Authority Payment Service.</p>
+            <p class="govuk-body"><span class="govuk-!-font-weight-bold">Local Authority Payment Service (LAPS)</span>.</p>
         </div>
 
-        {% if data['changeLink'] == "CEO" %}
+        <!-- CEO changing their role -->
+        {% if data['changeLink'] == "ThirdPartyCEO" %}
             <form method="post" action="/account/?notification_banner=ceoServiceRole" >
+                <!-- Reset change link by removing its variable -->
                 <input type="hidden" id="changeLink" name="changeLink" value="" />                
+        
+        <!-- Add team member flow Trusted Third Party -->
         {% else %}
             <form method="post" action="/account/thirdParty/add/administrative" >
         {% endif %}
-                    
-            {% if data['changeLink'] == "CEO" %}
 
-                {% include "includes/account/service-role/change-ceo.html" %}
-                    
-            {% elif data['thirdPartyInvite'] == "Yes" %}
+            <!-- CEO changing their role -->
+            {% if data['changeLink'] == "ThirdPartyCEO" %}
+                {% include "includes/account/service-role/change-ceo.html" %}            
+            
+            <!-- Add team member flow Trusted Third Party -->
+            {% elif data['addTeamThirdParty'] == "Yes" %}      
+            
+                {% if data['addTeamTP-One'] == "Added" %}
+                
+                    {{ govukRadios({
+                        name: "addTeamTP-Role-Two",
+                        fieldset: {
+                            legend: {
+                                text: pageHeading,
+                                isPageHeading: false,
+                                classes: "govuk-visually-hidden"
+                            }
+                        },            
+                        items: [
+                            { value: "Adding and amending bank details", text: "Adding and amending bank details", hint: { text: "They must be employed as an S151 Officer, Chief Financial Officer, or another senior finance role." } }, 
+                            { value: "Managing waste data", text: "Managing waste data", hint: { text: "May be employed as head of waste, waste manager, or waste accountant." } }        
+                        ]
+                    }) }}
 
-                {% include "includes/account/service-role/invite.html" %}
+                {% else %}
 
+                    {{ govukRadios({
+                        name: "addTeamTP-Role-One",
+                        fieldset: {
+                            legend: {
+                                text: pageHeading,
+                                isPageHeading: false,
+                                classes: "govuk-visually-hidden"
+                            }
+                        },            
+                        items: [
+                            { value: "Adding and amending bank details", text: "Adding and amending bank details", hint: { text: "They must be employed as an S151 Officer, Chief Financial Officer, or another senior finance role." } }, 
+                            { value: "Managing waste data", text: "Managing waste data", hint: { text: "May be employed as head of waste, waste manager, or waste accountant." } }        
+                        ]
+                    }) }}                
+
+                {% endif %}
+            
+
+            <!-- ?? -->
             {% else %}
-
                 {% include "includes/account/service-role/users.html" %}
-
             {% endif %}
 
             {{ govukButton({

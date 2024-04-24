@@ -13,8 +13,11 @@
 
         
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-        
-        {% if data['registrationAccountType'] == "Individual" %}
+
+        <!-- Invited Team Member for a Trusted Third Party -->
+        {% if data['userType'] == "TPmemberInvite"  %}
+				<form method="post" action="/register/check-your-answers">        
+        {% elif data['registrationAccountType'] == "Individual" %}
             {% if data['registrationAddressUK'] == "No" %}
                 <form method="post" action="/register/personal-contact">
             {% else %}
@@ -26,7 +29,29 @@
             <form method="post" action="/register/personal-contact">
         {% endif %}
 
+            {% if data['userType'] == "TPmemberInvite" %}
 
+                {{ govukInput({
+                    label: {
+                        text: "First name"
+                    },
+                    classes: "govuk-!-width-three-quarters",
+                    name: "regTeamTPfirstName",
+                    id: "regTeamTPfirstName",
+                    value: data['regTeamTPfirstName']
+                }) }}
+
+                {{ govukInput({
+                    label: {
+                        text: "Last name"
+                    },
+                    classes: "govuk-!-width-three-quarters",
+                    name: "regTeamTPlastName",
+                    id: "regTeamTPlastName",
+                    value: data['regTeamTPlastName']
+                }) }}
+
+            {% else %}
         
             
             {{ govukInput({
@@ -48,6 +73,8 @@
                 id: "defaultSurname",
                 value: data['defaultSurname']
             }) }}
+
+            {% endif %}
 
        
 

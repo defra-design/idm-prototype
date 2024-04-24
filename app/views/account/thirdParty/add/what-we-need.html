@@ -1,0 +1,35 @@
+{% extends "/layouts/main.html" %}
+{% set showBackLink = false %}
+{% set serviceName = "" %}
+
+{% set pageHeading = "What we need" %}
+{% set pageSection = "Add team member" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+               
+
+        <p class="govuk-body">Adding a team member will give them access to Local Authority Payment Service (LAPS).</p>        
+        <!-- <p class="govuk-body">Adding a team member will give them access to the Local Authority Payment Service (LAPS) on behalf of {{ data.defaultThirdPartyName }}.</p>         -->
+        <p class="govuk-body">You will need to tell us:</p>                    
+        <ul class="govuk-list govuk-list--bullet">
+            {% include "includes/thirdparty/add-team-list.html" %}
+        </ul>          
+            
+            <form method="post" action="/account/thirdParty/add/email" class="govuk-!-margin-top-7">            
+    
+                {{ govukButton({
+                    text: "Continue"
+                })}}
+    
+            </form>
+       
+    </div>
+</div>
+
+{% endblock %}

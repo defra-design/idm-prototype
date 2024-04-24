@@ -25,10 +25,14 @@
             }) }}
     
             
-            {% if data['userType'] == "Invited" %}
-                <form action="/register/terms-and-conditions" method="post">            
-            {% elif data['userType'] == "CEO" %}
-                <form action="/b2c/thirdParty/check-details" method="post">            
+            
+            <!-- CEO Flow -->
+            {% if data['userType'] == "ThirdPartyCEO" %}
+                <form action="/b2c/thirdParty/confirm-details" method="post">                        
+            {% else %}
+                <!-- {% if data['userType'] == "TPmemberInvite" %} -->
+                    <form action="/register/terms-and-conditions" method="post">                            
+                <!-- {% endif %} -->
             {% endif %}
     
                 {{ govukInput({

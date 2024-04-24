@@ -1,6 +1,8 @@
 {% extends "/layouts/main.html" %}
 
-{% set serviceName = "Vets visits" %}
+{% if data['serviceFlow'] == "vetsVisit" %}
+{% set serviceName = "Get funding to improve animal health and welfare" %}
+{% endif %}
 
 {% set title = "Verify your code" %}
 

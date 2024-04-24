@@ -23,13 +23,17 @@
 				classes: "govuk-input--width-10",      
                 name: "billingAddressPostcode"
 			}) }}
+
+
+            <div class="govuk-button-group">
             
             {{ govukButton({
                 text: "Find address"
             }) }}
             
 
-            <p class="govuk-body"><a class="govuk-link" href="/account/manage/billing/add-address-manual">Enter your address manually</a></p>
+                <a class="govuk-link" href="/account/manage/billing/add-address-manual">Enter your address manually</a>
+            </div>
 
         </form>
 

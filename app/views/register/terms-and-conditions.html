@@ -104,10 +104,10 @@
         </div>
 
         
-        {% if data['userType'] == "Invited" %}
+        {% if data['userType'] == "TPmemberInvite" %}
             <form method="post" action="/register/personal-name" >    
         {% else %}            
-        <form method="post" action="/register/what-we-need" >    
+            <form method="post" action="/register/what-we-need" >    
         {% endif %}
             
             <input type="hidden" id="termsAndConditions" name="termsAndConditions" value="Viewed" />

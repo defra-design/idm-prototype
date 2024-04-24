@@ -1,25 +1,23 @@
-<dl class="govuk-summary-list govuk-!-margin-bottom-9">        	
+<dl class="govuk-summary-list govuk-!-margin-bottom-9">  
+	<div class="govuk-summary-list__row">
+    	<dt class="govuk-summary-list__key">Email address</dt>
+    	<dd class="govuk-summary-list__value">{{ data['addTeamTP-Email-One'] or '07711223344' }}</dd>
+    	<dd class="govuk-summary-list__actions"><a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> their email address</span></a></dd>
+	</div>        	      	
     <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">Role</dt>
-        <dd class="govuk-summary-list__value">{{ data['inviteThirdPartyOneResponsibility'] or 'TheGoat23' }}</dd>
-        <dd class="govuk-summary-list__actions">
-              <a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> what responsibility they have</span></a>
-        </dd>
-      </div>
-
-      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">LAPS service role</dt>
+        <dd class="govuk-summary-list__value">{{ data['addTeamTP-Role-One'] or 'TheGoat23' }}</dd>
+        <dd class="govuk-summary-list__actions"><a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> what role they will have</span></a></dd>
+    </div>
+    <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">Administrator</dt>
-        <dd class="govuk-summary-list__value">{{ data['inviteThirdPartyOneAdmin'] or 'TheGoat23' }}</dd>
-        <dd class="govuk-summary-list__actions">
-              <a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> what access they have</span></a>
+        <dd class="govuk-summary-list__value">
+        	{% if data['addTeamTP-Admin-One'] == "Admin" %}
+            	Yes
+          	{% else %}
+            	No
+          	{% endif %}
         </dd>
-      </div>
-
-    <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">Email address</dt>
-          <dd class="govuk-summary-list__value">{{ data['inviteThirdPartyOneEmail'] or '07711223344' }}</dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> their email address</span></a>
-          </dd>
-    </div>        	
-  </dl>
+        <dd class="govuk-summary-list__actions"><a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> their account access level</span></a></dd>
+    </div>
+</dl>

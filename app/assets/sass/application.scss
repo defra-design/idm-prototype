@@ -56,6 +56,30 @@
     border-left-color: #1d70b8;
 }
 
+.govuk-header__navigation-item:last-child {
+    float: right;
+}
+
+.x-govuk-secondary-navigation__list-item {
+    margin-left: 20px;
+    margin-right: 0;
+}
+
+.x-govuk-primary-navigation__item:last-child {
+    float: right;
+}
+
+.x-govuk-secondary-navigation__list-item {
+    float: right;
+}
+
+.x-govuk-secondary-navigation__list-item:first-child {
+    float: left;
+    margin-left: 0;
+}
+
+
+
 
 // sidebar
 // .gem-c-related-navigation{

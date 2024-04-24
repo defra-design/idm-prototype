@@ -1,9 +1,8 @@
 {% extends "/layouts/main.html" %}
 {% set showBackLink = false %}
-{% set serviceName = "" %}
+{% set serviceName = "Defra account" %}
 
 {% set pageHeading = 'What’s your ' +  data.defaultThirdParty | lowerCase + ' email address?' %}
-
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -15,21 +14,41 @@
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
                 
         <p class="govuk-body">We will send a one-time passcode to this email address.</p>
-                
+           
+        <!-- CEO -->
         <form method="post" action="/b2c/thirdParty/enter-code" >        
 
-            {{ govukInput({
-                label: {
-                    text: "Email address",
-                    classes: "govuk-visually-hidden",
-                    isPageHeading: false
-                },
-                classes: "govuk-!-width-two-thirds",
-                id: "regThirdPartyCEOEmail",
-                name: "regThirdPartyCEOEmail",
-                type: "email",
-                value: data['regThirdPartyCEOEmail']    
-            }) }}
+            {% if data['userType'] == "TPmemberInvite" %}
+
+                {{ govukInput({
+                    label: {
+                        text: "Email address",
+                        classes: "govuk-visually-hidden",
+                        isPageHeading: false
+                    },
+                    classes: "govuk-!-width-two-thirds",
+                    id: "regTeamTPemail",
+                    name: "regTeamTPemail",
+                    type: "email",
+                    value: data['regTeamTPemail']    
+                }) }}
+
+            {% else %}
+
+                {{ govukInput({
+                    label: {
+                        text: "Email address",
+                        classes: "govuk-visually-hidden",
+                        isPageHeading: false
+                    },
+                    classes: "govuk-!-width-two-thirds",
+                    id: "regThirdPartyCEOEmail",
+                    name: "regThirdPartyCEOEmail",
+                    type: "email",
+                    value: data['regThirdPartyCEOEmail']    
+                }) }}
+
+            {% endif %}
             
             {{ govukButton({
                 text: "Continue"

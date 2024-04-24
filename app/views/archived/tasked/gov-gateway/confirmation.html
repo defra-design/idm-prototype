@@ -2,9 +2,9 @@
 
 {% set serviceName = "" %}
 
-{% set govGateUserId = "49 21 78 79 24 96"%}
+{% set GovGateId = "49 21 78 79 24 96"%}
 
-{% set title = "Your Government Gateway user ID is "+data['govGateUserId'] %}
+{% set title = "Your Government Gateway user ID is "+data['GovGateId'] %}
 
 {% block pageTitle %}
   {{title}} - GOV.UK
@@ -18,7 +18,7 @@
     <div class="govuk-panel govuk-panel--confirmation">
       <h1 class="govuk-panel__title">Your Government Gateway user ID is</h1>
       <div class="govuk-panel__body">
-        {{govGateUserId}}
+        {{GovGateId}}
       </div>
     </div>
 

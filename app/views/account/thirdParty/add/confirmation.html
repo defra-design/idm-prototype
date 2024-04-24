@@ -2,16 +2,14 @@
 {% set showBackLink = false %}
 {% set serviceName = "" %}
 
-
-{% if data['regThirdPartyUserAddMore'] == "Yes" %}
-    {% set pageHeading = "Team members added to your account" %}
-{% elif data['regThirdPartyUserAddMore'] == "No" %}
-    {% set pageHeading = "Team member added to your account" %}
-{% elif data['addTeamMemberThirdParty'] == "Yes" %}
-    {% set pageHeading = "Team member added to your account" %}
+<!-- If 2 or more -->
+{% if data['addTeamTP-Two'] == "Added" %}
+    {% set pageHeading = 'Team members added' %}
+<!-- 1 added -->
 {% else %}
-    {% set pageHeading = "Team members added to your account" %}
+    {% set pageHeading = 'Team member added' %}
 {% endif %}
+
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -25,18 +23,31 @@
             classes: "govuk-!-margin-bottom-7"            
         }) }}
 
-        {% if data['addTeamMemberThirdParty'] == "Yes" %}
+        <!-- Add team member flow Trusted Third Party -->
+        {% if data['addTeamThirdParty'] == "Yes" %}
+            
+            <p class="govuk-body">We have sent them an email, with instructions on how to confirm their registration as a member of the team.</p>
+            <p>They will appear in {{ data.defaultThirdPartyName }}’s <a href="/account/manage/team/">list of team members</a> with an <span class="govuk-!-font-weight-bold">invited status</span> until they log in and complete their registration.</p>
+            <h2 class="govuk-heading-m">What you need to do next</h2>
+            <p class="govuk-body">We may contact you if we need to clarify something, but you do not have to do anything else now.</p>
+            <ul class="govuk-list">
+            
+                <!-- CEO or any Admin -->
+                <li><a href="/account/?notification_banner=" class="govuk-link govuk-link--no-visited-state">Continue to your account</a></li>    
+                
+            <!--     
+                <li><a href="/account/?notification_banner=" class="govuk-link govuk-link--no-visited-state">Go to your account</a></li>    
+                -->
+                
+            </ul>
 
-            {% include "includes/account/confirmation/invite.html" %}        
-
+        <!-- ??? -->
         {% else %}
-
             {% include "includes/account/confirmation/users.html" %}        
-
         {% endif %}
 
 
-  	</div>
+</div>
 </div>
 
 {% endblock %}

@@ -20,30 +20,38 @@ Example usage:
 module.exports = {
 
   // Default always needed
+  serviceFlow: "coreService",
   userFlow: "Registration",
-  serviceFlow: "coreDefault",
-  companySize: "20",
-  mfaStatus: "disabled",
-  govGateUserId: "71 13 56 15 22 14",
-  govGatePassword: "letmein",
+  userType: "Standard",
+  // mfaStatus: "disabled",
+  companySize: "20",  
+  GovGateId: "711356152214",
+  GovGatePassword: "letmein",
   
   // Ltd Business
   // registrationAccountType: "Business",
+  defaultCompanyName: "Soleheaven Ltd",
   defaultCompanyNumber: "01234568",
   defaultCompanyAddress: "19 Hoults Yard, Walker Road, Newcastle upon Tyne NE6 2HL",
-  defaultCompanyName: "Soleheaven Ltd",
+  
 
   //  Local authority
-  defaultThirdParty: "Local authority",
+  defaultThirdParty: "local authority",
   defaultThirdPartyName: "Newcastle City Council",
-  defaultThirdPartyAddress: "Civic Centre, 2nd Floor, Newcastle upon Tyne, NE1 8QH",
-  defaultThirdPartyCEO: "Cris P Bacon",
-  defaultThirdPartyCEORole: "Chief Executive Officer (CEO)",
-  defaultThirdPartyCEOPhone: "00700700788",
-  defaultThirdPartyCEOEmail: "chris.p.bacon@localauthority.default",
+  defaultThirdPartyAddress: "Civic Centre<br>2nd Floor<br>Newcastle upon Tyne<br>NE1 8QH",
+  defaultThirdPartyPhone: "0191 268 4325",
+  
+  defaultThirdPartyCEORegistered: "No",
+  defaultThirdPartyCEO: "Chrispee Bacon",
+  defaultThirdPartyCEORole: "Chief Executive Officer (CEO)",  
+  defaultThirdPartyCEOEmail: "chrispee.bacon@authority.test.com",
   defaultThirdPartyCEOServiceRole: "Managing waste data",
-  // defaultThirdPartyCeoRegistered: "Yes",
-   // defaultThirdPartyUserOneResponsibility: "Adding and amending bank details",
+  defaultThirdPartyCEORegistered: "No"
+
+
+
+  // defaultThirdPartyCEORegistered: "Yes",
+  // defaultThirdPartyUserOneResponsibility: "Adding and amending bank details",
    // defaultThirdPartyUserOneAdmin: "Yes",
    // defaultThirdPartyUserOneEmail: "hugo.furst@localauthority.co.uk"
  
@@ -53,7 +61,7 @@ module.exports = {
   // defaultFirstName: "Hugo",
   // defaultSurname: "Furst",
   // defaultIndividualName: "Hugo Furst",
-  // defaultIndividualPhone: "00700700788",
+  // // defaultIndividualPhone: "00700700788",
   // defaultIndividualAddress: "15B Kensington Palace Gardens,<br> London,<br> W8 4QG",
   // registrationIndividualPostcode: "W8 4QG",
   // defaultIndividualWord: "Jordan23",
