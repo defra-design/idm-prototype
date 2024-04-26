@@ -49,11 +49,10 @@
 		<!-- Started registration but stopped -->
 		
 		
-		
+		{% include "includes/registration/cya/accountType.html" %}
 		
 		{% if data['registrationStatus'] == "incomplete" %}			
 
-			{% include "includes/registration/cya/accountType.html" %}
 
 			{% if data['registrationAccountType'] == "Individual" %}
 				{% include "includes/registration/cya/personalDetailsIncomplete.html" %}
