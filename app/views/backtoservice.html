@@ -1,6 +1,6 @@
 {% extends "/layouts/main.html" %}
 {% set showBackLink = false %}
-{% set serviceName = "" %}
+{% set serviceName = "{Service Name}" %}
 
 {% set pageHeading = "Return to service" %}
 {% set pageSection = "" %}
@@ -16,12 +16,6 @@
         <p class="govuk-body">Returns the user back to the appropriate service.</p>
         
 
-    </div>
-    <div class="govuk-grid-column-one-third review">      
-        <ul class="govuk-list govuk-body-s govuk-!-text-align-right">        
-            <li><a href="/errors" class="govuk-link govuk-link--no-visited-state">Error page</a></li>        
-            <li><a href="/mfa-V2/defra-id/about-data?status=review" class="govuk-link govuk-link--no-visited-state">Suggested page review</a></li>        
-        </ul>      
-    </div>
+    </div>    
 </div>
 {% endblock %}

@@ -23,6 +23,7 @@ module.exports = {
   serviceFlow: "coreService",
   userFlow: "Registration",
   userType: "Standard",
+  defaultService: "Import of products, animals, food and feed service",
   // mfaStatus: "disabled",
   companySize: "20",  
   GovGateId: "711356152214",
