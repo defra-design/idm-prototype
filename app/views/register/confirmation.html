@@ -96,17 +96,44 @@
 
 			
 			
+			{% if data['serviceHook'] %}
+
+				{% if data['serviceHook'] == "WasteTracking" %}
+					<form method="post" action="https://wts-prototype.herokuapp.com/v18/index-homepage">
+				{% elif data['serviceHook'] == "Forest" %}
+					<form method="post" action="https://forest-risk-commodities.herokuapp.com/Dashboard_v5_newuser">
+				{% elif data['serviceHook'] == "ForestTwo" %}
+					<form method="post" action="https://forest-risk-commodities.herokuapp.com/check-answers_v7_e">
+				{% elif data['serviceHook'] == "PetTravel" %}
+					<form method="post" action="https://pet-travel-document-0f384e905d50.herokuapp.com/idm2-redirect">							
+				{% elif data['serviceHook'] == "IDAMS" %}
+					<form method="post" action="https://moving-animals-to-gb-f6ffdaf23605.herokuapp.com/location">							
+				{% endif %}
 			
+			<!-- No hook out from another service -->
+			{% else %}
+				<!-- Invited user from account -->
+				{% if data['thirdPartyUser'] == "Yes" %}
+					<form method="post" action="/register/confirmation">
+						<input type="hidden" id="regThirdPartyUserOne" name="regThirdPartyUserOne" value="Invited" />
+				{% else %}
+					<!-- Normal route for registration -->
+					<form method="post" action="/register/confirmation">						
+						<input type="hidden" id="registrationStatus" name="registrationStatus" value="Enrolled" />
+					<!-- <form method="post" action="/account/?notification_banner=">
+						<input type="hidden" id="registrationStatus" name="registrationStatus" value="Enrolled" /> -->
+				{% endif %}
+			{% endif %}
 				
 		
 			
 
 			{{ govukButton({
                 text: "Continue",
-				classes: "govuk-!-margin-top-5",
-				href: "/backtoservice"
+				classes: "govuk-!-margin-top-5"				
             })}}
 
+			</form>
 		{% endif %}
 
 
