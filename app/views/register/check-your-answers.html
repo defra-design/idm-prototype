@@ -143,19 +143,7 @@
 
 		{% else %}
 
-			<!-- Another prototype hooking out of our prototype -->
-			{% if data['serviceHook'] %}
-
-				{% if data['serviceHook'] == "WasteTracking" %}
-					<form method="post" action="https://wts-prototype.herokuapp.com/v18/index-homepage">
-				{% elif data['serviceHook'] == "Forest" %}
-					<form method="post" action="https://forest-risk-commodities.herokuapp.com/Dashboard_v5_newuser">
-				{% elif data['serviceHook'] == "PetTravel" %}
-					<form method="post" action="https://pet-travel-document-0f384e905d50.herokuapp.com/idm2-redirect">							
-				{% endif %}
 			
-			<!-- No hook out from another service -->
-			{% else %}
 				<!-- Invited user from account -->
 				{% if data['thirdPartyUser'] == "Yes" %}
 					<form method="post" action="/register/confirmation">
@@ -167,7 +155,7 @@
 					<!-- <form method="post" action="/account/?notification_banner=">
 						<input type="hidden" id="registrationStatus" name="registrationStatus" value="Enrolled" /> -->
 				{% endif %}
-			{% endif %}
+			
 
 			{{ govukButton({
 				text: "Confirm and complete registration"
