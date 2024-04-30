@@ -15,7 +15,7 @@
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   
 
 
-        {% if data['regNonUk'] == "No" %}
+        {% if data['registeredUKOnly'] == "Yes" %}
         <form method="post" action="/register/cannot-register">
         {% else %}
     	<form method="post" action="/register/personal-name">

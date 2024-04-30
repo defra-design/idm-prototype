@@ -44,9 +44,9 @@
                     <h3 class="govuk-heading-m">Toggle service features</h3>
                     {{ govukCheckboxes({                        
                         fieldset: { legend: { text: "Service does not allow NON-uk business", isPageHeading: false, classes: "govuk-visually-hidden" } },
-                        items: [ { value: "No", text: "Service requires that users must be registered to trade in the UK or if individual must have UK address" } ],
-                        id: "regNonUk",
-                        name: "regNonUk"
+                        items: [ { value: "Yes", text: "Service requires that users must be registered to trade in the UK or if individual must have UK address" } ],
+                        id: "registeredUKOnly",
+                        name: "registeredUKOnly"
                     }) }}                    
                     
                     {{ govukCheckboxes({                        

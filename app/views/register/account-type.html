@@ -19,7 +19,13 @@
         <!-- <p>You represent a business or organisation (including sole traders and charities) and have permission to register an account.</p> -->
         <p>This includes if you are a sole trader or registered charity.</p>
         
-        <form method="post" action="/register/uk-organisation">
+        {% if data['registeredUKOnly'] == "Yes" %}
+            <form method="post" action="/register/uk-address">
+        {% else %}
+            <form method="post" action="/register/personal-name">
+        {% endif %}
+
+        
             
             {{ govukRadios({
                 
@@ -27,8 +33,8 @@
                     legend: { text: pageHeading, isPageHeading: false, classes: "govuk-visually-hidden"  }
                 },
                 items: [
-                    { value: "Business", text: "Yes, and I have permission to create an account",  checked: checked('registrationAccountType', 'Business')  },
-                    { value: "Individual~/register/uk-address", text: "No, as an individual for personal use", checked: checked('registrationAccountType', 'Individual')  }
+                    { value: "Business~/register/uk-organisation", text: "Yes, and I have permission to create an account",  checked: checked('registrationAccountType', 'Business')  },
+                    { value: "Individual", text: "No, as an individual for personal use", checked: checked('registrationAccountType', 'Individual')  }
                 ],
                 name: "registrationAccountType"
             }) }}

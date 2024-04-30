@@ -17,7 +17,7 @@
 
         <!-- <p>A business wishing to trade as a UK company must be registered at Companies House. This process includes choosing and registering a company name.</p> -->
         <!-- /// If a Service does not allow non uk //// -->
-        {% if data['regNonUk'] == "No" %}
+        {% if data['registeredUKOnly'] == "Yes" %}
             <form method="post" action="/register/cannot-register">
         <!-- //// Can register outside the uk /// -->
         {% else %}
