@@ -1,9 +1,9 @@
 {% extends "/layouts/main.html" %}
 {% set showBackLink = false %}
-{% set serviceName = "" %}
+{% set serviceName = "{Service Name}" %}
 
 {% set pageHeading = "User flows" %}
-{% set pageSection = "Preload data" %}
+{% set pageSection = "Preload Defra account data" %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 {% block content %}
@@ -13,27 +13,10 @@
 
         {{ macroPageHeader.pageHeader(pageHeading, pageSection) }}                        
         
-        <p class="govuk-body">The flow defaults to "Registration" and "Core service" unless alternative options override that selection below.</p>
+        <p class="govuk-body">Defaults to "Core service" unless alternative option overrides that selection.</p>
                 
         <form action="/preload" method="post" >
-
-            <!-- // User Journey // -->
-            <!-- ///////////////////////////////// -->
-            {{ govukRadios({   
-                fieldset: {
-                    legend: {
-                        text: "User journey",
-                        isPageHeading: true,
-                        classes: "govuk-fieldset__legend--m"
-                    },
-                    classes: "govuk-!-margin-top-7"
-                },
-                name: "userFlow",
-                items: [
-                    { value: "Registration", text: "Registration", checked: checked("userFlow", "Registration") },
-                    { value: "Authentication", text: "Sign in and authentication (already registered)", checked: checked("userFlow", "Authentication") }
-                ]
-            }) }}
+    
 
             <!-- // Service Flow // -->
             <!-- ///////////////////////////////// -->
@@ -41,7 +24,7 @@
                 fieldset: {
                     legend: {
                         text: "Service flow",
-                        isPageHeading: true,
+                        isPageHeading: false,
                         classes: "govuk-fieldset__legend--m"
                     },
                     classes: "govuk-!-margin-top-7"                    
@@ -51,11 +34,12 @@
                 },
                 name: "serviceFlow",
                 items: [
-                    { value: "coreService", text: "Core services", checked: checked("serviceFlow", "coreService") },   
+                    { value: "coreService", text: "Core service", checked: checked("serviceFlow", "coreService") },   
+                    { divider: "or" },
                     { value: "vetsVisit", text: "Get funding to improve animal health and welfare", checked: checked("serviceFlow", "vetsVisit") }
                 ]            
             }) }}
- 
+
  
             {{ govukButton({
                 text: "Continue"

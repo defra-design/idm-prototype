@@ -1,9 +1,9 @@
 {% extends "/layouts/main.html" %}
 {% set showBackLink = true %}
-{% set serviceName = "" %}
+{% set serviceName = "{Service Name}" %}
 
 {% set pageHeading = "Do you live in the UK?" %}
-{% set pageSection = "" %}
+{% set pageSection = "Register Defra account" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
@@ -15,7 +15,7 @@
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   
 
 
-        {% if data['regNonUk'] == "No" %}
+        {% if data['registeredUKOnly'] == "Yes" %}
         <form method="post" action="/register/cannot-register">
         {% else %}
     	<form method="post" action="/register/personal-name">

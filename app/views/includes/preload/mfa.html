@@ -1,0 +1,49 @@
+<!-- {% if data['serviceFlow'] != "vetsVisit" %}      
+
+    {% set emailHtml %}
+
+    {{ govukCheckboxes({                                                
+        items: [
+            { value: "Yes", text: "MFA via email disabled", checked: checked("mfaEmailDisabled", "Yes")}
+        ],
+        name: "mfaEmailDisabled"
+    }) }}
+    
+    {{ govukCheckboxes({                                                
+        items: [
+            { value: "Yes", text: "MFA via SMS disabled", checked: checked("mfaSmsDisabled", "Yes")}
+        ],
+        name: "mfaSmsDisabled"
+    }) }}
+    
+    {{ govukCheckboxes({                                                
+        items: [
+            { value: "Yes", text: "MFA via email and SMS disabled", checked: checked("mfaDisabled", "Yes")}
+        ],
+        name: "mfaDisabled"
+    }) }}
+
+    {{ govukCheckboxes({                                                            
+        items: [
+            { value: "Yes", text: "Multiple phone numbers on account", checked: checked("multiplePhoneNumber", "Yes")}
+        ],
+        name: "multiplePhoneNumber"
+    }) }}
+
+{{ govukCheckboxes({                                                        
+    items: [
+        { value: "Yes", text: "Security word has changed", checked: checked("securityWordChanged", "Yes")}
+    ],
+    name: "securityWordChanged"
+}) }}
+
+{% endset -%}
+
+{{ govukCheckboxes({
+    name: "contact",    
+    items: [
+      { value: "mfaStatus", text: "MFA enabled", conditional: { html: emailHtml } }      
+    ]
+  }) }}
+
+  {% endif %} -->

@@ -2,7 +2,7 @@
 {% if data['backButtonHide'] == "Yes" %}
     {% set showBackLink = false %}
 {% endif %}
-{% set serviceName = "" %}
+{% set serviceName = "{Service Name}" %}
 
 
 {% if data['userType'] == "TPmemberInvite" %}
@@ -24,7 +24,7 @@
 	{% set pageHeading = "Check your answers" %}
 {% endif %}
 <!-- {% set pageSection = "Register for a Defra account" %} -->
-{% set pageSection = "" %}
+{% set pageSection = "Register Defra account" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
@@ -49,11 +49,10 @@
 		<!-- Started registration but stopped -->
 		
 		
-		
+		{% include "includes/registration/cya/accountType.html" %}
 		
 		{% if data['registrationStatus'] == "incomplete" %}			
 
-			{% include "includes/registration/cya/accountType.html" %}
 
 			{% if data['registrationAccountType'] == "Individual" %}
 				{% include "includes/registration/cya/personalDetailsIncomplete.html" %}
@@ -167,8 +166,10 @@
 						<input type="hidden" id="regThirdPartyUserOne" name="regThirdPartyUserOne" value="Invited" />
 				{% else %}
 					<!-- Normal route for registration -->
-					<form method="post" action="/account/?notification_banner=">
+					<form method="post" action="/register/confirmation">						
 						<input type="hidden" id="registrationStatus" name="registrationStatus" value="Enrolled" />
+					<!-- <form method="post" action="/account/?notification_banner=">
+						<input type="hidden" id="registrationStatus" name="registrationStatus" value="Enrolled" /> -->
 				{% endif %}
 			{% endif %}
 
