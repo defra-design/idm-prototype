@@ -49,14 +49,14 @@
 			
 			<p>We have sent you a confirmation email.</p>			
 
-			<h2 class="govuk-heading-m">Your Defra account</h2>   			
+			<!-- <h2 class="govuk-heading-m">Your Defra account</h2>   			 -->
 			<!-- <p>You now have access to online services from Defra.</p> -->
         	<p class="govuk-body">Your <a href="/account/?notification_banner=" target="_blank" class="govuk-link govuk-link--no-visited-state">Defra account (opens in new tab)</a> allows you to:
 
 			{% if data['registrationAccountType'] == "Business" %}
 			<ul class="govuk-list govuk-list--bullet">
 				<li>access, register and manage online services from Defra</li>
-				<li>invite and manage other team members to your organisation</li>
+				<li>invite and manage other team members or intermediaries to your organisation</li>
 				<li>access services on behalf of organisations that you represent</li>
 			</ul>                                                
 			{% elif data['registrationAccountType'] == "Individual" %}
