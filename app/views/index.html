@@ -42,14 +42,21 @@
                     <input type="hidden" name="userFlow" id="userFlow" value="Registration" />                    
                     <input type="hidden" name="serviceFlow" id="serviceFlow" value="coreService" />
                     {{ govukButton({
-                        text: "Register and Sign in"
+                        text: "Registration flow"
                     }) }}
-                </form>            
-    
-    
-                <form action="/listings" method="post" >
-                    <input type="hidden" name="userFlow" id="userFlow" value="Registration" />                    
+                </form> 
+                
+                
+                <form action="/flow" method="post" >
+                    <input type="hidden" name="userFlow" id="userFlow" value="Authentication" />                    
                     <input type="hidden" name="serviceFlow" id="serviceFlow" value="coreService" />
+                    {{ govukButton({
+                        text: "Authentication sign in"
+                    }) }}
+                </form> 
+                
+    
+                <form action="/listings" method="post" >                    
                     {{ govukButton({
                         text: "Page listings",
                         classes: "govuk-button--secondary"

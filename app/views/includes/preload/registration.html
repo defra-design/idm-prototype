@@ -1,0 +1,47 @@
+<!-- // Vets visit // -->
+{% if data['serviceFlow'] == "vetsVisit" %}      
+    <form class="form" action="/authentication/vets/start" method="post" >                        
+<!-- // Core journey // -->
+{% else %}        
+    <form class="form" action="/service-start-page" method="post" class="">
+{% endif %}                 
+
+    <!-- Vets visit -->
+    {% if data['serviceFlow'] == "vetsVisit" %}      
+
+        <p class="govuk-body">There are no override options available for this non core service as part of registration.</p>
+    
+    <!-- // Core journey // -->
+    {% else %}
+
+        <h3 class="govuk-heading-m">Optional features</h3>
+        {{ govukCheckboxes({                        
+            fieldset: { legend: { text: "Service does not allow NON-uk business", isPageHeading: false, classes: "govuk-visually-hidden" } },
+            items: [ { value: "Yes", text: "Service only allows UK registrations" } ],
+            id: "registeredUKOnly",
+            name: "registeredUKOnly"
+        }) }}                    
+    
+        {{ govukCheckboxes({                        
+            fieldset: { legend: { text: "Service does not allow NON-uk business", isPageHeading: false, classes: "govuk-visually-hidden" } },
+            items: [ { value: "Yes", text: "Service used by trusted third parties" } ],
+            name: "trustedThirdParties",
+            id: "trustedThirdParties"
+        }) }}
+
+        {% include "includes/preload/oneLogin.html "%}
+
+        {{ govukCheckboxes({
+            fieldset: { legend: { text: "User has Government Gateway account", isPageHeading: false, classes: "govuk-visually-hidden" } },
+            items: [ { value: "Yes", text: "User does not have Government Gateway account" } ],
+            name: "GovernmentGatewayAccount",
+            id: "GovernmentGatewayAccount"
+        }) }}
+
+    {% endif %}                    
+    
+    {{ govukButton({
+        text: "Continue"
+    }) }}
+    
+</form>

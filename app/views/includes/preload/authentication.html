@@ -1,0 +1,87 @@
+<!-- // Registration flow // -->            
+{% if data['serviceFlow'] == "vetsVisit" %}      
+    <form class="form" action="/authentication/vets/start" method="post" >            
+<!-- // Core journey // -->
+{% else %}
+    <form class="form" action="/service-start-page" method="post" >            
+{% endif %}        
+
+<!-- Old variation -->
+<!-- <form class="form" action="/archived/mfa/gov-gateway/login-v2" method="post" class=""> -->
+
+    {% if data['serviceFlow'] != "vetsVisit" %}   
+    <h3 class="govuk-heading-m">Features</h3>
+    
+    {{ govukCheckboxes({
+        fieldset: { legend: { text: "Trusted third parties", isPageHeading: false, classes: "govuk-visually-hidden" } },
+        items: [                             
+            { value: "Yes", text: "Service used by trusted third parties" } 
+        ],
+        name: "trustedThirdParties"
+    }) }}
+    {% endif %}
+
+
+    {% include "includes/preload/mfa.html" %}
+
+    <!-- Organisation registered to choose from -->
+    <!-- //////////////////////////////////////////////////////////// -->
+    {% if data['serviceFlow'] == "vetsVisit" %}   
+
+            {{ govukRadios({     
+                classes: "govuk-radios--inline",               
+                fieldset: {
+                    legend: { text: "Organisations available on rural payments account", isPageHeading: false, classes: "govuk-fieldset__legend--m"  }
+                },
+                items: [
+                    { value: "None", text: "None", checked: checked("companySize", "None") },    
+                    { value: "Single", text: "One", checked: checked("companySize", "Single") },
+                    { value: "20", text: "Up to 20", checked: checked("companySize", "20") },
+                    { value: "45", text: "More than 20", checked: checked("companySize", "45") }
+                ],
+                name: "companySize"
+            }) }}
+
+    {% else %}
+
+        {{ govukRadios({
+            classes: "govuk-radios--inline",
+            fieldset: {
+                legend: { text: "Organisations available to users Defra account", isPageHeading: false, classes: "govuk-fieldset__legend--m"  }
+            },
+            items: [
+                { value: "Single", text: "Single" },
+                { value: "20", text: "Up to 20", checked: checked },
+                { value: "45", text: "More than 20" }
+            ],
+            name: "companySize"
+        }) }}
+
+    {% endif %}    
+
+    <!-- Interswitch -->
+    <!-- //////////////////////////////////////////////////////////// -->
+    {% if data['serviceFlow'] != "vetsVisit" %}      
+        <h3 class="govuk-heading-m">Interswitch options</h3>            
+        
+        {{ govukCheckboxes({                                                                    
+            items: [
+                { value: "Single", text: "Only single organisation available for enrolment", checked: checked("interSwitchSize", "Single")}
+            ],
+            name: "interSwitchSize"
+        }) }}
+        
+        {{ govukCheckboxes({                                            
+            items: [
+                { value: "Yes", text: "Shows citizen only option for enrolment", checked: checked("citizenEnrol", "Yes")}
+            ],
+            name: "citizenEnrol"
+        }) }}
+        
+    {% endif %}
+
+    {{ govukButton({
+        text: "Add and continue"
+    }) }}
+
+</form>
