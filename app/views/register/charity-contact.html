@@ -1,6 +1,6 @@
 {% extends "/layouts/main.html" %}
 {% set showBackLink = true %}
-{% set serviceName = "" %}
+{% set serviceName = "{Service Name}" %}
 
 {% if data['status'] == "review" %}
     {% set pageHeading = "What’s {Charity Name}’s telephone and email address?" %}
@@ -8,7 +8,7 @@
     {% set pageHeading = "What are the main contact details for the charity?" %} 
 {% endif %}
 
-{% set pageSection = "" %}
+{% set pageSection = "Register Defra account" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}

@@ -1,6 +1,6 @@
 {% extends "/layouts/main.html" %}
 {% set showBackLink = true %}
-{% set serviceName = "" %}
+{% set serviceName = "{Service Name}" %}
 
 
 {% if data['registrationOrganisationType'] == "Sole trader" %}
@@ -8,7 +8,7 @@
 {% else %}
 	{% set pageHeading = "What’s the name of the business?" %}
 {% endif %}
-{% set pageSection = "" %}
+{% set pageSection = "Register Defra account" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 
