@@ -7,7 +7,7 @@
 	{% set pageHeading = "Registration complete" %}
 	{% set pageSection = "" %}
 {% else %}
-	{% set pageHeading = "Registration of your Defra account complete" %}
+	{% set pageHeading = "Registration of Defra account complete" %}
 	{% set pageSection = "" %}
 	
 {% endif %}
@@ -28,14 +28,13 @@
 		{% if data['userType'] == "CEO"  %}
 			
 			<p class="govuk-body">We have sent an email confirmation to <span class="govuk-!-font-weight-bold">{{ data['regTeamTPemail'] or data.defaultThirdPartyCEOEmail }}</span></p>
-		<p>You now have access to the Local Authority Payment Service (LAPS) on behalf of {{ data.defaultThirdPartyName }}.</p>
-		<p>As an administrator you can also add and manage team members.</p>        		
+			<p>You now have access to the Local Authority Payment Service (LAPS) on behalf of {{ data.defaultThirdPartyName }}.</p>
+			<p>As an administrator you can also add and manage team members.</p>        		
 		
-		<h2 class="govuk-heading-m">What happens next</h2>   
+			<h2 class="govuk-heading-m">What happens next</h2>   
+			<p class="govuk-body">We may contact you if we need to clarify something, but you do not have to do anything else now.</p>
 
-		<p class="govuk-body">We may contact you if we need to clarify something, but you do not have to do anything else now.</p>
-
-		<ul class="govuk-list">		
+			<ul class="govuk-list">		
 			<!-- CEO or any Admin -->
 			<li><a href="/account/?notification_banner=&userType=TPuser" class="govuk-link govuk-link--no-visited-state">Continue to your account</a></li>    
 			<!-- <li><a href="/account/manage/team/userType=TPuser" class="govuk-link govuk-link--no-visited-state">Go to your team members</a></li>     -->
@@ -49,35 +48,32 @@
 			
 			<p>We have sent you a confirmation email.</p>			
 
-			<h2 class="govuk-heading-m">Your Defra account</h2>   			
-        <p class="govuk-body">Your account allows you to:
+			<!-- <h2 class="govuk-heading-m">Your Defra account</h2>   			 -->
+			<!-- <p>You now have access to online services from Defra.</p> -->
+        	<p class="govuk-body">Your <a href="/account/?notification_banner=" target="_blank" class="govuk-link govuk-link--no-visited-state">Defra account (opens in new tab)</a> allows you to:
 
-		{% if data['registrationAccountType'] == "Business" %}
-        <ul class="govuk-list govuk-list--bullet">
-            <li>access and manage which Defra services you are registered with</li>
-			<li>invite and manage other team members to your business</li>
-            <li>manage services on behalf of businesses that you represent</li>
-        </ul>                                                
-		{% elif data['registrationAccountType'] == "Individual" %}
-		<ul class="govuk-list govuk-list--bullet">
-            <li>for yourself as an individual</li>
-            <li>on behalf of businesses that you represent</li>
-        </ul>     		
-		
-		{% endif %}                                           
+			{% if data['registrationAccountType'] == "Business" %}
+			<ul class="govuk-list govuk-list--bullet">
+				<li>access, register and manage online services from Defra</li>
+				<li>invite and manage other team members or intermediaries to your organisation</li>
+				<li>access services on behalf of organisations that you represent</li>
+			</ul>                                                
+			{% elif data['registrationAccountType'] == "Individual" %}
+			<ul class="govuk-list govuk-list--bullet">
+            	<li>for yourself as an individual</li>
+            	<li>on behalf of businesses that you represent</li>
+        	</ul>     				
+		{% endif %}                                  
 
-		
-
-
-        <div class="govuk-inset-text">
+        <!-- <div class="govuk-inset-text">
             <p class="govuk-body">You’ll need the Government Gateway details you used to sign in to Defra services each time you visit.</p>
-        </div>
+        </div> -->
 
 
 
 			
 			<!-- <p>With <a href="/account/?notification_banner=" target="_blank" class="govuk-link govuk-link--no-visited-state">your Defra account (opens in new tab)</a> you can now continue with <span class="govuk-!-font-weight-bold">{{ data.defaultService }}</span>, as well as registering with other online services from Defra.</p> -->
-			<p>You now have access to online services from Defra using <a href="/account/?notification_banner=" target="_blank" class="govuk-link govuk-link--no-visited-state">your Defra account (opens in new tab)</a> to register for those you require.</p>
+			
 			<!-- <p>You can also manage defra services on behalf of businesses you may represent.</p>	
 			<ul class="govuk-list govuk-list--bullet">
 				<li>register with other Defra online services</li>
@@ -87,7 +83,19 @@
 			
 			
 			<h2 class="govuk-heading-m">What you must do next</h2>  
-			<p class="govuk-body">You will now need to continue to {{ data.defaultService }} where you will be asked any additional information for that service. </p>
+			<p class="govuk-body">You will need to continue to  				
+				{% if data['serviceHook'] == "WasteTracking" %}
+					Move and track waste
+				{% elif data['serviceHook'] == "Forest" %}
+					Declare your forest risk commodities due diligence
+				{% elif data['serviceHook'] == "ForestTwo" %}
+					Declare your forest risk commodities due diligence
+				{% elif data['serviceHook'] == "PetTravel" %}
+					
+				{% elif data['serviceHook'] == "IDAMS" %}
+					Book a live animal inspection
+				{% endif %}
+				service where you will be asked to provide any additional information needed for that service. </p>
 
 			<!-- <h2 class="govuk-heading-m">What you can do next</h2>    -->
 			
@@ -96,17 +104,37 @@
 
 			
 			
+			{% if data['serviceHook'] %}
+
+				{% if data['serviceHook'] == "WasteTracking" %}
+					<form method="post" action="https://wts-prototype.herokuapp.com/v18/index-homepage">
+				{% elif data['serviceHook'] == "Forest" %}
+					<form method="post" action="https://forest-risk-commodities.herokuapp.com/Dashboard_v5_newuser">
+				{% elif data['serviceHook'] == "ForestTwo" %}
+					<form method="post" action="https://forest-risk-commodities.herokuapp.com/check-answers_v7_e">
+				{% elif data['serviceHook'] == "PetTravel" %}
+					<form method="post" action="https://pet-travel-document-0f384e905d50.herokuapp.com/idm2-redirect">							
+				{% elif data['serviceHook'] == "IDAMS" %}
+					<form method="post" action="https://moving-animals-to-gb-f6ffdaf23605.herokuapp.com/location">							
+				{% endif %}
 			
+			<!-- No hook out from another service -->
+			{% else %}
+				
+					<form method="post" action="/backtoservice">						
+						<input type="hidden" id="registrationStatus" name="registrationStatus" value="Enrolled" />					
+				{% endif %}
+			{% endif %}
 				
 		
 			
 
 			{{ govukButton({
                 text: "Continue",
-				classes: "govuk-!-margin-top-5",
-				href: "/backtoservice"
+				classes: "govuk-!-margin-top-5"				
             })}}
 
+			</form>
 		{% endif %}
 
 
