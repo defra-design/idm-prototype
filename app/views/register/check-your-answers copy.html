@@ -1,0 +1,172 @@
+{% extends "/layouts/main.html" %}
+{% if data['backButtonHide'] == "Yes" %}
+    {% set showBackLink = false %}
+{% endif %}
+{% set serviceName = "{Service Name}" %}
+
+
+{% if data['userType'] == "TPmemberInvite" %}
+	{% set TPUserName %}	
+		{{ data.regTeamTPfirstName }} {{ data.regTeamTPlastName }}
+	{% endset -%}	
+{% else %}
+	{% set accountUserName %}	
+		{{ data.defaultFirstName }} {{ data.defaultSurname }}	
+	{% endset -%}
+{% endif %}
+
+
+
+
+{% if data['registrationStatus'] == "Incomplete" %}
+	{% set pageHeading = "Registration incomplete" %}
+{% else %}
+	{% set pageHeading = "Check your answers" %}
+{% endif %}
+<!-- {% set pageSection = "Register for a Defra account" %} -->
+{% set pageSection = "Register Defra account" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   		
+
+		<!-- Show when a user returns to an incomplete registration -->
+		{% if data['registrationStatus'] == "incomplete" %}
+			<div class="govuk-inset-text">
+				<p>You need to complete the registration of your Defra account before you can use the <span class="govuk-!-font-weight-bold">{{ data.defaultServiceEnrolment }}</span> service.</p>		
+			</div>								
+			<p class="govuk-body govuk-!-margin-bottom-7">You can accept and continue with your registration or make changes to any of the information you have already told us.</p>
+		{% endif %}
+
+	<!-- </div>
+
+	<div class="govuk-grid-column-full"> -->	
+		
+		<!-- Started registration but stopped -->
+		
+		
+		{% include "includes/registration/cya/accountType.html" %}
+		
+		{% if data['registrationStatus'] == "incomplete" %}			
+
+
+			{% if data['registrationAccountType'] == "Individual" %}
+				{% include "includes/registration/cya/personalDetailsIncomplete.html" %}
+			{% elif data['registrationOrganisationType'] == "Sole trader"  %}
+				{% include "includes/registration/cya/soleTraderDetailsIncomplete.html" %}
+			{% elif data['registrationOrganisationType'] == "Charity"  %}
+				{% include "includes/registration/cya/charityDetailsIncomplete.html" %}	
+			{% elif data['registrationTradeUK'] == "No"  %}			
+				{% include "includes/registration/cya/businessNonUKDetailsIncomplete.html" %}	
+			{% elif data['registrationAccountType'] == "Business" %}
+				{% include "includes/registration/cya/businessDetailsIncomplete.html" %}			
+			{% endif %}
+			
+		<!-- Registration journey current -->
+		{% else %}
+		
+			{% if not data['userType'] %}
+				<!-- Account Type -->
+				{% include "includes/registration/cya/accountType.html" %}
+			{% endif %}
+
+			<!-- Defra account - Business -->
+
+			<!-- Invited team member Trusted Third Party -->
+			{% if data['userType'] == "TPmemberInvite" %}
+			
+				{{ govukSummaryList({					
+					rows: [		
+						{ key: { text: "Email" }, value: { text: data.regTeamTPemail } },
+						{ key: { text: "Name" }, value: { text: TPUserName }, actions: { items: [ { href: "/register/personal-name?link=change", text: "Change", visuallyHiddenText: "your name", classes: "govuk-link--no-visited-state" } ] } }						
+					]
+				}) }}			
+
+			{% elif data['registrationAccountType'] == "Business" %}
+				<!-- UK business -->
+				{% if data['registrationTradeUK'] == "Yes" %}
+					<!-- Sole Trader-->
+					{% if data['registrationOrganisationType'] == "Sole trader"  %}									
+						{% include "includes/registration/cya/soleTraderDetails.html" %}
+						{% include "includes/registration/cya/personalDetailsMin.html" %}
+					<!-- Charity -->
+					{% elif data['registrationOrganisationType'] == "Charity"  %}	
+						{% include "includes/registration/cya/charityDetails.html" %}							
+						{% include "includes/registration/cya/personalDetailsMin.html" %}
+					<!-- Limited Company -->
+					{% else %}
+						{% include "includes/registration/cya/businessDetails.html" %}
+						{% include "includes/registration/cya/personalDetailsMin.html" %}
+					{% endif %}				
+				<!-- NON UK Business -->
+				{% else %}
+					{% include "includes/registration/cya/businessNonUKDetails.html" %}
+					{% include "includes/registration/cya/personalDetailsMin.html" %}
+
+				{% endif %}
+			<!-- //// End of Business -->
+			
+			{% elif data['registrationAccountType'] == "Individual" %}
+				{% include "includes/registration/cya/personalDetails.html" %}
+			{% endif %}
+
+		{% endif %}
+      	
+
+		
+
+		<!-- Form exit points -->				
+		<!-- Registration incomplete, returning user -->
+		{% if data['registrationStatus'] == "incomplete" %}
+			
+			<form method="post" action="" >
+				{{ govukButton({
+					text: "Accept and continue with registration"
+				}) }}
+			</form>
+
+		{% elif data['userType'] == "TPmemberInvite" %}
+		
+			<form method="post" action="/register/confirmation">
+				<input type="hidden" id="userType" name="userType" value="TP-member" />
+				<input type="hidden" id="registrationStatus" name="registrationStatus" value="Enrolled" />
+				<input type="hidden" id="userType" name="userType" value="thirdPartyUser" />				
+
+				{{ govukButton({
+					text: "Confirm and continue",
+					classes: "govuk-!-margin-top-5"
+				}) }}
+
+		{% else %}
+
+			
+				<!-- Invited user from account -->
+				{% if data['thirdPartyUser'] == "Yes" %}
+					<form method="post" action="/register/confirmation">
+						<input type="hidden" id="regThirdPartyUserOne" name="regThirdPartyUserOne" value="Invited" />
+				{% else %}
+					<!-- Normal route for registration -->
+					<form method="post" action="/register/confirmation">						
+						<input type="hidden" id="registrationStatus" name="registrationStatus" value="Enrolled" />
+					<!-- <form method="post" action="/account/?notification_banner=">
+						<input type="hidden" id="registrationStatus" name="registrationStatus" value="Enrolled" /> -->
+				{% endif %}
+			
+
+			{{ govukButton({
+				text: "Confirm and complete registration"
+			}) }}
+
+			</form>
+
+		{% endif %}
+		<!-- ///////////////////////////////////////////////////// -->
+		
+    </div>	  
+</div>
+
+{% endblock %}
