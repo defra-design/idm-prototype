@@ -253,13 +253,27 @@
             {% endset -%}
 
 
+            {% set registrationHtml %}
+
+                {{ govukSummaryList({
+                    classes: "govuk-summary-list__row--no-actions govuk-!-margin-left-3 govuk-!-margin-right-3",
+                    
+                    rows: [		                        
+                        { key: { text: "Confirmation of registration" }, value: { html: '<span class="govuk-tag govuk-tag--blue">In progress</span>'}, actions: { items: [ { href: "/register/confirmation?registrationAccountType=Business", text: "View flow", classes: "govuk-link govuk-link--no-visited-state" } ] } }                                        
+                    ]
+                }) }}            
+
+            {% endset -%}
+
+
 
             {{ govukTabs({
             items: [
                 { label: "Billing details", id: "past-week", panel: { html: pastWeekHtml } },    
                 { label: "Trusted third party", id: "past-day", panel: { html: pastDayHtml } },
                 
-                { label: "GOVUK OneLogin", id: "past-month", panel: { html: pastMonthHtml } }
+                { label: "GOVUK OneLogin", id: "past-month", panel: { html: pastMonthHtml } },
+                { label: "Registration", id: "registration", panel: { html: registrationHtml } }
                 
             ]
             }) }}
