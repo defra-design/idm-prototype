@@ -86,7 +86,7 @@
 			
 			
 			<h2 class="govuk-heading-m">What you must do next</h2>  
-			<p class="govuk-body">You need to continue back to the Defra service where you will be asked to provide any additional information that they need. </p>
+			<p class="govuk-body">You need to return to the Defra service where you will be asked to provide any additional information that they need. </p>
 			
 			
 			{% if data['serviceHook'] %}
@@ -101,18 +101,11 @@
 					<form method="post" action="https://pet-travel-document-0f384e905d50.herokuapp.com/idm2-redirect">							
 				{% elif data['serviceHook'] == "IDAMS" %}
 					<form method="post" action="https://moving-animals-to-gb-f6ffdaf23605.herokuapp.com/location">							
-				{% endif %}
-
-				
-			
+				{% endif %}						
 			<!-- No hook out from another service -->
-			{% else %}
-				
-					<form method="post" action="/backtoservice">						
-						<input type="hidden" id="registrationStatus" name="registrationStatus" value="Enrolled" />					
-
-						
-				
+			{% else %}				
+				<form method="post" action="/backtoservice">						
+					<input type="hidden" id="registrationStatus" name="registrationStatus" value="Enrolled" />										
 			{% endif %}
 				
 			{{ govukButton({
