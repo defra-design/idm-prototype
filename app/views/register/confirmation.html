@@ -8,6 +8,7 @@
 	{% set pageSection = "" %}
 {% else %}
 	{% set pageHeading = "Registration of your Defra account complete" %}
+
 	{% set pageSection = "" %}
 	
 {% endif %}
@@ -25,17 +26,16 @@
         }) }}
 
 
-		{% if data['userType'] == "CEO"  %}
+		{% if ((data['userType'] == "CEO") or (data['userType'] == "TPuser"))  %}
 			
 			<p class="govuk-body">We have sent an email confirmation to <span class="govuk-!-font-weight-bold">{{ data['regTeamTPemail'] or data.defaultThirdPartyCEOEmail }}</span></p>
-		<p>You now have access to the Local Authority Payment Service (LAPS) on behalf of {{ data.defaultThirdPartyName }}.</p>
-		<p>As an administrator you can also add and manage team members.</p>        		
+			<p>You now have access to the Local Authority Payment Service (LAPS) on behalf of {{ data.defaultThirdPartyName }}.</p>
+			<p>As an administrator you can also add and manage team members.</p>        		
 		
-		<h2 class="govuk-heading-m">What happens next</h2>   
+			<h2 class="govuk-heading-m">What happens next</h2>   
+			<p class="govuk-body">We may contact you if we need to clarify something, but you do not have to do anything else now.</p>
 
-		<p class="govuk-body">We may contact you if we need to clarify something, but you do not have to do anything else now.</p>
-
-		<ul class="govuk-list">		
+			<ul class="govuk-list">		
 			<!-- CEO or any Admin -->
 			<li><a href="/account/?notification_banner=&userType=TPuser" class="govuk-link govuk-link--no-visited-state">Continue to your account</a></li>    
 			<!-- <li><a href="/account/manage/team/userType=TPuser" class="govuk-link govuk-link--no-visited-state">Go to your team members</a></li>     -->
@@ -55,8 +55,10 @@
 
 			{% if data['registrationAccountType'] == "Business" %}
 			<ul class="govuk-list govuk-list--bullet">
-				<li>access, register and manage online services from Defra</li>
+				<!-- <li>access, register and manage online services from Defra</li> -->
+				<li>register, access and manage online services from Defra</li>
 				<li>invite and manage other team members or intermediaries to your organisation</li>
+				<!-- <li>invite to, and manage, other team members and intermediaries to your organisation</li> -->
 				<li>access services on behalf of organisations that you represent</li>
 			</ul>                                                
 			{% elif data['registrationAccountType'] == "Individual" %}
@@ -84,25 +86,7 @@
 			
 			
 			<h2 class="govuk-heading-m">What you must do next</h2>  
-			<p class="govuk-body">You will need to continue to  				
-				{% if data['serviceHook'] == "WasteTracking" %}
-					Move and track waste
-				{% elif data['serviceHook'] == "Forest" %}
-					Declare your forest risk commodities due diligence
-				{% elif data['serviceHook'] == "ForestTwo" %}
-					Declare your forest risk commodities due diligence
-				{% elif data['serviceHook'] == "PetTravel" %}
-					
-				{% elif data['serviceHook'] == "IDAMS" %}
-					Book a live animal inspection
-				{% endif %}
-				service where you will be asked to provide any additional information needed for that service. </p>
-
-			<!-- <h2 class="govuk-heading-m">What you can do next</h2>    -->
-			
-			<p></p>
-			<p></p>
-
+			<p class="govuk-body">You need to return to the Defra service where you will be asked to provide any additional information that they need. </p>
 			
 			
 			{% if data['serviceHook'] %}
@@ -117,30 +101,21 @@
 					<form method="post" action="https://pet-travel-document-0f384e905d50.herokuapp.com/idm2-redirect">							
 				{% elif data['serviceHook'] == "IDAMS" %}
 					<form method="post" action="https://moving-animals-to-gb-f6ffdaf23605.herokuapp.com/location">							
-				{% endif %}
-			
+				{% endif %}						
 			<!-- No hook out from another service -->
-			{% else %}
-				<!-- Invited user from account -->
-				{% if data['thirdPartyUser'] == "Yes" %}
-					<form method="post" action="/register/confirmation">
-						<input type="hidden" id="regThirdPartyUserOne" name="regThirdPartyUserOne" value="Invited" />
-				{% else %}
-					<!-- Normal route for registration -->
-					<form method="post" action="/register/confirmation">						
-						<input type="hidden" id="registrationStatus" name="registrationStatus" value="Enrolled" />
-					<!-- <form method="post" action="/account/?notification_banner=">
-						<input type="hidden" id="registrationStatus" name="registrationStatus" value="Enrolled" /> -->
-				{% endif %}
+			{% else %}				
+				<form method="post" action="/backtoservice">						
+					<input type="hidden" id="registrationStatus" name="registrationStatus" value="Enrolled" />										
 			{% endif %}
 				
-		
+			{{ govukButton({
+				text: "Continue",
+				classes: "govuk-!-margin-top-3"
+				
+			})}}
 			
 
-			{{ govukButton({
-                text: "Continue",
-				classes: "govuk-!-margin-top-5"				
-            })}}
+			
 
 			</form>
 		{% endif %}
