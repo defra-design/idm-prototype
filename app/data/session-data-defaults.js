@@ -36,7 +36,7 @@ module.exports = {
   // registrationAccountType: "Business",
   defaultCompanyName: "Soleheaven Ltd",
   defaultCompanyNumber: "01234568",
-  defaultCompanyAddress: "19 Hoults Yard<br>Walker Road<br>Newcastle upon Tyne<br>NE6 2HL",
+  defaultCompanyAddress: "19 Hoults Yard, Walker Road, Newcastle upon Tyne, NE6 2HL",
   
 
   //  Local authority

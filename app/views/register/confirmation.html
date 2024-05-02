@@ -7,7 +7,8 @@
 	{% set pageHeading = "Registration complete" %}
 	{% set pageSection = "" %}
 {% else %}
-	{% set pageHeading = "Registration of Defra account complete" %}
+	<!-- {% set pageHeading = "Registration of Defra account complete" %} -->
+	{% set pageHeading = "Your Defra account registration complete" %}
 	{% set pageSection = "" %}
 	
 {% endif %}
@@ -54,8 +55,10 @@
 
 			{% if data['registrationAccountType'] == "Business" %}
 			<ul class="govuk-list govuk-list--bullet">
-				<li>access, register and manage online services from Defra</li>
+				<!-- <li>access, register and manage online services from Defra</li> -->
+				<li>register, access and manage online services from Defra</li>
 				<li>invite and manage other team members or intermediaries to your organisation</li>
+				<!-- <li>invite to, and manage, other team members and intermediaries to your organisation</li> -->
 				<li>access services on behalf of organisations that you represent</li>
 			</ul>                                                
 			{% elif data['registrationAccountType'] == "Individual" %}
@@ -83,25 +86,7 @@
 			
 			
 			<h2 class="govuk-heading-m">What you must do next</h2>  
-			<p class="govuk-body">You will need to continue to  				
-				{% if data['serviceHook'] == "WasteTracking" %}
-					Move and track waste
-				{% elif data['serviceHook'] == "Forest" %}
-					Declare your forest risk commodities due diligence
-				{% elif data['serviceHook'] == "ForestTwo" %}
-					Declare your forest risk commodities due diligence
-				{% elif data['serviceHook'] == "PetTravel" %}
-					
-				{% elif data['serviceHook'] == "IDAMS" %}
-					Book a live animal inspection
-				{% endif %}
-				service where you will be asked to provide any additional information needed for that service. </p>
-
-			<!-- <h2 class="govuk-heading-m">What you can do next</h2>    -->
-			
-			<p></p>
-			<p></p>
-
+			<p class="govuk-body">You need to continue back to the Defra service where you will be asked to provide any additional information that they need. </p>
 			
 			
 			{% if data['serviceHook'] %}
@@ -117,22 +102,27 @@
 				{% elif data['serviceHook'] == "IDAMS" %}
 					<form method="post" action="https://moving-animals-to-gb-f6ffdaf23605.herokuapp.com/location">							
 				{% endif %}
+
+				
 			
 			<!-- No hook out from another service -->
 			{% else %}
 				
 					<form method="post" action="/backtoservice">						
 						<input type="hidden" id="registrationStatus" name="registrationStatus" value="Enrolled" />					
+
+						
 				
 			{% endif %}
 				
-		
+			{{ govukButton({
+				text: "Continue",
+				classes: "govuk-!-margin-top-3"
+				
+			})}}
 			
 
-			{{ govukButton({
-                text: "Continue",
-				classes: "govuk-!-margin-top-5"				
-            })}}
+			
 
 			</form>
 		{% endif %}
