@@ -265,6 +265,19 @@
 
             {% endset -%}
 
+            {% set captionHtml %}
+
+            <div class="govuk-grid-row">
+                <div class="govuk-grid-column-two-thirds">
+                    <p>Add caption content to the registration journey pages H1’s. This will allow us to give the user clear information as to what they are doing in the journey.</p>
+                    <p><a href="/register/what-we-need" class="govuk-link govuk-link--no-visited-state">Example: Register Defra account</a></p>
+                </div>
+
+            </div>
+            
+
+        {% endset -%}
+
 
 
             {{ govukTabs({
@@ -273,7 +286,8 @@
                 { label: "Trusted third party", id: "past-day", panel: { html: pastDayHtml } },
                 
                 { label: "GOVUK OneLogin", id: "past-month", panel: { html: pastMonthHtml } },
-                { label: "Registration", id: "registration", panel: { html: registrationHtml } }
+                { label: "Registration", id: "registration", panel: { html: registrationHtml } },
+                { label: "Captions", id: "caption", panel: { html: captionHtml } }
                 
             ]
             }) }}
