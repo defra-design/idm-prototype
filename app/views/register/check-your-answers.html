@@ -48,8 +48,9 @@
 		
 		<!-- Started registration but stopped -->
 		
-		
+		{% if data['userType'] != "TPmemberInvite" %}
 		{% include "includes/registration/cya/accountType.html" %}
+		{% endif %}
 		
 		{% if data['registrationStatus'] == "incomplete" %}			
 
@@ -95,7 +96,7 @@
 						{% include "includes/registration/cya/personalDetailsMin.html" %}
 					<!-- Charity -->
 					{% elif data['registrationOrganisationType'] == "Charity"  %}	
-						{% include "includes/registration/cya/charityDetails.html" %}							
+						{% include "includes/registration/cya/Yeah.html" %}							
 						{% include "includes/registration/cya/personalDetailsMin.html" %}
 					<!-- Limited Company -->
 					{% else %}
@@ -130,11 +131,10 @@
 			</form>
 
 		{% elif data['userType'] == "TPmemberInvite" %}
-		
+				
 			<form method="post" action="/register/confirmation">
-				<input type="hidden" id="userType" name="userType" value="TP-member" />
-				<input type="hidden" id="registrationStatus" name="registrationStatus" value="Enrolled" />
-				<input type="hidden" id="userType" name="userType" value="thirdPartyUser" />				
+				<input type="hidden" id="userType" name="userType" value="TPuser" />
+				<input type="hidden" id="registrationStatus" name="registrationStatus" value="Enrolled" />				
 
 				{{ govukButton({
 					text: "Confirm and continue",

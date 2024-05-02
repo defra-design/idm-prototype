@@ -7,8 +7,8 @@
 	{% set pageHeading = "Registration complete" %}
 	{% set pageSection = "" %}
 {% else %}
-	<!-- {% set pageHeading = "Registration of Defra account complete" %} -->
-	{% set pageHeading = "Your Defra account registration complete" %}
+	{% set pageHeading = "Registration of your Defra account complete" %}
+
 	{% set pageSection = "" %}
 	
 {% endif %}
@@ -26,7 +26,7 @@
         }) }}
 
 
-		{% if data['userType'] == "CEO"  %}
+		{% if ((data['userType'] == "CEO") or (data['userType'] == "TPuser"))  %}
 			
 			<p class="govuk-body">We have sent an email confirmation to <span class="govuk-!-font-weight-bold">{{ data['regTeamTPemail'] or data.defaultThirdPartyCEOEmail }}</span></p>
 			<p>You now have access to the Local Authority Payment Service (LAPS) on behalf of {{ data.defaultThirdPartyName }}.</p>
@@ -56,15 +56,15 @@
 			{% if data['registrationAccountType'] == "Business" %}
 			<ul class="govuk-list govuk-list--bullet">
 				<!-- <li>access, register and manage online services from Defra</li> -->
-				<li>register, access and manage online services from Defra</li>
+				<li>register for, access and manage online services from Defra</li>
 				<li>invite and manage other team members or intermediaries to your organisation</li>
 				<!-- <li>invite to, and manage, other team members and intermediaries to your organisation</li> -->
 				<li>access services on behalf of organisations that you represent</li>
 			</ul>                                                
 			{% elif data['registrationAccountType'] == "Individual" %}
 			<ul class="govuk-list govuk-list--bullet">
-            	<li>for yourself as an individual</li>
-            	<li>on behalf of businesses that you represent</li>
+				<li>register for, access and manage online services from Defra</li>            	
+            	<li>access services on behalf of organisations that you represent</li>
         	</ul>     				
 		{% endif %}                                  
 
@@ -86,7 +86,7 @@
 			
 			
 			<h2 class="govuk-heading-m">What you must do next</h2>  
-			<p class="govuk-body">You need to return to the Defra service where you will be asked to provide any additional information that they need. </p>
+			<p class="govuk-body">You must return to the Defra service you signed into where you will be asked to provide any additional information that they need. </p>
 			
 			
 			{% if data['serviceHook'] %}
@@ -94,7 +94,7 @@
 				{% if data['serviceHook'] == "WasteTracking" %}
 					<form method="post" action="https://wts-prototype.herokuapp.com/v18/index-homepage">
 				{% elif data['serviceHook'] == "Forest" %}
-					<form method="post" action="https://forest-risk-commodities.herokuapp.com/Dashboard_v5_newuser">
+				<form method="post" action="https://forest-risk-commodities.herokuapp.com/Dashboard_v5_newuer">
 				{% elif data['serviceHook'] == "ForestTwo" %}
 					<form method="post" action="https://forest-risk-commodities.herokuapp.com/check-answers_v7_e">
 				{% elif data['serviceHook'] == "PetTravel" %}
