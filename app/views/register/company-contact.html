@@ -41,8 +41,8 @@
                 },                
                 classes: "govuk-!-width-two-thirds",
                 hint: {
-                    html: "Include the country code. For example, 0044 020 7946 0290."
-                },
+                    text: "Include the country code. For example, 0044 020 7946 0290."
+                },                
                 type: "tel",
                 name: "registrationNonUkPhone",
                 id: "registrationNonUkPhone",
@@ -69,7 +69,10 @@
                 label: {
                     text: "UK telephone number",
                     classes: "govuk-label"					
-                },                
+                },         
+                hint: {
+                    text:  "For example, 01632 960 001 or 07700 900 982."
+                },                     
                 classes: "govuk-!-width-two-thirds",
                 type: "tel",
                 name: "registrationSoleTraderPhone",
@@ -95,7 +98,10 @@
                 label: {
                     text: "UK telephone number",
                     classes: "govuk-label"					
-                },                
+                },     
+                hint: {
+                    text:  "For example, 01632 960 001 or 07700 900 982."
+                },                         
                 classes: "govuk-!-width-two-thirds",
                 type: "tel",
                 name: "registrationCharityPhone",
@@ -121,9 +127,12 @@
 
 			{{ govukInput({
                 label: {
-                    text: "Telephone number",
+                    text: "UK Telephone number",
                     classes: "govuk-label"					
-                },                
+                },  
+                hint: {
+                    text:  "For example, 01632 960 001 or 07700 900 982."
+                },              
                 classes: "govuk-!-width-two-thirds",
 				type: "tel",
                 name: "registrationPhone",                
