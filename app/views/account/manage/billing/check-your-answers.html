@@ -91,7 +91,7 @@
 		
         <form method="post" action="/account/manage/billing/confirmation">
 		
-			{% if data['billingCYA'] == "update" %}
+			{% if data['billingDetails'] == "update" %}
 			
 				{{ govukButton({
 					text: "Confirm and update billing details"				
