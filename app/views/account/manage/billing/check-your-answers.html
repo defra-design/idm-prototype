@@ -2,7 +2,12 @@
 {% set showBackLink = true %}
 {% set serviceName = "{Service Name}" %}
 
-{% set pageHeading = "Check your answers" %}
+
+{% if data['billingCYA'] == "update" %}
+	{% set pageHeading = "Update your billing details" %}
+{% else %}
+	{% set pageHeading = "Check your answers" %}
+{% endif %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -85,12 +90,21 @@
         
 		
         <form method="post" action="/account/manage/billing/confirmation">
-
-            <input type="hidden" name="billingDetailsAdded" id="billingDetailsAdded" value="Yes" />
 		
+			{% if data['billingCYA'] == "update" %}
+			
+				{{ govukButton({
+					text: "Confirm and update billing details"				
+				}) }}			
+
+			{% else %}
+
+				<input type="hidden" name="billingDetailsAdded" id="billingDetailsAdded" value="Yes" />
 				{{ govukButton({
 					text: "Confirm and add billing details"				
 				}) }}
+			
+			{% endif %}
 		  
         </form>
 
