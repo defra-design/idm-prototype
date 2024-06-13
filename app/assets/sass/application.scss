@@ -37,6 +37,15 @@
 @import "components/contents-list";
 
 
+
+
+user agent stylesheet
+div {
+    display: block;
+    unicode-bidi: isolate;
+}
+
+
 .key {
     background: #f3f2f1;
     padding: 10px;
@@ -143,3 +152,22 @@
 //             padding: 0 0 0 15px; }
 //             .direction-rtl .available-languages ul li.last {
 //               border-left: 0; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

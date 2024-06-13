@@ -1,0 +1,65 @@
+{% extends "/layouts/main.html" %}
+
+{% set title = "You will be signed out soon" %}
+
+{% block header %}
+{{ govukHeader({ serviceName: "" }) }}
+{% endblock %}
+
+{% block pageTitle %}
+{{title}} - GOV.UK
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+        <!-- <h1 class="govuk-heading-l">
+            {{title}}
+        </h1>
+        <p>For your security, you will be signed out in 15 minutes. We do this to keep your information secure.</p>
+
+        {{ govukButton({
+            text: "Stay signed in",
+            href: "../mfa/account-page"
+          }) }}
+
+          <a href="../target/gov-gateway/login">Completely sign out</a> -->
+
+          <!-- <script>document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' govuk-frontend-supported' : '');</script>
+          <meta name="hmrc-timeout-dialog"
+                content="hmrc-timeout-dialog"
+                data-language="en"
+                data-timeout="70"
+                data-countdown="68"
+                data-keep-alive-url="?continue=true"
+                data-sign-out-url="?lang=English"
+                data-timeout-url=""
+                data-title=""
+                data-message=""
+                data-message-suffix=""
+                data-keep-alive-button-text=""
+                data-sign-out-button-text=""
+                data-synchronise-tabs=""
+                data-hide-sign-out-button=""/>
+          
+          <script src="/assets/javascripts/hmrc-design-system.js" type="module"></script> -->
+          
+
+          {{ hmrcTimeoutDialog ({
+            timeout: 70,
+            countdown: 68,
+            keepAliveUrl: "?continue=true",
+            signOutUrl: "?lang=English",
+            language: "en"
+          }) }}
+
+      
+
+
+
+    </div>
+    
+</div>
+
+{% endblock %}
