@@ -1,8 +1,8 @@
 {% extends "/layouts/main.html" %}
 {% set showBackLink = true %}
-{% set serviceName = "{Service Name}" %}
+{% set serviceName = "Defra account" %}
 
-{% set pageHeading = "Is this account for a business or organisation?" %}
+{% set pageHeading = "Are you registering a business or organisation?" %}
 {% set pageSection = "Register new Defra account" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -24,7 +24,7 @@
                     legend: { text: pageHeading, isPageHeading: false, classes: "govuk-visually-hidden"  }
                 },
                 items: [
-                    { value: "Business", text: "Yes",  checked: checked('addSiblingAccountType', 'Business')  },
+                    { value: "Business", text: "Yes, and I have permission to create an account",  checked: checked('addSiblingAccountType', 'Business')  },
                     { value: "Individual~/account/add/uk-address", text: "No, as an individual for personal use", checked: checked('addSiblingAccountType', 'Individual')  }
                 ],
                 name: "addSiblingAccountType"

@@ -2,7 +2,7 @@
 {% set showBackLink = true %}
 {% set serviceName = "{Service Name}" %}
 
-{% set pageHeading = "Confirm you want to change your account type" %}
+{% set pageHeading = "Confirm you want to change the account type" %}
 {% set pageSection = "Register new Defra account" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -14,10 +14,10 @@
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   
 
         <div class="govuk-inset-text">
-        	<p class="govuk-body">Any information you have entered will be deleted.</p>
+        	<p class="govuk-body">Information you have entered as part of this registration will be deleted.</p>
         </div>
 
-        <form method="post" action="/register/account-type" />
+        <form method="post" action="/account/add/account-type" />
 
         <!-- {{ govukRadios({
             fieldset: {
