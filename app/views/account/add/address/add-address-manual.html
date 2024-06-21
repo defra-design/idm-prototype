@@ -32,7 +32,11 @@
 		{% elseif data['new-address'] == "operations" %}
 			<form action="extra-addresses?operations-address=true&operations-address-type=normal&new-address=no" method="post" class="form">
 		{% else %}
-      		{% if data['addSiblingTradeUK'] == "No" %}
+
+			{% if data['addSiblingAccountType'] == "Individual" %}
+				<form action="/account/add/check-your-answers" method="post" class="form">
+
+      		{% elif data['addSiblingTradeUK'] == "No" %}
 	  			<form action="/account/add/company-contact" method="post" class="form">
 			{% elif ((data['addSiblingAddressUK'] == "Yes") or (data['addSiblingOrganisationType'] == "Sole trader" )) %}	
 				<form action="/account/add/company-contact" method="post" class="form">
