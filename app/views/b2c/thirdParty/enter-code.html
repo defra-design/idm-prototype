@@ -26,7 +26,7 @@
     
             
             
-            <!-- CEO Flow -->
+        <!-- CEO Flow -->
             {% if data['userType'] == "ThirdPartyCEO" %}
                 <form action="/b2c/thirdParty/confirm-details" method="post">                        
             {% else %}
@@ -46,10 +46,14 @@
                     id: "regThirdPartyCEOCode"
                 }) }}
                 
-                
+                <div class="govuk-button-group">
                 {{ govukButton({
                     text: "Continue"
-                }) }}                                
+                }) }}                           
+                
+                <a class="govuk-link">Change email address</a>
+                
+            </div>
 
     
             </form>
