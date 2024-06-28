@@ -13,7 +13,7 @@
             {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
             <ul class="govuk-list govuk-body-s">
-          	    <li>Last updated: <span class="govuk-!-font-weight-bold">24 June 2024</span></li>
+          	    <li>Last updated: <span class="govuk-!-font-weight-bold">28 June 2024</span></li>
                 <li>Prototype version: {{releaseVersion}}</li>
             </ul>
         </div>
@@ -25,13 +25,10 @@
             
             <p class="govuk-body">Customer identity will help Defra service users:</p>
             <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
-                <li>create a single set of sign-in credentials that can be used to access one or more Defra services.</li>
-                <!-- <li>store information about the user (and their business, if relevant).</li> -->
+                <li>create a single set of sign-in credentials that can be used to access one or more Defra services.</li>                
                 <li>by storing information about the user (and their business, if relevant) so that they do not have to re-enter it each time they want to use a new online service at Defra.</li>
                 <li>give other people (for example colleagues or agents) access to one or more of the online services they use.</li>
-            </ul>
-            
-            <!-- <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible"> -->
+            </ul>                        
 
             <span class="govuk-caption-m">Current baseline</span>
             <h2 class="govuk-heading-m">Main flows and listings</h2>      
@@ -45,8 +42,7 @@
                         text: "Registration flow"
                     }) }}
                 </form> 
-                
-                
+                                
                 <form action="/flow" method="post" >
                     <input type="hidden" name="userFlow" id="userFlow" value="Authentication" />                    
                     <input type="hidden" name="serviceFlow" id="serviceFlow" value="coreService" />
@@ -54,8 +50,7 @@
                         text: "Authentication sign in"
                     }) }}
                 </form> 
-                
-    
+                    
                 <form action="/listings" method="post" >                    
                     {{ govukButton({
                         text: "Page listings",
@@ -63,9 +58,7 @@
                     }) }}
                 </form>            
             </div>
-
-            
-        
+                
             {% include "includes/old-mfav2.html" %}
         </div>
         
