@@ -18,14 +18,15 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   
 
-        <p>We will only use this to get in touch if there are any problems with payments.</p>
-        
-        {% if ((data['billingDetails'] == "update") or (data['billingDetails'] == "updateMade")) %}
-        <form action="/account/manage/billing/check-your-answers" method="post">			
+        <p class="govuk-body">We will only use this to get in touch if there are any problems with payments.</p>        
+
+        <!-- This checks to see if we are currently updating the page or not -->
+		{% if ((data['billingDetails'] == "update") or (data['billingDetails'] == "updateMade")) %}
+			<!-- This changes out the status to show correct button on update page -->
+            <form action="/account/manage/billing/check-your-answers" method="post">			
         {% else %}
-        <form action="/account/manage/billing/check-your-answers" method="post">
-        {% endif %}
-        
+            <form action="/account/manage/billing/check-your-answers" method="post">
+        {% endif %}        
     
 			{{ govukInput({
                 label: {
@@ -37,19 +38,21 @@
                 name: "billingTelephone"
             }) }}
 
-            {% if ((data['billingDetails'] == "update") or (data['billingDetails'] == "updateMade")) %}
+            <!-- This checks to see if we are currently updating the page or not -->
+			{% if ((data['billingDetails'] == "update") or (data['billingDetails'] == "updateMade")) %}
+                <!-- This changes out the status to show correct button on update page -->
                 <input type="hidden" id="billingDetails" name="billingDetails" value="updateMade" />
                 {{ govukButton({
                     text: "Update and continue"
                 }) }}
 
             {% else %}
-      		{{ govukButton({
-        		text: "Continue"
-      		}) }}
+      		    {{ govukButton({
+        		    text: "Continue"
+      		    }) }}
             {% endif %}
-
-    	</form>
+    	    
+        </form>
 
   	</div>
     <div class="govuk-grid-column-one-third review">              

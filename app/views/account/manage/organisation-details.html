@@ -53,33 +53,26 @@
                 <div class="govuk-card__content">
 
                     {% if data['billingAddress'] == "Yes" %}
-                        <p class="govuk-body">Hutton Yeat Farm
+                        <p class="govuk-body"><span class="govuk-!-font-weight-bold">Address</span>
+                            <br>Hutton Yeat Farm
                             <br>Old Hutton
                             <br>Kendal
                             <br>South Lakeland
                             <br>LA8 0NL</p>
-                        {% else %}
-
-                        {% if data['billingAddressDetails'] %}
-                        <p class="govuk-body"><span class="govuk-!-font-weight-bold">Address:</span> {{ data['billingAddressDetails'] }} </p>
-                        {% else %}
-
-
-                            {% endif %}
-
-
-          				{{ data['registrationAccountType'] }}
-                        {% endif %}
-
-
-
-
-                    <!-- <p class="govuk-body"><span class="govuk-!-font-weight-bold">Address:</span> Hutton Yeat Farm
-                        Old Hutton
-                        Kendal
-                        South Lakeland
-                        LA8 0NL<br></p> -->
-                      
+                        {% else %}                        
+						
+                        <p class="govuk-body"><span class="govuk-!-font-weight-bold">Address</span>
+							{% if data['billingDetailsAddressLine1'] %}<br>{{ data['billingDetailsAddressLine1'] }}{% endif %}
+							{% if data['billingDetailsAddressLine2'] %}<br>{{ data['billingDetailsAddressLine2'] }}{% endif %}
+							{% if data['billingDetailsAddressLine3'] %}<br>{{ data['billingDetailsAddressLine3'] }}{% endif %}
+							{% if data['billingDetailsAddressLine4'] %}<br>{{ data['billingDetailsAddressLine4'] }}{% endif %}
+							{% if data['billingDetailsAddressTownCity'] %}<br>{{ data['billingDetailsAddressTownCity'] }}{% endif %}
+							{% if data['billingDetailsAddressCounty'] %}<br>{{ data['billingDetailsAddressCounty'] }}{% endif %}
+							{% if data['billingDetailsAddressPostcode'] %}<br>{{ data['billingDetailsAddressPostcode'] }}{% endif %}
+                        </p>
+												                        
+                    {% endif %}          				
+                           
                     <p class="govuk-body"><span class="govuk-!-font-weight-bold">Telephone<br></span> {{ data['billingTelephone'] }}</p>
                     <p class="govuk-body"><span class="govuk-!-font-weight-bold">Email<br></span> {{ data['billingEmail'] }}<br></p>
                 </div>

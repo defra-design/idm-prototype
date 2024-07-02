@@ -27,35 +27,37 @@
       			<div class="govuk-summary-list__row">
         			<dt class="govuk-summary-list__key">Address</dt>
         			<dd class="govuk-summary-list__value">
-                        {% if data['billingAddress'] == "Yes" %}
-                        <p class="govuk-body">Hutton Yeat Farm
+                        
+						{% if data['billingAddress'] == "Yes" %}
+							<p class="govuk-body">Hutton Yeat Farm
                             <br>Old Hutton
                             <br>Kendal
                             <br>South Lakeland
-                            <br>LA8 0NL</p>
-                        {% else %}
+                            <br>LA8 0NL
+							<br>Hugo</p>
 
-                            {% if data['billingAddressDetails'] %}
-                                {{ data['billingAddressDetails'] }}
-                            {% else %}
-
-
-                            {% endif %}
-
-
-          				{{ data['registrationAccountType'] }}
-                        {% endif %}
+						<!-- Check to see if manual address and NO to use address we have -->
+						{% elif (( data['billingDetailsAddressLine1'] ) and ( data['billingAddress'] == "No" )) %}
+							
+							{% if data['billingDetailsAddressLine1'] %}{{ data['billingDetailsAddressLine1'] }}{% endif %}
+							{% if data['billingDetailsAddressLine2'] %}<br>{{ data['billingDetailsAddressLine2'] }}{% endif %}
+							{% if data['billingDetailsAddressLine3'] %}<br>{{ data['billingDetailsAddressLine3'] }}{% endif %}
+							{% if data['billingDetailsAddressLine4'] %}<br>{{ data['billingDetailsAddressLine4'] }}{% endif %}
+							{% if data['billingDetailsAddressTownCity'] %}<br>{{ data['billingDetailsAddressTownCity'] }}{% endif %}
+							{% if data['billingDetailsAddressCounty'] %}<br>{{ data['billingDetailsAddressCounty'] }}{% endif %}
+							{% if data['billingDetailsAddressPostcode'] %}<br>{{ data['billingDetailsAddressPostcode'] }}{% endif %}
+												                        
+                        {% endif %}          				
+                        
         			</dd>
         			<dd class="govuk-summary-list__actions">
-						<a class="govuk-link govuk-link--no-visited-state" href="/account/manage/billing/add-address-manual">Change<span class="govuk-visually-hidden"> billing address</span></a>
+						<a class="govuk-link govuk-link--no-visited-state" href="/account/manage/billing/add-address-manual?billingAddress=No">Change<span class="govuk-visually-hidden"> billing address</span></a>
         			</dd>
       			</div>
 				  <div class="govuk-summary-list__row">
 					<dt class="govuk-summary-list__key">Email address</dt>
-					<dd class="govuk-summary-list__value">												
-						
-                        {{ data['billingEmail'] }}
-						
+					<dd class="govuk-summary-list__value">																		
+                        {{ data['billingEmail'] }}						
 					</dd>
 					<dd class="govuk-summary-list__actions">
 						<a class="govuk-link govuk-link--no-visited-state" href="/account/manage/billing/email">Change<span class="govuk-visually-hidden"> email address</span></a>
@@ -81,29 +83,22 @@
 						<a class="govuk-link govuk-link--no-visited-state" href="/account/manage/billing/telephone">Change<span class="govuk-visually-hidden"> telephone number</span></a>
         			</dd>
 				</div>
-    		</dl>
-
-			
-      	</dl>
-
-		
-        
+    		</dl>			
+      	</dl>        
 		
         <form method="post" action="/account/manage/billing/confirmation">
-		
+			
+			<!-- This checks to see if we are currently updating the page or not -->
 			{% if ((data['billingDetails'] == "update") or (data['billingDetails'] == "updateMade")) %}
-
+				<!-- If update made show button -->
 				{% if data['billingDetails'] == "updateMade" %}
-				{{ govukButton({
-					text: "Confirm and update billing details"				
-				}) }}			
+					{{ govukButton({
+						text: "Confirm and update billing details"				
+					}) }}			
 				{% else %}
-
-				<p><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/organisation-details?billingDetails=#past-week">Cancel update</a></p>
-
+					<!-- If no update made allow user to cancel update -->
+					<p><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/organisation-details?billingDetails=#past-week">Cancel update</a></p>
 				{% endif %}
-
-
 
 			{% else %}
 

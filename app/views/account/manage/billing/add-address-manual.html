@@ -19,17 +19,12 @@
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   
 				
 		
-		
-		{% if ((data['billingDetails'] == "update") or (data['billingDetails'] == "updateMade")) %}
+			<!-- Send the user back to the update details page -->
+			{% if ((data['billingDetails'] == "update") or (data['billingDetails'] == "updateMade")) %}
         		<form action="/account/manage/billing/check-your-answers" method="post">			
         	{% else %}
 	  			<form action="/account/manage/billing/email" method="post" class="form">      		
 			{% endif %}
-
-    	
-
-			
-				
 
 				{% call govukFieldset({
 					legend: {
@@ -46,7 +41,7 @@
 						hint: {
 							text: "For example, building name or sub-building name"
 						},
-						name: "registrationManualAddressLine1"
+						name: "billingDetailsAddressLine1"
 
 					}) }}
 				
@@ -54,14 +49,14 @@
 						label: {
 							text: "Address line 2 (optional)"
 						},
-						name: "registrationManualAddressLine2"										
+						name: "billingDetailsAddressLine2"										
 					}) }}
 
 					{{ govukInput({
 						label: {
 							text: "Address line 3 (optional)"
 						},
-						name: "registrationManualAddressLine3"											
+						name: "billingDetailsAddressLine3"											
 					}) }}
 
 
@@ -69,7 +64,7 @@
 						label: {
 							text: "Address line 4 (optional)"
 						},
-						name: "registrationManualAddressLine4"											
+						name: "billingDetailsAddressLine4"											
 					}) }}
 				
 					{{ govukInput({
@@ -77,7 +72,7 @@
 							text: "Town or city"
 						},						
 						classes: "govuk-!-width-two-thirds",
-						name: "registrationManualAddressTownCity"
+						name: "billingDetailsAddressTownCity"
 				}) }}
 				
 					{{ govukInput({
@@ -85,7 +80,7 @@
 							text: "County (optional)"
 						},
 						classes: "govuk-!-width-two-thirds",						
-						name: "registrationManualAddressCounty"
+						name: "billingDetailsAddressCounty"
 				}) }}
 				
 					{{ govukInput({
@@ -93,38 +88,30 @@
 							text: "Postcode"
 						},						
 						classes: "govuk-input--width-10",
-						name: "registrationManualAddressPostCode"
+						name: "billingDetailsAddressPostCode"
 				}) }}
 			
 				{% endcall %}
-
 			
-
-		
-
-			
-
+				<!-- This checks to see if we are currently updating the page or not -->
 				{% if ((data['billingDetails'] == "update") or (data['billingDetails'] == "updateMade")) %}
-                <input type="hidden" id="billingDetails" name="billingDetails" value="updateMade" />
-                {{ govukButton({
-                    text: "Update and continue"
-                }) }}
+					<!-- This changes out the status to show correct button on update page -->
+                	<input type="hidden" id="billingDetails" name="billingDetails" value="updateMade" />
+                	{{ govukButton({
+                    	text: "Update and continue"
+                	}) }}
+            	{% else %}
+      				{{ govukButton({
+						text: "Continue"
+					}) }}
+				{% endif %}
 
-            {% else %}
+    		</form>
 
-
-      	{{ govukButton({
-			text: "Continue"
-		}) }}
-
-		{% endif %}
-
-    </form>
-
-  	</div>
-	  <div class="govuk-grid-column-one-third review">      
+  		</div>
+	  	<div class="govuk-grid-column-one-third review">      
 		
-	</div>  
-</div>
+		</div>  
+	</div>
 
 {% endblock %}
