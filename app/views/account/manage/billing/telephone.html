@@ -2,7 +2,11 @@
 {% set showBackLink = true %}
 {% set serviceName = "{Service Name}" %}
 
-{% set pageHeading = "What telephone number do you want to use for billing?" %}
+{% if ((data['billingDetails'] == "update") or (data['billingDetails'] == "updateMade")) %}
+    {% set pageHeading = "What telephone number do you want to use for billing?" %}
+{% else %}
+    {% set pageHeading = "What telephone number do you want to use for billing?" %}
+{% endif %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -16,7 +20,11 @@
 
         <p>We will only use this to get in touch if there are any problems with payments.</p>
         
+        {% if ((data['billingDetails'] == "update") or (data['billingDetails'] == "updateMade")) %}
+        <form action="/account/manage/billing/check-your-answers" method="post">			
+        {% else %}
         <form action="/account/manage/billing/check-your-answers" method="post">
+        {% endif %}
         
     
 			{{ govukInput({
@@ -29,9 +37,17 @@
                 name: "billingTelephone"
             }) }}
 
+            {% if ((data['billingDetails'] == "update") or (data['billingDetails'] == "updateMade")) %}
+                <input type="hidden" id="billingDetails" name="billingDetails" value="updateMade" />
+                {{ govukButton({
+                    text: "Update and continue"
+                }) }}
+
+            {% else %}
       		{{ govukButton({
         		text: "Continue"
       		}) }}
+            {% endif %}
 
     	</form>
 

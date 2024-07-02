@@ -3,7 +3,7 @@
 {% set serviceName = "{Service Name}" %}
 
 
-{% if data['billingDetails'] == "update" %}
+{% if ((data['billingDetails'] == "update") or (data['billingDetails'] == "updateMade")) %}
 	{% set pageHeading = "Update your billing details" %}
 {% else %}
 	{% set pageHeading = "Check your answers" %}
@@ -47,7 +47,7 @@
                         {% endif %}
         			</dd>
         			<dd class="govuk-summary-list__actions">
-						<a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> billing address</span></a>
+						<a class="govuk-link govuk-link--no-visited-state" href="/account/manage/billing/add-address-manual">Change<span class="govuk-visually-hidden"> billing address</span></a>
         			</dd>
       			</div>
 				  <div class="govuk-summary-list__row">
@@ -58,7 +58,7 @@
 						
 					</dd>
 					<dd class="govuk-summary-list__actions">
-						<a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> email address</span></a>
+						<a class="govuk-link govuk-link--no-visited-state" href="/account/manage/billing/email">Change<span class="govuk-visually-hidden"> email address</span></a>
         			</dd>
 				</div>
 				<!-- <div class="govuk-summary-list__row">
@@ -78,7 +78,7 @@
 						{{ data['billingTelephone'] }}
 					</dd>
 					<dd class="govuk-summary-list__actions">
-						<a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> telephone number</span></a>
+						<a class="govuk-link govuk-link--no-visited-state" href="/account/manage/billing/telephone">Change<span class="govuk-visually-hidden"> telephone number</span></a>
         			</dd>
 				</div>
     		</dl>
@@ -91,11 +91,19 @@
 		
         <form method="post" action="/account/manage/billing/confirmation">
 		
-			{% if data['billingDetails'] == "update" %}
-			
+			{% if ((data['billingDetails'] == "update") or (data['billingDetails'] == "updateMade")) %}
+
+				{% if data['billingDetails'] == "updateMade" %}
 				{{ govukButton({
 					text: "Confirm and update billing details"				
 				}) }}			
+				{% else %}
+
+				<p><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/organisation-details?billingDetails=#past-week">Cancel update</a></p>
+
+				{% endif %}
+
+
 
 			{% else %}
 

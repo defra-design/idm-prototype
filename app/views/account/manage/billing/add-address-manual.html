@@ -2,8 +2,11 @@
 {% set showBackLink = true %}
 {% set serviceName = "{Service Name}" %}
 
-
-{% set pageHeading = "What’s your billing address?" %} 
+{% if ((data['billingDetails'] == "update") or (data['billingDetails'] == "updateMade")) %}
+	{% set pageHeading = "What’s your billing address?" %} 
+{% else %}
+	{% set pageHeading = "What’s your billing address?" %} 
+{% endif %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -17,8 +20,11 @@
 				
 		
 		
-      		
-	  		<form action="/account/manage/billing/email" method="post" class="form">      		
+		{% if ((data['billingDetails'] == "update") or (data['billingDetails'] == "updateMade")) %}
+        		<form action="/account/manage/billing/check-your-answers" method="post">			
+        	{% else %}
+	  			<form action="/account/manage/billing/email" method="post" class="form">      		
+			{% endif %}
 
     	
 
@@ -98,12 +104,20 @@
 
 			
 
+				{% if ((data['billingDetails'] == "update") or (data['billingDetails'] == "updateMade")) %}
+                <input type="hidden" id="billingDetails" name="billingDetails" value="updateMade" />
+                {{ govukButton({
+                    text: "Update and continue"
+                }) }}
 
+            {% else %}
 
 
       	{{ govukButton({
 			text: "Continue"
 		}) }}
+
+		{% endif %}
 
     </form>
 

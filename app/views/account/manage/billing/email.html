@@ -2,7 +2,11 @@
 {% set showBackLink = true %}
 {% set serviceName = "{Service Name}" %}
 
-{% set pageHeading = "What email address do you want to use for billing?" %}
+{% if ((data['billingDetails'] == "update") or (data['billingDetails'] == "updateMade")) %}
+    {% set pageHeading = "What email address do you want to use for billing?" %}
+{% else %}
+    {% set pageHeading = "What email address do you want to use for billing?" %}
+{% endif %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -14,8 +18,12 @@
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   
 
     	<p class="govuk-body">We will send payment confirmation’s to this email address.</p>
-    
+        
+        {% if ((data['billingDetails'] == "update") or (data['billingDetails'] == "updateMade")) %}
+        <form action="/account/manage/billing/check-your-answers" method="post">			
+        {% else %}
     	<form action="/account/manage/billing/telephone" method="post">			
+        {% endif %}
 
 			{{ govukInput({
                 label: {
@@ -27,10 +35,20 @@
                 spellcheck: "false",
                 name: "billingEmail"
             }) }}
+            
 
-      		{{ govukButton({
-        		text: "Continue"
-      		}) }}
+            {% if data['billingDetails'] == "update" %}
+                <input type="hidden" id="billingDetails" name="billingDetails" value="updateMade" />
+                {{ govukButton({
+                    text: "Update and continue"
+                }) }}
+
+            {% else %}
+      		    
+                {{ govukButton({
+        		    text: "Continue"
+      		    }) }}
+            {% endif %}
 
     	</form>
 

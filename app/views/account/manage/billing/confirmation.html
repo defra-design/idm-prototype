@@ -2,7 +2,11 @@
 {% set showBackLink = false %}
 {% set serviceName = "{Service Name}" %}
 
-{% set pageHeading = "Billing details added" %}
+{% if data['billingDetails'] == "updateMade" %}
+    {% set pageHeading = "Billing details updated" %}
+{% else %}
+    {% set pageHeading = "Billing details added" %}
+{% endif %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
