@@ -18,7 +18,13 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   
 
-    
+		{% if data['billingDetails'] == "updateMade" %}
+
+		<div class="govuk-inset-text">
+			<p>Your billing details have been updated.</p>
+		</div>
+
+		{% endif %}
 		
 
 			<h2 class="govuk-heading-m govuk-!-margin-bottom-2">Billing details</h2>
@@ -51,7 +57,7 @@
                         
         			</dd>
         			<dd class="govuk-summary-list__actions">
-						<a class="govuk-link govuk-link--no-visited-state" href="/account/manage/billing/add-address-manual?billingAddress=No">Change<span class="govuk-visually-hidden"> billing address</span></a>
+						<a class="govuk-link govuk-link--no-visited-state" href="/account/manage/billing/postcode?billingAddress=No">Change<span class="govuk-visually-hidden"> billing address</span></a>
         			</dd>
       			</div>
 				  <div class="govuk-summary-list__row">
@@ -86,14 +92,17 @@
     		</dl>			
       	</dl>        
 		
-        <form method="post" action="/account/manage/billing/confirmation">
+        
 			
 			<!-- This checks to see if we are currently updating the page or not -->
 			{% if ((data['billingDetails'] == "update") or (data['billingDetails'] == "updateMade")) %}
+
 				<!-- If update made show button -->
 				{% if data['billingDetails'] == "updateMade" %}
+				<form method="post" action="/account/manage/organisation-details?billingDetails=#past-week">
+
 					{{ govukButton({
-						text: "Confirm and update billing details"				
+						text: "Return to organisation"				
 					}) }}			
 				{% else %}
 					<!-- If no update made allow user to cancel update -->
@@ -101,7 +110,7 @@
 				{% endif %}
 
 			{% else %}
-
+			<form method="post" action="/account/manage/billing/confirmation">
 				<input type="hidden" name="billingDetailsAdded" id="billingDetailsAdded" value="Yes" />
 				{{ govukButton({
 					text: "Confirm and add billing details"				
