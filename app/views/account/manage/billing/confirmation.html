@@ -2,11 +2,7 @@
 {% set showBackLink = false %}
 {% set serviceName = "{Service Name}" %}
 
-{% if data['billingDetails'] == "updateMade" %}
-    {% set pageHeading = "Billing details updated" %}
-{% else %}
-    {% set pageHeading = "Billing details added" %}
-{% endif %}
+{% set pageHeading = "Billing details added" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -26,8 +22,7 @@
         <!-- <p>Line of content for returning user back to the service.</p> -->
         <ul class="govuk-list">
             <li><a href="/account/manage/organisation-details#past-week" class="govuk-link govuk-link--no-visited-state">Go to your organisation</a></li>
-            <li><a href="/account/" class="govuk-link govuk-link--no-visited-state">Go to your account</a></li>
-            <!-- <li><a href="#" class="govuk-link govuk-link--no-visited-state">Return to IPAFFS notification service</a></li> -->
+            <li><a href="/account/" class="govuk-link govuk-link--no-visited-state">Go to your account</a></li>            
         </ul>        
 
 
