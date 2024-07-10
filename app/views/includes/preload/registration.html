@@ -17,26 +17,27 @@
         <h3 class="govuk-heading-m">Optional features</h3>
         {{ govukCheckboxes({                        
             fieldset: { legend: { text: "Service does not allow NON-uk business", isPageHeading: false, classes: "govuk-visually-hidden" } },
-            items: [ { value: "Yes", text: "Service only allows UK registrations" } ],
+            items: [ { value: "Yes", text: "Service only allows UK registrations", hint: {text: "Some Defra services only allow registration from UK businesses."} } ],
             id: "registeredUKOnly",
             name: "registeredUKOnly"
         }) }}                    
     
-        {{ govukCheckboxes({                        
+        <!-- {{ govukCheckboxes({                        
             fieldset: { legend: { text: "Service does not allow NON-uk business", isPageHeading: false, classes: "govuk-visually-hidden" } },
             items: [ { value: "Yes", text: "Service used by trusted third parties" } ],
             name: "trustedThirdParties",
             id: "trustedThirdParties"
-        }) }}
-
-        <!-- {% include "includes/preload/oneLogin.html "%} -->
+        }) }}         -->
 
         {{ govukCheckboxes({
             fieldset: { legend: { text: "User has Government Gateway account", isPageHeading: false, classes: "govuk-visually-hidden" } },
-            items: [ { value: "Yes", text: "User does not have Government Gateway account" } ],
+            items: [ { value: "Yes", text: "User does not have Government Gateway account", hint: {text: "User will be required to go through setting up an account."} } ],
             name: "GovernmentGatewayAccount",
             id: "GovernmentGatewayAccount"
         }) }}
+
+        <!-- GOV.UK OneLogin initial work ideas around how we could implement -->
+        <!-- {% include "includes/preload/oneLogin.html "%} -->
 
     {% endif %}                    
     

@@ -1,20 +1,23 @@
 {% extends "/layouts/main.html" %}
 {% set showBackLink = false %}
+<!-- Name check - what do we actually call ourselves -->
 {% set serviceName = "Customer Identity" %}
 
+<!-- Check if registration or authentication flow -->
 {% if data['userFlow'] == "Registration" %}
-    {% set pageHeading = "Preload registration data" %}
+    {% set pageHeading = "Preload data" %}
 {% elif data['userFlow'] == "Authentication" %}
-    {% set pageHeading = "Preload authentication data" %}
+    {% set pageHeading = "Preload data" %}
 {% endif %}
 
+<!-- Check if using anything other than the core service -->
 {% if data['serviceFlow'] == "vetsVisit" %}  
-    {% set pageSection = "Annual Health and Welfare Review of livestock" %}
+    {% set pageSection = "Get funding to improve animal health and welfare" %}
 {% else %}
     {% if data['userFlow'] == "Registration" %}
         {% set pageSection = "Register a Defra account" %}
     {% elif data['userFlow'] == "Authentication" %}
-        {% set pageSection = "Sign in / Authentication" %}
+        {% set pageSection = "Sign in/Authentication" %}
     {% endif %}
 {% endif %}
 
