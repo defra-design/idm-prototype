@@ -2,7 +2,7 @@
 {% set showBackLink = false %}
 
 {% set pageHeading = "Defra customer identity" %}
-{% set pageSection = "" %}
+{% set pageSection = "Prototype" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
@@ -19,9 +19,9 @@
         </div>
     </div>
 
+    <!-- Grid row to keep flows together -->
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-
             
             <p class="govuk-body">Customer identity will help Defra service users:</p>
             <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
@@ -32,28 +32,30 @@
 
             <span class="govuk-caption-m">Current baseline</span>
             <h2 class="govuk-heading-m">Main flows and listings</h2>      
-            <p>These are the core flows, but you can also select a service on the preload to show any service specific pages and content.</p>      
+            <p>These are the core journeys, but you can also select a service on the preload to show any service specific pages and content.</p>      
             
+            <!-- Registration and Authentication main flows -->
             <div class="govuk-button-group">
-                <form action="/flow" method="post" >
-                    <input type="hidden" name="userFlow" id="userFlow" value="Registration" />                    
+                <!-- Registration -->
+                <form action="/flow" method="post" >                    
+                    <input type="hidden" name="userFlow" id="userFlow" value="Registration" />
                     <input type="hidden" name="serviceFlow" id="serviceFlow" value="coreService" />
                     {{ govukButton({
                         text: "Registration flow"
                     }) }}
-                </form> 
-                                
+                </form>
+                <!-- Authentication / Sign in -->
                 <form action="/flow" method="post" >
-                    <input type="hidden" name="userFlow" id="userFlow" value="Authentication" />                    
+                    <input type="hidden" name="userFlow" id="userFlow" value="Authentication" />
                     <input type="hidden" name="serviceFlow" id="serviceFlow" value="coreService" />
                     {{ govukButton({
-                        text: "Authentication sign in"
+                        text: "Sign in"
                     }) }}
-                </form> 
-                    
+                </form>
+                
                 <form action="/listings" method="post" >                    
                     {{ govukButton({
-                        text: "Page listings",
+                        text: "Page by page listings",
                         classes: "govuk-button--secondary"
                     }) }}
                 </form>            
@@ -61,24 +63,18 @@
                 
             {% include "includes/old-mfav2.html" %}
         </div>
-        
-
-
-        <!-- End of two thirds column -->
-
+                
         <div class="govuk-grid-column-one-third">
-
-            <span class="govuk-caption-m">Current baseline</span>
-            <h2 class="govuk-heading-m">Prefilled registration flows</h2>      
             
-            <p>Flows with prefilled data so that you can proceed to check your answers in the registration journey.</p>      
+            <h2 class="govuk-heading-m">Prefilled registration flows</h2>
+            <p class="govuk-body">Allows you to proceed to registration check your answers page with prefilled data. Giving you access to your Defra Account for each of the various types.</p>
 
             <div class="govuk-inset-text">
                 <div class="govuk-button-group">
                     <form action="/register/check-your-answers" method="post" >
-                        <input type="hidden" name="registrationAccountType" id="registrationAccountType" value="Business" />                    
+                        
+                        <input type="hidden" name="registrationAccountType" id="registrationAccountType" value="Business" />
                         <input type="hidden" name="registrationTradeUK" id="registrationTradeUK" value="Yes" />
-
                         <input type="hidden" name="registrationCompanyRegistrationNumber" id="registrationCompanyRegistrationNumber" value="Yes" />
                         <input type="hidden" name="registrationContactPhonePersonal" id="registrationContactPhonePersonal" value="00700700788" />
                         <input type="hidden" name="defaultEmail" id="defaultEmail" value="hugo.furst@soleheaven.com" />
@@ -93,23 +89,19 @@
                             classes: "govuk-button--secondary"
                         }) }}
                     </form>              
-                    
-                    
-                
+                                                
                     <form action="/register/check-your-answers" method="post" >
-                        <input type="hidden" name="registrationAccountType" id="registrationAccountType" value="Business" />                    
+                        <input type="hidden" name="registrationAccountType" id="registrationAccountType" value="Business" />
                         <input type="hidden" name="registrationTradeUK" id="registrationTradeUK" value="Yes" />
                         <input type="hidden" name="registrationOrganisationType" id="registrationOrganisationType" value="Sole trader" />
-
                         <input type="hidden" name="registrationSoleTraderName" id="registrationSoleTraderName" value="Soleheaven" />
                         <input type="hidden" name="registrationSoleTraderAddress" id="registrationSoleTraderAddress" value="19 Hoults Yard, Walker Road, Newcastle upon Tyne NE6 2HL" />
                         <input type="hidden" name="registrationSoleTraderPhone" id="registrationSoleTraderPhone" value="0191 468 2009" />
                         <input type="hidden" name="registrationSoleTraderEmail" id="registrationSoleTraderEmail" value="soletrader@soleheaven.com" />
                         <input type="hidden" name="registrationSoleTraderPostcode" id="registrationSoleTraderPostcode" value="Ne6 2HL" />
-                        
                         <input type="hidden" name="defaultFirstName" id="defaultFirstName" value="Hugo" />
                         <input type="hidden" name="defaultSurname" id="defaultSurname" value="Furst" />
-                        <input type="hidden" name="registrationContactPhonePersonal" id="registrationContactPhonePersonal" value="00700700788" />                    
+                        <input type="hidden" name="registrationContactPhonePersonal" id="registrationContactPhonePersonal" value="00700700788" />
                         <input type="hidden" name="registrationMemorableWord" id="registrationMemorableWord" value="Jordan23" />
                         <input type="hidden" name="registrationMemorableHint" id="registrationMemorableHint" value="The goat" />
 
@@ -119,22 +111,18 @@
                         }) }}
                     </form>
 
-
-
                     <form action="/register/check-your-answers" method="post" >
-                        <input type="hidden" name="registrationAccountType" id="registrationAccountType" value="Business" />                    
+                        <input type="hidden" name="registrationAccountType" id="registrationAccountType" value="Business" />
                         <input type="hidden" name="registrationTradeUK" id="registrationTradeUK" value="Yes" />
                         <input type="hidden" name="registrationOrganisationType" id="registrationOrganisationType" value="Charity" />
-
                         <input type="hidden" name="defaultCharityName" id="defaultCharityName" value="Urban Sneakers Newcastle" />
                         <input type="hidden" name="defaultCharityNumber" id="defaultCharityNumber" value="1182534" />
                         <input type="hidden" name="defaultCharityAddress" id="defaultCharityAddress" value="Ouseburn Parks Visitor Centre,<br>Red Walk,<br>Jesmond Dene,<br>NEWCASTLE UPON TYNE, <br>NE7 7BQ" />
                         <input type="hidden" name="defaultCharityPhone" id="defaultCharityPhone" value="01918144574" />
                         <input type="hidden" name="defaultCharityEmail" id="defaultCharityEmail" value="info@urbansneakers.org" />
-                        
                         <input type="hidden" name="defaultFirstName" id="defaultFirstName" value="Hugo" />
                         <input type="hidden" name="defaultSurname" id="defaultSurname" value="Furst" />
-                        <input type="hidden" name="registrationContactPhonePersonal" id="registrationContactPhonePersonal" value="00700700788" />                    
+                        <input type="hidden" name="registrationContactPhonePersonal" id="registrationContactPhonePersonal" value="00700700788" />
                         <input type="hidden" name="registrationMemorableWord" id="registrationMemorableWord" value="Jordan23" />
                         <input type="hidden" name="registrationMemorableHint" id="registrationMemorableHint" value="The goat" />
 
@@ -146,17 +134,15 @@
 
 
                     <form action="/register/check-your-answers" method="post" >
-                        <input type="hidden" name="registrationAccountType" id="registrationAccountType" value="Business" />                    
-                        <input type="hidden" name="registrationTradeUK" id="registrationTradeUK" value="No" />                    
-
+                        <input type="hidden" name="registrationAccountType" id="registrationAccountType" value="Business" />
+                        <input type="hidden" name="registrationTradeUK" id="registrationTradeUK" value="No" />
                         <input type="hidden" name="defaultBusinessNonUkName" id="defaultBusinessNonUkName" value="Sneakerium" />
-                        <input type="hidden" name="defaultBusinessNonUkAddress" id="defaultBusinessNonUkAddress" value="116 Rue d'Antibes, 06400 Cannes, France" />                    
+                        <input type="hidden" name="defaultBusinessNonUkAddress" id="defaultBusinessNonUkAddress" value="116 Rue d'Antibes, 06400 Cannes, France" />
                         <input type="hidden" name="defaultBusinessNonUKPhone" id="defaultBusinessNonUKPhone" value="0033 483 4425 76" />
                         <input type="hidden" name="defaultBusinessNonUKEmail" id="defaultBusinessNonUKEmail" value="nonuk@sneakerium.fr" />
-                        
                         <input type="hidden" name="defaultFirstName" id="defaultFirstName" value="Hugo" />
                         <input type="hidden" name="defaultSurname" id="defaultSurname" value="Furst" />
-                        <input type="hidden" name="registrationContactPhonePersonal" id="registrationContactPhonePersonal" value="00700700788" />                    
+                        <input type="hidden" name="registrationContactPhonePersonal" id="registrationContactPhonePersonal" value="00700700788" />
                         <input type="hidden" name="registrationMemorableWord" id="registrationMemorableWord" value="Jordan23" />
                         <input type="hidden" name="registrationMemorableHint" id="registrationMemorableHint" value="The goat" />
                     
@@ -166,21 +152,15 @@
                         }) }}
                     </form>
 
-
                     <form action="/register/check-your-answers" method="post" >
-                        <input type="hidden" name="registrationAccountType" id="registrationAccountType" value="Individual" />                                        
-                        
+                        <input type="hidden" name="registrationAccountType" id="registrationAccountType" value="Individual" />
                         <input type="hidden" name="defaultIndividualAddress" id="defaultIndividualAddress" value="15B Kensington Palace Gardens,<br> London,<br> W8 4QG" />
                         <input type="hidden" name="registrationIndividualPostcode" id="registrationIndividualPostcode" value="W8 4QG" />
-
-
                         <input type="hidden" name="defaultFirstName" id="defaultFirstName" value="Hugo" />
                         <input type="hidden" name="defaultSurname" id="defaultSurname" value="Furst" />
-                        <input type="hidden" name="registrationContactPhonePersonal" id="registrationContactPhonePersonal" value="00700700788" />                    
+                        <input type="hidden" name="registrationContactPhonePersonal" id="registrationContactPhonePersonal" value="00700700788" />
                         <input type="hidden" name="registrationMemorableWord" id="registrationMemorableWord" value="Jordan23" />
                         <input type="hidden" name="registrationMemorableHint" id="registrationMemorableHint" value="The goat" />
-
-    
 
                         {{ govukButton({
                             text: "Individual for personal use",
@@ -188,27 +168,32 @@
                         }) }}
                     </form>
 
-
                 </div>
             </div>
             
         </div>
     </div>
+    <!-- // of flows grid -->
 
+    <!-- Work tabs -->
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-full">
-
-            <!-- <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible"> -->
+            
             <h2 class="govuk-heading-m govuk-!-margin-top-7">New design work</h2>
             <p class="govuk-body">Current work in consideration or design and development phase.</p>
 
-
-
-            {% set pastDayHtml %}
-
+            {% set tab1Html %}
                 {{ govukSummaryList({
-                    classes: "govuk-summary-list__row--no-actions govuk-!-margin-left-3 govuk-!-margin-right-3",
-                    
+                    classes: "govuk-summary-list__row--no-actions govuk-!-margin-left-3 govuk-!-margin-right-3",                    
+                    rows: [		
+                        { key: { text: "Add billing details" }, value: { html: '<span class="govuk-tag govuk-tag--green">In Development</span>'}, actions: { items: [ { href: "/account/manage/organisation-details#past-week", text: "View flow", classes: "govuk-link govuk-link--no-visited-state" }, { href: "https://www.figma.com/design/hefCFfLABKCqTvGnI75nhl/Defra-Account?node-id=1001-409&t=uYccTKGyg1du1Wto-1", text: "Figma", classes: "govuk-link govuk-link--no-visited-state" } ] } }                                        
+                    ]
+                }) }}
+            {% endset -%}
+
+            {% set tab2Html %}
+                {{ govukSummaryList({
+                    classes: "govuk-summary-list__row--no-actions govuk-!-margin-left-3 govuk-!-margin-right-3",                    
                     rows: [		
                         { key: { text: "CEO confirmation" }, value: { html: '<span class="govuk-tag govuk-tag--green">In Development</span>'}, actions: { items: [ { href: "/emails/new/ttp-ceo-invite", text: "View flow", classes: "govuk-link govuk-link--no-visited-state" }, { href: "https://www.figma.com/design/hefCFfLABKCqTvGnI75nhl/Defra-Account?node-id=1001-409&t=uYccTKGyg1du1Wto-1", text: "Figma", classes: "govuk-link govuk-link--no-visited-state" } ] } },
                         { key: { text: "Invite team member" }, value: { html: '<span class="govuk-tag govuk-tag--green">In Development</span>'}, actions: { items: [ { href: "/account/thirdParty/add/what-we-need?ceoRegistered=Yes&addTeamThirdParty=Yes", text: "View flow", classes: "govuk-link govuk-link--no-visited-state" }, { href: "https://www.figma.com/design/hefCFfLABKCqTvGnI75nhl/Defra-Account?node-id=1001-409&t=uYccTKGyg1du1Wto-1", text: "Figma", classes: "govuk-link govuk-link--no-visited-state" } ] } },
@@ -216,191 +201,42 @@
                         { key: { text: "New account pages" }, value: {html: '<span class="govuk-tag govuk-tag--blue">In progress</span>'}, actions: { items: [ { href: "/account/?userType=ThirdPartyCEO&notification_banner=", text: "View flow", classes: "govuk-link govuk-link--no-visited-state" }, { href: "https://www.figma.com/design/hefCFfLABKCqTvGnI75nhl/Defra-Account?node-id=1001-409&t=uYccTKGyg1du1Wto-1", text: "Figma", classes: "govuk-link govuk-link--no-visited-state" } ] } },
                         { key: { text: "Log in pages" }, value: {html: '<span class="govuk-tag govuk-tag--blue">In progress</span>'}, actions: { items: [ { href: "#", text: "View flow", classes: "govuk-link govuk-link--no-visited-state" }, { href: "https://www.figma.com/design/hefCFfLABKCqTvGnI75nhl/Defra-Account?node-id=1001-409&t=uYccTKGyg1du1Wto-1", text: "Figma", classes: "govuk-link govuk-link--no-visited-state" } ] } }
                     ]
-                }) }}
-            
+                }) }}            
             {% endset -%}
 
-            {% set pastWeekHtml %}
-
+            {% set tab3Html %}
                 {{ govukSummaryList({
-                    classes: "govuk-summary-list__row--no-actions govuk-!-margin-left-3 govuk-!-margin-right-3",
-                    
-                    rows: [		
-                        { key: { text: "Add billing details" }, value: { html: '<span class="govuk-tag govuk-tag--green">In Development</span>'}, actions: { items: [ { href: "/account/manage/organisation-details#past-week", text: "View flow", classes: "govuk-link govuk-link--no-visited-state" }, { href: "https://www.figma.com/design/hefCFfLABKCqTvGnI75nhl/Defra-Account?node-id=1001-409&t=uYccTKGyg1du1Wto-1", text: "Figma", classes: "govuk-link govuk-link--no-visited-state" } ] } }                                        
+                    classes: "govuk-summary-list__row--no-actions govuk-!-margin-left-3 govuk-!-margin-right-3",                    
+                    rows: [		                        
+                        { key: { text: "Confirmation of registration" }, value: { html: '<span class="govuk-tag govuk-tag--green">Ready for dev</span>'}, actions: { items: [ { href: "/register/confirmation?registrationAccountType=Business", text: "View flow", classes: "govuk-link govuk-link--no-visited-state" } ] } }                                        
                     ]
-                }) }}
-
+                }) }}            
             {% endset -%}
-
-            {% set pastMonthHtml %}
-
+            
+            <!-- Currently commented out tab -->
+            {% set tab4Html %}
                 {{ govukSummaryList({
-                    classes: "govuk-summary-list__row--no-actions govuk-!-margin-left-3 govuk-!-margin-right-3",
-                    
+                    classes: "govuk-summary-list__row--no-actions govuk-!-margin-left-3 govuk-!-margin-right-3",                    
                     rows: [		
                         { key: { text: "Registration" }, value: { html: '<span class="govuk-tag govuk-tag--blue">In progress</span>'}, actions: { items: [ { href: "#", text: "View flow", classes: "govuk-link govuk-link--no-visited-state" }, { href: "https://www.figma.com/design/hefCFfLABKCqTvGnI75nhl/Defra-Account?node-id=1001-409&t=uYccTKGyg1du1Wto-1", text: "Figma", classes: "govuk-link govuk-link--no-visited-state" } ] } },
                         { key: { text: "Sign in" }, value: { html: '<span class="govuk-tag govuk-tag--blue">In progress</span>'}, actions: { items: [ { href: "#", text: "View flow", classes: "govuk-link govuk-link--no-visited-state" }, { href: "https://www.figma.com/design/hefCFfLABKCqTvGnI75nhl/Defra-Account?node-id=1001-409&t=uYccTKGyg1du1Wto-1", text: "Figma", classes: "govuk-link govuk-link--no-visited-state" } ] } }                                        
                     ]
                 }) }}            
-
             {% endset -%}
-
-
-            {% set registrationHtml %}
-
-                {{ govukSummaryList({
-                    classes: "govuk-summary-list__row--no-actions govuk-!-margin-left-3 govuk-!-margin-right-3",
-                    
-                    rows: [		                        
-                        { key: { text: "Confirmation of registration" }, value: { html: '<span class="govuk-tag govuk-tag--green">Ready for dev</span>'}, actions: { items: [ { href: "/register/confirmation?registrationAccountType=Business", text: "View flow", classes: "govuk-link govuk-link--no-visited-state" } ] } }                                        
-                    ]
-                }) }}            
-
-            {% endset -%}
-            
-            
-
-        
-
-
+            <!-- // -->
 
             {{ govukTabs({
             items: [
-                { label: "Billing details", id: "past-week", panel: { html: pastWeekHtml } },    
-                { label: "Trusted third party", id: "past-day", panel: { html: pastDayHtml } },                            
-                { label: "Registration", id: "registration", panel: { html: registrationHtml } }                
-                
+                { label: "Billing details", id: "past-week", panel: { html: tab1Html } },    
+                { label: "Trusted third party", id: "past-day", panel: { html: tab2Html } },                            
+                { label: "Registration", id: "registration", panel: { html: tab3Html } }                                
             ]
             }) }}
 
-            <!-- Tab removed from view as its been pushed back -->
-            <!-- { label: "GOVUK OneLogin", id: "past-month", panel: { html: pastMonthHtml } }, -->
-            
-            
-
-            
-            
-
-            
-            
-            
-
-
-            
-
-
-            
-
-          
-
-
-
-
-
-
-
-            <!-- <input type="hidden" name="flowVersion" id="flowVersion" value="" />                     -->
-            
-            
-            
-            <!-- <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
-                <li>MFA with phone number verification only</li>
-                <li>MFA via email</li>
-                <li>MFA switching (sms/email)</li>
-                <li>Exit pages</li>
-            </ul> -->
-
-            <!-- <h2 class="govuk-heading-m">Archived flows <span class="govuk-body-s">V1.0</span></h2>            
-            <p><a href="/archived/mfa/scenarios">Register for an account/authenticate</a>
-            <div class="govuk-button-group">
-                <!-- <form action="/flow" method="post" >
-                    <input type="hidden" name="userFlow" id="userFlow" value="Authentication" />
-                    <input type="hidden" name="flowVersion" id="flowVersion" value="current" />
-                    <input type="hidden" name="serviceFlow" id="serviceFlow" value="coreService" />
-                    <input type="hidden" name="companySize" id="companySize" value="20" />                    
-                    {{ govukButton({
-                        text: "Sign in and verfication"
-                    }) }}
-                </form>                 -->
-                <!-- <form action="/preload" method="post" >
-                    <input type="hidden" name="flow" id="flow" value="Authentication" />
-                    <input type="hidden" name="flowVersion" id="flowVersion" value="" />
-                    {{ govukButton({
-                        text: "Archived V1.0",
-                        classes: "govuk-button--secondary govuk-!-margin-left-1"
-                    }) }}
-                </form>
-            </div> -->
-            <!-- <ul class="govuk-list govuk-list--bullet">
-                <li>Single number option</li>
-                <li>Error message implementation</li>
-                <li>Replaced 'links list' with radios component</li>
-                <li>Accessible autocomplete added to core journey</li>
-            </ul> -->
-                        
-            
-
-
-        
-
-
-           
-
-            <!-- <h2 class="govuk-heading-s govuk-!-margin-bottom-1" id="subsection-title">Error messages</h2>
-            <nav class="govuk-!-margin-bottom-7">
-                <ul class="govuk-list">
-                    <li><a href="/errors/error-pages" class="govuk-link govuk-link--no-visited-state">Version 2.0 <span class="govuk-visually-hidden">(opens in new tab)</span></a></li>
-                    
-                </ul>
-            </nav> -->
-            <!-- Check these still exist and work -->
-            <!-- <h2 class="govuk-heading-s govuk-!-margin-bottom-1" id="subsection-title">Archives</h2>
-            <nav class="govuk-!-margin-bottom-7">
-                <ul class="govuk-list">
-                    <li><a href="index_archived" class="govuk-link govuk-link--no-visited-state">All prototypes from 2021</a></li>
-                    <li><a href="/archived/index-old" class="govuk-link govuk-link--no-visited-state">Older archived prototypes</a></li>
-                    <li><a href="/archived/errors/error-pages-v1" class="govuk-link govuk-link--no-visited-state">Error messages V1.0 <span class="govuk-visually-hidden">(opens in new tab)</span></a></li>
-                </ul>
-            </nav> -->
-
-
-            <!-- <h2 class="govuk-heading-s govuk-!-margin-bottom-1" id="subsection-title">Other items</h2>
-            <nav>
-                <ul class="govuk-list">
-
-                    <li><a href="back-office-journeys/sign-in" class="govuk-link govuk-link--no-visited-state">Update a page template <br>Sprint 74 | v1.0</a></li>
-                </ul>
-            </nav> -->
-
-
-
+            <!-- Tab removed from view as its been pushed back at the moment -->
+            <!-- { label: "GOVUK OneLogin", id: "past-month", panel: { html: tab4Html } }, -->
 
         </div>    
     </div>
-
-    <!-- <div class="govuk-grid-row">
-        <div class="govuk-grid-column-full govuk-!-margin-top-5">
-
-    <p><a href="mfa/scenarios">Register for an account/authenticate</a>
-    <br>Sprint current | v2.0</p>
-    <ul class="govuk-list govuk-list--bullet">
-        <li>MFA with phone number verification only</li>
-        <li>MFA via email</li>
-        <li>MFA switching(sms/email)</li>
-        <li>Exist pages</li>
-    </ul>
-
-
-    <br>Sprint 67-75 | v1.0</p>
-    <ul class="govuk-list govuk-list--bullet">
-        <li>Single number option</li>
-        <li>Error message implementation</li>
-        <li>Replaced 'links list' with radios component</li>
-        <li>Accessible autocomplete added to core journey</li>
-    </ul>
-
-
-        </div>
-    </div> -->
 
 {% endblock %}
