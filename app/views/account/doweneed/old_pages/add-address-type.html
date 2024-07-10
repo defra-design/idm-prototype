@@ -1,0 +1,77 @@
+{% extends "/layouts/main.html" %}
+{% set serviceName = "Defra account" %}
+
+{% set title = "What kind of address do you want to add?" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="check-address-type" method="post" class="form">
+
+        <div class="govuk-form-group">
+
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+              <h1 class="govuk-fieldset__heading">
+                {{ title }}
+              </h1>
+            </legend>
+
+            <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+
+              {% if data['correspondence-address'] != "true" %}
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="add-address-type" name="address-type" type="radio" value="correspondence">
+                  <label class="govuk-label govuk-radios__label" for="add-address-type">
+                    Correspondence
+                  </label>
+                </div>
+              {% endif %}
+
+              {% if data['billing-address'] != "true" %}
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="add-address-type-2" name="address-type" type="radio" value="billing">
+                <label class="govuk-label govuk-radios__label" for="add-address-type-2">
+                  Billing
+                </label>
+              </div>
+              {% endif %}
+
+              {% if data['operations-address'] != "true" %}
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="add-address-type-3" name="address-type" type="radio" value="operations">
+                <label class="govuk-label govuk-radios__label" for="add-address-type-3">
+                  Operations
+                </label>
+              </div>
+              {% endif %}
+
+            </div>
+
+          </fieldset>
+
+        </div>
+
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

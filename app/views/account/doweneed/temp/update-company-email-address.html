@@ -1,0 +1,75 @@
+{% extends "/layouts/main.html" %}
+{% set serviceName = "Defra account" %}
+
+{% set title = "What is the email address for this registered company?" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+<!-- Determines the navigation -->
+  <div id="profile">
+    {% include "includes/account-nav-admin-individual.html" %}
+  </div>
+
+  <div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="account">Home</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="dashboard">
+          Big Company Ltd
+        </a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="organisation-details">
+          Organisation details
+        </a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="update-organisation-contact-details">
+          Update registered contact details
+        </a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <!-- <a class="govuk-breadcrumbs__link" href="#"> -->
+          Update email address
+        <!-- </a> -->
+      </li>
+    </ol>
+  </div>
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+      <form action="update-organisation-details" method="post">
+
+        <h1 class="govuk-heading-l">{{title}}</h1>
+
+        <p class="govuk-body">
+          This should be a main point of contact for your organisation.
+        </p>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="width-20">
+            Email
+          </label>
+          <input class="govuk-input govuk-input--width-20" id="width-20" name="width-20" type="email" value="sam.woods@bigcompany.co.uk">
+        </div>
+
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+
+      </form>
+
+  </div>
+</div>
+
+{% endblock %}
