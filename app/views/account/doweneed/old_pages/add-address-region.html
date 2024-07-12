@@ -1,0 +1,62 @@
+{% extends "/layouts/main.html" %}
+{% set serviceName = "Defra account" %}
+
+{% set title = "Is the new address in the UK?" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="is-address-uk" method="post" class="form">
+
+        <div class="govuk-form-group">
+
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+              <h1 class="govuk-fieldset__heading">
+                {{ title }}
+              </h1>
+            </legend>
+
+            <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="address-is-uk" name="address-is-uk" type="radio" value="yes">
+                <label class="govuk-label govuk-radios__label" for="address-is-uk">
+                  Yes
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="address-is-uk-2" name="address-is-uk" type="radio" value="no">
+                <label class="govuk-label govuk-radios__label" for="address-is-uk-2">
+                  No
+                </label>
+              </div>
+
+            </div>
+
+          </fieldset>
+
+        </div>
+
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

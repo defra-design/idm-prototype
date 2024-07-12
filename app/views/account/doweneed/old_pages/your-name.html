@@ -1,0 +1,41 @@
+{% extends "/layouts/main.html" %}
+
+{% set serviceName = "Government Gateway" %}
+
+{% set title = "What is your full name?" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">{{ title }}</h1>
+
+      <form action="create-password" method="post">
+
+        {{ govukInput({
+          label: {
+            text: "Your full name",
+            isPageHeading: false
+          },
+          classes: "govuk-!-width-one-half",
+          id: "govGateName",
+          name: "govGateName"
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+      {% include "includes/get-help.html" %}
+
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "/layouts/main.html" %}
+
+{% set serviceName = "Government Gateway" %}
+
+{% set title = "Email address confirmed" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">{{ title }}</h1>
+
+    <p>This will enable us to help you get the most from this service.</p>
+
+    <form method="post" action="your-name">
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+    </form>
+
+    {% include "includes/get-help.html" %}
+
+  </div>
+</div>
+
+{% endblock %}

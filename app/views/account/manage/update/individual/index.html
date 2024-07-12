@@ -2,7 +2,7 @@
 
 {% set showBackLink = true %}
 
-{% set pageHeading = "Update your details" %}
+{% set pageHeading = "Your details" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -13,32 +13,160 @@
 
     	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-        <p>Make updates to Your Defra account personal information.</p>
-					
-		<dl class="govuk-summary-list govuk-!-margin-bottom-7">
-			<div class="govuk-summary-list__row">
-				<dt class="govuk-summary-list__key">Personal Information</dt>
-				<dd class="govuk-summary-list__value">
-					{{ data.defaultFirstName}} {{ data.defaultSurname}}
-					<br>{{ data.registrationContactPhonePersonal}}
-				</dd>
-				<dd class="govuk-summary-list__actions">
-					<a class="govuk-link govuk-link--no-visited-state" href="/account/manage/update/individual/personal-information">Change<span class="govuk-visually-hidden"> type of account</span></a>
-				</dd>
+        
+		
+		<div class="govuk-summary-card">
+			<div class="govuk-summary-card__title-wrapper">
+				<h2 class="govuk-summary-card__title">Personal information</h2>			  
 			</div>
+			<div class="govuk-summary-card__content">
+				<dl class="govuk-summary-list">
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">Name</dt>
+						<dd class="govuk-summary-list__value">{{ data.defaultFirstName}} {{ data.defaultSurname}}</dd>
+						<dd class="govuk-summary-list__actions">
+							<a class="govuk-link govuk-link--no-visited-state" href="/account/manage/update/individual/personal-information">Change<span class="govuk-visually-hidden"> type of account</span></a>
+						</dd>
+					</div>
 
-			{% if data['registrationAccountType'] == "Individual" %}
-			<div class="govuk-summary-list__row">
-				<dt class="govuk-summary-list__key">Personal Address</dt>
-				<dd class="govuk-summary-list__value">{{ data.registrationIndividualAddress }}</dd>
-				<dd class="govuk-summary-list__actions">
-					<a class="govuk-link govuk-link--no-visited-state" href="/account/manage/update/individual/address">Change<span class="govuk-visually-hidden"> type of account</span></a>
-				</dd>
-			</div>		
-			{% endif %}		
-		</dl>
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">Telephone number</dt>
+						<dd class="govuk-summary-list__value">{{ data.registrationContactPhonePersonal}}</dd>
+						<dd class="govuk-summary-list__actions">
+							<a class="govuk-link govuk-link--no-visited-state" href="/account/manage/update/individual/personal-information">Change<span class="govuk-visually-hidden"> type of account</span></a>
+						</dd>
+					</div>
+
+					{% if data['registrationAccountType'] == "Individual" %}
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">Address</dt>
+						<dd class="govuk-summary-list__value">{{ data.registrationIndividualAddress }}</dd>
+						<dd class="govuk-summary-list__actions">
+							<a class="govuk-link govuk-link--no-visited-state" href="/account/manage/update/individual/address">Change<span class="govuk-visually-hidden"> type of account</span></a>
+						</dd>
+					</div>		
+					{% endif %}										
+
+				</dl>
+			</div>
+		</div>
+		
+
+		{% if data['billingDetailsAdded'] == "Yes" %}
+
+		<div class="govuk-summary-card">
+			<div class="govuk-summary-card__title-wrapper">
+			  <h2 class="govuk-summary-card__title">
+				Billing details
+			  </h2>		
+			  <ul class="govuk-summary-card__actions">				
+				<li class="govuk-summary-card__action">
+				  <a class="govuk-link govuk-link--no-visited-state govuk-!-font-weight-regular" href="/account/manage/billing/check-your-answers?billingDetails=update">Change<span class="govuk-visually-hidden"> billing details</span></a>
+				</li>
+			  </ul>	  
+			</div>
+			<div class="govuk-summary-card__content">
+				<dl class="govuk-summary-list">
+					
+
+					{% if data['billingDetailsAdded'] == "Yes" %}
+
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">Address</dt>
+						<dd class="govuk-summary-list__value">
+
+							{% if data['billingAddress'] == "Yes" %}
+							<p class="govuk-body">
+								Hutton Yeat Farm
+								<br>Old Hutton
+								<br>Kendal
+								<br>South Lakeland
+								<br>LA8 0NL</p>
+							{% else %}                        
+							
+							<p class="govuk-body">
+								{% if data['billingDetailsAddressLine1'] %}<br>{{ data['billingDetailsAddressLine1'] }}{% endif %}
+								{% if data['billingDetailsAddressLine2'] %}<br>{{ data['billingDetailsAddressLine2'] }}{% endif %}
+								{% if data['billingDetailsAddressLine3'] %}<br>{{ data['billingDetailsAddressLine3'] }}{% endif %}
+								{% if data['billingDetailsAddressLine4'] %}<br>{{ data['billingDetailsAddressLine4'] }}{% endif %}
+								{% if data['billingDetailsAddressTownCity'] %}<br>{{ data['billingDetailsAddressTownCity'] }}{% endif %}
+								{% if data['billingDetailsAddressCounty'] %}<br>{{ data['billingDetailsAddressCounty'] }}{% endif %}
+								{% if data['billingDetailsAddressPostcode'] %}<br>{{ data['billingDetailsAddressPostcode'] }}{% endif %}
+							</p>
+																			
+						{% endif %}          				
+						</dd>
+						
+					</div>	 
+					
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">Telephone number</dt>
+						<dd class="govuk-summary-list__value">
+
+							
+							
+						<p class="govuk-body">{{ data['billingTelephone'] or "077077077707" }}</p>				
+
+
+						</dd>
+						
+					</div>	 
+
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">Email address</dt>
+						<dd class="govuk-summary-list__value">					
+							<p class="govuk-body"> {{ data['billingEmail'] or "billing@test.email.com" }}</p>
+						</dd>						
+					</div>	 
+
+
+					{% else %}
+
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">Billing details</dt>
+						<dd class="govuk-summary-list__value"><a href="/account/manage/billing/" class="govuk-link">Add details</a></dd>
+						<dd class="govuk-summary-list__actions"></dd>
+					</div>		
+					
+
+					{% endif %}
+
+
+
+
+					<!-- {% if data['registrationAccountType'] == "Individual" %}
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">Billing details</dt>
+						<dd class="govuk-summary-list__value">{{ data.registrationIndividualAddress }}</dd>
+						<dd class="govuk-summary-list__actions">
+							<a class="govuk-link govuk-link--no-visited-state" href="/account/manage/update/individual/address">Change<span class="govuk-visually-hidden"> type of account</span></a>
+						</dd>
+					</div>		
+					{% endif %}		 -->
+
+
+				</dl>
+			</div>
+		</div>
+
+		{% else %}
+
+		<h2 class="govuk-heading-m govuk-!-margin-top-7">Billing details</h2>
+			<p class="govuk-body ">To use some Defra services you will need to <a href="/account/manage/billing/">tell us your billing details</a>.</p>            
+			<!-- <form method="post" action="" >
+		{{ govukButton({
+			text: "Add details"
+		  }) }}
+
+		</form> -->
+
+		{% endif %}
+
+
+
+
             
-        <h2 class="govuk-heading-m govuk-!-margin-top-9">Need to update your email or password</h2>
+        <h2 class="govuk-heading-m govuk-!-margin-top-9">Need to update the email or password you use to log in</h2>
         <p class="govuk_body">Defra account uses your Government Gateway credentials to log in, so you will need to go to your Government Gateway profile to:</p>
         <ul class="govuk-list govuk-list--bullet">
             <li>update your email address</li>
