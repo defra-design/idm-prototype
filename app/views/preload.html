@@ -32,17 +32,16 @@
         <!-- // Registration flow // -->
         {% if data['userFlow'] == "Registration" %}
             
-            {% include "includes/preload/registration.html" %}      
+            {% include "includes/preload/registration.html" %}
         
-        <!-- // Authentication flow // -->        
+        <!-- // Authentication flow // -->
         {% elif data['userFlow'] == "Authentication" %}
             
             {% include "includes/preload/authentication.html" %}
+            <!-- Commented out at present as its been pushed back to 2025 -->
             <!-- {% include "includes/preload/oneLogin.html" %} -->
 
         {% endif %}
-        
-        
 
     </div>
 </div>
