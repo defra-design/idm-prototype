@@ -2,13 +2,7 @@
 {% set showBackLink = false %}
 {% set serviceName = "{Service Name}" %}
 
-<!-- If 2 or more -->
-{% if data['addTeamTP-Two'] == "Added" %}
-    {% set pageHeading = 'Team members added' %}
-<!-- 1 added -->
-{% else %}
-    {% set pageHeading = 'Team member added' %}
-{% endif %}
+{% set pageHeading = 'Added to your team members' %}
 
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
