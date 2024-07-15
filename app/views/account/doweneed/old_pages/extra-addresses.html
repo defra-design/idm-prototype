@@ -1,0 +1,119 @@
+{% extends "/layouts/main.html" %}
+
+{% set serviceName = "Defra account" %}
+
+{% set title = "Would you like to add extra addresses to your organisation?" %}
+
+{% block pageTitle %}
+  {{title}} - GOV.UK
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <!-- if ALL of the extra addresses are already added -->
+    {% if data['correspondence-address'] == "true" and data['billing-address'] == "true" and data['operations-address'] == "true" %}
+
+      {% if data['route'] == "company" %}
+        <form action="task-list-page-company-details" method="post">
+      {% elseif data['route'] == "charity" %}
+        <form action="task-list-page-charity-details" method="post">
+      {% endif %}
+
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+          <h1 class="govuk-fieldset__heading">
+            You have added the following address types to the organisation
+          </h1>
+        </legend>
+
+      </form>
+
+    {% endif %}
+
+    <!-- showing the added extra addresses -->
+    <div class="govuk-inset-text govuk-!-margin-top-0">
+      {% if data['correspondence-address'] == "true" and data['billing-address'] == "true" and data['operations-address'] == "true" %}
+
+      {% else %}
+        <p class="govuk-body">You have added the following address types:</p>
+      {% endif %}
+
+      <!-- show each added addresses -->
+      <ul class="govuk-list govuk-list--bullet">
+        {% if data['correspondence-address'] == "true" %}
+          <li>Correspondence address</li>
+        {% endif %}
+
+        {% if data['billing-address'] == "true" %}
+          <li>Billing address</li>
+        {% endif %}
+
+        {% if data['operations-address'] == "true" %}
+          <li>Operations address</li>
+        {% endif %}
+      </ul>
+    </div>
+
+    {% if data['correspondence-address'] == "true" and data['billing-address'] == "true" and data['operations-address'] == "true" %}
+
+      {% if data['route'] == "company" %}
+        <form action="task-list-page-company-details" method="post">
+      {% elseif data['route'] == "charity" %}
+        <form action="task-list-page-charity-details" method="post">
+      {% endif %}
+
+        {{govukButton({
+          text: "Continue"
+        })}}
+
+      </form>
+
+    {% else %}
+
+      {% if data['route'] == "company" %}
+        <form action="add-addresses" method="post">
+      {% elseif data['route'] == "charity" %}
+        <form action="add-charity-addresses" method="post">
+      {% endif %}
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+              <h1 class="govuk-fieldset__heading">
+                {{ title }}
+              </h1>
+            </legend>
+            <div class="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="add-address-yes" name="defraIdAddAddresses" type="radio" value="yes">
+                <label class="govuk-label govuk-radios__label" for="add-address-yes">
+                  Yes
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="add-address-no" name="defraIdAddAddresses" type="radio" value="no">
+                <label class="govuk-label govuk-radios__label" for="add-address-no">
+                  No
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <p class="govuk-body">
+          You can add and manage extra addresses later.
+        </p>
+
+        {{govukButton({
+          text: "Continue"
+        })}}
+
+      </form>
+
+    {% endif %}
+
+  </div>
+</div>
+
+{% endblock %}
