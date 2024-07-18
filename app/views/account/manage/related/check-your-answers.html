@@ -2,8 +2,8 @@
 {% set showBackLink = true %}
 
 
-{% set pageHeading = "Check your information" %}
-{% set pageSection = "" %}
+{% set pageHeading = "Check your answers" %}
+{% set pageSection = "Add related organisation" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block beforeContent %}
@@ -19,10 +19,10 @@
         
 		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}  
 
-		<h2 class="govuk-heading-m">About your related organisation</h2>
+
 		<dl class="govuk-summary-list govuk-!-margin-bottom-9">
 			<div class="govuk-summary-list__row">
-				<dt class="govuk-summary-list__key">Organisation's name</dt>
+				<dt class="govuk-summary-list__key">Name</dt>
 				<dd class="govuk-summary-list__value">					
 					{{ data['relatedOrganisationName'] }}				
 				</dd>
@@ -32,7 +32,7 @@
 			</div>		
 			
 			<div class="govuk-summary-list__row">
-				<dt class="govuk-summary-list__key">Organisation's address</dt>
+				<dt class="govuk-summary-list__key">Address</dt>
 				<dd class="govuk-summary-list__value">					
 					1 Francis Crick Avenue, Cambridge Biomedical Campus, Cambridge, United Kingdom, CB2 0AA
 				</dd>
@@ -43,7 +43,7 @@
 
 
 			<div class="govuk-summary-list__row">
-				<dt class="govuk-summary-list__key">Organisation's contact details</dt>
+				<dt class="govuk-summary-list__key">Contact details</dt>
 				<dd class="govuk-summary-list__value">					
 					0171 444555666<br>
           simone@org.com				
