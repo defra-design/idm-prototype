@@ -30,22 +30,23 @@
                 <li>give other people (for example colleagues or agents) access to one or more of the online services they use.</li>
             </ul>                        
 
-            <span class="govuk-caption-m">Current baseline</span>
+            <span class="govuk-caption-m">Core journey baseline</span>
             <h2 class="govuk-heading-m">Main flows and listings</h2>      
-            <p>These are the core journeys, but you can also select a service on the preload to show any service specific pages and content.</p>      
-            
-            <!-- Registration and Authentication main flows -->
+            <p class="govuk-body">These are the core default journeys for registration and sign in including authentication.</p>      
+                        
             <div class="govuk-button-group">
                 <!-- Registration -->
-                <form action="/flow" method="post" >                    
+                <form action="/flow" method="post" >          
+                    <!-- Add session data to button to preload -->
                     <input type="hidden" name="userFlow" id="userFlow" value="Registration" />
                     <input type="hidden" name="serviceFlow" id="serviceFlow" value="coreService" />
                     {{ govukButton({
-                        text: "Registration flow"
+                        text: "Register for Defra Account"
                     }) }}
                 </form>
                 <!-- Authentication / Sign in -->
                 <form action="/flow" method="post" >
+                    <!-- Add session data to button to preload -->
                     <input type="hidden" name="userFlow" id="userFlow" value="Authentication" />
                     <input type="hidden" name="serviceFlow" id="serviceFlow" value="coreService" />
                     {{ govukButton({
@@ -55,13 +56,30 @@
                 
                 <form action="/listings" method="post" >                    
                     {{ govukButton({
-                        text: "Page by page listings",
+                        text: "Page listings",
                         classes: "govuk-button--secondary"
                     }) }}
                 </form>            
-            </div>
+            </div> 
+            
+            
+            <p class="govuk-body">This is the specific sign in journey for Get funding to improve animal health and welfare, which does not use Government Gateway.</p>      
+            
+            <div class="govuk-button-group">
                 
-            {% include "includes/old-mfav2.html" %}
+                <!-- Authentication / Sign in -->
+                <form action="/flow" method="post" >
+                    <!-- Add session data to button to preload -->
+                    <input type="hidden" name="userFlow" id="userFlow" value="Authentication" />
+                    <input type="hidden" name="serviceFlow" id="serviceFlow" value="coreService" />
+                    {{ govukButton({
+                        text: "Sign in to Get funding to improve animal health and welfare"
+                    }) }}
+                </form>
+                                
+            </div> 
+
+
         </div>
                 
         <div class="govuk-grid-column-one-third">
@@ -72,7 +90,7 @@
             <div class="govuk-inset-text">
                 <div class="govuk-button-group">
                     <form action="/register/check-your-answers" method="post" >
-                        
+                        <!-- Add session data to button to preload -->
                         <input type="hidden" name="registrationAccountType" id="registrationAccountType" value="Business" />
                         <input type="hidden" name="registrationTradeUK" id="registrationTradeUK" value="Yes" />
                         <input type="hidden" name="registrationCompanyRegistrationNumber" id="registrationCompanyRegistrationNumber" value="Yes" />
@@ -91,6 +109,7 @@
                     </form>              
                                                 
                     <form action="/register/check-your-answers" method="post" >
+                        <!-- Add session data to button to preload -->
                         <input type="hidden" name="registrationAccountType" id="registrationAccountType" value="Business" />
                         <input type="hidden" name="registrationTradeUK" id="registrationTradeUK" value="Yes" />
                         <input type="hidden" name="registrationOrganisationType" id="registrationOrganisationType" value="Sole trader" />
@@ -112,6 +131,7 @@
                     </form>
 
                     <form action="/register/check-your-answers" method="post" >
+                        <!-- Add session data to button to preload -->
                         <input type="hidden" name="registrationAccountType" id="registrationAccountType" value="Business" />
                         <input type="hidden" name="registrationTradeUK" id="registrationTradeUK" value="Yes" />
                         <input type="hidden" name="registrationOrganisationType" id="registrationOrganisationType" value="Charity" />
@@ -134,6 +154,7 @@
 
 
                     <form action="/register/check-your-answers" method="post" >
+                        <!-- Add session data to button to preload -->
                         <input type="hidden" name="registrationAccountType" id="registrationAccountType" value="Business" />
                         <input type="hidden" name="registrationTradeUK" id="registrationTradeUK" value="No" />
                         <input type="hidden" name="defaultBusinessNonUkName" id="defaultBusinessNonUkName" value="Sneakerium" />
@@ -153,6 +174,7 @@
                     </form>
 
                     <form action="/register/check-your-answers" method="post" >
+                        <!-- Add session data to button to preload -->
                         <input type="hidden" name="registrationAccountType" id="registrationAccountType" value="Individual" />
                         <input type="hidden" name="defaultIndividualAddress" id="defaultIndividualAddress" value="15B Kensington Palace Gardens,<br> London,<br> W8 4QG" />
                         <input type="hidden" name="registrationIndividualPostcode" id="registrationIndividualPostcode" value="W8 4QG" />
@@ -175,7 +197,7 @@
     </div>
     <!-- // of flows grid -->
 
-    <!-- Work tabs -->
+    <!-- Current design work tabs -->
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-full">
             
@@ -211,9 +233,8 @@
                         { key: { text: "Confirmation of registration" }, value: { html: '<span class="govuk-tag govuk-tag--green">Ready for dev</span>'}, actions: { items: [ { href: "/register/confirmation?registrationAccountType=Business", text: "View flow", classes: "govuk-link govuk-link--no-visited-state" } ] } }                                        
                     ]
                 }) }}            
-            {% endset -%}
+            {% endset -%}            
             
-            <!-- Currently commented out tab -->
             {% set tab4Html %}
                 {{ govukSummaryList({
                     classes: "govuk-summary-list__row--no-actions govuk-!-margin-left-3 govuk-!-margin-right-3",                    
@@ -222,21 +243,19 @@
                         { key: { text: "Sign in" }, value: { html: '<span class="govuk-tag govuk-tag--blue">In progress</span>'}, actions: { items: [ { href: "#", text: "View flow", classes: "govuk-link govuk-link--no-visited-state" }, { href: "https://www.figma.com/design/hefCFfLABKCqTvGnI75nhl/Defra-Account?node-id=1001-409&t=uYccTKGyg1du1Wto-1", text: "Figma", classes: "govuk-link govuk-link--no-visited-state" } ] } }                                        
                     ]
                 }) }}            
-            {% endset -%}
-            <!-- // -->
+            {% endset -%}            
 
             {{ govukTabs({
-            items: [
-                { label: "Billing details", id: "past-week", panel: { html: tab1Html } },    
-                { label: "Trusted third party", id: "past-day", panel: { html: tab2Html } },                            
-                { label: "Registration", id: "registration", panel: { html: tab3Html } }                                
-            ]
+                items: [
+                    { label: "Billing details", id: "billing-details", panel: { html: tab1Html } },    
+                    { label: "Trusted third party", id: "trusted-third-party", panel: { html: tab2Html } },                                            
+                    { label: "Registration", id: "registration", panel: { html: tab3Html } },                               
+                    { label: "GOVUK OneLogin", id: "one-login", panel: { html: tab4Html } }                
+                ]
             }) }}
-
-            <!-- Tab removed from view as its been pushed back at the moment -->
-            <!-- { label: "GOVUK OneLogin", id: "past-month", panel: { html: tab4Html } }, -->
 
         </div>    
     </div>
+
 
 {% endblock %}
