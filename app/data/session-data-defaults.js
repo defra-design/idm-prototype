@@ -48,7 +48,10 @@ module.exports = {
   defaultThirdPartyCEORole: "Chief Executive Officer (CEO)",  
   defaultThirdPartyCEOEmail: "chrispee.bacon@authority.test.com",
   defaultThirdPartyCEOServiceRole: "Managing waste data",
-  defaultThirdPartyCEORegistered: "No"
+  defaultThirdPartyCEORegistered: "No",
+
+  // Related organisation
+relatedCompanyPostcode: "CB2 0AA"
 
 
 // defaultThirdPartyCEORegistered: "Yes",
