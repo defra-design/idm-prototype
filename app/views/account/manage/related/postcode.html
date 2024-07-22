@@ -2,7 +2,7 @@
 {% set showBackLink = true %}
 
 
-{% set pageHeading = "What is the post code?" %}
+{% set pageHeading = "What is their postcode?" %}
 {% set pageSection = "Add related organisation" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -21,13 +21,23 @@
 
       	<form action="/account/manage/related/select-address" method="post">
 
+
+
+			  <p class="govuk-body">
+				If you cannot find the address or need to add a non-UK address you can add the address manually.
+			  </p>
+	
+
+			<!-- Original <div>
+				<p class="govuk-body">
+				  If you cannot find your address or you need to add a non-UK address you can add it manually below.
+				</p>
+			  </div> -->
+
         	{{ govukInput({
           		label: {
-            		text: "Enter your postcode",
-            		classes: "govuk-label--s"
-          		},
-          		hint: {
-            		text: "If you cannot find your address or you need to add a non-UK address you can add it manually below."
+            		text: "Enter the postcode",
+            		classes: "govuk-visually-hidden"
           		},
           		classes: "govuk-input--width-10",
           		id: "relatedCompanyPostcode",
@@ -35,12 +45,15 @@
           		value: relatedCompanyPostcode
         	}) }}
 
-        	{{ govukButton({
-          		text: "Find address"
-        	}) }}
+			<div class="govuk-button-group">
+				{{ govukButton({
+					text: "Find address"
+				}) }}
 
-        	<p class="govuk-body"><a class="govuk-link" href="/account/manage/related/manual-address">Enter the address manually</a></p>
-
+        		<p class="govuk-body"><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/related/manual-address">
+					Enter the address manually</a>
+				</p>
+			</div>
       	</form>
 
   	</div>
