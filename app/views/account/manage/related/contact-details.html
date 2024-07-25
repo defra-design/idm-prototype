@@ -29,7 +29,9 @@
           		id: "relatedCompanyTelephone",
           		name: "relatedCompanyTelephone",
           		value: data['relatedCompanyTelephone'],
-          		type: "tel"
+          		type: "tel",
+				  errorMessage: {
+					text: "Enter a telephone number"}
         	}) }}
 
         	{{ govukInput({
@@ -40,7 +42,9 @@
           		id: "relatedCompanyEmail",
           		name: "relatedCompanyEmail",
           		value: data['relatedCompanyEmail'],
-          		type: "email"
+          		type: "email",
+				  errorMessage: {
+					text: "Enter an email address"}
         	}) }}
 
         	{{ govukButton({
