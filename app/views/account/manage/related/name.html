@@ -14,7 +14,12 @@
 
 {% block content %}
 {% from "govuk/components/error-summary/macro.njk" import govukErrorSummary %}
-
+<style>
+.error-dropdown {
+    border-width: 20px;
+    border-color: #d4351c;
+}
+</style>
 
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
@@ -40,6 +45,7 @@
 
       	<form action="/account/manage/related/same-address" method="post">
         	
+		
         	{{ govukInput({
           		label: {
             		text: title,
@@ -55,6 +61,7 @@
         	{{ govukButton({
           		text: "Continue"
         	}) }}
+
 
       	</form>
 
