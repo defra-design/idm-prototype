@@ -28,11 +28,13 @@
           		classes: "govuk-input--width-20",
           		id: "relatedCompanyTelephone",
           		name: "relatedCompanyTelephone",
-          		value: data['relatedCompanyTelephone'],
+          		value: data['relatedCompanyTelephone']
+        	}) }}
+<!-- 
+			,
           		type: "tel",
 				  errorMessage: {
-					text: "Enter a telephone number"}
-        	}) }}
+					text: "Enter a telephone number"} -->
 
         	{{ govukInput({
           		label: {
@@ -41,11 +43,13 @@
           		classes: "govuk-input--width-20",
           		id: "relatedCompanyEmail",
           		name: "relatedCompanyEmail",
-          		value: data['relatedCompanyEmail'],
+          		value: data['relatedCompanyEmail']
+        	}) }}
+
+			<!-- ,
           		type: "email",
 				  errorMessage: {
-					text: "Enter an email address"}
-        	}) }}
+					text: "Enter an email address"} -->
 
         	{{ govukButton({
           		text: "Continue"
