@@ -2,7 +2,7 @@
 {% set showBackLink = true %}
 
 
-{% set pageHeading = "Select the address" %}
+{% set pageHeading = "Select their address" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -18,8 +18,15 @@
     <div class="govuk-grid-column-two-thirds">
         
 		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }} 
+<!-- 
+    	<p class="govuk-body">Postcode: <span class="govuk-!-font-weight-bold">{{ data['relatedCompanyPostcode'] }}</span>&nbsp;&nbsp; <a href="/account/manage/related/company-postcode" class="govuk-link">Change<span class="govuk-visually-hidden"> postcode</span></a></p> -->
 
-    	<p class="govuk-body">Postcode: <span class="govuk-!-font-weight-bold">{{ data['relatedCompanyPostcode'] }}</span>&nbsp;&nbsp; <a href="/account/manage/related/company-postcode" class="govuk-link">Change<span class="govuk-visually-hidden"> postcode</span></a></p>
+		<div class="govuk-inset-text">
+			<p>We found the following addresses for postcode <span class="govuk-!-font-weight-bold">{{ data['relatedCompanyPostcode'] }}</span>.</p>
+			
+			<a href="/account/manage/related/postcode" class="govuk-link">Change postcode<span class="govuk-visually-hidden"> postcode</span></a>
+		</div>
+
 
       	<form action="/account/manage/related/check-your-answers" method="post">
     
@@ -44,14 +51,15 @@
         		]
       		}) }}
 
-      		<p class="govuk-body"><a href="/account/manage/related/manual-address">I cannot find the address in the list</a></p>
 
+		<div class="govuk-button-group">
       		{{ govukButton({
         		text: "Continue"
       		}) }}
+		</form>
+      		<p class="govuk-body"><a href="/account/manage/related/manual-address">The address is not on the list</a></p>
+  		</div>
 
-    	</form>
-  	
 	</div>
 </div>
 {% endblock %}

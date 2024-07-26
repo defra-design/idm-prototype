@@ -2,8 +2,8 @@
 {% set showBackLink = true %}
 
 
-{% set pageHeading = "Are the contact details the same as for the parent organisation?" %}
-{% set pageSection = "" %}
+{% set pageHeading = "Are their contact details the same as the parent organisation?" %}
+{% set pageSection = "Add related organisation" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block beforeContent %}
@@ -21,7 +21,22 @@
 
 		<form action="/account/manage/related/check-your-answers" method="post">
 
+
+<!-- Inset text -->
+			{{ govukInsetText({
+				html: '							
+				<ul class="govuk-list">
+					<li><b>Telephone number</b></li>
+					<li>0171 444555666</li>
+					<br>
+					<li><b>Email address</b></li>
+					<li>simone@org.com</li>
+				</ul>'
+			  }) }}
+
+
         	{{ govukRadios({
+				classes: "govuk-radios--inline",
           		idPrefix: "relatedCompanySameContact",
           		name: "relatedCompanySameContact",          		
           		items: [
@@ -30,6 +45,14 @@
           		]
         	}) }}
 
+
+						<!-- 
+			,
+				  errorMessage: {
+					text: "Select yes if their contact details are the same as the parent organisation"}
+					-->
+
+				  
         	{{ govukButton({
           		text: "Continue"
         	}) }}

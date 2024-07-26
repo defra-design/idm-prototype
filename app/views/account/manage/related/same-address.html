@@ -2,8 +2,8 @@
 {% set showBackLink = true %}
 
 
-{% set pageHeading = "Does this organisation have the same address as the parent organisation?" %}
-{% set pageSection = "" %}
+{% set pageHeading = "Is their address the same as the parent organisation?" %}
+{% set pageSection = "Add related organisation" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block beforeContent %}
@@ -19,9 +19,27 @@
         
 		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}  
 
+
+<!-- Inset text -->
+		{{ govukInsetText({
+			html: "1 Francis Crick Avenue<br>
+			Biomedical Campus<br>
+			Cambridge<br>
+			United Kingdom<br>
+			CB2 0AA"
+		}) }}
+
+
+<!-- Note for Brian: Unsure if above ok, or <li> wanted OR set out like this:
+ 
+{{ govukInsetText({
+	text: "1 Francis Crick Avenue, Cambridge Biomedical Campus, Cambridge, United Kingdom, CB2 0AA"
+  }) }} -->
+
     	<form method="post" action="/account/manage/related/same-contact-details">
 
         	{{ govukRadios({
+				classes: "govuk-radios--inline",
             	idPrefix: "relatedCompanySameAddress",
             	name: "relatedCompanySameAddress",                        
             	items: [
@@ -30,6 +48,12 @@
             	]
           	}) }}
 
+
+			  <!-- ,
+			  errorMessage: {
+				text: "Select yes if their address is the same as the parent organisation"
+			  } -->
+				
         	{{ govukButton({
           		text: "Continue"
         	}) }}

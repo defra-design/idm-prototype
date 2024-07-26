@@ -2,8 +2,8 @@
 {% set showBackLink = true %}
 
 
-{% set pageHeading = "What are the contact details for this organisation?" %}
-{% set pageSection = "" %}
+{% set pageHeading = "What are their contact details?" %}
+{% set pageSection = "Add related organisation" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block beforeContent %}
@@ -25,12 +25,16 @@
           		label: {
             		text: "Telephone number"
           		},
-          		classes: "govuk-input--width-10",
+          		classes: "govuk-input--width-20",
           		id: "relatedCompanyTelephone",
           		name: "relatedCompanyTelephone",
-          		value: data['relatedCompanyTelephone'],
-          		type: "tel"
+          		value: data['relatedCompanyTelephone']
         	}) }}
+<!-- 
+			,
+          		type: "tel",
+				  errorMessage: {
+					text: "Enter a telephone number"} -->
 
         	{{ govukInput({
           		label: {
@@ -39,9 +43,13 @@
           		classes: "govuk-input--width-20",
           		id: "relatedCompanyEmail",
           		name: "relatedCompanyEmail",
-          		value: data['relatedCompanyEmail'],
-          		type: "email"
+          		value: data['relatedCompanyEmail']
         	}) }}
+
+			<!-- ,
+          		type: "email",
+				  errorMessage: {
+					text: "Enter an email address"} -->
 
         	{{ govukButton({
           		text: "Continue"
