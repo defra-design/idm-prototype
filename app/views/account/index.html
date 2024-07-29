@@ -1,4 +1,5 @@
 {% extends "/layouts/main.html" %}
+
 {% set showPhaseBanner = false %}
 {% set DefraAccount = true %}
 {% set showNav = true %}
@@ -13,16 +14,18 @@
   {% endif %}
 {% endset -%}
 
+<!-- This sets an account name to be used from the session data file -->
 {% set accountName %}	
 	{{ data.defaultCompanyName }}	
 {% endset -%}
 
+<!-- This sets an account username to be used from the session data file -->
 {% set accountUserName %}	
 	{{ data.defaultFirstName }} {{ data.defaultSurname }}	
 {% endset -%}
 
 
-
+<!-- Sets headings -->
 {% if data['userType'] == "ThirdPartyCEO" %}
 	{% set pageHeading = "Your Defra account" %}
 	{% set pageSection = data.defaultThirdPartyCEO %}
@@ -48,19 +51,23 @@
 			{% include "includes/notification/banner.html" %}
 		{% endif %}
 
+		<!-- Macro for showing the H1 and section -->
 		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}    
-		
-	
 		
 		<!-- Third party layout -->
 		{% if ((data['userType'] == "TPuser") or ( data['userType'] == "ThirdPartyCEO")) %}
-		</div>
-		<div class="govuk-grid-column-full">
-			{% include "includes/account/thirdparty.html" %}
-		
-		
 
-		<!-- Business and Individual -->
+		<h2 class="govuk-heading-m govuk-!-margin-top-5">Organisations available to you</h2>
+		<!-- <p>You have access to the following accounts and Defra services.</p> -->
+		<p>You have access to the following organisations and their Defra online services.</p>
+
+		{% endif %}
+	
+	</div>
+	<div class="govuk-grid-column-full">
+				
+		{% if ((data['userType'] == "TPuser") or ( data['userType'] == "ThirdPartyCEO")) %}
+			{% include "includes/account/thirdparty.html" %}						
 		{% else %}
 			{% include "includes/account/business.html" %}
 		{% endif %}
