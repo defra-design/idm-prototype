@@ -1,0 +1,204 @@
+{% extends "/layouts/main.html" %}
+{% set showPhaseBanner = false %}
+{% set DefraAccount = true %}
+{% set showNav = true %}
+{% set showBackLink = true %}
+
+
+{% set pageHeading = "Your details" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+        		
+		<div class="govuk-summary-card">
+			<div class="govuk-summary-card__title-wrapper">
+				<h2 class="govuk-summary-card__title">Personal information</h2>			  
+			</div>
+			<div class="govuk-summary-card__content">
+				<dl class="govuk-summary-list">
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">Name</dt>
+						<dd class="govuk-summary-list__value">{{ data.defaultFirstName}} {{ data.defaultSurname}}</dd>
+						<dd class="govuk-summary-list__actions">
+							<a class="govuk-link govuk-link--no-visited-state" href="/account/manage/update/individual/personal-information">Change<span class="govuk-visually-hidden"> type of account</span></a>
+						</dd>
+					</div>
+
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">Telephone number</dt>
+						<dd class="govuk-summary-list__value">{{ data.registrationContactPhonePersonal}}</dd>
+						<dd class="govuk-summary-list__actions">
+							<a class="govuk-link govuk-link--no-visited-state" href="/account/manage/update/individual/personal-information">Change<span class="govuk-visually-hidden"> type of account</span></a>
+						</dd>
+					</div>
+
+					{% if data['registrationAccountType'] == "Individual" %}
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">Address</dt>
+						<dd class="govuk-summary-list__value">{{ data.registrationIndividualAddress }}</dd>
+						<dd class="govuk-summary-list__actions">
+							<a class="govuk-link govuk-link--no-visited-state" href="/account/manage/update/individual/address">Change<span class="govuk-visually-hidden"> type of account</span></a>
+						</dd>
+					</div>		
+					{% endif %}										
+
+				</dl>
+			</div>
+		</div>
+
+
+        <!-- Organisation -->
+        <!-- <dl class="govuk-summary-list govuk-!-margin-bottom-7">
+        	<div class="govuk-summary-list__row">
+          		<dt class="govuk-summary-list__key">Telephone</dt>
+          		<dd class="govuk-summary-list__value">{{ data.registrationPhone }}</dd>
+          		<dd class="govuk-summary-list__actions"><a class="govuk-link" href="/account/manage/update/organisation/phone-number">Change<span class="govuk-visually-hidden"> phone number</span></a></dd>
+        	</div>
+        	<div class="govuk-summary-list__row">
+          		<dt class="govuk-summary-list__key">Email</dt>
+          		<dd class="govuk-summary-list__value">{{ data.registrationEmail }}</dd>
+          		<dd class="govuk-summary-list__actions"><a class="govuk-link" href="/account/manage/update/organisation/email">Change<span class="govuk-visually-hidden"> email address</span></a></dd>
+        	</div>
+      	</dl> -->
+
+
+
+
+
+		
+
+		{% if data['billingDetailsAdded'] == "Yes" %}
+
+		<div class="govuk-summary-card govuk-!-margin-bottom-9">
+			<div class="govuk-summary-card__title-wrapper">
+			  <h2 class="govuk-summary-card__title">
+				Billing details
+			  </h2>		
+			  <ul class="govuk-summary-card__actions">				
+				<li class="govuk-summary-card__action">
+				  <a class="govuk-link govuk-link--no-visited-state govuk-!-font-weight-regular" href="/account/manage/billing/check-your-answers?billingDetails=update">Change<span class="govuk-visually-hidden"> billing details</span></a>
+				</li>
+			  </ul>	  
+			</div>
+			<div class="govuk-summary-card__content">
+				<dl class="govuk-summary-list">
+					
+
+					{% if data['billingDetailsAdded'] == "Yes" %}
+
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">Address</dt>
+						<dd class="govuk-summary-list__value">
+
+							{% if data['billingAddress'] == "Yes" %}
+							<p class="govuk-body">
+								Hutton Yeat Farm
+								<br>Old Hutton
+								<br>Kendal
+								<br>South Lakeland
+								<br>LA8 0NL</p>
+							{% else %}                        
+							
+							<p class="govuk-body">
+								{% if data['billingDetailsAddressLine1'] %}<br>{{ data['billingDetailsAddressLine1'] }}{% endif %}
+								{% if data['billingDetailsAddressLine2'] %}<br>{{ data['billingDetailsAddressLine2'] }}{% endif %}
+								{% if data['billingDetailsAddressLine3'] %}<br>{{ data['billingDetailsAddressLine3'] }}{% endif %}
+								{% if data['billingDetailsAddressLine4'] %}<br>{{ data['billingDetailsAddressLine4'] }}{% endif %}
+								{% if data['billingDetailsAddressTownCity'] %}<br>{{ data['billingDetailsAddressTownCity'] }}{% endif %}
+								{% if data['billingDetailsAddressCounty'] %}<br>{{ data['billingDetailsAddressCounty'] }}{% endif %}
+								{% if data['billingDetailsAddressPostcode'] %}<br>{{ data['billingDetailsAddressPostcode'] }}{% endif %}
+							</p>
+																			
+						{% endif %}          				
+						</dd>
+						
+					</div>	 
+					
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">Telephone number</dt>
+						<dd class="govuk-summary-list__value">
+
+							
+							
+						<p class="govuk-body">{{ data['billingTelephone'] or "077077077707" }}</p>				
+
+
+						</dd>
+						
+					</div>	 
+
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">Email address</dt>
+						<dd class="govuk-summary-list__value">					
+							<p class="govuk-body"> {{ data['billingEmail'] or "billing@test.email.com" }}</p>
+						</dd>						
+					</div>	 
+
+
+					{% else %}
+
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">Billing details</dt>
+						<dd class="govuk-summary-list__value"><a href="/account/manage/billing/" class="govuk-link">Add details</a></dd>
+						<dd class="govuk-summary-list__actions"></dd>
+					</div>		
+					
+
+					{% endif %}
+
+
+
+
+					<!-- {% if data['registrationAccountType'] == "Individual" %}
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">Billing details</dt>
+						<dd class="govuk-summary-list__value">{{ data.registrationIndividualAddress }}</dd>
+						<dd class="govuk-summary-list__actions">
+							<a class="govuk-link govuk-link--no-visited-state" href="/account/manage/update/individual/address">Change<span class="govuk-visually-hidden"> type of account</span></a>
+						</dd>
+					</div>		
+					{% endif %}		 -->
+
+
+				</dl>
+			</div>
+		</div>
+
+		{% else %}
+
+		<h2 class="govuk-heading-m">Billing details</h2>
+		<p class="govuk-body ">To use some Defra services you will need to <a href="/account/manage/billing/">tell us your billing details</a>.</p>            			
+
+		{% endif %}
+            
+
+        <h2 class="govuk-heading-m">Need to change your organisations address</h2>        
+		<p>You must update the organisation address with Companies House. <a href="https://www.gov.uk/government/collections/companies-house-forms-file-a-change-of-address" class="govuk-link" rel="noreferrer noopener" target="_blank">File a change of address with Companies House (opens in a new tab)</a>.</p>        	
+
+
+        <h2 class="govuk-heading-m">Need to update the email or password you use to log in</h2>
+        <p class="govuk_body">Defra account uses your Government Gateway credentials to log in, so you will need to go to your Government Gateway profile to:</p>
+        <ul class="govuk-list govuk-list--bullet">
+            <li>update your email address</li>
+            <li>change your password</li>
+        </ul>        
+        
+        <div class="govuk-inset-text">
+        <p>You will be signed out of your Defra account if you <a href="#" class="govuk-link" target="_blank">go to your Government Gateway profile (opens in new tab)</a>.</p>
+    </div>
+
+        
+  </div>
+</div>
+
+
+
+
+{% endblock %}
