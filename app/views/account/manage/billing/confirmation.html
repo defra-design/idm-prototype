@@ -20,10 +20,21 @@
         <h2 class="govuk-heading-m">What happens next</h2>
         <p class="govuk-body">We may contact you if we need to clarify something, but you do not have to do anything else now.</p>
         <!-- <p>Line of content for returning user back to the service.</p> -->
+        
+        
+        {% if data['registrationAccountType'] == "Individual" %}
+
+            <p><a href="/account/manage/update/individual/" class="govuk-link govuk-link--no-visited-state">Return to your details</a></p>
+
+        {% else %}
+        
+        
         <ul class="govuk-list">
             <li><a href="/account/manage/organisation-details#past-week" class="govuk-link govuk-link--no-visited-state">Go to your organisation</a></li>
             <li><a href="/account/" class="govuk-link govuk-link--no-visited-state">Go to your account</a></li>            
-        </ul>        
+        </ul>     
+        
+        {% endif %}
 
 
   	</div>

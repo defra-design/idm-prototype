@@ -99,14 +99,31 @@
 
 				<!-- If update made show button -->
 				{% if data['billingDetails'] == "updateMade" %}
-				<form method="post" action="/account/manage/organisation-details?billingDetails=#past-week">
 
-					{{ govukButton({
-						text: "Return to organisation"				
-					}) }}			
+				{% if data['registrationAccountType'] == "Individual" %}
+
+					<form method="post" action="/account/manage/update/individual/">
+						{{ govukButton({
+							text: "Return to your details"				
+						}) }}			
+
+				{% else %}
+
+					<form method="post" action="/account/manage/organisation-details?billingDetails=#past-week">
+						{{ govukButton({
+							text: "Return to organisation"				
+						}) }}			
+				{% endif %}
+
+					
 				{% else %}
 					<!-- If no update made allow user to cancel update -->
-					<p><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/organisation-details?billingDetails=#past-week">Cancel update</a></p>
+
+					{% if data['registrationAccountType'] == "Individual" %}
+						<p><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/update/individual/">Cancel update</a></p>
+					{% else %}
+						<p><a class="govuk-link govuk-link--no-visited-state" href="/account/manage/organisation-details?billingDetails=#past-week">Cancel update</a></p>
+					{% endif %}
 				{% endif %}
 
 			{% else %}
