@@ -69,6 +69,38 @@
 		{% else %}
 			{% include "includes/account/business.html" %}
 		{% endif %}
+		
+
+		{{ govukSummaryList({ 
+			card: {
+			  title: { html: data.defaultThirdPartyName | titleCase  }			
+			},
+			rows: [		
+			  { key: { text: "Address" }, value: { html: data.defaultThirdPartyAddress } },    	
+			  { key: { text: "Phone number" }, value: { text: data.defaultThirdPartyPhone } },
+			  { key: { text: "Account role" }, value: { text: "Administrator" } },
+			  { key: { text: "Registered services" }, value: { html: '<a href="https://laps-prototype-e21618a16725.herokuapp.com/laps/account/account-home-ceo" class="govuk-link govuk-link--no-visited-state">Local Authority Payment Service (LAPS)</a>' } },      
+			  { key: { text: "Service role" }, value: { html: data.defaultThirdPartyCEOServiceRole } },      
+			  { key: { text: "Team members" }, value: { text: "1" }, actions: { items: [ { href: "/account/thirdParty/add/what-we-need?addTeamThirdParty=Yes", text: "Add", visuallyHiddenText: "age", classes: "govuk-link--no-visited-state" }, { href: "/account/manage/team/", text: "Manage", visuallyHiddenText: "age", classes: "govuk-link--no-visited-state" } ] } }
+			  ]
+		  }) }}
+
+
+
+		  {{ govukSummaryList({ 
+			card: {
+			  title: { html: data.defaultThirdPartyName | titleCase  }			
+			},
+			rows: [		
+			  { key: { text: "Address" }, value: { html: data.defaultThirdPartyAddress } },    	
+			  { key: { text: "Phone number" }, value: { text: data.defaultThirdPartyPhone } },
+			  { key: { text: "Account role" }, value: { text: "Standard User" } },
+			  { key: { text: "Registered services" }, value: { html: '<a href="https://laps-prototype-e21618a16725.herokuapp.com/laps/account/account-home-ceo" class="govuk-link govuk-link--no-visited-state">Local Authority Payment Service (LAPS)</a>' } },      
+			  { key: { text: "Service role" }, value: { html: data.defaultThirdPartyCEOServiceRole } }
+			  ]
+		  }) }}
+
+
 
       </div>
     </div>
