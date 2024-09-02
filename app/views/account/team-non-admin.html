@@ -64,23 +64,26 @@
 	</div>
 	<div class="govuk-grid-column-full">
 				
-		{% if ((data['userType'] == "TPuser") or ( data['userType'] == "ThirdPartyCEO")) %}
-			{% include "includes/account/thirdparty.html" %}						
-		{% else %}
-			{% include "includes/account/business.html" %}
-		{% endif %}
+	
 
-		<a href="/account/team-admin" class="govuk-link govuk-link--no-visited-state">
-			Admin team member</a>
-<br>
-			<a href="/account/team-non-admin" class="govuk-link govuk-link--no-visited-state">
-				Non-admin team member</a>
+
+		  {{ govukSummaryList({ 
+			card: {
+			  title: { html: data.defaultThirdPartyName | titleCase  }			
+			},
+			rows: [		
+			  { key: { text: "Address" }, value: { html: data.defaultThirdPartyAddress } },    	
+			  { key: { text: "Phone number" }, value: { text: data.defaultThirdPartyPhone } },
+			  { key: { text: "Account role" }, value: { text: "Standard User" } },
+			  { key: { text: "Registered services" }, value: { html: '<a href="https://laps-prototype-e21618a16725.herokuapp.com/laps/account/account-home-ceo" class="govuk-link govuk-link--no-visited-state">Local Authority Payment Service (LAPS)</a>' } },      
+			  { key: { text: "Service role" }, value: { html: data.defaultThirdPartyCEOServiceRole } }
+			  ]
+		  }) }} 
+
 
 
       </div>
     </div>
-
-
 
 {% endblock %}
 
