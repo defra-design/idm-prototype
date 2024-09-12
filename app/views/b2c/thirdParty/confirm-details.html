@@ -2,7 +2,7 @@
 {% set showBackLink = false %}
 {% set serviceName = "{Service Name}" %}
 
-{% set pageHeading = "Confirm your details" %}
+{% set pageHeading = "Confirm details" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -32,6 +32,10 @@
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">Email address</dt>
                     <dd class="govuk-summary-list__value">{{ data['regThirdPartyCEOEmail'] or data.defaultThirdPartyCEOEmail }}</dd>                    
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Service</dt>
+                    <dd class="govuk-summary-list__value">Waste Tracking Service</dd>                    
                 </div>
             </dl>             
 
