@@ -52,8 +52,8 @@
 			{{ govukSummaryList({
 				card: { title: { text: "Details" }, actions: { items: [ { href: "#", text: "Remove team member", visuallyHiddenText: "from organisation" } ] } },
 				rows: [
-					{ key: { text: "Name" }, value: { html: "Hugo Last" }, actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "age" } ] } },
-					{ key: { text: "Email address" }, value: { html: "hugolast@authrority.test.com" }, actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "nationality" } ] } },
+					{ key: { text: "Name" }, value: { html: "Chrispee Bacon" }, actions: { items: [ { href: "#", text: "" } ] } },
+					{ key: { text: "Email address" }, value: { html: "chrispeebacon@authority.test.com" }, actions: { items: [ { href: "#", text: "" } ] } },
 					{ key: { text: "Account role" }, value: { html: "Administrator" }, actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "working situation" } ] } }
 					
 				]
@@ -65,12 +65,12 @@
 			<p>They have access to the following Defra online services on behalf of {{ data.defaultThirdPartyName }}.</p>
 
 			{{ govukSummaryList({
-				card: { title: { text: "Available services" }, actions: { items: [ { href: "#", text: "Add service", visuallyHiddenText: "from organisation" } ] } },
+				card: { title: { text: "Available services" }, actions: { items: [ { href: "#", text: " " } ] } },
 				rows: [					
-					{ key: { text: "LAPS" }, value: { html: "Managing waste data" }, actions: { items: [ { href: "#", text: "Change service role", visuallyHiddenText: "working situation" }, { href: "#", text: "Remove access", visuallyHiddenText: "working situation" } ] } }
+					{ key: { text: "LAPS" }, value: { html: "Managing waste data" }, actions: { items: [ { href: "/account/manage/team/change-role", text: "Change service role", visuallyHiddenText: "working situation" }, { href: "#", text: "Remove access", visuallyHiddenText: "working situation" } ] } }
 				]
 			}) }}
-
+<!-- 
 			<h2 class="govuk-heading-l">Service access</h2>
 				<table class="govuk-table {{ tableCSS }}">
 					<thead class="govuk-table__head">
@@ -88,7 +88,7 @@
 						<td class="govuk-table__cell"><a href="/account/manage/team/change-role" class="govuk-link--no-visited-state">Change service role</a></td>        
 						<td class="govuk-table__cell"><a href="dashboard" class="govuk-link--no-visited-state">Remove access</a></td>        
 					</tr>
-				</table>
+				</table> -->
 				
 		{% else %}
 		
