@@ -56,12 +56,34 @@
 			  { key: { text: "Registered services" }, value: { html: '<a href="https://laps-prototype-e21618a16725.herokuapp.com/laps/account/account-home-ceo" class="govuk-link govuk-link--no-visited-state">Local Authority Payment Service (LAPS)</a>' } },      
 			  { key: { text: "Service role" }, value: { html: data.defaultThirdPartyCEOServiceRole }, actions: { items: [ { href: "/account/thirdParty/add/service-role?changeLink=ThirdPartyCEO", text: "Change", visuallyHiddenText: "age", classes: "govuk-link--no-visited-state" } ] } },
 			  { key: { text: "Team members" }, value: { text: "2" }, actions: { items: [ { href: "/account/thirdParty/add/what-we-need?addTeamThirdParty=Yes", text: "Add", visuallyHiddenText: "age", classes: "govuk-link--no-visited-state" }, { href: "/account/manage/team/", text: "Manage", visuallyHiddenText: "age", classes: "govuk-link--no-visited-state" } ] } },
-			  { key: { text: "Intermediaries" }, value: { text: "4" }, actions: { items: [ { href: "/account/manage/intermediary/add", text: "Add", visuallyHiddenText: "age", classes: "govuk-link--no-visited-state" }, { href: "/account/manage/intermediary", text: "Manage", visuallyHiddenText: "age", classes: "govuk-link--no-visited-state" } ] } },
+			  { key: { text: "Intermediaries" }, value: { text: "4" }, actions: { items: [ { href: "/account/manage/intermediary", text: "Add", visuallyHiddenText: "age", classes: "govuk-link--no-visited-state" }, { href: "/account/manage/intermediary", text: "Manage", visuallyHiddenText: "age", classes: "govuk-link--no-visited-state" } ] } },
 
-			  { key: { text: "Organisation's details" }, value: { text: "Address, billing details and related organisations" }, actions: { items: [ { href: "/account/manage/team/", text: "Manage", visuallyHiddenText: "age", classes: "govuk-link--no-visited-state" } ] } }
+			  { key: { text: "Organisation's details" }, value: { text: "This is the address, billing details and related organisations" }, actions: { items: [ { href: "/account/manage/organisation-details", text: "Manage", visuallyHiddenText: "age", classes: "govuk-link--no-visited-state" } ] } }
 
 			]
 		  }) }}
+
+		  {{ govukSummaryList({
+			card: {
+			  title: { html: data.defaultThirdPartyName | titleCase  }      		
+			},
+			rows: [		
+			  { key: { text: "Address" }, value: { html: data.defaultThirdPartyAddress } },    	
+			  { key: { text: "Phone number" }, value: { text: data.defaultThirdPartyPhone } },
+			  { key: { text: "Account role" }, value: { html: "Owner" } },
+			  { key: { text: "Registered services" }, value: { html: '<a href="https://laps-prototype-e21618a16725.herokuapp.com/laps/account/account-home-ceo" class="govuk-link govuk-link--no-visited-state">Local Authority Payment Service (LAPS)</a>' } },      
+			  { key: { text: "Service role" }, value: { html: data.defaultThirdPartyCEOServiceRole }, actions: { items: [ { href: "/account/thirdParty/add/service-role?changeLink=ThirdPartyCEO", text: "Change", visuallyHiddenText: "age", classes: "govuk-link--no-visited-state" } ] } },
+			  { key: { text: "Team members" }, value: { text: "2" }, actions: { items: [ { href: "/account/thirdParty/add/what-we-need?addTeamThirdParty=Yes", text: "Add", visuallyHiddenText: "age", classes: "govuk-link--no-visited-state" }, { href: "/account/manage/team/", text: "Manage", visuallyHiddenText: "age", classes: "govuk-link--no-visited-state" } ] } },
+			  { key: { text: "Intermediaries" }, value: { text: "No intermediaries added to this organisation" }, actions: { items: [ { href: "/account/manage/intermediary/add", text: "Add", visuallyHiddenText: "age", classes: "govuk-link--no-visited-state" }, { href: "/account/manage/intermediary", text: "Manage", visuallyHiddenText: "age", classes: "govuk-link--no-visited-state" } ] } },
+
+
+
+
+			  { key: { text: "Organisation's details" }, value: { html: '<p class="govuk-body">Address</p><p class="govuk-body">Billing address</p><p class="govuk-body">Related organisations</p>' }, actions: { items: [ { href: "/account/manage/team/", text: "Manage", visuallyHiddenText: "age", classes: "govuk-link--no-visited-state" } ] } }
+
+			]
+		  }) }}
+
 
 
 
