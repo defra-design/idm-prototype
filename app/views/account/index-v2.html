@@ -1,0 +1,123 @@
+{% extends "/layouts/main.html" %}
+
+{% set showPhaseBanner = false %}
+{% set DefraAccount = true %}
+{% set showNav = true %}
+{% set showBackLink = false %}
+
+<!-- Sets type of action link -->
+
+  {% if data['registrationAccountType'] == "Individual" %}
+  	<a href="/account/manage/enrol-list" class="govuk-link govuk-link--no-visited-state">Add a service<span class="govuk-visually-hidden td-header"> {{ business }}</span></a>
+  {% else %}
+  	<a href="/account/manage/dashboard" class="govuk-link govuk-link--no-visited-state">Manage<span class="govuk-visually-hidden td-header"> {{ business }}</span></a>
+  {% endif %}
+
+
+<!-- This sets an account name to be used from the session data file -->
+{% set accountName %}	
+	{{ data.defaultCompanyName }}	
+{% endset -%}
+
+<!-- This sets an account username to be used from the session data file -->
+{% set accountUserName %}	
+	{{ data.defaultFirstName }} {{ data.defaultSurname }}	
+{% endset -%}
+
+
+<!-- Sets headings -->
+
+
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+			<span class="govuk-caption-l">Chrispee Bacon</span>
+		<h1 class="govuk-heading-xl">Your Defra account</h1>
+
+		<h2 class="govuk-heading-m govuk-!-margin-top-5">Organisations available to you</h2>
+		<!-- <p>You have access to the following accounts and Defra services.</p> -->
+		<p>You have access to the following organisations and their Defra online services.</p>
+
+</div>
+
+	<div class="govuk-grid-column-full">
+
+		{{ govukSummaryList({
+			card: {
+			  title: { html: data.defaultThirdPartyName | titleCase  }      		
+			},
+			rows: [		
+			  { key: { text: "Address" }, value: { html: data.defaultThirdPartyAddress } },    	
+			  { key: { text: "Phone number" }, value: { text: data.defaultThirdPartyPhone } },
+			  { key: { text: "Account role" }, value: { html: "Owner" } },
+			  { key: { text: "Registered services" }, value: { html: '<a href="https://laps-prototype-e21618a16725.herokuapp.com/laps/account/account-home-ceo" class="govuk-link govuk-link--no-visited-state">Local Authority Payment Service (LAPS)</a>' } },      
+			  { key: { text: "Service role" }, value: { html: data.defaultThirdPartyCEOServiceRole }, actions: { items: [ { href: "/account/thirdParty/add/service-role?changeLink=ThirdPartyCEO", text: "Change", visuallyHiddenText: "age", classes: "govuk-link--no-visited-state" } ] } },
+			  { key: { text: "Team members" }, value: { text: "2" }, actions: { items: [ { href: "/account/thirdParty/add/what-we-need?addTeamThirdParty=Yes", text: "Add", visuallyHiddenText: "age", classes: "govuk-link--no-visited-state" }, { href: "/account/manage/team/", text: "Manage", visuallyHiddenText: "age", classes: "govuk-link--no-visited-state" } ] } },
+			  { key: { text: "Intermediaries" }, value: { text: "4" }, actions: { items: [ { href: "/account/manage/intermediary/add", text: "Add", visuallyHiddenText: "age", classes: "govuk-link--no-visited-state" }, { href: "/account/manage/intermediary", text: "Manage", visuallyHiddenText: "age", classes: "govuk-link--no-visited-state" } ] } },
+
+			  { key: { text: "Organisation's details" }, value: { text: "Address, billing details and related organisations" }, actions: { items: [ { href: "/account/manage/team/", text: "Manage", visuallyHiddenText: "age", classes: "govuk-link--no-visited-state" } ] } }
+
+			]
+		  }) }}
+
+
+
+
+		  <h2 class="govuk-heading-m govuk-!-margin-top-5">Manage intermediary access</h2>
+		  <!-- <p>You have access to the following accounts and Defra services.</p> -->
+		  <p>You have access to the following organisations and their Defra online services.</p>
+
+		  <h2 class="govuk-heading-m govuk-!-margin-top-5">Intermediaries</h2>
+		  <!-- <p>You have access to the following accounts and Defra services.</p> -->
+		  <p><a href="account/manage/intermediary/">Manage intermediary access</a></p>
+
+{{ govukSummaryList({
+  card: {
+    title: {
+      text: "Intermediaries"
+    },
+    actions: {
+      items: [
+        {
+          href: "#",
+          text: "Delete choice",
+          visuallyHiddenText: "of University of Gloucestershire"
+        },
+        {
+          href: "#",
+          text: "Withdraw",
+          visuallyHiddenText: "from University of Gloucestershire"
+        }
+      ]
+    }
+  },
+  rows: [
+    {
+      key: {
+        text: "Course"
+      },
+      value: {
+        html: "English (3DMD)<br>PGCE with QTS full time"
+      }
+    },
+    {
+      key: {
+        text: "Location"
+      },
+      value: {
+        html: "School name<br>Road, City, SW1 1AA"
+      }
+    }
+  ]
+}) }}
+
+				
+    </div>
+
+
+
+{% endblock %}
+
