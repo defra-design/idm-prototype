@@ -1,0 +1,43 @@
+{% extends "/layouts/main.html" %}
+{% set showBackLink = false %}
+{% set serviceName = "{Service Name}" %}
+
+
+{% if data['userType'] == "ThirdPartyCEO"  %}
+	{% set pageHeading = "Registration complete" %}
+	{% set pageSection = "" %}
+{% else %}
+	{% set pageHeading = "Registration of your Defra account complete" %}
+
+	{% set pageSection = "" %}
+	
+{% endif %}
+
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">        
+
+
+		<h1 class="govuk-heading-xl">
+			<span class="govuk-caption-xl">Local authority sign in</span>
+				Service start screen
+		  </h1>
+		  {{ govukButton({
+			text: "Start now",
+			href: "./configuration",
+			isStartButton: true
+		  }) }}
+
+
+			</form>
+
+
+
+  </div>
+</div>
+
+
+{% endblock %}

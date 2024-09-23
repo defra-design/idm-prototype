@@ -1,0 +1,41 @@
+{% extends "/layouts/main.html" %}
+{% set showBackLink = false %}
+{% set serviceName = "{Service Name}" %}
+
+
+
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">        
+
+
+		<h1 class="govuk-heading-xl">
+			What's your local authority email address?
+		  </h1>
+
+		  {{ govukInput({
+			label: {
+			  text: "We will send a one-time passcode to this email address."
+			},
+			id: "local-auth-email-address",
+			name: "localAuthEmailAddress",
+			classes: "govuk-!-width-two-thirds"
+		  }) }}
+
+
+{{ govukButton({
+	text: "Continue",
+	href: "enter-code"
+  }) }}
+
+			</form>
+
+
+
+  </div>
+</div>
+
+{% endblock %}

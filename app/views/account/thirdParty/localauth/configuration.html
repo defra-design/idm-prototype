@@ -1,0 +1,58 @@
+{% extends "/layouts/main.html" %}
+{% set showBackLink = false %}
+{% set serviceName = "{Service Name}" %}
+
+
+{% if data['userType'] == "ThirdPartyCEO"  %}
+	{% set pageHeading = "Registration complete" %}
+	{% set pageSection = "" %}
+{% else %}
+	{% set pageHeading = "Registration of your Defra account complete" %}
+
+	{% set pageSection = "" %}
+	
+{% endif %}
+
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">        
+
+		<img src="/public/images/waiting.png">
+		<h1 class="govuk-heading-xl">
+			<span class="govuk-caption-xl">Local authority sign in</span>
+				Internal check: how is the service configured?
+		  </h1>
+
+
+		  
+			  <div class="govuk-button-group">
+
+				{{ govukButton({
+					text: "TTP and Gov Gateway",
+					href: "sign-in-local-auth",
+					classes: "govuk-button--secondary"
+				  }) }}
+
+
+				{{ govukButton({
+				  text: "TTP only",
+				  href: "email",
+				  classes: "govuk-button--secondary"
+				}) }}
+	  
+				  <a class="govuk-link" href="/gov-gateway/sign-in">Not configured</a>
+				  </div>
+							  
+
+			</form>
+
+
+
+  </div>
+</div>
+
+
+{% endblock %}
