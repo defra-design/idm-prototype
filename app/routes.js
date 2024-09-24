@@ -13,3 +13,12 @@ router.use(radioButtonRedirect)
 
 
 
+    // Local auth
+    router.post('/account/thirdParty/localauth/sign-in-local-auth', function(request, response) {
+        var authsignin = request.session.data['authsignin']; 
+        if (authsignin == "government-gateway") {
+            response.redirect("/gov-gateway/sign-in");
+        } else {
+            response.redirect("/account/thirdParty/localauth/email");
+        }
+    });
