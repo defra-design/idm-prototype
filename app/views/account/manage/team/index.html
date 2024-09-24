@@ -28,7 +28,21 @@
 {% block content %}
 
 <div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
 
+	{% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
+
+{% set html %}
+  <h3 class="govuk-notification-banner__heading">
+    You have removed Jane Doe.
+  </h3>
+{% endset %}
+
+{{ govukNotificationBanner({
+  html: html,
+  type: "success"
+}) }}
+</div>
 
 	{% if ((data['userType'] == "thirdPartyUser") or ( data['userType'] == "ThirdPartyCEO")) %}
 
