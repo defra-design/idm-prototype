@@ -1,0 +1,68 @@
+{% extends "layouts/main.html" %}
+
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+{% from "govuk/components/select/macro.njk" import govukSelect %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block pageTitle %}
+  Creating a Defra account - Select your adresss
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        <span class="govuk-caption-l">Create a Defra account</span>
+        Select the address
+      </h1>
+
+      {% call govukInsetText() %}
+        We found the following addresses for LA1 3DL
+        <br>                                                                                                                                      <a class="govuk-link" href="#">Change postcode</a>
+      {% endcall %}
+
+
+      {{ govukSelect({
+        items: [
+          {
+            value: "updated",
+            text: "10 addresses found",
+            selected: true
+          },
+          {
+            value: "address1",
+            text: "Address 1"
+          },
+          {
+            value: "address2",
+            text: "Address 2"
+          },
+          {
+            value: "address3",
+            text: "Address 3"
+          }
+        ]
+      }) }}
+
+    <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Continue",
+          href: "/memorable-word"
+        }) }}
+
+        <a class="govuk-link" href="#">Enter address manually</a>
+    </div>
+
+    </div>
+  </div>
+
+{% endblock %}

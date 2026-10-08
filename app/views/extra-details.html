@@ -1,0 +1,64 @@
+{% extends "layouts/main.html" %}
+
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block pageTitle %}
+  Creating a Defra account - we need a few extra details
+{% endblock %}
+
+{% block content %}
+
+<h1 class="govuk-heading-xl">
+  <span class="govuk-caption-xl">Create a Defra account</span>
+  We need a few extra details
+</h1>
+
+<p>To help you create the right kind of Defra account, we need a few more bits of information.</p>
+
+<p>You can use some Defra-related services (opens in a new tab) on behalf of an organisation. If the organisation is already registered, you can request to join.</p>
+
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="/options-for-use-answer" method="post">
+
+{{ govukRadios({
+  name: "optionsForUse",
+  fieldset: {
+    legend: {
+      text: "Who are you using this service for?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  errorMessage: errors.optionsForUse if errors,
+  items: [
+    {
+      value: "organisation",
+      text: "For an organisation, including charities or if you’re self-employed"
+    },
+    {
+      value: "personal",
+      text: "Yourself, for non-work related personal use, in your own name"
+    },
+    {
+      value: "agent",
+      text: "As a professional representative for someone else, or for an organisation",
+      hint: { 
+        text: "Choose this option if you act on behalf of other people, businesses, or organisations, such as an agent, consultant, adviser or representative" 
+      }
+    }
+  ]
+}) }}
+
+{{ govukButton({
+  text: "Continue"
+}) }}
+
+</form>
+  </div>
+</div>
+
+{% endblock %}

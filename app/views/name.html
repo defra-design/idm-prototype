@@ -1,0 +1,68 @@
+{% extends "layouts/main.html" %}
+
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/error-summary/macro.njk" import govukErrorSummary %}
+
+{% block pageTitle %}
+  Creating a Defra account - What is your name?
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "/organisation-details" if data['optionsForUse'] == "organisation" else "/personal-details"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {% if errors %}
+        {{ govukErrorSummary({
+          titleText: "There is a problem",
+          errorList: errorList
+        }) }}
+        {% endif %}
+
+
+      <h1 class="govuk-heading-l">
+        <span class="govuk-caption-l">Create a Defra account</span>
+        What is your name?
+      </h1>
+
+      <form class="form" action="/name" method="post">
+
+      {{ govukInput({
+        id: "first-name",
+        name: "firstName",
+        value: firstName,
+        errorMessage: errors.firstName if errors.firstName,
+        label: {
+          text: "First name"
+      }
+      }) }}
+
+      {{ govukInput({
+        id: "last-name",
+        name: "lastName",
+        value: lastName,
+        errorMessage: errors.lastName if errors.lastName,
+        label: {
+          text: "Last name"
+      }
+      }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

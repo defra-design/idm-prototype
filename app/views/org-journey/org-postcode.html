@@ -1,0 +1,48 @@
+{% extends "layouts/main.html" %}
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block pageTitle %}
+  Creating a Defra account - Enter postcode
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        <span class="govuk-caption-l">Create a Defra account</span>
+        What is the organisation’s postcode?
+        <span class="govuk-caption-m">If the organisation has multiple addresses, enter the postcode for the address official post is sent to. For example, AA1 2CD</span>
+      </h1>
+
+      <form class="form" action="/select-address" method="post">
+
+      {{ govukInput({
+        id: "first-name",
+        name: "firstName"
+      }) }}
+
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "UK address look up",
+          href: "/select-address"
+        }) }}
+
+        <a class="govuk-link" href="#">Enter address manually</a>
+      </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,79 @@
+{% extends "layouts/main.html" %}
+
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+
+{% block pageTitle %}
+  Creating a Defra account - Create a memorable word
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        <span class="govuk-caption-l">Create a Defra account</span>
+        Create a memorable word
+      </h1>
+
+      <p>
+      For security purposes, you’re required to create a memorable word. This helps us verify your identity if you need to contact us.
+      </p>
+
+      <p class="govuk-body">This word must:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>be between 8 and 32 characters long and is not case-sensitive</li>
+        <li>only contain a combination of letters and numbers</li>
+      </ul>
+
+      <p class="govuk-body">This word must not contain:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>spaces</li>
+        <li>special characters</li>
+        <li>more than 2 repeating characters such as 111 or AAA</li>
+      </ul>
+
+      {{ govukInput({
+        label: {
+          text: "Memorable word",
+          classes: "govuk-label--m",
+          isPageHeading: false
+        },
+        id: "memorable-word",
+        name: "memorableWord"
+      }) }}
+
+    {{ govukTextarea({
+      name: "hintQuestion",
+      id: "hint-question",
+      label: {
+        text: "Hint question",
+        classes: "govuk-label--m",
+        isPageHeading: false
+      },
+      hint: {
+        text: "Write a question, up to 100 characters in length, that wil help you remember your memorable word. For example, “What is the name of my first school?”"
+      }
+    }) }}
+
+    <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Continue",
+      href: "/check-answers"
+    }) }}
+
+
+    </div>
+
+
+  </div>
+
+{% endblock %}

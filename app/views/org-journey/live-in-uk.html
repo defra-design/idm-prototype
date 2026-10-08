@@ -1,0 +1,90 @@
+{% extends "layouts/main.html" %}
+
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/error-summary/macro.njk" import govukErrorSummary %}
+
+{% block pageTitle %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "/extra-details"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+    {% if errors %}
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: errorList
+      }) }}
+    {% endif %}
+
+      <h1 class="govuk-heading-l">
+        <span class="govuk-caption-l">Create a Defra account</span>
+        Using Defra services as an organisation
+      </h1>
+
+      <p>
+        To register your organisation, we need the following information from you.
+      </p>
+
+      <p>
+        This can take up to 10 minutes.
+      </p>
+
+      <h2 class="govuk-heading-m">
+        Personal contact details
+      </h2>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>your name</li>
+        <li>your phone number</li>
+      </ul>
+
+      <h2 class="govuk-heading-m">
+        Organisation details
+      </h2>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>company registration number or charity registration number, if applicable</li>
+        <li>registered address</li>
+        <li>business contact details, in case you leave</li>
+      </ul>
+
+      <p>
+        If your organisation’s details with Companies House or the Charity Commission are not up-to-date, you can save your personal details and complete the organisation details once you’ve updated them with Companies House or the Charity Commission.</p>
+      <p>
+        To find out how we use, process and store your personal information, read our privacy notice (opens in a new tab)</p>
+
+      <form action="/org-journey/organisation-details" method="post" novalidate>
+
+      {{ govukCheckboxes({
+        idPrefix: "tsandcs",
+        name: "tsandcs",
+        errorMessage: errors.tsandcs if errors.tsandcs,
+        items: [
+          {
+            value: "agreed",
+            text: "I agree to the Defra account Terms and Conditions (opens in a new tab)",
+            id: "tsandcs"
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </div>
+  </div>
+
+{% endblock %}

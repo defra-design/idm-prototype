@@ -1,0 +1,99 @@
+{% extends "layouts/main.html" %}
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block pageTitle %}
+  Creating a Defra account - Check your answers
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-l">
+        <span class="govuk-caption-l">Create a Defra account</span>
+        Check your answers
+      </h1>
+
+      <h2 class="govuk-heading-m">Account type</h2>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: { text: "Account type" },
+            value: { text: "Personal use" },
+            actions: {
+              items: [{ href: "#", text: "Change", visuallyHiddenText: "account type" }]
+            }
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-m">Your details</h2>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: { text: "Email address" },
+            value: { text: "Janedoe@gmail.com" },
+            actions: {
+              items: [{ href: "", text: "Change", visuallyHiddenText: "email address" }]
+            }
+          },
+          {
+            key: { text: "Name" },
+            value: { text: "Jane Doe" },
+            actions: {
+              items: [{ href: "/name", text: "Change", visuallyHiddenText: "name" }]
+            }
+          },
+          {
+            key: { text: "Phone number" },
+            value: { text: "0123456789" },
+            actions: {
+              items: [{ href: "/phone-number", text: "Change", visuallyHiddenText: "phone number" }]
+            }
+          },
+          {
+            key: { text: "Address" },
+            value: { html: "The Barn<br>9 High Street<br>Tring<br>Hertfordshire<br>HP23 8DU" },
+            actions: {
+              items: [{ href: "/postcode", text: "Change", visuallyHiddenText: "address" }]
+            }
+          },
+          {
+            key: { text: "Memorable word" },
+            value: { text: "test1234" },
+            actions: {
+              items: [{ href: "/memorable-word", text: "Change", visuallyHiddenText: "memorable word" }]
+            }
+          },
+          {
+            key: { text: "Hint question" },
+            value: { text: "What is your favourite test?" },
+            actions: {
+              items: [{ href: "/memorable-word", text: "Change", visuallyHiddenText: "hint question" }]
+            }
+          }
+        ]
+      }) }}
+
+      <form action="/confirmation" method="post" novalidate>
+        {{ govukButton({
+          text: "Create account",
+          href: "personal-confirmation"
+        }) }}
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

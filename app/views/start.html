@@ -1,0 +1,81 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Home" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">
+      {{ serviceName }}
+    </h1>
+
+    <p>
+      Use GOV.UK One Login or Government Gateway to sign in to use [insert service name]. If you’ve not used a service from Defra before, you’ll need to give us a few extra bits of information to create a Defra account.
+    </p>
+
+    {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+{% call govukInsetText() %}
+  Over time, GOV.UK One Login is replacing other ways to sign into services on GOV.UK, including Government Gateway.
+{% endcall %}
+
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{{ govukRadios({
+  name: "signIn",
+  fieldset: {
+    legend: {
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  items: [
+    {
+      value: "govuk-one-login",
+      text: "Sign in with GOV.UK One Login",
+      hint: {
+        text: "Use your GOV.UK One Login email address if you have used this to sign in before"
+      }
+    },
+    {
+      value: "government-gateway",
+      text: "Sign in with Government Gateway",
+      hint: {
+        text: "You’ll have a user ID if you’ve registered for Self Assessment or filed a tax return online before"
+      }
+    }
+  ]
+}) }}
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{{ govukButton({
+  text: "Continue",
+  href: "/extra-details"
+}) }}
+
+<hr class="govuk-section-break govuk-section-break--visible"><br>
+
+<h2 class="govuk-heading-l">
+  Creating a Defra account
+</h2>
+
+<p>You’ll need to create a Defra account in order to use [insert service name].</p>
+
+<p>To do this, create a GOV.UK One Login, or sign in if you have one already. It’s best to use the email you want us to contact you on to create your account. Once you’ve created login details, we’ll ask you for more information for your Defra account.</p>
+
+<p>If you’re using [insert service name] for work purposes, we’ll also need more details about your organisation. You’ll be able to add colleagues to the organisation as part of this, or join if one is already set up.</p>
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{{ govukButton({
+  text: "Create a GOV.UK One Login",
+  classes: "govuk-button--secondary"
+}) }}
+
+  </div>
+</div>
+
+{% endblock %}

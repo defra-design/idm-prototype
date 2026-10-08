@@ -4,29 +4,9 @@
     "serve": "govuk-prototype-kit serve",
     "start": "govuk-prototype-kit start"
   },
-  "name": "govuk-prototype-kit",
   "dependencies": {
-    "@govuk-prototype-kit/common-templates": "2.0.1",
-    "@govuk-prototype-kit/step-by-step": "2.2.2",
-    "@x-govuk/govuk-prototype-components": "3.0.6",
-    "govuk-frontend": "5.4.0",
-    "govuk-prototype-kit": "^13.16.2",
-    "hmrc-frontend": "6.27.0",
-    "jquery": "3.7.1",
-    "notifications-node-client": "8.1.0",
-    "radio-button-redirect": "^1.2.0"
-  },
-  "version": "1.0.0",
-  "description": "//",
-  "main": "index.js",
-  "author": "",
-  "license": "ISC",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jkhissa/idm-prototype.git"
-  },
-  "bugs": {
-    "url": "https://github.com/jkhissa/idm-prototype/issues"
-  },
-  "homepage": "https://github.com/jkhissa/idm-prototype#readme"
+    "@govuk-prototype-kit/common-templates": "3.0.1",
+    "govuk-frontend": "6.5.1",
+    "govuk-prototype-kit": "13.20.5"
+  }
 }
