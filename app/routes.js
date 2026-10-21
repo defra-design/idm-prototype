@@ -14,17 +14,10 @@ router.post('/options-for-use-answer', function (req, res) {
   }
 
   const redirectUrls = {
-<<<<<<< Updated upstream
-    organisation: 'org-journey/organisation-details',
+    organisation: '/org-journey/organisation-details',
     personal: '/citizen-journey/personal-details',
     agent: '/agent-details'
-=======
-    organisation: '/registration/org-journey/organisation-details',
-    personal: '/registration/personal-details',
-    agent: '/registration/agent-details'
->>>>>>> Stashed changes
-  }
-
+}
   res.redirect(redirectUrls[selection])
 })
 
