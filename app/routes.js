@@ -15,7 +15,7 @@ router.post('/options-for-use-answer', function (req, res) {
 
   const redirectUrls = {
     organisation: 'org-journey/organisation-details',
-    personal: '/personal-details',
+    personal: '/citizen-journey/personal-details',
     agent: '/agent-details'
   }
 
