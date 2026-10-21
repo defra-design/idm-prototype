@@ -19,7 +19,7 @@
 
         <span class="govuk-caption-l">Create a Defra account</span>
 
-        <form action="/org-journey/org-reg-number" method="post">
+        <form action="/registration/org-journey/org-reg-number" method="post">
 
       {{ govukInput({
         label: {
@@ -39,8 +39,19 @@
         text: "Continue"
       }) }}
 
+{% call govukDetails({
+  summaryText: "Where can I find my company registration number?"
+}) %}
+  You can <a class="govuk-link" href="/">search Companies House for your company registration number (opens in a new tab)</a>.
+{% endcall %}
 
+{% call govukDetails({
+  summaryText: "Which types of company can create a Defra account?"
+}) %}
+  Currently, Defra accounts can support limited liability partnerships, private limited companies, public limited companies, royal charters, registered charities, and European Economic Interest Groupings.
+{% endcall %}
     </div>
+
   </div>
 
 {% endblock %}

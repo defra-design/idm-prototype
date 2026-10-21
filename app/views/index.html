@@ -7,20 +7,79 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    {% include "govuk-prototype-kit/includes/homepage-top.njk" %}
 
-    <h1 class="govuk-heading-xl">
-      {{ serviceName }}
+    <h1 class="govuk-heading-l">
+      Defra account prototypes
     </h1>
+<h2 class="govuk-heading-m">
+      Registration
+    </h2>
+<table class="govuk-table">
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th class="govuk-table__header" scope="col"> Description </th>
+      <th class="govuk-table__header" scope="col"> Date </th>
+      <th class="govuk-table__header" scope="col"> Status </th>
+      <th class="govuk-table__header" scope="col"> <Link:import></Link:import> </th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
 
-    <p>
-      <a href="/start">
-        Go to the start page
-      </a>
-    </p>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+        Registration redesign
+      </td>
+      <td class="govuk-table__cell">
+        Oct 2026
+      </td>
+      <td class="govuk-table__cell">
+        {{govukTag({
+          text: "WIP",
+          classes: "govuk-tag--grey"
+        })}}
+      </td>
+      <td class="govuk-table__cell">
+        <a class="govuk-link" href="/registration/start">Version 1</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h2 class="govuk-heading-m">
+      Sign in to your account
+    </h2>
+<table class="govuk-table">
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th class="govuk-table__header" scope="col"> Description </th>
+      <th class="govuk-table__header" scope="col"> Date </th>
+      <th class="govuk-table__header" scope="col"> Status </th>
+      <th class="govuk-table__header" scope="col"> Link </th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
 
-    {% include "govuk-prototype-kit/includes/homepage-bottom.njk" %}
-  </div>
-</div>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+        Sign in as..., pre redesign
+      </td>
+      <td class="govuk-table__cell">
+        Oct 2026
+      </td>
+      <td class="govuk-table__cell">
+        {{govukTag({
+          text: "WIP",
+          classes: "govuk-tag--grey"
+        })}}
+      </td>
+      <td class="govuk-table__cell">
+        <a class="govuk-link" href="/acm-archive/acm-start">Version 0</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+    
+
 
 {% endblock %}

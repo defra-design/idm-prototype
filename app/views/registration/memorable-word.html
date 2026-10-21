@@ -40,7 +40,7 @@
         <li>special characters</li>
         <li>more than 2 repeating characters such as 111 or AAA</li>
       </ul>
-
+ <form class="form" action="/registration/memorable-word" method="post">
       {{ govukInput({
         label: {
           text: "Memorable word",
@@ -64,15 +64,14 @@
       }
     }) }}
 
-    <div class="govuk-button-group">
+   <div class="govuk-button-group">
     {{ govukButton({
-      text: "Continue",
-      href: "/check-answers"
+      text: "Continue"
     }) }}
 
 
     </div>
-
+</form>
 
   </div>
 

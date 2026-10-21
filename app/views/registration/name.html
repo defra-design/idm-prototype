@@ -12,7 +12,7 @@
 {% block containerStart %}
   {{ govukBackLink({
     text: "Back",
-    href: "/organisation-details" if data['optionsForUse'] == "organisation" else "/personal-details"
+    href: "/registration/org-journey/organisation-details" if data['optionsForUse'] == "organisation" else "/registration/personal-details"
   }) }}
 {% endblock %}
 
@@ -20,8 +20,7 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
-      {% if errors %}
+        {% if errors and errorList and errorList.length %}
         {{ govukErrorSummary({
           titleText: "There is a problem",
           errorList: errorList
@@ -34,13 +33,14 @@
         What is your name?
       </h1>
 
-      <form class="form" action="/name" method="post">
+      <form class="form" action="/registration/name" method="post">
 
       {{ govukInput({
         id: "first-name",
         name: "firstName",
         value: firstName,
-        errorMessage: errors.firstName if errors.firstName,
+      
+        errorMessage: errors.firstName if errors and errors.firstName,
         label: {
           text: "First name"
       }
@@ -50,7 +50,7 @@
         id: "last-name",
         name: "lastName",
         value: lastName,
-        errorMessage: errors.lastName if errors.lastName,
+        errorMessage: errors.lastName if errors and errors.lastName,
         label: {
           text: "Last name"
       }

@@ -12,7 +12,7 @@
 {% block containerStart %}
   {{ govukBackLink({
     text: "Back",
-    href: "/extra-details"
+    href: "/registration/org-journey/organisation-details"
   }) }}
 {% endblock %}
 
@@ -65,7 +65,7 @@
       <p>
         To find out how we use, process and store your personal information, read our privacy notice (opens in a new tab)</p>
 
-      <form action="/org-journey/organisation-details" method="post" novalidate>
+      <form action="/registration/org-journey/organisation-details" method="post" novalidate>
 
       {{ govukCheckboxes({
         idPrefix: "tsandcs",

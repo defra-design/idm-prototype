@@ -27,7 +27,17 @@
       <br>
       BBC
     {% endcall %}
+{% call govukDetails({
+  summaryText: "The address is not correct"
+}) %}
 
+We must use the address that is registered with Companies House. <br> <br>
+
+If your registered address has changed then you must tell <a class="govuk-link" href="/"> Companies House (opens in new tab)</a>. <br> <br>
+
+Once Companies House have updated your details you can return and continue your registration.
+
+{% endcall %}
       <form class="form" action="/path/of/next/page" method="post">
 
       {{ govukRadios({
@@ -48,6 +58,9 @@
           href: "/org-journey/org-postcode"
         }) }}
       </form>
+{% from "govuk/components/details/macro.njk" import govukDetails %}
+
+
 
     </div>
   </div>
