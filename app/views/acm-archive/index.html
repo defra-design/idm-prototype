@@ -1,0 +1,13 @@
+{% extends "/layouts/main.html" %}
+
+
+{% block content %}
+<h1 class="govuk-heading-l">
+    Your Defra account
+</h1>
+
+{% if (data['userType'] == "member") %}
+    {% include "acm-archive/member/index.html" %}	
+{% endif %}
+
+{% endblock %}

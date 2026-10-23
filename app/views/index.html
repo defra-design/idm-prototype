@@ -39,13 +39,13 @@
         })}}
       </td>
       <td class="govuk-table__cell">
-        <a class="govuk-link" href="/registration/start">Version 1</a>
+        <a class="govuk-link" href="/start?regSignIn=reg">Version 1</a>
       </td>
     </tr>
   </tbody>
 </table>
 <h2 class="govuk-heading-m">
-      Sign in to your account
+      Account management as is
     </h2>
 <table class="govuk-table">
   <thead class="govuk-table__head">
@@ -57,10 +57,43 @@
     </tr>
   </thead>
   <tbody class="govuk-table__body">
-
     <tr class="govuk-table__row">
       <td class="govuk-table__cell">
-        Sign in as..., pre redesign
+        Team member
+      </td>
+      <td class="govuk-table__cell">
+        Oct 2026
+      </td>
+      <td class="govuk-table__cell">
+        {{govukTag({
+          text: "WIP",
+          classes: "govuk-tag--grey"
+        })}}
+      </td>
+      <td class="govuk-table__cell">
+        <a class="govuk-link" href="/start?userType=member&regSignIn=signIn">Version 0</a>
+      </td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+        Admin
+      </td>
+      <td class="govuk-table__cell">
+        Oct 2026
+      </td>
+      <td class="govuk-table__cell">
+        {{govukTag({
+          text: "WIP",
+          classes: "govuk-tag--grey"
+        })}}
+      </td>
+      <td class="govuk-table__cell">
+        <a class="govuk-link" href="/acm-archive/acm-start">Version 0</a>
+      </td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+        Agent
       </td>
       <td class="govuk-table__cell">
         Oct 2026

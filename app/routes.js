@@ -1,7 +1,20 @@
 const govukPrototypeKit = require('govuk-prototype-kit')
 const router = govukPrototypeKit.requests.setupRouter()
 
-// Route 1: Options for use radio selection
+// One login or gov gateway
+router.post('/start', function (req, res) {
+ const signIn = req.body['signIn']
+
+  if (signIn == "govuk-one-login"){
+    res.redirect('/authentication/one-login')
+  } else {
+    res.redirect('/authentication/gov-gateway')
+  }
+
+})
+
+
+// Options for use radio selection: personal or organisation
 router.post('/options-for-use-answer', function (req, res) {
   const selection = req.body['optionsForUse']
 
@@ -21,7 +34,7 @@ router.post('/options-for-use-answer', function (req, res) {
   res.redirect(redirectUrls[selection])
 })
 
-// Route 2: Terms and conditions check
+// Terms and conditions check
 router.post('/registration/personal-details', function (req, res) {
   const tsandcs = req.session.data['tsandcs']
 
@@ -45,7 +58,7 @@ router.post('/registration/personal-details', function (req, res) {
   res.redirect('/registration/name')
 })
 
-// Route 3: Name page validation (First Name & Last Name)
+// Name page validation (First Name & Last Name)
 router.post('/registration/name', function (req, res) {
   const firstName = req.body.firstName ? req.body.firstName.trim() : ''
   const lastName = req.body.lastName ? req.body.lastName.trim() : ''
@@ -95,7 +108,7 @@ router.post('/registration/memorable-word', function (req, res) {
   }
 })
 
-// Route 5: Terms and conditions check on organisation-details page
+// Terms and conditions check on organisation-details page
 router.post('/registration/org-journey/organisation-details', function (req, res) {
   const tsandcs = req.session.data['tsandcs']
 
@@ -118,7 +131,7 @@ router.post('/registration/org-journey/organisation-details', function (req, res
   res.redirect('/registration/name')
 })
 
-//Route 6: Changing the org journey depending on Companies House number entered
+//Changing the org journey depending on Companies House number entered
 
 router.post('/registration/org-journey/org-reg-number', function (req, res) {
   // Trim whitespace from input
@@ -139,6 +152,6 @@ router.post('/registration/org-journey/org-reg-number', function (req, res) {
   }
 })
 
-// Route 7: confirm if the organisation is correct in org-existing page
+// confirm if the organisation is correct in org-existing page
 
 module.exports = router
