@@ -21,8 +21,9 @@
   Over time, GOV.UK One Login is replacing other ways to sign into services on GOV.UK, including Government Gateway.
 {% endcall %}
 
-{% from "govuk/components/radios/macro.njk" import govukRadios %}
 
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+<form action="/start" method="post" novalidate>
 {{ govukRadios({
   name: "signIn",
   fieldset: {
@@ -52,9 +53,9 @@
 {% from "govuk/components/button/macro.njk" import govukButton %}
 
 {{ govukButton({
-  text: "Continue",
-  href: "/registration/org-journey/organisation-details"
-}) }}
+    text: "Continue"
+  }) }}
+</form>
 
 <hr class="govuk-section-break govuk-section-break--visible"><br>
 
@@ -69,6 +70,8 @@
 <p>If you’re using [insert service name] for work purposes, we’ll also need more details about your organisation. You’ll be able to add colleagues to the organisation as part of this, or join if one is already set up.</p>
 
 {% from "govuk/components/button/macro.njk" import govukButton %}
+
+
 
 {{ govukButton({
   text: "Create a GOV.UK One Login",

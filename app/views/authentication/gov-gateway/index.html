@@ -16,44 +16,7 @@
             html: html
         }) }}
 
-        
-
-        
-        <!-- // Registration Flow // -->
-        {% if data['userFlow'] == "Registration" %}            
-
-            <form action="/register/" method="post">                
-        
-        <!-- // Authentication Flow // -->
-        {% elif data['userFlow'] == "Authentication" %}            
-
-            {% if data['mfaDisabled'] == "Yes" %}
-            <form action="/unavailable" method="post">        
-            {% elif data['mfaEmailDisabled'] == "Yes" %}
-                {% if data['multiplePhoneNumber'] == "Yes" %}
-                <form action="/authentication/verify-multiple-numbers" method="post">
-                    <input type="hidden" id="verify-your-identity" name="verify-your-identity" value="send-sms" />
-                {% else %}
-                <form action="/authentication/verify" method="post">
-                    <input type="hidden" id="verify-your-identity" name="verify-your-identity" value="send-sms" />            
-                {% endif %}
-            {% elif data['mfaSmsDisabled'] == "Yes" %}
-            <form action="/authentication/security-word" method="post">
-                <input type="hidden" id="verify-your-identity" name="verify-your-identity" value="send-email" />
-            {% else %}
-
-                {% if data['userResearch'] == "Yes" %}
-                <form action="/authentication/select-your-business" method="post">
-                {% elif data['companySize'] == "Single" %}            
-                <form action="/authentication/verify-single-number" method="post">
-                {% elif data['companySize'] == "20" %}
-                <form action="/authentication/verify-single-number" method="post">
-                {% elif data['companySize'] == "45" %}
-                <form action="/authentication/verify-single-number" method="post">
-                {% endif %}
-            {% endif %}
-
-        {% endif %}        
+          
 
             {{ govukInput({
                 label: { text: "Government Gateway user ID" },
@@ -75,11 +38,18 @@
                 id: "GovGatePassword"
             }) }}
 
-            {{ govukButton({
-                text: "Sign in"
-            }) }}
+              {% if ((data['regSignIn'] == "signIn"))%}
+				{{ govukButton({
+                text: "Continue",
+                href:"/acm-archive.html"
+            }) }} 				
+		{% else %}
+			{{ govukButton({
+                text: "Continue",
+                href:"/registration/extra-details.html"
+            }) }} 
+		{% endif %}
 
-        </form>
 
         <h2 class="govuk-heading-m">New users of Government Gateway</h2>
         <p><a href="/gov-gateway/email-address" class="govuk-link govuk-link--no-visited-state">Create sign in details</a></p>

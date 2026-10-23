@@ -1,0 +1,52 @@
+{% extends "/layouts/main.html" %}
+{% set showBackLink = true %}
+{% set serviceName = "{Service Name}" %}
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-l">
+            Check your phone
+        </h1>
+        <p>We sent a code to the phone number linked to your account.</p>        
+        <p>It might take a few minutes to arrive. The code will expire after 2 hours.</p>        
+ 
+
+            {{ govukInput({
+                label: {
+                    text: "Enter the 6 digit security code",                    
+                    isPageHeading: false
+                },                
+                classes: "govuk-input--width-10",
+                id: "govOneLoginCode",
+                name: "govOneLoginCode"  
+            }) }}            
+            
+            {% if ((data['regSignIn'] == "signIn"))%}
+				{{ govukButton({
+                text: "Continue",
+                href:"/acm-archive.html"
+            }) }} 				
+		{% else %}
+			{{ govukButton({
+                text: "Continue",
+                href:"/registration/extra-details.html"
+            }) }} 
+		{% endif %}
+
+                                           
+
+
+        
+
+        {{ govukDetails({
+            summaryText: "Problems with the code?",
+            html: '<p>We can <a href="#">send the code again</a> if the code is not working or you did not receive it.</p>'
+          }) }}
+       
+    </div>
+</div>
+
+
+{% endblock %}
