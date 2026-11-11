@@ -1,0 +1,84 @@
+{% extends "/layouts/main.html" %}
+{% set showBackLink = true %}
+
+{% set serviceName = "Your Defra account" %}
+
+{% set pageHeading = "Company A" %}
+{% set pageSection = "Account for" %}
+
+
+
+{% block content %}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home",
+      href: "/acm-archive"
+    },
+    {
+      text: "Company A",
+      href: "/acm-archive/manage/dashboard"
+    }
+  ]
+}) }}
+
+<span class="govuk-caption-l">{{ pageSection }}</span>
+<h1 class="govuk-heading-xl">
+    {{ pageHeading }}
+</h1>
+
+<div class="govuk-width-container">
+    <ul class="govuk-grid-row card-group">
+        <li class="govuk-grid-column-one-third card-group__item">
+            <div class="card card--clickable" data-test="global-search">
+                <h2 class="govuk-heading-m card__heading">
+                    <a class="govuk-link card__link govuk-link--no-visited-state" href="/acm-archive/manage/team-access" onclick="showAlert()">Manage team access</a>
+                </h2>
+                <p class="govuk-!-font-weight-bold govuk-!-font-size-48 govuk-!-font-weight-bold">1</p>
+                <a href="#" class="govuk-link--no-visited-state">Add a team member</a>
+            </div>
+        </li>
+        <li class="govuk-grid-column-one-third card-group__item">
+            <div class="card card--clickable" data-test="global-search">
+                <h2 class="govuk-heading-m card__heading">
+                    <a class="govuk-link card__link govuk-link--no-visited-state" href="#" onclick="showAlert()">Manage intermediary access</a>
+                </h2>
+                <p class="govuk-!-font-weight-bold govuk-!-font-size-48 govuk-!-font-weight-bold">0</p>
+                <a href="#" class="govuk-link--no-visited-state">Add an intermediary</a>
+            </div>
+        </li><li class="govuk-grid-column-one-third card-group__item">
+            <div class="card card--clickable" data-test="global-search">
+                <h2 class="govuk-heading-m card__heading">
+                    <a class="govuk-link card__link govuk-link--no-visited-state" href="#" onclick="showAlert()">Manage your organisation</a>
+                </h2>
+                <p class="govuk-!-font-weight-bold govuk-!-font-size-48 govuk-!-font-weight-bold">0</p>
+                <a href="#" class="govuk-link--no-visited-state">Add related organisation</a>
+            </div>
+        </li>
+    </ul>
+</div>
+
+
+<h2 class="govuk-heading-l govuk-!-margin-top-7">Your registered services</h2>                                 
+
+
+<div class="govuk-width-container">
+    <ul class="govuk-grid-row card-group">
+        <li class="govuk-grid-column-one-third card-group__item">
+            <div class="card card--clickable" data-test="global-search">
+                <h2 class="govuk-heading-m card__heading">
+                    <a class="govuk-link card__link govuk-link--no-visited-state" href="#" onclick="showAlert()">IPAFFS</a>
+                </h2>
+                <p class="govuk-body card__description"></p>
+            </div>
+        </li>
+        
+    </ul>
+</div>
+
+
+{{ govukButton({
+    text: "Register for more services"
+}) }}      
+
+{% endblock %}

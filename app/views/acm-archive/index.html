@@ -6,8 +6,13 @@
     Your Defra account
 </h1>
 
+
+
 {% if (data['userType'] == "member") %}
     {% include "acm-archive/member/index.html" %}	
+{% else%}
+    {% include "acm-archive/admin/index.html" %}	
+
 {% endif %}
 
 {% endblock %}

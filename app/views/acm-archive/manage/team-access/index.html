@@ -1,0 +1,80 @@
+{% extends "/layouts/main.html" %}
+{% block content %}
+
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home",
+      href: "/acm-archive"
+    },
+    {
+      text: "Company A",
+      href: "/acm-archive/manage/dashboard"
+    },
+    {
+      text: "Manage team access",
+      href: "/acm-archive/manage/team-access"
+    }
+  ]
+}) }}
+
+<span class="govuk-caption-l">Company A</span>
+<h1 class="govuk-heading-l">
+    Manage team access
+</h1>
+{{ govukButton({
+    text: "Add new team member"			
+}) }}
+<h2 class="govuk-heading-m">All members (2)</h2>
+<span class="govuk-body">To view more information about a team member, including their service roles, or to add them to a service, go to 'Manage' next to their status,</span>
+<table class="govuk-table {{ tableCSS }}">
+    <!-- Table header -->
+    <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+            <th class="govuk-table__header column-full" scope="col">Name</th>
+            <th class="govuk-table__header " scope="col">Email address</th>
+            <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Service role</th>						
+            <th class="govuk-table__header" scope="col">Status</th>
+            <th class="govuk-table__header" scope="col">Actions</th>
+        </tr>
+        <tr class="govuk-table__row no-border">
+            <td class="govuk-table__cell">Jane (you)</a></td>
+            <td class="govuk-table__cell">jane@gmail.com</td>
+            <td class="govuk-table__cell">Editor</td>
+            
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag">Live</strong></td>
+            <td class="govuk-table__cell"><a href="#" class="govuk-link govuk-link--no-visited-state">Manage</a></td>
+        </tr>	
+        <tr class="govuk-table__row no-border">
+            <td class="govuk-table__cell">John</td>
+            <td class="govuk-table__cell">john@gmail.com</td>
+            <td class="govuk-table__cell">Viewer</td>
+            
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag">Live</strong></td>
+            <td class="govuk-table__cell"><a href="#" class="govuk-link govuk-link--no-visited-state">Manage</a></td>
+        </tr>	
+        <tr class="govuk-table__row no-border">
+            <td class="govuk-table__cell">Joe</a></td>
+            <td class="govuk-table__cell">joe@gmail.com</td>
+            <td class="govuk-table__cell">Viewer</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey">Invited</strong></td>
+            <td class="govuk-table__cell"><a href="/account/manage/team/member?teamType=you" class="govuk-link govuk-link--no-visited-state">Resend invite</a></td>
+        </tr>
+    </thead>
+</table> 
+
+{% from "govuk/components/details/macro.njk" import govukDetails %}
+
+{% call govukDetails({
+  summaryText: "What are account roles"
+}) %}
+  Account roles cotnrol what you can do within your Defra account. They let you manage access and permissions for your organisations.
+    <ul>
+        <li><strong>Admin</strong> - can invite users, assign roles, manage access for others and users service they have access to</li>
+        <li><strong>Standard users</strong> - can esign in and use services they've been given access to </li>
+    </ul>
+{% endcall %}
+
+{% endblock %}
