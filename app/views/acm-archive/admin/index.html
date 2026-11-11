@@ -1,0 +1,62 @@
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% from "govuk/components/details/macro.njk" import govukDetails %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <p>
+      <span class="govuk-!-font-weight-bold">Full name:</span> Jane
+      <br><span class="govuk-!-font-weight-bold">Email address:</span> jane@gmail.com
+      <br><span class="govuk-!-font-weight-bold">Telephone number:</span> 07894561234
+    </p>
+    
+    <p class="govuk-body"><a href="/account/manage/update/individual/" class="govuk-link govuk-link--no-visited-state">Update details</a></p>
+    <p class="govuk-body"><a href="/account/manage/reset-security-word/" class="govuk-link govuk-link--no-visited-state">Reset security word</a></p>
+    
+    {{ govukDetails({
+      summaryText: "Contact support ID",
+      text: "If you contact us, you will need your contact support ID, BA202452-V0-4703-P5-0409"
+    }) }}
+    
+    <h2 class="govuk-heading-l govuk-!-margin-top-7">Your accounts</h2>
+    <p>You have access to the following accounts and related services.</p>
+    
+    {{ govukTable({
+      caption: "Accounts",
+      captionClasses: "govuk-visually-hidden",
+      head: [
+      { text: "Account", classes: "govuk-!-width-one-quarter" },
+      { text: "Account role", classes: "" },
+      { text: "Service", classes: "govuk-!-width-one-quarter" },
+      { text: "Service role", classes: "govuk-!-width-one-quarter" },
+      { text: "Actions", classes: "govuk-!-width-one-quarter" }
+      ],
+      rows: [
+      [
+      { text: "Company A" },
+      { text: "Admin" },
+      { text: "Service A" },
+      { text: "Editor" },
+      { html: '<a href="/acm-archive/manage/dashboard" class="govuk-link govuk-link--no-visited-state">Manage</a>' }
+      ]
+      ]
+    }) }}
+    
+    <p class="govuk-body"><a class="govuk-link govuk-link--no-visited-state" href="/account/add/account-type">Register a new account</a></p>
+    
+    <h2 class="govuk-heading-l govuk-!-margin-top-7">Your services</h2>
+    
+  </div>
+</div>
+<div class="govuk-width-container">
+  <ul class="govuk-grid-row card-group">
+    <li class="govuk-grid-column-one-third card-group__item">
+      <div class="card card--clickable" data-test="global-search">
+        <h2 class="govuk-heading-m card__heading">
+          <a class="govuk-link card__link govuk-link--no-visited-state" href="#" onclick="showAlert()">IPAFFS</a>
+        </h2>
+        <p class="govuk-body card__description"></p>
+      </div>
+    </li>
+    
+  </ul>
+</div>
+
